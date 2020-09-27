@@ -1,0 +1,159 @@
+{
+    "common": {
+        "name": "enocean",
+        "version": "0.1.0",
+        "news": {
+            "0.0.1": {
+                "en": "initial release",
+                "de": "Erstveröffentlichung",
+                "ru": "Начальная версия",
+                "pt": "lançamento inicial",
+                "nl": "Eerste uitgave",
+                "fr": "Première version",
+                "it": "Versione iniziale",
+                "es": "Versión inicial",
+                "pl": "Pierwsze wydanie",
+                "zh-cn": "首次出版"
+            }
+        },
+        "title": "EnOcean",
+        "titleLang": {
+            "en": "EnOcean",
+            "de": "EnOcean",
+            "ru": "EnOcean",
+            "pt": "EnOcean",
+            "nl": "EnOcean",
+            "fr": "EnOcean",
+            "it": "EnOcean",
+            "es": "EnOcean",
+            "pl": "EnOcean",
+            "zh-cn": "EnOcean"
+        },
+        "desc": {
+            "en": "Connects EnOcean devices via USB/Serial devices with TCM300 Chips",
+            "de": "Verbindet EnOcean-Geräte über USB / Seriell-Geräte mit TCM300-Chips",
+            "ru": "Подключает устройства EnOcean через USB / последовательные устройства с чипами TCM300",
+            "pt": "Conecta dispositivos EnOcean via dispositivos USB / Serial com chips TCM300",
+            "nl": "Verbindt EnOcean-apparaten via USB / seriële apparaten met TCM300-chips",
+            "fr": "Connecte les appareils EnOcean via des appareils USB / série avec des puces TCM300",
+            "it": "Collega i dispositivi EnOcean tramite dispositivi USB / seriali con chip TCM300",
+            "es": "Conecta dispositivos EnOcean a través de dispositivos USB / serie con chips TCM300",
+            "pl": "Łączy urządzenia EnOcean za pośrednictwem urządzeń USB / szeregowych z chipami TCM300",
+            "zh-cn": "通过带有TCM300芯片的USB /串行设备连接EnOcean设备"
+        },
+        "authors": [
+            "Jey Cee <jey-cee@live.com>"
+        ],
+        "keywords": [
+            "EnOcean",
+            "ioBroker",
+            "Love"
+        ],
+        "license": "MIT",
+        "platform": "JByteArray.from(returnData.toString('hex')).getValue(8, 1);avascript/Node.js",
+        "main": "main.js",
+        "icon": "enocean.png",
+        "enabled": true,
+        "extIcon": "https://raw.githubusercontent.com/jey-cee/ioBroker.enocean/master/admin/enocean.png",
+        "readme": "https://github.com/jey-cee/ioBroker.enocean/blob/master/README.md",
+        "loglevel": "info",
+        "mode": "daemon",
+        "type": "hardware",
+        "compact": true,
+        "connectionType": "local",
+        "dataSource": "poll",
+        "materialize": true,
+        "messagebox": true,
+        "dependencies": [
+            {
+                "js-controller": ">=1.4.2"
+            }
+        ]
+    },
+    "native": {
+        "serialport": ""
+    },
+    "objects": [],
+    "instanceObjects": [
+        {
+            "_id": "info",
+            "type": "channel",
+            "common": {
+                "name": "Information"
+            },
+            "native": {}
+        },
+        {
+            "_id": "info.connection",
+            "type": "state",
+            "common": {
+                "role": "indicator.connected",
+                "name": "Device connected",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "gateway",
+            "type": "device",
+            "common": {
+                "role": "",
+                "name": "Gateway",
+                "type": "string",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "gateway.teachin",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "Teach in new devices",
+                "type": "boolean",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {}
+        },
+        {
+            "_id": "gateway.repeater",
+            "type": "channel",
+            "common": {
+                "name": "Repeater"
+            },
+            "native": {}
+        },
+        {
+            "_id": "gateway.repeater.mode",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "Repeater mode",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "states": "0:OFF;1:ON;2:SELECTIVE"
+            },
+            "native": {}
+        },
+        {
+            "_id": "gateway.repeater.level",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "Repeater level",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "states": "0:OFF;1:1-level repeating;2:2-level repeating"
+            },
+            "native": {}
+        }
+    ]
+}

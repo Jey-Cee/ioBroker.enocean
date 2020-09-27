@@ -1,0 +1,92 @@
+{
+  "eep": "A5-08-03",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x08",
+  "type_number": "0x03",
+  "type_title": "Light, Temperature and Occupancy sensor Range 0lx to 1530lx, -30°C to +50°C and Occupancy Button",
+  "case": {
+    "datafield": [
+      {
+        "data": "Occupancy Button pressed",
+        "shortcut": "OCC",
+        "bitoffs": "31",
+        "bitsize": "1",
+        "iobroker": {
+          "role": "switch",
+          "type": "boolean",
+          "read": true,
+          "write": false
+        },
+        "value": {
+          "==": [{"var": "value"}, 1]
+        }
+      },
+      {
+        "data": "Presence",
+        "shortcut": "PIRS",
+        "bitoffs": "30",
+        "bitsize": "1",
+        "iobroker": {
+          "role": "sensor.motion",
+          "type": "boolean",
+          "read": true,
+          "write": false
+        },
+        "value": {
+          "==": [{"var": "value"}, 0]
+        }
+      },
+      {
+        "data": "Temperature -30...50°C",
+        "shortcut": "TMP",
+        "bitoffs": "16",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "value.temperature",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "unit": "°C"
+        },
+        "value": {
+          "*": [ { "+": [ { "-": [{"var": "value"}, 0] }, 0 ] }, 0,31373 ]
+        },
+        "decimals": 2
+      },
+      {
+        "data": "Illumination 0...1530lx",
+        "shortcut": "ILL",
+        "bitoffs": "8",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "value.brightness",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "unit": "lx"
+        },
+        "value": {
+          "*": [ { "+": [ { "-": [{"var": "value"}, 0] }, 0 ] }, 6]
+        }
+      },
+      {
+        "data": "Supply voltage 0…5.1V",
+        "shortcut": "SVC",
+        "bitoffs": "0",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "value.battery",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "unit": "V"
+        },
+        "value": {
+          "*": [ { "+": [ { "-": [{"var": "value"}, 0] }, 0 ] }, 0.02 ]
+        },
+        "decimals": 2
+      }
+    ]
+  }
+}

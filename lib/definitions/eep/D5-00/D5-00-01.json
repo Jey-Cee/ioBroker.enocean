@@ -1,0 +1,28 @@
+{
+  "eep": "D5-00-01",
+  "rorg_number": "0xD5",
+  "telegram": "1BS",
+  "func_number": "0x00",
+  "type_number": "0x01",
+  "type_title": "Single Input Contact",
+  "case": {
+    "datafield": [
+      {
+        "data": "Contact",
+        "shortcut": "CO",
+        "bitoffs": "7",
+        "bitsize": "1",
+        "iobroker": {
+          "role": "indicator",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "states": "0: Open; 1: Closed"
+        },
+        "value": {
+          "var": "value"
+        }
+      }
+    ]
+  }
+}

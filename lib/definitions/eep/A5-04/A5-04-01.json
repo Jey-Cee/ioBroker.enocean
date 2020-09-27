@@ -1,0 +1,83 @@
+{
+  "eep": "A5-04-01",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x04",
+  "type_number": "0x01",
+  "type_title": "Temperature and humidity Sensor Range 0°C to +40°C and 0% to 100%",
+  "case": [
+    {
+      "condition": {
+          "t_sensor": {
+            "bitoffs": "30",
+            "bitsize": "1",
+            "value": 1
+          }
+      },
+      "datafield": [
+        {
+          "data": "Temperature 0...40°C",
+          "shortcut": "TMP",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "value.temperature",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "unit": "°C"
+          },
+          "value": {
+            "*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 0.16 ]
+          },
+          "decimals": 2
+        },
+        {
+          "data": "Humidity 0...100%",
+          "shortcut": "TMP",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "value.humidity",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "unit": "%"
+          },
+          "value": {
+            "*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 0.4 ]
+          },
+          "decimals": 2
+        }
+      ]
+  ,
+    {
+      "condition": {
+        "t_sensor": {
+          "bitoffs": "30",
+          "bitsize": "1",
+          "value": 0
+        }
+      },
+      "datafield": [
+        {
+          "data": "Humidity 0...100%",
+          "shortcut": "TMP",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "value.humidity",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "unit": "%"
+          },
+          "value": {
+            "*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 0.4 ]
+          },
+          "decimals": 2
+        }
+      ]
+    }
+    ]
+}

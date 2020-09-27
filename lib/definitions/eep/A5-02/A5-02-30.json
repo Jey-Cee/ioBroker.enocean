@@ -1,0 +1,29 @@
+{
+  "eep": "A5-02-30",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x02",
+  "type_number": "0x30",
+  "type_title": "10 Bit Temperature Sensor Range -40°C to +62.3°C",
+  "case": {
+    "datafield": [
+      {
+        "data": "Temperature -40...62.3°C",
+        "shortcut": "TMP",
+        "bitoffs": "14",
+        "bitsize": "10",
+        "iobroker": {
+          "role": "value.temperature",
+          "type": "number",
+          "read": true,
+          "write": true,
+          "unit": "°C"
+        },
+        "value": {
+          "*": [ { "+": [ { "-": [ { "var": "value" }, -1023 ] }, -10 ] }, -0.1 ]
+        },
+        "decimals": 2
+      }
+    ]
+  }
+}

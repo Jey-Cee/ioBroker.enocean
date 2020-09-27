@@ -1,0 +1,29 @@
+{
+  "eep": "A5-02-08",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x02",
+  "type_number": "0x08",
+  "type_title": "Temperature Sensor Range +30°C to +70°C",
+  "case": {
+    "datafield": [
+      {
+        "data": "Temperature 30...70°C",
+        "shortcut": "TMP",
+        "bitoffs": "16",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "value.temperature",
+          "type": "number",
+          "read": true,
+          "write": true,
+          "unit": "°C"
+        },
+        "value": {
+          "*": [ { "+": [ { "-": [ { "var": "value" }, -255 ] }, 30 ] }, -0.1569 ]
+        },
+        "decimals": 2
+      }
+    ]
+  }
+}

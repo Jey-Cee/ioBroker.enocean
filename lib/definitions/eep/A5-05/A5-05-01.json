@@ -1,0 +1,45 @@
+{
+  "eep": "A5-05-01",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x05",
+  "type_number": "0x01",
+  "type_title": "Barometric Sensor Range 500 to 1150 hPa",
+  "case": {
+    "datafield": [
+      {
+        "data": "Barometer",
+        "shortcut": "BAR",
+        "bitoffs": "6",
+        "bitsize": "10",
+        "iobroker": {
+          "role": "value.pressure",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "unit": "hPa"
+        },
+        "value": {
+          "*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 500 ] }, 0.63539]
+        },
+        "decimals": 2
+      },
+      {
+        "data": "Telegram Type",
+        "shortcut": "TTP",
+        "bitoffs": "31",
+        "bitsize": "1",
+        "iobroker": {
+          "role": "indicator",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "states": "0: Heartbeat; 1: Event triggered"
+        },
+        "value": {
+          "var": "value"
+        }
+      }
+    ]
+  }
+}

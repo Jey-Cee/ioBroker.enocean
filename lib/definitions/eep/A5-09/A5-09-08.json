@@ -1,0 +1,29 @@
+{
+  "eep": "A5-09-08",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x09",
+  "type_number": "0x08",
+  "type_title": "Gas Sensor Pure CO2-Sensor",
+  "case":
+    {
+    "datafield": [
+      {
+        "data": "Gas CO2 measurement",
+        "shortcut": "CO2",
+        "bitoffs": "16",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "value.gas",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "unit": "ppm"
+        },
+        "value": {
+          "*": [ { "+": [ { "-": [{"var": "value"}, 0] }, 0 ] }, 7.8431]
+        }
+      }
+    ]
+  }
+}

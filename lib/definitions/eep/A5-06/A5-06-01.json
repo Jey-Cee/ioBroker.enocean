@@ -1,0 +1,100 @@
+{
+  "eep": "A5-06-01",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x06",
+  "type_number": "0x01",
+  "type_title": "Light Sensor Range 300lx to 60.000lx",
+  "case": [
+    {
+      "condition": {
+        "range": {
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": 0
+        }
+      },
+    "datafield": [
+      {
+        "data": "Illumination",
+        "shortcut": "ILL",
+        "bitoffs": "8",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "value.brightness",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "unit": "lx"
+        },
+        "value": {
+          "*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 300 ] }, 116.4706]
+        },
+        "decimals": 2
+      },
+      {
+        "data": "Supply Voltage 0...5.1V",
+        "shortcut": "SVC",
+        "bitoffs": "0",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "value.battery",
+          "type": "number",
+          "unit": "V",
+          "read": true,
+          "write": false
+        },
+        "value": {
+          "*": [{"+":[{"-":[{"var":  "value"}, 0]},0]}, 0.02]
+        },
+        "decimals": 2
+      }
+    ]
+  },
+    {
+      "condition": {
+        "range": {
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": 1
+        }
+      },
+      "datafield": [
+        {
+          "data": "Illumination",
+          "shortcut": "ILL",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "value.brightness",
+            "type": "number",
+            "read": true,
+            "write": false,
+            "unit": "lx"
+          },
+          "value": {
+            "*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 600 ] }, 235.2941]
+          },
+          "decimals": 2
+        },
+        {
+          "data": "Supply Voltage 0...5.1V",
+          "shortcut": "SVC",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "value.battery",
+            "type": "number",
+            "unit": "V",
+            "read": true,
+            "write": false
+          },
+          "value": {
+            "*": [{"+":[{"-":[{"var":  "value"}, 0]},0]}, 0.02]
+          },
+          "decimals": 2
+        }
+      ]
+    }
+  ]
+}

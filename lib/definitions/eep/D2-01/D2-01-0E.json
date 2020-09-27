@@ -1,0 +1,553 @@
+{
+  "eep": "D2-01-0E",
+  "rorg_number": "0xD2",
+  "telegram": "VLD",
+  "func_number": "0x01",
+  "type_number": "0x0E",
+  "type_title": "Electronic switch with energy measurement and local control",
+  "case": [
+    {
+      "send": false,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "4",
+            "bitsize": "4",
+            "value": 4
+          }
+        ]
+      },
+      "datafield": [
+        {
+        "data": "Command ID",
+        "shortcut": "CMD",
+        "bitoffs": "4",
+        "bitsize": "4",
+        "iobroker": {
+          "role": "state",
+          "type": "number",
+          "read": true,
+          "write": true,
+          "states": "1:Actuator Set Output;2:Actuator set local;3:Actuator Status Query;4:Actuator status response;5:Actuator set measurement;6:Actuator measurement query;7:Actuator measurement response"
+        },
+          "value": {
+            "var": "value"
+          }
+      },
+        {
+          "data": "I/O channel",
+          "shortcut": "IO",
+          "bitoffs": "11",
+          "bitsize": "5",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": false,
+            "states": "30:All output channels;31:Input channel (from mains supply)"
+          },
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "4",
+            "bitsize": "4",
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Output Value",
+          "shortcut": "OV",
+          "bitoffs": "17",
+          "bitsize": "7",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Off;100:On;127:Output value not valid / not applicable"
+          },
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "4",
+            "bitsize": "4",
+            "value": 2
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Taught-in devices",
+          "shortcut": "de",
+          "bitoffs": "0",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Disable taught-in devices;1:Enable taught-in devices"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Over current shut down",
+          "shortcut": "OC",
+          "bitoffs": "8",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Static off;1:Automatic restart"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Reset over current shutdown",
+          "shortcut": "RO",
+          "bitoffs": "9",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Not active;1:Trigger signal"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Local control",
+          "shortcut": "LC",
+          "bitoffs": "10",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Disable local control;1:Enable local control"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "User interface indication",
+          "shortcut": "dn",
+          "bitoffs": "24",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Day operation;1:Night operation"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Default state",
+          "shortcut": "DS",
+          "bitoffs": "26",
+          "bitsize": "2",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Off;1:On;2:Remember previous state"
+          },
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "4",
+            "bitsize": "4",
+            "value": 4
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Over current switch off",
+          "shortcut": "OC",
+          "description": "Over current switch off",
+          "bitoffs": "8",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Ready;1:Executed"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Error level",
+          "shortcut": "EL",
+          "description": "Error level",
+          "bitoffs": "9",
+          "bitsize": "2",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Hardware OK;1:Hardware warning;2:Hardware failure;3:Error level not supported"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Local control",
+          "shortcut": "LC",
+          "bitoffs": "16",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Disable local control;1:Enable local control"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Output Value",
+          "shortcut": "OV",
+          "bitoffs": "17",
+          "bitsize": "7",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Off;100:On;127:Output value not valid / not applicable"
+          },
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "4",
+            "bitsize": "4",
+            "value": 5
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Report measurement",
+          "shortcut": "RM",
+          "bitoffs": "8",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Query only;1:Auto reporting"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Reset measurement",
+          "shortcut": "RE",
+          "bitoffs": "9",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Not active;1:Trigger signal"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Measurement mode",
+          "shortcut": "ep",
+          "bitoffs": "10",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Energy measurement;1:Power measurement"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Measurement delta to be reported (LSB)",
+          "shortcut": "MD_LSB",
+          "bitoffs": "16",
+          "bitsize": "4",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "min": 0,
+            "max": 4095
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Unit",
+          "shortcut": "UN",
+          "bitoffs": "21",
+          "bitsize": "3",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "00:WS;1:Wh;2:kWh;3:W;4:kW"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Measurement delta to be reported (MSB)",
+          "shortcut": "MD_MSB",
+          "description": "Measurement delta to be reported (MSB)",
+          "bitoffs": "24",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "min": 0,
+            "max": 4095
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Maximum time between two subsequent actuator messages",
+          "shortcut": "MAT",
+          "bitoffs": "32",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "min": 10,
+            "max": 2550,
+            "unit": "s"
+          },
+          "value": {
+            "*": [{
+              "+": [
+                { "-": [{"var": "value"}, 0] },
+                0
+              ]}, 10]
+          }
+        },
+        {
+          "data": "Minimum time between two subsequent actuator messages",
+          "shortcut": "MIT",
+          "description": "Measurement Response messages [s]",
+          "bitoffs": "40",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "min": 1,
+            "max": 255,
+            "unit": "s"
+          },
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "4",
+            "bitsize": "4",
+            "value": 6
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Query",
+          "shortcut": "qu",
+          "bitoffs": "10",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Query energy;1:Query power"
+          },
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "4",
+            "bitsize": "4",
+            "value": 7
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Unit",
+          "shortcut": "UN",
+          "bitoffs": "8",
+          "bitsize": "3",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "00:WS;1:Wh;2:kWh;3:W;4:kW"
+          },
+          "value": {
+            "var": "value"
+          }
+        },{
+          "data": "Energy counter",
+          "shortcut": "EC",
+          "bitoffs": "16",
+          "bitsize": "32",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": false
+          },
+          "condition": {
+              "or": [
+                {"==":[{"var": "value2"}, 0]},
+                {"==":[{"var": "value2"}, 1]},
+                {"==":[{"var": "value2"}, 2]}
+              ]
+          },
+          "secondArgument": {
+            "bitoffs": "8",
+            "bitsize": "3"
+          },
+          "value": {
+            "var": "value"
+          },
+          "unit":{
+            "if": [
+              {"==":[{"var": "value2"}, 0]}, "Ws",
+              {"==":[{"var": "value2"}, 1]}, "Wh",
+              {"==":[{"var": "value2"}, 2]}, "kWh"
+            ]
+          }
+        },
+        {
+          "data": "Actual Power",
+          "shortcut": "AC",
+          "bitoffs": "16",
+          "bitsize": "32",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": false
+          },
+          "condition": {
+            "or": [
+              {"==":[{"var": "value2"}, 3]},
+              {"==":[{"var": "value2"}, 4]}
+            ]
+          },
+          "secondArgument": {
+            "bitoffs": "8",
+            "bitsize": "3"
+          },
+          "value": {
+            "var": "value"
+          },
+          "unit":{
+            "if": [
+              {"==":[{"var": "value2"}, 3]}, "W",
+              {"==":[{"var": "value2"}, 4]}, "kW"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

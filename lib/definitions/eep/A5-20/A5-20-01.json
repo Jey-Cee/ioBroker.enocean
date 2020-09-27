@@ -1,0 +1,410 @@
+{
+    "eep": "A5-20-01",
+    "rorg_number": "0xA5",
+    "telegram": "4BS",
+    "func_number": "0x20",
+    "type_number": "0x01",
+    "type_title": "Battery Powered Actuator",
+    "case": [
+        {
+            "send": false,
+            "datafield": [
+                {
+                    "data": "Command ID",
+                    "shortcut": "CMD",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": false,
+                        "write": true,
+                        "states": "800:Run init sequence;801:Lift set;802:Valve open (Service mode only);803:Valve closed (Service mode only);804:Summer mode;805:Normal mode;806:Service mode;807:Setpoint valve position;808:Setpoint temperature;999:Transmit"
+                    }
+                },
+                {
+                    "data": "Current Value 0...100%",
+                    "shortcut": "CV",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "value.valve",
+                        "type": "number",
+                        "unit": "%",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "var": "value"
+                    }
+                },
+                {
+                    "data": "Service On",
+                    "shortcut": "SC",
+                    "bitoffs": "8",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [
+                            {
+                                "var": "value"
+                            },
+                            1
+                        ]
+                    }
+                },
+                {
+                    "data": "Energy input enabled",
+                    "shortcut": "ENIE",
+                    "bitoffs": "9",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [
+                            {
+                                "var": "value"
+                            },
+                            1
+                        ]
+                    }
+                },
+                {
+                    "data": "Energy Storage",
+                    "shortcut": "ES",
+                    "bitoffs": "10",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [
+                            {
+                                "var": "value"
+                            },
+                            1
+                        ]
+                    }
+                },
+                {
+                    "data": "Battery capacity low",
+                    "shortcut": "BCAP",
+                    "bitoffs": "11",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator.lowbat",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [
+                            {
+                                "var": "value"
+                            },
+                            0
+                        ]
+                    }
+                },
+                {
+                    "data": "Contact, cover open",
+                    "shortcut": "CCO",
+                    "bitoffs": "12",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [
+                            {
+                                "var": "value"
+                            },
+                            1
+                        ]
+                    }
+                },
+                {
+                    "data": "Failure temperature sensor, out off range",
+                    "shortcut": "FTS",
+                    "bitoffs": "13",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [ { "var": "value" }, 1 ]
+                    }
+                },
+                {
+                    "data": "Detection, window open",
+                    "shortcut": "DWO",
+                    "bitoffs": "14",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [
+                            {
+                                "var": "value"
+                            },
+                            1
+                        ]
+                    }
+                },
+                {
+                    "data": "Actuator obstructed",
+                    "shortcut": "ACO",
+                    "bitoffs": "9",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [ { "var": "value" }, 1 ]
+                    }
+                },
+                {
+                    "data": "Temperature 0...40°C",
+                    "shortcut": "TMP",
+                    "bitoffs": "16",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "value.temperature",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "unit": "°C"
+                    },
+                    "value": {
+                        "*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 0.1569 ]
+                    },
+                    "decimals": 2
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 800
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "shortcut": "RIN",
+                    "bitoffs": "16",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "shortcut": "TMP",
+                    "bitoffs": "8",
+                    "bitsize": "8",
+                    "value": 255
+                },
+                {
+                    "shortcut": "LEARNBIT",
+                    "bitoffs": "28",
+                    "bitsize": "1",
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 801
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "shortcut": "LfS",
+                    "bitoffs": "17",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "shortcut": "LEARNBIT",
+                    "bitoffs": "28",
+                    "bitsize": "1",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 802
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "shortcut": "VO",
+                    "bitoffs": "18",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "shortcut": "LEARNBIT",
+                    "bitoffs": "28",
+                    "bitsize": "1",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 803
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "shortcut": "VC",
+                    "bitoffs": "19",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "shortcut": "LEARNBIT",
+                    "bitoffs": "28",
+                    "bitsize": "1",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 804
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "shortcut": "SB",
+                    "bitoffs": "20",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "shortcut": "LEARNBIT",
+                    "bitoffs": "28",
+                    "bitsize": "1",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 805
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "shortcut": "RCU",
+                    "bitoffs": "23",
+                    "bitsize": "1",
+                    "value": 0
+                },
+                {
+                    "shortcut": "LEARNBIT",
+                    "bitoffs": "28",
+                    "bitsize": "1",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 806
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "shortcut": "RCU",
+                    "bitoffs": "23",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "shortcut": "LEARNBIT",
+                    "bitoffs": "28",
+                    "bitsize": "1",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "send":  true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 999
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Valve position (0...100) or temperature setpoint (0...255)",
+                    "shortcut": "SP",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "level",
+                        "type": "number",
+                        "read": false,
+                        "write": true
+                    },
+                    "value": {
+                        "var": "value"
+                    }
+                }
+            ]
+        }
+    ]
+}

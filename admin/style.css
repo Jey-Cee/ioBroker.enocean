@@ -1,0 +1,176 @@
+/* You can delete those if you want. I just found them very helpful */
+* {
+	box-sizing: border-box
+}
+.m {
+	/* Don't cut off dropdowns! */
+	overflow: initial;
+}
+
+select {
+	height: auto!important
+}
+
+.m select {
+	display: block!important;
+}
+
+.lever {
+	z-index: -1;
+}
+
+.input-checkbox {
+	z-index: 10;
+}
+
+.input-checkbox > label, .input-checkbox > label > span {
+	z-index: -1;
+}
+
+.input-checkbox > label > input {
+	z-index: 1;
+}
+
+.eep-top-bar {
+	position: sticky;
+	top: 0;
+	background-color: #efefef;
+	z-index: 100;
+}
+
+.card-content {
+	padding-top: 5px!important;
+	padding-bottom: 5px!important;
+}
+
+.card-content input {
+	font-size: 14px!important;
+	height: 1.5rem!important;
+}
+
+.card-content .input-field {
+	margin-bottom: 0px!important;
+	margin-top: 0px!important;
+}
+
+.card-content .row {
+	margin-bottom: 10px!important;
+}
+
+.eep-top-bar {
+	margin-bottom: 0px!important;
+}
+
+#editing-main > div .input-field {
+	margin-top: 0px!important;
+	margin-bottom: 0.25rem!important;
+}
+
+.iobroker-object {
+	padding-left: 10px!important;
+	padding-right: 10px!important;
+}
+
+.card-action {
+	padding-top: 7px!important;
+	padding-bottom: 7px!important;
+}
+
+.card-action > .btn {
+	font-size: 12px;
+}
+
+/* START Tooltip*/
+.tooltip {
+	position: relative;
+	display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	background-color: #555;
+	color: #fff;
+	text-align: center;
+	padding: 5px 0;
+	border-radius: 6px;
+
+	/* Position the tooltip text - see examples below! */
+	position: absolute;
+	z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+	visibility: visible;
+}
+
+.tooltip-top {
+	bottom: 125%;
+	left: 50%;
+	margin-left: -60px;
+}
+
+.tooltip-top::after {
+	content: "";
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: #555 transparent transparent transparent;
+}
+
+.tooltip-right {
+	top: -5px;
+	left: 125%;
+}
+
+.tooltip-right::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	right: 100%;
+	margin-top: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent #555 transparent transparent;
+}
+
+.tooltip-bottom {
+	top: 135%;
+	left: 50%;
+	margin-left: -60px;
+}
+
+.tooltip-bottom::after {
+	content: "";
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent #555 transparent;
+}
+
+.tooltip-left {
+	top: -5px;
+	bottom: auto;
+	right: 128%;
+}
+
+.tooltip-left::after {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 100%;
+	margin-top: -5px;
+	border-width: 5px;
+	border-style: solid;
+	border-color: transparent transparent transparent #555;
+}
+
+/* END Tooltip */
+

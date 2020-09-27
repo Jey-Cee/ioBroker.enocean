@@ -1,0 +1,468 @@
+<html>
+
+<head>
+
+	<!-- Load ioBroker scripts and styles-->
+	<link rel="stylesheet" type="text/css" href="../../css/adapter.css" />
+	<link rel="stylesheet" type="text/css" href="../../lib/css/materialize.css">
+
+	<script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="../../socket.io/socket.io.js"></script>
+
+	<script type="text/javascript" src="../../js/translate.js"></script>
+	<script type="text/javascript" src="../../lib/js/materialize.js"></script>
+	<script type="text/javascript" src="../../js/adapter-settings.js"></script>
+
+	<!-- Load our own files -->
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<script type="text/javascript" src="words.js"></script>
+	<script type="text/javascript" src="components.js"></script>
+	<script type="text/javascript" src="object_attributes.js"></script>
+	<script type="text/javascript" src="roles.js"></script>
+
+	<script type="text/javascript">
+		let mfrList, eepList;
+		let eepArray = [];
+		let mfrArray = [];
+		let eepListFilled = false;
+		let mfrListFilled = false;
+		let devices = {};
+		let deviceCommands = {
+			"delete": {}
+		};
+		let counter = 60;
+		let instances;
+
+		/**
+		 * Get available serial ports and add them to dropdown. If possible the port will be preselected.
+		 * @param {object} settings - The adapter settings object
+		 */
+		function getComPorts(settings) {
+			sendTo(null, 'listSerial', null,  (list) => {
+				if (!list || !list.result) {
+					return;
+				}
+				list = list.result;
+
+				fillSelect('#serialport', list);
+
+				$('#serialport.value').val(settings.serialport).select();
+
+			});
+		}
+
+		/**
+		 * Load all manufacturer, make the list global as array (only name) and object (name & id).
+		 */
+		function getmfrList(){
+			sendTo(null, 'getManufacturerList', null, (list) => {
+				mfrList = list;
+				for(let i in mfrList){
+					mfrArray.push(mfrList[i].replace(/_/g, ' '));
+					mfrArray.sort();
+				}
+			})
+		}
+
+		/**
+		 * Load all EEP, make the list global as array (only name) and object (complete profile).
+		 */
+		function getEEPList(){
+				sendTo(null, 'getEEPList', null, (list) => {
+					eepList = list;
+					for(let i in eepList){
+						eepArray.push(eepList[i].eep);
+					}
+				})
+		}
+
+		function fillEEPselect(){
+			if(eepListFilled === false){
+
+				fillSelect('#select-eep', eepArray);
+
+				eepListFilled = true;
+				$('#select-eep').select();
+				$('#select-eep').change((option) => {
+					console.log(eepList[option.target.value]);
+					let eep = option.target.value.replace(/-/g, '');
+					$('#device-name').val(eepList[eep].type_title);
+				});
+			}
+
+		}
+
+		function fillMfrselect(){
+			if(mfrListFilled === false){
+				fillSelect('#select-manufacturer', mfrArray);
+
+				mfrListFilled = true;
+				$('#select-manufacturer').select();
+			}
+
+		}
+
+		//Countdown for autodetection
+		function countdown(){
+			if(counter >0){
+				setTimeout(function(){
+					counter = counter -1;
+					countdown();
+				}, 1000);
+				$('#autodetect').html(_('Open for %s seconds', counter));
+			}else if(counter === 0){
+				$('#autodetect').html('Autodetect');
+				$('#autodetect').removeClass('disabled');
+				counter = 60;
+			}
+		}
+
+		/**
+		 * List all known devices on devices tab.
+		 * @param {object} obj - ioBroker object for the device
+		 */
+		function showDevice(obj) {
+			var text = '';
+			text += '<td >' + obj.native.id + '</td>';
+			text += '<td>' + obj.native.eep + '</td>';
+			text += '<td>' + obj.native.manufacturer + '</td>';
+			if (obj.common.name) {
+				text += '<td>' + obj.common.name + '</td>';
+			} else {
+				text += '<td>' + '--' + '</td>';
+			}
+
+			//text += '<td>' + '' +
+			//		'<select id="' + obj.native.id + '_deviceOP" data-id="' + obj.native.id + '">' + '<option value="" disabled selected>Select operation</option>';
+
+			for (var i in deviceCommands) {
+				text += '<option value="' + i + '">' + _(i) + '</option>';
+			}
+
+			text += '</select></td>';
+
+			text = '<tr data-id="' + obj.native.id + '">' + text + '</tr>';
+			$('#devices_body').append(text);
+			//$('#' + obj.native.id + '_deviceOP').change({id : obj.native.id}, onSelect);
+			//$('#' + obj.native.id + '_deviceOP').select();
+		}
+
+		//EEP Editor
+		 function initEditor(){
+			$('#btn-tab-eep').on('click', () => {
+				fillSelect('#editor-select-eep', eepArray);
+			});
+
+			$('#editor-select-eep').on('change', (e) => {
+				loadEEP(e);
+			});
+
+			addDatafield('#editor-case-selection');
+			$('#editor-btn-add-datafield').on('click', () => {
+				addDatafield('#editor-case-selection');
+			});
+
+
+			$('#editor-btn-add-case').on('click', () => {
+				addTabElement('#editor-case-selection', 'Case', 'editor-navbar', true);
+			});
+
+			$('#editor-btn-remove-case').on('click', () => {
+				removeTabElement('#editor-case-selection');
+			})
+
+			M.updateTextFields();
+		}
+
+		/**
+		 * Load the adapter config page.
+		 * @param {object} settings - The adapter settings
+		 * @param onChange - call this if there are settings changed that should be saved (will activate the save buttons)
+		 */
+		 function load(settings, onChange) {
+			$('.modal').modal();
+			let selectorInputs = document.querySelectorAll('select');
+			instances = M.FormSelect.init(selectorInputs);
+
+			// example: select elements with id=key and class=value and insert value
+			if (!settings) return;
+			$('.value').each(function () {
+				let $key = $(this);
+				let id = $key.attr('id');
+				if ($key.attr('type') === 'checkbox') {
+					// do not call onChange direct, because onChange could expect some arguments
+					$key.prop('checked', settings[id])
+						.on('change', () => onChange())
+						;
+				} else if($key.attr('class') === 'save'){
+					// do not call onChange direct, because onChange could expect some arguments
+					$key.val(settings[id])
+						.on('change', () => onChange())
+						.on('keyup', () => onChange())
+						;
+				}
+			});
+
+			$('#serialport').on('change', () => {
+				onChange();
+			})
+
+			getComPorts(settings);
+			getmfrList();
+			getEEPList();
+
+			 initEditor();
+
+			$('#addDevice').on('click', () => {
+				fillEEPselect();
+				fillMfrselect();
+				console.log('Open modal');
+			});
+
+			$('#addDeviceSubmit').on('click', () => {
+				const eep = $('#select-eep').val();
+				const manufacturer = $('#select-manufacturer').val();
+				const deviceId = $('#device-id').val();
+				const name = $('#device-name').val();
+				sendTo(null, 'newDevice', {eep: eep, mfr: manufacturer, id: deviceId, name: name}); //TODO: reload table when new device was added
+			});
+
+			$('#autodetect').on('click', () => {
+				sendTo(null, 'autodetect', null);
+				$('#autodetect').addClass('disabled');
+				countdown();
+			});
+
+			//check if EEP Editor is enabled
+			if(localStorage.getItem('editor') === 'true'){
+				$('#btn-tab-eep').removeClass('hide');
+				$('#options-switch-editor').attr('checked', true);
+			}
+
+			$('#options-switch-editor').on('change', (e) => {
+				localStorage.setItem('editor', e.currentTarget.checked);
+				if(e.currentTarget.checked === true){
+					$('#btn-tab-eep').removeClass('hide');
+				}
+			});
+
+			// populate the list of known devices
+			socket.emit('getObjectView', 'system', 'device', { startkey: 'enocean.' + instance + '.', endkey: 'enocean.' + instance + '.\u9999', include_docs: true }, function (err, _devices) {
+				socket.emit('getStates', function (err, _values) {
+					var namespace = 'enocean.' + instance + '.';
+					var len = namespace.length;
+
+					if (_devices && _devices.rows && _devices.rows.length) {
+						for (let j = 0; j < _devices.rows.length; j++) {
+							devices[_devices.rows[j].value._id] = _devices.rows[j].value;
+							if(_devices.rows[j].value._id !== namespace + 'gateway'){
+								showDevice(_devices.rows[j].value, true);
+							}
+
+						}
+					}
+				});
+			});
+
+			onChange(false);
+			// reinitialize all the Materialize labels on the page if you are dynamically adding inputs:
+			if (M) M.updateTextFields();
+		}
+
+		// This will be called by the admin adapter when the user presses the save button
+		function save(callback) {
+			// example: select elements with class=value and build settings object
+			let obj = {};
+			$('.value').each(function () {
+				let $this = $(this);
+				if ($this.attr('type') === 'checkbox') {
+					obj[$this.attr('id')] = $this.prop('checked');
+				} else {
+					obj[$this.attr('id')] = $this.val();
+				}
+			});
+			callback(obj);
+		}
+	</script>
+
+</head>
+
+<body>
+
+	<div class="m adapter-container">
+		<!-- Navbar -->
+		<div class="row">
+			<div class="col s12">
+				<ul class="tabs">
+					<li class="tab col s2"><a href="#tab-devices"  class="translate active">Devices</a></li>
+					<li id="btn-tab-eep" class="tab col s2 hide"><a href="#tab-eep-editor"  class="translate active">EEP Editor</a></li>
+					<li class="tab col s2"><a href="#tab-main"  class="translate active">Options</a></li>
+				</ul>
+			</div>
+
+			<!-- Options Tab -->
+			<div id="tab-main" class="col s12 page">
+				<div class="row">
+					<div class="col s12 m4 l2">
+						<img src="enocean.png" class="logo" style="height:7em; width: 7em;">
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s12 m6 l3">
+						<select id="serialport" class="value save" type="text" ></select>
+						<label for="serialport" class="translate">Serial port</label>
+					</div>
+					<div class="col s1">
+						<!-- spacer -->
+					</div>
+					<div class="switch col s4 input-field hide">
+						<label>
+							Editor
+							<input id="options-switch-editor" type="checkbox">
+							<span class="lever"></span>
+							Attention: Use it at your own risk.
+						</label>
+					</div>
+				</div>
+			</div>
+
+			<!-- Devices Tab -->
+			<div id="tab-devices" class="col s12 page">
+				<div class="row">
+					<div class="input-field col">
+						<a id="addDevice" class="waves-effect waves-light btn modal-trigger" href="#add-device">Add new device</a>
+					</div>
+					<div class="input-field col">
+						<a id="autodetect" class="waves-effect waves-light btn modal-trigger" data-target="autodetect-device">Autodetect</a>
+					</div>
+				</div>
+
+				<div id="devices">
+					<table class="centered">
+						<thead>
+							<tr>
+								<th class="translate">ID</th>
+								<th class="translate">EEP</th>
+								<th class="translate" data-lang="manufacturer">Manufacturer</th>
+								<th class="translate" data-lang="device">Device</th>
+								<!-- <th class="translate" data-lang="operation">Operation</th> -->
+							</tr>
+						</thead>
+						<tbody id="devices_body" class="table-values">
+
+						</tbody>
+					</table>
+				</div>
+
+			</div>
+
+			<!-- EEP Editor Tab -->
+			<div id="tab-eep-editor" class="col s12 page">
+				<!-- Editor Tools -->
+				<div class="row eep-top-bar">
+					<div class="input-field col s2">
+						<select id="editor-select-eep">
+							<option vlaue="" selected>Choose</option>
+						</select>
+						<label for="editor-select-eep">Select EEP</label>
+					</div>
+					<div id="editor-btn-save" class="input-field col">
+						<a class="waves-effect waves-light btn translate">Save</a>
+					</div>
+					<div id="editor-btn-add-case" class="input-field col">
+						<a class="waves-effect waves-light btn"><span class="valign-wrapper"><i class="material-icons">add</i> Case</span></a>
+					</div>
+					<div id="editor-btn-remove-case" class="input-field col">
+						<a class="waves-effect waves-light btn"><span class="valign-wrapper"><i class="material-icons">remove</i> Case</span></a>
+					</div>
+					<div id="editor-btn-add-datafield" class="input-field col">
+						<a class="waves-effect waves-light btn"><span class="valign-wrapper"><i class="material-icons">add</i> Datafield</span></a>
+					</div>
+				</div>
+
+				<!-- Editing area -->
+				<div id="editing-main" class="row">
+					<div class="col s12">
+						<div class="input-field col s2">
+							<input id="editor-eep-name" type="text" class="validate">
+							<label for="editor-eep-name">EEP Name</label>
+						</div>
+						<div class="input-field col s6">
+							<input id="editor-eep-title" type="text" class="validate">
+							<label for="editor-eep-title">EEP Type Title</label>
+						</div>
+					</div>
+
+					<div class="section col s12">
+						<!-- Case selection bar -->
+							<ul id="editor-case-selection" class="tabs">
+								<li id="editor-navbar-case-1" class="tab col"><a href="#tab-case-1" class="active">Case 1</a></li>
+							</ul>
+
+						<div id="tab-case-1" class="col s12 page">
+						</div>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- Add Device Modal Structure -->
+		<div id="add-device" class="modal modal-fixed-footer">
+			<div class="modal-content">
+				<h5 class="translate center">Add new device</h5>
+				<div class="row">
+					<div class="input-field col s3">
+						<select id="select-eep">
+							<option value="" disabled selected>Choose EEP</option>
+						</select>
+						<label>EEP</label>
+					</div>
+					<div class="input-field col s6">
+						<select id="select-manufacturer">
+							<option value="" disabled selected>Choose Manufacturer name for device</option>
+						</select>
+						<label>Manufacturer</label>
+					</div>
+					<div class="input-field col s3">
+						<input id="device-id" class="value"  type="text" placeholder="e.g. 0014A42D"></input>
+						<label for="device-id" class="translate">ID</label>
+					</div>
+					<div class="input-field col s12">
+						<input id="device-name" class="value" type="text"></input>
+						<label for="device-name" class="translate">Device Name</label>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button id="addDeviceSubmit" class="btn waves-effect waves-light modal-close modal-action translate" type="submit" name="action">Add device
+					<i class="material-icons right">send</i>
+				</button>
+				<button class="btn waves-effect waves-light modal-close modal-action translate" href="#!">Close</button>
+			</div>
+		</div>
+
+		<!-- Autodetect Modal Structure -->
+		<div id="autodetect-device" class="modal">
+			<div class="modal-content">
+				<h5 class="translate center">Autodetect device</h5>
+				<div class="row center">
+					<h6 class="#bbdefb blue lighten-4">Please press the teachin button on your device.</h6> <br> <br>
+						Note: Only a small number of devices could be automaticly detected. If your device was not detected look into the log for more information.
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button class="btn waves-effect waves-light modal-close modal-action translate" href="#!">Close</button>
+			</div>
+		</div>
+
+		</div>
+
+	</div>
+
+</body>
+
+</html>

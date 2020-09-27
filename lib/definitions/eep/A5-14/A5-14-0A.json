@@ -1,0 +1,61 @@
+{
+  "eep": "A5-14-0A",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x14",
+  "type_number": "0x0A",
+  "type_title": "Multi-Func Sensor Window/Door with Supply Voltage monitor and Vibration detection",
+  "case": {
+    "datafield": [
+      {
+        "data": "Vibration",
+        "shortcut": "VIB",
+        "bitoffs": "31",
+        "bitsize": "1",
+        "iobroker": {
+          "role": "indicator",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "states": "0: No vibration; 1: Vibration detected"
+        },
+        "value": {
+          "var": "value"
+        }
+      },
+      {
+        "data": "Contact",
+        "shortcut": "CT",
+        "bitoffs": "29",
+        "bitsize": "2",
+        "iobroker": {
+          "role": "indicator",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "states": "0: Closed; 1: Tilt; 3: Open"
+        },
+        "value": {
+          "var": "value"
+        }
+      },
+      {
+        "data": "Supply Voltage 0...5.0V (Optional)",
+        "shortcut": "SVC",
+        "bitoffs": "0",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "value.battery",
+          "type": "number",
+          "unit": "V",
+          "read": true,
+          "write": false
+        },
+        "value": {
+          "*": [{"+":[{"-":[{"var":  "value"}, 0]},0]}, 0.02]
+        },
+        "decimals": 2
+      }
+    ]
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "eep": "A5-09-09",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x09",
+  "type_number": "0x09",
+  "type_title": "Gas Sensor Pure CO2-Sensor with Power Failure Detection",
+  "case":
+    {
+    "datafield": [
+      {
+        "data": "Gas CO2 measurement",
+        "shortcut": "CO2",
+        "bitoffs": "16",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "value.gas",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "unit": "ppm"
+        },
+        "value": {
+          "*": [ { "+": [ { "-": [{"var": "value"}, 0] }, 0 ] }, 7.8431]
+        }
+      },
+      {
+        "data": "Power Failure detection",
+        "shortcut": "PFD",
+        "bitoffs": "29",
+        "bitsize": "1",
+        "iobroker": {
+          "role": "indicator",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "states": "0: Power OK; 1: Power Failure"
+        },
+        "value": {
+          "var": "value"
+        }
+      }
+    ]
+  }
+}

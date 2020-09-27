@@ -1,0 +1,44 @@
+{
+  "eep": "A5-07-01",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x07",
+  "type_number": "0x01",
+  "type_title": "Occupancy with Supply voltage monitor",
+  "case": {
+    "datafield": [
+      {
+        "data": "PIR Status",
+        "shortcut": "PIRS",
+        "bitoffs": "16",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "sensor.motion",
+          "type": "boolean",
+          "read": true,
+          "write": false
+        },
+        "value": {
+          "<=":[128,{"var":"value"},255]
+        }
+      },
+      {
+        "data": "Supply Voltage 0...5.0V (Optional)",
+        "shortcut": "SVC",
+        "bitoffs": "0",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "value.battery",
+          "type": "number",
+          "unit": "V",
+          "read": true,
+          "write": false
+        },
+        "value": {
+          "*": [{"+":[{"-":[{"var":  "value"}, 0]},0]}, 0.02]
+        },
+        "decimals": 2
+      }
+    ]
+  }
+}
