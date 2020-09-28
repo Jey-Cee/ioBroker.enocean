@@ -46,9 +46,12 @@
 |----|----|----|----|
 | A5-09-02 | UNTESTED: Gas Sensor CO-Sensor 0 ppm to 1020 ppm | ? | ? | 
 | A5-09-04 | UNTESTED: Gas Sensor CO2 Sensor | ? | ? | 
-| A5-09-06 | UNTESTED: Gas Sensor VOC Sensor | ? | ? | 
+| A5-09-05 | UNTESTED: Gas Sensor VOC Sensor | ? | ? | 
+| A5-09-06 | UNTESTED: Gas Sensor VOC Radon | ? | ? | 
+| A5-09-07 | UNTESTED: Gas Sensor Particles | ? | ? | 
 | A5-09-08 | UNTESTED: Gas Sensor Pure CO2 Sensor | ? | ? | 
 | A5-09-09 | UNTESTED: Gas Sensor Pure CO2 Sensor with Power Failure Detection | ? | ? | 
+| A5-09-0A | UNTESTED: Gas Sensor Hydrogen| ? | ? | 
 |----|----|----|----|
 | A5-10-00 | Room Operating Panel, manufacturer specific based on A5-10-xx | No | Viessman (MSR Solutions) Raumthermostat 7554508501032100 |
 |----|----|----|----|

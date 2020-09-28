@@ -1,0 +1,91 @@
+{
+  "eep": "A5-09-07",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x09",
+  "type_number": "0x07",
+  "type_title": "Gas Sensor Particles",
+  "case":[
+    {
+      "condition": {
+        "pm10a": {
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": 1
+        }
+      },
+      "datafield": [
+        {
+          "data": "Dust less than 10µm",
+          "shortcut": "PM10",
+          "bitoffs": "0",
+          "bitsize": "9",
+          "iobroker": {
+            "role": "value.gas",
+            "type": "number",
+            "read": true,
+            "write": false,
+            "unit": "µg/m³"
+          },
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
+      "condition": {
+        "pm2_5a": {
+          "bitoffs": "30",
+          "bitsize": "1",
+          "value": 1
+        }
+      },
+      "datafield": [
+        {
+          "data": "Dust less than 2.5µm",
+          "shortcut": "PM2_5",
+          "bitoffs": "9",
+          "bitsize": "9",
+          "iobroker": {
+            "role": "value.gas",
+            "type": "number",
+            "read": true,
+            "write": false,
+            "unit": "µg/m³"
+          },
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
+      "condition": {
+        "pm1a": {
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": 1
+        }
+      },
+      "datafield": [
+        {
+          "data": "Dust less than 1µm",
+          "shortcut": "PM1",
+          "bitoffs": "18",
+          "bitsize": "9",
+          "iobroker": {
+            "role": "value.gas",
+            "type": "number",
+            "read": true,
+            "write": false,
+            "unit": "µg/m³"
+          },
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    }
+  ]
+}

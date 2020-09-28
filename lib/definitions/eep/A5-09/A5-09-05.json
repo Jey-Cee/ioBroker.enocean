@@ -1,0 +1,54 @@
+{
+  "eep": "A5-09-05",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x09",
+  "type_number": "0x05",
+  "type_title": "Gas Sensor VOC Sensor",
+  "case":
+    {
+    "datafield": [
+      {
+        "data": "Gas VOC concentration",
+        "shortcut": "Conc",
+        "bitoffs": "0",
+        "bitsize": "16",
+        "iobroker": {
+          "role": "value.gas",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "unit": "ppb"
+        },
+        "secondArgument": {
+          "bitoffs": "30",
+          "bitsize": "2"
+        },
+        "value": {
+          "if": [
+            {"==":[{"var": "value2"}, 0]}, { "*": [ {"var": "value"}, 0.01 ] },
+            {"==":[{"var": "value2"}, 1]}, { "*": [ {"var": "value"}, 0.1 ] },
+            {"==":[{"var": "value2"}, 2]}, { "*": [ {"var": "value"}, 1 ] },
+            {"==":[{"var": "value2"}, 3]}, { "*": [ {"var": "value"}, 10 ] }
+          ]
+        }
+      },
+      {
+        "data": "VOC identification",
+        "shortcut": "VOC_ID",
+        "bitoffs": "16",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "state",
+          "type": "number",
+          "read": true,
+          "write": true,
+          "states": "00:VOC Total; 1:Formaldehyde; 2:Benzene; 3:Styrene; 4:Toluene; 5:Tetrachloroethylene; 6: Xylene; 7:n-Hexane; 8:n-Octane; 9:Cyclopentane; 10:Methanol; 11:Ethanol; 12:1-Pentanol; 13:Acetone; 14:ethylene Oxide; 15:Acetaldehyde ue; 16:Acetic Acid; 17:Propionice Acid; 18:Valeric Acid; 19:Butyric Acid; 20:Ammoniac; 22:Hydrogen Sulfide; 23:Dimethylsulfide; 24:2-Butanol (butyl Alcohol); 25:2-Methylpropanol; 26:Diethyl ether; 255:ozone"
+        },
+        "value": {
+          "var": "value"
+        }
+      }
+    ]
+  }
+}

@@ -8,11 +8,11 @@
   "case": [
     {
       "condition": {
-          "t_sensor": {
-            "bitoffs": "30",
-            "bitsize": "1",
-            "value": 1
-          }
+        "t_sensor": {
+          "bitoffs": "30",
+          "bitsize": "1",
+          "value": 1
+        }
       },
       "datafield": [
         {
@@ -28,7 +28,22 @@
             "unit": "°C"
           },
           "value": {
-            "*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, -20 ] }, 0.32 ]
+            "*": [
+              {
+                "+": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  -20
+                ]
+              },
+              0.32
+            ]
           },
           "decimals": 2
         },
@@ -45,12 +60,27 @@
             "unit": "%"
           },
           "value": {
-            "*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 0.4 ]
+            "*": [
+              {
+                "+": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0
+                ]
+              },
+              0.4
+            ]
           },
           "decimals": 2
         }
       ]
-  ,
+    },
     {
       "condition": {
         "t_sensor": {

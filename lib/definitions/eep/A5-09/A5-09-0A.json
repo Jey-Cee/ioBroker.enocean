@@ -1,0 +1,85 @@
+{
+  "eep": "A5-09-0A",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x09",
+  "type_number": "0x0A",
+  "type_title": "Gas Sensor Hydrogen",
+  "case":[
+    {
+      "datafield": [
+        {
+          "data": "Hydrogen concentration",
+          "shortcut": "Conc",
+          "bitoffs": "0",
+          "bitsize": "16",
+          "iobroker": {
+            "role": "value.gas",
+            "type": "number",
+            "read": true,
+            "write": false,
+            "unit": "ppm"
+          },
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
+      "condition": {
+        "tsa": {
+          "bitoffs": "30",
+          "bitsize": "1",
+          "value": 1
+        }
+      },
+      "datafield": [
+        {
+          "data": "Temperature -20...60°C",
+          "shortcut": "TMP",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "value.gas",
+            "type": "number",
+            "read": true,
+            "write": false,
+            "unit": "°C"
+          },
+          "value": {
+            "*": [ { "+": [ { "-": [ { "var":  "value" }, 0 ] }, -20 ] }, 0.3137]
+          }
+        }
+      ]
+    },
+    {
+      "condition": {
+        "sva": {
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": 1
+        }
+      },
+      "datafield": [
+        {
+          "data": "Supply Voltage 2.0...5.0V",
+          "shortcut": "SVC",
+          "bitoffs": "24",
+          "bitsize": "4",
+          "iobroker": {
+            "role": "value.battery",
+            "type": "number",
+            "unit": "V",
+            "read": true,
+            "write": false
+          },
+          "value": {
+            "*": [ { "+": [ { "-": [ { "var":  "value" }, 0 ] }, 2 ] }, 0.2]
+          },
+          "decimals": 2
+        }
+      ]
+    }
+  ]
+}
