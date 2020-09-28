@@ -1,0 +1,70 @@
+{
+    "eep": "A5-10-04",
+    "rorg_number": "0xA5",
+    "telegram": "4BS",
+    "func_number": "0x10",
+    "type_number": "0x04",
+    "type_title": "Room Operating Panel Temperature, Set point, Fan Speed control",
+    "case": {
+        "datafield": [
+            {
+                "data": "Turn-switch for fan speed",
+                "shortcut": "FAN",
+                "bitoffs": "8",
+                "bitsize": "8",
+                "iobroker": {
+                    "role": "value",
+                    "type": "number",
+                    "read": true,
+                    "write": false,
+                    "states": "0:Stage Auto; 1:Stage 0; 2:Stage 1; 3:Stage 2; 4:Stage 3"
+                },
+                "value": {
+                    "if": [
+                        {"<=":[210, {"var": "value"}, 255]}, 0,
+                        {"<=":[190, {"var": "value"}, 209]}, 1,
+                        {"<=":[165, {"var": "value"}, 189]}, 2,
+                        {"<=":[145, {"var": "value"}, 164]}, 3,
+                        {"<=":[0, {"var": "value"}, 144]}, 4
+                    ]
+                }
+            },
+            {
+                "data": "Temperature",
+                "shortcut": "TMP",
+                "bitoffs": "16",
+                "bitsize": "8",
+                "iobroker": {
+                    "role": "value.temperature",
+                    "type": "number",
+                    "unit": "°C",
+                    "read": true,
+                    "write": false
+                },
+                "value": {
+                    "*": [{
+                    "+": [
+                        { "-": [{"var": "value"}, 0] },
+                        0
+                    ]}, -0.156862745]
+                },
+                "decimals": 2
+            },
+            {
+                "data": "Set point",
+                "shortcut": "SP",
+                "bitoffs": "8",
+                "bitsize": "8",
+                "iobroker": {
+                    "role": "value",
+                    "type": "number",
+                    "read": true,
+                    "write": false
+                },
+                "value": {
+                    "var":  "value"
+                }
+            }
+        ]
+    }
+}

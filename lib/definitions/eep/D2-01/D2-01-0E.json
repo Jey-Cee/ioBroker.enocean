@@ -65,6 +65,22 @@
       },
       "datafield": [
         {
+          "data": "Command ID",
+          "shortcut": "CMD",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "1:Actuator Set Output;2:Actuator set local;3:Actuator Status Query;4:Actuator status response;5:Actuator set measurement;6:Actuator measurement query;7:Actuator measurement response"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
           "data": "Output Value",
           "shortcut": "OV",
           "bitoffs": "17",
@@ -94,6 +110,22 @@
         ]
       },
       "datafield": [
+        {
+          "data": "Command ID",
+          "shortcut": "CMD",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "1:Actuator Set Output;2:Actuator set local;3:Actuator Status Query;4:Actuator status response;5:Actuator set measurement;6:Actuator measurement query;7:Actuator measurement response"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
         {
           "data": "Taught-in devices",
           "shortcut": "de",
@@ -193,6 +225,52 @@
       ]
     },
     {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "4",
+            "bitsize": "4",
+            "value": 3
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Command ID",
+          "shortcut": "CMD",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "1:Actuator Set Output;2:Actuator set local;3:Actuator Status Query;4:Actuator status response;5:Actuator set measurement;6:Actuator measurement query;7:Actuator measurement response"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "I/O channel",
+          "shortcut": "IO",
+          "bitoffs": "11",
+          "bitsize": "5",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": false,
+            "states": "30:All output channels;31:Input channel (from mains supply)"
+          },
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
       "send": false,
       "condition": {
         "command": [
@@ -204,6 +282,22 @@
         ]
       },
       "datafield": [
+        {
+          "data": "Command ID",
+          "shortcut": "CMD",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "1:Actuator Set Output;2:Actuator set local;3:Actuator Status Query;4:Actuator status response;5:Actuator set measurement;6:Actuator measurement query;7:Actuator measurement response"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
         {
           "data": "Over current switch off",
           "shortcut": "OC",
@@ -284,6 +378,22 @@
         ]
       },
       "datafield": [
+        {
+          "data": "Command ID",
+          "shortcut": "CMD",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "1:Actuator Set Output;2:Actuator set local;3:Actuator Status Query;4:Actuator status response;5:Actuator set measurement;6:Actuator measurement query;7:Actuator measurement response"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
         {
           "data": "Report measurement",
           "shortcut": "RM",
@@ -439,6 +549,22 @@
       },
       "datafield": [
         {
+          "data": "Command ID",
+          "shortcut": "CMD",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "1:Actuator Set Output;2:Actuator set local;3:Actuator Status Query;4:Actuator status response;5:Actuator set measurement;6:Actuator measurement query;7:Actuator measurement response"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
           "data": "Query",
           "shortcut": "qu",
           "bitoffs": "10",
@@ -469,21 +595,22 @@
       },
       "datafield": [
         {
-          "data": "Unit",
-          "shortcut": "UN",
-          "bitoffs": "8",
-          "bitsize": "3",
+          "data": "Command ID",
+          "shortcut": "CMD",
+          "bitoffs": "4",
+          "bitsize": "4",
           "iobroker": {
             "role": "state",
             "type": "number",
             "read": true,
             "write": true,
-            "states": "00:WS;1:Wh;2:kWh;3:W;4:kW"
+            "states": "1:Actuator Set Output;2:Actuator set local;3:Actuator Status Query;4:Actuator status response;5:Actuator set measurement;6:Actuator measurement query;7:Actuator measurement response"
           },
           "value": {
             "var": "value"
           }
-        },{
+        },
+        {
           "data": "Energy counter",
           "shortcut": "EC",
           "bitoffs": "16",

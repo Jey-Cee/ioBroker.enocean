@@ -137,7 +137,6 @@ class Enocean extends utils.Adapter {
 
 			if(obj && obj.type === 'device' && tmp[2] !== 'gateway'){
 				const devId = obj.native.id;
-				this.log.info('Send command to device: ' + devId);
 				const eep = obj.native.eep[0]; //returns a object for cases where more than one eep is present
 				const eepProfile = EEPList[eep.replace(/-/g, '')];
 				const subId = objName.replace(/.*\./g, '');
@@ -147,9 +146,7 @@ class Enocean extends utils.Adapter {
 					case 'CMD': {
 						let data = ByteArray.from();
 						let send = true;
-						/*if(rorg === '0xA5'){
-							data.set([0x00, 0x00, 0x00, 0x00]);
-						}*/
+
 
 						for (let c in eepProfile.case) {
 
@@ -168,6 +165,7 @@ class Enocean extends utils.Adapter {
 							}else if(eepProfile.case[c].condition && eepProfile.case[c].condition.command && eepProfile.case[c].condition.command[0].value === state.val){
 								for (let d in eepProfile.case[c].datafield) {
 									param.push(eepProfile.case[c].datafield[d].shortcut);
+									//TODO: change handling for command, actual definition for command must be in a case where send is true.
 								}
 							} else if (!eepProfile.case[c].condition) {
 								for (let d in eepProfile.case[c].datafield) {
@@ -183,7 +181,8 @@ class Enocean extends utils.Adapter {
 										const bitoffs = eepProfile.case[c].datafield[d].bitoffs;
 										const bitsize = eepProfile.case[c].datafield[d].bitsize;
 										data.setValue(state.val, bitoffs, bitsize);
-									} else if (eepProfile.case[c].datafield[d].bitoffs !== null && eepProfile.case[c].datafield[d].bitsize !== null && eepProfile.case[c].datafield[d].value !== null) {
+										break;
+									} else if (eepProfile.case[c].datafield[d].shortcut === short && eepProfile.case[c].datafield[d].bitoffs !== null && eepProfile.case[c].datafield[d].bitsize !== null && eepProfile.case[c].datafield[d].value !== null) {
 										const bitoffs = eepProfile.case[c].datafield[d].bitoffs;
 										const bitsize = eepProfile.case[c].datafield[d].bitsize;
 										const value = eepProfile.case[c].datafield[d].value;

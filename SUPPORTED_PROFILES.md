@@ -54,6 +54,13 @@
 | A5-09-0A | UNTESTED: Gas Sensor Hydrogen| ? | ? | 
 |----|----|----|----|
 | A5-10-00 | Room Operating Panel, manufacturer specific based on A5-10-xx | No | Viessman (MSR Solutions) Raumthermostat 7554508501032100 |
+| A5-10-01 | Room Operating Panel Temperature, Set Point, Fan Speed and Occupancy control | ? | ? |
+| A5-10-02 | Room Operating Panel Temperature, Set Point, Fan Speed and Day/Night control | ? | ? |
+| A5-10-03 | Room Operating Panel Temperature, Set Point | ? | ? |
+| A5-10-04 | Room Operating Panel Temperature, Set Point, Fan Speed control | ? | ? |
+| A5-10-05 | Room Operating Panel Temperature, Set Point, Occupancy control | ? | ? |
+| A5-10-06 | Room Operating Panel Temperature, Set Point, Day/Night control | ? | ? |
+| A5-10-07 | Room Operating Panel Temperature, Fan Speed control | ? | ? |
 |----|----|----|----|
 | A5-14-0A | UNTESTED: Multi-Func Sensor Windwo/Door with Supply Voltage montior and Vibration detection | ? | ? | 
 |----|----|----|----|
