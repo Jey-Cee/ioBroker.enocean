@@ -15,7 +15,6 @@ Kickstarter campaign:
 * Dennis H.
 * Christian
 * Stefan R.
-* Veronika K.
 * Bmr_h
 * Marco
 * Gast 642016206
@@ -24,3 +23,6 @@ Kickstarter campaign:
 * Gast 840990251
 * Gast 1640963463
 * P-A-L-A-D-I-N
+
+PayPal:
+* Helmut F.

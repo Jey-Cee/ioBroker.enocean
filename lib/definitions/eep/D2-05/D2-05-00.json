@@ -1,0 +1,415 @@
+{
+  "eep": "D2-05-00",
+  "rorg_number": "0xD2",
+  "telegram": "VLD",
+  "func_number": "0x05",
+  "type_number": "0x00",
+  "type_title": "Blinds control for position and angle type 0x00",
+  "case": [
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "28",
+            "bitsize": "4",
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+        "data": "Command ID",
+        "shortcut": "CMD",
+        "bitoffs": "28",
+        "bitsize": "4",
+        "iobroker": {
+          "role": "state",
+          "type": "number",
+          "read": true,
+          "write": true,
+          "states": "1:Go to Position; 2:Stop; 3:Query Position and Angle; 4:Reply Position and Angle; 5:Set parameters"
+        },
+          "value": {
+            "var": "value"
+          }
+      },
+        {
+          "data": "Vertical Position",
+          "shortcut": "POS",
+          "bitoffs": "1",
+          "bitsize": "7",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "127:Do not change"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Rotation Angle",
+          "shortcut": "ANG",
+          "bitoffs": "9",
+          "bitsize": "7",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "127:Do not change"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Repositioning",
+          "shortcut": "REPO",
+          "bitoffs": "17",
+          "bitsize": "3",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Go directly to POS/ANG; 1:Go up (0%), then to POS/ANG; 2:Go down (100%), then to POS/ANG"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Locking modes",
+          "shortcut": "LOCK",
+          "bitoffs": "21",
+          "bitsize": "3",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Do not change; 1:Set blockage mode; 2:Set alarm mode; 7:Deblockage"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Channel",
+          "shortcut": "CHN",
+          "bitoffs": "24",
+          "bitsize": "4",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Channel 1; 1:Channel 2; 2:Channel 3; 3:Channel 4; 15:All channels"
+          },
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "28",
+            "bitsize": "4",
+            "value": 2
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Command ID",
+          "shortcut": "CMD",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "1:Go to Position; 2:Stop; 3:Query Position and Angle; 4:Reply Position and Angle; 5:Set parameters"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Channel",
+          "shortcut": "CHN",
+          "bitoffs": "24",
+          "bitsize": "4",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Channel 1; 1:Channel 2; 2:Channel 3; 3:Channel 4; 15:All channels"
+          },
+          "value": {
+            "var": "value"
+          }
+        }
+        ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "28",
+            "bitsize": "4",
+            "value": 3
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Command ID",
+          "shortcut": "CMD",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "1:Go to Position; 2:Stop; 3:Query Position and Angle; 4:Reply Position and Angle; 5:Set parameters"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Channel",
+          "shortcut": "CHN",
+          "bitoffs": "24",
+          "bitsize": "4",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Channel 1; 1:Channel 2; 2:Channel 3; 3:Channel 4; 15:All channels"
+          },
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "28",
+            "bitsize": "4",
+            "value": 4
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Command ID",
+          "shortcut": "CMD",
+          "bitoffs": "28",
+          "bitsize": "4",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "1:Go to Position; 2:Stop; 3:Query Position and Angle; 4:Reply Position and Angle; 5:Set parameters"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Vertical Position",
+          "shortcut": "POS",
+          "bitoffs": "1",
+          "bitsize": "7",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "127:Do not change / position unknown"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Rotation Angle",
+          "shortcut": "ANG",
+          "bitoffs": "9",
+          "bitsize": "7",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "127:Do not change / angle unknown"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Locking modes",
+          "shortcut": "LOCK",
+          "bitoffs": "21",
+          "bitsize": "3",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Do not change / Normal; 1:Set blockage mode / Blockage mode; 2:Set alarm mode /Alarm mode; 7:Deblockage"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Channel",
+          "shortcut": "CHN",
+          "bitoffs": "24",
+          "bitsize": "4",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Channel 1; 1:Channel 2; 2:Channel 3; 3:Channel 4; 15:All channels"
+          },
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "28",
+            "bitsize": "4",
+            "value": 5
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Command ID",
+          "shortcut": "CMD",
+          "bitoffs": "36",
+          "bitsize": "4",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "1:Go to Position; 2:Stop; 3:Query Position and Angle; 4:Reply Position and Angle; 5:Set parameters"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Set Vertical Position",
+          "shortcut": "VERT",
+          "bitoffs": "1",
+          "bitsize": "7",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Rotation Angle",
+          "shortcut": "ANG",
+          "bitoffs": "9",
+          "bitsize": "7",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "127:Do not change / angle unknown"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Locking modes",
+          "shortcut": "LOCK",
+          "bitoffs": "21",
+          "bitsize": "3",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Do not change / Normal; 1:Set blockage mode / Blockage mode; 2:Set alarm mode /Alarm mode; 7:Deblockage"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Locking modes",
+          "shortcut": "LOCK",
+          "bitoffs": "21",
+          "bitsize": "3",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Do not change / Normal; 1:Set blockage mode / Blockage mode; 2:Set alarm mode /Alarm mode; 7:Deblockage"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Channel",
+          "shortcut": "CHN",
+          "bitoffs": "24",
+          "bitsize": "4",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Channel 1; 1:Channel 2; 2:Channel 3; 3:Channel 4; 15:All channels"
+          },
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    }
+  ]
+}

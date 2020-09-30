@@ -16,6 +16,14 @@
 
 Connects EnOcean devices via USB/Serial devices with TCM300 Chips
 
+## Control devices
+In general there is a cmd object where you can choose the command that you want to execute. Before you can execute a command you have to set all attributes that are necessary, 
+you can find this information in the profile definition.
+
+## Supported Teach-in procedures
+- 4BS (Variation 1 & 2)
+- UTE - Universal Uni- and Bidirectional Teach-in
+
 ## Supported Profiles
 
  [Here](https://github.com/jey-cee/ioBroker.enocean/SUPPORTED_PROFILES.md)
