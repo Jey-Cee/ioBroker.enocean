@@ -331,63 +331,48 @@
           }
         },
         {
-          "data": "Set Vertical Position",
+          "data": "Set Vertical",
           "shortcut": "VERT",
           "bitoffs": "1",
-          "bitsize": "7",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true
-          },
-          "value": {
-            "var": "value"
-          }
-        },
-        {
-          "data": "Rotation Angle",
-          "shortcut": "ANG",
-          "bitoffs": "9",
-          "bitsize": "7",
+          "bitsize": "15",
           "iobroker": {
             "role": "state",
             "type": "number",
             "read": true,
             "write": true,
-            "states": "127:Do not change / angle unknown"
+            "states": "32767:No change"
           },
           "value": {
             "var": "value"
           }
         },
         {
-          "data": "Locking modes",
-          "shortcut": "LOCK",
-          "bitoffs": "21",
+          "data": "Set Rotation",
+          "shortcut": "ROT",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:No rotation; 255:No change"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Set Alarm action",
+          "shortcut": "AA",
+          "bitoffs": "29",
           "bitsize": "3",
           "iobroker": {
             "role": "state",
             "type": "number",
             "read": true,
             "write": true,
-            "states": "0:Do not change / Normal; 1:Set blockage mode / Blockage mode; 2:Set alarm mode /Alarm mode; 7:Deblockage"
-          },
-          "value": {
-            "var": "value"
-          }
-        },
-        {
-          "data": "Locking modes",
-          "shortcut": "LOCK",
-          "bitoffs": "21",
-          "bitsize": "3",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "0:Do not change / Normal; 1:Set blockage mode / Blockage mode; 2:Set alarm mode /Alarm mode; 7:Deblockage"
+            "states": "0:No action; 1:Immediate stop; 2:Go up (0%); 3:Go down (100%); 7:No change"
           },
           "value": {
             "var": "value"
@@ -396,7 +381,7 @@
         {
           "data": "Channel",
           "shortcut": "CHN",
-          "bitoffs": "24",
+          "bitoffs": "32",
           "bitsize": "4",
           "iobroker": {
             "role": "state",
