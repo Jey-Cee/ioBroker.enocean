@@ -6,7 +6,6 @@
 ![Number of Installations (latest)](http://iobroker.live/badges/enocean-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/enocean-stable.svg)
 [![Dependency Status](https://img.shields.io/david/jey-cee/iobroker.enocean.svg)](https://david-dm.org/jey-cee/iobroker.enocean)
-[![Known Vulnerabilities](https://snyk.io/test/github/jey-cee/ioBroker.enocean/badge.svg)](https://snyk.io/test/github/jey-cee/ioBroker.enocean)
 
 [![NPM](https://nodei.co/npm/iobroker.enocean.png?downloads=true)](https://nodei.co/npm/iobroker.enocean/)
 
