@@ -129,11 +129,12 @@ class Enocean extends utils.Adapter {
 				break;
 		}
 
-		if (state) {
+		if (state && state.from !== 'system.adapter.' + this.namespace) {
 			// The state was changed
-			//this.log.info(`state ${objName} changed: ${state.val} (ack = ${state.ack})`);
+			this.log.info(`state ${objName} changed: ${state.val} (ack = ${state.ack}) state: ${JSON.stringify(state)}`);
 
 			const obj  = await this.getObjectAsync(`${this.namespace}.${tmp[2]}`);
+			const oObj = await this.getObjectAsync(id);
 
 			if(obj && obj.type === 'device' && tmp[2] !== 'gateway'){
 				const devId = obj.native.id;
@@ -157,25 +158,42 @@ class Enocean extends utils.Adapter {
 								this.log.info('command soll gesendet werden');
 							}*/
 
-							let param = [];
+							const parameter = [];
 							if (eepProfile.case[c].condition && eepProfile.case[c].condition.command && eepProfile.case[c].condition.command[0].value === state.val && eepProfile.case[c].send !== undefined && eepProfile.case[c].send === false) {
 								//prevent send data if telegram was received
 								send = false;
 								break;
 							}else if(eepProfile.case[c].condition && eepProfile.case[c].condition.command && eepProfile.case[c].condition.command[0].value === state.val){
 								for (let d in eepProfile.case[c].datafield) {
-									param.push(eepProfile.case[c].datafield[d].shortcut);
+									const datafield = eepProfile.case[c].datafield[d];
+									if (datafield.data === 'fixed parameter') {
+										const bitoffs = datafield.bitoffs;
+										const bitsize = datafield.bitsize;
+										data.setValue(datafield.value, bitoffs, bitsize);
+									} else {
+										parameter.push(datafield.shortcut);
+									}
+
 									//TODO: change handling for command, actual definition for command must be in a case where send is true.
 								}
 							} else if (!eepProfile.case[c].condition) {
 								for (let d in eepProfile.case[c].datafield) {
-									param.push(eepProfile.case[c].datafield[d].shortcut);
+									const datafield = eepProfile.case[c].datafield[d];
+									if (datafield.data === 'fixed parameter') {
+										const bitoffs = datafield.bitoffs;
+										const bitsize = datafield.bitsize;
+										data.setValue(datafield.value, bitoffs, bitsize);
+									} else {
+										parameter.push(datafield.shortcut);
+									}
+
 								}
+
 							}
 
-							for (let s in param) {
-								const state = await this.getStateAsync(`${this.namespace}.${devId}.${param[s]}`);
-								const short = param[s];
+							for (let s in parameter) {
+								const state = await this.getStateAsync(`${this.namespace}.${devId}.${parameter[s]}`);
+								const short = parameter[s];
 								for (let d in eepProfile.case[c].datafield) {
 									if (state !== null && eepProfile.case[c].datafield[d].shortcut === short && eepProfile.case[c].datafield[d].bitoffs !== null && eepProfile.case[c].datafield[d].bitsize !== null && (!eepProfile.case[c].datafield[d].condition || !eepProfile.case[c].datafield[d].condition[0].value === state.val)) {
 										const bitoffs = eepProfile.case[c].datafield[d].bitoffs;
@@ -222,7 +240,7 @@ class Enocean extends utils.Adapter {
 					}
 				}
 			}
-		} else {
+		} else if (!state) {
 			// The state was deleted
 			this.log.info(`state ${id} deleted`);
 		}

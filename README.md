@@ -12,7 +12,7 @@
 
 **Tests:**: [![Travis-CI](http://img.shields.io/travis/jey-cee/ioBroker.enocean/master.svg)](https://travis-ci.org/jey-cee/ioBroker.enocean)
 
-## enocean adapter for ioBroker
+## EnOcean adapter for ioBroker
 
 Connects EnOcean devices via USB/Serial devices with TCM300 Chips
 
@@ -20,13 +20,34 @@ Connects EnOcean devices via USB/Serial devices with TCM300 Chips
 In general there is a cmd object where you can choose the command that you want to execute. Before you can execute a command you have to set all attributes that are necessary, 
 you can find this information in the profile definition.
 
+## Teach-in
+- Eltako series 14 (RS485):  Devices must already installed and setup. 
+Then go to adapter config and add a new device with the ID of base plus device bus id (base ID ffe12340 + bus id 1 = ffe12341).
+Then set the device in to learn mode (LRN) and set the channel number that is related to the bus id. 
+Now go to the device objects and choose Teach-in at CMD. 
+Repeat these steps for all channels.
+
+## Teach-out (delete adapter binding from the device)
+- Eltako Tipp-Funk: Send 3 times teach-in command during 2 seconds from ioBroker to device
+- Devices with UTE: Start Teach-in for the adapter and follow the device instructions.
+- RPS: Just delete the obejcts
+- none: Just delete the objects
+
+## Troubleshooting
+- Device does not react to command: Open the device Object in the Object tab, go to native and look if there are more than one EEPs registered. 
+If yes the first one has to be the one that will control the device. 
+
 ## Supported Teach-in procedures
 - 4BS (Variation 1 & 2)
 - UTE - Universal Uni- and Bidirectional Teach-in
 
 ## Supported Profiles
 
- [Here](https://github.com/jey-cee/ioBroker.enocean/SUPPORTED_PROFILES.md)
+ Find a list [here](./SUPPORTED_PROFILES.md)
+ 
+ ## Supported Devices
+ 
+ Find a list [here](./SUPPORTED_DEVICES.md)
 
 ## Profile definition file
 

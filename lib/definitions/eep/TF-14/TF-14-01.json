@@ -1,0 +1,116 @@
+{
+  "eep": "TF-14-01",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x38",
+  "type_number": "0x08",
+  "type_title": "Actuator channel",
+  "case": [
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "0",
+            "bitsize": "8",
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+        "data": "Command ID",
+        "shortcut": "CMD",
+        "bitoffs": "0",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "state",
+          "type": "number",
+          "read": true,
+          "write": true,
+          "states": "0:Teach-in; 1:Set channel;"
+        },
+          "value": {
+            "var": "value"
+          }
+      },
+        {
+          "data": "Block channel state",
+          "shortcut": "BS",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Not Blocked; 1:Blocked"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Channel state",
+          "shortcut": "CS",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Off; 1:On"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "0",
+            "bitsize": "8",
+            "value": 0
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 224
+        },
+        {
+          "data": "fixed parameter",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 64
+        },
+        {
+          "data": "fixed parameter",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": 13
+        },
+        {
+          "data": "fixed parameter",
+          "bitoffs": "24",
+          "bitsize": "8",
+          "value": 128
+        }
+      ]
+    }
+  ]
+}
