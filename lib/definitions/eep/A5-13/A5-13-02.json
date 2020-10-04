@@ -1,0 +1,76 @@
+{
+  "eep": "A5-13-02",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x13",
+  "type_number": "0x02",
+  "type_title": "Sun Intensity",
+  "case": {
+    "datafield": [
+      {
+        "data": "Sun West",
+        "shortcut": "SNW",
+        "bitoffs": "0",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "value.brightness",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "unit": "klx"
+        },
+        "value": {
+          "*": [ { "+": [ { "-": [{"var": "value"}, 0] }, 0 ] }, 0,5882]
+        }
+      },
+      {
+        "data": "Sun South",
+        "shortcut": "SNS",
+        "bitoffs": "8",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "value.brightness",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "unit": "klx"
+        },
+        "value": {
+          "*": [ { "+": [ { "-": [{"var": "value"}, 0] }, 0 ] }, 0,5882]
+        }
+      },
+      {
+        "data": "Sun East",
+        "shortcut": "SNE",
+        "bitoffs": "16",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "value.brightness",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "unit": "klx"
+        },
+        "value": {
+          "*": [ { "+": [ { "-": [{"var": "value"}, 0] }, 0 ] }, 0,5882]
+        }
+      },
+      {
+        "data": "Hemisphere",
+        "shortcut": "HEM",
+        "bitoffs": "29",
+        "bitsize": "1",
+        "iobroker": {
+          "role": "state",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "states": "0:North; 1:South"
+        },
+        "value": {
+          "var": "value"
+        }
+      }
+    ]
+  }
+}

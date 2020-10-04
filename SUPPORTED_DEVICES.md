@@ -14,6 +14,7 @@ This list contains devices that are known to work with the EnOcean adapter for i
 | Eltako | FSR71 | TF-14-01 | No | MSC |
 | Eltako | FTA55J | TF-01-01 & F6-02-02 | Yes | MSC |
 | Eltako | FTA65J | TF-01-01 & F6-02-02 | Yes | MSC |
+| Eltako | FWS61 | TF-13-01 | Yes | MSC |
 | Eltako | TF61J-230V | TF-01-01 & F6-02-02 | Yes | MSC |
 | <a name="N"></a> **N** | 
 | Nodon | Floor Switch | F6-02-02 | Yes | RPS |

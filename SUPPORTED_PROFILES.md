@@ -62,9 +62,12 @@
 | A5-10-06 | Room Operating Panel Temperature, Set Point, Day/Night control | 
 | A5-10-07 | Room Operating Panel Temperature, Fan Speed control | 
 |----|----|----|----|
+| A5-13-01 | UNTESTED: Enviromental Applications Weahter Station |
+| A5-13-02 | UNTESTED: Enviromental Applications Sun Intensity |
+|----|----|----|----|
 | A5-14-0A | UNTESTED: Multi-Func Sensor Windwo/Door with Supply Voltage montior and Vibration detection |
 |----|----|----|----|
-| D2-05-00 | UTESTED: Blinds control for Position and Angle | 
+| D2-05-00 | UNTESTED: Blinds control for Position and Angle | 
 |----|----|----|----|
 | D5-00-01 | UNTESTED: Contacts and Switches Single input contact | 
 |----|----|----|----|

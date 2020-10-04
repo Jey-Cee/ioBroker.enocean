@@ -1,0 +1,92 @@
+{
+  "eep": "A5-13-01",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x13",
+  "type_number": "0x01",
+  "type_title": "Weather Station",
+  "case": {
+    "datafield": [
+      {
+        "data": "Temperature -40...80°C",
+        "shortcut": "TMP",
+        "bitoffs": "8",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "value.temperature",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "unit": "°C"
+        },
+        "value": {
+          "*": [ { "+": [ { "-": [{"var": "value"}, 0] }, -40 ] }, 0.4706]
+        },
+        "decimals": 2
+      },
+      {
+        "data": "Dawn sensor",
+        "shortcut": "DWS",
+        "bitoffs": "0",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "value.brightness",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "unit": "lx"
+        },
+        "value": {
+          "*": [ { "+": [ { "-": [{"var": "value"}, 0] }, 0 ] }, 3.9176]
+        }
+      },
+      {
+        "data": "Wind speed",
+        "shortcut": "WND",
+        "bitoffs": "0",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "value.battery",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "unit": "V"
+        },
+        "value": {
+          "*": [ { "+": [ { "-": [{"var": "value"}, 0] }, 0 ] }, 0.2745]
+        },
+        "decimals": 2
+      },
+      {
+        "data": "Day",
+        "shortcut": "DN",
+        "bitoffs": "29",
+        "bitsize": "1",
+        "iobroker": {
+          "role": "switch",
+          "type": "boolean",
+          "read": true,
+          "write": false
+        },
+        "value": {
+          "==": [{"var": "value"}, 0]
+        }
+      },
+      {
+        "data": "Rain",
+        "shortcut": "RAN",
+        "bitoffs": "30",
+        "bitsize": "1",
+        "iobroker": {
+          "role": "switch",
+          "type": "boolean",
+          "read": true,
+          "write": false
+        },
+        "value": {
+          "==": [{"var": "value"}, 0]
+        }
+      }
+    ]
+  }
+}
