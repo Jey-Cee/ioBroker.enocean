@@ -1,0 +1,31 @@
+{
+    "eep": "TF-13-02",
+    "rorg_number": "0xF6",
+    "telegram": "RPS",
+    "func_number": "0x10",
+    "type_number": "0x00",
+    "type_title": "Window Handle",
+    "case": [
+        {
+            "datafield": [
+                {
+                    "data": "Window/Door open",
+                    "shortcut": "WIN",
+                    "bitoffs": "0",
+                    "bitsize": "4",
+                    "iobroker": {
+                        "role": "switch",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "if": [
+                            {"!==": [ { "var": "value" }, 240 ]}
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}
