@@ -72,5 +72,6 @@
 | D5-00-01 | UNTESTED: Contacts and Switches Single input contact | 
 |----|----|----|----|
 | F6-02-02 | Rocker switch with two rocker |
+|----|----|----|----|
+| F6-10-00 | UNTESTED: Mechanical Handle Window Handle |
 
-¹ Depends on the devices itself. But yes means there is good chance to detect it automatic.
