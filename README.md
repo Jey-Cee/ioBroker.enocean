@@ -6,7 +6,6 @@
 ![Number of Installations (latest)](http://iobroker.live/badges/enocean-installed.svg)
 ![Number of Installations (stable)](http://iobroker.live/badges/enocean-stable.svg)
 [![Dependency Status](https://img.shields.io/david/jey-cee/iobroker.enocean.svg)](https://david-dm.org/jey-cee/iobroker.enocean)
-[![Known Vulnerabilities](https://snyk.io/test/github/jey-cee/ioBroker.enocean/badge.svg)](https://snyk.io/test/github/jey-cee/ioBroker.enocean)
 
 [![NPM](https://nodei.co/npm/iobroker.enocean.png?downloads=true)](https://nodei.co/npm/iobroker.enocean/)
 
@@ -16,7 +15,7 @@
 
 Connects EnOcean devices via USB/Serial devices with TCM300 Chips
 
-## Join the Discord server to discuss everything about ioBroker-deconz integration!
+## Join the Discord server to discuss everything about ioBroker-enocean integration!
 
 <a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
