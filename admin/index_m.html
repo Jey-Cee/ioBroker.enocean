@@ -110,6 +110,7 @@
 					countdown();
 				}, 1000);
 				$('#autodetect').html(_('Open for %s seconds', counter));
+				getDevices();
 			}else if(counter === 0){
 				$('#autodetect').html('Autodetect');
 				$('#autodetect').removeClass('disabled');
@@ -174,6 +175,25 @@
 			M.updateTextFields();
 		}
 
+		function getDevices() {
+			socket.emit('getObjectView', 'system', 'device', { startkey: 'enocean.' + instance + '.', endkey: 'enocean.' + instance + '.\u9999', include_docs: true }, function (err, _devices) {
+				socket.emit('getStates', function (err, _values) {
+					let namespace = 'enocean.' + instance + '.';
+					let len = namespace.length;
+					$('#devices_body').html('');
+					if (_devices && _devices.rows && _devices.rows.length) {
+						for (let j = 0; j < _devices.rows.length; j++) {
+							devices[_devices.rows[j].value._id] = _devices.rows[j].value;
+							if(_devices.rows[j].value._id !== namespace + 'gateway'){
+								showDevice(_devices.rows[j].value, true);
+							}
+
+						}
+					}
+				});
+			});
+		}
+
 		/**
 		 * Load the adapter config page.
 		 * @param {object} settings - The adapter settings
@@ -224,7 +244,11 @@
 				const manufacturer = $('#select-manufacturer').val();
 				const deviceId = $('#device-id').val();
 				const name = $('#device-name').val();
-				sendTo(null, 'newDevice', {eep: eep, mfr: manufacturer, id: deviceId, name: name}); //TODO: reload table when new device was added
+				sendTo(null, 'newDevice', {eep: eep, mfr: manufacturer, id: deviceId, name: name}, (data) => {
+					if (data.result === 'Ready'){
+						getDevices();
+					}
+				});
 			});
 
 			$('#autodetect').on('click', () => {
@@ -247,22 +271,7 @@
 			});
 
 			// populate the list of known devices
-			socket.emit('getObjectView', 'system', 'device', { startkey: 'enocean.' + instance + '.', endkey: 'enocean.' + instance + '.\u9999', include_docs: true }, function (err, _devices) {
-				socket.emit('getStates', function (err, _values) {
-					var namespace = 'enocean.' + instance + '.';
-					var len = namespace.length;
-
-					if (_devices && _devices.rows && _devices.rows.length) {
-						for (let j = 0; j < _devices.rows.length; j++) {
-							devices[_devices.rows[j].value._id] = _devices.rows[j].value;
-							if(_devices.rows[j].value._id !== namespace + 'gateway'){
-								showDevice(_devices.rows[j].value, true);
-							}
-
-						}
-					}
-				});
-			});
+			getDevices();
 
 			onChange(false);
 			// reinitialize all the Materialize labels on the page if you are dynamically adding inputs:
@@ -296,7 +305,7 @@
 				<ul class="tabs">
 					<li class="tab col s2"><a href="#tab-devices"  class="translate active">Devices</a></li>
 					<li id="btn-tab-eep" class="tab col s2 hide"><a href="#tab-eep-editor"  class="translate active">EEP Editor</a></li>
-					<li class="tab col s2"><a href="#tab-main"  class="translate active">Options</a></li>
+					<li class="tab col s2"><a href="#tab-main"  class="translate active">Settings</a></li>
 				</ul>
 			</div>
 
@@ -330,10 +339,10 @@
 			<div id="tab-devices" class="col s12 page">
 				<div class="row">
 					<div class="input-field col">
-						<a id="addDevice" class="waves-effect waves-light btn modal-trigger" href="#add-device">Add new device</a>
+						<a id="addDevice" class="waves-effect waves-light btn modal-trigger translate" href="#add-device">Add new device</a>
 					</div>
 					<div class="input-field col">
-						<a id="autodetect" class="waves-effect waves-light btn modal-trigger" data-target="autodetect-device">Autodetect</a>
+						<a id="autodetect" class="waves-effect waves-light btn modal-trigger translate" data-target="autodetect-device">Autodetect</a>
 					</div>
 				</div>
 
@@ -362,7 +371,7 @@
 				<div class="row eep-top-bar">
 					<div class="input-field col s2">
 						<select id="editor-select-eep">
-							<option vlaue="" selected>Choose</option>
+							<option vlaue="" class="translate" selected>Choose</option>
 						</select>
 						<label for="editor-select-eep">Select EEP</label>
 					</div>
@@ -417,15 +426,15 @@
 				<div class="row">
 					<div class="input-field col s3">
 						<select id="select-eep">
-							<option value="" disabled selected>Choose EEP</option>
+							<option value="" class="translate" disabled selected>Choose</option>
 						</select>
 						<label>EEP</label>
 					</div>
 					<div class="input-field col s6">
 						<select id="select-manufacturer">
-							<option value="" disabled selected>Choose Manufacturer name for device</option>
+							<option value="" class="translate" disabled selected>Choose</option>
 						</select>
-						<label>Manufacturer</label>
+						<label class="translate">manufacturer</label>
 					</div>
 					<div class="input-field col s3">
 						<input id="device-id" class="value"  type="text" placeholder="e.g. 0014A42D"></input>
@@ -438,9 +447,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button id="addDeviceSubmit" class="btn waves-effect waves-light modal-close modal-action translate" type="submit" name="action">Add device
-					<i class="material-icons right">send</i>
-				</button>
+				<button id="addDeviceSubmit" class="btn waves-effect waves-light modal-close modal-action translate" type="submit" name="action">Add device</button>
 				<button class="btn waves-effect waves-light modal-close modal-action translate" href="#!">Close</button>
 			</div>
 		</div>
@@ -450,8 +457,8 @@
 			<div class="modal-content">
 				<h5 class="translate center">Autodetect device</h5>
 				<div class="row center">
-					<h6 class="#bbdefb blue lighten-4">Please press the teachin button on your device.</h6> <br> <br>
-						Note: Only a small number of devices could be automaticly detected. If your device was not detected look into the log for more information.
+					<h6 class="#bbdefb blue lighten-4 translate">Teachin button</h6> <br> <br>
+					<p class="translate">Note modal</p>
 				</div>
 			</div>
 			<div class="modal-footer">

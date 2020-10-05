@@ -41,7 +41,7 @@ class Enocean extends utils.Adapter {
 			name: 'enocean',
 		});
 		this.on('ready', this.onReady.bind(this));
-		this.on('objectChange', this.onObjectChange.bind(this));
+		//this.on('objectChange', this.onObjectChange.bind(this));
 		this.on('stateChange', this.onStateChange.bind(this));
 		this.on('message', this.onMessage.bind(this));
 		this.on('unload', this.onUnload.bind(this));
@@ -97,7 +97,7 @@ class Enocean extends utils.Adapter {
 	 * @param {string} id
 	 * @param {ioBroker.Object | null | undefined} obj
 	 */
-	onObjectChange(id, obj) {
+	/*onObjectChange(id, obj) {
 		if (obj) {
 			// The object was changed
 			this.log.info(`object ${id} changed: ${JSON.stringify(obj)}`);
@@ -105,7 +105,7 @@ class Enocean extends utils.Adapter {
 			// The object was deleted
 			this.log.info(`object ${id} deleted`);
 		}
-	}
+	}*/
 
 	/**
 	 * Is called if a subscribed state changes
@@ -116,20 +116,38 @@ class Enocean extends utils.Adapter {
 		const tmp = id.split('.');
 		const objName = tmp.slice(2).join('.');
 
-		switch(objName){
-			case 'gateway.teachin':
-
-				if(!state){
-					this.log.info('Teachin mode de-activated');
-					this.setState(id, {val: false, ack: true});
-				} else if(state.val === true && state.ack === false) {
-					this.log.info('Teachin mode active');
-					this.setState(id, {ack: true, expire: 60});
-				}
-				break;
-		}
-
 		if (state && state.from !== 'system.adapter.' + this.namespace) {
+
+			switch(objName){
+				case 'gateway.teachin':
+
+					if(!state){
+						this.log.info('Teachin mode de-activated');
+						this.setState(id, {val: false, ack: true});
+					} else if(state.val === true && state.ack === false) {
+						this.log.info('Teachin mode active');
+						this.setState(id, {ack: true, expire: 60});
+					}
+					break;
+				case 'gateway.repeater.level': {
+					let data = ByteArray.from([0x09, 0x00, 0x00]);
+					const mode = await this.getStateAsync('gateway.repeater.mode');
+					data.setValue(mode.val, 8,8);
+					data.setValue(state.val, 16, 8);
+					await this.sendData(data, null, 5);
+					break;
+				}
+				case 'gateway.repeater.mode': {
+					let data = ByteArray.from([0x09, 0x00, 0x00]);
+					const level = await this.getStateAsync('gateway.repeater.level');
+					data.setValue(state.val, 8,8);
+					data.setValue(level.val, 16, 8);
+					await this.sendData(data, null, 5);
+					break;
+				}
+			}
+
+
 			// The state was changed
 			this.log.info(`state ${objName} changed: ${state.val} (ack = ${state.ack}) state: ${JSON.stringify(state)}`);
 
@@ -251,7 +269,7 @@ class Enocean extends utils.Adapter {
 	 * Using this method requires "common.message" property to be set to true in io-package.json
 	 * @param {ioBroker.Message} obj
 	 */
-	onMessage(obj) {
+	async onMessage(obj) {
 
 		// responds to the adapter that sent the original message
 		function respond(response, that) {
@@ -280,7 +298,8 @@ class Enocean extends utils.Adapter {
 				this.setState('gateway.teachin', true);
 				break;
 			case 'newDevice':
-				new ManualTeachIn(this, obj.message.eep, obj.message.mfr, obj.message.id, obj.message.name);
+				await new ManualTeachIn(this, obj.message.eep, obj.message.mfr, obj.message.id, obj.message.name);
+				respond({ error: null, result: 'Ready' }, this);
 				break;
 		}
 	}
@@ -416,44 +435,46 @@ class Enocean extends utils.Adapter {
 		data = Buffer.from([0x03]);
 		const rd_version = await this.sendData(data, null, 5);
 		if(rd_version === true){
-			const returnData = await this.waitForResponse();
-			appVersion_main = parseInt(returnData.slice(7, 8).toString('hex'), 16);
-			appVersion_beta = parseInt(returnData.slice(8, 9).toString('hex'), 16);
-			appVersion_alpha = parseInt(returnData.slice(9, 10).toString('hex'), 16);
-			appVersion_build = parseInt(returnData.slice(10, 11).toString('hex'), 16);
-			apiVersion_main = parseInt(returnData.slice(11, 12).toString('hex'), 16);
-			apiVersion_beta = parseInt(returnData.slice(12, 13).toString('hex'), 16);
-			apiVersion_alpha = parseInt(returnData.slice(13, 14).toString('hex'), 16);
-			apiVersion_build = parseInt(returnData.slice(14, 15).toString('hex'), 16);
-			chipId  = returnData.slice(15, 19).toString('hex');
-			chipVersion = returnData.slice(19, 23).toString('hex');
-			appDescription = returnData.slice(23, 39).toString('utf8').replace(/\u0000/g, '');
+			const returnVersion = await this.waitForResponse();
+			appVersion_main = parseInt(returnVersion.slice(7, 8).toString('hex'), 16);
+			appVersion_beta = parseInt(returnVersion.slice(8, 9).toString('hex'), 16);
+			appVersion_alpha = parseInt(returnVersion.slice(9, 10).toString('hex'), 16);
+			appVersion_build = parseInt(returnVersion.slice(10, 11).toString('hex'), 16);
+			apiVersion_main = parseInt(returnVersion.slice(11, 12).toString('hex'), 16);
+			apiVersion_beta = parseInt(returnVersion.slice(12, 13).toString('hex'), 16);
+			apiVersion_alpha = parseInt(returnVersion.slice(13, 14).toString('hex'), 16);
+			apiVersion_build = parseInt(returnVersion.slice(14, 15).toString('hex'), 16);
+			chipId  = returnVersion.slice(15, 19).toString('hex');
+			chipVersion = returnVersion.slice(19, 23).toString('hex');
+			appDescription = returnVersion.slice(23, 39).toString('utf8').replace(/\u0000/g, '');
 		}
 
 		//10: CO_RD_REPEATER
 		data = Buffer.from([0x0A]);
 		const rd_repeater = await this.sendData(data, null, 5);
 		if(rd_repeater === true){
-			const returnData = await this.waitForResponse();
-			repEnable = returnData.slice(7, 8);
-			repLevel = returnData.slice(8, 9);
+			const returnRepeater = await this.waitForResponse();
+			repEnable = returnRepeater.slice(7, 8);
+			repLevel = returnRepeater.slice(8, 9);
+			await this.setStateAsync('gateway.repeater.level', {val: repLevel[0], ack: true});
+			await this.setStateAsync('gateway.repeater.mode', {val: repEnable[0], ack: true});
 		}
 
 		//37: CO_GET_FREQUENCY_INFO
 		data = Buffer.from([0x25]);
 		const get_frequency = await this.sendData(data, null, 5);
 		if(get_frequency === true){
-			const returnData = await this.waitForResponse();
-			frequency = '0x' + returnData.slice(7, 8).toString('hex');
-			protocol = '0x' + returnData.slice(8, 9).toString('hex');
+			const returnFrequency = await this.waitForResponse();
+			frequency = '0x' + returnFrequency.slice(7, 8).toString('hex');
+			protocol = '0x' + returnFrequency.slice(8, 9).toString('hex');
 		}
 
 		//08: CO_RD_IDBASE
 		data = Buffer.from([0x08]);
 		const rd_idbase = await this.sendData(data, null, 5);
 		if(rd_idbase === true){
-			const returnData = await this.waitForResponse();
-			const telegram = new ResponseTelegram(returnData);
+			const returnIdbase = await this.waitForResponse();
+			const telegram = new ResponseTelegram(returnIdbase);
 			baseId = telegram.data.toString('hex');
 		}
 

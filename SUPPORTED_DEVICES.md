@@ -8,11 +8,13 @@ This list contains devices that are known to work with the EnOcean adapter for i
 | EnOcean | Occupancy Sensor EOSWA-W-EO | A5-07-01 | Yes | RPS |
 | EnOcean | Occupancy Sensor EOSCA-W-EO | A5-07-01 | Yes | RPS |
 | EnOcean | PTM200 | F6-02-02 | Yes | RPS|
+| EnOcean | PTM215 | F6-02-02 | Yes | RPS |
 | Eltako | FFTE | TF-13-02 | No | MSC |
 | Eltako | FSR14-2x | TF-14-01 | No | MSC |
 | Eltako | FSR14-4x | TF-14-01 | No | MSC |
 | Eltako | FSR14SSR | TF-14-01 | No | MSC |
 | Eltako | FSR71 | TF-14-01 | No | MSC |
+| Eltako | FT55 | F6-02-02 | Yes | RPS |
 | Eltako | FTA55J | TF-01-01 & F6-02-02 | Yes | MSC |
 | Eltako | FTA65J | TF-01-01 & F6-02-02 | Yes | MSC |
 | Eltako | FTKE | TF-13-02 | No | MSC |
