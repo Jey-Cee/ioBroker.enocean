@@ -238,17 +238,21 @@ class Enocean extends utils.Adapter {
 						for(let b in tempId){
 							receiverID.push('0x' + tempId[b]);
 						}
+
+						const gateway = await this.getObjectAsync('gateway');
+						const baseID = ByteArray.from( gateway.native.BaseID.match(/.{1,2}/g) );
+
 						let optionalData = subTelNum.concat(receiverID, [0xFF, 0x00]);
 						let type;
 						switch (rorg) {
 
 							case '0xD2':
 								type = [0xD2];
-								data = type.concat(data, [0xFF, 0xCA, 0xE7, 0x00, 0x01]);
+								data = type.concat(data, baseID, 0x00);
 								break;
 							case '0xA5':
 								type = [0xA5];
-								data = type.concat(data, [0xFF, 0xCA, 0xE7, 0x00, 0x00]);
+								data = type.concat(data, baseID, 0x00);
 								break;
 						}
 						await this.sendData(data, optionalData, 0x01);
@@ -381,10 +385,12 @@ class Enocean extends utils.Adapter {
 			{
 				let teachin = await this.getStateAsync(this.namespace + '.gateway.teachin');
 
-				if (teachin.val === false) {
-					new HandleType1(this, packet);
-				} else if (teachin.val === true) {
-					new HandleTeachIn(this, packet);
+				if (teachin) {
+					if (teachin.val === false) {
+						new HandleType1(this, packet);
+					} else if (teachin.val === true) {
+						new HandleTeachIn(this, packet);
+					}
 				}
 
 				break;

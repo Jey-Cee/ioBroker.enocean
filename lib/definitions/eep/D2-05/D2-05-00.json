@@ -44,7 +44,8 @@
             "type": "number",
             "read": true,
             "write": true,
-            "states": "127:Do not change"
+            "states": "127:Do not change / position unknown",
+            "unit": "%"
           },
           "value": {
             "var": "value"
@@ -60,7 +61,8 @@
             "type": "number",
             "read": true,
             "write": true,
-            "states": "127:Do not change"
+            "states": "127:Do not change / position unknown",
+            "unit": "%"
           },
           "value": {
             "var": "value"
@@ -121,7 +123,7 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "28",
+            "bitoffs": "4",
             "bitsize": "4",
             "value": 2
           }
@@ -147,7 +149,7 @@
         {
           "data": "Channel",
           "shortcut": "CHN",
-          "bitoffs": "24",
+          "bitoffs": "0",
           "bitsize": "4",
           "iobroker": {
             "role": "state",
@@ -167,7 +169,7 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "28",
+            "bitoffs": "4",
             "bitsize": "4",
             "value": 3
           }
@@ -193,7 +195,7 @@
         {
           "data": "Channel",
           "shortcut": "CHN",
-          "bitoffs": "24",
+          "bitoffs": "0",
           "bitsize": "4",
           "iobroker": {
             "role": "state",
@@ -307,7 +309,7 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "28",
+            "bitoffs": "36",
             "bitsize": "4",
             "value": 5
           }
