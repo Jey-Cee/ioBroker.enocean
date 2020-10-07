@@ -120,6 +120,11 @@ Example:
 
 ## Changelog
 
+### 0.1.1
+* fix Teach-in/out
+* fix send data
+* fix profile D2-05-00
+
 ### 0.1.0
 * (Jey Cee) initial release
 
