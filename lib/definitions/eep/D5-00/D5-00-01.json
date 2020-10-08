@@ -8,19 +8,18 @@
   "case": {
     "datafield": [
       {
-        "data": "Contact",
+        "data": "Contact open",
         "shortcut": "CO",
         "bitoffs": "7",
         "bitsize": "1",
         "iobroker": {
           "role": "indicator",
-          "type": "number",
+          "type": "boolean",
           "read": true,
-          "write": false,
-          "states": "0: Open; 1: Closed"
+          "write": false
         },
         "value": {
-          "var": "value"
+          "===": [{"var": "value"}, 0]
         }
       }
     ]
