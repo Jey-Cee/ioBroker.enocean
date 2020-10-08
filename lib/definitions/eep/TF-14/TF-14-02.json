@@ -1,16 +1,16 @@
 {
-    "eep": "TF-13-02",
+    "eep": "TF-14-02",
     "rorg_number": "0xF6",
     "telegram": "RPS",
-    "func_number": "0x10",
+    "func_number": "0x00",
     "type_number": "0x00",
-    "type_title": "Window/Door contact",
+    "type_title": "Relais contact",
     "case": [
         {
             "datafield": [
                 {
-                    "data": "Window/Door open",
-                    "shortcut": "WIN",
+                    "data": "Relais on",
+                    "shortcut": "RO",
                     "bitoffs": "0",
                     "bitsize": "8",
                     "iobroker": {
@@ -20,7 +20,7 @@
                         "write": false
                     },
                     "value": {
-                            "===": [ { "var": "value" }, 224 ]
+                            "===": [ { "var": "value" }, 112 ]
                     }
                 }
             ]
