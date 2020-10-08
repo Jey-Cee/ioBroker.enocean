@@ -12,7 +12,7 @@
                     "data": "Window/Door open",
                     "shortcut": "WIN",
                     "bitoffs": "0",
-                    "bitsize": "4",
+                    "bitsize": "8",
                     "iobroker": {
                         "role": "switch",
                         "type": "boolean",
@@ -20,9 +20,7 @@
                         "write": false
                     },
                     "value": {
-                        "if": [
-                            {"!==": [ { "var": "value" }, 240 ]}
-                        ]
+                            "===": [ { "var": "value" }, 224 ]
                     }
                 }
             ]
