@@ -1,0 +1,79 @@
+{
+    "eep": "A5-10-20",
+    "rorg_number": "0xA5",
+    "telegram": "4BS",
+    "func_number": "0x10",
+    "type_number": "0x20",
+    "type_title": "Room Operating Panel",
+    "case": {
+        "datafield": [
+            {
+                "data": "Temperature",
+                "shortcut": "TMP",
+                "bitoffs": "16",
+                "bitsize": "8",
+                "iobroker": {
+                    "role": "value.temperature",
+                    "type": "number",
+                    "unit": "°C",
+                    "read": true,
+                    "write": false
+                },
+                "value": {
+                    "*": [{
+                    "+": [
+                        { "-": [{"var": "value"}, 0] },
+                        0
+                    ]}, 0.16]
+                },
+                "decimals": 2
+            },
+            {
+                "data": "Set point",
+                "shortcut": "SP",
+                "description": "Set point (linear) Min.-...Max+",
+                "bitoffs": "0",
+                "bitsize": "8",
+                "iobroker": {
+                    "role": "value",
+                    "type": "number",
+                    "read": true,
+                    "write": false
+                },
+                "value": {
+                    "var":  "value"
+                }
+            },
+            {
+                "data": "Battery Low",
+                "shortcut": "BATT",
+                "bitoffs": "27",
+                "bitsize": "1",
+                "iobroker": {
+                    "role": "indicator.lowbat",
+                    "type": "boolean",
+                    "read": true,
+                    "write": false
+                },
+                "value": {
+                    "==": [{"var": "value"}, 1]
+                }
+            },
+            {
+                "data": "User interaction",
+                "shortcut": "ACT",
+                "bitoffs": "31",
+                "bitsize": "1",
+                "iobroker": {
+                    "role": "indicator",
+                    "type": "boolean",
+                    "read": true,
+                    "write": false
+                },
+                "value": {
+                    "==": [{"var": "value"}, 1]
+                }
+            }
+        ]
+    }
+}

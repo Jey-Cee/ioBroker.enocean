@@ -23,12 +23,13 @@ This list contains devices that are known to work with the EnOcean adapter for i
 | <a name="N"></a> **N** | 
 | Nodon | Floor Switch | F6-02-02 | Yes | RPS |
 | Nodon | Micro Smart Plug (MSP-2-1-11) | D2-01-0E | Yes | UTE |
+| Nodon | Rollershutter (SIN-2RS-01) | D2-05-00 | Yes | UTE |
 | Nodon | Soft Remote | F6-02-02 | Yes | RPS |
 | Nodon | Wall Switch | F6-02-02 | Yes | RPS |
 | <a name="P"></a> **P** | 
-|PEHA | Easyclick sender | F6-02-02 | Yes | RPS |
+| PEHA | Easyclick sender | F6-02-02 | Yes | RPS |
 | <a name="T"></a> **T**|
 | Telefunken | Motion detector BM1 | A5-08-02 | No | none |
 | <a name="V"></a> **V**|
-| Viessmann | Raumthermostat 7554508501032100 | A5-10-00 | No | none |
+| Viessmann | Raumthermostat 7554508501032100 | A5-10-20 | Yes | 4BS |
 

@@ -61,6 +61,7 @@
 | A5-10-05 | Room Operating Panel Temperature, Set Point, Occupancy control | 
 | A5-10-06 | Room Operating Panel Temperature, Set Point, Day/Night control | 
 | A5-10-07 | Room Operating Panel Temperature, Fan Speed control | 
+| A5-10-07 | Room Operating Panel Temperature and Set Point with special Heating states | 
 |----|----|----|----|
 | A5-13-01 | UNTESTED: Enviromental Applications Weahter Station |
 | A5-13-02 | UNTESTED: Enviromental Applications Sun Intensity |

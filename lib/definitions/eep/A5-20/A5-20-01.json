@@ -222,16 +222,10 @@
                     "value": 1
                 },
                 {
-                    "shortcut": "TMP",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": 255
-                },
-                {
                     "shortcut": "LEARNBIT",
                     "bitoffs": "28",
                     "bitsize": "1",
-                    "value": 0
+                    "value": 1
                 }
             ]
         },
