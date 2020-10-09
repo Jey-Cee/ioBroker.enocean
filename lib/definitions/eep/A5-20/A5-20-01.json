@@ -18,7 +18,8 @@
                         "read": false,
                         "write": true,
                         "states": "800:Run init sequence;801:Lift set;802:Valve open (Service mode only);803:Valve closed (Service mode only);804:Summer mode;805:Normal mode;806:Service mode;807:Setpoint valve position;808:Setpoint temperature;999:Transmit"
-                    }
+                    },
+                    "value": 0
                 },
                 {
                     "data": "Current Value 0...100%",
@@ -240,7 +241,12 @@
             },
             "datafield": [
                 {
-                    "shortcut": "LfS",
+                    "bitoffs": "0",
+                    "bitsize": "16",
+                    "value": 0
+                },
+                {
+                    "shortcut": "LFS",
                     "bitoffs": "17",
                     "bitsize": "1",
                     "value": 1
@@ -374,6 +380,39 @@
             ]
         },
         {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 807
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Valve position (0...100) or temperature setpoint (0...255)",
+                    "shortcut": "SP",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "level",
+                        "type": "number",
+                        "read": false,
+                        "write": true
+                    },
+                    "value": {
+                        "var": "value"
+                    }
+                },
+                {
+                    "shortcut": "LEARNBIT",
+                    "bitoffs": "28",
+                    "bitsize": "1",
+                    "value": 1
+                }
+            ]
+        },
+        {
             "send":  true,
             "condition": {
                 "command": [
@@ -397,6 +436,18 @@
                     "value": {
                         "var": "value"
                     }
+                },
+                {
+                    "shortcut": "SPS",
+                    "bitoffs": "21",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "shortcut": "LEARNBIT",
+                    "bitoffs": "28",
+                    "bitsize": "1",
+                    "value": 1
                 }
             ]
         }
