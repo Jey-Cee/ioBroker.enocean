@@ -120,6 +120,14 @@ Example:
 
 ## Changelog
 
+### 0.1.2
+* fix 4BS Teach-in
+* added profile A510-20
+* added profile TF14-02 relais contact
+* fix profile D5-00-01
+* fix profile A5-04-01
+* fix profile TF-13-02
+
 ### 0.1.1
 * fix Teach-in/out
 * fix send data
