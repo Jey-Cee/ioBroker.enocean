@@ -20,9 +20,7 @@
                         "write": false
                     },
                     "value": {
-                        "if": [
-                            {"!==": [ { "var": "value" }, 240 ]}
-                        ]
+                            "!==": [ { "var": "value" }, 240 ]
                     }
                 },
                 {
@@ -37,9 +35,7 @@
                         "write": false
                     },
                     "value": {
-                        "if": [
-                            {"!==": [ { "var": "value" }, 208 ]}
-                        ]
+                        "!==": [ { "var": "value" }, 208 ]
                     }
                 }
             ]
