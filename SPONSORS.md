@@ -1,6 +1,6 @@
 # Sponsors
 
-This list contains persons who support this adapter. If you want to support also you can send a donation via paypal.me/J3YC33
+This list contains persons who support this adapter. If you want to support also you can send a donation via https://paypal.me/J3YC33
 
 Thank you to ...
 
