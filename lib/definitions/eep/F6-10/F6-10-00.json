@@ -12,7 +12,7 @@
                     "data": "Window open",
                     "shortcut": "WIN",
                     "bitoffs": "0",
-                    "bitsize": "4",
+                    "bitsize": "8",
                     "iobroker": {
                         "role": "switch",
                         "type": "boolean",
@@ -27,7 +27,7 @@
                     "data": "Window tilt",
                     "shortcut": "WINT",
                     "bitoffs": "0",
-                    "bitsize": "4",
+                    "bitsize": "8",
                     "iobroker": {
                         "role": "switch",
                         "type": "boolean",
@@ -35,7 +35,7 @@
                         "write": false
                     },
                     "value": {
-                        "!==": [ { "var": "value" }, 208 ]
+                        "===": [ { "var": "value" }, 208 ]
                     }
                 }
             ]

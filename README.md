@@ -120,6 +120,9 @@ Example:
 
 ## Changelog
 
+### 0.1.3
+* fix profile F6-10-00
+
 ### 0.1.2
 * fix 4BS Teach-in
 * added profile A510-20
