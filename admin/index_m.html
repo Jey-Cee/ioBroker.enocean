@@ -12,6 +12,7 @@
 	<script type="text/javascript" src="../../js/translate.js"></script>
 	<script type="text/javascript" src="../../lib/js/materialize.js"></script>
 	<script type="text/javascript" src="../../js/adapter-settings.js"></script>
+	<script type="text/javascript" src="../../lib/js/showdown.min.js"></script>
 
 	<!-- Load our own files -->
 	<link rel="stylesheet" type="text/css" href="style.css" />
@@ -99,6 +100,24 @@
 				mfrListFilled = true;
 				$('#select-manufacturer').select();
 			}
+
+		}
+
+		function sponsorsList(){
+			let request = new XMLHttpRequest();
+			request.open('GET', 'https://raw.githubusercontent.com/Jey-Cee/ioBroker.enocean/master/SPONSORS.md', true);
+			request.send(null);
+			request.onreadystatechange = function () {
+				if (request.readyState === 4 && request.status === 200) {
+					let type = request.getResponseHeader('Content-Type');
+					if (type.indexOf("text") !== 1) {
+						console.log(request.responseText);
+						let html = new showdown.Converter().makeHtml(request.responseText);
+						$('#sponsors-body').html(html);
+					}
+				}
+			}
+
 
 		}
 
@@ -222,6 +241,8 @@
 						;
 				}
 			});
+			showdown.setFlavor('github');
+			sponsorsList();
 
 			$('#serialport').on('change', () => {
 				onChange();
@@ -306,6 +327,7 @@
 					<li class="tab col s2"><a href="#tab-devices"  class="translate active">Devices</a></li>
 					<li id="btn-tab-eep" class="tab col s2 hide"><a href="#tab-eep-editor"  class="translate active">EEP Editor</a></li>
 					<li class="tab col s2"><a href="#tab-main"  class="translate active">Settings</a></li>
+					<li class="tab col s2"><a href="#tab-sponsors"  class="translate active">Sponsors</a></li>
 				</ul>
 			</div>
 
@@ -413,6 +435,15 @@
 
 					</div>
 
+				</div>
+			</div>
+
+			<!-- Sponsors Tab -->
+			<div id="tab-sponsors" class="col s12 page">
+				<div class="row">
+					<div id="sponsors-body" class="col s12">
+
+					</div>
 				</div>
 			</div>
 		</div>

@@ -235,12 +235,15 @@ class Enocean extends utils.Adapter {
 						const subTelNum = [0x00];
 						let tempId = devId.toUpperCase().match(/.{1,2}/g);
 						let receiverID = [];
-						for(let b in tempId){
+						for(let b in tempId) {
 							receiverID.push('0x' + tempId[b]);
 						}
-
 						const gateway = await this.getObjectAsync('gateway');
-						const baseID = ByteArray.from( gateway.native.BaseID.match(/.{1,2}/g) );
+						let baseID = ByteArray.from(gateway.native.BaseID.match(/.{1,2}/g));
+
+						if (obj.native.baseIDoffset) {
+							baseID.setValue(obj.native.baseIDoffset, 24, 8);
+						}
 
 						let optionalData = subTelNum.concat(receiverID, [0xFF, 0x00]);
 						let type;
