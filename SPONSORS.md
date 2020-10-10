@@ -5,7 +5,8 @@ This list contains persons who support this adapter. If you want to support also
 Thank you to ...
 
 ## 2020
-| **Kickstarter campaign**| | |
+#### Kickstarter campaign
+| | | |
 |---|---|---|
 | Bluefox | Gast 317598700 | Janis P. |
 | Szymon | Frank R. | Maximilian |
@@ -14,6 +15,7 @@ Thank you to ...
 | Martin B. | Grantlhaua | Gast 840990251 |
 | Gast 1640963463 | P-A-L-A-D-I-N |
 
-| **PayPal** | | |
+#### PayPal
+| | | |
 |---|---|---|
 | Helmut F. | Magnus S. | |
