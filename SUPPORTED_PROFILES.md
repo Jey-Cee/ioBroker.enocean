@@ -74,5 +74,5 @@
 |----|----|----|----|
 | F6-02-02 | Rocker switch with two rocker |
 |----|----|----|----|
-| F6-10-00 | UNTESTED: Mechanical Handle Window Handle |
+| F6-10-00 | Mechanical Handle Window Handle |
 

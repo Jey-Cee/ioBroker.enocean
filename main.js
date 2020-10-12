@@ -242,7 +242,8 @@ class Enocean extends utils.Adapter {
 						let baseID = ByteArray.from(gateway.native.BaseID.match(/.{1,2}/g));
 
 						if (obj.native.baseIDoffset) {
-							baseID.setValue(obj.native.baseIDoffset, 24, 8);
+							const offset = obj.native.baseIDoffset;
+							baseID.setValue(parseInt(offset), 24, 8);
 						}
 
 						let optionalData = subTelNum.concat(receiverID, [0xFF, 0x00]);
@@ -305,7 +306,7 @@ class Enocean extends utils.Adapter {
 				this.setState('gateway.teachin', true);
 				break;
 			case 'newDevice':
-				await new ManualTeachIn(this, obj.message.eep, obj.message.mfr, obj.message.id, obj.message.name);
+				await new ManualTeachIn(this, obj.message.eep, obj.message.mfr, obj.message.id, obj.message.name, obj.message.IDoffset);
 				respond({ error: null, result: 'Ready' }, this);
 				break;
 		}

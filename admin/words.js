@@ -193,5 +193,29 @@ systemDictionary = {
 		'es': 'Siga las instrucciones de su dispositivo para el procedimiento de aprendizaje.',
 		'pl': 'Postępuj zgodnie z instrukcją urządzenia dotyczącą procedury uczenia.',
 		'zh-cn': '请按照设备的说明进行自学程序。'
+	},
+	'Tooltip BaseID': {
+		'en': 'This option is only for Device with mor than one channel, like Eltako FSR14.',
+		'de': 'Diese Option wird nur für Geräte mit mehr als einem Kanal wie Eltako FSR14 benötigt.',
+		'ru': 'Этот параметр доступен только для устройств с более чем одним каналом, например Eltako FSR14.',
+		'pt': 'Esta opção é apenas para dispositivos com mais de um canal, como Eltako FSR14.',
+		'nl': 'Deze optie is alleen voor apparaten met meer dan één kanaal, zoals Eltako FSR14.',
+		'fr': "Cette option est uniquement pour les appareils avec plus d'un canal, comme Eltako FSR14.",
+		'it': 'Questa opzione è solo per dispositivi con più di un canale, come Eltako FSR14.',
+		'es': 'Esta opción es solo para dispositivos con más de un canal, como Eltako FSR14.',
+		'pl': 'Ta opcja jest dostępna tylko dla urządzeń z więcej niż jednym kanałem, takich jak Eltako FSR14.',
+		'zh-cn': '此选项仅适用于通道不多的设备，例如Eltako FSR14。'
+	},
+	'Device Name': {
+		'en': 'Device Name',
+		'de': 'Gerätename',
+		'ru': 'Имя устройства',
+		'pt': 'Nome do dispositivo',
+		'nl': 'Toestelnaam',
+		'fr': "Nom de l'appareil",
+		'it': 'Nome del dispositivo',
+		'es': 'Nombre del dispositivo',
+		'pl': 'Nazwa urządzenia',
+		'zh-cn': '设备名称'
 	}
 };

@@ -1,0 +1,74 @@
+{
+    "eep": "TF-13-04",
+    "rorg_number": "0xF6",
+    "telegram": "RPS",
+    "func_number": "0x00",
+    "type_number": "0x00",
+    "type_title": "Rollershutter state",
+    "case": [
+        {
+            "datafield": [
+                {
+                    "data": "Top end position",
+                    "shortcut": "TOP",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "switch",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                            "===": [ { "var": "value" }, 112 ]
+                    }
+                },
+                {
+                    "data": "Bottom end position",
+                    "shortcut": "BOT",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "switch",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "===": [ { "var": "value" }, 80 ]
+                    }
+                },
+                {
+                    "data": "Move up",
+                    "shortcut": "UP",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "switch",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "===": [ { "var": "value" }, 1 ]
+                    }
+                },
+                {
+                    "data": "Move down",
+                    "shortcut": "DO",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "switch",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "===": [ { "var": "value" }, 2 ]
+                    }
+                }
+            ]
+        }
+    ]
+}

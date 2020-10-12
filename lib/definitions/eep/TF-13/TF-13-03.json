@@ -1,0 +1,164 @@
+{
+  "eep": "TF-13-03",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x3F",
+  "type_number": "0x7F",
+  "type_title": "Blind actuator",
+  "case": [
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "16",
+            "bitsize": "8",
+            "value": 0
+          }
+        ]
+      },
+      "datafield": [
+        {
+        "data": "Command ID",
+        "shortcut": "CMD",
+        "bitoffs": "16",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "state",
+          "type": "number",
+          "read": true,
+          "write": true,
+          "states": "0:Up; 1:Down;  2:Block local switch; 3:Unblock local switch; 4:Teach-in"
+        },
+          "value": {
+            "var": "value"
+          }
+      },
+        {
+          "data": "Running time",
+          "shortcut": "RT",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "unit": "100ms"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Block local switch",
+          "shortcut": "BS",
+          "bitoffs": "24",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "state",
+            "type": "boolean",
+            "read": true,
+            "write": true,
+            "unit": "100ms"
+          },
+          "value": {
+            "if": [
+              {"===": [{"var": "value"}, true]}, 10,
+              {"===": [{"var": "value"}, false]}, 14
+            ]
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "16",
+            "bitsize": "8",
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Command ID",
+          "shortcut": "CMD",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Up; 1:Down;  2:Block local switch; 3:Unblock local switch; 4:Teach-in"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Running time",
+          "shortcut": "RT",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "unit": "100ms"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Block local switch",
+          "shortcut": "BS",
+          "bitoffs": "24",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "state",
+            "type": "boolean",
+            "read": true,
+            "write": true,
+            "unit": "100ms"
+          },
+          "value": {
+            "if": [
+              {"===": [{"var": "value"}, true]}, 10,
+              {"===": [{"var": "value"}, false]}, 14
+            ]
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": 2
+        }
+      ]
+    }
+  ]
+}

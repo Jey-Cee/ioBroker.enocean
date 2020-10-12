@@ -7,6 +7,7 @@
 	overflow: initial;
 }
 
+
 select {
 	height: auto!important
 }
@@ -171,6 +172,38 @@ select {
 	border-style: solid;
 	border-color: transparent transparent transparent #555;
 }
-
 /* END Tooltip */
+
+/* START Sponsors Tab */
+#sponsors-body {
+	margin-top: 15px!important;
+	padding-bottom: 25px!important;
+	background-color: white!important;
+}
+#sponsors-body > h2 {
+	text-align: center;
+	font-size: 2rem;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: black;
+}
+
+h4 {
+	background-color: rgba(0,0,0,.0)!important;
+}
+
+#sponsors-body > h4 {
+	margin-bottom: 0px!important;
+}
+
+#sponsors-body > p {
+	font-size: 1.2rem;
+	text-align: center;
+}
+
+#sponsors-body > table {
+	margin-bottom: 3rem!important;
+}
+
+/* END Sponsors Tab */
 

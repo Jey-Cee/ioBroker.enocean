@@ -112,7 +112,10 @@
 					let type = request.getResponseHeader('Content-Type');
 					if (type.indexOf("text") !== 1) {
 						console.log(request.responseText);
-						let html = new showdown.Converter().makeHtml(request.responseText);
+						let response = request.responseText;
+						response = response.replace('# Sponsors', '');
+						let html = new showdown.Converter().makeHtml(response);
+						html = html.replace('<a href="https://paypal.me/J3YC33" rel="nofollow">https://paypal.me/J3YC33</a>', '<a href="https://www.paypal.com/paypalme/J3YC33" target="_blank">PayPal</a>');
 						$('#sponsors-body').html(html);
 					}
 				}
@@ -257,7 +260,10 @@
 			$('#addDevice').on('click', () => {
 				fillEEPselect();
 				fillMfrselect();
-				console.log('Open modal');
+
+				$('#select-eep').on('change', () => {
+					M.updateTextFields();
+				})
 			});
 
 			$('#addDeviceSubmit').on('click', () => {
@@ -265,7 +271,9 @@
 				const manufacturer = $('#select-manufacturer').val();
 				const deviceId = $('#device-id').val();
 				const name = $('#device-name').val();
-				sendTo(null, 'newDevice', {eep: eep, mfr: manufacturer, id: deviceId, name: name}, (data) => {
+				const baseIDoffset = $('#baseIDoffset').val();
+				console.log(baseIDoffset);
+				sendTo(null, 'newDevice', {eep: eep, mfr: manufacturer, id: deviceId, name: name, IDoffset: baseIDoffset}, (data) => {
 					if (data.result === 'Ready'){
 						getDevices();
 					}
@@ -474,6 +482,11 @@
 					<div class="input-field col s12">
 						<input id="device-name" class="value" type="text"></input>
 						<label for="device-name" class="translate">Device Name</label>
+					</div>
+					<div class="input-field col s2 tooltip">
+						<input placeholder="1 - 255" id="baseIDoffset" class="value" type="number"></input>
+						<label for="baseIDoffset" class="translate">Base ID offset</label>
+						<span class="tooltiptext tooltip-bottom translate">Tooltip BaseID</span>
 					</div>
 				</div>
 			</div>

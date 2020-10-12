@@ -9,15 +9,19 @@ This list contains devices that are known to work with the EnOcean adapter for i
 | EnOcean | Occupancy Sensor EOSCA-W-EO | A5-07-01 | Yes | RPS |
 | EnOcean | PTM200 | F6-02-02 | Yes | RPS|
 | EnOcean | PTM215 | F6-02-02 | Yes | RPS |
-| Eltako | FFTE | TF-13-02 | No | MSC |
-| Eltako | FSR14-2x | TF-14-01, TF-14-02 | No | MSC |
-| Eltako | FSR14-4x | TF-14-01, TF-14-02 | No | MSC |
-| Eltako | FSR14SSR | TF-14-01, TF-14-02 | No | MSC |
-| Eltako | FSR71 | TF-14-01 | No | MSC |
+| Eltako | FFTE | TF-13-02 | No | none |
+| Eltako | FSB61NP-230V | TF-13-03, TF-13-04 | No | none |
+| Eltako | FSB71 | TF-13-03, TF-13-04 | No | none |
+| Eltako | FJ62/12-36V DC | TF-13-03, TF-13-03 | No | none |
+| Eltako | FJ62NP-230V | TF-13-03, TF-13-04 | No | none |
+| Eltako | FSR14-2x | TF-14-01, TF-14-02 | No | none |
+| Eltako | FSR14-4x | TF-14-01, TF-14-02 | No | none |
+| Eltako | FSR14SSR | TF-14-01, TF-14-02 | No | none |
+| Eltako | FSR71 | TF-14-01 | No | none |
 | Eltako | FT55 | F6-02-02 | Yes | RPS |
 | Eltako | FTA55J | TF-01-01 & F6-02-02 | Yes | MSC |
 | Eltako | FTA65J | TF-01-01 & F6-02-02 | Yes | MSC |
-| Eltako | FTKE | TF-13-02 | No | MSC |
+| Eltako | FTKE | TF-13-02 | No | none |
 | Eltako | FWS61 | TF-13-01 | Yes | MSC |
 | Eltako | TF61J-230V | TF-01-01 & F6-02-02 | Yes | MSC |
 | <a name="N"></a> **N** | 
