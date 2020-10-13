@@ -121,6 +121,10 @@ Example:
 
 ## Changelog
 
+### 0.1.4
+* added base id offset
+* added new devices
+
 ### 0.1.3
 * fix profile F6-10-00
 

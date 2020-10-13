@@ -1,6 +1,7 @@
 # Sponsors
 
 This list contains persons who support this adapter. If you want to support also you can send a donation via https://paypal.me/J3YC33
+Also you can send me hardware, in this case contact me by email: jey-cee@live.com
 
 Thank you to ...
 
@@ -18,4 +19,4 @@ Thank you to ...
 #### PayPal
 | | | |
 |---|---|---|
-| Helmut F. | Magnus S. | |
+| Helmut F. | Magnus S. | [Z4F] Bubu|
