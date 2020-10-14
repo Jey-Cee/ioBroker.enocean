@@ -1,0 +1,132 @@
+{
+    "eep": "X1-01-01",
+    "rorg_number": "0xF6",
+    "telegram": "RPS",
+    "func_number": "0x02",
+    "type_number": "0x02",
+    "type_title": "Switch",
+    "case": [
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 0
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Command ID",
+                    "shortcut": "CMD",
+                    "bitoffs": "0",
+                    "bitsize": "3",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": false,
+                        "write": true,
+                        "states": "0:Button AI; 1:Button A0; 2:Button BI; 3:Button B0; 4:Release"
+                    },
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "bitoffs": "3",
+                    "bitsize": "1",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 1
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "bitoffs": "0",
+                    "bitsize": "3",
+                    "value": 1
+                },
+                {
+                    "data": "fixed parameter",
+                    "bitoffs": "3",
+                    "bitsize": "1",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 2
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "bitoffs": "0",
+                    "bitsize": "3",
+                    "value": 2
+                },
+                {
+                    "data": "fixed parameter",
+                    "bitoffs": "3",
+                    "bitsize": "1",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 3
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "bitoffs": "0",
+                    "bitsize": "3",
+                    "value": 3
+                },
+                {
+                    "data": "fixed parameter",
+                    "bitoffs": "3",
+                    "bitsize": "1",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 4
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "bitoffs": "3",
+                    "bitsize": "1",
+                    "value": 0
+                }
+            ]
+        }
+    ]
+}

@@ -121,6 +121,9 @@ Example:
 
 ## Changelog
 
+### 0.1.5
+* added virtual switch
+
 ### 0.1.4
 * added base id offset
 * added new devices

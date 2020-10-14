@@ -258,6 +258,9 @@ class Enocean extends utils.Adapter {
 								type = [0xA5];
 								data = type.concat(data, baseID, 0x00);
 								break;
+							case '0xF6':
+								type = [0xF6];
+								data = type.concat(data, baseID, 0x30);
 						}
 						await this.sendData(data, optionalData, 0x01);
 
