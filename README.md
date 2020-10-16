@@ -19,7 +19,7 @@ Connects EnOcean devices via USB/Serial devices with TCM300 Chips
 
 <a href="https://discord.gg/4EBGwBE"><img src="https://discordapp.com/api/guilds/743167951875604501/widget.png?style=banner2" width="25%"></a>
 
-## [Sponsors](./SPONSORS.MD)
+## [Sponsors](./SPONSORS.md)
 If you like my work, please feel free to provide a personal donation  
 (this is an personal Donate link for Jey Cee, no relation to the ioBroker Project !)  
 [![Donate](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
@@ -128,6 +128,7 @@ Example:
 ### 0.1.5
 * added virtual switch
 * rewrite A5-20-01
+* fix profile A5-02-13
 
 ### 0.1.4
 * added base id offset

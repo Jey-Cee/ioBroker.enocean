@@ -1,8 +1,11 @@
 {
     "common": {
         "name": "enocean",
-        "version": "0.1.4",
+        "version": "0.1.5",
         "news": {
+            "0.1.5": {
+                "en": "added virtual switch\nrewrite A5-20-01\nfix profile A5-02-13"
+            },
             "0.1.4": {
                 "en": "added base id offset\nadded new devices"
             },
