@@ -10,20 +10,8 @@
             "send": false,
             "datafield": [
                 {
-                    "data": "Command ID",
-                    "shortcut": "CMD",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": false,
-                        "write": true,
-                        "states": "800:Run init sequence;801:Lift set;802:Valve open (Service mode only);803:Valve closed (Service mode only);804:Summer mode;805:Normal mode;806:Service mode;807:Setpoint valve position;808:Setpoint temperature;999:Transmit"
-                    },
-                    "value": 0
-                },
-                {
                     "data": "Current Value 0...100%",
-                    "shortcut": "CV",
+                    "shortcut": "in.CV",
                     "bitoffs": "0",
                     "bitsize": "8",
                     "iobroker": {
@@ -39,7 +27,7 @@
                 },
                 {
                     "data": "Service On",
-                    "shortcut": "SC",
+                    "shortcut": "in.SC",
                     "bitoffs": "8",
                     "bitsize": "1",
                     "iobroker": {
@@ -59,7 +47,7 @@
                 },
                 {
                     "data": "Energy input enabled",
-                    "shortcut": "ENIE",
+                    "shortcut": "in.ENIE",
                     "bitoffs": "9",
                     "bitsize": "1",
                     "iobroker": {
@@ -79,7 +67,7 @@
                 },
                 {
                     "data": "Energy Storage",
-                    "shortcut": "ES",
+                    "shortcut": "in.ES",
                     "bitoffs": "10",
                     "bitsize": "1",
                     "iobroker": {
@@ -99,7 +87,7 @@
                 },
                 {
                     "data": "Battery capacity low",
-                    "shortcut": "BCAP",
+                    "shortcut": "in.BCAP",
                     "bitoffs": "11",
                     "bitsize": "1",
                     "iobroker": {
@@ -119,7 +107,7 @@
                 },
                 {
                     "data": "Contact, cover open",
-                    "shortcut": "CCO",
+                    "shortcut": "in.CCO",
                     "bitoffs": "12",
                     "bitsize": "1",
                     "iobroker": {
@@ -139,7 +127,7 @@
                 },
                 {
                     "data": "Failure temperature sensor, out off range",
-                    "shortcut": "FTS",
+                    "shortcut": "in.FTS",
                     "bitoffs": "13",
                     "bitsize": "1",
                     "iobroker": {
@@ -154,7 +142,7 @@
                 },
                 {
                     "data": "Detection, window open",
-                    "shortcut": "DWO",
+                    "shortcut": "in.DWO",
                     "bitoffs": "14",
                     "bitsize": "1",
                     "iobroker": {
@@ -174,7 +162,7 @@
                 },
                 {
                     "data": "Actuator obstructed",
-                    "shortcut": "ACO",
+                    "shortcut": "in.ACO",
                     "bitoffs": "9",
                     "bitsize": "1",
                     "iobroker": {
@@ -189,7 +177,7 @@
                 },
                 {
                     "data": "Temperature 0...40°C",
-                    "shortcut": "TMP",
+                    "shortcut": "in.TMP",
                     "bitoffs": "16",
                     "bitsize": "8",
                     "iobroker": {
@@ -217,231 +205,211 @@
             },
             "datafield": [
                 {
-                    "shortcut": "RIN",
+                    "data": "Command",
+                    "shortcut": "CMD",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": false,
+                        "state": "800:Send command"
+                    },
+                    "value": {
+                        "var": "value"
+                    }
+                },
+                {
+                    "data": "Valve position (0...100) or temperature setpoint (0...255)",
+                    "shortcut": "SP",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "level",
+                        "type": "number",
+                        "read": false,
+                        "write": true
+                    },
+                    "value": {
+                        "var": "value"
+                    }
+                },
+                {
+                    "data": "Send actual room temperature",
+                    "shortcut": "TMP",
+                    "bitoffs": "16",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "value.temperature",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "unit": "°C"
+                    },
+                    "value": {
+                        "*": [ { "+": [ { "-": [ { "var": "value" }, -255 ] }, 0 ] }, 0.1569 ]
+                    },
+                    "decimals": 2
+                },
+                {
+                    "data": "Run init sequence",
+                    "shortcut": "SC",
                     "bitoffs": "16",
                     "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "shortcut": "LEARNBIT",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 801
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [
+                            {
+                                "var": "value"
+                            },
+                            1
+                        ]
                     }
-                ]
-            },
-            "datafield": [
-                {
-                    "bitoffs": "0",
-                    "bitsize": "16",
-                    "value": 0
                 },
                 {
+                    "data": "Lift set",
                     "shortcut": "LFS",
                     "bitoffs": "17",
                     "bitsize": "1",
-                    "value": 1
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [
+                            {
+                                "var": "value"
+                            },
+                            1
+                        ]
+                    }
                 },
                 {
-                    "shortcut": "LEARNBIT",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 802
-                    }
-                ]
-            },
-            "datafield": [
-                {
+                    "data": "Valve open (Service mode only)",
                     "shortcut": "VO",
                     "bitoffs": "18",
                     "bitsize": "1",
-                    "value": 1
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [
+                            {
+                                "var": "value"
+                            },
+                            1
+                        ]
+                    }
                 },
                 {
-                    "shortcut": "LEARNBIT",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 803
-                    }
-                ]
-            },
-            "datafield": [
-                {
+                    "data": "Valve closed (Service mode only)",
                     "shortcut": "VC",
                     "bitoffs": "19",
                     "bitsize": "1",
-                    "value": 1
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [
+                            {
+                                "var": "value"
+                            },
+                            1
+                        ]
+                    }
                 },
                 {
-                    "shortcut": "LEARNBIT",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 804
-                    }
-                ]
-            },
-            "datafield": [
-                {
+                    "data": "Summer mode",
                     "shortcut": "SB",
                     "bitoffs": "20",
                     "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "shortcut": "LEARNBIT",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 805
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "shortcut": "RCU",
-                    "bitoffs": "23",
-                    "bitsize": "1",
-                    "value": 0
-                },
-                {
-                    "shortcut": "LEARNBIT",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 806
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "shortcut": "RCU",
-                    "bitoffs": "23",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "shortcut": "LEARNBIT",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 807
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Valve position (0...100) or temperature setpoint (0...255)",
-                    "shortcut": "SP",
-                    "bitoffs": "0",
-                    "bitsize": "8",
                     "iobroker": {
-                        "role": "level",
-                        "type": "number",
-                        "read": false,
-                        "write": true
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
                     },
                     "value": {
-                        "var": "value"
+                        "==": [
+                            {
+                                "var": "value"
+                            },
+                            1
+                        ]
                     }
                 },
                 {
-                    "shortcut": "LEARNBIT",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
-            ]
-        },
-        {
-            "send":  true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 999
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Valve position (0...100) or temperature setpoint (0...255)",
-                    "shortcut": "SP",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "iobroker": {
-                        "role": "level",
-                        "type": "number",
-                        "read": false,
-                        "write": true
-                    },
-                    "value": {
-                        "var": "value"
-                    }
-                },
-                {
+                    "data": "Set point selection",
                     "shortcut": "SPS",
                     "bitoffs": "21",
                     "bitsize": "1",
-                    "value": 1
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false,
+                        "state": "0:Valve Position (0-100%), 1:Temperature (0...40°C)"
+                    },
+                    "value": {
+                        "==": [
+                            {
+                                "var": "value"
+                            },
+                            1
+                        ]
+                    }
+                },
+                {
+                    "data": "Set point inverse (Valve only)",
+                    "shortcut": "SPN",
+                    "bitoffs": "22",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [
+                            {
+                                "var": "value"
+                            },
+                            1
+                        ]
+                    }
+                },
+                {
+                    "data": "Service mode",
+                    "shortcut": "RCU",
+                    "bitoffs": "23",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [
+                            {
+                                "var": "value"
+                            },
+                            1
+                        ]
+                    }
                 },
                 {
                     "shortcut": "LEARNBIT",
