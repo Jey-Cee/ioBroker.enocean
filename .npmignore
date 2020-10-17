@@ -7,6 +7,9 @@ nbproject/
 *.code-workspace
 Thumbs.db
 gulpfile.js
+SPONSORS.md
+SUPPORTED_DEVICES.md
+SUPPORTED_PROFILES.md
 
 # CI test files
 test/

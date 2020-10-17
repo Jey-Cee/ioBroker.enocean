@@ -191,6 +191,21 @@
                         "*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 0.1569 ]
                     },
                     "decimals": 2
+                },
+                {
+                    "data": "Actuator self-controlled",
+                    "shortcut": "in.ASC",
+                    "bitoffs": "29",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [ { "var": "value" }, 1 ]
+                    }
                 }
             ]
         },
@@ -199,7 +214,7 @@
             "condition": {
                 "command": [
                     {
-                        "value": 800
+                        "value": 0
                     }
                 ]
             },
@@ -212,7 +227,7 @@
                         "type": "number",
                         "read": true,
                         "write": false,
-                        "state": "800:Send command"
+                        "states": "0:Set Valve position; 1:Set Temperature; 2:Summer mode; 3:Open valve; 4:Close valve"
                     },
                     "value": {
                         "var": "value"
@@ -234,142 +249,11 @@
                     }
                 },
                 {
-                    "data": "Send actual room temperature",
-                    "shortcut": "TMP",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "iobroker": {
-                        "role": "value.temperature",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "unit": "°C"
-                    },
-                    "value": {
-                        "*": [ { "+": [ { "-": [ { "var": "value" }, -255 ] }, 0 ] }, 0.1569 ]
-                    },
-                    "decimals": 2
-                },
-                {
-                    "data": "Run init sequence",
-                    "shortcut": "SC",
-                    "bitoffs": "16",
-                    "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "==": [
-                            {
-                                "var": "value"
-                            },
-                            1
-                        ]
-                    }
-                },
-                {
-                    "data": "Lift set",
-                    "shortcut": "LFS",
-                    "bitoffs": "17",
-                    "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "==": [
-                            {
-                                "var": "value"
-                            },
-                            1
-                        ]
-                    }
-                },
-                {
-                    "data": "Valve open (Service mode only)",
-                    "shortcut": "VO",
-                    "bitoffs": "18",
-                    "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "==": [
-                            {
-                                "var": "value"
-                            },
-                            1
-                        ]
-                    }
-                },
-                {
-                    "data": "Valve closed (Service mode only)",
-                    "shortcut": "VC",
-                    "bitoffs": "19",
-                    "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "==": [
-                            {
-                                "var": "value"
-                            },
-                            1
-                        ]
-                    }
-                },
-                {
-                    "data": "Summer mode",
-                    "shortcut": "SB",
-                    "bitoffs": "20",
-                    "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "==": [
-                            {
-                                "var": "value"
-                            },
-                            1
-                        ]
-                    }
-                },
-                {
-                    "data": "Set point selection",
-                    "shortcut": "SPS",
+                    "data": "fixed parameter",
+                    "description": "Setpoint selection",
                     "bitoffs": "21",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false,
-                        "state": "0:Valve Position (0-100%), 1:Temperature (0...40°C)"
-                    },
-                    "value": {
-                        "==": [
-                            {
-                                "var": "value"
-                            },
-                            1
-                        ]
-                    }
+                    "value": 0
                 },
                 {
                     "data": "Set point inverse (Valve only)",
@@ -392,27 +276,199 @@
                     }
                 },
                 {
-                    "data": "Service mode",
-                    "shortcut": "RCU",
-                    "bitoffs": "23",
+                    "shortcut": "LEARNBIT",
+                    "bitoffs": "28",
                     "bitsize": "1",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 1
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Valve position (0...100) or temperature setpoint (0...255)",
+                    "shortcut": "SP",
+                    "bitoffs": "0",
+                    "bitsize": "8",
                     "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
+                        "role": "level",
+                        "type": "number",
+                        "read": false,
+                        "write": true
                     },
                     "value": {
-                        "==": [
-                            {
-                                "var": "value"
-                            },
-                            1
-                        ]
+                        "var": "value"
                     }
                 },
                 {
-                    "shortcut": "LEARNBIT",
+                    "data": "Send actual room temperature",
+                    "shortcut": "TMP",
+                    "bitoffs": "8",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "value.temperature",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "unit": "°C"
+                    },
+                    "value": {
+                        "*": [ { "+": [ { "-": [ { "var": "value" }, -255 ] }, 0 ] }, 0.1569 ]
+                    },
+                    "decimals": 2
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Setpoint selection",
+                    "bitoffs": "21",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Learn Bit",
+                    "bitoffs": "28",
+                    "bitsize": "1",
+                    "value": 1
+                }
+                ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 2
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "description": "dummy byte",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "dummy byte",
+                    "bitoffs": "8",
+                    "bitsize": "8",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Summer Bit",
+                    "bitoffs": "20",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Learn Bit",
+                    "bitoffs": "28",
+                    "bitsize": "1",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 3
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "description": "dummy byte",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "dummy byte",
+                    "bitoffs": "8",
+                    "bitsize": "8",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Valve open",
+                    "bitoffs": "18",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Service mode ON",
+                    "bitoffs": "23",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Learn Bit",
+                    "bitoffs": "28",
+                    "bitsize": "1",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 3
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "description": "dummy byte",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "dummy byte",
+                    "bitoffs": "8",
+                    "bitsize": "8",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Valve closed",
+                    "bitoffs": "19",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Service mode ON",
+                    "bitoffs": "23",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Learn Bit",
                     "bitoffs": "28",
                     "bitsize": "1",
                     "value": 1

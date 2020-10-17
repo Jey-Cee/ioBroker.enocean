@@ -1,6 +1,6 @@
 This list contains devices that are known to work with the EnOcean adapter for ioBorker.
 
-[E](#E) [N](#N) [P](#P) [T](#T) [V](#V)
+[E](#E) [K](#K) [N](#N) [P](#P) [T](#T) [V](#V)
 
 | Manufacturer | Device Name | EEP | Auto detection | Teach-in method |
 |---|---|---|---|---|
@@ -24,6 +24,9 @@ This list contains devices that are known to work with the EnOcean adapter for i
 | Eltako | FTKE | TF-13-02 | No | none |
 | Eltako | FWS61 | TF-13-01 | Yes | MSC |
 | Eltako | TF61J-230V | TF-01-01 & F6-02-02 | Yes | MSC |
+| <a name="K"></a> **K** | 
+| Kieback und Peter | MD15-FTL-HE | A5-20-01 | Yes | UTE |
+| Kieback und Peter | MD15-FTL-OV | A5-20-01 | Yes | UTE |
 | <a name="N"></a> **N** | 
 | Nodon | Floor Switch | F6-02-02 | Yes | RPS |
 | Nodon | Micro Smart Plug (MSP-2-1-11) | D2-01-0E | Yes | UTE |
@@ -34,6 +37,7 @@ This list contains devices that are known to work with the EnOcean adapter for i
 | PEHA | Easyclick sender | F6-02-02 | Yes | RPS |
 | <a name="T"></a> **T**|
 | Telefunken | Motion detector BM1 | A5-08-02 | No | none |
+| Thermokon | SAB05 | A5-20-01 | Yes | UTE |
 | <a name="V"></a> **V**|
 | Viessmann | Raumthermostat 7554508501032100 | A5-10-20 | Yes | 4BS |
 

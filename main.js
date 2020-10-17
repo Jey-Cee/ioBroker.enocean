@@ -9,7 +9,6 @@ const path = require('path');
 // structured representation for ESP3 packets
 const ESP3Packet = require('./lib/tools/ESP3Packet').ESP3Packet;
 const ResponseTelegram = require('./lib/tools/ESP3Packet').ResponseTelegram;
-
 const SERIALPORT_PARSER_CLASS = require('./lib/tools/Serialport_parser');
 const CRC8 = require('./lib/tools/CRC8.js');
 const ByteArray = require('./lib/tools/byte_array');
@@ -20,7 +19,6 @@ const ManualTeachIn = require('./lib/tools/Packet_handler').manualTeachIn;
 
 const Enocean_manufacturer = require('./lib/definitions/manufacturer_list.json');
 const Codes = require('./lib/definitions/codes.json');
-
 const EEPList = require('./lib/definitions/EEPinclude');
 
 
