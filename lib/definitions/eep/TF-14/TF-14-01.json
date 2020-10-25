@@ -8,15 +8,6 @@
   "case": [
     {
       "send": false,
-      "condition": {
-        "command": [
-          {
-            "bitoffs": "0",
-            "bitsize": "8",
-            "value": 254
-          }
-        ]
-      },
       "datafield": [
         {
           "data": "Command ID",
