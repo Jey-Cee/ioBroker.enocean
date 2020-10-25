@@ -192,7 +192,7 @@ class Enocean extends utils.Adapter {
 
 									//TODO: change handling for command, actual definition for command must be in a case where send is true.
 								}
-							} else if (!eepProfile.case[c].condition && eepProfile.case[c].send === true) {
+							} else if (!eepProfile.case[c].condition && eepProfile.case[c].send === true ) {
 								for (let d in eepProfile.case[c].datafield) {
 									const datafield = eepProfile.case[c].datafield[d];
 									if (datafield.data === 'fixed parameter') {

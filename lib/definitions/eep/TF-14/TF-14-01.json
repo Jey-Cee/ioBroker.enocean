@@ -22,6 +22,20 @@
             "states": "0:Off; 1: On; 2:Teach-in"
           },
           "value": 1
+        },
+        {
+          "data": "Block channel state",
+          "shortcut": "BS",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Not Blocked; 1:Blocked",
+            "def": 0
+          }
         }
       ]
     },
@@ -30,8 +44,6 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "0",
-            "bitsize": "8",
             "value": 0
           }
         ]
@@ -49,14 +61,6 @@
           "shortcut": "BS",
           "bitoffs": "29",
           "bitsize": "1",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "0:Not Blocked; 1:Blocked",
-            "def": 0
-          },
           "value": {
             "var": "value"
           }
@@ -82,8 +86,6 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "0",
-            "bitsize": "8",
             "value": 1
           }
         ]
@@ -98,6 +100,7 @@
         },
         {
           "data": "Block channel state",
+          "shortcut": "BS",
           "bitoffs": "29",
           "bitsize": "1",
           "value": {
@@ -125,8 +128,6 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "0",
-            "bitsize": "8",
             "value": 2
           }
         ]
