@@ -7,33 +7,52 @@
   "type_title": "Actuator channel",
   "case": [
     {
+      "send": false,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "0",
+            "bitsize": "8",
+            "value": 254
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Command ID",
+          "shortcut": "CMD",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Off; 1: On; 2:Teach-in"
+          },
+          "value": 1
+        }
+      ]
+    },
+    {
       "send": true,
       "condition": {
         "command": [
           {
             "bitoffs": "0",
             "bitsize": "8",
-            "value": 1
+            "value": 0
           }
         ]
       },
       "datafield": [
         {
-        "data": "Command ID",
-        "shortcut": "CMD",
-        "bitoffs": "0",
-        "bitsize": "8",
-        "iobroker": {
-          "role": "state",
-          "type": "number",
-          "read": true,
-          "write": true,
-          "states": "0:Teach-in; 1:Set channel;"
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 1
         },
-          "value": {
-            "var": "value"
-          }
-      },
         {
           "data": "Block channel state",
           "shortcut": "BS",
@@ -44,23 +63,8 @@
             "type": "number",
             "read": true,
             "write": true,
-            "states": "0:Not Blocked; 1:Blocked"
-          },
-          "value": {
-            "var": "value"
-          }
-        },
-        {
-          "data": "Channel state",
-          "shortcut": "CS",
-          "bitoffs": "31",
-          "bitsize": "1",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "0:Off; 1:On"
+            "states": "0:Not Blocked; 1:Blocked",
+            "def": 0
           },
           "value": {
             "var": "value"
@@ -68,6 +72,14 @@
         },
         {
           "data": "fixed parameter",
+          "description": "Channel state",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Learn bit",
           "bitoffs": "28",
           "bitsize": "1",
           "value": 1
@@ -81,7 +93,50 @@
           {
             "bitoffs": "0",
             "bitsize": "8",
-            "value": 0
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 1
+        },
+        {
+          "data": "Block channel state",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Channel state",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Learn bit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "0",
+            "bitsize": "8",
+            "value": 2
           }
         ]
       },

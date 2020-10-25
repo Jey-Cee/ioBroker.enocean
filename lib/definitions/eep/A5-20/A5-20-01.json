@@ -226,7 +226,7 @@
                         "role": "state",
                         "type": "number",
                         "read": true,
-                        "write": false,
+                        "write": true,
                         "states": "0:Set Valve position; 1:Set Temperature; 2:Summer mode; 3:Open valve; 4:Close valve"
                     },
                     "value": {
@@ -264,7 +264,7 @@
                         "role": "state",
                         "type": "boolean",
                         "read": true,
-                        "write": false
+                        "write": true
                     },
                     "value": {
                         "==": [
@@ -339,7 +339,7 @@
                     "bitsize": "1",
                     "value": 1
                 }
-                ]
+            ]
         },
         {
             "send": true,
@@ -433,7 +433,7 @@
             "condition": {
                 "command": [
                     {
-                        "value": 3
+                        "value": 4
                     }
                 ]
             },

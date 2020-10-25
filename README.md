@@ -33,12 +33,18 @@ Special:
 
 
 ## Teach-in
+- Second EEP: Some devices use a second EEP, to add these create 
+- Devices without possibility to teach-in to an other device (like Eltako Series 12 also known as Opus Green Net). 
+They can be controlled with an virtual switch (F6-02-02): Open configuration and click add new device. 
+Now choose EEP X1-01-01 and manufacturer ENOCEAN GMBH, as ID fffffff0. Count up the last sign, 1-9 and a-f, for each new virtual switch.
+Click add device and close configuration. Then start teach-in on your device according to the manual, send command from virtual switch.
+Now you should be able to control the device.
 - Eltako series 14 (RS485):  Devices must already installed and setup. 
 Then go to adapter config and add a new device with the ID of base plus device bus id (base ID ffe12340 + bus id 1 = ffe12341).
 Then set the device in to learn mode (LRN) and set the channel number that is related to the bus id. 
 Now go to the device objects and choose Teach-in at CMD. 
 Repeat these steps for all channels.
-- Second EEP: Some devices use a second EEP, to add these create 
+
 
 ## Teach-out (delete adapter binding from the device)
 - Eltako Tipp-Funk: Send 3 times teach-in command during 2 seconds from ioBroker to device
