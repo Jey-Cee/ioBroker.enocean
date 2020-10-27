@@ -1,0 +1,29 @@
+{
+    "eep": "TF-13-05",
+    "rorg_number": "0xF6",
+    "telegram": "RPS",
+    "func_number": "0x00",
+    "type_number": "0x00",
+    "type_title": "Dimmer status",
+    "case": [
+        {
+            "datafield": [
+                {
+                    "data": "On",
+                    "shortcut": "ON",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                            "===": [ { "var": "value" }, 112 ]
+                    }
+                }
+            ]
+        }
+    ]
+}

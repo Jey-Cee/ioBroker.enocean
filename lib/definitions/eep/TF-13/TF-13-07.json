@@ -1,0 +1,91 @@
+{
+    "eep": "TF-13-07",
+    "rorg_number": "0xA5",
+    "telegram": "4BS",
+    "func_number": "0x00",
+    "type_number": "0x00",
+    "type_title": "Dimmer control",
+    "case": [
+        {
+            "send": false,
+            "datafield": [
+                {
+                    "data": "Command",
+                    "shortcut": "CMD",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": false,
+                        "states": "0:Off; 1:On; 3:Set level"
+                    }
+                },
+                {
+                    "data": "Level",
+                    "shortcut": "LVL",
+                    "iobroker": {
+                        "role": "level.dimmer",
+                        "type": "number",
+                        "read": true,
+                        "write": false,
+                        "unit": "%"
+                    }
+                },
+                {
+                    "data": "Dimming speed",
+                    "shortcut": "DS",
+                    "iobroker": {
+                        "role": "level",
+                        "type": "number",
+                        "read": true,
+                        "write": false,
+                        "states": "0:Use hardware setting"
+                    }
+                },
+                {
+                    "data": "Block level",
+                    "shortcut": "BL",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    }
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 0
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "description": "dummy",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 2
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Off",
+                    "bitoffs": "31",
+                    "bitsize": "8",
+                    "value": 1
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Learn Bit",
+                    "bitoffs": "28",
+                    "bitsize": "8",
+                    "value": 1
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "eep": "TF-14-03",
+    "rorg_number": "0xF6",
+    "telegram": "RPS",
+    "func_number": "0x00",
+    "type_number": "0x00",
+    "type_title": "Actuator 4-channel",
+    "case": [
+        {
+            "datafield": [
+                {
+                    "data": "Command",
+                    "shortcut": "CMD",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "if": [
+                            {"===": [{"var": "value"}, "Normal mode"]}, 112,
+                            {"===": [{"var": "value"}, "Night reduction"]}, 80,
+                            {"===": [{"var": "value"}, "Reduced operation"]}, 48,
+                            {"===": [{"var": "value"}, "Aus"]}, 16
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

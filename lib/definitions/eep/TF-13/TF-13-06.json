@@ -1,0 +1,44 @@
+{
+    "eep": "TF-13-06",
+    "rorg_number": "0xA5",
+    "telegram": "4BS",
+    "func_number": "0x00",
+    "type_number": "0x00",
+    "type_title": "Dimmer status",
+    "case": [
+        {
+            "datafield": [
+                {
+                    "data": "Level",
+                    "shortcut": "LVL",
+                    "bitoffs": "8",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "value.level",
+                        "type": "number",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                            "var": "value"
+                    }
+                },
+                {
+                    "data": "On",
+                    "shortcut": "ON",
+                    "bitoffs": "24",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "===": [ { "var": "value" }, 9 ]
+                    }
+                }
+            ]
+        }
+    ]
+}
