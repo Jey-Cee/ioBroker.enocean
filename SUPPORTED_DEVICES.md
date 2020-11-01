@@ -17,6 +17,7 @@ This list contains devices that are known to work with the EnOcean adapter for i
 | Eltako | FSB71 | TF-13-03, TF-13-04 | No | none |
 | Eltako | FJ62/12-36V DC | TF-13-03, TF-13-03 | No | none |
 | Eltako | FJ62NP-230V | TF-13-03, TF-13-04 | No | none |
+| Eltako | FRW | TF-13-09 | No | none |
 | Eltako | FSG14/1-10V | TF-13-05/06 | No | none |
 | Eltako | FSR14-2x | TF-14-01, TF-14-02 | No | none |
 | Eltako | FSR14-4x | TF-14-01, TF-14-02 | No | none |

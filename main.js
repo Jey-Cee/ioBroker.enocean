@@ -282,7 +282,7 @@ class Enocean extends utils.Adapter {
 			}
 		} else if (!state) {
 			// The state was deleted
-			if (objName === 'gatway.teachin'){
+			if (objName === 'gateway.teachin'){
 				this.log.info('Teachin mode de-activated');
 				await this.setStateAsync(id, {val: false, ack: true});
 			}

@@ -1,0 +1,46 @@
+{
+    "eep": "TF-13-09",
+    "rorg_number": "0xF6",
+    "telegram": "RPS",
+    "func_number": "0x00",
+    "type_number": "0x00",
+    "type_title": "FRW",
+    "case": [
+        {
+            "datafield": [
+                {
+                    "data": "Alarm",
+                    "shortcut": "AL",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false,
+                        "def": false
+                    },
+                    "value": {
+                        "==": [{"var": "value"}, 16]
+                    }
+                },
+                {
+                    "data": "Battery Low",
+                    "shortcut": "BL",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false,
+                        "def": false
+                    },
+                    "value": {
+                        "==": [{"var": "value"}, 30]
+                    }
+                }
+            ]
+        }
+    ]
+}
