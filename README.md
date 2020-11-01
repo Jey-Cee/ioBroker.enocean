@@ -133,6 +133,10 @@ Example:
 
 ## Changelog
 
+### 0.1.8
+added devices Eltako FUD61NPN-230V, FRW, TF61L-230V, FTKB
+fix teachin: was not set to false
+
 ### 0.1.7
 * added profiles for Eltako F4HK14, FSB14, FUD14
 * fix tf-14-01
