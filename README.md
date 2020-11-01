@@ -44,6 +44,8 @@ Then go to adapter config and add a new device with the ID of base plus device b
 Then set the device in to learn mode (LRN) and set the channel number that is related to the bus id. 
 Now go to the device objects and choose Teach-in at CMD. 
 Repeat these steps for all channels.
+- Eltako Tipp Funk: First create the device manual with the first EEP (see supported devices) and then with second EEP.
+After you have created the device manual you have to click on Autodetect and bring your deviece in teachin mode.
 
 
 ## Teach-out (delete adapter binding from the device)
@@ -130,6 +132,11 @@ Example:
 ```
 
 ## Changelog
+
+### 0.1.7
+* added profiles for Eltako F4HK14, FSB14, FUD14
+* fix tf-14-01
+
 
 ### 0.1.5
 * added virtual switch

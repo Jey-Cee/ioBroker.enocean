@@ -120,11 +120,10 @@ class Enocean extends utils.Adapter {
 				case 'gateway.teachin':
 
 					if(!state){
-						this.log.info('Teachin mode de-activated');
-						this.setState(id, {val: false, ack: true});
+
 					} else if(state.val === true && state.ack === false) {
 						this.log.info('Teachin mode active');
-						this.setState(id, {ack: true, expire: 60});
+						await this.setStateAsync(id, {ack: true, expire: 60});
 					}
 					break;
 				case 'gateway.repeater.level': {
@@ -283,6 +282,10 @@ class Enocean extends utils.Adapter {
 			}
 		} else if (!state) {
 			// The state was deleted
+			if (objName === 'gatway.teachin'){
+				this.log.info('Teachin mode de-activated');
+				await this.setStateAsync(id, {val: false, ack: true});
+			}
 			this.log.info(`state ${id} deleted`);
 		}
 	}
@@ -318,7 +321,7 @@ class Enocean extends utils.Adapter {
 				respond(EEPList, this);
 				break;
 			case 'autodetect':
-				this.setState('gateway.teachin', true);
+				this.setState('gateway.teachin', {val: true, expire: 60});
 				break;
 			case 'newDevice':
 				await new ManualTeachIn(this, obj.message.eep, obj.message.mfr, obj.message.id, obj.message.name, obj.message.IDoffset);

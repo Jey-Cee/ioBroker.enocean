@@ -17,7 +17,7 @@
                         "type": "number",
                         "read": true,
                         "write": false,
-                        "states": "0:Off; 1:On; 3:Set level"
+                        "states": "0:Off; 1:On; 3:Set level; 4:Teach-in"
                     }
                 },
                 {
