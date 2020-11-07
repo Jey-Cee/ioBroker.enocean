@@ -240,6 +240,7 @@ class Enocean extends utils.Adapter {
 
 						if (obj.native.baseIDoffset) {
 							const offset = obj.native.baseIDoffset;
+
 							baseID.setValue(parseInt(offset), 24, 8);
 						}
 
