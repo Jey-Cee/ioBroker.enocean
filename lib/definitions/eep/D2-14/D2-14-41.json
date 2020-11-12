@@ -1,0 +1,165 @@
+{
+  "eep": "D2-14-41",
+  "rorg_number": "0xD2",
+  "telegram": "VLD",
+  "func_number": "0x14",
+  "type_number": "0x41",
+  "type_title": "Indoor -Temperature, Humidity XYZ Acceleration, Illumination Sensor, Window Contact",
+  "case": [
+    {
+      "send": false,
+      "datafield": [
+        {
+        "data": "Temperature",
+        "shortcut": "TMP",
+        "bitoffs": "0",
+        "bitsize": "10",
+        "iobroker": {
+          "role": "value.temperature",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "unit": "°C",
+          "states": "1021:Out of range negative;1022:Out of range positive;1023:Error;"
+        },
+          "value": {
+            "if": [
+              {"<": [ {"var":"value"}, 1000] },  {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.1 ] }, -40] },
+              {">": [ {"var":"value"}, 1001] }, {"var":"value"}
+            ]
+          },
+          "decimals": 2
+      },
+        {
+          "data": "Relative humidity",
+          "shortcut": "HM",
+          "bitoffs": "10",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "value.humidity",
+            "type": "number",
+            "read": true,
+            "write": false,
+            "unit": "%",
+            "states": "254:Supported + Invalid; 255:Not Supported"
+          },
+          "value": {
+            "if": [
+              {"<": [ {"var":"value"}, 200] },  {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.5 ] }, 0] },
+              {">": [ {"var":"value"}, 254] }, {"var":"value"}
+            ]
+          },
+          "decimals": 2
+        },
+        {
+          "data": "Illumination 0...100.000lx",
+          "shortcut": "ILL",
+          "bitoffs": "18",
+          "bitsize": "17",
+          "iobroker": {
+            "role": "value.brightness",
+            "type": "number",
+            "read": true,
+            "write": false,
+            "unit": "lx",
+            "states": "131071: Error"
+          },
+          "value": {
+            "var":"value"
+          }
+        },
+        {
+          "data": "Acceleration sensor status",
+          "shortcut": "ASS",
+          "bitoffs": "35",
+          "bitsize": "2",
+          "iobroker": {
+            "role": "indicator",
+            "type": "number",
+            "read": true,
+            "write": false,
+            "states": "0:Periodic update; 1:Threshold 1 exceeded; 2:Threshold 2 exceeded"
+          },
+          "value": {
+            "var":"value"
+          }
+        },
+        {
+          "data": "Acceleration X",
+          "shortcut": "X",
+          "bitoffs": "37",
+          "bitsize": "10",
+          "iobroker": {
+            "role": "value",
+            "type": "number",
+            "read": true,
+            "write": false,
+            "states": "1021:Out of range negative;1022:Out of range positive;1023:Error;"
+          },
+          "value": {
+            "if": [
+              {"<": [ {"var":"value"}, 1000] },  {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.005 ] }, -2.5] },
+              {">": [ {"var":"value"}, 1001] }, {"var":"value"}
+            ]
+          },
+          "decimals": 2
+        },
+        {
+          "data": "Acceleration Y",
+          "shortcut": "Y",
+          "bitoffs": "47",
+          "bitsize": "10",
+          "iobroker": {
+            "role": "value",
+            "type": "number",
+            "read": true,
+            "write": false,
+            "states": "1021:Out of range negative;1022:Out of range positive;1023:Error;"
+          },
+          "value": {
+            "if": [
+              {"<": [ {"var":"value"}, 1000] },  {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.005 ] }, -2.5] },
+              {">": [ {"var":"value"}, 1001] }, {"var":"value"}
+            ]
+          },
+          "decimals": 2
+        },
+        {
+          "data": "Acceleration Z",
+          "shortcut": "Z",
+          "bitoffs": "37",
+          "bitsize": "10",
+          "iobroker": {
+            "role": "value",
+            "type": "number",
+            "read": true,
+            "write": false,
+            "states": "1021:Out of range negative;1022:Out of range positive;1023:Error;"
+          },
+          "value": {
+            "if": [
+              {"<": [ {"var":"value"}, 1000] },  {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.005 ] }, -2.5] },
+              {">": [ {"var":"value"}, 1001] }, {"var":"value"}
+            ]
+          },
+          "decimals": 2
+        },
+        {
+          "data": "Contact open",
+          "shortcut": "CO",
+          "bitoffs": "67",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "sensor.door",
+            "type": "boolean",
+            "read": true,
+            "write": false
+          },
+          "value": {
+            "===": [{"var": "value"}, 0]
+          }
+        }
+      ]
+    }
+  ]
+}
