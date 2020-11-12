@@ -103,11 +103,11 @@ Example:
 
 ```
 //Temperature conversion
- "*": [{
-         "+": [
+ "+": [{
+         "*": [
               { "-": [{"var": "value"}, 0] },
-              0
-            ]}, 0.2]
+              0.2
+            ]}, 0]
 
 //This is a more complex looking formula.
 //It is based on this one: Device Value = Multiplier * ( rawValue - Range min) + Scale min
