@@ -28,7 +28,7 @@
           "type": "number",
           "read": true,
           "write": true,
-          "states": "1:Go to Position; 2:Stop; 3:Query Position and Angle; 4:Reply Position and Angle; 5:Set parameters"
+          "states": "1:Go to Position; 2:Stop; 3:Query Position and Angle; 4:Reply Position and Angle; 5:Set parameters; 6:Got to top; 7:Go to bottom"
         },
           "value": {
             "var": "value"
@@ -135,13 +135,6 @@
           "shortcut": "CMD",
           "bitoffs": "4",
           "bitsize": "4",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "1:Go to Position; 2:Stop; 3:Query Position and Angle; 4:Reply Position and Angle; 5:Set parameters"
-          },
           "value": {
             "var": "value"
           }
@@ -181,13 +174,6 @@
           "shortcut": "CMD",
           "bitoffs": "4",
           "bitsize": "4",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "1:Go to Position; 2:Stop; 3:Query Position and Angle; 4:Reply Position and Angle; 5:Set parameters"
-          },
           "value": {
             "var": "value"
           }
@@ -227,13 +213,6 @@
           "shortcut": "CMD",
           "bitoffs": "28",
           "bitsize": "4",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "1:Go to Position; 2:Stop; 3:Query Position and Angle; 4:Reply Position and Angle; 5:Set parameters"
-          },
           "value": {
             "var": "value"
           }
@@ -321,13 +300,6 @@
           "shortcut": "CMD",
           "bitoffs": "36",
           "bitsize": "4",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "1:Go to Position; 2:Stop; 3:Query Position and Angle; 4:Reply Position and Angle; 5:Set parameters"
-          },
           "value": {
             "var": "value"
           }
@@ -395,6 +367,200 @@
           "value": {
             "var": "value"
           }
+        },
+        {
+          "send": true,
+          "condition": {
+            "command": [
+              {
+                "bitoffs": "28",
+                "bitsize": "4",
+                "value": 6
+              }
+            ]
+          },
+          "datafield": [
+            {
+              "data": "fixed parameter",
+              "description": "Command identifier",
+              "bitoffs": "28",
+              "bitsize": "4",
+              "value": {
+                "var": 1
+              }
+            },
+            {
+              "data": "fixed data",
+              "description": "Vertical Position",
+              "bitoffs": "1",
+              "bitsize": "7",
+              "value": {
+                "var": 0
+              }
+            },
+            {
+              "data": "Rotation Angle",
+              "shortcut": "ANG",
+              "bitoffs": "9",
+              "bitsize": "7",
+              "iobroker": {
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "states": "127:Do not change / position unknown",
+                "unit": "%"
+              },
+              "value": {
+                "var": "value"
+              }
+            },
+            {
+              "data": "Repositioning",
+              "shortcut": "REPO",
+              "bitoffs": "17",
+              "bitsize": "3",
+              "iobroker": {
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "states": "0:Go directly to POS/ANG; 1:Go up (0%), then to POS/ANG; 2:Go down (100%), then to POS/ANG"
+              },
+              "value": {
+                "var": "value"
+              }
+            },
+            {
+              "data": "Locking modes",
+              "shortcut": "LOCK",
+              "bitoffs": "21",
+              "bitsize": "3",
+              "iobroker": {
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "states": "0:Do not change; 1:Set blockage mode; 2:Set alarm mode; 7:Deblockage"
+              },
+              "value": {
+                "var": "value"
+              }
+            },
+            {
+              "data": "Channel",
+              "shortcut": "CHN",
+              "bitoffs": "24",
+              "bitsize": "4",
+              "iobroker": {
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "states": "0:Channel 1; 1:Channel 2; 2:Channel 3; 3:Channel 4; 15:All channels"
+              },
+              "value": {
+                "var": "value"
+              }
+            }
+          ]
+        },
+        {
+          "send": true,
+          "condition": {
+            "command": [
+              {
+                "bitoffs": "28",
+                "bitsize": "4",
+                "value": 7
+              }
+            ]
+          },
+          "datafield": [
+            {
+              "data": "fixed parameter",
+              "description": "Command identifier",
+              "bitoffs": "28",
+              "bitsize": "4",
+              "value": {
+                "var": 1
+              }
+            },
+            {
+              "data": "fixed data",
+              "description": "Vertical Position",
+              "bitoffs": "1",
+              "bitsize": "7",
+              "value": {
+                "var": 100
+              }
+            },
+            {
+              "data": "Rotation Angle",
+              "shortcut": "ANG",
+              "bitoffs": "9",
+              "bitsize": "7",
+              "iobroker": {
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "states": "127:Do not change / position unknown",
+                "unit": "%"
+              },
+              "value": {
+                "var": "value"
+              }
+            },
+            {
+              "data": "Repositioning",
+              "shortcut": "REPO",
+              "bitoffs": "17",
+              "bitsize": "3",
+              "iobroker": {
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "states": "0:Go directly to POS/ANG; 1:Go up (0%), then to POS/ANG; 2:Go down (100%), then to POS/ANG"
+              },
+              "value": {
+                "var": "value"
+              }
+            },
+            {
+              "data": "Locking modes",
+              "shortcut": "LOCK",
+              "bitoffs": "21",
+              "bitsize": "3",
+              "iobroker": {
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "states": "0:Do not change; 1:Set blockage mode; 2:Set alarm mode; 7:Deblockage"
+              },
+              "value": {
+                "var": "value"
+              }
+            },
+            {
+              "data": "Channel",
+              "shortcut": "CHN",
+              "bitoffs": "24",
+              "bitsize": "4",
+              "iobroker": {
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "states": "0:Channel 1; 1:Channel 2; 2:Channel 3; 3:Channel 4; 15:All channels"
+              },
+              "value": {
+                "var": "value"
+              }
+            }
+          ]
         }
       ]
     }
