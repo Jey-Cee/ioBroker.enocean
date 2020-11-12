@@ -21,7 +21,7 @@
     "@iobroker/adapter-core": "^2.4.0",
     "gulp-util": "^3.0.8",
     "serialport": "^9.0.0",
-    "json-logic-js": "^1.2.2",
+    "json-logic-js": "^2.0.0",
     "iobroker-adapter-helpers": "^0.0.1"
   },
   "devDependencies": {
