@@ -34,7 +34,7 @@ This list contains devices that are known to work with the EnOcean adapter for i
 | Eltako | FUD61NPN-230V | TF-13-07 &   TF-13-05/06 | No | none |
 | Eltako | FWS61 | TF-13-01 | Yes | MSC |
 | Eltako | TF61J-230V | TF-01-01 & F6-02-02 | Yes | MSC |
-| Eltako | TF61L-230V | TF-01-02 | Yes | MSC |
+| Eltako | TF61L-230V | TF-01-03 & TF-01-02 | Yes | MSC |
 | <a name="K"></a> **K** | 
 | Kieback und Peter | MD15-FTL-HE | A5-20-01 | Yes | UTE |
 | Kieback und Peter | MD15-FTL-OV | A5-20-01 | Yes | UTE |

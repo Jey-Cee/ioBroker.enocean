@@ -23,7 +23,7 @@
                         "role": "state",
                         "type": "number",
                         "read": true,
-                        "write": false,
+                        "write": true,
                         "states": "0:Off; 1:On; 3:Set level"
                     }
                 },
@@ -34,7 +34,7 @@
                         "role": "level.dimmer",
                         "type": "number",
                         "read": true,
-                        "write": false,
+                        "write": true,
                         "unit": "%",
                         "def": 0
                     }
@@ -46,7 +46,7 @@
                         "role": "level",
                         "type": "number",
                         "read": true,
-                        "write": false,
+                        "write": true,
                         "states": "0:Use hardware setting",
                         "def": 0
                     }
@@ -58,7 +58,7 @@
                         "role": "state",
                         "type": "number",
                         "read": true,
-                        "write": false,
+                        "write": true,
                         "states": "0:false; 1:true",
                         "def": 0
                     }
