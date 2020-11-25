@@ -36,36 +36,6 @@ select {
 	z-index: 1;
 }
 
-.eep-top-bar {
-	position: sticky;
-	top: 0;
-	background-color: #efefef;
-	z-index: 100;
-}
-
-.eep-top-bar {
-	margin-bottom: 0px!important;
-}
-
-#editing-main > div .input-field {
-	margin-top: 0px!important;
-	margin-bottom: 0.25rem!important;
-}
-
-.iobroker-object {
-	padding-left: 10px!important;
-	padding-right: 10px!important;
-}
-
-.card-action {
-	padding-top: 7px!important;
-	padding-bottom: 7px!important;
-}
-
-.card-action > .btn {
-	font-size: 12px;
-}
-
 /* START Help Card */
 .card-title > div {
 	border-bottom-style: solid;

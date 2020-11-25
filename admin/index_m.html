@@ -18,8 +18,6 @@
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	<script type="text/javascript" src="words.js"></script>
 	<script type="text/javascript" src="components.js"></script>
-	<script type="text/javascript" src="object_attributes.js"></script>
-	<script type="text/javascript" src="roles.js"></script>
 
 	<script type="text/javascript">
 		let mfrList, eepList, deviceList, sysConfig;
@@ -32,7 +30,6 @@
 		let deviceCommands = {
 			"delete": {}
 		};
-		let counter = 60;
 		let instances;
 
 		/**
@@ -142,21 +139,6 @@
 
 		}
 
-		//Countdown for autodetection
-		function countdown(){
-			if(counter >0){
-				setTimeout(function(){
-					counter = counter -1;
-					countdown();
-				}, 1000);
-				$('#autodetect').html(_('Open for %s seconds', counter));
-				getDevices();
-			}else if(counter === 0){
-				$('#autodetect').html('Autodetect');
-				$('#autodetect').removeClass('disabled');
-				counter = 60;
-			}
-		}
 
 		/**
 		 * List all known devices on devices tab.
@@ -188,32 +170,6 @@
 			//$('#' + obj.native.id + '_deviceOP').select();
 		}
 
-		//EEP Editor
-		 function initEditor(){
-			$('#btn-tab-eep').on('click', () => {
-				fillSelect('#editor-select-eep', eepArray);
-			});
-
-			$('#editor-select-eep').on('change', (e) => {
-				loadEEP(e);
-			});
-
-			addDatafield('#editor-case-selection');
-			$('#editor-btn-add-datafield').on('click', () => {
-				addDatafield('#editor-case-selection');
-			});
-
-
-			$('#editor-btn-add-case').on('click', () => {
-				addTabElement('#editor-case-selection', 'Case', 'editor-navbar', true);
-			});
-
-			$('#editor-btn-remove-case').on('click', () => {
-				removeTabElement('#editor-case-selection');
-			})
-
-			M.updateTextFields();
-		}
 
 		function getDevices() {
 			socket.emit('getObjectView', 'system', 'device', { startkey: 'enocean.' + instance + '.', endkey: 'enocean.' + instance + '.\u9999', include_docs: true }, function (err, _devices) {
@@ -282,7 +238,6 @@
 			getDeviceList();
 			getEEPList();
 
-			 initEditor();
 
 			$('#addDevice').on('click', () => {
 				fillEEPselect();
@@ -346,25 +301,6 @@
 				});
 			});
 
-			$('#autodetect').on('click', () => {
-				sendTo(null, 'autodetect', null);
-				$('#autodetect').addClass('disabled');
-				countdown();
-			});
-
-			//check if EEP Editor is enabled
-			if(localStorage.getItem('editor') === 'true'){
-				$('#btn-tab-eep').removeClass('hide');
-				$('#options-switch-editor').attr('checked', true);
-			}
-
-			$('#options-switch-editor').on('change', (e) => {
-				localStorage.setItem('editor', e.currentTarget.checked);
-				if(e.currentTarget.checked === true){
-					$('#btn-tab-eep').removeClass('hide');
-				}
-			});
-
 			// populate the list of known devices
 			getDevices();
 
@@ -399,7 +335,6 @@
 			<div class="col s12">
 				<ul class="tabs">
 					<li class="tab col s2"><a href="#tab-devices"  class="translate active">Devices</a></li>
-					<li id="btn-tab-eep" class="tab col s2 hide"><a href="#tab-eep-editor"  class="translate active">EEP Editor</a></li>
 					<li class="tab col s2"><a href="#tab-main"  class="translate active">Settings</a></li>
 					<li class="tab col s2"><a href="#tab-sponsors"  class="translate active">Sponsors</a></li>
 				</ul>
@@ -437,9 +372,6 @@
 					<div class="input-field col">
 						<a id="addDevice" class="waves-effect waves-light btn modal-trigger translate" href="#add-device">Add new device</a>
 					</div>
-					<div class="input-field col hide">
-						<a id="autodetect" class="waves-effect waves-light btn modal-trigger translate" data-target="autodetect-device">Autodetect</a>
-					</div>
 				</div>
 
 				<div id="devices">
@@ -459,57 +391,6 @@
 					</table>
 				</div>
 
-			</div>
-
-			<!-- EEP Editor Tab -->
-			<div id="tab-eep-editor" class="col s12 page">
-				<!-- Editor Tools -->
-				<div class="row eep-top-bar">
-					<div class="input-field col s2">
-						<select id="editor-select-eep">
-							<option vlaue="" class="translate" selected>Choose</option>
-						</select>
-						<label for="editor-select-eep">Select EEP</label>
-					</div>
-					<div id="editor-btn-save" class="input-field col">
-						<a class="waves-effect waves-light btn translate">Save</a>
-					</div>
-					<div id="editor-btn-add-case" class="input-field col">
-						<a class="waves-effect waves-light btn"><span class="valign-wrapper"><i class="material-icons">add</i> Case</span></a>
-					</div>
-					<div id="editor-btn-remove-case" class="input-field col">
-						<a class="waves-effect waves-light btn"><span class="valign-wrapper"><i class="material-icons">remove</i> Case</span></a>
-					</div>
-					<div id="editor-btn-add-datafield" class="input-field col">
-						<a class="waves-effect waves-light btn"><span class="valign-wrapper"><i class="material-icons">add</i> Datafield</span></a>
-					</div>
-				</div>
-
-				<!-- Editing area -->
-				<div id="editing-main" class="row">
-					<div class="col s12">
-						<div class="input-field col s2">
-							<input id="editor-eep-name" type="text" class="validate">
-							<label for="editor-eep-name">EEP Name</label>
-						</div>
-						<div class="input-field col s6">
-							<input id="editor-eep-title" type="text" class="validate">
-							<label for="editor-eep-title">EEP Type Title</label>
-						</div>
-					</div>
-
-					<div class="section col s12">
-						<!-- Case selection bar -->
-							<ul id="editor-case-selection" class="tabs">
-								<li id="editor-navbar-case-1" class="tab col"><a href="#tab-case-1" class="active">Case 1</a></li>
-							</ul>
-
-						<div id="tab-case-1" class="col s12 page">
-						</div>
-
-					</div>
-
-				</div>
 			</div>
 
 			<!-- Sponsors Tab -->
@@ -563,20 +444,6 @@
 			</div>
 			<div class="modal-footer">
 				<button id="addDeviceSubmit" class="btn waves-effect waves-light modal-close modal-action translate" type="submit" name="action">Add device</button>
-				<button class="btn waves-effect waves-light modal-close modal-action translate" href="#!">Close</button>
-			</div>
-		</div>
-
-		<!-- Autodetect Modal Structure -->
-		<div id="autodetect-device" class="modal">
-			<div class="modal-content">
-				<h5 class="translate center">Autodetect device</h5>
-				<div class="row center">
-					<h6 class="#bbdefb blue lighten-4 translate">Teachin button</h6> <br> <br>
-					<p class="translate">Note modal</p>
-				</div>
-			</div>
-			<div class="modal-footer">
 				<button class="btn waves-effect waves-light modal-close modal-action translate" href="#!">Close</button>
 			</div>
 		</div>
