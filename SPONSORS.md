@@ -20,4 +20,4 @@ Thank you to ...
 | | | |
 |---|---|---|
 | Helmut F. | Magnus S. | [Z4F] Bubu|
-| Sepp | Sascha H. |
+| Sepp | Sascha H. | Patrick H. |

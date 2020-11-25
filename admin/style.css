@@ -7,6 +7,10 @@
 	overflow: initial;
 }
 
+.m .modal-content {
+	width: 100%!important;
+}
+
 
 select {
 	height: auto!important
@@ -39,25 +43,6 @@ select {
 	z-index: 100;
 }
 
-.card-content {
-	padding-top: 5px!important;
-	padding-bottom: 5px!important;
-}
-
-.card-content input {
-	font-size: 14px!important;
-	height: 1.5rem!important;
-}
-
-.card-content .input-field {
-	margin-bottom: 0px!important;
-	margin-top: 0px!important;
-}
-
-.card-content .row {
-	margin-bottom: 10px!important;
-}
-
 .eep-top-bar {
 	margin-bottom: 0px!important;
 }
@@ -80,6 +65,15 @@ select {
 .card-action > .btn {
 	font-size: 12px;
 }
+
+/* START Help Card */
+.card-title > div {
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	margin-bottom: 10px;
+	padding-left: 0px!important;
+}
+/* END Help Card */
 
 /* START Tooltip*/
 .tooltip {

@@ -217,5 +217,41 @@ systemDictionary = {
 		'es': 'Nombre del dispositivo',
 		'pl': 'Nazwa urządzenia',
 		'zh-cn': '设备名称'
+	},
+	'Step': {
+		'en': 'step',
+		'de': 'Schritt',
+		'ru': 'шаг',
+		'pt': 'degrau',
+		'nl': 'stap',
+		'fr': 'étape',
+		'it': 'passo',
+		'es': 'paso',
+		'pl': 'krok',
+		'zh-cn': '步'
+	},
+	'Help': {
+		'en': 'help',
+		'de': 'Hilfe',
+		'ru': 'Помогите',
+		'pt': 'Socorro',
+		'nl': 'helpen',
+		'fr': 'Aidez-moi',
+		'it': 'Aiuto',
+		'es': 'ayuda',
+		'pl': 'Wsparcie',
+		'zh-cn': '救命'
+	},
+	"Device ID": {
+		"en": "Device ID",
+		"de": "Geräte ID",
+		"ru": "Идентификатор устройства",
+		"pt": "Identificador do dispositivo",
+		"nl": "Apparaat ID",
+		"fr": "Reference de l'appareil",
+		"it": "ID del dispositivo",
+		"es": "Identificación del dispositivo",
+		"pl": "Identyfikator urzadzenia",
+		"zh-cn": "设备编号"
 	}
 };

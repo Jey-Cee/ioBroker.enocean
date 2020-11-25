@@ -22,9 +22,10 @@
 	<script type="text/javascript" src="roles.js"></script>
 
 	<script type="text/javascript">
-		let mfrList, eepList;
+		let mfrList, eepList, deviceList, sysConfig;
 		let eepArray = [];
 		let mfrArray = [];
+		let deviceArray = [];
 		let eepListFilled = false;
 		let mfrListFilled = false;
 		let devices = {};
@@ -66,6 +67,19 @@
 		}
 
 		/**
+		 * Load all devices, make the list global as array (only name) and object (name & id).
+		 */
+		function getDeviceList(){
+			sendTo(null, 'getDevices', null, (list) => {
+				deviceList = list;
+				const keyNames = Object.keys(list);
+					//mfrArray.push(keys[i].replace(/_/g, ' '));
+					mfrArray = keyNames;
+					mfrArray.sort();
+			})
+		}
+
+		/**
 		 * Load all EEP, make the list global as array (only name) and object (complete profile).
 		 */
 		function getEEPList(){
@@ -101,6 +115,10 @@
 				$('#select-manufacturer').select();
 			}
 
+		}
+		function fillDeviceSelect(){
+			fillSelect('#select-device', deviceArray)
+			$('#select-device').select();
 		}
 
 		function sponsorsList(){
@@ -216,12 +234,20 @@
 			});
 		}
 
+		function loadSysConfig(){
+			socket.emit('getObject', 'system.config', function (err, res) {
+				console.log(res);
+				sysConfig = res;
+			});
+		}
+
 		/**
 		 * Load the adapter config page.
 		 * @param {object} settings - The adapter settings
 		 * @param onChange - call this if there are settings changed that should be saved (will activate the save buttons)
 		 */
 		 function load(settings, onChange) {
+			loadSysConfig();
 			$('.modal').modal();
 			let selectorInputs = document.querySelectorAll('select');
 			instances = M.FormSelect.init(selectorInputs);
@@ -252,7 +278,8 @@
 			})
 
 			getComPorts(settings);
-			getmfrList();
+			//getmfrList();
+			getDeviceList();
 			getEEPList();
 
 			 initEditor();
@@ -265,6 +292,45 @@
 					M.updateTextFields();
 				})
 			});
+
+			//fill devices by manufacturer
+			$('#select-manufacturer').on('change', () => {
+				let selected = $('#select-manufacturer').val();
+				deviceArray = Object.keys(deviceList[selected])
+				fillDeviceSelect();
+			})
+
+			//show additional fields for selected device
+			$('#select-device').on('change', ()=>{
+				$('#help').empty();
+				$('#help').removeClass('hide');
+				const mfr = $('#select-manufacturer').val();
+				const dev = $('#select-device').val();
+				if(deviceList[mfr][dev].autocreate === false){
+					$('#div-id').removeClass('hide');
+				} else {
+					$('#div-id').addClass('hide');
+				}
+				const device = deviceList[mfr][dev].help[sysConfig.common.language];
+				for (let i in device) {
+					let card = '<div class="col s12">\n' +
+							'\t\t\t\t\t\t<div class="card light-blue lighten-4">\n' +
+							'\t\t\t\t\t\t\t<div class="card-content black-text">\n' +
+							'\t\t\t\t\t\t\t\t<span class="card-title">\n' +
+							'\t\t\t\t\t\t\t\t<div class="col s2 translate">Step</div>\n' +
+							'\t\t\t\t\t\t\t\t<div class="col s10 translate">' + i + '</div></span>\n' +
+							'\t\t\t\t\t\t\t\t<p>' + device[i] + '</p>\n' +
+							'\t\t\t\t\t\t\t</div>\n' +
+							'\t\t\t\t\t\t</div>\n' +
+							'\t\t\t\t\t</div>\n'
+
+					$('#help').append(card);
+				}
+
+				translateAll();
+
+
+			})
 
 			$('#addDeviceSubmit').on('click', () => {
 				const eep = $('#select-eep').val();
@@ -371,7 +437,7 @@
 					<div class="input-field col">
 						<a id="addDevice" class="waves-effect waves-light btn modal-trigger translate" href="#add-device">Add new device</a>
 					</div>
-					<div class="input-field col">
+					<div class="input-field col hide">
 						<a id="autodetect" class="waves-effect waves-light btn modal-trigger translate" data-target="autodetect-device">Autodetect</a>
 					</div>
 				</div>
@@ -463,31 +529,36 @@
 			<div class="modal-content">
 				<h5 class="translate center">Add new device</h5>
 				<div class="row">
-					<div class="input-field col s3">
-						<select id="select-eep">
-							<option value="" class="translate" disabled selected>Choose</option>
-						</select>
-						<label>EEP</label>
-					</div>
-					<div class="input-field col s6">
+					<div class="input-field col s5">
 						<select id="select-manufacturer">
 							<option value="" class="translate" disabled selected>Choose</option>
 						</select>
 						<label class="translate">manufacturer</label>
 					</div>
-					<div class="input-field col s3">
-						<input id="device-id" class="value"  type="text" placeholder="e.g. 0014A42D"></input>
-						<label for="device-id" class="translate">ID</label>
+					<div class="input-field col s5">
+						<select id="select-device">
+							<option value="" class="translate" disabled selected>Choose</option>
+						</select>
+						<label class="translate">device</label>
 					</div>
-					<div class="input-field col s12">
+					<div
+						id="div-id" class="input-field col s2 hide">
+						<input id="device-id" class="value"  type="text" placeholder="e.g. 0014A42D"></input>
+						<label for="device-id" class="translate">Device ID</label>
+					</div>
+					<div class="input-field col s12 hide">
 						<input id="device-name" class="value" type="text"></input>
 						<label for="device-name" class="translate">Device Name</label>
 					</div>
-					<div class="input-field col s2 tooltip">
-						<input placeholder="1 - 255" id="baseIDoffset" class="value" type="number"></input>
-						<label for="baseIDoffset" class="translate">Base ID offset</label>
-						<span class="tooltiptext tooltip-bottom translate">Tooltip BaseID</span>
+					<div class="input-field col s3 hide">
+						<select id="select-eep">
+							<option value="" class="translate" disabled selected>Choose</option>
+						</select>
+						<label>EEP</label>
 					</div>
+				</div>
+				<div id="help" class="row hide">
+
 				</div>
 			</div>
 			<div class="modal-footer">

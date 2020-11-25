@@ -328,6 +328,12 @@ class Enocean extends utils.Adapter {
 				await new ManualTeachIn(this, obj.message.eep, obj.message.mfr, obj.message.id, obj.message.name, obj.message.IDoffset);
 				respond({ error: null, result: 'Ready' }, this);
 				break;
+			case 'getDevices': {
+				const devices = require('./lib/definitions/devices.json');
+				respond(devices, this);
+				break;
+			}
+
 		}
 	}
 
