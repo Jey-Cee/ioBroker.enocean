@@ -3,7 +3,7 @@
     "EOSWA-W-EO": {
       "EEP": ["A5-07-01"],
       "autocreate": true,
-      "teachin_method": "RPS",
+      "teachin_method": "4BS",
       "id_offset": false,
       "help": {
         "en": {
@@ -19,7 +19,7 @@
     "EOSCA-W-EO": {
       "EEP": ["A5-07-01"],
       "autocreate": true,
-      "teachin_method": "RPS",
+      "teachin_method": "4BS",
       "id_offset": false,
       "help": {
         "en": {

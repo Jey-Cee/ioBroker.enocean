@@ -9,6 +9,7 @@ const path = require('path');
 // structured representation for ESP3 packets
 const ESP3Packet = require('./lib/tools/ESP3Packet').ESP3Packet;
 const ResponseTelegram = require('./lib/tools/ESP3Packet').ResponseTelegram;
+const RadioTelegram = require('./lib/tools/ESP3Packet').RadioTelegram;
 const SERIALPORT_PARSER_CLASS = require('./lib/tools/Serialport_parser');
 const CRC8 = require('./lib/tools/CRC8.js');
 const ByteArray = require('./lib/tools/byte_array');
@@ -20,6 +21,7 @@ const ManualTeachIn = require('./lib/tools/Packet_handler').manualTeachIn;
 const Enocean_manufacturer = require('./lib/definitions/manufacturer_list.json');
 const Codes = require('./lib/definitions/codes.json');
 const EEPList = require('./lib/definitions/EEPinclude');
+const codes = require('./lib/definitions/codes.json');
 
 
 const PLATFORM = os.platform();
@@ -27,6 +29,8 @@ const PLATFORM = os.platform();
 let AVAILABLE_PORTS = {};
 let SERIAL_PORT = null;
 let SERIALPORT_ESP3_PARSER = null;
+
+let teachinMethod;
 
 class Enocean extends utils.Adapter {
 
@@ -322,9 +326,11 @@ class Enocean extends utils.Adapter {
 				respond(EEPList, this);
 				break;
 			case 'autodetect':
+				teachinMethod = codes.telegram_type[obj.message.teachin_method];
 				this.setState('gateway.teachin', {val: true, expire: 60});
 				break;
 			case 'newDevice':
+				this.log.info('new device');
 				await new ManualTeachIn(this, obj.message.eep, obj.message.mfr, obj.message.id, obj.message.name, obj.message.IDoffset);
 				respond({ error: null, result: 'Ready' }, this);
 				break;
@@ -407,18 +413,21 @@ class Enocean extends utils.Adapter {
 	 */
 	async parseMessage(data) {
 		this.log.debug(data.toString('hex'));
-		const packet = new ESP3Packet(data);
+		const esp3packet = new ESP3Packet(data);
 
-		switch (packet.type) {
+		switch (esp3packet.type) {
 			case 1: // RADIO_ERP1
 			{
-				let teachin = await this.getStateAsync(this.namespace + '.gateway.teachin');
+				const teachin = await this.getStateAsync(this.namespace + '.gateway.teachin');
 
 				if (teachin) {
 					if (teachin.val === false) {
-						new HandleType1(this, packet);
+						new HandleType1(this, esp3packet);
 					} else if (teachin.val === true) {
-						new HandleTeachIn(this, packet);
+						const telegram = new RadioTelegram(esp3packet);
+						if (telegram.type.toString(16) === teachinMethod.toLowerCase()){
+							new HandleTeachIn(this, esp3packet);
+						}
 					}
 				}
 
@@ -426,8 +435,8 @@ class Enocean extends utils.Adapter {
 			}
 			case 2: //RESPONSE
 			{
-				//new HandleType2(this, packet);
-				this.log.debug('Packet type 2 received: ' + toHex(packet.type));
+				//new HandleType2(this, ESP3Packet);
+				this.log.debug('Packet type 2 received: ' + toHex(esp3packet.type));
 				break;
 			}
 			case 3: //RADIO_SUB_TEL
@@ -458,7 +467,7 @@ class Enocean extends utils.Adapter {
 				this.log.debug('2.4 GHz Command received.');
 				break;
 			default:
-				this.log.debug('Packet type ' + toHex(packet.type) + ' has been received, but is not handled.');
+				this.log.debug('Packet type ' + toHex(ESP3Packet.type) + ' has been received, but is not handled.');
 				break;
 		}
 	}

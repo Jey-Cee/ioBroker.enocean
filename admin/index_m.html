@@ -96,7 +96,6 @@
 				eepListFilled = true;
 				$('#select-eep').select();
 				$('#select-eep').change((option) => {
-					console.log(eepList[option.target.value]);
 					let eep = option.target.value.replace(/-/g, '');
 					$('#device-name').val(eepList[eep].type_title);
 				});
@@ -126,7 +125,6 @@
 				if (request.readyState === 4 && request.status === 200) {
 					let type = request.getResponseHeader('Content-Type');
 					if (type.indexOf("text") !== 1) {
-						console.log(request.responseText);
 						let response = request.responseText;
 						response = response.replace('# Sponsors', '');
 						let html = new showdown.Converter().makeHtml(response);
@@ -192,7 +190,6 @@
 
 		function loadSysConfig(){
 			socket.emit('getObject', 'system.config', function (err, res) {
-				console.log(res);
 				sysConfig = res;
 			});
 		}
@@ -288,17 +285,31 @@
 			})
 
 			$('#addDeviceSubmit').on('click', () => {
-				const eep = $('#select-eep').val();
 				const manufacturer = $('#select-manufacturer').val();
-				const deviceId = $('#device-id').val();
-				const name = $('#device-name').val();
-				const baseIDoffset = $('#baseIDoffset').val();
-				console.log(baseIDoffset);
-				sendTo(null, 'newDevice', {eep: eep, mfr: manufacturer, id: deviceId, name: name, IDoffset: baseIDoffset}, (data) => {
-					if (data.result === 'Ready'){
-						getDevices();
+				const device = $('#select-device').val();
+
+				if (deviceList[manufacturer][device].autocreate === false) {
+					const eep = $('#select-eep').val();
+					const deviceId = $('#device-id').val();
+					const name = device;
+					const baseIDoffset = deviceList[manufacturer][device].id_offset;
+					for (let i in deviceList[manufacturer][device].EEP){
+						sendTo(null, 'newDevice', {eep: deviceList[manufacturer][device].EEP[i], mfr: manufacturer, id: deviceId, name: name, IDoffset: baseIDoffset}, (data) => {
+							if (data.result === 'Ready'){
+								getDevices();
+							}
+						});
 					}
-				});
+
+				} else {
+					console.log('Test: ' + deviceList[manufacturer][device].teachin_method);
+					sendTo(null, 'autodetect', {teachin_method: deviceList[manufacturer][device].teachin_method}, (data) => {
+						setTimeout( () => {
+							getDevices();
+						}, 60 * 1000)
+					})
+				}
+
 			});
 
 			// populate the list of known devices

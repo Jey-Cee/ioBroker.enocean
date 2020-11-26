@@ -12,5 +12,19 @@
     "0x01": "ERP2",
     "0x10": "802.15.4",
     "0x30": "Long Range"
+  },
+  "telegram_type": {
+    "RPS": "F6",
+    "1BS": "D5",
+    "4BS": "A5",
+    "VLD": "D2",
+    "MSC": "D1",
+    "ADT": "A6",
+    "SM_LRN_REQ": "C6",
+    "SM_LRN_ANS": "C7",
+    "SM_REC": "A7",
+    "SYS_EX": "C5",
+    "SEC": "30",
+    "SEC_ENCAPS": "31"
   }
 }
