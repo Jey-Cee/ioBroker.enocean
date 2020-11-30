@@ -133,12 +133,14 @@ Example:
 
 ## Changelog
 
-### WIP
+### 0.2.0
 * fix calculation for temperature in A5-02-13
 * added Eltako FMMS44SB
 * correct formula in readme
 * add commands for D2-05-00
 * json-logic-js security update
+* change UI for add new devices
+* teachin procedure revised
 
 ### 0.1.8
 * added devices Eltako FUD61NPN-230V, FRW, TF61L-230V, FTKB
