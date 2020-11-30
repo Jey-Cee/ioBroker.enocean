@@ -30,7 +30,7 @@ let AVAILABLE_PORTS = {};
 let SERIAL_PORT = null;
 let SERIALPORT_ESP3_PARSER = null;
 
-let teachinMethod;
+let teachinMethod = null;
 
 class Enocean extends utils.Adapter {
 
@@ -425,7 +425,9 @@ class Enocean extends utils.Adapter {
 						new HandleType1(this, esp3packet);
 					} else if (teachin.val === true) {
 						const telegram = new RadioTelegram(esp3packet);
-						if (telegram.type.toString(16) === teachinMethod.toLowerCase()){
+						if (teachinMethod === 'UTE'){
+							new HandleTeachIn(this, esp3packet);
+						}else if (telegram.type.toString(16) === teachinMethod.toLowerCase()){
 							new HandleTeachIn(this, esp3packet);
 						}
 					}

@@ -753,11 +753,13 @@
       "help": {
         "en": {
           "1": "Click on 'Add Device'.",
-          "2": "Start teachin mode on your Micro Smart Plug. For more information please read the manual of Micro Smart Plug."
+          "2": "Start teachin mode on your Micro Smart Plug. For more information please read the manual of Micro Smart Plug.",
+          "3": "After the Micro Plug has signaled that it is connected, the data point 'gateway.teachin' must be set to false."
         },
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
-          "2": "Anlernmodus am Micro Smart Plug starten. Für weitere informationen bitte die Anleitung des Micro Smart Plug lesen."
+          "2": "Anlernmodus am Micro Smart Plug starten. Für weitere informationen bitte die Anleitung des Micro Smart Plug lesen.",
+          "3": "Nachdem der Micro Plug signalisiert hat das er verbunden ist muss der Datenpunkt 'gateway.teachin' auf false gesetzt werden."
         }
       }
     },
