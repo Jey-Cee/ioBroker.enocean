@@ -120,6 +120,50 @@
         }
       }
     },
+    "FAE14LPR": {
+      "EEP": [
+        "TF-14-03"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the channel. Example: Base ID ffcae700 + Bus ID 1 = ffcae701.",
+          "2": "Click on 'Add Device'",
+          "3": "Start teach-in mode on FAE14LPR. (Tip: It is more convenient to set up with the PCT14 software) For more information, please read the FAE14LPR manual.",
+          "4": "Repeat for the other ??? channels."
+        },
+        "de": {
+          "1": "Geräte ID eintragen. Sie setzt sich aus der Basis ID des Funk-Antennenmodul (z.B. FAM14) und der Bus ID des Kanals zusammen. Beispiel: Basis ID ffcae700 + Bus ID 1 = ffcae701.",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Anlernmodus am FAE14LPR starten. (Tipp: Komfortabler ist die Einrichtung mit der Software PCT14) Für weitere informationen bitte die Anleitung des FAE14LPR lesen.",
+          "4": "Vorgang für die anderen ??? Kanäle Wiederholen."
+        }
+      }
+    },
+    "FAE14SSR": {
+      "EEP": [
+        "TF-14-03"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the channel. Example: Base ID ffcae700 + Bus ID 1 = ffcae701.",
+          "2": "Click on 'Add Device'",
+          "3": "Start teach-in mode on FAE14SSR. (Tip: It is more convenient to set up with the PCT14 software) For more information, please read the FAE14SSR manual.",
+          "4": "Repeat for the other ??? channels."
+        },
+        "de": {
+          "1": "Geräte ID eintragen. Sie setzt sich aus der Basis ID des Funk-Antennenmodul (z.B. FAM14) und der Bus ID des Kanals zusammen. Beispiel: Basis ID ffcae700 + Bus ID 1 = ffcae701.",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Anlernmodus am FAE14SSR starten. (Tipp: Komfortabler ist die Einrichtung mit der Software PCT14) Für weitere informationen bitte die Anleitung des FAE14SSR lesen.",
+          "4": "Vorgang für die anderen ??? Kanäle Wiederholen."
+        }
+      }
+    },
     "FDG14": {
       "EEP": [
         "TF-13-06"
@@ -142,6 +186,31 @@
         }
       }
     },
+    "FDG71L": {
+      "EEP": [
+        "TF-13-07",
+        "TF-13-06"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the group. Example: Base ID ffcae700 + Bus ID 1 = ffcae701.",
+          "2": "Click on 'Add Device'.",
+          "3": "Start teach-in mode on FDG71L. (Tip: It is more convenient to set up with the PCT14 software) For more information, please read the FDG71L manual.",
+          "4": "Switch to the objects and send the command (CMD) 'Teach-in'.",
+          "5": "Repeat the steps for the second channel."
+        },
+        "de": {
+          "1": "Geräte ID eintragen. Sie setzt sich aus der Basis ID des Funk-Antennenmodul (z.B. FAM14) und der Bus ID der Gruppe zusammen. Beispiel: Basis ID ffcae700 + Bus ID 1 = ffcae701.",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Anlernmodus am FDG71L starten. (Tipp: Komfortabler ist die Einrichtung mit der Software PCT14) Für weitere informationen bitte die Anleitung des FDG71L lesen.",
+          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden.",
+          "5": "Vorgang für den zweiten Kanal Wiederholen."
+        }
+      }
+    },
     "FFTE": {
       "EEP": [
         "TF-13-02"
@@ -157,6 +226,28 @@
         "de": {
           "1": "Geräte ID eintragen.",
           "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
+    "FHK14": {
+      "EEP": [
+        "TF-14-03"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the channel. Example: Base ID ffcae700 + Bus ID 1 = ffcae701.",
+          "2": "Click on 'Add Device'",
+          "3": "Start teach-in mode on FHK14. (Tip: It is more convenient to set up with the PCT14 software) For more information, please read the FHK14 manual.",
+          "4": "Repeat for the other ??? channels."
+        },
+        "de": {
+          "1": "Geräte ID eintragen. Sie setzt sich aus der Basis ID des Funk-Antennenmodul (z.B. FAM14) und der Bus ID des Kanals zusammen. Beispiel: Basis ID ffcae700 + Bus ID 1 = ffcae701.",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Anlernmodus am FHK14 starten. (Tipp: Komfortabler ist die Einrichtung mit der Software PCT14) Für weitere informationen bitte die Anleitung des FHK14 lesen.",
+          "4": "Vorgang für die anderen ??? Kanäle Wiederholen."
         }
       }
     },
@@ -203,6 +294,56 @@
           "2": "Auf 'Gerät Hinzufügen' klicken.",
           "3": "Anlernmodus am FJ62/12-36V starten. Für weitere informationen bitte die Anleitung des FJ62/12-36V lesen.",
           "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden."
+        }
+      }
+    },
+    "FKLD61": {
+      "EEP": [
+        "TF-13-07",
+        "TF-13-06"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the group. Example: Base ID ffcae700 + Bus ID 1 = ffcae701.",
+          "2": "Click on 'Add Device'.",
+          "3": "Start teach-in mode on FKLD61. (Tip: It is more convenient to set up with the PCT14 software) For more information, please read the FKLD61 manual.",
+          "4": "Switch to the objects and send the command (CMD) 'Teach-in'.",
+          "5": "Repeat the steps for the second channel."
+        },
+        "de": {
+          "1": "Geräte ID eintragen. Sie setzt sich aus der Basis ID des Funk-Antennenmodul (z.B. FAM14) und der Bus ID der Gruppe zusammen. Beispiel: Basis ID ffcae700 + Bus ID 1 = ffcae701.",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Anlernmodus am FKLD61 starten. (Tipp: Komfortabler ist die Einrichtung mit der Software PCT14) Für weitere informationen bitte die Anleitung des FKLD61 lesen.",
+          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden.",
+          "5": "Vorgang für den zweiten Kanal Wiederholen."
+        }
+      }
+    },
+    "FLD61": {
+      "EEP": [
+        "TF-13-07",
+        "TF-13-06"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the group. Example: Base ID ffcae700 + Bus ID 1 = ffcae701.",
+          "2": "Click on 'Add Device'.",
+          "3": "Start teach-in mode on FLD61. (Tip: It is more convenient to set up with the PCT14 software) For more information, please read the FLD61 manual.",
+          "4": "Switch to the objects and send the command (CMD) 'Teach-in'.",
+          "5": "Repeat the steps for the second channel."
+        },
+        "de": {
+          "1": "Geräte ID eintragen. Sie setzt sich aus der Basis ID des Funk-Antennenmodul (z.B. FAM14) und der Bus ID der Gruppe zusammen. Beispiel: Basis ID ffcae700 + Bus ID 1 = ffcae701.",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Anlernmodus am FLD61 starten. (Tipp: Komfortabler ist die Einrichtung mit der Software PCT14) Für weitere informationen bitte die Anleitung des FLD61 lesen.",
+          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden.",
+          "5": "Vorgang für den zweiten Kanal Wiederholen."
         }
       }
     },
@@ -361,6 +502,31 @@
         }
       }
     },
+    "FSG71/1-10V": {
+      "EEP": [
+        "TF-13-07",
+        "TF-13-06"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the group. Example: Base ID ffcae700 + Bus ID 1 = ffcae701.",
+          "2": "Click on 'Add Device'.",
+          "3": "Start teach-in mode on FSG71/1-10V. (Tip: It is more convenient to set up with the PCT14 software) For more information, please read the FSG71/1-10V manual.",
+          "4": "Switch to the objects and send the command (CMD) 'Teach-in'.",
+          "5": "Repeat the steps for the second channel."
+        },
+        "de": {
+          "1": "Geräte ID eintragen. Sie setzt sich aus der Basis ID des Funk-Antennenmodul (z.B. FAM14) und der Bus ID der Gruppe zusammen. Beispiel: Basis ID ffcae700 + Bus ID 1 = ffcae701.",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Anlernmodus am FSG71/1-10V starten. (Tipp: Komfortabler ist die Einrichtung mit der Software PCT14) Für weitere informationen bitte die Anleitung des FSG71/1-10V lesen.",
+          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden.",
+          "5": "Vorgang für den zweiten Kanal Wiederholen."
+        }
+      }
+    },
     "FSR14-2x": {
       "EEP": [
         "TF-14-01",
@@ -487,6 +653,31 @@
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
           "2": "Anlernmodus am FSR71NP-4x-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FSR71NP-4x-230V lesen."
+        }
+      }
+    },
+    "FSUD-230V": {
+      "EEP": [
+        "TF-13-07",
+        "TF-13-06"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the group. Example: Base ID ffcae700 + Bus ID 1 = ffcae701.",
+          "2": "Click on 'Add Device'.",
+          "3": "Start teach-in mode on FSUD-230V. (Tip: It is more convenient to set up with the PCT14 software) For more information, please read the FSUD-230V manual.",
+          "4": "Switch to the objects and send the command (CMD) 'Teach-in'.",
+          "5": "Repeat the steps for the second channel."
+        },
+        "de": {
+          "1": "Geräte ID eintragen. Sie setzt sich aus der Basis ID des Funk-Antennenmodul (z.B. FAM14) und der Bus ID der Gruppe zusammen. Beispiel: Basis ID ffcae700 + Bus ID 1 = ffcae701.",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Anlernmodus am FSUD-230V starten. (Tipp: Komfortabler ist die Einrichtung mit der Software PCT14) Für weitere informationen bitte die Anleitung des FSUD-230V lesen.",
+          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden.",
+          "5": "Vorgang für den zweiten Kanal Wiederholen."
         }
       }
     },
@@ -736,6 +927,31 @@
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
           "2": "Anlernmodus am FUD61NPN-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FUD61NPN-230V lesen."
+        }
+      }
+    },
+    "FUD71": {
+      "EEP": [
+        "TF-13-07",
+        "TF-13-06"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the group. Example: Base ID ffcae700 + Bus ID 1 = ffcae701.",
+          "2": "Click on 'Add Device'.",
+          "3": "Start teach-in mode on FUD71. (Tip: It is more convenient to set up with the PCT14 software) For more information, please read the FUD71 manual.",
+          "4": "Switch to the objects and send the command (CMD) 'Teach-in'.",
+          "5": "Repeat the steps for the second channel."
+        },
+        "de": {
+          "1": "Geräte ID eintragen. Sie setzt sich aus der Basis ID des Funk-Antennenmodul (z.B. FAM14) und der Bus ID der Gruppe zusammen. Beispiel: Basis ID ffcae700 + Bus ID 1 = ffcae701.",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Anlernmodus am FUD71 starten. (Tipp: Komfortabler ist die Einrichtung mit der Software PCT14) Für weitere informationen bitte die Anleitung des FUD71 lesen.",
+          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden.",
+          "5": "Vorgang für den zweiten Kanal Wiederholen."
         }
       }
     },
