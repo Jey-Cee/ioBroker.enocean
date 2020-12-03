@@ -88,6 +88,38 @@
         }
       }
     },
+    "F4PT": {
+      "EEP": ["F6-02-02"],
+      "autocreate": true,
+      "teachin_method": "RPS",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Press any key of the switch."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Irgendeine Taste des Tasters betätigen."
+        }
+      }
+    },
+    "F4PT55": {
+      "EEP": ["F6-02-02"],
+      "autocreate": true,
+      "teachin_method": "RPS",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Press any key of the switch."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Irgendeine Taste des Tasters betätigen."
+        }
+      }
+    },
     "FDG14": {
       "EEP": [
         "TF-13-06"
@@ -722,6 +754,134 @@
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
           "2": "Anlernmodus am FWS61 starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FWS61 lesen."
+        }
+      }
+    },
+    "TF-1FT": {
+      "EEP": ["F6-02-02"],
+      "autocreate": true,
+      "teachin_method": "RPS",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Press any key of the switch."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Irgendeine Taste des Tasters betätigen."
+        }
+      }
+    },
+    "TF-2FT": {
+      "EEP": ["F6-02-02"],
+      "autocreate": true,
+      "teachin_method": "RPS",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Press any key of the switch."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Irgendeine Taste des Tasters betätigen."
+        }
+      }
+    },
+    "TF-2FT55": {
+      "EEP": ["F6-02-02"],
+      "autocreate": true,
+      "teachin_method": "RPS",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Press any key of the switch."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Irgendeine Taste des Tasters betätigen."
+        }
+      }
+    },
+    "TF-2ZT": {
+      "EEP": ["F6-02-02"],
+      "autocreate": true,
+      "teachin_method": "RPS",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Press any key of the switch."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Irgendeine Taste des Tasters betätigen."
+        }
+      }
+    },
+    "TF-2ZT55": {
+      "EEP": ["F6-02-02"],
+      "autocreate": true,
+      "teachin_method": "RPS",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Press any key of the switch."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Irgendeine Taste des Tasters betätigen."
+        }
+      }
+    },
+    "TF-4FT": {
+      "EEP": ["F6-02-02"],
+      "autocreate": true,
+      "teachin_method": "RPS",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Press any key of the switch."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Irgendeine Taste des Tasters betätigen."
+        }
+      }
+    },
+    "TF-4FT55": {
+      "EEP": ["F6-02-02"],
+      "autocreate": true,
+      "teachin_method": "RPS",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Press any key of the switch."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Irgendeine Taste des Tasters betätigen."
+        }
+      }
+    },
+    "TF-8FM": {
+      "EEP": ["F6-02-02"],
+      "autocreate": true,
+      "teachin_method": "RPS",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Press any key of the switch."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Irgendeine Taste des Tasters betätigen."
         }
       }
     },
