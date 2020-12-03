@@ -88,24 +88,6 @@
         }
       }
     },
-    "FAH60B": {
-      "EEP": [
-        "A5-06-01"
-      ],
-      "autocreate": false,
-      "teachin_method": "none",
-      "id_offset": false,
-      "help": {
-        "en": {
-          "1": "Enter device ID.",
-          "2": "Click on 'Add Device'"
-        },
-        "de": {
-          "1": "Geräte ID eintragen.",
-          "2": "Auf 'Gerät Hinzufügen' klicken."
-        }
-      }
-    },
     "FDG14": {
       "EEP": [
         "TF-13-06"
@@ -492,6 +474,44 @@
         }
       }
     },
+    "FTA55D": {
+      "EEP": [
+        "TF-13-07",
+        "F6-02-02"
+      ],
+      "autocreate": true,
+      "teachin_method": "MSC",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your FTA55D. For more information please read the manual of FTA55D."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am FTA55D starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FTA55D lesen."
+        }
+      }
+    },
+    "FTA65D": {
+      "EEP": [
+        "TF-13-07",
+        "F6-02-02"
+      ],
+      "autocreate": true,
+      "teachin_method": "MSC",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your FTA65D. For more information please read the manual of FTA65D."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am FTA65D starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FTA65D lesen."
+        }
+      }
+    },
     "FTA55J": {
       "EEP": ["F6-02-02"],
       "autocreate": true,
@@ -521,6 +541,44 @@
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
           "2": "Irgendeine Taste des Tasters betätigen."
+        }
+      }
+    },
+    "FTA55L": {
+      "EEP": [
+        "TF-01-02",
+        "F6-02-02"
+      ],
+      "autocreate": true,
+      "teachin_method": "MSC",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your FTA55L. For more information please read the manual of FTA55L."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am FTA55L starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FTA55L lesen."
+        }
+      }
+    },
+    "FTA65L": {
+      "EEP": [
+        "TF-01-02",
+        "F6-02-02"
+      ],
+      "autocreate": true,
+      "teachin_method": "MSC",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your FTA65L. For more information please read the manual of FTA65L."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am FTA65L starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FTA65L lesen."
         }
       }
     },
@@ -667,6 +725,25 @@
         }
       }
     },
+    "TF61D-230V": {
+      "EEP": [
+        "TF-13-07",
+        "F6-02-02"
+      ],
+      "autocreate": true,
+      "teachin_method": "MSC",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your TF61D-230V. For more information please read the manual of TF61D-230V."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am TF61D-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des TF61D-230V lesen."
+        }
+      }
+    },
     "TF61J-230V": {
       "EEP": [
         "TF-01-01",
@@ -702,6 +779,63 @@
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
           "2": "Anlernmodus am TF61L-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des TF61L-230V lesen."
+        }
+      }
+    },
+    "TF100D": {
+      "EEP": [
+        "TF-13-07",
+        "F6-02-02"
+      ],
+      "autocreate": true,
+      "teachin_method": "MSC",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your TF100D. For more information please read the manual of TF100D."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am TF100D starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des TF100D lesen."
+        }
+      }
+    },
+    "TF100L": {
+      "EEP": [
+        "TF-01-02",
+        "F6-02-02"
+      ],
+      "autocreate": true,
+      "teachin_method": "MSC",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your TF100L. For more information please read the manual of TF100L."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am TF100L starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des TF100L lesen."
+        }
+      }
+    },
+    "TF100SSR": {
+      "EEP": [
+        "TF-01-02",
+        "F6-02-02"
+      ],
+      "autocreate": true,
+      "teachin_method": "MSC",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your TF100SSR. For more information please read the manual of TF100SSR."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am TF100SSR starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des TF100SSR lesen."
         }
       }
     }
