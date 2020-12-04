@@ -24,7 +24,7 @@
                         "type": "number",
                         "read": true,
                         "write": true,
-                        "states": "0:Off; 1:On; 3:Set level"
+                        "states": "0:Off; 1:On; 3:Set level; 4: Teach-in"
                     }
                 },
                 {
@@ -204,6 +204,47 @@
                     "bitsize": "1",
                     "value": 1
                 }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 4
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "description": "dummy",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 2
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "dummy",
+                    "bitoffs": "8",
+                    "bitsize": "8",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "dummy",
+                    "bitoffs": "16",
+                    "bitsize": "8",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "dummy",
+                    "bitoffs": "24",
+                    "bitsize": "8",
+                    "value": 0
+                }
+
             ]
         }
     ]
