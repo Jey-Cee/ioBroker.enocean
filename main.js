@@ -156,7 +156,7 @@ class Enocean extends utils.Adapter {
 			const oObj = await this.getObjectAsync(id);
 
 			if(obj && obj.type === 'device' && tmp[2] !== 'gateway'){
-				const devId = obj.native.id;
+				let devId = obj.native.id;
 				const eep = obj.native.eep[0]; //returns a object for cases where more than one eep is present
 				const eepProfile = EEPList[eep.replace(/-/g, '')];
 				const subId = objName.replace(/.*\./g, '');
@@ -234,6 +234,9 @@ class Enocean extends utils.Adapter {
 						}
 
 						const subTelNum = [0x00];
+						if(obj.native.broadcast){
+							devId = 'ffffffff';
+						}
 						let tempId = devId.toUpperCase().match(/.{1,2}/g);
 						let receiverID = [];
 						for(let b in tempId) {
@@ -331,7 +334,7 @@ class Enocean extends utils.Adapter {
 				break;
 			case 'newDevice':
 				this.log.info('new device');
-				await new ManualTeachIn(this, obj.message.eep, obj.message.mfr, obj.message.id, obj.message.name, obj.message.IDoffset);
+				await new ManualTeachIn(this, obj.message.eep, obj.message.mfr, obj.message.id, obj.message.name, obj.message.IDoffset, obj.message.broadcast);
 				respond({ error: null, result: 'Ready' }, this);
 				break;
 			case 'getDevices': {

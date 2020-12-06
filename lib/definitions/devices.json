@@ -48,6 +48,22 @@
         }
       }
     },
+    "PTM210": {
+      "EEP": ["F6-02-02"],
+      "autocreate": true,
+      "teachin_method": "RPS",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Press any key of the switch."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Irgendeine Taste des Tasters betätigen."
+        }
+      }
+    },
     "PTM215": {
       "EEP": ["F6-02-02"],
       "autocreate": true,
@@ -385,25 +401,6 @@
         }
       }
     },
-    "FSB61NP-230V": {
-      "EEP": [
-        "TF-13-03",
-        "TF-13-04"
-      ],
-      "autocreate": true,
-      "teachin_method": "MSC",
-      "id_offset": true,
-      "help": {
-        "en": {
-          "1": "Click on 'Add Device'.",
-          "2": "Start teachin mode on your FSB61NP-230V. For more information please read the manual of FSB61NP-230V."
-        },
-        "de": {
-          "1": "Auf 'Gerät Hinzufügen' klicken.",
-          "2": "Anlernmodus am FSB61NP-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FSB61NP-230V lesen."
-        }
-      }
-    },
     "FSB14": {
       "EEP": [
         "TF-13-03",
@@ -422,6 +419,25 @@
           "1": "Geräte ID eintragen. Sie setzt sich aus der Basis ID des Funk-Antennenmodul (z.B. FAM14) und der Bus ID der Gruppe zusammen. Beispiel: Basis ID ffcae700 + Bus ID 1 = ffcae701.",
           "2": "Auf 'Gerät Hinzufügen' klicken.",
           "3": "Anlernmodus am FSB14 starten. (Tipp: Komfortabler ist die Einrichtung mit der Software PCT14) Für weitere informationen bitte die Anleitung des FSB14 lesen."
+        }
+      }
+    },
+    "FSB61NP-230V": {
+      "EEP": [
+        "TF-13-03",
+        "TF-13-04"
+      ],
+      "autocreate": true,
+      "teachin_method": "MSC",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your FSB61NP-230V. For more information please read the manual of FSB61NP-230V."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am FSB61NP-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FSB61NP-230V lesen."
         }
       }
     },
@@ -602,6 +618,44 @@
         }
       }
     },
+    "FSR61/8-24V UC": {
+      "EEP": [
+        "TF-01-02",
+        "F6-02-02"
+      ],
+      "autocreate": true,
+      "teachin_method": "MSC",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your FSR61/8-24V UC. For more information please read the manual of FSR61/8-24V UC"
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am FSR61/8-24V UC starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FSR61/8-24V UC lesen."
+        }
+      }
+    },
+    "FSR61-230V": {
+      "EEP": [
+        "TF-01-02",
+        "F6-02-02"
+      ],
+      "autocreate": true,
+      "teachin_method": "MSC",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your FSR61-230V. For more information please read the manual of FSR61-230V"
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am FSR61-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FSR61-230V lesen."
+        }
+      }
+    },
     "FSR71-2x-230V": {
       "EEP": [
         "TF-14-01"
@@ -669,13 +723,13 @@
           "1": "Enter device ID.",
           "2": "Click on 'Add Device'.",
           "3": "Start teach-in mode on FSUD-230V. For more information, please read the FSUD-230V manual.",
-          "4": "Switch to the objects and send the command (CMD) 'Teach-in', number 4."
+          "4": "Switch to the objects and send the command (CMD) 'Teach-in FSUD', number 5."
         },
         "de": {
           "1": "Geräte ID eintragen.",
           "2": "Auf 'Gerät Hinzufügen' klicken.",
           "3": "Anlernmodus am FSUD-230V starten. Für weitere informationen bitte die Anleitung des FSUD-230V lesen.",
-          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in', nummer 4, senden."
+          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in FSUD', nummer 5, senden."
         }
       }
     },
@@ -909,6 +963,29 @@
         }
       }
     },
+    "FUD61NP-230V (1)": {
+      "EEP": [
+        "TF-13-07",
+        "TF-13-06"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'.",
+          "3": "Start teach-in mode on FUD61NP-230V. For more information, please read the FUD61NP-230V manual.",
+          "4": "Switch to the objects and send the command (CMD) 'Teach-in FSUD', number 5."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Anlernmodus am FUD61NP-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FUD61NP-230V lesen.",
+          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in', nummer 4, senden."
+        }
+      }
+    },
     "FUD61NPN-230V": {
       "EEP": [
         "TF-13-07",
@@ -925,6 +1002,29 @@
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
           "2": "Anlernmodus am FUD61NPN-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FUD61NPN-230V lesen."
+        }
+      }
+    },
+    "FUD61NPN-230V (1)": {
+      "EEP": [
+        "TF-13-07",
+        "TF-13-06"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'.",
+          "3": "Start teach-in mode on FUD61NPN-230V. For more information, please read the FUD61NPN-230V manual.",
+          "4": "Switch to the objects and send the command (CMD) 'Teach-in FSUD', number 5."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Anlernmodus am FUD61NPN-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FUD61NPN-230V lesen.",
+          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in', nummer 4, senden."
         }
       }
     },
@@ -1408,6 +1508,29 @@
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
           "2": "Anlernmodus am Raumthermostat starten. Für weitere informationen bitte die Anleitung des Raumthermostat lesen."
+        }
+      }
+    }
+  },
+  "X_VIRTUAL": {
+    "Switch": {
+      "EEP": ["X1-01-01"],
+      "autocreate": false,
+      "teachin_method": "RPS",
+      "id_offset": true,
+      "broadcast": true,
+      "help": {
+        "en": {
+          "1": "Enter an ID. Start with id ffffffff and count up (Hex decimal) for each virtual device.",
+          "2": "Click on 'Add Device'.",
+          "3": "Start teachin mode on your Device. For more information please read the manual for the device.",
+          "4": "Go to objects and send a command (CMD)"
+        },
+        "de": {
+          "1": "Geräte ID eingeben. Beginnend mit ffffffff, für jedes weitere Virtuelle Gerät wird die ID Hochgezählt (Hex decimal).",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Anlernmodus am Gerät starten. Für weitere informationen bitte die Anleitung des Geräts lesen.",
+          "4": "Zu den Objekten wechseln und einen Befehl senden (CMD)"
         }
       }
     }

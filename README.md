@@ -133,6 +133,13 @@ Example:
 
 ## Changelog
 
+### 0.2.1
+* fix for UTE teachin
+* double response for UTE
+* fix id offset for Eltako devices
+* added Eltako devices: TF61D, TF100D, FTA65D, FTA55D, TF100L, TF100SSR, FTA65L, FTA55L, TF-1FT, TF-2FT, TF-2FT55, TF-2ZT, TF-2ZT55, F4PT, F4PT55, TF-4FT, TF-4FT55, TF-8FM, FUD71, FSUD-230V, FSG71/1-10V, FDG71L, FKLD61, FLD61
+* update fsud-230v teachin help
+
 ### 0.2.0
 * fix calculation for temperature in A5-02-13
 * added Eltako FMMS44SB
