@@ -66,7 +66,7 @@ If yes the first one has to be the one that will control the device.
 
  Find a list [here](./SUPPORTED_PROFILES.md)
  
- ## Supported Devices
+## Supported Devices
  
  Find a list [here](./SUPPORTED_DEVICES.md)
 
@@ -129,6 +129,36 @@ Example:
           }
 
 //value2 comes from secondArgument. 
+```
+
+## Device definition
+
+The full implementation of a device consists minimum of two parts: A entry in 'lib/definitions/devices.json' and a EEP file, 
+which defines the objects and how to handle the data telegram.
+There are devices which uses more than one data telegram type to communicate, this means they have more EEP files.  
+In special cases, as Eltako, there is also a manufacturer specific part in the 'packet_handler.js' defined.
+
+```
+"Model name or type" : {
+      "EEP": [                    //The EEP(s) that will be used for this device. First one has to be the one that controlls the device.
+        "TF-13-07",
+        "TF-13-06"
+      ],
+      "autocreate": false,         //false if the device needs additional steps for teachin
+      "teachin_method": "none",    //filter for automated teachin telegrams
+      "id_offset": true,           //not all devices checks if the telegram whether it is for them
+      "broadcast": false,          //true if the receiver id has to be ffffffff. This is used for virtual devices like a switch.
+      "help": {                    //a step by step instruction how to add the device.
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    }
 ```
 
 ## Changelog

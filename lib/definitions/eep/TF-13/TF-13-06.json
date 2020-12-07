@@ -17,7 +17,7 @@
                         "role": "value.level",
                         "type": "number",
                         "read": true,
-                        "write": false
+                        "write": true
                     },
                     "value": {
                             "var": "value"
@@ -32,7 +32,7 @@
                         "role": "state",
                         "type": "boolean",
                         "read": true,
-                        "write": false
+                        "write": true
                     },
                     "value": {
                         "===": [ { "var": "value" }, 9 ]
