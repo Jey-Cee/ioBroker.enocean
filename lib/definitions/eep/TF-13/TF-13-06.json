@@ -14,10 +14,11 @@
                     "bitoffs": "8",
                     "bitsize": "8",
                     "iobroker": {
-                        "role": "value.level",
+                        "role": "level.dimmer",
                         "type": "number",
                         "read": true,
-                        "write": true
+                        "write": true,
+                        "unit": '%'
                     },
                     "value": {
                             "var": "value"
