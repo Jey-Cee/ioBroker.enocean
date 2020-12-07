@@ -302,6 +302,8 @@
 						});
 					}
 
+					sendTo(null, 'setOb')
+
 				} else {
 					sendTo(null, 'autodetect', {teachin_method: deviceList[manufacturer][device].teachin_method}, (data) => {
 						setInterval( () => {
