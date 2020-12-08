@@ -180,6 +180,22 @@
         }
       }
     },
+    "FAH60B": {
+      "EEP": ["TF-13-10"],
+      "autocreate": false,
+      "teachin_method": "4BS",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
     "FDG14": {
       "EEP": [
         "TF-13-06"
@@ -238,6 +254,22 @@
         "en": {
           "1": "Enter device ID.",
           "2": "Click on 'Add Device'"
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
+    "FHD60SB": {
+      "EEP": ["TF-13-10"],
+      "autocreate": false,
+      "teachin_method": "4BS",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
         },
         "de": {
           "1": "Geräte ID eintragen.",
@@ -1055,7 +1087,7 @@
         }
       }
     },
-    "FUD61NP-230V": {
+    "FUD61NP-230V (>= 46/17)": {
       "EEP": [
         "TF-13-07",
         "TF-13-06"
@@ -1074,7 +1106,7 @@
         }
       }
     },
-    "FUD61NP-230V (1)": {
+    "FUD61NP-230V (< 46/17)": {
       "EEP": [
         "TF-13-07",
         "TF-13-06"
@@ -1097,7 +1129,7 @@
         }
       }
     },
-    "FUD61NPN-230V": {
+    "FUD61NPN-230V (>= 46/17)": {
       "EEP": [
         "TF-13-07",
         "TF-13-06"
@@ -1116,7 +1148,7 @@
         }
       }
     },
-    "FUD61NPN-230V (1)": {
+    "FUD61NPN-230V (< 46/17)": {
       "EEP": [
         "TF-13-07",
         "TF-13-06"
@@ -1135,7 +1167,7 @@
           "1": "Geräte ID eintragen.",
           "2": "Auf 'Gerät Hinzufügen' klicken.",
           "3": "Anlernmodus am FUD61NPN-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FUD61NPN-230V lesen.",
-          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in', nummer 4, senden."
+          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in FSUD', nummer 5, senden."
         }
       }
     },

@@ -11,7 +11,7 @@
                 "range": {
                     "bitoffs": "8",
                     "bitsize": "8",
-                    "value": 0
+                    "value": {"==": [{"var": "value"}, 0]}
                 }
             },
             "datafield": [
@@ -54,7 +54,7 @@
                 "range": {
                     "bitoffs": "8",
                     "bitsize": "8",
-                    "value": 1
+                    "value": {">": [{"var": "value"}, 0]}
                 }
             },
             "datafield": [

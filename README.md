@@ -102,7 +102,7 @@ Example:
 Example:
 
 ```
-//Temperature conversion
+//Temperature conversion from received data
  "+": [{
          "*": [
               { "-": [{"var": "value"}, 0] },
@@ -111,6 +111,23 @@ Example:
 
 //This is a more complex looking formula.
 //It is based on this one: Device Value = Multiplier * ( rawValue - Range min) + Scale min
+//The Multiplier, in this case 0.2, is calculated in this way: (Scale max - Scale min) / (Range max - Range min)
+```
+
+***datafield -> value_out:*** This represents the value that will be sent to the device. This has only to be defined if a conversion is needed.
+
+Example:
+
+```
+//Temperature conversion from ioBroker
+ "/": [{
+         "+": [
+              { "-": [{"var": "value"}, 0] },
+              0
+            ]}, 0.2]
+
+//This is a more complex looking formula.
+//It is based on this one: Device Value = ( ( rawValue - Range min) + Scale min ) / Multiplier
 //The Multiplier, in this case 0.2, is calculated in this way: (Scale max - Scale min) / (Range max - Range min)
 ```
 
