@@ -331,6 +331,7 @@ class Enocean extends utils.Adapter {
 			case 'autodetect':
 				teachinMethod = codes.telegram_type[obj.message.teachin_method];
 				this.setState('gateway.teachin', {val: true, expire: 60});
+				respond({ error: null, result: 'Ready' }, this);
 				break;
 			case 'newDevice':
 				this.log.info('new device');
