@@ -342,6 +342,14 @@ class Enocean extends utils.Adapter {
 				respond(devices, this);
 				break;
 			}
+			case 'setEEPs': {
+				await this.extendObjectAsync(obj.message.id, {
+					'native': {
+						eep: obj.message.eep
+					}
+				});
+				break;
+			}
 
 		}
 	}
