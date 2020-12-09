@@ -243,6 +243,25 @@
         }
       }
     },
+    "FFKB": {
+      "EEP": [
+        "D5-00-01",
+        "TF-13-08"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'"
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
     "FFTE": {
       "EEP": [
         "TF-13-02"
@@ -1000,22 +1019,60 @@
         }
       }
     },
-    "FTKB": {
+    "FTK": {
       "EEP": [
         "D5-00-01",
         "TF-13-08"
       ],
-      "autocreate": true,
-      "teachin_method": "MSC",
+      "autocreate": false,
+      "teachin_method": "none",
       "id_offset": true,
       "help": {
         "en": {
-          "1": "Click on 'Add Device'.",
-          "2": "Start teachin mode on your FTKB. For more information please read the manual of FTKB."
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'"
         },
         "de": {
-          "1": "Auf 'Gerät Hinzufügen' klicken.",
-          "2": "Anlernmodus am FTKB starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FTKB lesen."
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
+    "FTKB-gr": {
+      "EEP": [
+        "D5-00-01",
+        "TF-13-08"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'"
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
+    "FTKB-RW": {
+      "EEP": [
+        "D5-00-01",
+        "TF-13-08"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'"
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
         }
       }
     },

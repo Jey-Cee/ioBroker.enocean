@@ -335,7 +335,7 @@ class Enocean extends utils.Adapter {
 				break;
 			case 'newDevice':
 				this.log.info('new device');
-				await new ManualTeachIn(this, obj.message.eep, obj.message.mfr, obj.message.id, obj.message.name, obj.message.IDoffset, obj.message.broadcast);
+				new ManualTeachIn(this, obj.message.eep, obj.message.mfr, obj.message.id, obj.message.name, obj.message.IDoffset, obj.message.broadcast);
 				respond({ error: null, result: 'Ready' }, this);
 				break;
 			case 'getDevices': {
