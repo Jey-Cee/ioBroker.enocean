@@ -295,19 +295,12 @@
 					const baseIDoffset = deviceList[manufacturer][device].id_offset;
 					const broadcast = deviceList[manufacturer][device].broadcast;
 
-					for (let i in deviceList[manufacturer][device].EEP){
-						sendTo(null, 'newDevice', {eep: deviceList[manufacturer][device].EEP[i], mfr: manufacturer, id: deviceId, name: name, IDoffset: baseIDoffset, broadcast: broadcast}, (data) => {
-							if (data.result === 'Ready'){
-								getDevices();
-								console.log('Test: ' + deviceList[manufacturer][device].length);
-								if (i === deviceList[manufacturer][device].length){
-									sendTo(null, 'setEEPs', {id: deviceId, eep: deviceList[manufacturer][device].EEP}, (result) => {
+					sendTo(null, 'newDevice', {device: name, mfr: manufacturer, id: deviceId}, (data) => {
+						if (data.result === 'Ready') {
+							getDevices();
+						}
+					});
 
-									})
-								}
-							}
-						});
-					}
 
 				} else {
 					sendTo(null, 'autodetect', {teachin_method: deviceList[manufacturer][device].teachin_method}, (data) => {

@@ -17,6 +17,7 @@ const HandleType1 = require('./lib/tools/Packet_handler').handleType1;
 const HandleType2 = require('./lib/tools/Packet_handler').handleType2;
 const HandleTeachIn = require('./lib/tools/Packet_handler').handleTeachIn;
 const ManualTeachIn = require('./lib/tools/Packet_handler').manualTeachIn;
+const predifnedDeviceTeachIn = require('./lib/tools/Packet_handler').predifnedDeviceTeachin;
 
 const Enocean_manufacturer = require('./lib/definitions/manufacturer_list.json');
 const Codes = require('./lib/definitions/codes.json');
@@ -334,8 +335,7 @@ class Enocean extends utils.Adapter {
 				respond({ error: null, result: 'Ready' }, this);
 				break;
 			case 'newDevice':
-				this.log.info('new device');
-				new ManualTeachIn(this, obj.message.eep, obj.message.mfr, obj.message.id, obj.message.name, obj.message.IDoffset, obj.message.broadcast);
+				new predifnedDeviceTeachIn(this, obj.message.device, obj.message.mfr, obj.message.id);
 				respond({ error: null, result: 'Ready' }, this);
 				break;
 			case 'getDevices': {
