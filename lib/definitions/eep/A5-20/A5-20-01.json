@@ -234,7 +234,7 @@
                     }
                 },
                 {
-                    "data": "Valve position (0...100) or temperature setpoint (0...255)",
+                    "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
                     "shortcut": "SP",
                     "bitoffs": "0",
                     "bitsize": "8",
@@ -294,7 +294,7 @@
             },
             "datafield": [
                 {
-                    "data": "Valve position (0...100) or temperature setpoint (0...255)",
+                    "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
                     "shortcut": "SP",
                     "bitoffs": "0",
                     "bitsize": "8",
@@ -306,7 +306,8 @@
                     },
                     "value": {
                         "var": "value"
-                    }
+                    },
+                    "value_out": {"/": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 6.375 ]}
                 },
                 {
                     "data": "Send actual room temperature",
