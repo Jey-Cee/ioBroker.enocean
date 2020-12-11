@@ -307,7 +307,7 @@
                     "value": {
                         "var": "value"
                     },
-                    "value_out": {"/": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 6.375 ]}
+                    "value_out": {"*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 6.375 ]}
                 },
                 {
                     "data": "Send actual room temperature",
@@ -324,7 +324,7 @@
                     "value": {
                         "+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 6.375 ] }, 0 ]
                     },
-                    "value_out": {"/": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 6.375 ]},
+                    "value_out": {"*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 6.375 ]},
                     "decimals": 2
                 },
                 {

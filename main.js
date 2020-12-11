@@ -19,6 +19,8 @@ const HandleTeachIn = require('./lib/tools/Packet_handler').handleTeachIn;
 const ManualTeachIn = require('./lib/tools/Packet_handler').manualTeachIn;
 const predifnedDeviceTeachIn = require('./lib/tools/Packet_handler').predifnedDeviceTeachin;
 
+const jsonLogic = require('json-logic-js');
+
 const Enocean_manufacturer = require('./lib/definitions/manufacturer_list.json');
 const Codes = require('./lib/definitions/codes.json');
 const EEPList = require('./lib/definitions/EEPinclude');
@@ -211,20 +213,28 @@ class Enocean extends utils.Adapter {
 
 							}
 
+							//get data from objects
 							for (let s in parameter) {
 								const state = await this.getStateAsync(`${this.namespace}.${devId}.${parameter[s]}`);
 								const short = parameter[s];
-								for (let d in eepProfile.case[c].datafield) {
-									if (state !== null && eepProfile.case[c].datafield[d].shortcut === short && eepProfile.case[c].datafield[d].bitoffs !== null && eepProfile.case[c].datafield[d].bitsize !== null && (!eepProfile.case[c].datafield[d].condition || !eepProfile.case[c].datafield[d].condition[0].value === state.val)) {
-										const bitoffs = eepProfile.case[c].datafield[d].bitoffs;
-										const bitsize = eepProfile.case[c].datafield[d].bitsize;
-										data.setValue(state.val, bitoffs, bitsize);
+								const datafield = eepProfile.case[c].datafield;
+								for (let d in datafield) {
+									if (state !== null && datafield[d].shortcut === short && datafield[d].bitoffs !== null && datafield[d].bitsize !== null && (!datafield[d].condition || !datafield[d].condition[0].value === state.val)) {
+										const bitoffs = datafield[d].bitoffs;
+										const bitsize = datafield[d].bitsize;
+										const value = state.val;
+										if(datafield[d].value_out) {
+											const convertedValue = jsonLogic.apply(datafield[d].value_out, {'value': value});
+											data.setValue(parseInt(convertedValue), bitoffs, bitsize);
+										} else if (value) {
+											data.setValue(value, bitoffs, bitsize);
+										}
 										break;
-									} else if (eepProfile.case[c].datafield[d].shortcut === short && eepProfile.case[c].datafield[d].bitoffs !== null && eepProfile.case[c].datafield[d].bitsize !== null && eepProfile.case[c].datafield[d].value !== null) {
-										const bitoffs = eepProfile.case[c].datafield[d].bitoffs;
-										const bitsize = eepProfile.case[c].datafield[d].bitsize;
-										const value = eepProfile.case[c].datafield[d].value;
-										if(value) data.setValue(value, bitoffs, bitsize);
+									} else if (datafield[d].shortcut === short && datafield[d].bitoffs !== null && datafield[d].bitsize !== null && datafield[d].value !== null) {
+										const bitoffs = datafield[d].bitoffs;
+										const bitsize = datafield[d].bitsize;
+										const value = datafield[d].value;
+										data.setValue(value, bitoffs, bitsize);
 									}
 								}
 							}
