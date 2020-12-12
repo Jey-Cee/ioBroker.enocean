@@ -1,10 +1,10 @@
 {
-    "eep": "TF-13-10",
+    "eep": "TF-13-12",
     "rorg_number": "0xA5",
     "telegram": "4BS",
     "func_number": "0x00",
     "type_number": "0x00",
-    "type_title": "Brightness sensor 0-50 Lux & 300-30000 Lux",
+    "type_title": "Brightness sensor 0-100 Lux & 300-30000 Lux",
     "case": [
         {
             "condition": {
@@ -27,24 +27,7 @@
                         "write": false,
                         "unit": "lx"
                     },
-                    "value": {
-                        "+": [
-                            {
-                                "*": [
-                                    {
-                                        "-": [
-                                            {
-                                                "var": "value"
-                                            },
-                                            0
-                                        ]
-                                    },
-                                    1.25
-                                ]
-                            },
-                            0
-                        ]
-                    },
+                    "value": { "var": "value" },
                     "decimals": 2
                 }
             ]
