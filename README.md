@@ -180,6 +180,28 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 
 ## Changelog
 
+### 0.3.0
+* added Eltako devices: TF61D, TF100D, FTA65D, FTA55D, TF100L, TF100SSR, FTA65L, FTA55L, TF-1FT, TF-2FT, TF-2FT55, TF-2ZT, 
+  TF-2ZT55, F4PT, F4PT55, TF-4FT, TF-4FT55, TF-8FM, FUD71, FSUD-230V, FSG71/1-10V, FDG71L, FKLD61, FLD61, FL62-230V, 
+  FL62NP-230V, FR62-230V, FR62NP-230V FSR61NP-230V, TF-TA55D, TF-TA65D, TF-TA55J, TF-TA65J, TF-TA55L, TF-TA65L, FTK, 
+  FTKB-RW, FFKB, FTKB-gr, FAH65S, FIH65S   
+* re-add virtual switch with broadcast
+* added possibility to use json logic for conditions
+* added send converted value
+* added value out to a5-20-01
+* added double response for UTE 
+* added send eltako teachin response twice
+* added filter telegrams in addEltakoDevices
+* update FSUD-230V teachin help
+* update device list in config during teachin
+* fix id offset for Eltako devices
+* fix teachin for eltako devices when no offset in gateway is defined
+* fix teachin for Eltako FTKB-hg
+* fix manaual teachin devices
+* fix correct formula in EEPs
+* fix name of Eltako TF100L
+* fix id offset for manual teachin
+
 ### 0.2.1
 * fix for UTE teachin
 * double response for UTE

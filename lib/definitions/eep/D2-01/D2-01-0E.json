@@ -19,6 +19,22 @@
       },
       "datafield": [
         {
+        "data": "Command ID",
+        "shortcut": "CMD",
+        "bitoffs": "4",
+        "bitsize": "4",
+        "iobroker": {
+          "role": "state",
+          "type": "number",
+          "read": true,
+          "write": true,
+          "states": "1:Actuator Set Output;2:Actuator set local;3:Actuator Status Query;4:Actuator status response;5:Actuator set measurement;6:Actuator measurement query;7:Actuator measurement response"
+        },
+          "value": {
+            "var": "value"
+          }
+      },
+        {
           "data": "I/O channel",
           "shortcut": "IO",
           "bitoffs": "11",
