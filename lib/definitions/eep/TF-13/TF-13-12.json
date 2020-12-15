@@ -28,7 +28,7 @@
                         "unit": "lx"
                     },
                     "value": { "var": "value" },
-                    "decimals": 2
+                    "decimals": 0
                 }
             ]
         },
@@ -65,13 +65,13 @@
                                             0
                                         ]
                                     },
-                                    1.25
+                                    116.4706
                                 ]
                             },
                             0
                         ]
                     },
-                    "decimals": 2
+                    "decimals": 0
                 }
             ]
         }
