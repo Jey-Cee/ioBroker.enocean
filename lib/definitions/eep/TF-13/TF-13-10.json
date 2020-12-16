@@ -18,7 +18,7 @@
                 {
                     "data": "Illumination",
                     "shortcut": "ILL",
-                    "bitoffs": "8",
+                    "bitoffs": "0",
                     "bitsize": "8",
                     "iobroker": {
                         "role": "value.brightness",
@@ -27,25 +27,8 @@
                         "write": false,
                         "unit": "lx"
                     },
-                    "value": {
-                        "+": [
-                            {
-                                "*": [
-                                    {
-                                        "-": [
-                                            {
-                                                "var": "value"
-                                            },
-                                            0
-                                        ]
-                                    },
-                                    1.25
-                                ]
-                            },
-                            0
-                        ]
-                    },
-                    "decimals": 2
+                    "value": { "var": "value" },
+                    "decimals": 0
                 }
             ]
         },
@@ -54,7 +37,7 @@
                 "range": {
                     "bitoffs": "8",
                     "bitsize": "8",
-                    "value": {">": [{"var": "value"}, 0]}
+                    "value": {">=": [{"var": "value"}, 1]}
                 }
             },
             "datafield": [
@@ -79,16 +62,16 @@
                                             {
                                                 "var": "value"
                                             },
-                                            0
+                                            1
                                         ]
                                     },
-                                    1.25
+                                    116.92913
                                 ]
                             },
-                            0
+                            300
                         ]
                     },
-                    "decimals": 2
+                    "decimals": 0
                 }
             ]
         }

@@ -18,7 +18,7 @@
                 {
                     "data": "Illumination",
                     "shortcut": "ILL",
-                    "bitoffs": "8",
+                    "bitoffs": "0",
                     "bitsize": "8",
                     "iobroker": {
                         "role": "value.brightness",
@@ -37,7 +37,7 @@
                 "range": {
                     "bitoffs": "8",
                     "bitsize": "8",
-                    "value": {">": [{"var": "value"}, 0]}
+                    "value": {">=": [{"var": "value"}, 1]}
                 }
             },
             "datafield": [
@@ -46,13 +46,6 @@
                     "shortcut": "ILL",
                     "bitoffs": "8",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "value.brightness",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "unit": "lx"
-                    },
                     "value": {
                         "+": [
                             {
@@ -62,13 +55,13 @@
                                             {
                                                 "var": "value"
                                             },
-                                            0
+                                            1
                                         ]
                                     },
-                                    116.4706
+                                    116.92913
                                 ]
                             },
-                            0
+                            300
                         ]
                     },
                     "decimals": 0
