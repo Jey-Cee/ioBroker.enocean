@@ -1,0 +1,71 @@
+{
+  "eep": "TF-13-13",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x00",
+  "type_number": "0x00",
+  "type_title": "Light and Occupancy sensor Range 0lx to 2048lx",
+  "case": {
+    "datafield": [
+      {
+        "data": "Presence",
+        "shortcut": "PIRS",
+        "bitoffs": "24",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "sensor.motion",
+          "type": "boolean",
+          "read": true,
+          "write": false
+        },
+        "value": {
+          "==": [{"var": "value"}, 13]
+        }
+      },
+      {
+        "data": "fixed parameter",
+        "description": "not used",
+        "bitoffs": "16",
+        "bitsize": "8",
+        "value": 0
+      },
+      {
+        "data": "Illumination 0...2048lx",
+        "shortcut": "ILL",
+        "bitoffs": "8",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "value.brightness",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "unit": "lx"
+        },
+        "value": {
+          "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 8.0314 ] }, 0]
+        }
+      },
+      {
+        "data": "Supply voltage 0…5.1V",
+        "shortcut": "SVC",
+        "bitoffs": "0",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "value.battery",
+          "type": "number",
+          "read": true,
+          "write": false,
+          "unit": "V"
+        },
+        "value": {
+          "+": [{
+            "*": [
+              { "-": [{"var": "value"}, 0] },
+              0.02
+            ]}, 0]
+        },
+        "decimals": 2
+      }
+    ]
+  }
+}
