@@ -1046,9 +1046,12 @@
       }
     },
     "FTA65J": {
-      "EEP": ["F6-02-02"],
+      "EEP": [
+        "TF-01-01",
+        "F6-02-02"
+      ],
       "autocreate": true,
-      "teachin_method": "RPS",
+      "teachin_method": "MSC",
       "id_offset": false,
       "help": {
         "en": {
@@ -1337,17 +1340,17 @@
       "EEP": [
         "TF-13-01"
       ],
-      "autocreate": true,
-      "teachin_method": "MSC",
+      "autocreate": false,
+      "teachin_method": "none",
       "id_offset": true,
       "help": {
         "en": {
-          "1": "Click on 'Add Device'.",
-          "2": "Start teachin mode on your FWS61. For more information please read the manual of FWS61."
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
         },
         "de": {
-          "1": "Auf 'Gerät Hinzufügen' klicken.",
-          "2": "Anlernmodus am FWS61 starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FWS61 lesen."
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
         }
       }
     },
