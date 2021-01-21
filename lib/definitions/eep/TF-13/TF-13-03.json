@@ -28,11 +28,9 @@
           "type": "number",
           "read": true,
           "write": true,
-          "states": "0:Up; 1:Down;  2:Block local switch; 3:Unblock local switch; 4:Teach-in"
+          "states": "0:Stop; 1:Up; 2:Down; 3:Teach-in"
         },
-          "value": {
-            "var": "value"
-          }
+          "value": 0
       },
         {
           "data": "Running time",
@@ -51,25 +49,6 @@
           }
         },
         {
-          "data": "Block local switch",
-          "shortcut": "BS",
-          "bitoffs": "24",
-          "bitsize": "8",
-          "iobroker": {
-            "role": "state",
-            "type": "boolean",
-            "read": true,
-            "write": true,
-            "unit": "100ms"
-          },
-          "value": {
-            "if": [
-              {"===": [{"var": "value"}, true]}, 10,
-              {"===": [{"var": "value"}, false]}, 14
-            ]
-          }
-        },
-        {
           "data": "fixed parameter",
           "bitoffs": "8",
           "bitsize": "8",
@@ -77,9 +56,24 @@
         },
         {
           "data": "fixed parameter",
-          "bitoffs": "16",
-          "bitsize": "8",
+          "bitoffs": "28",
+          "bitsize": "1",
           "value": 1
+        },
+        {
+          "data": "Block local switch",
+          "shortcut": "BS",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "boolean",
+            "read": true,
+            "write": true
+          },
+          "value": {
+            "var": "value"
+          }
         }
       ]
     },
@@ -100,16 +94,7 @@
           "shortcut": "CMD",
           "bitoffs": "16",
           "bitsize": "8",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "0:Up; 1:Down;  2:Block local switch; 3:Unblock local switch; 4:Teach-in"
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": 1
         },
         {
           "data": "Running time",
@@ -128,22 +113,67 @@
           }
         },
         {
+          "data": "fixed parameter",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
           "data": "Block local switch",
           "shortcut": "BS",
-          "bitoffs": "24",
-          "bitsize": "8",
+          "bitoffs": "29",
+          "bitsize": "1",
           "iobroker": {
             "role": "state",
             "type": "boolean",
+            "read": true,
+            "write": true
+          },
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "16",
+            "bitsize": "8",
+            "value": 2
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Command ID",
+          "shortcut": "CMD",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": 2
+        },
+        {
+          "data": "Running time",
+          "shortcut": "RT",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
             "read": true,
             "write": true,
             "unit": "100ms"
           },
           "value": {
-            "if": [
-              {"===": [{"var": "value"}, true]}, 10,
-              {"===": [{"var": "value"}, false]}, 14
-            ]
+            "var": "value"
           }
         },
         {
@@ -154,9 +184,45 @@
         },
         {
           "data": "fixed parameter",
-          "bitoffs": "16",
-          "bitsize": "8",
-          "value": 2
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "Block local switch",
+          "shortcut": "BS",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "boolean",
+            "read": true,
+            "write": true
+          },
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "16",
+            "bitsize": "8",
+            "value": 3
+          }
+        ]
+      },
+      "datafield": [
+
+        {
+          "data": "fixed parameter",
+          "bitoffs": "0",
+          "bitsize": "31",
+          "value": 4294446464
         }
       ]
     }

@@ -1211,8 +1211,40 @@
         }
       }
     },
+    "FTR65DSB (TF61)": {
+      "EEP": ["TF-13-15"],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
     "FTR55DSB (FHK)": {
       "EEP": ["TF-13-14"],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
+    "FTR55DSB (TF61)": {
+      "EEP": ["TF-13-15"],
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
@@ -1243,8 +1275,40 @@
         }
       }
     },
+    "FTR65HB (TF61)": {
+      "EEP": ["TF-13-15"],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
     "FTR55HB (FHK)": {
       "EEP": ["TF-13-14"],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
+    "FTR55HB (TF61)": {
+      "EEP": ["TF-13-15"],
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
@@ -1275,8 +1339,40 @@
         }
       }
     },
+    "FTR65SB (TF61)": {
+      "EEP": ["TF-13-15"],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
     "FTR55SB (FHK)": {
       "EEP": ["TF-13-14"],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
+    "FTR55SB (TF61)": {
+      "EEP": ["TF-13-15"],
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
@@ -1309,6 +1405,22 @@
     },
     "FTRF65SB (FHK)": {
       "EEP": ["TF-13-14"],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
+    "FTRF65SB (TF61)": {
+      "EEP": ["TF-13-15"],
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
