@@ -1,0 +1,44 @@
+{
+    "eep": "TF-13-14",
+    "rorg_number": "0xA5",
+    "telegram": "4BS",
+    "func_number": "0x00",
+    "type_number": "0x00",
+    "type_title": "Room Operating Panel Temperature, Set point",
+    "case": {
+        "datafield": [
+            {
+                "data": "Temperature",
+                "shortcut": "TMP",
+                "bitoffs": "16",
+                "bitsize": "8",
+                "iobroker": {
+                    "role": "value.temperature",
+                    "type": "number",
+                    "unit": "°C",
+                    "read": true,
+                    "write": false
+                },
+                "value": {
+                    "+": [ { "*": [ { "-": [{"var": "value"}, 255] }, -0.156862745 ]}, 0]
+                },
+                "decimals": 2
+            },
+            {
+                "data": "Set point",
+                "shortcut": "SP",
+                "bitoffs": "8",
+                "bitsize": "8",
+                "iobroker": {
+                    "role": "value",
+                    "type": "number",
+                    "read": true,
+                    "write": false
+                },
+                "value": {
+                    "var":  "value"
+                }
+            }
+        ]
+    }
+}
