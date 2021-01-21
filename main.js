@@ -254,13 +254,12 @@ class Enocean extends utils.Adapter {
 							receiverID.push('0x' + tempId[b]);
 						}
 						const gateway = await this.getObjectAsync('gateway');
-						let baseID = ByteArray.from(gateway.native.BaseID.match(/.{1,2}/g));
+						let baseID = gateway.native.BaseID;
 
 						if (obj.native.baseIDoffset) {
-							const offset = obj.native.baseIDoffset;
-
-							baseID.setValue(parseInt(offset), 24, 8);
+							baseID = obj.native.Sender_ID;
 						}
+						baseID = ByteArray.from(baseID.match(/.{1,2}/g));
 
 						let optionalData = subTelNum.concat(receiverID, [0xFF, 0x00]);
 						let type;

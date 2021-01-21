@@ -1902,6 +1902,24 @@
     }
   },
   "TELEFUNKEN": {
+    "Plug actuator (SES FS-EO)": {
+      "EEP": [
+        "D2-01-0E"
+      ],
+      "autocreate": true,
+      "teachin_method": "UTE",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your plug actuator. For more information please read the manual of plug actuator."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am Funktionsstecker starten. Für weitere informationen bitte die Anleitung des Funktionsstecker lesen."
+        }
+      }
+    },
     "Motion detector BM1": {
       "EEP": ["A5-08-02"],
       "autocreate": false,
