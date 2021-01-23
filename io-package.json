@@ -137,6 +137,18 @@
             "native": {}
         },
         {
+            "_id": "gateway.lastID",
+            "type": "state",
+            "common": {
+                "role": "state",
+                "name": "Device ID from last received telegram",
+                "type": "string",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        {
             "_id": "gateway.repeater",
             "type": "channel",
             "common": {

@@ -443,9 +443,11 @@ class Enocean extends utils.Adapter {
 
 				if (teachin) {
 					if (teachin.val === false) {
-						new HandleType1(this, esp3packet);
+						const telegram = new HandleType1(this, esp3packet);
+						await this.setStateAsync('gateway.lastID', telegram.senderID);
 					} else if (teachin.val === true) {
 						const telegram = new RadioTelegram(esp3packet);
+						await this.setStateAsync('gateway.lastID', telegram.senderID);
 						if (teachinMethod === 'UTE'){
 							new HandleTeachIn(this, esp3packet);
 						}else if (telegram.type.toString(16) === teachinMethod.toLowerCase()){

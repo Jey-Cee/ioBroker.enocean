@@ -194,6 +194,16 @@
 			});
 		}
 
+		//subscribe to lastID
+		socket.emit('subscribe', 'enocean.' + instance + '.gateway.lastID');
+
+		socket.on('stateChange', function (id, state) {
+			//console.log(state);
+				if(id === 'enocean.' + instance + '.gateway.lastID'){
+					$('#lastID').text(state.val);
+				}
+		});
+
 		/**
 		 * Load the adapter config page.
 		 * @param {object} settings - The adapter settings
@@ -311,6 +321,11 @@
 				}
 
 			});
+
+			//make a device request
+			$('#requestDeviceSubmit').on('click', () => {
+					window.open('https://github.com/Jey-Cee/ioBroker.enocean/issues?q=label%3A%22Device+request%22+');
+			})
 
 			// populate the list of known devices
 			getDevices();
@@ -453,7 +468,17 @@
 
 				</div>
 			</div>
+			<div class="row">
+				<div class="col s3 push-s9">
+					<div class="card blue lighten-3">
+						<div class="card-content center-align">
+							<span class="translate">Last seen ID: </span><span id="lastID" style="font-size: 1.3em;">ffffff</span>
+						</div>
+					</div>
+				</div>
+			</div>
 			<div class="modal-footer">
+				<button id="requestDeviceSubmit" style="position:absolute; left: 15px;" class="btn waves-effect waves-light modal-close modal-action translate" type="submit" name="action">Device not listed?</button>
 				<button id="addDeviceSubmit" class="btn waves-effect waves-light modal-close modal-action translate" type="submit" name="action">Add device</button>
 				<button class="btn waves-effect waves-light modal-close modal-action translate" href="#!">Close</button>
 			</div>
