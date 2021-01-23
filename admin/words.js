@@ -265,17 +265,5 @@ systemDictionary = {
 		"es": "ID de dispositivo visto por última vez: \n",
 		"pl": "Identyfikator ostatnio widzianego urządzenia: \n",
 		"zh-cn": "上次看到的设备ID： \n"
-	},
-	"Device not listed?": {
-		"en": "Device not listed?",
-		"de": "Gerät nicht in der Liste?",
-		"ru": "Устройства нет в списке?",
-		"pt": "Dispositivo não listado?",
-		"nl": "Apparaat niet vermeld?",
-		"fr": "Appareil non répertorié?",
-		"it": "Dispositivo non elencato?",
-		"es": "¿Dispositivo no listado?",
-		"pl": "Urządzenia nie ma na liście?",
-		"zh-cn": "设备未列出？"
 	}
 };

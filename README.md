@@ -180,6 +180,16 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 
 ## Changelog
 
+### 0.3.1
+* added Eltako FABH65S, FBH65, FBH65S, FHF, FTR65DSB, FTR55DSB, FTR65HB, FTR55HB, FTR65SB, FTR55SB, FTRF65HB, FTRF65SB
+* added Hoppe SecuSignal Window Handle 
+* added Telefunken SES FS-EO
+* updated: FTA65J teachin
+* changed: FWS61 teachin
+* fix TF-13-12 & TF-13-10 
+* fixed TF-13-03
+* use sender ID instead offset
+
 ### 0.3.0
 * added Eltako devices: TF61D, TF100D, FTA65D, FTA55D, TF100L, TF100SSR, FTA65L, FTA55L, TF-1FT, TF-2FT, TF-2FT55, TF-2ZT, 
   TF-2ZT55, F4PT, F4PT55, TF-4FT, TF-4FT55, TF-8FM, FUD71, FSUD-230V, FSG71/1-10V, FDG71L, FKLD61, FLD61, FL62-230V, 
