@@ -1,4 +1,4 @@
-const url = '';
+const url = 'https://io.all-smart.net/webhook/issues';
 
 const optionalParam = {
 	mode: 'no-cors',
