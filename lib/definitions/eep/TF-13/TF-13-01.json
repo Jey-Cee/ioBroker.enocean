@@ -116,11 +116,11 @@
           "bitoffs": "0",
           "bitsize": "8",
           "iobroker": {
-            "role": "value.battery",
+            "role": "value.speed.wind",
             "type": "number",
             "read": true,
             "write": false,
-            "unit": "V"
+            "unit": "m/s"
           },
           "value": {
             "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.2745 ] }, 0 ]
