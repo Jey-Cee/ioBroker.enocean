@@ -23,13 +23,6 @@
         }
       },
       {
-        "data": "fixed parameter",
-        "description": "not used",
-        "bitoffs": "16",
-        "bitsize": "8",
-        "value": 0
-      },
-      {
         "data": "Illumination 0...2048lx",
         "shortcut": "ILL",
         "bitoffs": "8",
