@@ -2159,6 +2159,24 @@
       }
     }
   },
+  "OPUS": {
+    "GN-BH63AP-pw": {
+      "EEP": ["TF-13-13"],
+      "autocreate": false,
+      "teachin_method": "4BS",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    }
+  },
   "PHEA": {
     "Easyclick sender": {
       "EEP": ["F6-02-02"],
