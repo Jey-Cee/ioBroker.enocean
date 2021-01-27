@@ -326,7 +326,7 @@
 			//make a device request
 			$('#requestDeviceSubmit').on('click', () => {
 					//window.open('https://github.com/Jey-Cee/ioBroker.enocean/issues?q=label%3A%22Device+request%22+');
-				    deviceRequest('Jey Cee', 'No. 1', 'unknown', 'https://github.com/Jey-Cee/ioBroker.enocean', 'This is a test');
+				    deviceRequest($('#manufacturer').val(), $('#model').val(), $('#prod-date').val(), $('#link').val(), $('#additional').val());
 			})
 
 			// populate the list of known devices
@@ -335,6 +335,9 @@
 			onChange(false);
 			// reinitialize all the Materialize labels on the page if you are dynamically adding inputs:
 			if (M) M.updateTextFields();
+			$('#additional').keyup(() => {
+				M.textareaAutoResize($('#additional'));
+			})
 		}
 
 		// This will be called by the admin adapter when the user presses the save button
@@ -481,9 +484,52 @@
 			</div>
 			<div class="modal-footer">
 
-				<button id="requestDeviceSubmit" style="position:absolute; left: 15px;" class="btn waves-effect waves-light modal-close modal-action translate" type="submit" name="action">Device not listed?</button>
+				<div class="col" style="position:absolute; left: 15px;" >
+					<a id="requestDevice" class="waves-effect waves-light btn modal-close modal-trigger translate" href="#request-device">Device not listed?</a>
+				</div>
 
 				<button id="addDeviceSubmit" class="btn waves-effect waves-light modal-close modal-action translate" type="submit" name="action">Add device</button>
+				<button class="btn waves-effect waves-light modal-close modal-action translate" href="#!">Close</button>
+			</div>
+		</div>
+
+		<!-- Request device -->
+		<div id="request-device" class="modal modal-fixed-footer">
+			<div class="modal-content">
+				<h5 class="translate center">Request device integration</h5>
+				<div class="row">
+					<p class="translate">Request Device Text</p>
+				</div>
+				<div class="row">
+					<div class="input-field col s4">
+						<input class="text" id="manufacturer" size="15" type="text">
+						<label class="translate active" for="manufacturer">Manufacturer</label>
+					</div>
+					<div class="input-field col s4">
+						<input class="text" id="model" size="5" type="text">
+						<label class="translate active" for="model">Model</label>
+					</div>
+				</div>
+				<div class="row">
+					<div class="input-field col s4">
+						<input class="text" id="prod-date" size="15" type="text">
+						<label class="translate active" for="prod-date">Production Date</label>
+					</div>
+					<div class="input-field col s4">
+						<input class="text" id="link" size="5"  type="text">
+						<label class="translate active" for="link">Link</label>
+					</div>
+				</div>
+
+				<div class="row">
+					<div class="input-field col s12">
+						<textarea id="additional" class="materialize-textarea"></textarea>
+						<label for="additional">Additional Infromation</label>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button id="requestDeviceSubmit" class="btn waves-effect waves-light modal-close modal-action translate" type="submit" name="action">Send request</button>
 				<button class="btn waves-effect waves-light modal-close modal-action translate" href="#!">Close</button>
 			</div>
 		</div>

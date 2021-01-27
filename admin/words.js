@@ -265,5 +265,114 @@ systemDictionary = {
 		"es": "ID de dispositivo visto por última vez: \n",
 		"pl": "Identyfikator ostatnio widzianego urządzenia: \n",
 		"zh-cn": "上次看到的设备ID： \n"
+	},
+	"Device not listed?": {
+		"en": "Device not listed?",
+		"de": "Gerät nicht gelistet?",
+		"ru": "Устройства нет в списке?",
+		"pt": "Dispositivo não listado?",
+		"nl": "Apparaat niet vermeld?",
+		"fr": "Appareil non répertorié?",
+		"it": "Dispositivo non elencato?",
+		"es": "¿Dispositivo no listado?",
+		"pl": "Urządzenia nie ma na liście?",
+		"zh-cn": "设备未列出？"
+	},
+	"Request device integration": {
+		"en": "Request device integration",
+		"de": "Geräteintegration anfragen",
+		"ru": "Запрос на интеграцию устройства",
+		"pt": "Solicitar integração de dispositivo",
+		"nl": "Vraag apparaatintegratie aan",
+		"fr": "Demander l'intégration de l'appareil",
+		"it": "Richiedi l'integrazione del dispositivo",
+		"es": "Solicitar integración de dispositivo",
+		"pl": "Poproś o integrację urządzenia",
+		"zh-cn": "请求设备集成"
+	},
+	"Manufacturer": {
+		"en": "Manufacturer",
+		"de": "Hersteller",
+		"ru": "Производитель",
+		"pt": "Fabricante",
+		"nl": "Fabrikant",
+		"fr": "Fabricant",
+		"it": "Produttore",
+		"es": "Fabricante",
+		"pl": "Producent",
+		"zh-cn": "制造商"
+	},
+	"Model": {
+		"en": "Model",
+		"de": "Modell",
+		"ru": "Модель",
+		"pt": "Modelo",
+		"nl": "Model",
+		"fr": "Modèle",
+		"it": "Modello",
+		"es": "Modelo",
+		"pl": "Model",
+		"zh-cn": "模型"
+	},
+	"Production Date": {
+		"en": "Production Date",
+		"de": "Produktionsdatum",
+		"ru": "Дата производства",
+		"pt": "Data de produção",
+		"nl": "Productie datum",
+		"fr": "Date de production",
+		"it": "Data di produzione",
+		"es": "Fecha de producción",
+		"pl": "Data produkcji",
+		"zh-cn": "生产日期"
+	},
+	"Additional Infromation": {
+		"en": "Additional Infromation",
+		"de": "Zusätzliche Informationen",
+		"ru": "Дополнительная информация",
+		"pt": "Informações Adicionais",
+		"nl": "Aanvullende informatie",
+		"fr": "Infromation supplémentaire",
+		"it": "Infromazioni aggiuntive",
+		"es": "Información adicional",
+		"pl": "Dodatkowe informacje",
+		"zh-cn": "附加信息"
+	},
+	"Request Device Text": {
+		"en": "Please check <a target=\"_blank\" href=\"https://github.com/Jey-Cee/ioBroker.enocean/issues?q=label%3A%22Device+request%22+\">HERE</a> first if your device is already requested. <br> <b style=\"color:red\">Write in English or German!</b>",
+		"de": "Bitte überprüfe zuerst <a target=\"_blank\" href=\"https://github.com/Jey-Cee/ioBroker.enocean/issues?q=label%3A%22Device+request%22+\">HIER,</a> ob das Gerät bereits angefragt wurde. <br> <b style=\"color:red\">Bitte schreibe in Englisch oder Deutsch!</b>",
+		"ru": "Пожалуйста, проверьте сначала <a target=\"_blank\" href=\"https://github.com/Jey-Cee/ioBroker.enocean/issues?q=label%3A%22Device+request%22+\">ЗДЕСЬ,</a> если ваше устройство уже запрошено. <br> <b style=\"color:red\">Пишите на английском или немецком!</b>",
+		"pt": "Verifique <a target=\"_blank\" href=\"https://github.com/Jey-Cee/ioBroker.enocean/issues?q=label%3A%22Device+request%22+\">AQUI</a> primeiro se o seu dispositivo já foi solicitado. <br> <b style=\"color:red\">Escreva em inglês ou alemão!</b>",
+		"nl": "Controleer eerst <a target=\"_blank\" href=\"https://github.com/Jey-Cee/ioBroker.enocean/issues?q=label%3A%22Device+request%22+\">HIER</a> of uw apparaat al is aangevraagd. <br> <b style=\"color:red\">Schrijf in het Engels of Duits!</b>",
+		"fr": "Veuillez d'abord vérifier <a target=\"_blank\" href=\"https://github.com/Jey-Cee/ioBroker.enocean/issues?q=label%3A%22Device+request%22+\">ICI</a> si votre appareil est déjà demandé. <br> <b style=\"color:red\">Écrivez en anglais ou en allemand!</b>",
+		"it": "Per favore controlla <a target=\"_blank\" href=\"https://github.com/Jey-Cee/ioBroker.enocean/issues?q=label%3A%22Device+request%22+\">QUI</a> prima se il tuo dispositivo è già richiesto. <br> <b style=\"color:red\">Scrivi in inglese o tedesco!</b>",
+		"es": "Consulte <a target=\"_blank\" href=\"https://github.com/Jey-Cee/ioBroker.enocean/issues?q=label%3A%22Device+request%22+\">AQUÍ</a> primero si su dispositivo ya está solicitado. <br> ¡ <b style=\"color:red\">Escriba en inglés o alemán!</b>",
+		"pl": "Sprawdź najpierw <a target=\"_blank\" href=\"https://github.com/Jey-Cee/ioBroker.enocean/issues?q=label%3A%22Device+request%22+\">TUTAJ,</a> jeśli zamówiono już Twoje urządzenie. <br> <b style=\"color:red\">Pisz po angielsku lub niemiecku!</b>",
+		"zh-cn": "如果您的设备已经被要求，请先在<a target=\"_blank\" href=\"https://github.com/Jey-Cee/ioBroker.enocean/issues?q=label%3A%22Device+request%22+\">这里</a>检查。 <br> <b style=\"color:red\">用英语或德语写！</b>"
+	},
+	"Send request": {
+		"en": "Send request",
+		"de": "Anfrage senden",
+		"ru": "Послать запрос",
+		"pt": "Enviar pedido",
+		"nl": "Verzend verzoek",
+		"fr": "Envoyer une demande",
+		"it": "Invia richiesta",
+		"es": "Enviar petición",
+		"pl": "Wysłać prośbę",
+		"zh-cn": "发送请求"
+	},
+	"Additional Infromation": {
+		"en": "Additional Infromation",
+		"de": "Zusätzliche Informationen",
+		"ru": "Дополнительная информация",
+		"pt": "Informações Adicionais",
+		"nl": "Aanvullende informatie",
+		"fr": "Infromation supplémentaire",
+		"it": "Infromazioni aggiuntive",
+		"es": "Información adicional",
+		"pl": "Dodatkowe informacje",
+		"zh-cn": "附加信息"
 	}
+
 };
