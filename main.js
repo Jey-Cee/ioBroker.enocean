@@ -563,9 +563,11 @@ class Enocean extends utils.Adapter {
 
 	waitForResponse() {
 		return new Promise((resolve) => {
-			SERIAL_PORT.on('data', (data)=>{
+			const cb = (data) => {
 				resolve(data);
-			});
+				SERIAL_PORT.off('data', cb);
+			};
+			SERIAL_PORT.on('data',  cb);
 		});
 	}
 
