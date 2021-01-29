@@ -19,19 +19,19 @@
       },
       "datafield": [
         {
-        "data": "Command ID",
-        "shortcut": "CMD",
-        "bitoffs": "31",
-        "bitsize": "1",
-        "iobroker": {
-          "role": "state",
-          "type": "number",
-          "read": true,
-          "write": true,
-          "states": "0:Off; 1:On; 2:Teach-in"
-        },
+          "data": "Command ID",
+          "shortcut": "CMD",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Off; 1:On; 2:Teach-in; 3:Teach-in (1)"
+          },
           "value": 0
-      },
+        },
         {
           "data": "State blocked",
           "shortcut": "SB",
@@ -100,7 +100,7 @@
             "type": "number",
             "read": true,
             "write": true,
-            "states": "0:Off; 1:On; 2:Teach-in"
+            "states": "0:Off; 1:On; 2:Teach-in; 3:Teach-in (1)"
           },
           "value": 1
         },
@@ -189,6 +189,48 @@
           "bitoffs": "24",
           "bitsize": "8",
           "value": 40
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "16",
+            "bitsize": "8",
+            "value": 3
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 224
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 64
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": 13
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Learn bit",
+          "bitoffs": "24",
+          "bitsize": "8",
+          "value": 128
         }
       ]
     }

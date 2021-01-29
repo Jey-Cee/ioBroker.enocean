@@ -668,17 +668,21 @@
         "TF-13-03",
         "TF-13-04"
       ],
-      "autocreate": true,
-      "teachin_method": "MSC",
+      "autocreate": false,
+      "teachin_method": "none",
       "id_offset": true,
       "help": {
         "en": {
-          "1": "Click on 'Add Device'.",
-          "2": "Start teachin mode on your FSB61NP-230V. For more information please read the manual of FSB61NP-230V."
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'.",
+          "3": "Start teach-in mode on FSB61NP-230V. For more information, please read the FSB61NP-230V manual.",
+          "4": "Switch to the objects and send the command (CMD) 'Teach-in', number 3."
         },
         "de": {
-          "1": "Auf 'Gerät Hinzufügen' klicken.",
-          "2": "Anlernmodus am FSB61NP-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FSB61NP-230V lesen."
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Anlernmodus am FSB61NP-230V starten. Für weitere informationen bitte die Anleitung des FSB61NP-230V lesen.",
+          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in', nummer 3, senden."
         }
       }
     },
@@ -902,17 +906,21 @@
         "TF-01-02",
         "TF-14-02"
       ],
-      "autocreate": true,
-      "teachin_method": "MSC",
+      "autocreate": false,
+      "teachin_method": "none",
       "id_offset": true,
       "help": {
         "en": {
-          "1": "Click on 'Add Device'.",
-          "2": "Start teachin mode on your FSR61NP-230V. For more information please read the manual of FSR61NP-230V"
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'.",
+          "3": "Start teach-in mode on FSR61NP-230V. For more information, please read the FSR61NP-230V manual.",
+          "4": "Switch to the objects and send the command (CMD) 'Teach-in (1)', number 3."
         },
         "de": {
-          "1": "Auf 'Gerät Hinzufügen' klicken.",
-          "2": "Anlernmodus am FSR61NP-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FSR61NP-230V lesen."
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Anlernmodus am FSR61NP-230V starten. Für weitere informationen bitte die Anleitung des FSR61NP-230V lesen.",
+          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in (1)', nummer 3, senden."
         }
       }
     },
@@ -1926,6 +1934,29 @@
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
           "2": "Anlernmodus am TF61L-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des TF61L-230V lesen."
+        }
+      }
+    },
+    "TF61R-230V": {
+      "EEP": [
+        "TF-01-02",
+        "F6-02-02"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'.",
+          "3": "Start teach-in mode on TF61R-230V. For more information, please read the TF61R-230V manual.",
+          "4": "Switch to the objects and send the command (CMD) 'Teach-in (1)', number 3."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Anlernmodus am TF61R-230V starten. Für weitere informationen bitte die Anleitung des TF61R-230V lesen.",
+          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in (1)', nummer 3, senden."
         }
       }
     },
