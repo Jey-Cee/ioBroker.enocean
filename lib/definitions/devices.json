@@ -1074,37 +1074,40 @@
       }
     },
     "FTA55J": {
-      "EEP": ["F6-02-02"],
+      "EEP": [
+        "TF-01-01",
+        "TF-13-04"
+      ],
       "autocreate": true,
-      "teachin_method": "RPS",
-      "id_offset": false,
+      "teachin_method": "MSC",
+      "id_offset": true,
       "help": {
         "en": {
           "1": "Click on 'Add Device'.",
-          "2": "Press any key of the switch."
+          "2": "Start teachin mode on your FTA55J. For more information please read the manual of FTA55J."
         },
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
-          "2": "Irgendeine Taste des Tasters betätigen."
+          "2": "Anlernmodus am FTA55J starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FTA55J lesen."
         }
       }
     },
     "FTA65J": {
       "EEP": [
         "TF-01-01",
-        "F6-02-02"
+        "TF-13-04"
       ],
       "autocreate": true,
       "teachin_method": "MSC",
-      "id_offset": false,
+      "id_offset": true,
       "help": {
         "en": {
           "1": "Click on 'Add Device'.",
-          "2": "Press any key of the switch."
+          "2": "Start teachin mode on your FTA65J. For more information please read the manual of FTA65J."
         },
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
-          "2": "Irgendeine Taste des Tasters betätigen."
+          "2": "Anlernmodus am FTA65J starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FTA65J lesen."
         }
       }
     },
@@ -1902,7 +1905,7 @@
     "TF61J-230V": {
       "EEP": [
         "TF-01-01",
-        "F6-02-02"
+        "TF-13-04"
       ],
       "autocreate": true,
       "teachin_method": "MSC",
