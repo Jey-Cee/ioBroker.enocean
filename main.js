@@ -2,6 +2,7 @@
 
 const utils = require('@iobroker/adapter-core');
 const SerialPort = require('serialport');
+const ByteLength = require('@serialport/parser-byte-length');
 const os = require('os');
 const fs = require('fs');
 const path = require('path');
@@ -409,6 +410,10 @@ class Enocean extends utils.Adapter {
 		SERIAL_PORT.on('open', async () => {
 			this.setState('info.connection', true, true);
 			await this.getGatewayInfo();
+
+			SERIALPORT_ESP3_PARSER.on('data', (data) => {
+				this.parseMessage(data);
+			});
 		});
 
 
@@ -423,9 +428,6 @@ class Enocean extends utils.Adapter {
 			this.setState('info.connection', false, true);
 		});
 
-		SERIALPORT_ESP3_PARSER.on('data', (data) => {
-			this.parseMessage(data);
-		});
 	}
 
 	/**
@@ -561,13 +563,13 @@ class Enocean extends utils.Adapter {
 		});
 	}
 
-	waitForResponse() {
+	waitForResponse(){
 		return new Promise((resolve) => {
 			const cb = (data) => {
 				resolve(data);
-				SERIAL_PORT.off('data', cb);
+				SERIALPORT_ESP3_PARSER.off('data', cb);
 			};
-			SERIAL_PORT.on('data',  cb);
+			SERIALPORT_ESP3_PARSER.on('data', cb);
 		});
 	}
 
