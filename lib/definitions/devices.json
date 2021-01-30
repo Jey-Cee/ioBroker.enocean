@@ -1921,7 +1921,7 @@
     "TF61L-230V": {
       "EEP": [
         "TF-01-02",
-        "F6-02-02"
+        "TF-13-05"
       ],
       "autocreate": true,
       "teachin_method": "MSC",
@@ -1982,7 +1982,7 @@
     "TF100L": {
       "EEP": [
         "TF-01-02",
-        "F6-02-02"
+        "TF-13-05"
       ],
       "autocreate": true,
       "teachin_method": "MSC",
