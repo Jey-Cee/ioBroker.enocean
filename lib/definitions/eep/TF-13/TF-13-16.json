@@ -1,0 +1,25 @@
+{
+    "eep": "TF-13-16",
+    "rorg_number": "0xF6",
+    "telegram": "RPS",
+    "func_number": "0x00",
+    "type_number": "0x00",
+    "type_title": "FKF65 Key Card switch",
+    "case": {
+        "datafield": [
+            {
+                "data": "Key Card",
+                "shortcut": "KC",
+                "bitoffs": "0",
+                "bitsize": "8",
+                "iobroker": {
+                    "role": "switch",
+                    "type": "boolean",
+                    "read": true,
+                    "write": false
+                },
+                "value": {"var": "value"}
+            }
+        ]
+    }
+}
