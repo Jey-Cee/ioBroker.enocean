@@ -1,0 +1,374 @@
+{
+    "eep": "A5-20-06",
+    "rorg_number": "0xA5",
+    "telegram": "4BS",
+    "func_number": "0x20",
+    "type_number": "0x06",
+    "type_title": "Harvesting-powered actuator with local temperature offset control (BI-DIR)",
+    "case": [
+        {
+            "send": false,
+            "datafield": [
+                {
+                    "data": "Current Value 0...100%",
+                    "shortcut": "in.CV",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "value.valve",
+                        "type": "number",
+                        "unit": "%",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "var": "value"
+                    }
+                },
+                {
+                    "data": "Local offset mode",
+                    "shortcut": "in.LOM",
+                    "bitoffs": "8",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "number",
+                        "read": true,
+                        "write": false,
+                        "states": "0:Temperature offset; 1:Temperature with offset"
+                    },
+                    "value": {"var": "value"}
+                },
+                {
+                    "data": "Local offset",
+                    "shortcut": "in.LO",
+                    "bitoffs": "9",
+                    "bitsize": "7",
+                    "iobroker": {
+                        "role": "value.temperature",
+                        "type": "number",
+                        "read": true,
+                        "write": false,
+                        "unit": "°C"
+                    },
+                    "secondArgument": {
+                        "bitoffs": "8",
+                        "bitsize": "1"
+                    },
+                    "value": {
+                        "if": [
+                            {"==":[{"var": "value2"}, 0]}, {  "+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.5] }, 0 ] },
+                            {"==":[{"var": "value2"}, 1]}, {  "if": [
+                                {"==":[{"var":  "value"}, 0]}, 0,
+                                {"==":[{"var":  "value"}, 1]}, 1,
+                                {"==":[{"var":  "value"}, 2]}, 2,
+                                {"==":[{"var":  "value"}, 3]}, 3,
+                                {"==":[{"var":  "value"}, 4]}, 4,
+                                {"==":[{"var":  "value"}, 5]}, 5,
+                                {"==":[{"var":  "value"}, 123]}, -5,
+                                {"==":[{"var":  "value"}, 124]}, -4,
+                                {"==":[{"var":  "value"}, 125]}, -3,
+                                {"==":[{"var":  "value"}, 126]}, -2,
+                                {"==":[{"var":  "value"}, 127]}, -1
+                            ] }
+                        ]
+                    }
+                },
+                {
+                    "data": "Temperature",
+                    "shortcut": "in.TMP",
+                    "bitoffs": "16",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "+": [{ "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.5]}, 0]
+                    }
+                },
+                {
+                    "data": "Temperature selection",
+                    "shortcut": "in.TSL",
+                    "bitoffs": "24",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "number",
+                        "read": true,
+                        "write": false,
+                        "states": "0:Ambient sensor temp; 1:Feed sensor temperature"
+                    },
+                    "value": { "var": "value" }
+                },
+                {
+                    "data": "Harvesting status",
+                    "shortcut": "in.ENIE",
+                    "bitoffs": "25",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [
+                            {
+                                "var": "value"
+                            },
+                            1
+                        ]
+                    }
+                },
+                {
+                    "data": "Charge level of energy storage",
+                    "shortcut": "in.ES",
+                    "bitoffs": "26",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "number",
+                        "read": true,
+                        "write": false,
+                        "states": "0:Low, almost discharged; 1:Sufficiently charged"
+                    },
+                    "value": { "var": "value" }
+                },
+                {
+                    "data": "Detection, window open",
+                    "shortcut": "in.DWO",
+                    "bitoffs": "27",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [
+                            {
+                                "var": "value"
+                            },
+                            1
+                        ]
+                    }
+                },
+                {
+                    "data": "Radio communication error",
+                    "shortcut": "in.RCE",
+                    "bitoffs": "29",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [ { "var": "value" }, 1 ]
+                    }
+                },
+                {
+                    "data": "Week Radio Signal",
+                    "shortcut": "in.RSS",
+                    "bitoffs": "30",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [ { "var": "value" }, 1 ]
+                    }
+                },
+                {
+                    "data": "Actuator is blocked",
+                    "shortcut": "in.ACO",
+                    "bitoffs": "31",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [ { "var": "value" }, 1 ]
+                    }
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 0
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Command",
+                    "shortcut": "CMD",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "states": "0:Set Valve position; 1:Set Temperature; 2:Summer mode;"
+                    },
+                    "value": {
+                        "var": "value"
+                    }
+                },
+                {
+                    "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
+                    "shortcut": "SP",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "level",
+                        "type": "number",
+                        "read": false,
+                        "write": true
+                    },
+                    "value": {
+                        "var": "value"
+                    }
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Setpoint selection",
+                    "bitoffs": "21",
+                    "bitsize": "1",
+                    "value": 0
+                },
+                {
+                    "shortcut": "fixed parameter",
+                    "bitoffs": "24",
+                    "bitsize": "1",
+                    "value": 0
+                },
+                {
+                    "shortcut": "LEARNBIT",
+                    "bitoffs": "28",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "shortcut": "fixed parameter",
+                    "bitoffs": "29",
+                    "bitsize": "1",
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 1
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
+                    "shortcut": "SP",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "level",
+                        "type": "number",
+                        "read": false,
+                        "write": true
+                    },
+                    "value": {
+                        "var": "value"
+                    },
+                    "value_out": {"*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 6.375 ]}
+                },
+                {
+                    "data": "Send actual room temperature",
+                    "shortcut": "TMP",
+                    "bitoffs": "8",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "value.temperature",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "unit": "°C"
+                    },
+                    "value": {
+                        "+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.25 ] }, 0 ]
+                    },
+                    "value_out": {"*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 0.25 ]},
+                    "decimals": 2
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Setpoint selection",
+                    "bitoffs": "21",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Learn Bit",
+                    "bitoffs": "28",
+                    "bitsize": "1",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 2
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "description": "dummy byte",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "dummy byte",
+                    "bitoffs": "8",
+                    "bitsize": "8",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Summer Bit",
+                    "bitoffs": "20",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Learn Bit",
+                    "bitoffs": "28",
+                    "bitsize": "1",
+                    "value": 1
+                }
+            ]
+        }
+    ]
+}
