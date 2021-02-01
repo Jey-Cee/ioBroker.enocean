@@ -55,10 +55,28 @@
                         "bitoffs": "8",
                         "bitsize": "1"
                     },
+                    "condition": { "==": [ { "var": "value2" }, 0 ] },
+                    "value": { "+": [{ "*": [{ "-": [{ "var": "value" }, 0]}, 0.5]}, 0]}
+                },
+                {
+                    "data": "Local offset",
+                    "shortcut": "in.LO",
+                    "bitoffs": "9",
+                    "bitsize": "7",
+                    "iobroker": {
+                        "role": "value.temperature",
+                        "type": "number",
+                        "read": true,
+                        "write": false,
+                        "unit": "°C"
+                    },
+                    "secondArgument": {
+                        "bitoffs": "8",
+                        "bitsize": "1"
+                    },
+                    "condition": { "==": [ { "var": "value2" }, 1 ] },
                     "value": {
                         "if": [
-                            {"==":[{"var": "value2"}, 0]}, {  "+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.5] }, 0 ] },
-                            {"==":[{"var": "value2"}, 1]}, {  "if": [
                                 {"==":[{"var":  "value"}, 0]}, 0,
                                 {"==":[{"var":  "value"}, 1]}, 1,
                                 {"==":[{"var":  "value"}, 2]}, 2,
@@ -70,8 +88,7 @@
                                 {"==":[{"var":  "value"}, 125]}, -3,
                                 {"==":[{"var":  "value"}, 126]}, -2,
                                 {"==":[{"var":  "value"}, 127]}, -1
-                            ] }
-                        ]
+                            ]
                     }
                 },
                 {
@@ -294,7 +311,7 @@
                     "value": {
                         "var": "value"
                     },
-                    "value_out": {"*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 6.375 ]}
+                    "value_out": {"*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 0.5]}
                 },
                 {
                     "data": "Send actual room temperature",
@@ -308,10 +325,7 @@
                         "write": true,
                         "unit": "°C"
                     },
-                    "value": {
-                        "+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.25 ] }, 0 ]
-                    },
-                    "value_out": {"*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 0.25 ]},
+                    "value_out": {"/": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 0.25 ]},
                     "decimals": 2
                 },
                 {
@@ -341,11 +355,19 @@
             },
             "datafield": [
                 {
-                    "data": "fixed parameter",
-                    "description": "dummy byte",
+                    "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
+                    "shortcut": "SP",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "value": 0
+                    "iobroker": {
+                        "role": "level",
+                        "type": "number",
+                        "read": false,
+                        "write": true
+                    },
+                    "value": {
+                        "var": "value"
+                    }
                 },
                 {
                     "data": "fixed parameter",

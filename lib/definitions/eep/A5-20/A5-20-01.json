@@ -361,11 +361,20 @@
                     "value": 0
                 },
                 {
-                    "data": "fixed parameter",
-                    "description": "dummy byte",
-                    "bitoffs": "8",
+                    "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
+                    "shortcut": "SP",
+                    "bitoffs": "0",
                     "bitsize": "8",
-                    "value": 0
+                    "iobroker": {
+                        "role": "level",
+                        "type": "number",
+                        "read": false,
+                        "write": true
+                    },
+                    "value": {
+                        "var": "value"
+                    },
+                    "value_out": {"*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 6.375 ]}
                 },
                 {
                     "data": "fixed parameter",
