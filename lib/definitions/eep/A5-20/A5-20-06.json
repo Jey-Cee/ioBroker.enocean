@@ -55,7 +55,7 @@
                         "bitoffs": "8",
                         "bitsize": "1"
                     },
-                    "condition": { "==": [ { "var": "value2" }, 0 ] },
+                    "condition": { "==": [ { "var": "value2" }, 1 ] },
                     "value": { "+": [{ "*": [{ "-": [{ "var": "value" }, 0]}, 0.5]}, 0]}
                 },
                 {
@@ -74,7 +74,7 @@
                         "bitoffs": "8",
                         "bitsize": "1"
                     },
-                    "condition": { "==": [ { "var": "value2" }, 1 ] },
+                    "condition": { "==": [ { "var": "value2" }, 0 ] },
                     "value": {
                         "if": [
                                 {"==":[{"var":  "value"}, 0]}, 0,
@@ -311,7 +311,7 @@
                     "value": {
                         "var": "value"
                     },
-                    "value_out": {"*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 0.5]}
+                    "value_out": {"/": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 0.5]}
                 },
                 {
                     "data": "Send actual room temperature",
