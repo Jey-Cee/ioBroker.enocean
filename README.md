@@ -180,6 +180,28 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 
 ## Changelog
 
+### 0.3.2
+* added possibility to request a device directly 
+* added Base ID & Sender ID to configuration 
+* added Eltako F4SR14-LED
+* added Afriso FTM T, FTM TF & Viessmann Temperature sensor 7554507, Temperature- and humidity sensor 7554951
+* added Eltako FFG7B (A5-14-09) & FFG7B (F6-10-00)
+* added Micropelt MVA005
+* added Eltako FKF65 & Nodon Card Switch (CCS-2-1-01)
+* added Eltako FSS12-12V-DC
+* added OPUS GN-BH63AP-pw
+* added Thermokon SR04
+* revised D2-01-0E, this effects Micro Smart Plug (MSP-2-1-11) & Plug actuator (SES FS-EO)
+* fix A5-20-06
+* fix TF-13-01 Windspeed, Rain, Dawn Sensor
+* fix Eltako Teachin ID offset
+* fix TF-13-13: removed useless fixed parameter
+* small fixes
+* Eltako automatic device teachin wait before send teachin telegram
+* use serialport esp3 parser in getGatewayInfos
+* close listener properly
+* change Hoppe SecuSignal teachin procedure
+
 ### 0.3.1
 * added Eltako FABH65S, FBH65, FBH65S, FHF, FTR65DSB, FTR55DSB, FTR65HB, FTR55HB, FTR65SB, FTR55SB, FTRF65HB, FTRF65SB
 * added Hoppe SecuSignal Window Handle 
