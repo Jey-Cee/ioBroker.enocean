@@ -154,7 +154,7 @@ class Enocean extends utils.Adapter {
 
 
 			// The state was changed
-			this.log.info(`state ${objName} changed: ${state.val} (ack = ${state.ack}) state: ${JSON.stringify(state)}`);
+			this.log.debug(`state ${objName} changed: ${state.val} (ack = ${state.ack}) state: ${JSON.stringify(state)}`);
 
 			const obj  = await this.getObjectAsync(`${this.namespace}.${tmp[2]}`);
 			const oObj = await this.getObjectAsync(id);

@@ -7,48 +7,53 @@
   "type_title": "Electronic switch with energy measurement and local control",
   "case": [
     {
-      "send": false,
+      "send": true,
       "condition": {
         "command": [
           {
-            "bitoffs": "4",
-            "bitsize": "4",
-            "value": 4
+            "value": 0
           }
         ]
       },
       "datafield": [
         {
-        "data": "Command ID",
-        "shortcut": "CMD",
-        "bitoffs": "4",
-        "bitsize": "4",
-        "iobroker": {
-          "role": "state",
-          "type": "number",
-          "read": true,
-          "write": true,
-          "states": "1:Actuator Set Output;2:Actuator set local;3:Actuator Status Query;4:Actuator status response;5:Actuator set measurement;6:Actuator measurement query;7:Actuator measurement response"
-        },
-          "value": {
-            "var": "value"
-          }
-      },
-        {
-          "data": "I/O channel",
-          "shortcut": "IO",
-          "bitoffs": "11",
-          "bitsize": "5",
+          "data": "Command ID",
+          "shortcut": "CMD",
           "iobroker": {
             "role": "state",
             "type": "number",
             "read": true,
-            "write": false,
-            "states": "30:All output channels;31:Input channel (from mains supply)"
-          },
-          "value": {
-            "var": "value"
+            "write": true,
+            "states": "0:OFF;1:ON;2:Set output settings;3:Status query;4:Set measurement settings;5:Measurement query;6:Reset measurement values;"
           }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "command",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy byte",
+          "bitoffs": "8",
+          "bitsize": "3",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy byte",
+          "bitoffs": "11",
+          "bitsize": "5",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Output off",
+          "bitoffs": "17",
+          "bitsize": "7",
+          "value": 0
         }
       ]
     },
@@ -57,44 +62,38 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "4",
-            "bitsize": "4",
             "value": 1
           }
         ]
       },
       "datafield": [
         {
-          "data": "Command ID",
-          "shortcut": "CMD",
+          "data": "fixed parameter",
+          "description": "command",
           "bitoffs": "4",
           "bitsize": "4",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "1:Actuator Set Output;2:Actuator set local;3:Actuator Status Query;4:Actuator status response;5:Actuator set measurement;6:Actuator measurement query;7:Actuator measurement response"
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": 1
         },
         {
-          "data": "Output Value",
-          "shortcut": "OV",
+          "data": "fixed parameter",
+          "description": "dummy byte",
+          "bitoffs": "8",
+          "bitsize": "3",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy byte",
+          "bitoffs": "11",
+          "bitsize": "5",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Output off",
           "bitoffs": "17",
           "bitsize": "7",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "0:Off;100:On;127:Output value not valid / not applicable"
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": 1
         }
       ]
     },
@@ -103,28 +102,17 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "4",
-            "bitsize": "4",
             "value": 2
           }
         ]
       },
       "datafield": [
         {
-          "data": "Command ID",
-          "shortcut": "CMD",
+          "data": "fixed parameter",
+          "description": "command",
           "bitoffs": "4",
           "bitsize": "4",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "1:Actuator Set Output;2:Actuator set local;3:Actuator Status Query;4:Actuator status response;5:Actuator set measurement;6:Actuator measurement query;7:Actuator measurement response"
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": 2
         },
         {
           "data": "Taught-in devices",
@@ -143,36 +131,18 @@
           }
         },
         {
-          "data": "Over current shut down",
-          "shortcut": "OC",
+          "data": "fixed parameter",
+          "description": "dummy bit",
           "bitoffs": "8",
           "bitsize": "1",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "0:Static off;1:Automatic restart"
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": 0
         },
         {
-          "data": "Reset over current shutdown",
-          "shortcut": "RO",
+          "data": "fixed parameter",
+          "description": "dummy bit",
           "bitoffs": "9",
           "bitsize": "1",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "0:Not active;1:Trigger signal"
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": 0
         },
         {
           "data": "Local control",
@@ -191,6 +161,13 @@
           }
         },
         {
+          "data": "fixed parameter",
+          "description": "dummy byte",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
           "data": "User interface indication",
           "shortcut": "dn",
           "bitoffs": "24",
@@ -207,6 +184,13 @@
           }
         },
         {
+          "data": "fixed parameter",
+          "description": "dummy bit",
+          "bitoffs": "25",
+          "bitsize": "1",
+          "value": 0
+        },
+        {
           "data": "Default state",
           "shortcut": "DS",
           "bitoffs": "26",
@@ -221,6 +205,13 @@
           "value": {
             "var": "value"
           }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy bit",
+          "bitoffs": "28",
+          "bitsize": "4",
+          "value": 0
         }
       ]
     },
@@ -229,90 +220,48 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "4",
-            "bitsize": "4",
             "value": 3
           }
         ]
       },
       "datafield": [
         {
-          "data": "Command ID",
-          "shortcut": "CMD",
+          "data": "fixed parameter",
+          "description": "command",
           "bitoffs": "4",
           "bitsize": "4",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "1:Actuator Set Output;2:Actuator set local;3:Actuator Status Query;4:Actuator status response;5:Actuator set measurement;6:Actuator measurement query;7:Actuator measurement response"
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": 3
         },
         {
-          "data": "I/O channel",
-          "shortcut": "IO",
+          "data": "fixed parameter",
+          "description": "I/O channel",
           "bitoffs": "11",
           "bitsize": "5",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": false,
-            "states": "30:All output channels;31:Input channel (from mains supply)"
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": 0
         }
       ]
     },
     {
       "send": false,
-      "condition": {
-        "command": [
-          {
+      "condition": [{
             "bitoffs": "4",
             "bitsize": "4",
             "value": 4
-          }
-        ]
-      },
+      }],
       "datafield": [
         {
-          "data": "Command ID",
-          "shortcut": "CMD",
-          "bitoffs": "4",
-          "bitsize": "4",
+          "data": "Output on",
+          "shortcut": "OV",
+          "bitoffs": "17",
+          "bitsize": "7",
           "iobroker": {
             "role": "state",
-            "type": "number",
+            "type": "boolean",
             "read": true,
-            "write": true,
-            "states": "1:Actuator Set Output;2:Actuator set local;3:Actuator Status Query;4:Actuator status response;5:Actuator set measurement;6:Actuator measurement query;7:Actuator measurement response"
+            "write": true
           },
           "value": {
-            "var": "value"
-          }
-        },
-        {
-          "data": "Over current switch off",
-          "shortcut": "OC",
-          "description": "Over current switch off",
-          "bitoffs": "8",
-          "bitsize": "1",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "0:Ready;1:Executed"
-          },
-          "value": {
-            "var": "value"
+            "==": [{"var": "value"}, 100]
           }
         },
         {
@@ -347,22 +296,6 @@
           "value": {
             "var": "value"
           }
-        },
-        {
-          "data": "Output Value",
-          "shortcut": "OV",
-          "bitoffs": "17",
-          "bitsize": "7",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "0:Off;100:On;127:Output value not valid / not applicable"
-          },
-          "value": {
-            "var": "value"
-          }
         }
       ]
     },
@@ -371,28 +304,17 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "4",
-            "bitsize": "4",
-            "value": 5
+            "value": 4
           }
         ]
       },
       "datafield": [
         {
-          "data": "Command ID",
-          "shortcut": "CMD",
+          "data": "fixed parameter",
+          "description": "command",
           "bitoffs": "4",
           "bitsize": "4",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "1:Actuator Set Output;2:Actuator set local;3:Actuator Status Query;4:Actuator status response;5:Actuator set measurement;6:Actuator measurement query;7:Actuator measurement response"
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": 5
         },
         {
           "data": "Report measurement",
@@ -411,20 +333,11 @@
           }
         },
         {
-          "data": "Reset measurement",
-          "shortcut": "RE",
+          "data": "fixed parameter",
+          "description": "Reset measurement",
           "bitoffs": "9",
           "bitsize": "1",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "0:Not active;1:Trigger signal"
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": 0
         },
         {
           "data": "Measurement mode",
@@ -443,21 +356,18 @@
           }
         },
         {
-          "data": "Measurement delta to be reported (LSB)",
-          "shortcut": "MD_LSB",
+          "data": "fixed parameter",
+          "description": "Measurement delta LSB",
           "bitoffs": "16",
           "bitsize": "4",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "min": 0,
-            "max": 4095
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": 15
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Measurement delta",
+          "bitoffs": "24",
+          "bitsize": "8",
+          "value": 255
         },
         {
           "data": "Unit",
@@ -470,24 +380,6 @@
             "read": true,
             "write": true,
             "states": "00:WS;1:Wh;2:kWh;3:W;4:kW"
-          },
-          "value": {
-            "var": "value"
-          }
-        },
-        {
-          "data": "Measurement delta to be reported (MSB)",
-          "shortcut": "MD_MSB",
-          "description": "Measurement delta to be reported (MSB)",
-          "bitoffs": "24",
-          "bitsize": "8",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "min": 0,
-            "max": 4095
           },
           "value": {
             "var": "value"
@@ -507,12 +399,12 @@
             "max": 2550,
             "unit": "s"
           },
-          "value": {
-            "+": [{
-              "*": [
+          "value_out": {
+            "/": [{
+              "+": [
                 { "-": [{"var": "value"}, 0] },
-                10
-              ]}, 0]
+                0
+              ]}, 10]
           }
         },
         {
@@ -541,28 +433,17 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "4",
-            "bitsize": "4",
-            "value": 6
+            "value": 5
           }
         ]
       },
       "datafield": [
         {
-          "data": "Command ID",
-          "shortcut": "CMD",
+          "data": "fixed parameter",
+          "description": "command",
           "bitoffs": "4",
           "bitsize": "4",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "1:Actuator Set Output;2:Actuator set local;3:Actuator Status Query;4:Actuator status response;5:Actuator set measurement;6:Actuator measurement query;7:Actuator measurement response"
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": 6
         },
         {
           "data": "Query",
@@ -584,32 +465,12 @@
     },
     {
       "send": false,
-      "condition": {
-        "command": [
-          {
+      "condition": [{
             "bitoffs": "4",
             "bitsize": "4",
             "value": 7
-          }
-        ]
-      },
+      }],
       "datafield": [
-        {
-          "data": "Command ID",
-          "shortcut": "CMD",
-          "bitoffs": "4",
-          "bitsize": "4",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "1:Actuator Set Output;2:Actuator set local;3:Actuator Status Query;4:Actuator status response;5:Actuator set measurement;6:Actuator measurement query;7:Actuator measurement response"
-          },
-          "value": {
-            "var": "value"
-          }
-        },
         {
           "data": "Energy counter",
           "shortcut": "EC",
@@ -672,6 +533,135 @@
               {"==":[{"var": "value2"}, 3]}, "W",
               {"==":[{"var": "value2"}, 4]}, "kW"
             ]
+          }
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 6
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "command",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 5
+        },
+        {
+          "data": "Report measurement",
+          "shortcut": "RM",
+          "bitoffs": "8",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Query only;1:Auto reporting"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Reset measurement",
+          "bitoffs": "9",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "Measurement mode",
+          "shortcut": "ep",
+          "bitoffs": "10",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Energy measurement;1:Power measurement"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Measurement delta LSB",
+          "bitoffs": "16",
+          "bitsize": "4",
+          "value": 15
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Measurement delta",
+          "bitoffs": "24",
+          "bitsize": "8",
+          "value": 255
+        },
+        {
+          "data": "Unit",
+          "shortcut": "UN",
+          "bitoffs": "21",
+          "bitsize": "3",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:WS;1:Wh;2:kWh;3:W;4:kW"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Maximum time between two subsequent actuator messages",
+          "shortcut": "MAT",
+          "bitoffs": "32",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "min": 10,
+            "max": 2550,
+            "unit": "s"
+          },
+          "value_out": {
+            "/": [{
+              "+": [
+                { "-": [{"var": "value"}, 0] },
+                0
+              ]}, 10]
+          }
+        },
+        {
+          "data": "Minimum time between two subsequent actuator messages",
+          "shortcut": "MIT",
+          "description": "Measurement Response messages [s]",
+          "bitoffs": "40",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "min": 1,
+            "max": 255,
+            "unit": "s"
+          },
+          "value": {
+            "var": "value"
           }
         }
       ]
