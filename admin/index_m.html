@@ -146,8 +146,17 @@
 		function showDevice(obj) {
 			var text = '';
 			text += '<td >' + obj.native.id + '</td>';
+			if(obj.native.Sender_ID) {
+				text += '<td >' + obj.native.Sender_ID + '</td>';
+			} else {
+				text += '<td>' + '--' + '</td>';
+			}
 			text += '<td>' + obj.native.eep + '</td>';
-			text += '<td>' + obj.native.manufacturer + '</td>';
+			if(obj.native.manufacturer) {
+				text += '<td>' + obj.native.manufacturer + '</td>';
+			} else {
+				text += '<td>' + '--' + '</td>';
+			}
 			if (obj.common.name) {
 				text += '<td>' + obj.common.name + '</td>';
 			} else {
@@ -192,6 +201,12 @@
 		function loadSysConfig(){
 			socket.emit('getObject', 'system.config', function (err, res) {
 				sysConfig = res;
+			});
+		}
+
+		function getGateway() {
+			socket.emit('getObject', 'enocean.' + instance + '.gateway', function (err, res) {
+				$('#BaseID').text(res.native.BaseID);
 			});
 		}
 
@@ -332,6 +347,8 @@
 			// populate the list of known devices
 			getDevices();
 
+			getGateway();
+
 			onChange(false);
 			// reinitialize all the Materialize labels on the page if you are dynamically adding inputs:
 			if (M) M.updateTextFields();
@@ -403,6 +420,13 @@
 					<div class="input-field col">
 						<a id="addDevice" class="waves-effect waves-light btn modal-trigger translate" href="#add-device">Add new device</a>
 					</div>
+					<div class="col s2 push-s8">
+						<div class="card blue lighten-3">
+							<div class="card-content center-align" style="font-size: 1.3em;">
+								<span class="translate">Base ID: </span><span id="BaseID">ffffff</span>
+							</div>
+						</div>
+					</div>
 				</div>
 
 				<div id="devices">
@@ -410,6 +434,7 @@
 						<thead>
 							<tr>
 								<th class="translate">ID</th>
+								<th class="translate">Sender ID</th>
 								<th class="translate">EEP</th>
 								<th class="translate" data-lang="manufacturer">Manufacturer</th>
 								<th class="translate" data-lang="device">Device</th>
@@ -476,7 +501,7 @@
 			<div class="row">
 				<div class="col s3 push-s9">
 					<div class="card blue lighten-3">
-						<div class="card-content center-align">
+						<div class="card-content center-align" style="padding:7px;">
 							<span class="translate">Last seen ID: </span><span id="lastID" style="font-size: 1.3em;">ffffff</span>
 						</div>
 					</div>
