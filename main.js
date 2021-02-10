@@ -217,6 +217,7 @@ class Enocean extends utils.Adapter {
 							//get data from objects
 							for (let s in parameter) {
 								const state = await this.getStateAsync(`${this.namespace}.${devId}.${parameter[s]}`);
+								await this.setState(`${this.namespace}.${devId}.${parameter[s]}`, {ack: true});
 								const short = parameter[s];
 								const datafield = eepProfile.case[c].datafield;
 								for (let d in datafield) {
@@ -294,7 +295,7 @@ class Enocean extends utils.Adapter {
 						}
 						await this.sendData(data, optionalData, 0x01);
 
-
+						await this.setStateAsync(id, {ack: true});
 						break;
 					}
 				}
