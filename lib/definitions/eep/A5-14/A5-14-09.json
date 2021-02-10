@@ -1,0 +1,59 @@
+{
+  "eep": "A5-14-09",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x14",
+  "type_number": "0x09",
+  "type_title": "Multi-Func Sensor Window/Door with states Open/Closed/Tilt, supply voltage monitor",
+  "case": {
+    "datafield": [
+      {
+        "data": "Open",
+        "shortcut": "OP",
+        "bitoffs": "29",
+        "bitsize": "2",
+        "iobroker": {
+          "role": "sensor.window",
+          "type": "boolean",
+          "read": true,
+          "write": false
+        },
+        "value": {
+          "==": [{"var": "value"}, 3]
+        }
+      },
+      {
+        "data": "Tilt",
+        "shortcut": "TL",
+        "bitoffs": "29",
+        "bitsize": "2",
+        "iobroker": {
+          "role": "sensor.window",
+          "type": "boolean",
+          "read": true,
+          "write": false
+        },
+        "value": {
+          "==": [{"var": "value"}, 1]
+        }
+      },
+      {
+        "data": "Supply Voltage 0...5.0V (Optional)",
+        "shortcut": "SVC",
+        "bitoffs": "0",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "value.battery",
+          "type": "number",
+          "unit": "V",
+          "read": true,
+          "write": false
+        },
+        "value": {
+          "+": [{"*":[{"-":[{"var":  "value"}, 0 ]}, 0.02 ]}, 0 ]
+        },
+        "decimals": 2
+      }
+    ]
+  }
+}
