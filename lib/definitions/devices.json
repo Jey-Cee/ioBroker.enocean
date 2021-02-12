@@ -2397,7 +2397,7 @@
   "TELEFUNKEN": {
     "Plug actuator (SES FS-EO)": {
       "EEP": [
-        "D2-01-0E"
+        "D2-01-08"
       ],
       "autocreate": true,
       "teachin_method": "UTE",
