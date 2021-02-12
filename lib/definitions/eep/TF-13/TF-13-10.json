@@ -27,7 +27,24 @@
                         "write": false,
                         "unit": "lx"
                     },
-                    "value": { "var": "value" },
+                    "value": {
+                        "+": [
+                            {
+                                "*": [
+                                    {
+                                        "-": [
+                                            {
+                                                "var": "value"
+                                            },
+                                            0
+                                        ]
+                                    },
+                                   0.5
+                                ]
+                            },
+                            0
+                        ]
+                    },
                     "decimals": 0
                 }
             ]
