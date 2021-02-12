@@ -35,6 +35,7 @@ let SERIAL_PORT = null;
 let SERIALPORT_ESP3_PARSER = null;
 
 let teachinMethod = null;
+let queue = [];
 
 class Enocean extends utils.Adapter {
 
@@ -293,7 +294,8 @@ class Enocean extends utils.Adapter {
 								data = type.concat(data, baseID, 0x00);
 								break;
 						}
-						await this.sendData(data, optionalData, 0x01);
+						queue.push({'data': data, 'optionaldata': optionalData, 'packettype': 0x01});
+						//await this.sendData(data, optionalData, 0x01);
 
 						await this.setStateAsync(id, {ack: true});
 						break;
@@ -411,6 +413,7 @@ class Enocean extends utils.Adapter {
 		SERIAL_PORT.on('open', async () => {
 			this.setState('info.connection', true, true);
 			await this.getGatewayInfo();
+			this.sendQueue();
 
 			SERIALPORT_ESP3_PARSER.on('data', (data) => {
 				this.parseMessage(data);
@@ -564,6 +567,7 @@ class Enocean extends utils.Adapter {
 		});
 	}
 
+	//wait for response from USB Stick/Modul
 	waitForResponse(){
 		return new Promise((resolve) => {
 			const cb = (data) => {
@@ -572,6 +576,19 @@ class Enocean extends utils.Adapter {
 			};
 			SERIALPORT_ESP3_PARSER.on('data', cb);
 		});
+	}
+
+	async sendQueue(){
+		if(queue.length > 0){
+			const data = queue[0].data;
+			const optionalData = queue[0].optionaldata;
+			const packetType = queue[0].packettype;
+			await this.sendData(data, optionalData, packetType);
+			queue.splice(0,1);
+		}
+		setTimeout( () => {
+			this.sendQueue();
+		}, 50);
 	}
 
 	/**
@@ -595,18 +612,54 @@ class Enocean extends utils.Adapter {
 			payload = [sync, header, crc8h, Buffer.from(data), crc8d];
 		}
 
-		this.log.debug('Sent data: ' + Buffer.concat(payload).toString('hex'));
+
 
 		SERIAL_PORT.write(Buffer.concat(payload), (err) => {
 			if(err){
 				this.log.warn('Error sending data: ' + err);
 				return false;
 			}
+			this.log.debug('Sent data: ' + Buffer.concat(payload).toString('hex'));
 		});
+		//const resWrite = await this.writeAsync(Buffer.concat(payload));
+		//this.log.info(resWrite);
+		//this.log.debug('Sent data: ' + Buffer.concat(payload).toString('hex'));
+
+		/*const res = await this.waitForResponse();
+		this.log.info('Hier res');
+		const retCode = new ResponseTelegram(res);
+
+		switch(retCode.returnCode.toString('hex')) {
+			case '00':
+				this.log.debug('Data dispatch confirmed');
+				break;
+			case '01':
+				this.log.debug('Error send data');
+				break;
+			case '02':
+				this.log.debug('Not Supported');
+				break;
+			case '03':
+				this.log.debug('Wrong Parameter');
+				break;
+			case '04':
+				this.log.debug('Operation Denied');
+				break;
+			case '05':
+				this.log.debug('Duty cycle lock');
+				break;
+			case '06':
+				this.log.debug('Internal Buffer too small to handle this telegram');
+				break;
+			case '07':
+				this.log.debug('Currently all internal buffers are used.');
+				break;
+		}*/
 
 		return true;
 	}
 }
+
 
 // convert byte to hex
 function toHex(byte) {
