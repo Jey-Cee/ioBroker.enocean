@@ -180,6 +180,15 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 
 ## Changelog
 
+### 0.3.3
+* add techin procedure for FSR61 to Packet_handler.js
+* add ack for cmd & optionals
+* added A5-14-09 
+* use queue for sending message 
+* changed Telefunken SES FS-EO to D2-01-08
+* fix A5-04-01 calculation
+* fix TF-13-10 calculation
+
 ### 0.3.2
 * added possibility to request a device directly 
 * added Base ID & Sender ID to configuration 
