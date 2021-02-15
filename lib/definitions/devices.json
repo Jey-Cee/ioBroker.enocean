@@ -195,6 +195,24 @@
         }
       }
     },
+    "FAFT60": {
+      "EEP": [
+        "A5-04-02"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
     "FAE14LPR": {
       "EEP": [
         "TF-14-03"
@@ -414,6 +432,24 @@
         "en": {
           "1": "Enter device ID.",
           "2": "Click on 'Add Device'"
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
+    "FFR61-230V": {
+      "EEP": [
+        "TF-13-17"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
         },
         "de": {
           "1": "Geräte ID eintragen.",
@@ -1740,7 +1776,7 @@
       ],
       "autocreate": false,
       "teachin_method": "none",
-      "id_offset": true,
+      "id_offset": false,
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -2381,6 +2417,22 @@
       "EEP": ["F6-02-02"],
       "autocreate": true,
       "teachin_method": "RPS",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Press any key of the switch."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Irgendeine Taste des Tasters betätigen."
+        }
+      }
+    },
+    "451 FU-EBI PF o.T.": {
+      "EEP": ["I1-01-01", "A5-11-04"],
+      "autocreate": true,
+      "teachin_method": "none",
       "id_offset": false,
       "help": {
         "en": {

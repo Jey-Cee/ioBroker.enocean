@@ -1,0 +1,67 @@
+{
+    "eep": "TF-13-17",
+    "rorg_number": "0xF6",
+    "telegram": "RPS",
+    "func_number": "0x00",
+    "type_number": "0x00",
+    "type_title": "2 channel state",
+    "case": [
+        {
+            "condition": [{
+                "bitoffs": "0",
+                "bitsize": "8",
+                "value": 112
+            },
+            {
+                "bitoffs": "0",
+                "bitsize": "8",
+                "value": 80
+            }],
+            "datafield": [
+                {
+                    "data": "Channel 1",
+                    "shortcut": "CH1",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "switch",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {"===": [ { "var": "value" }, 112 ]}
+
+                }
+            ]
+        },
+        {
+            "condition": [{
+                "bitoffs": "0",
+                "bitsize": "8",
+                "value": 48
+            },
+                {
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 16
+                }],
+            "datafield": [
+                {
+                    "data": "Channel 2",
+                    "shortcut": "CH2",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "switch",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "===": [ { "var": "value" }, 48 ]
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -120,14 +120,14 @@ Example:
 
 ```
 //Temperature conversion from ioBroker
- "*": [{
+ "/": [{
          "+": [
               { "-": [{"var": "value"}, 0] },
               0
             ]}, 0.2]
 
 //This is a more complex looking formula.
-//It is based on this one: Device Value = ( ( rawValue - Range min) + Scale min ) * Multiplier
+//It is based on this one: Device Value = ( ( rawValue - Range min) + Scale min ) / Multiplier
 //The Multiplier, in this case 0.2, is calculated in this way: (Scale max - Scale min) / (Range max - Range min)
 ```
 

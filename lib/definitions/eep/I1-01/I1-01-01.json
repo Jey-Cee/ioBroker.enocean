@@ -1,0 +1,255 @@
+{
+  "eep": "I1-01-01",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x38",
+  "type_number": "0x08",
+  "type_title": "Switching",
+  "case": [
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 0
+          }
+        ]
+      },
+      "datafield": [
+        {
+        "data": "Command ID",
+        "shortcut": "CMD",
+        "bitoffs": "0",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "state",
+          "type": "number",
+          "read": true,
+          "write": true,
+          "states": "0:Off; 1:On; 2:Teach-in"
+        },
+          "value": 1
+      },
+        {
+          "data": "Time",
+          "shortcut": "TIM",
+          "bitoffs": "8",
+          "bitsize": "16",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "def": 0,
+            "min": 0,
+            "max": 6553.5,
+            "unit": "s"
+          },
+          "value": {
+            "+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.1 ] }, 0 ]
+          },
+          "value_out": {
+            "/": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0.1 ] }, 0 ]
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "Lock",
+          "shortcut": "LCk",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "boolean",
+            "read": true,
+            "write": true
+          },
+          "value": {
+            "var": "value"
+          },
+          "value_out": {
+            "===": [{"var": "value"}, 1]
+          }
+        },
+        {
+          "data": "Delay or duration",
+          "shortcut": "DEL",
+          "bitoffs": "30",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Duration; 1:Delay"
+          },
+          "value": {
+            "var": "value"
+          },
+          "value_out": {
+            "===": [{"var": "value"}, 1]
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Switching command",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "command",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 1
+        },
+        {
+          "data": "Time",
+          "shortcut": "TIM",
+          "bitoffs": "8",
+          "bitsize": "16",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "def": 0,
+            "min": 0,
+            "max": 6553.5,
+            "unit": "s"
+          },
+          "value": {
+            "+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.1 ] }, 0 ]
+          },
+          "value_out": {
+            "/": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0.1 ] }, 0 ]
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "Lock",
+          "shortcut": "LCk",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "boolean",
+            "read": true,
+            "write": true
+          },
+          "value": {
+            "var": "value"
+          },
+          "value_out": {
+            "===": [{"var": "value"}, 1]
+          }
+        },
+        {
+          "data": "Delay or duration",
+          "shortcut": "DEL",
+          "bitoffs": "30",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:Duration; 1:Delay"
+          },
+          "value": {
+            "var": "value"
+          },
+          "value_out": {
+            "===": [{"var": "value"}, 1]
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Switching command",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 2
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "command",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "command",
+          "bitoffs": "8",
+          "bitsize": "16",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "teachin",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "30",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "command",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": 0
+        }
+      ]
+    }
+  ]
+}
