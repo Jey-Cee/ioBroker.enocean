@@ -4,13 +4,13 @@
     "telegram": "RPS",
     "func_number": "0x00",
     "type_number": "0x00",
-    "type_title": "Actuator 4-channel",
+    "type_title": "Heating relais mode",
     "case": [
         {
             "datafield": [
                 {
-                    "data": "Command",
-                    "shortcut": "CMD",
+                    "data": "Mode",
+                    "shortcut": "MO",
                     "bitoffs": "0",
                     "bitsize": "8",
                     "iobroker": {

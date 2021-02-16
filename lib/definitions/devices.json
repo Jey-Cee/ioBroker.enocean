@@ -117,7 +117,7 @@
   },
   "ELTAKO": {
     "F4HK14": {
-      "EEP": [
+      "EEP": [ "A5-10-06",
         "TF-14-03"
       ],
       "autocreate": false,
