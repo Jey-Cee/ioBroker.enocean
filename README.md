@@ -29,7 +29,7 @@ In general there is a cmd object where you can choose the command that you want 
 you can find this information in the profile definition.
 
 Special:
-* A5-20-01: Devices with this profile does only accept commands within 1 second after they have sent a message. They send periodically (10 minutes?), please read the manual.
+* A5-20-xx: Devices with this profile does only accept commands within 1 second after they have sent a message. They send periodically (10 minutes?), please read the manual.
 
 
 ## Teach-in
@@ -61,10 +61,6 @@ If yes the first one has to be the one that will control the device.
 ## Supported Teach-in procedures
 - 4BS (Variation 1 & 2)
 - UTE - Universal Uni- and Bidirectional Teach-in
-
-## Supported Profiles
-
- Find a list [here](./SUPPORTED_PROFILES.md)
  
 ## Supported Devices
  
