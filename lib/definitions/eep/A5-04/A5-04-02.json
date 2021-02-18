@@ -18,7 +18,7 @@
         {
           "data": "Temperature -20...60°C",
           "shortcut": "TMP",
-          "bitoffs": "8",
+          "bitoffs": "16",
           "bitsize": "8",
           "iobroker": {
             "role": "value.temperature",
@@ -35,7 +35,7 @@
         {
           "data": "Humidity 0...100%",
           "shortcut": "TMP",
-          "bitoffs": "16",
+          "bitoffs": "8",
           "bitsize": "8",
           "iobroker": {
             "role": "value.humidity",
