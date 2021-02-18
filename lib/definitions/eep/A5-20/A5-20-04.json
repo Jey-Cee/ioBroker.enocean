@@ -41,12 +41,21 @@
                         "bitoffs": "30",
                         "bitsize": "1"
                     },
-                    "value": {
-                        "if": [
-                            {"===": [{"var": "value2"}, 0]}, {"+": [{ "*": [{ "-": [{ "var": "value"}, 0 ]}, 0.23529411764705882 ]}, 20 ]},
-                            {"===": [{"var": "value2"}, 1]}, {"+": [{ "*": [{ "-": [{ "var": "value"}, 0 ]}, 0.0784313725490196 ]}, 10 ]}
-                        ]
+                    "condition": { "==": [ { "var": "value2" }, 0] },
+                    "value": {"+": [{ "*": [{ "-": [{ "var": "value"}, 0 ]}, 0.23529411764705882 ]}, 20 ]},
+                    "decimals": 2
+                },
+                {
+                    "data": "Temperature Feed or Set Point 20...80°C or 10...30°C",
+                    "shortcut": "in.TMP",
+                    "bitoffs": "8",
+                    "bitsize": "8",
+                    "secondArgument": {
+                        "bitoffs": "30",
+                        "bitsize": "1"
                     },
+                    "condition": { "==": [ { "var": "value2" }, 1] },
+                    "value": {"+": [{ "*": [{ "-": [{ "var": "value"}, 0 ]}, 0.0784313725490196 ]}, 10 ]},
                     "decimals": 2
                 },
                 {
@@ -72,21 +81,20 @@
                 {
                     "data": "Failure Code",
                     "shortcut": "in.FC",
+                    "bitoffs": "16",
+                    "bitsize": "8",
                     "iobroker": {
                         "role": "state",
                         "type": "number",
                         "read": true,
-                        "write": true,
-                        "states": "17:Measurement error; 18:Battery empty; 20:Frost protection; 33:Blocked valve; 36:End point detection error; 40:No valve; 49:Not taught in; 53:No response from controller; 54:Teach-in error;"
+                        "write": false
                     },
                     "secondArgument": {
                         "bitoffs": "31",
                         "bitsize": "1"
                     },
-                    "condition": { "==": [ { "var": "value2" }, 0 ] },
-                    "value": {
-                        "var": "value"
-                    }
+                    "condition": { "==": [ { "var": "value2" }, 1 ] },
+                    "value": {"var": "value"}
                 },
                 {
                     "data": "Measurement active",
@@ -127,6 +135,27 @@
                             1
                         ]
                     }
+                },
+                {
+                    "data": "Temperature selection",
+                    "shortcut": "in.TS",
+                    "bitoffs": "30",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "number",
+                        "read": true,
+                        "write": false,
+                        "states": "0:Feed Temperature; 1:Temperature Set point;"
+                    },
+                    "value": {
+                        "==": [
+                            {
+                                "var": "value"
+                            },
+                            1
+                        ]
+                    }
                 }
             ]
         },
@@ -148,7 +177,7 @@
                         "type": "number",
                         "read": true,
                         "write": true,
-                        "states": "0:Set Valve position; 1:Set Temperature; 2:Summer mode; 3:Open valve; 4:Close valve"
+                        "states": "0:Set Valve position; 1:Set Temperature;"
                     },
                     "value": {
                         "var": "value"
@@ -197,12 +226,30 @@
                 {
                     "data": "Wake-up Cycle",
                     "shortcut": "WUC",
+                    "bitoffs": "18",
+                    "bitsize": "6",
                     "iobroker": {
                         "role": "state",
                         "type": "number",
                         "read": true,
                         "write": true,
-                        "states": "00:10 sec; 1:60 sec; 2:90 sec; 3:120 sec; 4:150 sec; 5: 180 sec; 6: 210 sec; 7:240 sec; 8:270 sec; 9:300 sec (5 min); 10:330 sec; 11:360 sec; 12:390 sec; 13:420 sec; 14:450 sec; 15:480 sec; 16:510 sec; 17:540 sec; 18:570 sec; 19:600 sec (10 min); 20:630 sec; 21:660 sec; 22:690 sec; 23:720 sec; 24:750 sec; 25:780 sec; 26:810 sec; 27:840 sec; 28:870 sec; 29:900 sec (15 min); 30:930 sec; 31:960 sec;"
+                        "states": "00:10 sec; 1:60 sec; 2:90 sec; 3:120 sec; 4:150 sec; 5: 180 sec; 6: 210 sec; 7:240 sec; 8:270 sec; 9:300 sec (5 min); 10:330 sec; 11:360 sec; 12:390 sec; 13:420 sec; 14:450 sec; 15:480 sec; 16:510 sec; 17:540 sec; 18:570 sec; 19:600 sec (10 min); 20:630 sec; 21:660 sec; 22:690 sec; 23:720 sec; 24:750 sec; 25:780 sec; 26:810 sec; 27:840 sec; 28:870 sec; 29:900 sec (15 min); 30:930 sec; 31:960 sec; 32:990 sec; 33:1020 sec; 34:1050 sec; 35:1080 sec; 36:1110 sec; 37:1140 sec; 38:1170 sec; 39:1200 sec (20 min); 40:1230 sec; 41:1260 sec; 42:1290 sec; 43:1320 sec; 44:1350 sec; 45:1380 sec; 46:1410 sec; 47:1440 sec; 48:1470 sec; 49:1500 sec (25 min); 50:3 hours; 51:6 hours; 52:9 hours; 53:12 hours; 54:15 hours; 55:18 hours; 56:21 hours; 57:24 hours; 58:27 hours; 59:30 hours; 60:33 hours; 61:36 hours; 62:39 hours; 63:42 hours;"
+                    },
+                    "value": {
+                        "var": "value"
+                    }
+                },
+                {
+                    "data": "Display orientation",
+                    "shortcut": "DSO",
+                    "bitoffs": "26",
+                    "bitsize": "2",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "states": "0:0°; 1:90°; 2:180°; 3:270°"
                     },
                     "value": {
                         "var": "value"
@@ -213,6 +260,31 @@
                     "bitoffs": "28",
                     "bitsize": "1",
                     "value": 1
+                },
+                {
+                    "data": "Button lock",
+                    "shortcut": "BLC",
+                    "bitoffs": "29",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": true
+                    },
+                    "value_out": {
+                        "if": [
+                            { "==": [{"var": "value"}, true]}, 1,
+                            { "==": [{"var": "value"}, false]}, 0
+                        ]
+                    }
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Service command",
+                    "bitoffs": "30",
+                    "bitsize": "2",
+                    "value": 0
                 }
             ]
         },
@@ -227,141 +299,74 @@
             },
             "datafield": [
                 {
-                    "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
-                    "shortcut": "SP",
+                    "data": "fixed parameter",
+                    "description": "Valve position",
                     "bitoffs": "0",
                     "bitsize": "8",
+                    "value": 0
+                },
+                {
+                    "data": "Temperature setpoint (0...+30°C)",
+                    "shortcut": "TSP",
+                    "bitoffs": "8",
+                    "bitsize": "8",
                     "iobroker": {
-                        "role": "level",
+                        "role": "level.temperature",
                         "type": "number",
                         "read": false,
                         "write": true
                     },
-                    "value": {
-                        "var": "value"
-                    },
-                    "value_out": {"*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 6.375 ]}
+                    "value_out": {"/":[{"-":[{"+":[{"var":"value"},0]},10]},0.0784313725490196]}
                 },
                 {
-                    "data": "Send actual room temperature",
-                    "shortcut": "TMP",
-                    "bitoffs": "8",
-                    "bitsize": "8",
+                    "data": "Measurement active",
+                    "shortcut": "MC",
+                    "bitoffs": "17",
+                    "bitsize": "1",
                     "iobroker": {
-                        "role": "value.temperature",
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": true
+                    },
+                    "value_out": {
+                        "if": [
+                            { "==": [{"var": "value"}, true]}, 0,
+                            { "==": [{"var": "value"}, false]}, 1
+                        ]
+                    }
+                },
+                {
+                    "data": "Wake-up Cycle",
+                    "shortcut": "WUC",
+                    "bitoffs": "18",
+                    "bitsize": "6",
+                    "iobroker": {
+                        "role": "state",
                         "type": "number",
                         "read": true,
                         "write": true,
-                        "unit": "°C"
-                    },
-                    "value": {
-                        "+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 6.375 ] }, 0 ]
-                    },
-                    "value_out": {"*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 6.375 ]},
-                    "decimals": 2
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Setpoint selection",
-                    "bitoffs": "21",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Learn Bit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 2
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy byte",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
-                    "shortcut": "SP",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "iobroker": {
-                        "role": "level",
-                        "type": "number",
-                        "read": false,
-                        "write": true
+                        "states": "00:10 sec; 1:60 sec; 2:90 sec; 3:120 sec; 4:150 sec; 5: 180 sec; 6: 210 sec; 7:240 sec; 8:270 sec; 9:300 sec (5 min); 10:330 sec; 11:360 sec; 12:390 sec; 13:420 sec; 14:450 sec; 15:480 sec; 16:510 sec; 17:540 sec; 18:570 sec; 19:600 sec (10 min); 20:630 sec; 21:660 sec; 22:690 sec; 23:720 sec; 24:750 sec; 25:780 sec; 26:810 sec; 27:840 sec; 28:870 sec; 29:900 sec (15 min); 30:930 sec; 31:960 sec; 32:990 sec; 33:1020 sec; 34:1050 sec; 35:1080 sec; 36:1110 sec; 37:1140 sec; 38:1170 sec; 39:1200 sec (20 min); 40:1230 sec; 41:1260 sec; 42:1290 sec; 43:1320 sec; 44:1350 sec; 45:1380 sec; 46:1410 sec; 47:1440 sec; 48:1470 sec; 49:1500 sec (25 min); 50:3 hours; 51:6 hours; 52:9 hours; 53:12 hours; 54:15 hours; 55:18 hours; 56:21 hours; 57:24 hours; 58:27 hours; 59:30 hours; 60:33 hours; 61:36 hours; 62:39 hours; 63:42 hours;"
                     },
                     "value": {
                         "var": "value"
+                    }
+                },
+                {
+                    "data": "Display orientation",
+                    "shortcut": "DSO",
+                    "bitoffs": "26",
+                    "bitsize": "2",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "states": "0:0°; 1:90°; 2:180°; 3:270°"
                     },
-                    "value_out": {"*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 6.375 ]}
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Summer Bit",
-                    "bitoffs": "20",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Learn Bit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 3
+                    "value": {
+                        "var": "value"
                     }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy byte",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy byte",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Valve open",
-                    "bitoffs": "18",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Service mode ON",
-                    "bitoffs": "23",
-                    "bitsize": "1",
-                    "value": 1
                 },
                 {
                     "data": "fixed parameter",
@@ -369,53 +374,31 @@
                     "bitoffs": "28",
                     "bitsize": "1",
                     "value": 1
-                }
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 4
+                },
+                {
+                    "data": "Button lock",
+                    "shortcut": "BLC",
+                    "bitoffs": "29",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": true
+                    },
+                    "value_out": {
+                        "if": [
+                            { "==": [{"var": "value"}, true]}, 1,
+                            { "==": [{"var": "value"}, false]}, 0
+                        ]
                     }
-                ]
-            },
-            "datafield": [
+                },
                 {
                     "data": "fixed parameter",
-                    "description": "dummy byte",
-                    "bitoffs": "0",
-                    "bitsize": "8",
+                    "description": "Service command",
+                    "bitoffs": "30",
+                    "bitsize": "2",
                     "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy byte",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Valve closed",
-                    "bitoffs": "19",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Service mode ON",
-                    "bitoffs": "23",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Learn Bit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
                 }
             ]
         }
