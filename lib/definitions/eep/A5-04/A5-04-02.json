@@ -32,7 +32,7 @@
         },
         {
           "data": "Humidity 0...100%",
-          "shortcut": "TMP",
+          "shortcut": "HM",
           "bitoffs": "8",
           "bitsize": "8",
           "iobroker": {
@@ -75,7 +75,7 @@
       "datafield": [
         {
           "data": "Humidity 0...100%",
-          "shortcut": "TMP",
+          "shortcut": "HM",
           "bitoffs": "8",
           "bitsize": "8",
           "iobroker": {

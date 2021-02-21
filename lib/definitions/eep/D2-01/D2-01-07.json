@@ -1,0 +1,152 @@
+{
+  "eep": "D2-01-07",
+  "rorg_number": "0xD2",
+  "telegram": "VLD",
+  "func_number": "0x01",
+  "type_number": "0x07",
+  "type_title": "Electronic switch",
+  "case": [
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 0
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Command ID",
+          "shortcut": "CMD",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "0:OFF;1:ON;2:Status query;"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "command",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy byte",
+          "bitoffs": "8",
+          "bitsize": "3",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy byte",
+          "bitoffs": "11",
+          "bitsize": "5",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Output off",
+          "bitoffs": "17",
+          "bitsize": "7",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "command",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy byte",
+          "bitoffs": "8",
+          "bitsize": "3",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy byte",
+          "bitoffs": "11",
+          "bitsize": "5",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Output off",
+          "bitoffs": "17",
+          "bitsize": "7",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 2
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "command",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 3
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy byte",
+          "bitoffs": "11",
+          "bitsize": "5",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [{
+        "bitoffs": "4",
+        "bitsize": "4",
+        "value": 4
+      }],
+      "datafield": [
+        {
+          "data": "Output on",
+          "shortcut": "OV",
+          "bitoffs": "17",
+          "bitsize": "7",
+          "iobroker": {
+            "role": "state",
+            "type": "boolean",
+            "read": true,
+            "write": true
+          },
+          "value": {
+            "==": [{"var": "value"}, 100]
+          }
+        }
+      ]
+    }
+  ]
+}
