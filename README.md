@@ -176,6 +176,14 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 
 ## Changelog
 
+### 0.3.4
+* added PHEA 451 FU-EBI PF o.T. 
+* added Hora SmartDrive MX
+* added Eltako FAFT60, FWZ-65A, FSVA-230V
+* extended teachin description for Eltako FSB14
+* fix A5-02-05 calculation
+* fix A5-04-02
+
 ### 0.3.3
 * add techin procedure for FSR61 to Packet_handler.js
 * add ack for cmd & optionals
