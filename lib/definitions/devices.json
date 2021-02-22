@@ -441,19 +441,23 @@
     },
     "FFR61-230V": {
       "EEP": [
-        "TF-13-17"
+        "TF-13-18","TF-13-17"
       ],
       "autocreate": false,
       "teachin_method": "none",
-      "id_offset": true,
+      "id_offset": false,
       "help": {
         "en": {
           "1": "Enter device ID.",
-          "2": "Click on 'Add Device'."
+          "2": "Click on 'Add Device'.",
+          "3": "Set the lower rotary switch to infinity and the upper one to LRN.",
+          "4": "Switch to the objects and send the command (CMD) 'CH 1 OFF'."
         },
         "de": {
           "1": "Geräte ID eintragen.",
-          "2": "Auf 'Gerät Hinzufügen' klicken."
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Den unteren Drehschalter auf Unendlich und den oberen auf LRN stellen.",
+          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'CH 1 OFF' senden."
         }
       }
     },
