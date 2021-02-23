@@ -445,7 +445,7 @@
       ],
       "autocreate": false,
       "teachin_method": "none",
-      "id_offset": false,
+      "id_offset": true,
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -726,6 +726,28 @@
           "1": "Geräte ID eintragen.",
           "2": "Auf 'Gerät Hinzufügen' klicken.",
           "3": "Anlernmodus am FMMS44SB starten. Für weitere informationen bitte die Anleitung des FMMS44SB lesen."
+        }
+      }
+    },
+    "FMZ61-230V": {
+      "EEP": [
+        "TF-13-19","TF-14-02"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'.",
+          "3": "Set the lower rotary switch to (2) and the upper one to LRN.",
+          "4": "Switch to the objects and send the command (CMD) 'ON'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Den unteren Drehschalter auf (2) und den oberen auf LRN stellen.",
+          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'ON' senden."
         }
       }
     },
@@ -1074,6 +1096,28 @@
           "2": "Auf 'Gerät Hinzufügen' klicken.",
           "3": "Anlernmodus am FSR61NP-230V starten. Für weitere informationen bitte die Anleitung des FSR61NP-230V lesen.",
           "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in (1)', nummer 3, senden."
+        }
+      }
+    },
+    "FSR70S-230V": {
+      "EEP": [
+        "TF-13-19","TF-14-02"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'.",
+          "3": "Set the lower rotary switch to 1.",
+          "4": "Switch to the objects and send the command (CMD) 'OFF'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Den unteren Drehschalter auf 1.",
+          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'OFF' senden."
         }
       }
     },

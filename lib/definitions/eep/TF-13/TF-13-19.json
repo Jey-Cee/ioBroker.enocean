@@ -1,0 +1,66 @@
+{
+    "eep": "TF-13-19",
+    "rorg_number": "0xF6",
+    "telegram": "RPS",
+    "func_number": "0x00",
+    "type_number": "0x00",
+    "type_title": "Switch",
+    "case": [
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 0
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Command ID",
+                    "shortcut": "CMD",
+                    "bitoffs": "0",
+                    "bitsize": "3",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": false,
+                        "write": true,
+                        "states": "0:OFF; 1:ON;"
+                    },
+                    "value": 3
+                },
+                {
+                    "data": "fixed parameter",
+                    "bitoffs": "3",
+                    "bitsize": "1",
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 1
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "bitoffs": "0",
+                    "bitsize": "3",
+                    "value": 1
+                },
+                {
+                    "data": "fixed parameter",
+                    "bitoffs": "3",
+                    "bitsize": "1",
+                    "value": 1
+                }
+            ]
+        }
+    ]
+}
