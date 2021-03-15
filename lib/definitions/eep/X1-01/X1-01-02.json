@@ -1,0 +1,82 @@
+{
+    "eep": "X1-01-02",
+    "rorg_number": "0xA5",
+    "telegram": "4BS",
+    "func_number": "0x10",
+    "type_number": "0x06",
+    "type_title": "Room Operating Panel Temperature, Set point, Day/Night Control",
+    "case": {
+        "send": true,
+        "condition": {
+            "command": [
+                {
+                    "value": 0
+                }
+            ]
+        },
+        "datafield": [
+            {
+                "data": "Command ID",
+                "shortcut": "CMD",
+                "bitoffs": "0",
+                "bitsize": "3",
+                "iobroker": {
+                    "role": "state",
+                    "type": "number",
+                    "read": false,
+                    "write": true,
+                    "states": "0:Send data;"
+                },
+                "value": 0
+            },
+            {
+                "data": "Temperature",
+                "shortcut": "TMP",
+                "bitoffs": "16",
+                "bitsize": "8",
+                "iobroker": {
+                    "role": "value.temperature",
+                    "type": "number",
+                    "unit": "°C",
+                    "read": true,
+                    "write": false
+                },
+                "value_out": {"/":[{"-":[{"+":[{"var":"value"},255]},0]},-0.1568627450980392]},
+                "decimals": 2
+            },
+            {
+                "data": "Set point",
+                "shortcut": "SP",
+                "bitoffs": "8",
+                "bitsize": "8",
+                "iobroker": {
+                    "role": "value",
+                    "type": "number",
+                    "read": true,
+                    "write": false
+                },
+                "value": {
+                    "var":  "value"
+                }
+            },
+            {
+                "data": "Day",
+                "shortcut": "SLSW",
+                "bitoffs": "31",
+                "bitsize": "1",
+                "iobroker": {
+                    "role": "switch",
+                    "type": "boolean",
+                    "read": true,
+                    "write": false
+                },
+                "value_out": {
+                    "if": [
+                        { "==": [{"var": "value"}, true]}, 1,
+                        { "==": [{"var": "value"}, false]}, 0
+                    ]
+                }
+            }
+        ]
+    }
+}
