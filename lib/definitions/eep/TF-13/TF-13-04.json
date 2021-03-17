@@ -20,7 +20,7 @@
                         "write": false
                     },
                     "value": {
-                            "===": [ { "var": "value" }, 112 ]
+                            "==": [ { "var": "value" }, 112 ]
                     }
                 },
                 {
@@ -35,7 +35,7 @@
                         "write": false
                     },
                     "value": {
-                        "===": [ { "var": "value" }, 80 ]
+                        "==": [ { "var": "value" }, 80 ]
                     }
                 },
                 {
@@ -50,7 +50,7 @@
                         "write": false
                     },
                     "value": {
-                        "===": [ { "var": "value" }, 1 ]
+                        "==": [ { "var": "value" }, 1 ]
                     }
                 },
                 {
@@ -65,7 +65,7 @@
                         "write": false
                     },
                     "value": {
-                        "===": [ { "var": "value" }, 2 ]
+                        "==": [ { "var": "value" }, 2 ]
                     }
                 }
             ]

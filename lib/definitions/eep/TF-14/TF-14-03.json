@@ -15,16 +15,16 @@
                     "bitsize": "8",
                     "iobroker": {
                         "role": "state",
-                        "type": "number",
+                        "type": "string",
                         "read": true,
                         "write": false
                     },
                     "value": {
                         "if": [
-                            {"===": [{"var": "value"}, "Normal mode"]}, 112,
-                            {"===": [{"var": "value"}, "Night reduction"]}, 80,
-                            {"===": [{"var": "value"}, "Reduced operation"]}, 48,
-                            {"===": [{"var": "value"}, "Aus"]}, 16
+                            {"==": [{"var": "value"}, 112]}, "Normal mode",
+                            {"==": [{"var": "value"}, 80]}, "Night reduction",
+                            {"==": [{"var": "value"}, 48]}, "Reduced operation",
+                            {"==": [{"var": "value"}, 16]}, "OFF"
                         ]
                     }
                 }

@@ -1,0 +1,76 @@
+{
+  "eep": "TF-14-05",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x10",
+  "type_number": "0x06",
+  "type_title": "F4HK14 Heating/Cooling actuator",
+  "case": [
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "16",
+            "bitsize": "8",
+            "value": 0
+          }
+        ]
+      },
+      "datafield": [
+          {
+            "data": "Command ID",
+            "shortcut": "CMD",
+            "iobroker": {
+              "role": "state",
+              "type": "number",
+              "read": true,
+              "write": true,
+              "states": "0:Send data;"
+            },
+            "value": 0
+          },
+        {
+          "data": "fixed parameter",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "Set point 0...40°C",
+          "shortcut": "SP",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "value",
+            "type": "number",
+            "read": true,
+            "write": false,
+            "unit": "°C"
+          },
+          "value_out": {"/":[{"-":[{"+":[{"var":"value"},0]},0]},0.1568627450980392]}
+        },
+        {
+          "data": "fixed parameter",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "Priority",
+          "shortcut": "PRI",
+          "bitoffs": "24",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "states": "8:ioBroker only; 10:Set point +/-3K form any other controller are accepted; 13:New set point from any controller are accepted;"
+          },
+          "value": {"var": "value"}
+        }
+      ]
+    }
+  ]
+}

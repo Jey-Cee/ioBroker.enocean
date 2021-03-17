@@ -117,7 +117,7 @@
   },
   "ELTAKO": {
     "F4HK14": {
-      "EEP": [ "A5-10-06",
+      "EEP": [ "TF-14-05",
         "TF-14-03"
       ],
       "autocreate": false,
@@ -127,13 +127,13 @@
         "en": {
           "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the channel. Base ID as decimal + Bus ID 1 = ID as decimal => converted to Hex. Example: (Hex: ffcae700) 4291487488 + 1 = 4291487489 => ffcae701",
           "2": "Click on 'Add Device'",
-          "3": "Start teach-in mode on F4HK14. (Tip: It is more convenient to set up with the PCT14 software) For more information, please read the F4HK14 manual.",
+          "3": "Use PCT14 to add ioBroker in function group 3",
           "4": "Repeat for the other 3 channels."
         },
         "de": {
           "1": "Geräte ID eintragen. Sie setzt sich aus der Basis ID des Funk-Antennenmodul (z.B. FAM14) und der Bus ID des Kanals zusammen. Basis ID in Dezimal  + Bus ID = ID als Dezimal => umgewandelt in Hex. Beispiel: (Hex: ffcae700) 4291487488 +  1 = 4291487489 => ffcae701.",
           "2": "Auf 'Gerät Hinzufügen' klicken.",
-          "3": "Anlernmodus am F4HK14 starten. (Tipp: Komfortabler ist die Einrichtung mit der Software PCT14) Für weitere informationen bitte die Anleitung des F4HK14 lesen.",
+          "3": "Verwenden Sie PCT14, um ioBroker in Funktionsgruppe 3 hinzuzufügen.",
           "4": "Vorgang für die anderen 3 Kanäle Wiederholen."
         }
       }
@@ -817,7 +817,7 @@
     },
     "FSB14": {
       "EEP": [
-        "TF-13-03",
+        "TF-14-04",
         "TF-13-04"
       ],
       "autocreate": false,
@@ -2853,6 +2853,27 @@
           "2": "Auf 'Gerät Hinzufügen' klicken.",
           "3": "Anlernmodus am Gerät starten. Für weitere informationen bitte die Anleitung des Geräts lesen.",
           "4": "Zu den Objekten wechseln und einen Befehl senden (CMD)"
+        }
+      }
+    },
+    "Room operating panel (A5-10-06)": {
+      "EEP": ["X1-01-02"],
+      "autocreate": false,
+      "teachin_method": "4BS",
+      "id_offset": true,
+      "broadcast": true,
+      "help": {
+        "en": {
+          "1": "Enter an ID. Start with id ffffffff and count up (Hex decimal) for each virtual device.",
+          "2": "Click on 'Add Device'.",
+          "3": "Start teachin mode on your Device. For more information please read the manual for the device.",
+          "4": "Go to objects and send a Teach-in command (CMD)"
+        },
+        "de": {
+          "1": "Geräte ID eingeben. Beginnend mit ffffffff, für jedes weitere Virtuelle Gerät wird die ID Hochgezählt (Hex decimal).",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Anlernmodus am Gerät starten. Für weitere informationen bitte die Anleitung des Geräts lesen.",
+          "4": "Zu den Objekten wechseln und einen Teach-in Befehl senden (CMD)"
         }
       }
     }

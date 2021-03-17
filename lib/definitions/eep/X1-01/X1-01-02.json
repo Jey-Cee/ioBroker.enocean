@@ -5,7 +5,8 @@
     "func_number": "0x10",
     "type_number": "0x06",
     "type_title": "Room Operating Panel Temperature, Set point, Day/Night Control",
-    "case": {
+    "case":[
+        {
         "send": true,
         "condition": {
             "command": [
@@ -18,14 +19,12 @@
             {
                 "data": "Command ID",
                 "shortcut": "CMD",
-                "bitoffs": "0",
-                "bitsize": "3",
                 "iobroker": {
                     "role": "state",
                     "type": "number",
                     "read": false,
                     "write": true,
-                    "states": "0:Send data;"
+                    "states": "0:Send data; 1:Teach-in"
                 },
                 "value": 0
             },
@@ -38,8 +37,8 @@
                     "role": "value.temperature",
                     "type": "number",
                     "unit": "°C",
-                    "read": true,
-                    "write": false
+                    "read": false,
+                    "write": true
                 },
                 "value_out": {"/":[{"-":[{"+":[{"var":"value"},255]},0]},-0.1568627450980392]},
                 "decimals": 2
@@ -52,12 +51,24 @@
                 "iobroker": {
                     "role": "value",
                     "type": "number",
-                    "read": true,
-                    "write": false
+                    "read": false,
+                    "write": true
                 },
                 "value": {
                     "var":  "value"
                 }
+            },
+            {
+                "data": "fixed parameter",
+                "bitoffs": "24",
+                "bitsize": "4",
+                "value": 0
+            },
+            {
+                "data": "fixed parameter",
+                "bitoffs": "28",
+                "bitsize": "1",
+                "value": 1
             },
             {
                 "data": "Day",
@@ -67,8 +78,8 @@
                 "iobroker": {
                     "role": "switch",
                     "type": "boolean",
-                    "read": true,
-                    "write": false
+                    "read": false,
+                    "write": true
                 },
                 "value_out": {
                     "if": [
@@ -78,5 +89,42 @@
                 }
             }
         ]
-    }
+    },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 1
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "bitoffs": "8",
+                    "bitsize": "8",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "bitoffs": "16",
+                    "bitsize": "8",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "bitoffs": "28",
+                    "bitsize": "1",
+                    "value": 0
+                }
+            ]
+        }
+    ]
 }
