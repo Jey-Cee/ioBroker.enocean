@@ -176,6 +176,17 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 
 ## Changelog
 
+### 0.3.5
+* added Eltako FMZ61-230V, FSR70S-230V 
+* added Trio2Sys OUTDOOR -30/+50°C TEMPERATURE SENSOR 
+* added Nodon Motion Sensor PIR-2-1-01 
+* added Virtual Room operating panel EEP: A5-10-06 
+* added Oventrop R-Tronic RT B
+* change help description for eltako rs485 devices
+* update FFR61-230V
+* make id always lower case
+* fix Eltako F4HK14
+
 ### 0.3.4
 * added PHEA 451 FU-EBI PF o.T. 
 * added Hora SmartDrive MX

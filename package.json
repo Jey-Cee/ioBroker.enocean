@@ -1,6 +1,6 @@
 {
   "name": "iobroker.enocean",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "Connects EnOcean devices via USB/Serial devices with TCM300 Chips",
   "author": {
     "name": "Jey Cee",
