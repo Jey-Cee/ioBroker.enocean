@@ -126,12 +126,14 @@
                     "value": 2
                 },
                 {
+                    "data": "fixed parameter",
                     "description": "Dimming level",
                     "bitoffs": "8",
                     "bitsize": "8",
                     "value": 100
                 },
                 {
+                    "data": "fixed parameter",
                     "description": "Dimming speed",
                     "bitoffs": "16",
                     "bitsize": "8",
