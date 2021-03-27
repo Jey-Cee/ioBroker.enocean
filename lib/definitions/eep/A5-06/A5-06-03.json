@@ -5,8 +5,10 @@
   "func_number": "0x06",
   "type_number": "0x03",
   "type_title": "Light Sensor 10-bit measurement (1-Lux resolution) Range 0lx to 1.000lx",
-  "case":
+  "bidirectional": false,
+  "case": [
     {
+      "send": false,
       "datafield": [
         {
           "data": "Illumination",
@@ -43,5 +45,5 @@
           "decimals": 2
         }
       ]
-    }
+    }]
 }

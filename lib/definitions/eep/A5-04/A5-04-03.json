@@ -5,8 +5,10 @@
   "func_number": "0x04",
   "type_number": "0x03",
   "type_title": "Temperature and humidity Sensor Range -20°C to +60°C and 0% to 100%",
+  "bidirectional": false,
   "case": [
     {
+      "send": false,
       "condition": {
         "t_sensor": {
           "bitoffs": "30",
@@ -82,6 +84,7 @@
       ]
     },
     {
+      "send": false,
       "condition": {
         "t_sensor": {
           "bitoffs": "30",

@@ -5,6 +5,7 @@
     "func_number": "0x00",
     "type_number": "0x00",
     "type_title": "Switch",
+    "bidirectional": false,
     "case": [
         {
             "send": true,
@@ -32,6 +33,7 @@
                 },
                 {
                     "data": "fixed parameter",
+                    "description": "OFF",
                     "bitoffs": "3",
                     "bitsize": "1",
                     "value": 0
@@ -50,12 +52,14 @@
             "datafield": [
                 {
                     "data": "fixed parameter",
+                    "description": "ON",
                     "bitoffs": "0",
                     "bitsize": "3",
                     "value": 1
                 },
                 {
                     "data": "fixed parameter",
+                    "description": "ON",
                     "bitoffs": "3",
                     "bitsize": "1",
                     "value": 1

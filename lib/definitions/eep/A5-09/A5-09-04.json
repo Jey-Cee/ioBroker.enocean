@@ -5,8 +5,10 @@
   "func_number": "0x09",
   "type_number": "0x04",
   "type_title": "Gas Sensor CO2-Sensor",
+  "bidirectional": false,
   "case": [
     {
+      "send": false,
     "datafield": [
       {
         "data": "Gas CO2 concentration",
@@ -27,6 +29,7 @@
     ]
   },
     {
+      "send": false,
       "condition": {
         "t_sensor": {
           "bitoffs": "30",
@@ -55,6 +58,7 @@
       ]
     },
     {
+      "send": false,
       "condition": {
         "t_sensor": {
           "bitoffs": "29",

@@ -5,6 +5,7 @@
     "func_number": "0x20",
     "type_number": "0x04",
     "type_title": "Heating Radiator Valve Actuating Drive",
+    "bidirectional": true,
     "case": [
         {
             "send": false,
@@ -256,7 +257,8 @@
                     }
                 },
                 {
-                    "shortcut": "LEARNBIT",
+                    "data": "fixed parameter",
+                    "description": "Represents the learnbit",
                     "bitoffs": "28",
                     "bitsize": "1",
                     "value": 1

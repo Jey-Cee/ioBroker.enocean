@@ -5,7 +5,9 @@
   "func_number": "0x00",
   "type_number": "0x00",
   "type_title": "Light and Occupancy sensor Range 0lx to 2048lx",
-  "case": {
+  "bidirectional": false,
+  "case": [{
+    "send": false,
     "datafield": [
       {
         "data": "Presence",
@@ -60,5 +62,5 @@
         "decimals": 2
       }
     ]
-  }
+  }]
 }

@@ -5,6 +5,7 @@
   "func_number": "0x3F",
   "type_number": "0x7F",
   "type_title": "FSB14 Blind actuator",
+  "bidirectional": true,
   "case": [
     {
       "send": false,
@@ -14,6 +15,23 @@
         "value": 10
       },
       "datafield": [
+        {
+          "data": "Running time",
+          "shortcut": "RT",
+          "bitoffs": "0",
+          "bitsize": "16",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "unit": "s"
+          },
+          "value": {
+            "/": [{"var": "value"}, 10]
+          },
+          "decimals": 1
+        },
         {
           "data": "Block local switch",
           "shortcut": "BS",
@@ -36,7 +54,8 @@
             "role": "switch",
             "type": "boolean",
             "read": true,
-            "write": false
+            "write": false,
+            "def": false
           },
           "value": {
             "==": [ { "var": "value" }, 1 ]
@@ -51,7 +70,8 @@
             "role": "switch",
             "type": "boolean",
             "read": true,
-            "write": false
+            "write": false,
+            "def": false
           },
           "value": {
             "==": [ { "var": "value" }, 2 ]
@@ -67,6 +87,23 @@
         "value": 14
       },
       "datafield": [
+        {
+          "data": "Running time",
+          "shortcut": "RT",
+          "bitoffs": "0",
+          "bitsize": "16",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "unit": "s"
+          },
+          "value": {
+            "/": [{"var": "value"}, 10]
+          },
+          "decimals": 1
+        },
         {
           "data": "Block local switch",
           "shortcut": "BS",
@@ -144,26 +181,30 @@
           "data": "Running time",
           "shortcut": "RT",
           "bitoffs": "0",
-          "bitsize": "8",
+          "bitsize": "16",
           "iobroker": {
             "role": "state",
             "type": "number",
             "read": true,
             "write": true,
-            "unit": "100ms"
+            "unit": "s"
           },
           "value": {
-            "var": "value"
-          }
+            "/": [{"var": "value"}, 10]
+          },
+          "value_out": 255,
+          "decimals": 1
         },
         {
           "data": "fixed parameter",
+          "description": "Stop",
           "bitoffs": "8",
           "bitsize": "8",
           "value": 0
         },
         {
           "data": "fixed parameter",
+          "description": "Represents learnbit",
           "bitoffs": "28",
           "bitsize": "1",
           "value": 1
@@ -208,26 +249,30 @@
           "data": "Running time",
           "shortcut": "RT",
           "bitoffs": "0",
-          "bitsize": "8",
+          "bitsize": "16",
           "iobroker": {
             "role": "state",
             "type": "number",
             "read": true,
             "write": true,
-            "unit": "100ms"
+            "unit": "s"
           },
           "value": {
-            "var": "value"
-          }
+            "/": [{"var": "value"}, 10]
+          },
+          "value_out": {"var": "value"},
+          "decimals": 1
         },
         {
           "data": "fixed parameter",
+          "description": "Up",
           "bitoffs": "8",
           "bitsize": "8",
           "value": 0
         },
         {
           "data": "fixed parameter",
+          "description": "Represents learnbit",
           "bitoffs": "28",
           "bitsize": "1",
           "value": 1
@@ -272,26 +317,30 @@
           "data": "Running time",
           "shortcut": "RT",
           "bitoffs": "0",
-          "bitsize": "8",
+          "bitsize": "16",
           "iobroker": {
             "role": "state",
             "type": "number",
             "read": true,
             "write": true,
-            "unit": "100ms"
+            "unit": "s"
           },
           "value": {
-            "var": "value"
-          }
+            "/": [{"var": "value"}, 10]
+          },
+          "value_out": {"var": "value"},
+          "decimals": 1
         },
         {
           "data": "fixed parameter",
+          "description": "Down",
           "bitoffs": "8",
           "bitsize": "8",
           "value": 0
         },
         {
           "data": "fixed parameter",
+          "description": "Represents learnbit",
           "bitoffs": "28",
           "bitsize": "1",
           "value": 1
@@ -328,6 +377,7 @@
 
         {
           "data": "fixed parameter",
+          "description": "teachin",
           "bitoffs": "0",
           "bitsize": "31",
           "value": 4294446464

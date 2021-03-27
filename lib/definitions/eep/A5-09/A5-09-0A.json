@@ -5,8 +5,10 @@
   "func_number": "0x09",
   "type_number": "0x0A",
   "type_title": "Gas Sensor Hydrogen",
+  "bidirectional": false,
   "case":[
     {
+      "send": false,
       "datafield": [
         {
           "data": "Hydrogen concentration",
@@ -27,6 +29,7 @@
       ]
     },
     {
+      "send": false,
       "condition": {
         "tsa": {
           "bitoffs": "30",
@@ -54,6 +57,7 @@
       ]
     },
     {
+      "send": false,
       "condition": {
         "sva": {
           "bitoffs": "31",

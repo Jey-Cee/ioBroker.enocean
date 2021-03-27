@@ -5,8 +5,10 @@
   "func_number": "0x09",
   "type_number": "0x05",
   "type_title": "Gas Sensor VOC Sensor",
-  "case":
+  "bidirectional": false,
+  "case": [
     {
+      "send": false,
     "datafield": [
       {
         "data": "Gas VOC concentration",
@@ -50,5 +52,5 @@
         }
       }
     ]
-  }
+  }]
 }

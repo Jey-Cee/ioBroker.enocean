@@ -5,8 +5,10 @@
     "func_number": "0x00",
     "type_number": "0x00",
     "type_title": "Brightness sensor 0-100 Lux & 300-30000 Lux",
+    "bidirectional": false,
     "case": [
         {
+            "send": false,
             "condition": {
                 "range": {
                     "bitoffs": "8",
@@ -33,6 +35,7 @@
             ]
         },
         {
+            "send": false,
             "condition": {
                 "range": {
                     "bitoffs": "8",

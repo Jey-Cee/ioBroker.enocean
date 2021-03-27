@@ -5,8 +5,10 @@
   "func_number": "0x06",
   "type_number": "0x01",
   "type_title": "Light Sensor Range 300lx to 60.000lx",
+  "bidirectional": false,
   "case": [
     {
+      "send": false,
       "condition": {
         "range": {
           "bitoffs": "31",
@@ -52,6 +54,7 @@
     ]
   },
     {
+      "send": false,
       "condition": {
         "range": {
           "bitoffs": "31",

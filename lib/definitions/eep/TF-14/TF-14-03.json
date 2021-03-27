@@ -5,8 +5,10 @@
     "func_number": "0x00",
     "type_number": "0x00",
     "type_title": "Heating relais mode",
+    "bidirectional": false,
     "case": [
         {
+            "send": false,
             "datafield": [
                 {
                     "data": "Mode",
@@ -21,8 +23,8 @@
                     },
                     "value": {
                         "if": [
-                            {"==": [{"var": "value"}, 112]}, "Normal mode",
-                            {"==": [{"var": "value"}, 80]}, "Night reduction",
+                            {"==": [{"var": "value"}, 112]}, "On or Normal mode",
+                            {"==": [{"var": "value"}, 80]}, "Off or Night reduction",
                             {"==": [{"var": "value"}, 48]}, "Reduced operation",
                             {"==": [{"var": "value"}, 16]}, "OFF"
                         ]

@@ -5,6 +5,7 @@
   "func_number": "0x38",
   "type_number": "0x08",
   "type_title": "Switching",
+  "bidirectional": false,
   "case": [
     {
       "send": true,

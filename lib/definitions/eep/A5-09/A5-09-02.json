@@ -5,8 +5,10 @@
   "func_number": "0x09",
   "type_number": "0x02",
   "type_title": "Gas Sensor CO-Sensor 0ppm to 1020ppm",
+  "bidirectional": false,
   "case": [
     {
+      "send": false,
       "condition": {
         "t_sensor": {
           "bitoffs": "30",
@@ -51,6 +53,7 @@
     ]
   },
     {
+      "send": false,
       "condition": {
         "t_sensor": {
           "bitoffs": "30",

@@ -5,7 +5,9 @@
   "func_number": "0x08",
   "type_number": "0x02",
   "type_title": "Range 0lx to 1020lx, 0°C to +51°C and Occupancy Button",
-  "case": {
+  "bidirectional": false,
+  "case": [{
+    "send": false,
     "datafield": [
       {
         "data": "Occupancy Button pressed",
@@ -100,5 +102,5 @@
         "decimals": 2
       }
     ]
-  }
+  }]
 }

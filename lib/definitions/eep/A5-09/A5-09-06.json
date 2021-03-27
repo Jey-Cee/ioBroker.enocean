@@ -5,8 +5,10 @@
   "func_number": "0x09",
   "type_number": "0x06",
   "type_title": "Gas Sensor Radon",
-  "case":
+  "bidirectional": false,
+  "case": [
     {
+      "send": false,
     "datafield": [
       {
         "data": "Gas Radon",
@@ -25,5 +27,5 @@
         }
       }
     ]
-  }
+  }]
 }

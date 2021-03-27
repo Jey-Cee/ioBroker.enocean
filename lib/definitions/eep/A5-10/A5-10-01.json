@@ -5,7 +5,9 @@
     "func_number": "0x10",
     "type_number": "0x01",
     "type_title": "Room Operating Panel Temperature, Set point, Fan Speed and Occupancy control",
-    "case": {
+    "bidirectional": false,
+    "case": [{
+        "send": false,
         "datafield": [
             {
                 "data": "Turn-switch for fan speed",
@@ -81,5 +83,5 @@
                 }
             }
         ]
-    }
+    }]
 }

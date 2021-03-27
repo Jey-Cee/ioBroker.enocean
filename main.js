@@ -68,7 +68,7 @@ class Enocean extends utils.Adapter {
 		this.subscribeStates('*.CMD');
 
 		// get the list of available serial ports. Needed for win32 systems.
-		let ports = await SerialPort.list();
+		const ports = await SerialPort.list();
 
 		AVAILABLE_PORTS = ports.map(p => p.path);
 
@@ -99,20 +99,6 @@ class Enocean extends utils.Adapter {
 		}
 	}
 
-	/**
-	 * Is called if a subscribed object changes
-	 * @param {string} id
-	 * @param {ioBroker.Object | null | undefined} obj
-	 */
-	/*onObjectChange(id, obj) {
-		if (obj) {
-			// The object was changed
-			this.log.info(`object ${id} changed: ${JSON.stringify(obj)}`);
-		} else {
-			// The object was deleted
-			this.log.info(`object ${id} deleted`);
-		}
-	}*/
 
 	/**
 	 * Is called if a subscribed state changes
@@ -158,7 +144,7 @@ class Enocean extends utils.Adapter {
 			this.log.debug(`state ${objName} changed: ${state.val} (ack = ${state.ack}) state: ${JSON.stringify(state)}`);
 
 			const obj  = await this.getObjectAsync(`${this.namespace}.${tmp[2]}`);
-			const oObj = await this.getObjectAsync(id);
+			//const oObj = await this.getObjectAsync(id);
 
 			if(obj && obj.type === 'device' && tmp[2] !== 'gateway'){
 				let devId = obj.native.id;
@@ -173,14 +159,7 @@ class Enocean extends utils.Adapter {
 						let send = true;
 
 
-						for (let c in eepProfile.case) {
-
-							/*if (eepProfile.case[c].send !== undefined && eepProfile.case[c].send === false) {
-								this.log.info('command soll nicht gesendet werden');
-								continue;
-							}else{
-								this.log.info('command soll gesendet werden');
-							}*/
+						for (const c in eepProfile.case) {
 
 							const parameter = [];
 							if (eepProfile.case[c].condition && eepProfile.case[c].condition.command && eepProfile.case[c].condition.command[0].value === state.val && eepProfile.case[c].send !== undefined && eepProfile.case[c].send === false) {
@@ -188,7 +167,7 @@ class Enocean extends utils.Adapter {
 								send = false;
 								break;
 							}else if(eepProfile.case[c].condition && eepProfile.case[c].condition.command && eepProfile.case[c].condition.command[0].value === state.val){
-								for (let d in eepProfile.case[c].datafield) {
+								for (const d in eepProfile.case[c].datafield) {
 									const datafield = eepProfile.case[c].datafield[d];
 									if (datafield.data === 'fixed parameter') {
 										const bitoffs = datafield.bitoffs;
@@ -198,10 +177,9 @@ class Enocean extends utils.Adapter {
 										parameter.push(datafield.shortcut);
 									}
 
-									//TODO: change handling for command, actual definition for command must be in a case where send is true.
 								}
 							} else if (!eepProfile.case[c].condition && eepProfile.case[c].send === true ) {
-								for (let d in eepProfile.case[c].datafield) {
+								for (const d in eepProfile.case[c].datafield) {
 									const datafield = eepProfile.case[c].datafield[d];
 									if (datafield.data === 'fixed parameter') {
 										const bitoffs = datafield.bitoffs;
@@ -216,12 +194,12 @@ class Enocean extends utils.Adapter {
 							}
 
 							//get data from objects
-							for (let s in parameter) {
+							for (const s in parameter) {
 								const state = await this.getStateAsync(`${this.namespace}.${devId}.${parameter[s]}`);
 								await this.setState(`${this.namespace}.${devId}.${parameter[s]}`, {ack: true});
 								const short = parameter[s];
 								const datafield = eepProfile.case[c].datafield;
-								for (let d in datafield) {
+								for (const d in datafield) {
 									if (state !== null && datafield[d].shortcut === short && datafield[d].bitoffs !== null && datafield[d].bitsize !== null && (!datafield[d].condition || !datafield[d].condition[0].value === state.val)) {
 										const bitoffs = datafield[d].bitoffs;
 										const bitsize = datafield[d].bitsize;
@@ -251,9 +229,9 @@ class Enocean extends utils.Adapter {
 						if(obj.native.broadcast){
 							devId = 'ffffffff';
 						}
-						let tempId = devId.toUpperCase().match(/.{1,2}/g);
+						const tempId = devId.toUpperCase().match(/.{1,2}/g);
 						let receiverID = [];
-						for(let b in tempId) {
+						for(const b in tempId) {
 							receiverID.push('0x' + tempId[b]);
 						}
 						const gateway = await this.getObjectAsync('gateway');
@@ -553,7 +531,7 @@ class Enocean extends utils.Adapter {
 			baseId = telegram.data.toString('hex');
 		}
 
-		await this.extendObjectAsync('gateway', {
+		const gatewayObject = {
 			native: {
 				BaseID: baseId,
 				Frequency: Codes.frequency[frequency],
@@ -564,7 +542,11 @@ class Enocean extends utils.Adapter {
 				ChipVersion: chipVersion,
 				AppDescription: appDescription
 			}
-		});
+		};
+
+		this.log.info(JSON.stringify(gatewayObject.native));
+
+		await this.extendObjectAsync('gateway', gatewayObject);
 	}
 
 	//wait for response from USB Stick/Modul

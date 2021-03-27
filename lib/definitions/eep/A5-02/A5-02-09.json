@@ -5,25 +5,29 @@
   "func_number": "0x02",
   "type_number": "0x09",
   "type_title": "Temperature Sensor Range +40°C to +80°C",
-  "case": {
-    "datafield": [
-      {
-        "data": "Temperature 40...80°C",
-        "shortcut": "TMP",
-        "bitoffs": "16",
-        "bitsize": "8",
-        "iobroker": {
-          "role": "value.temperature",
-          "type": "number",
-          "read": true,
-          "write": true,
-          "unit": "°C"
-        },
-        "value": {
-          "+": [ { "*": [ { "-": [ { "var": "value" }, -255 ] }, -0.1569 ] }, 40 ]
-        },
-        "decimals": 2
-      }
-    ]
-  }
+  "bidirectional": false,
+  "case": [
+    {
+      "send": false,
+      "datafield": [
+        {
+          "data": "Temperature 40...80°C",
+          "shortcut": "TMP",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "value.temperature",
+            "type": "number",
+            "read": true,
+            "write": true,
+            "unit": "°C"
+          },
+          "value": {
+            "+": [ { "*": [ { "-": [ { "var": "value" }, -255 ] }, -0.1569 ] }, 40 ]
+          },
+          "decimals": 2
+        }
+      ]
+    }
+  ]
 }

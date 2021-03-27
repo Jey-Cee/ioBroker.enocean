@@ -5,8 +5,10 @@
     "func_number": "0x00",
     "type_number": "0x00",
     "type_title": "2 channel state",
+    "bidirectional": false,
     "case": [
         {
+            "send": false,
             "condition": [{
                 "bitoffs": "0",
                 "bitsize": "8",
@@ -35,6 +37,7 @@
             ]
         },
         {
+            "send": false,
             "condition": [{
                 "bitoffs": "0",
                 "bitsize": "8",

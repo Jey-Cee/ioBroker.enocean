@@ -5,6 +5,7 @@
     "func_number": "0x20",
     "type_number": "0x01",
     "type_title": "Battery Powered Actuator",
+    "bidirectional": true,
     "case": [
         {
             "send": false,
@@ -276,7 +277,8 @@
                     }
                 },
                 {
-                    "shortcut": "LEARNBIT",
+                    "data": "fixed parameter",
+                    "description": "Represents the learnbit",
                     "bitoffs": "28",
                     "bitsize": "1",
                     "value": 1

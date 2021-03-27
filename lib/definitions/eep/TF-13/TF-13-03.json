@@ -5,6 +5,7 @@
   "func_number": "0x3F",
   "type_number": "0x7F",
   "type_title": "Blind actuator",
+  "bidirectional": true,
   "case": [
     {
       "send": true,
@@ -36,7 +37,7 @@
           "data": "Running time",
           "shortcut": "RT",
           "bitoffs": "0",
-          "bitsize": "8",
+          "bitsize": "16",
           "iobroker": {
             "role": "state",
             "type": "number",
@@ -50,12 +51,7 @@
         },
         {
           "data": "fixed parameter",
-          "bitoffs": "8",
-          "bitsize": "8",
-          "value": 0
-        },
-        {
-          "data": "fixed parameter",
+          "description": "Represents the learnbit",
           "bitoffs": "28",
           "bitsize": "1",
           "value": 1
@@ -100,7 +96,7 @@
           "data": "Running time",
           "shortcut": "RT",
           "bitoffs": "0",
-          "bitsize": "8",
+          "bitsize": "16",
           "iobroker": {
             "role": "state",
             "type": "number",
@@ -114,12 +110,7 @@
         },
         {
           "data": "fixed parameter",
-          "bitoffs": "8",
-          "bitsize": "8",
-          "value": 0
-        },
-        {
-          "data": "fixed parameter",
+          "description": "Represents the learnbit",
           "bitoffs": "28",
           "bitsize": "1",
           "value": 1
@@ -164,7 +155,7 @@
           "data": "Running time",
           "shortcut": "RT",
           "bitoffs": "0",
-          "bitsize": "8",
+          "bitsize": "16",
           "iobroker": {
             "role": "state",
             "type": "number",
@@ -178,12 +169,7 @@
         },
         {
           "data": "fixed parameter",
-          "bitoffs": "8",
-          "bitsize": "8",
-          "value": 0
-        },
-        {
-          "data": "fixed parameter",
+          "description": "Represents the learnbit",
           "bitoffs": "28",
           "bitsize": "1",
           "value": 1
@@ -220,6 +206,7 @@
 
         {
           "data": "fixed parameter",
+          "description": "teachin",
           "bitoffs": "0",
           "bitsize": "31",
           "value": 4294446464

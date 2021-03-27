@@ -10,6 +10,7 @@ gulpfile.js
 SPONSORS.md
 SUPPORTED_DEVICES.md
 SUPPORTED_PROFILES.md
+.dev-server/
 
 # CI test files
 test/

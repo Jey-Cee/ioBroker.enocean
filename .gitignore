@@ -4,6 +4,7 @@
 node_modules
 nbproject
 /lib/devHelper
+.dev-server/
 
 # npm package files
 iobroker.*.tgz

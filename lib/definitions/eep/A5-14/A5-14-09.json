@@ -5,7 +5,9 @@
   "func_number": "0x14",
   "type_number": "0x09",
   "type_title": "Multi-Func Sensor Window/Door with states Open/Closed/Tilt, supply voltage monitor",
-  "case": {
+  "bidirectional": false,
+  "case": [{
+    "send": false,
     "datafield": [
       {
         "data": "Open",
@@ -55,5 +57,5 @@
         "decimals": 2
       }
     ]
-  }
+  }]
 }

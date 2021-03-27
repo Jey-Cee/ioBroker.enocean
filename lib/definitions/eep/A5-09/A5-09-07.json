@@ -5,8 +5,10 @@
   "func_number": "0x09",
   "type_number": "0x07",
   "type_title": "Gas Sensor Particles",
+  "bidirectional": false,
   "case":[
     {
+      "send": false,
       "condition": {
         "pm10a": {
           "bitoffs": "29",
@@ -34,6 +36,7 @@
       ]
     },
     {
+      "send": false,
       "condition": {
         "pm2_5a": {
           "bitoffs": "30",
@@ -61,6 +64,7 @@
       ]
     },
     {
+      "send": false,
       "condition": {
         "pm1a": {
           "bitoffs": "31",

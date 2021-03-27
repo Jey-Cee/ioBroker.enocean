@@ -5,6 +5,7 @@
   "func_number": "0x05",
   "type_number": "0x00",
   "type_title": "Blinds control for position and angle type 0x00",
+  "bidirectional": true,
   "case": [
     {
       "send": true,
@@ -367,7 +368,9 @@
           "value": {
             "var": "value"
           }
-        },
+        }
+      ]
+    },
         {
           "send": true,
           "condition": {
@@ -390,7 +393,7 @@
               }
             },
             {
-              "data": "fixed data",
+              "data": "fixed parameter",
               "description": "Vertical Position",
               "bitoffs": "1",
               "bitsize": "7",
@@ -487,7 +490,7 @@
               }
             },
             {
-              "data": "fixed data",
+              "data": "fixed parameter",
               "description": "Vertical Position",
               "bitoffs": "1",
               "bitsize": "7",
@@ -563,6 +566,4 @@
           ]
         }
       ]
-    }
-  ]
 }

@@ -5,8 +5,10 @@
     "func_number": "0x04",
     "type_number": "0x01",
     "type_title": "Key Card switch",
+    "bidirectional": false,
     "case": [
         {
+            "send": false,
             "condition": {
                 "statusfield": [
                     {
@@ -39,6 +41,7 @@
                 }
             ]
         },{
+            "send": false,
             "condition": {
                 "statusfield": [
                     {

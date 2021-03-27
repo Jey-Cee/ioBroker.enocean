@@ -5,6 +5,7 @@
     "func_number": "0x20",
     "type_number": "0x06",
     "type_title": "Harvesting-powered actuator with local temperature offset control (BI-DIR)",
+    "bidirectional": true,
     "case": [
         {
             "send": false,
@@ -268,21 +269,24 @@
                     "value": 0
                 },
                 {
-                    "shortcut": "fixed parameter",
+                    "data": "fixed parameter",
+                    "description": "Not used",
                     "bitoffs": "24",
-                    "bitsize": "1",
+                    "bitsize": "4",
                     "value": 0
                 },
                 {
-                    "shortcut": "LEARNBIT",
+                    "data": "fixed parameter",
+                    "description": "Represents the learnbit",
                     "bitoffs": "28",
                     "bitsize": "1",
                     "value": 1
                 },
                 {
-                    "shortcut": "fixed parameter",
+                    "data": "fixed parameter",
+                    "description": "fixed parameter",
                     "bitoffs": "29",
-                    "bitsize": "1",
+                    "bitsize": "3",
                     "value": 0
                 }
             ]

@@ -5,7 +5,9 @@
   "func_number": "0x08",
   "type_number": "0x03",
   "type_title": "Light, Temperature and Occupancy sensor Range 0lx to 1530lx, -30°C to +50°C and Occupancy Button",
-  "case": {
+  "bidirectional": false,
+  "case": [{
+    "send": false,
     "datafield": [
       {
         "data": "Occupancy Button pressed",
@@ -88,5 +90,5 @@
         "decimals": 2
       }
     ]
-  }
+  }]
 }

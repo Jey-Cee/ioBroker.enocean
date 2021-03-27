@@ -5,7 +5,10 @@
   "func_number": "0x02",
   "type_number": "0x13",
   "type_title": "Temperature Sensor Range -30°C to +50°C",
-  "case": {
+  "bidirectional": false,
+  "case": [
+    {
+      "send": false,
     "datafield": [
       {
         "data": "Temperature -30...50°C",
@@ -25,5 +28,5 @@
         "decimals": 2
       }
     ]
-  }
+  }]
 }

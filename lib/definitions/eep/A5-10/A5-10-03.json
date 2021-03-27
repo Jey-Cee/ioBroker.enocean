@@ -5,7 +5,9 @@
     "func_number": "0x10",
     "type_number": "0x03",
     "type_title": "Room Operating Panel Temperature, Set point",
-    "case": {
+    "bidirectional": false,
+    "case": [{
+        "send": false,
         "datafield": [
             {
                 "data": "Temperature",
@@ -40,5 +42,5 @@
                 }
             }
         ]
-    }
+    }]
 }

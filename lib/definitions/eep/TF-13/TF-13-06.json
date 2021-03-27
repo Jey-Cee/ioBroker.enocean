@@ -5,8 +5,10 @@
     "func_number": "0x00",
     "type_number": "0x00",
     "type_title": "Dimmer status",
+    "bidirectional": false,
     "case": [
         {
+            "send": false,
             "datafield": [
                 {
                     "data": "Level",

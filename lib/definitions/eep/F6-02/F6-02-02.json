@@ -5,8 +5,10 @@
     "func_number": "0x02",
     "type_number": "0x02",
     "type_title": "Switch",
+    "bidirectional": false,
     "case": [
         {
+            "send": false,
             "condition": {
                 "statusfield": [
                     {
@@ -84,6 +86,7 @@
                 }
             ]
         },{
+            "send": false,
             "condition": [{
                     "bitoffs": "3",
                     "bitsize": "1",

@@ -5,6 +5,7 @@
   "func_number": "0x3F",
   "type_number": "0x7F",
   "type_title": "Switch actuator",
+  "bidirectional": true,
   "case": [
     {
       "send": true,

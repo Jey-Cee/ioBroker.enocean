@@ -5,7 +5,9 @@
   "func_number": "0x05",
   "type_number": "0x01",
   "type_title": "Barometric Sensor Range 500 to 1150 hPa",
-  "case": {
+  "bidirectional": false,
+  "case": [{
+    "send": false,
     "datafield": [
       {
         "data": "Barometer",
@@ -41,5 +43,5 @@
         }
       }
     ]
-  }
+  }]
 }

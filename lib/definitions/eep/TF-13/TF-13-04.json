@@ -5,8 +5,10 @@
     "func_number": "0x00",
     "type_number": "0x00",
     "type_title": "Rollershutter state",
+    "bidirectional": false,
     "case": [
         {
+            "send": false,
             "datafield": [
                 {
                     "data": "Top end position",
@@ -17,7 +19,8 @@
                         "role": "switch",
                         "type": "boolean",
                         "read": true,
-                        "write": false
+                        "write": false,
+                        "def": false
                     },
                     "value": {
                             "==": [ { "var": "value" }, 112 ]
@@ -32,7 +35,8 @@
                         "role": "switch",
                         "type": "boolean",
                         "read": true,
-                        "write": false
+                        "write": false,
+                        "def": false
                     },
                     "value": {
                         "==": [ { "var": "value" }, 80 ]
@@ -47,7 +51,8 @@
                         "role": "switch",
                         "type": "boolean",
                         "read": true,
-                        "write": false
+                        "write": false,
+                        "def": false
                     },
                     "value": {
                         "==": [ { "var": "value" }, 1 ]
@@ -62,7 +67,8 @@
                         "role": "switch",
                         "type": "boolean",
                         "read": true,
-                        "write": false
+                        "write": false,
+                        "def": false
                     },
                     "value": {
                         "==": [ { "var": "value" }, 2 ]

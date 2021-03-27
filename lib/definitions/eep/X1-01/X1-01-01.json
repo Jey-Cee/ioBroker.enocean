@@ -5,6 +5,7 @@
     "func_number": "0x02",
     "type_number": "0x02",
     "type_title": "Switch",
+    "bidirectional": false,
     "case": [
         {
             "send": true,
@@ -32,6 +33,7 @@
                 },
                 {
                     "data": "fixed parameter",
+                    "description": "Button AI",
                     "bitoffs": "3",
                     "bitsize": "1",
                     "value": 1
@@ -50,12 +52,14 @@
             "datafield": [
                 {
                     "data": "fixed parameter",
+                    "description": "Button A0",
                     "bitoffs": "0",
                     "bitsize": "3",
                     "value": 1
                 },
                 {
                     "data": "fixed parameter",
+                    "description": "Button A0",
                     "bitoffs": "3",
                     "bitsize": "1",
                     "value": 1
@@ -74,12 +78,14 @@
             "datafield": [
                 {
                     "data": "fixed parameter",
+                    "description": "Button BI",
                     "bitoffs": "0",
                     "bitsize": "3",
                     "value": 2
                 },
                 {
                     "data": "fixed parameter",
+                    "description": "Button BI",
                     "bitoffs": "3",
                     "bitsize": "1",
                     "value": 1
@@ -98,12 +104,14 @@
             "datafield": [
                 {
                     "data": "fixed parameter",
+                    "description": "Button B0",
                     "bitoffs": "0",
                     "bitsize": "3",
                     "value": 3
                 },
                 {
                     "data": "fixed parameter",
+                    "description": "Button B0",
                     "bitoffs": "3",
                     "bitsize": "1",
                     "value": 1
@@ -122,6 +130,7 @@
             "datafield": [
                 {
                     "data": "fixed parameter",
+                    "description": "Release",
                     "bitoffs": "3",
                     "bitsize": "1",
                     "value": 0

@@ -5,8 +5,10 @@
   "func_number": "0x09",
   "type_number": "0x08",
   "type_title": "Gas Sensor Pure CO2-Sensor",
-  "case":
+  "bidirectional": false,
+  "case":[
     {
+      "send": false,
     "datafield": [
       {
         "data": "Gas CO2 measurement",
@@ -25,5 +27,5 @@
         }
       }
     ]
-  }
+  }]
 }

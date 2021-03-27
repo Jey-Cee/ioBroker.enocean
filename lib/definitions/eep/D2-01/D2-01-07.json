@@ -5,6 +5,7 @@
   "func_number": "0x01",
   "type_number": "0x07",
   "type_title": "Electronic switch",
+  "bidirectional": true,
   "case": [
     {
       "send": true,
@@ -25,7 +26,8 @@
             "read": true,
             "write": true,
             "states": "0:OFF;1:ON;2:Status query;"
-          }
+          },
+          "value": 0
         },
         {
           "data": "fixed parameter",

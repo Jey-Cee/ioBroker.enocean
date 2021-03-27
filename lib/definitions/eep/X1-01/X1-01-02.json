@@ -5,6 +5,7 @@
     "func_number": "0x10",
     "type_number": "0x06",
     "type_title": "Room Operating Panel Temperature, Set point, Day/Night Control",
+    "bidirectional": false,
     "case":[
         {
         "send": true,
@@ -60,12 +61,14 @@
             },
             {
                 "data": "fixed parameter",
+                "description": "Not used",
                 "bitoffs": "24",
                 "bitsize": "4",
                 "value": 0
             },
             {
                 "data": "fixed parameter",
+                "description": "Represents learnbit",
                 "bitoffs": "28",
                 "bitsize": "1",
                 "value": 1
@@ -102,24 +105,28 @@
             "datafield": [
                 {
                     "data": "fixed parameter",
+                    "description": "teachin byte 1",
                     "bitoffs": "0",
                     "bitsize": "8",
                     "value": 0
                 },
                 {
                     "data": "fixed parameter",
+                    "description": "teachin byte 2",
                     "bitoffs": "8",
                     "bitsize": "8",
                     "value": 0
                 },
                 {
                     "data": "fixed parameter",
+                    "description": "teachin byte 3",
                     "bitoffs": "16",
                     "bitsize": "8",
                     "value": 0
                 },
                 {
                     "data": "fixed parameter",
+                    "description": "teachin byte 4",
                     "bitoffs": "28",
                     "bitsize": "1",
                     "value": 0

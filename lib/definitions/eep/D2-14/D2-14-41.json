@@ -5,6 +5,7 @@
   "func_number": "0x14",
   "type_number": "0x41",
   "type_title": "Indoor -Temperature, Humidity XYZ Acceleration, Illumination Sensor, Window Contact",
+  "bidirectional": false,
   "case": [
     {
       "send": false,

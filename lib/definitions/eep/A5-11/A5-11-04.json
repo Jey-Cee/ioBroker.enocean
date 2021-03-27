@@ -5,7 +5,9 @@
     "func_number": "0x11",
     "type_number": "0x04",
     "type_title": "Extended Light status",
-    "case": {
+    "bidirectional": false,
+    "case": [{
+        "send": false,
         "datafield": [
             {
                 "data": "Parameter 1",
@@ -121,5 +123,5 @@
                 "value": {"==": [{"var": "value"}, 1]}
             }
         ]
-    }
+    }]
 }

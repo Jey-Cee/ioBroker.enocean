@@ -5,7 +5,9 @@
     "func_number": "0x10",
     "type_number": "0x06",
     "type_title": "Room Operating Panel Temperature, Set point, Day/Night Control",
-    "case": {
+    "bidirectional": false,
+    "case": [{
+        "send": false,
         "datafield": [
             {
                 "data": "Temperature",
@@ -55,5 +57,5 @@
                 }
             }
         ]
-    }
+    }]
 }

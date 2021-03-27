@@ -5,7 +5,9 @@
   "func_number": "0x13",
   "type_number": "0x02",
   "type_title": "Sun Intensity",
-  "case": {
+  "bidirectional": false,
+  "case": [{
+    "send": false,
     "datafield": [
       {
         "data": "Sun West",
@@ -72,5 +74,5 @@
         }
       }
     ]
-  }
+  }]
 }
