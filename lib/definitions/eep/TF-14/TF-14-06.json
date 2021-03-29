@@ -1,0 +1,36 @@
+{
+    "eep": "TF-14-03",
+    "rorg_number": "0xF6",
+    "telegram": "RPS",
+    "func_number": "0x00",
+    "type_number": "0x00",
+    "type_title": "FTS14EM",
+    "bidirectional": false,
+    "case": [
+        {
+            "send": false,
+            "datafield": [
+                {
+                    "data": "Switch",
+                    "shortcut": "SW",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "string",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "if": [
+                            {"==": [{"var": "value"}, 112]},
+                            {"==": [{"var": "value"}, 80]},
+                            {"==": [{"var": "value"}, 48]},
+                            {"==": [{"var": "value"}, 16]}
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

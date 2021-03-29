@@ -1679,6 +1679,28 @@
         }
       }
     },
+    "FTS14EM": {
+      "EEP": [
+        "TF-14-06"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'.",
+          "3": "Press the switch that is connected to the FTS14EM. (Tip: It is more convenient to set up with the PCT14 software)",
+          "4": "Repeat the steps for all other channels."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Den Taster betätigen der mit dem FTS14EM verbunden ist. (Tipp: Komfortabler ist die Einrichtung mit der Software PCT14)",
+          "4": "Vorgang für alle anderen Kanäle Wiederholen."
+        }
+      }
+    },
     "FUD14": {
       "EEP": [
         "TF-13-07",
