@@ -10,7 +10,7 @@ Thank you to ...
 | | | |
 |----|----|----|
 | mane444 | mustang | Schrubbel |
-| edi112 | | |
+| edi112 | Sepp | |
 
 ## 2020
 #### Kickstarter campaign

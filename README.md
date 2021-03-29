@@ -176,6 +176,12 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 
 ## Changelog
 
+### 0.3.6
+* added Eltako FMS14 (<32/19)
+* added Eltako FTS14EM
+* revised profiles
+* fix FUD14 ON command
+
 ### 0.3.5
 * added Eltako FMZ61-230V, FSR70S-230V 
 * added Trio2Sys OUTDOOR -30/+50°C TEMPERATURE SENSOR 

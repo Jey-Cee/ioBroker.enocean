@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "enocean",
-        "version": "0.3.5",
+        "version": "0.3.6",
         "news": {
             "0.1.5": {
                 "en": "added virtual switch\nrewrite A5-20-01\nfix profile A5-02-13"
@@ -31,7 +31,6 @@
                 "zh-cn": "首次出版"
             }
         },
-        "title": "EnOcean",
         "titleLang": {
             "en": "EnOcean",
             "de": "EnOcean",
@@ -65,8 +64,7 @@
             "Love"
         ],
         "license": "MIT",
-        "platform": "JByteArray.from(returnData.toString('hex')).getValue(8, 1);avascript/Node.js",
-        "main": "main.js",
+        "platform": "Javascript/Node.js",
         "icon": "enocean.png",
         "enabled": true,
         "extIcon": "https://raw.githubusercontent.com/jey-cee/ioBroker.enocean/master/admin/enocean.png",
