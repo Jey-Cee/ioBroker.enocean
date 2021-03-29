@@ -1,0 +1,44 @@
+{
+    "eep": "TF-14-07",
+    "rorg_number": "0xF6",
+    "telegram": "RPS",
+    "func_number": "0x00",
+    "type_number": "0x00",
+    "type_title": "Switch",
+    "bidirectional": false,
+    "case": [
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 0
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Command ID",
+                    "shortcut": "CMD",
+                    "bitoffs": "0",
+                    "bitsize": "3",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": false,
+                        "write": true,
+                        "states": "0:ON/OFF"
+                    },
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Button AI",
+                    "bitoffs": "3",
+                    "bitsize": "1",
+                    "value": 1
+                }
+            ]
+        }
+    ]
+}

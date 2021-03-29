@@ -27,7 +27,7 @@
               "type": "number",
               "read": true,
               "write": true,
-              "states": "0:Send data;"
+              "states": "0:Send data; 1: Teach-in"
             },
             "value": 0
           },
@@ -72,6 +72,55 @@
             "states": "8:ioBroker only; 10:Set point +/-3K form any other controller are accepted; 13:New set point from any controller are accepted;"
           },
           "value": {"var": "value"}
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Represents learnbit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "16",
+            "bitsize": "8",
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "Not used",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Not used",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Not used",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Represents learnbit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 0
         }
       ]
     }
