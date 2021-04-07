@@ -23,10 +23,11 @@
                     },
                     "value": {
                         "if": [
-                            {"==": [{"var": "value"}, 112]},
-                            {"==": [{"var": "value"}, 80]},
-                            {"==": [{"var": "value"}, 48]},
-                            {"==": [{"var": "value"}, 16]}
+                            {"==": [{"var": "value"}, 112]}, true,
+                            {"==": [{"var": "value"}, 80]}, true,
+                            {"==": [{"var": "value"}, 48]}, true,
+                            {"==": [{"var": "value"}, 16]},true,
+                            {"==": [{"var": "value"}, 0]},false
                         ]
                     }
                 }
