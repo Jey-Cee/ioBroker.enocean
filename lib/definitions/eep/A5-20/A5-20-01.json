@@ -356,13 +356,6 @@
             },
             "datafield": [
                 {
-                    "data": "fixed parameter",
-                    "description": "dummy byte",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
                     "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
                     "shortcut": "SP",
                     "bitoffs": "0",
