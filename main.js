@@ -204,6 +204,7 @@ class Enocean extends utils.Adapter {
 										const bitoffs = datafield[d].bitoffs;
 										const bitsize = datafield[d].bitsize;
 										const value = state.val;
+										//Check if there is a converion needed
 										if(datafield[d].value_out) {
 											const convertedValue = jsonLogic.apply(datafield[d].value_out, {'value': value});
 											data.setValue(parseInt(convertedValue), bitoffs, bitsize);
