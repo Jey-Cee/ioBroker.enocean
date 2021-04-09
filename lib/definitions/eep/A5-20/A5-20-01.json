@@ -247,7 +247,8 @@
                     },
                     "value": {
                         "var": "value"
-                    }
+                    },
+                    "value_out": {"var": "value"}
                 },
                 {
                     "data": "fixed parameter",
@@ -369,7 +370,7 @@
                     "value": {
                         "var": "value"
                     },
-                    "value_out": {"*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 6.375 ]}
+                    "value_out": {"var": "value"}
                 },
                 {
                     "data": "fixed parameter",
