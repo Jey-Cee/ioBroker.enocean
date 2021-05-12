@@ -36,6 +36,7 @@ let SERIALPORT_ESP3_PARSER = null;
 
 let teachinMethod = null;
 let queue = [];
+let timeoutQueue;
 
 class Enocean extends utils.Adapter {
 
@@ -91,7 +92,7 @@ class Enocean extends utils.Adapter {
 			}
 
 			this.setState('info.connection', false, true);
-
+			clearTimeout(timeoutQueue);
 			this.log.info('cleaned everything up...');
 			callback();
 		} catch (e) {
@@ -569,7 +570,7 @@ class Enocean extends utils.Adapter {
 			await this.sendData(data, optionalData, packetType);
 			queue.splice(0,1);
 		}
-		setTimeout( () => {
+		timeoutQueue = setTimeout( () => {
 			this.sendQueue();
 		}, 50);
 	}

@@ -15,7 +15,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/jey-cee/ioBroker.enocean"
+    "url": "git+https://github.com/jey-cee/ioBroker.enocean.git"
   },
   "dependencies": {
     "@iobroker/adapter-core": "^2.4.0",
