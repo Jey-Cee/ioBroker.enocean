@@ -58,11 +58,11 @@
       "help": {
         "en": {
           "1": "Click on 'Add Device'",
-          "2": "Press the 'Set' button (the one with the stroke) on the occupancy sensor."
+          "2": "Press the 'Set' button (the one without the stroke) on the occupancy sensor."
         },
         "de": {
           "1": " Auf 'Gerät Hinzufügen' klicken",
-          "2": "'Set' Taste (mit dem Strich) am Präsenzmelder drücken."
+          "2": "'Set' Taste (ohne Strich) am Präsenzmelder drücken."
         }
       }
     },
