@@ -1,0 +1,44 @@
+{
+  "eep": "A5-14-01",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x14",
+  "type_number": "0x01",
+  "type_title": "Multi-Func Sensor Window/Door with Supply Voltage monitor",
+  "bidirectional": false,
+  "case": [{
+    "send": false,
+    "datafield": [
+      {
+        "data": "Contact open",
+        "shortcut": "CT",
+        "bitoffs": "31",
+        "bitsize": "1",
+        "iobroker": {
+          "role": "indicator",
+          "type": "boolean",
+          "read": true,
+          "write": false
+        },
+        "value": {
+          "===": [{"var": "value"}, 0]
+        }
+      },
+      {
+        "data": "Supply Voltage 0...5.0V (Optional)",
+        "shortcut": "SVC",
+        "bitoffs": "0",
+        "bitsize": "8",
+        "iobroker": {
+          "role": "value.battery",
+          "type": "number",
+          "unit": "V",
+          "read": true,
+          "write": false
+        },
+        "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.0196078431372549]},0]},
+        "decimals": 2
+      }
+    ]
+  }]
+}
