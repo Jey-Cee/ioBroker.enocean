@@ -172,6 +172,16 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 
 ## Changelog
 
+### 0.3.7
+* added WINKHAUS FM.V.SW
+* added Eltako TF-TA55DL, DSZ14
+* added PHEA D 451 FU-BM, D 4511 FU-BM, D450 FU FK 
+* added telegram repeater count object
+* fix numbers with decimals are strings
+* fix warning "Read-only state "enocean.0.gateway.lastID" has been written without ack-flag with value "xxxxxxxx""
+* fix A5-20-01 remove conversion for valve position in summer mode & summer mode valve position
+* fix TF-14-06
+
 ### 0.3.6
 * added Eltako FMS14 (<32/19)
 * added Eltako FTS14EM
