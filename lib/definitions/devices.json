@@ -2416,6 +2416,24 @@
     }
   },
   "MICROPELT": {
+    "MVA003": {
+      "EEP": [
+        "A5-20-01"
+      ],
+      "autocreate": true,
+      "teachin_method": "4BS",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your MVA001. For more information please read the manual of MVA001."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am MVA001 starten. Für weitere informationen bitte die Anleitung des MVA001 lesen."
+        }
+      }
+    },
     "MVA005": {
       "EEP": [
         "A5-20-06"
@@ -2999,6 +3017,24 @@
     "SR04 PMS rH": {
       "EEP": [
         "A5-10-11"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
+    "SR65": {
+      "EEP": [
+        "A5-02-14"
       ],
       "autocreate": false,
       "teachin_method": "none",
