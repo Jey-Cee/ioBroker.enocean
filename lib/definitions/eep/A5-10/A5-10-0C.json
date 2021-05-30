@@ -1,0 +1,50 @@
+{
+    "eep": "A5-10-0C",
+    "rorg_number": "0xA5",
+    "telegram": "4BS",
+    "func_number": "0x10",
+    "type_number": "0x0C",
+    "type_title": "Room Operating Panel Temperature, Occupancy control",
+    "bidirectional": false,
+    "case": [{
+        "send": false,
+        "datafield": [
+            {
+                "data": "Temperature",
+                "shortcut": "TMP",
+                "bitoffs": "16",
+                "bitsize": "8",
+                "iobroker": {
+                    "role": "value.temperature",
+                    "type": "number",
+                    "unit": "°C",
+                    "read": true,
+                    "write": false
+                },
+                "value": {
+                    "+": [{
+                    "*": [
+                        { "-": [{"var": "value"}, 0] },
+                        0.156862745
+                    ]}, 0]
+                },
+                "decimals": 2
+            },
+            {
+                "data": "Occupancy",
+                "shortcut": "OCC",
+                "bitoffs": "31",
+                "bitsize": "1",
+                "iobroker": {
+                    "role": "switch",
+                    "type": "boolean",
+                    "read": true,
+                    "write": false
+                },
+                "value": {
+                    "==": [{"var": "value"}, 0]
+                }
+            }
+        ]
+    }]
+}
