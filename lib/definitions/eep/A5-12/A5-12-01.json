@@ -28,7 +28,8 @@
                     "role": "value.power.consumption",
                     "type": "number",
                     "read": true,
-                    "write": false
+                    "write": false,
+                    "def": 0
                 },
                 "secondArgument": {
                     "bitoffs": "30",
@@ -53,7 +54,8 @@
                     "role": "state",
                     "type": "number",
                     "read": true,
-                    "write": false
+                    "write": false,
+                    "def": 0
                 },
                 "value": {
                     "var": "value"
@@ -82,7 +84,8 @@
                         "role": "value.power",
                         "type": "number",
                         "read": true,
-                        "write": false
+                        "write": false,
+                        "def": 0
                     },
                     "secondArgument": {
                         "bitoffs": "30",
@@ -107,7 +110,8 @@
                         "role": "state",
                         "type": "number",
                         "read": true,
-                        "write": false
+                        "write": false,
+                        "def": 0
                     },
                     "value": {
                         "var": "value"
