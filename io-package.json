@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "enocean",
-        "version": "0.3.7",
+        "version": "0.3.8",
         "news": {
             "0.1.5": {
                 "en": "added virtual switch\nrewrite A5-20-01\nfix profile A5-02-13"
