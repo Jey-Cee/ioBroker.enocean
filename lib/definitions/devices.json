@@ -1900,6 +1900,24 @@
         }
       }
     },
+    "FWG14MS": {
+      "EEP": [
+        "TF-13-01"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
     "FWS61": {
       "EEP": [
         "TF-13-01"
