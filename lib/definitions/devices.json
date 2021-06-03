@@ -2695,6 +2695,26 @@
       }
     }
   },
+  "PERMUNDO": {
+    "PSC 234": {
+      "EEP": [
+        "D2-01-09"
+      ],
+      "autocreate": true,
+      "teachin_method": "UTE",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your PSC 234. For more information please read the manual of PSC 234."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am PSC 234 starten. Für weitere informationen bitte die Anleitung des PSC 234 lesen."
+        }
+      }
+    }
+  },
   "PHEA": {
     "Easyclick sender": {
       "EEP": ["F6-02-02"],
