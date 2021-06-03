@@ -2490,17 +2490,17 @@
     },
     "Door and Window sensor (SDO-2-1-05)": {
       "EEP": ["D5-00-01"],
-      "autocreate": true,
-      "teachin_method": "4BS",
+      "autocreate": false,
+      "teachin_method": "none",
       "id_offset": false,
       "help": {
         "en": {
-          "1": "Click on 'Add Device'.",
-          "2": "Start teachin mode on your Door and Window sensor. For more information please read the manual of Door and Window sensor."
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'"
         },
         "de": {
-          "1": "Auf 'Gerät Hinzufügen' klicken.",
-          "2": "Anlernmodus am Tür- und Fensterkontakt starten. Für weitere informationen bitte die Anleitung des Tür- und Fensterkontakt lesen."
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
         }
       }
     },

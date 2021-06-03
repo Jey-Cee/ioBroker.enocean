@@ -172,6 +172,11 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 
 ## Changelog
 
+### 0.3.8
+* added Thermokon SR04 & SR07
+* added Micropelt MVA003
+* added Eltako FWG14MS & FSR61-230V KW 02/21 and newer
+
 ### 0.3.7
 * added WINKHAUS FM.V.SW
 * added Eltako TF-TA55DL, DSZ14
