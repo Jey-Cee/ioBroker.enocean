@@ -1,0 +1,127 @@
+{
+    "eep": "A5-11-03",
+    "rorg_number": "0xA5",
+    "telegram": "4BS",
+    "func_number": "0x11",
+    "type_number": "0x03",
+    "type_title": "Blind status",
+    "bidirectional": false,
+    "case": [{
+        "send": false,
+        "datafield": [
+            {
+                "data": "Parameter 1",
+                "shortcut": "P1",
+                "bitoffs": "0",
+                "bitsize": "8",
+                "iobroker": {
+                    "role": "value",
+                    "type": "number",
+                    "read": true,
+                    "write": false
+                },
+                "value": {"var": "value"}
+            },
+            {
+                "data": "Parameter 2",
+                "shortcut": "P2",
+                "bitoffs": "8",
+                "bitsize": "8",
+                "iobroker": {
+                    "role": "value",
+                    "type": "number",
+                    "read": true,
+                    "write": false
+                },
+                "value": {"var": "value"}
+            },
+            {
+                "data": "Parameter 3",
+                "shortcut": "P3",
+                "bitoffs": "16",
+                "bitsize": "8",
+                "iobroker": {
+                    "role": "value",
+                    "type": "number",
+                    "read": true,
+                    "write": false
+                },
+                "value": {"var": "value"}
+            },
+            {
+                "data": "Service mode",
+                "shortcut": "SM",
+                "bitoffs": "24",
+                "bitsize": "1",
+                "iobroker": {
+                    "role": "value",
+                    "type": "boolean",
+                    "read": true,
+                    "write": false
+                },
+                "value": {"==": [{"var": "value"}, 1]}
+            },
+            {
+                "data": "Operating hours available",
+                "shortcut": "OHS",
+                "bitoffs": "24",
+                "bitsize": "1",
+                "iobroker": {
+                    "role": "value",
+                    "type": "boolean",
+                    "read": true,
+                    "write": false
+                },
+                "value": {"==": [{"var": "value"}, 1]}
+            },
+            {
+                "data": "Error state",
+                "shortcut": "ES",
+                "bitoffs": "26",
+                "bitsize": "2",
+                "iobroker": {
+                    "role": "value",
+                    "type": "number",
+                    "read": true,
+                    "write": false,
+                    "states": "0:No Error; 1:Lamp-failure; 2:Internal failure; 3:Failure on the external periphery;"
+                },
+                "value": {"var": "value"}
+            },
+            {
+                "data": "fixed parameter",
+                "description": "teachin",
+                "bitoffs": "28",
+                "bitsize": "1",
+                "value": 0
+            },
+            {
+                "data": "Parameter Mode",
+                "shortcut": "PM",
+                "bitoffs": "29",
+                "bitsize": "2",
+                "iobroker": {
+                    "role": "value",
+                    "type": "number",
+                    "read": true,
+                    "write": false,
+                    "states": "0:8 Bit Dimmer value and lamp operating hours; 1:RGB Value; 2:Energy metering; 3:Not used;"
+                },
+                "value": {"var": "value"}
+            },
+            {
+                "data": "ON",
+                "shortcut": "ST",
+                "bitoffs": "31",
+                "bitsize": "1",
+                "iobroker": {
+                    "role": "value",
+                    "type": "boolean",
+                    "read": true,
+                    "write": false
+                },
+                "value": {"==": [{"var": "value"}, 1]}
+            }
+        ]
+    }]
+}
