@@ -2696,6 +2696,25 @@
     }
   },
   "PERMUNDO": {
+    "PSC 152": {
+      "EEP": [
+        "PE-01-01",
+        "PE-01-02"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'"
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
     "PSC 234": {
       "EEP": [
         "D2-01-09"

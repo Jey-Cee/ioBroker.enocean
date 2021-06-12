@@ -275,19 +275,11 @@
       }],
       "datafield": [
         {
-          "data": "Output on",
+          "data": "Output value",
           "shortcut": "OV",
           "bitoffs": "17",
           "bitsize": "7",
-          "iobroker": {
-            "role": "state",
-            "type": "boolean",
-            "read": true,
-            "write": true
-          },
-          "value": {
-            "==": [{"var": "value"}, 100]
-          }
+          "value": {"var": "value"}
         },
         {
           "data": "Error level",

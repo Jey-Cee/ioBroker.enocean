@@ -1,0 +1,483 @@
+{
+    "eep": "PE-01-01",
+    "rorg_number": "0xA5",
+    "telegram": "4BS",
+    "func_number": "0x00",
+    "type_number": "0x00",
+    "type_title": "PSC 152 Blind control and status",
+    "bidirectional": false,
+    "case":[
+        {
+        "send": true,
+        "condition": {
+            "command": [
+                {
+                    "value": 0
+                }
+            ]
+        },
+        "datafield": [
+            {
+                "data": "Command ID",
+                "shortcut": "CMD",
+                "iobroker": {
+                    "role": "state",
+                    "type": "number",
+                    "read": false,
+                    "write": true,
+                    "states": "0:Open; 1:Close; 2:Stop; 3:Goto position; 4:Status request; 5:Teach-in"
+                },
+                "value": {"var":"value"}
+            },
+            {
+                "data": "fixed parameter",
+                "description": "CMD 0x07",
+                "bitoffs": "0",
+                "bitsize": "8",
+                "value": 7
+            },
+            {
+                "data": "fixed parameter",
+                "description": "Not used",
+                "bitoffs": "8",
+                "bitsize": "16",
+                "value": 0
+            },
+            {
+                "data": "fixed parameter",
+                "description": "Blind open",
+                "bitoffs": "24",
+                "bitsize": "4",
+                "value": 2
+            },
+            {
+                "data": "fixed parameter",
+                "description": "Represents learnbit",
+                "bitoffs": "28",
+                "bitsize": "1",
+                "value": 1
+            },
+            {
+                "data": "fixed parameter",
+                "description": "Send new status of device",
+                "bitoffs": "29",
+                "bitsize": "1",
+                "value": 0
+            },
+            {
+                "data": "fixed parameter",
+                "description": "Pos. and angle flag",
+                "bitoffs": "30",
+                "bitsize": "1",
+                "value": 0
+            },
+            {
+                "data": "fixed parameter",
+                "description": "Service mode flag",
+                "bitoffs": "31",
+                "bitsize": "1",
+                "value": 0
+            }
+        ]
+    },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 1
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "description": "CMD 0x07",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 7
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Not used",
+                    "bitoffs": "8",
+                    "bitsize": "16",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Blind close",
+                    "bitoffs": "24",
+                    "bitsize": "4",
+                    "value": 3
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Represents learnbit",
+                    "bitoffs": "28",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Send new status of device",
+                    "bitoffs": "29",
+                    "bitsize": "1",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Pos. and angle flag",
+                    "bitoffs": "30",
+                    "bitsize": "1",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Service mode flag",
+                    "bitoffs": "31",
+                    "bitsize": "1",
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 2
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "description": "CMD 0x07",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 7
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Not used",
+                    "bitoffs": "8",
+                    "bitsize": "16",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Blind close",
+                    "bitoffs": "24",
+                    "bitsize": "4",
+                    "value": 1
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Represents learnbit",
+                    "bitoffs": "28",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Send new status of device",
+                    "bitoffs": "29",
+                    "bitsize": "1",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Pos. and angle flag",
+                    "bitoffs": "30",
+                    "bitsize": "1",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Service mode flag",
+                    "bitoffs": "31",
+                    "bitsize": "1",
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 3
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "description": "CMD 0x07",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 7
+                },
+                {
+                    "data": "Position",
+                    "shortcut": "POS",
+                    "bitoffs": "8",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "level.blind",
+                        "type": "number",
+                        "unit": "%",
+                        "read": false,
+                        "write": true,
+                        "min": 0,
+                        "max": 100,
+                        "def": 0
+                    },
+                    "value": {"var":"value"}
+                },
+                {
+                    "data": "Angle",
+                    "shortcut": "AN",
+                    "bitoffs": "16",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "value",
+                        "type": "number",
+                        "read": true,
+                        "write": false,
+                        "unit": "°",
+                        "min": 0,
+                        "max": 180,
+                        "def": 0
+                    },
+                    "value": {"+":[{"*":[{"-":[{"var":"value"},0]},2]},0]}
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Goto position",
+                    "bitoffs": "24",
+                    "bitsize": "4",
+                    "value": 4
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Represents learnbit",
+                    "bitoffs": "28",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Send new status of device",
+                    "bitoffs": "29",
+                    "bitsize": "1",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Pos. and angle flag",
+                    "bitoffs": "30",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Service mode flag",
+                    "bitoffs": "31",
+                    "bitsize": "1",
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 4
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "description": "CMD 0x07",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 7
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Not used",
+                    "bitoffs": "8",
+                    "bitsize": "16",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Status request",
+                    "bitoffs": "24",
+                    "bitsize": "4",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Represents learnbit",
+                    "bitoffs": "28",
+                    "bitsize": "1",
+                    "value": 1
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Send new status of device",
+                    "bitoffs": "29",
+                    "bitsize": "1",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Pos. and angle flag",
+                    "bitoffs": "30",
+                    "bitsize": "1",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Service mode flag",
+                    "bitoffs": "31",
+                    "bitsize": "1",
+                    "value": 0
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 5
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "description": "CMD 0x07",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 7
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Teach-in",
+                    "bitoffs": "0",
+                    "bitsize": "31",
+                    "value": 3762294144
+                }
+            ]
+        },
+        {
+            "send": false,
+            "datafield": [
+                {
+                    "data": "Position",
+                    "shortcut": "POS",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "value",
+                        "type": "number",
+                        "read": true,
+                        "write": false,
+                        "unit": "%"
+                    },
+                    "value": {"var": "value"}
+                },
+                {
+                    "data": "Angle",
+                    "shortcut": "AN",
+                    "bitoffs": "9",
+                    "bitsize": "7",
+                    "iobroker": {
+                        "role": "value",
+                        "type": "number",
+                        "read": true,
+                        "write": false,
+                        "unit": "°"
+                    },
+                    "value": {"+":[{"*":[{"-":[{"var":"value"},0]},2]},0]}
+                },
+                {
+                    "data": "Error state",
+                    "shortcut": "ES",
+                    "bitoffs": "18",
+                    "bitsize": "2",
+                    "iobroker": {
+                        "role": "value",
+                        "type": "number",
+                        "read": true,
+                        "write": false,
+                        "states": "0:No Error; 1:End positions are not configured; 2:Internal failure; 3:Not used;"
+                    },
+                    "value": {"var": "value"}
+                },
+                {
+                    "data": "End-position",
+                    "shortcut": "EP",
+                    "bitoffs": "20",
+                    "bitsize": "2",
+                    "iobroker": {
+                        "role": "value",
+                        "type": "number",
+                        "read": true,
+                        "write": false,
+                        "states": "0:No End-position available; 1:No End-position reached; 2:Blind fully open; 3:Blind fully closed;"
+                    },
+                    "value": {"var": "value"}
+                },
+                {
+                    "data": "Status",
+                    "shortcut": "ST",
+                    "bitoffs": "22",
+                    "bitsize": "2",
+                    "iobroker": {
+                        "role": "value",
+                        "type": "number",
+                        "read": true,
+                        "write": false,
+                        "states": "0:No Status available; 1:Blind is stopped; 2:Blind opens; 3:Blind closes;"
+                    },
+                    "value": {"var": "value"}
+                },
+                {
+                    "data": "Service mode active",
+                    "shortcut": "SM",
+                    "bitoffs": "24",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "value",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {"==": [{"var": "value"}, 1]}
+                },
+                {
+                    "data": "Mode of the position",
+                    "shortcut": "MOTP",
+                    "bitoffs": "25",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "value",
+                        "type": "number",
+                        "read": true,
+                        "write": false,
+                        "states": "0:Normal mode: 0% fully open; 1:Inverse mode: 0% fully closed;"
+                    },
+                    "value": {"var": "value"}
+                }
+            ]
+        }
+    ]
+}

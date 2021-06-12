@@ -6,52 +6,56 @@
     "type_number": "0x03",
     "type_title": "Blind status",
     "bidirectional": false,
-    "case": [{
+    "case": [
+        {
         "send": false,
         "datafield": [
             {
-                "data": "Parameter 1",
-                "shortcut": "P1",
+                "data": "Position",
+                "shortcut": "POS",
                 "bitoffs": "0",
                 "bitsize": "8",
                 "iobroker": {
                     "role": "value",
                     "type": "number",
                     "read": true,
-                    "write": false
+                    "write": false,
+                    "unit": "%"
                 },
                 "value": {"var": "value"}
             },
             {
-                "data": "Parameter 2",
-                "shortcut": "P2",
+                "data": "Angle sign",
+                "shortcut": "AS",
                 "bitoffs": "8",
-                "bitsize": "8",
+                "bitsize": "1",
                 "iobroker": {
                     "role": "value",
                     "type": "number",
                     "read": true,
-                    "write": false
+                    "write": false,
+                    "states": "0:Positive; 1:Negative"
                 },
                 "value": {"var": "value"}
             },
             {
-                "data": "Parameter 3",
-                "shortcut": "P3",
+                "data": "Angle",
+                "shortcut": "AN",
+                "bitoffs": "9",
+                "bitsize": "7",
+                "iobroker": {
+                    "role": "value",
+                    "type": "number",
+                    "read": true,
+                    "write": false,
+                    "unit": "°"
+                },
+                "value": {"+":[{"*":[{"-":[{"var":"value"},0]},2]},0]}
+            },
+            {
+                "data": "Position value available",
+                "shortcut": "PVF",
                 "bitoffs": "16",
-                "bitsize": "8",
-                "iobroker": {
-                    "role": "value",
-                    "type": "number",
-                    "read": true,
-                    "write": false
-                },
-                "value": {"var": "value"}
-            },
-            {
-                "data": "Service mode",
-                "shortcut": "SM",
-                "bitoffs": "24",
                 "bitsize": "1",
                 "iobroker": {
                     "role": "value",
@@ -62,9 +66,9 @@
                 "value": {"==": [{"var": "value"}, 1]}
             },
             {
-                "data": "Operating hours available",
-                "shortcut": "OHS",
-                "bitoffs": "24",
+                "data": "Angle value available",
+                "shortcut": "AVF",
+                "bitoffs": "17",
                 "bitsize": "1",
                 "iobroker": {
                     "role": "value",
@@ -77,42 +81,49 @@
             {
                 "data": "Error state",
                 "shortcut": "ES",
-                "bitoffs": "26",
+                "bitoffs": "18",
                 "bitsize": "2",
                 "iobroker": {
                     "role": "value",
                     "type": "number",
                     "read": true,
                     "write": false,
-                    "states": "0:No Error; 1:Lamp-failure; 2:Internal failure; 3:Failure on the external periphery;"
+                    "states": "0:No Error; 1:End positions are not configured; 2:Internal failure; 3:Not used;"
                 },
                 "value": {"var": "value"}
             },
             {
-                "data": "fixed parameter",
-                "description": "teachin",
-                "bitoffs": "28",
-                "bitsize": "1",
-                "value": 0
-            },
-            {
-                "data": "Parameter Mode",
-                "shortcut": "PM",
-                "bitoffs": "29",
+                "data": "End-position",
+                "shortcut": "EP",
+                "bitoffs": "20",
                 "bitsize": "2",
                 "iobroker": {
                     "role": "value",
                     "type": "number",
                     "read": true,
                     "write": false,
-                    "states": "0:8 Bit Dimmer value and lamp operating hours; 1:RGB Value; 2:Energy metering; 3:Not used;"
+                    "states": "0:No End-position available; 1:No End-position reached; 2:Blind fully open; 3:Blind fully closed;"
                 },
                 "value": {"var": "value"}
             },
             {
-                "data": "ON",
+                "data": "Status",
                 "shortcut": "ST",
-                "bitoffs": "31",
+                "bitoffs": "22",
+                "bitsize": "2",
+                "iobroker": {
+                    "role": "value",
+                    "type": "number",
+                    "read": true,
+                    "write": false,
+                    "states": "0:No Status available; 1:Blind is stopped; 2:Blind opens; 3:Blind closes;"
+                },
+                "value": {"var": "value"}
+            },
+            {
+                "data": "Service mode active",
+                "shortcut": "SM",
+                "bitoffs": "24",
                 "bitsize": "1",
                 "iobroker": {
                     "role": "value",
@@ -121,7 +132,22 @@
                     "write": false
                 },
                 "value": {"==": [{"var": "value"}, 1]}
+            },
+            {
+                "data": "Mode of the position",
+                "shortcut": "MOTP",
+                "bitoffs": "25",
+                "bitsize": "1",
+                "iobroker": {
+                    "role": "value",
+                    "type": "number",
+                    "read": true,
+                    "write": false,
+                    "states": "0:Normal mode: 0% fully open; 1:Inverse mode: 0% fully closed;"
+                },
+                "value": {"var": "value"}
             }
         ]
-    }]
+    }
+    ]
 }

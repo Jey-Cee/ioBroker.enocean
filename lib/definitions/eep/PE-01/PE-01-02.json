@@ -1,0 +1,85 @@
+{
+  "eep": "PE-01-02",
+  "rorg_number": "0xD2",
+  "telegram": "VLD",
+  "func_number": "0x00",
+  "type_number": "0x00",
+  "type_title": "PSC 152 Energy measurement",
+  "bidirectional": true,
+  "case": [
+    {
+      "send": false,
+      "condition": [{
+        "bitoffs": "4",
+        "bitsize": "4",
+        "value": 7
+      }],
+      "datafield": [
+        {
+          "data": "Energy counter",
+          "shortcut": "EC",
+          "bitoffs": "16",
+          "bitsize": "32",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": false
+          },
+          "condition": {
+            "or": [
+              {"==":[{"var": "value2"}, 0]},
+              {"==":[{"var": "value2"}, 1]},
+              {"==":[{"var": "value2"}, 2]}
+            ]
+          },
+          "secondArgument": {
+            "bitoffs": "8",
+            "bitsize": "3"
+          },
+          "value": {
+            "var": "value"
+          },
+          "unit":{
+            "if": [
+              {"==":[{"var": "value2"}, 0]}, "Ws",
+              {"==":[{"var": "value2"}, 1]}, "Wh",
+              {"==":[{"var": "value2"}, 2]}, "kWh"
+            ]
+          }
+        },
+        {
+          "data": "Actual Power",
+          "shortcut": "AC",
+          "bitoffs": "16",
+          "bitsize": "32",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": false
+          },
+          "condition": {
+            "or": [
+              {"==":[{"var": "value2"}, 3]},
+              {"==":[{"var": "value2"}, 4]}
+            ]
+          },
+          "secondArgument": {
+            "bitoffs": "8",
+            "bitsize": "3"
+          },
+          "value": {
+            "var": "value"
+          },
+          "unit":{
+            "if": [
+              {"==":[{"var": "value2"}, 3]}, "W",
+              {"==":[{"var": "value2"}, 4]}, "kW"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
