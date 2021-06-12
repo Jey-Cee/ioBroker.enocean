@@ -2707,11 +2707,13 @@
       "help": {
         "en": {
           "1": "Enter device ID.",
-          "2": "Click on 'Add Device'"
+          "2": "Click on 'Add Device'",
+          "3": "Goto objects and send command (CMD) Teach-in"
         },
         "de": {
           "1": "Geräte ID eintragen.",
-          "2": "Auf 'Gerät Hinzufügen' klicken."
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden."
         }
       }
     },
