@@ -2590,6 +2590,22 @@
         }
       }
     },
+    "Soft Button (TSB-2-2-01)": {
+      "EEP": ["D2-03-0A"],
+      "autocreate": true,
+      "teachin_method": "UTE",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your Soft Button. For more information please read the manual of Soft Button."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am Soft Button starten. Für weitere informationen bitte die Anleitung des Soft Button lesen."
+        }
+      }
+    },
     "Soft Remote": {
       "EEP": ["F6-02-02"],
       "autocreate": true,

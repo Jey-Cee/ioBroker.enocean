@@ -1,0 +1,51 @@
+{
+  "eep": "D2-03-0A",
+  "rorg_number": "0xD2",
+  "telegram": "VLD",
+  "func_number": "0x03",
+  "type_number": "0x0A",
+  "type_title": "Push Button - Single Button",
+  "bidirectional": true,
+  "case": [
+    {
+      "send": false,
+      "datafield": [
+        {
+          "data": "Battery level",
+          "shortcut": "BATT",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "value.battery",
+            "type": "number",
+            "read": true,
+            "write": false,
+            "min": 0,
+            "max": 100,
+            "def": 100,
+            "unit": "%"
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Button Action",
+          "shortcut": "BA",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": false,
+            "states": "1: Simple press; 2:Double press; 3:Long press; 4:Long press released"
+          },
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    }
+  ]
+}
