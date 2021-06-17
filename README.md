@@ -25,11 +25,11 @@ If you like my work, please feel free to provide a personal donation
 [![Donate](https://raw.githubusercontent.com/iobroker-community-adapters/ioBroker.wled/master/admin/button.png)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=95YZN2LR59Q64&source=url)
 
 ## Compatible USB Sticks & Modules
-USB300 - [Buy & Support (Amazon Affiliate)](https://amzn.to/3uLPpMo)
+USB300
 
-DOSMUNG USB Stick with SMA port - [Buy & Support (Amazon Affiliate)](https://amzn.to/33EapbN)
+DOSMUNG USB Stick with SMA port - [Buy](https://amzn.to/33EapbN)
 
-EnOcean Pi Modul - [Buy & Support (Amazon Affiliate)](https://amzn.to/3tMaftN)
+EnOcean Pi Modul
 
 ## Control devices
 In general there is a cmd object where you can choose the command that you want to execute. Before you can execute a command you have to set all attributes that are necessary, 
