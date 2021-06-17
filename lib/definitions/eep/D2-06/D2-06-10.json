@@ -1,0 +1,141 @@
+{
+  "eep": "D2-06-10",
+  "rorg_number": "0xD2",
+  "telegram": "VLD",
+  "func_number": "0x06",
+  "type_number": "0x10",
+  "type_title": "Multisensor Window Intrusion detection system for Windows",
+  "bidirectional": true,
+  "case": [
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 0
+          }
+        ]
+      },
+      "datafield": [
+        {
+        "data": "Command ID",
+        "shortcut": "CMD",
+        "iobroker": {
+          "role": "state",
+          "type": "number",
+          "read": true,
+          "write": true,
+          "states": "0:Send Settings;"
+        },
+          "value": {
+            "var": "value"
+          }
+      },
+        {
+          "data": "Alarm enabled",
+          "shortcut": "AE",
+          "bitoffs": "0",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "boolean",
+            "read": true,
+            "write": true
+          },
+          "value_out": {
+            "if": [
+              { "==": [{"var": "value"}, true]}, 1,
+              { "==": [{"var": "value"}, false]}, 0
+            ]
+          }
+        },
+        {
+          "data": "Pre-Alarm enabled",
+          "shortcut": "PAE",
+          "bitoffs": "3",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "boolean",
+            "read": true,
+            "write": true
+          },
+          "value": {
+            "==": [{"var": "value"}, 1]
+          },
+          "value_out": {
+            "if": [
+              { "==": [{"var": "value"}, true]}, 1,
+              { "==": [{"var": "value"}, false]}, 0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "send": false,
+      "datafield": [
+        {
+          "data": "Pre-Alarm",
+          "shortcut": "PA",
+          "bitoffs": "0",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "boolean",
+            "read": true,
+            "write": false
+          },
+          "value": {
+            "==": [{"var": "value"}, 1]
+          }
+        },
+        {
+          "data": "Alarm",
+          "shortcut": "AL",
+          "bitoffs": "1",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "boolean",
+            "read": true,
+            "write": false
+          },
+          "value": {
+            "==": [{"var": "value"}, 1]
+          }
+        },
+        {
+          "data": "Window open",
+          "shortcut": "CT",
+          "bitoffs": "2",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "boolean",
+            "read": true,
+            "write": false
+          },
+          "value": {
+            "==": [{"var": "value"}, 1]
+          }
+        },
+        {
+          "data": "Pre-Alarm enabled",
+          "shortcut": "PAE",
+          "bitoffs": "3",
+          "bitsize": "1",
+          "iobroker": {
+            "role": "state",
+            "type": "boolean",
+            "read": true,
+            "write": false
+          },
+          "value": {
+            "==": [{"var": "value"}, 1]
+          }
+        }
+        ]
+    }
+      ]
+}
