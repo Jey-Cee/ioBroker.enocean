@@ -1,0 +1,106 @@
+{
+    "eep": "A5-30-03",
+    "rorg_number": "0xA5",
+    "telegram": "4BS",
+    "func_number": "0x30",
+    "type_number": "0x03",
+    "type_title": "4 Digital Inputs, Wake and Temperature",
+    "bidirectional": false,
+    "case": [
+        {
+            "send": false,
+            "datafield": [
+                {
+                    "data": "Temperature 0...40°C",
+                    "shortcut": "TMP",
+                    "bitoffs": "8",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "value.temperature",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "unit": "°C"
+                    },
+                    "value": {"+":[{"*":[{"-":[{"var":"value"},255]},-0.1568627450980392]},0]},
+                    "decimals": 2
+                },
+                {
+                    "data": "Status of wake",
+                    "shortcut": "WA",
+                    "bitoffs": "19",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "number",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "var": "value"
+                    }
+                },
+                {
+                    "data": "Digital Input 3",
+                    "shortcut": "DI3",
+                    "bitoffs": "20",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "number",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "var": "value"
+                    }
+                },
+                {
+                    "data": "Digital Input 2",
+                    "shortcut": "DI2",
+                    "bitoffs": "21",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "number",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "var": "value"
+                    }
+                },
+                {
+                    "data": "Digital Input 1",
+                    "shortcut": "DI1",
+                    "bitoffs": "22",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "number",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "var": "value"
+                    }
+                },
+                {
+                    "data": "Digital Input 0",
+                    "shortcut": "DI0",
+                    "bitoffs": "23",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "indicator",
+                        "type": "number",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "var": "value"
+                    }
+                }
+            ]
+        }
+    ]
+}
