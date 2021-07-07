@@ -16,6 +16,7 @@ const CRC8 = require('./lib/tools/CRC8.js');
 const ByteArray = require('./lib/tools/byte_array');
 const HandleType1 = require('./lib/tools/Packet_handler').handleType1;
 const HandleType2 = require('./lib/tools/Packet_handler').handleType2;
+const HandleType4 = require('./lib/tools/Packet_handler').handleType4;
 const HandleTeachIn = require('./lib/tools/Packet_handler').handleTeachIn;
 const ManualTeachIn = require('./lib/tools/Packet_handler').manualTeachIn;
 const predifnedDeviceTeachIn = require('./lib/tools/Packet_handler').predifnedDeviceTeachin;
@@ -34,7 +35,7 @@ let AVAILABLE_PORTS = {};
 let SERIAL_PORT = null;
 let SERIALPORT_ESP3_PARSER = null;
 
-let teachinMethod = null;
+let teachinInfo = null;
 let queue = [];
 let timeoutQueue;
 
@@ -323,7 +324,7 @@ class Enocean extends utils.Adapter {
 				respond(EEPList, this);
 				break;
 			case 'autodetect':
-				teachinMethod = codes.telegram_type[obj.message.teachin_method];
+				teachinInfo = {teachinMethod: codes.telegram_type[obj.message.teachin_method], name: obj.message.name, mfr: obj.message.mfr};
 				this.setState('gateway.teachin', {val: true, expire: 60});
 				respond({ error: null, result: 'Ready' }, this);
 				break;
@@ -392,7 +393,14 @@ class Enocean extends utils.Adapter {
 		//open serial port, set adapter state to connected and wait for messages
 		SERIAL_PORT.on('open', async () => {
 			this.setState('info.connection', true, true);
+			//await this.resetController();
+			//Not supported by USB300 await this.enableTransparentMode();
 			await this.getGatewayInfo();
+			//Not supported by USB300 await this.deleteSmartACKMailbox();
+			//await this.resetSmartACKClient();
+			//Not supported by USB300 await this.readMailboxStatus();
+			await this.makeControllerPostmaster();
+			await this.enableSmartACKteachin();
 			this.sendQueue();
 
 			SERIALPORT_ESP3_PARSER.on('data', (data) => {
@@ -434,9 +442,9 @@ class Enocean extends utils.Adapter {
 					} else if (teachin.val === true) {
 						const telegram = new RadioTelegram(esp3packet);
 						await this.setStateAsync('gateway.lastID', {val: telegram.senderID, ack: true});
-						if (teachinMethod === 'UTE' || teachinMethod === 'Smart ACK') {
-							new HandleTeachIn(this, esp3packet);
-						}else if (telegram.type.toString(16) === teachinMethod.toLowerCase()){
+						if (teachinInfo.teachinMethod === 'UTE' || teachinInfo.teachinMethod === 'SmartACK') {
+							new HandleTeachIn(this, esp3packet, teachinInfo);
+						}else if (telegram.type.toString(16) === teachinInfo.teachinMethod.toLowerCase()){
 							new HandleTeachIn(this, esp3packet);
 						}
 					}
@@ -446,8 +454,8 @@ class Enocean extends utils.Adapter {
 			}
 			case 2: //RESPONSE
 			{
-				//new HandleType2(this, ESP3Packet);
-				this.log.debug('Packet type 2 received: ' + toHex(esp3packet.type));
+				const telegram = new HandleType2(this, data);
+				this.log.debug('Packet type 2 received: ' + JSON.stringify(telegram.main));
 				break;
 			}
 			case 3: //RADIO_SUB_TEL
@@ -455,6 +463,7 @@ class Enocean extends utils.Adapter {
 				break;
 			case 4: //EVENT
 				this.log.debug('Event message received.');
+				new HandleType4(this, esp3packet);
 				break;
 			case 5: //COMMON_COMMAND
 				this.log.debug('Common command received.');
@@ -533,6 +542,25 @@ class Enocean extends utils.Adapter {
 			baseId = telegram.data.toString('hex');
 		}
 
+		//Smart ACK 06: SA_RD_LEARNDCLIENTS
+		data = Buffer.from([0x06]);
+		const sa_rd_learndclients = await this.sendData(data, null, 6);
+		if(sa_rd_learndclients === true){
+			const returnSaRdLearndclients = await this.waitForResponse();
+			const telegram = new HandleType2(this, returnSaRdLearndclients);
+			//baseId = telegram.data.toString('hex');
+			const resData = telegram.main.data;
+			console.log( (resData.length / 2)/9 );
+			console.log(resData);
+			let mailboxes = [];
+			for(let i = 0; i < (resData.length / 2)/9; i++){
+				let mailbox = {};
+				//TODO: split string into mailbox objects
+
+			}
+
+		}
+
 		const gatewayObject = {
 			native: {
 				BaseID: baseId,
@@ -549,6 +577,63 @@ class Enocean extends utils.Adapter {
 		this.log.info(JSON.stringify(gatewayObject.native));
 
 		await this.extendObjectAsync('gateway', gatewayObject);
+	}
+
+	async resetController(){
+		const data = Buffer.from([0x02]);
+		const res = await this.sendData(data, null, 5);
+		const response = await this.waitForResponse();
+		const telegram = new HandleType2(this, response);
+		console.log(`Reset controller: ${JSON.stringify(telegram.main)}`);
+	}
+
+	async enableTransparentMode(){
+		const data = Buffer.from([0x3e, 0x01]);
+		const res = await this.sendData(data, null, 5);
+		const response = await this.waitForResponse();
+		const telegram = new HandleType2(this, response);
+		console.log(`Enable Trtansparent Mode: ${JSON.stringify(telegram.main)}`);
+	}
+
+	async enableSmartACKteachin(){
+		const data = Buffer.from([0x01, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00]);
+		const res = await this.sendData(data, null, 6);
+		const response = await this.waitForResponse();
+		const telegram = new HandleType2(this, response);
+		console.log(`Enable Smart ACK teach-in: ${JSON.stringify(telegram.main)}`);
+	}
+
+	async readMailboxStatus(){
+		const data = Buffer.from([0x09, 0x05, 0x96, 0x1d, 0x4f, 0x01, 0x9d, 0x45, 0x44]);
+		const res = await this.sendData(data, null, 6);
+		const response = await this.waitForResponse();
+		const telegram = new HandleType2(this, response);
+		console.log(`Read mailbox status: ${JSON.stringify(telegram.main)}`);
+	}
+
+	async resetSmartACKClient(){
+		const data = Buffer.from([0x05, 0x05, 0x96, 0x1d, 0x4f]);
+		const res = await this.sendData(data, null, 6);
+		const response = await this.waitForResponse();
+		const telegram = new HandleType2(this, response);
+		console.log(`Reset Smart ACK client: ${JSON.stringify(telegram.main)}`);
+	}
+
+	//Delete Mailbox on Controller - On USB300 not supported?
+	async deleteSmartACKMailbox(){
+		const data = Buffer.from([0x0a, 0x05, 0x83, 0x4b, 0x83, 0x01, 0x9d, 0x45, 0x44]);
+		const res = await this.sendData(data, null, 6);
+		const response = await this.waitForResponse();
+		const telegram = new HandleType2(this, response);
+		console.log(`Delet Smart ACK mailbox: ${JSON.stringify(telegram.main)}`);
+	}
+
+	async makeControllerPostmaster(){
+		const data = Buffer.from([0x08, 0x14]);
+		const res = await this.sendData(data, null, 6);
+		const response = await this.waitForResponse();
+		const telegram = new HandleType2(this, response);
+		console.log(`Make controller to postmaster: ${JSON.stringify(telegram.main)}`);
 	}
 
 	//wait for response from USB Stick/Modul

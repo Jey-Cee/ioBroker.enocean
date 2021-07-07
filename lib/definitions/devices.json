@@ -2873,21 +2873,39 @@
     }
   },
   "REHAU": {
+    "Smart Guard": {
+      "EEP": [
+        "D2-06-10"
+      ],
+      "autocreate": true,
+      "teachin_method": "SmartACK",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your Smart Guard. For more information please read the manual of Smart Guard."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am Smart Guard starten. Für weitere informationen bitte die Anleitung des Smart Guard lesen."
+        }
+      }
+    },
     "Smart Guard Inline / Ontop": {
       "EEP": [
         "D2-06-11"
       ],
       "autocreate": true,
-      "teachin_method": "Smart ACK",
+      "teachin_method": "SmartACK",
       "id_offset": true,
       "help": {
         "en": {
           "1": "Click on 'Add Device'.",
-          "2": "Start teachin mode on your Smart Plug. For more information please read the manual of Smart Plug."
+          "2": "Start teachin mode on your Smart Guard. For more information please read the manual of Smart Guard."
         },
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
-          "2": "Anlernmodus am Smart Plug starten. Für weitere informationen bitte die Anleitung des Smart Plug lesen."
+          "2": "Anlernmodus am Smart Guard starten. Für weitere informationen bitte die Anleitung des Smart Guard lesen."
         }
       }
     }
