@@ -117,7 +117,7 @@
             "write": false
           },
           "value": {
-            "==": [{"var": "value"}, 1]
+            "==": [{"var": "value"}, 0]
           }
         },
         {

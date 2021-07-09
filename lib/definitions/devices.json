@@ -2878,8 +2878,8 @@
         "D2-06-10"
       ],
       "autocreate": true,
-      "teachin_method": "SmartACK",
-      "id_offset": true,
+      "teachin_method": "SM_LRN_REQ",
+      "id_offset": false,
       "help": {
         "en": {
           "1": "Click on 'Add Device'.",
@@ -2896,8 +2896,8 @@
         "D2-06-11"
       ],
       "autocreate": true,
-      "teachin_method": "SmartACK",
-      "id_offset": true,
+      "teachin_method": "SM_LRN_REQ",
+      "id_offset": false,
       "help": {
         "en": {
           "1": "Click on 'Add Device'.",
@@ -2906,6 +2906,26 @@
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
           "2": "Anlernmodus am Smart Guard starten. Für weitere informationen bitte die Anleitung des Smart Guard lesen."
+        }
+      }
+    }
+  },
+  "SCHÜCO": {
+    "SenseTrack wireless": {
+      "EEP": [
+        "F6-10-00"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'"
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
         }
       }
     }

@@ -324,8 +324,12 @@ class Enocean extends utils.Adapter {
 				respond(EEPList, this);
 				break;
 			case 'autodetect':
-				teachinInfo = {teachinMethod: codes.telegram_type[obj.message.teachin_method], name: obj.message.name, mfr: obj.message.mfr};
+				teachinInfo = {teachinMethod: codes.telegram_type[obj.message.teachin_method], name: obj.message.device, mfr: obj.message.mfr};
 				this.setState('gateway.teachin', {val: true, expire: 60});
+				if(teachinInfo.teachinMethod === 'C6'){
+					await this.makeControllerPostmaster();
+					await this.enableSmartACKteachin();
+				}
 				respond({ error: null, result: 'Ready' }, this);
 				break;
 			case 'newDevice':
@@ -399,8 +403,6 @@ class Enocean extends utils.Adapter {
 			//Not supported by USB300 await this.deleteSmartACKMailbox();
 			//await this.resetSmartACKClient();
 			//Not supported by USB300 await this.readMailboxStatus();
-			await this.makeControllerPostmaster();
-			await this.enableSmartACKteachin();
 			this.sendQueue();
 
 			SERIALPORT_ESP3_PARSER.on('data', (data) => {
@@ -439,13 +441,14 @@ class Enocean extends utils.Adapter {
 					if (teachin.val === false) {
 						const telegram = new HandleType1(this, esp3packet);
 						await this.setStateAsync('gateway.lastID', {val: telegram.senderID, ack: true});
-					} else if (teachin.val === true) {
+					} else if (teachin.val === true && teachinInfo !== null) {
 						const telegram = new RadioTelegram(esp3packet);
 						await this.setStateAsync('gateway.lastID', {val: telegram.senderID, ack: true});
-						if (teachinInfo.teachinMethod === 'UTE' || teachinInfo.teachinMethod === 'SmartACK') {
+						if (teachinInfo.teachinMethod === 'UTE') {
 							new HandleTeachIn(this, esp3packet, teachinInfo);
 						}else if (telegram.type.toString(16) === teachinInfo.teachinMethod.toLowerCase()){
 							new HandleTeachIn(this, esp3packet);
+							teachinInfo = null;
 						}
 					}
 				}
@@ -463,7 +466,8 @@ class Enocean extends utils.Adapter {
 				break;
 			case 4: //EVENT
 				this.log.debug('Event message received.');
-				new HandleType4(this, esp3packet);
+				new HandleType4(this, esp3packet, teachinInfo);
+				teachinInfo = null;
 				break;
 			case 5: //COMMON_COMMAND
 				this.log.debug('Common command received.');
@@ -550,8 +554,8 @@ class Enocean extends utils.Adapter {
 			const telegram = new HandleType2(this, returnSaRdLearndclients);
 			//baseId = telegram.data.toString('hex');
 			const resData = telegram.main.data;
-			console.log( (resData.length / 2)/9 );
-			console.log(resData);
+			//console.log( (resData.length / 2)/9 );
+			//console.log(resData);
 			let mailboxes = [];
 			for(let i = 0; i < (resData.length / 2)/9; i++){
 				let mailbox = {};
@@ -584,7 +588,6 @@ class Enocean extends utils.Adapter {
 		const res = await this.sendData(data, null, 5);
 		const response = await this.waitForResponse();
 		const telegram = new HandleType2(this, response);
-		console.log(`Reset controller: ${JSON.stringify(telegram.main)}`);
 	}
 
 	async enableTransparentMode(){
@@ -592,7 +595,6 @@ class Enocean extends utils.Adapter {
 		const res = await this.sendData(data, null, 5);
 		const response = await this.waitForResponse();
 		const telegram = new HandleType2(this, response);
-		console.log(`Enable Trtansparent Mode: ${JSON.stringify(telegram.main)}`);
 	}
 
 	async enableSmartACKteachin(){
@@ -600,7 +602,6 @@ class Enocean extends utils.Adapter {
 		const res = await this.sendData(data, null, 6);
 		const response = await this.waitForResponse();
 		const telegram = new HandleType2(this, response);
-		console.log(`Enable Smart ACK teach-in: ${JSON.stringify(telegram.main)}`);
 	}
 
 	async readMailboxStatus(){
@@ -633,7 +634,6 @@ class Enocean extends utils.Adapter {
 		const res = await this.sendData(data, null, 6);
 		const response = await this.waitForResponse();
 		const telegram = new HandleType2(this, response);
-		console.log(`Make controller to postmaster: ${JSON.stringify(telegram.main)}`);
 	}
 
 	//wait for response from USB Stick/Modul
