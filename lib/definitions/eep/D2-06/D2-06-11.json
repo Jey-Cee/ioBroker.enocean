@@ -9,6 +9,7 @@
   "case": [
     {
       "send": true,
+      "auto_answer": true,
       "condition": {
         "command": [
           {

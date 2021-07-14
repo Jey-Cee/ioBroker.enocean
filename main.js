@@ -2,7 +2,6 @@
 
 const utils = require('@iobroker/adapter-core');
 const SerialPort = require('serialport');
-const ByteLength = require('@serialport/parser-byte-length');
 const os = require('os');
 const fs = require('fs');
 const path = require('path');
@@ -18,7 +17,6 @@ const HandleType1 = require('./lib/tools/Packet_handler').handleType1;
 const HandleType2 = require('./lib/tools/Packet_handler').handleType2;
 const HandleType4 = require('./lib/tools/Packet_handler').handleType4;
 const HandleTeachIn = require('./lib/tools/Packet_handler').handleTeachIn;
-const ManualTeachIn = require('./lib/tools/Packet_handler').manualTeachIn;
 const predifnedDeviceTeachIn = require('./lib/tools/Packet_handler').predifnedDeviceTeachin;
 
 const jsonLogic = require('json-logic-js');
@@ -49,6 +47,7 @@ class Enocean extends utils.Adapter {
 			...options,
 			name: 'enocean',
 		});
+		this.queue = [];
 		this.on('ready', this.onReady.bind(this));
 		//this.on('objectChange', this.onObjectChange.bind(this));
 		this.on('stateChange', this.onStateChange.bind(this));
@@ -168,6 +167,8 @@ class Enocean extends utils.Adapter {
 								//prevent send data if telegram was received
 								send = false;
 								break;
+								//check if the condition is true
+								//then go thru datafields and collect data from profile or get object IDs with corresponding data
 							}else if(eepProfile.case[c].condition && eepProfile.case[c].condition.command && eepProfile.case[c].condition.command[0].value === state.val){
 								for (const d in eepProfile.case[c].datafield) {
 									const datafield = eepProfile.case[c].datafield[d];
@@ -275,7 +276,7 @@ class Enocean extends utils.Adapter {
 								data = type.concat(data, baseID, 0x00);
 								break;
 						}
-						queue.push({'data': data, 'optionaldata': optionalData, 'packettype': 0x01});
+						this.queue.push({'data': data, 'optionaldata': optionalData, 'packettype': 0x01});
 						//await this.sendData(data, optionalData, 0x01);
 
 						await this.setStateAsync(id, {ack: true});
@@ -559,7 +560,7 @@ class Enocean extends utils.Adapter {
 			let mailboxes = [];
 			for(let i = 0; i < (resData.length / 2)/9; i++){
 				let mailbox = {};
-				//TODO: split string into mailbox objects
+				//TODO: split string into mailbox objects and show in?
 
 			}
 
@@ -648,12 +649,12 @@ class Enocean extends utils.Adapter {
 	}
 
 	async sendQueue(){
-		if(queue.length > 0){
-			const data = queue[0].data;
-			const optionalData = queue[0].optionaldata;
-			const packetType = queue[0].packettype;
+		if(this.queue.length > 0){
+			const data = this.queue[0].data;
+			const optionalData = this.queue[0].optionaldata;
+			const packetType = this.queue[0].packettype;
 			await this.sendData(data, optionalData, packetType);
-			queue.splice(0,1);
+			this.queue.splice(0,1);
 		}
 		timeoutQueue = setTimeout( () => {
 			this.sendQueue();
