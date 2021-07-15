@@ -70,6 +70,8 @@ If yes the first one has to be the one that will control the device.
 
 ***send:*** true means this set of data is a command that will be sent to the device.
 
+***auto_answer:*** true means this command will be executed after receiving a telegram from the device.
+
 ***condition:*** The condition which has to be true that this set of datafields is processesd. In the most cases the condition is a specific value from the data package.
 
 ***datafield:*** Information where in the data package the data are and how to handle the value. Also there is the object definiton for ioBroker.
@@ -337,7 +339,7 @@ Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
 to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
+copies of the Software, and to permit persons to whom the Software is**
 furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all

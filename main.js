@@ -2,7 +2,6 @@
 
 const utils = require('@iobroker/adapter-core');
 const SerialPort = require('serialport');
-const ByteLength = require('@serialport/parser-byte-length');
 const os = require('os');
 const fs = require('fs');
 const path = require('path');
@@ -16,8 +15,8 @@ const CRC8 = require('./lib/tools/CRC8.js');
 const ByteArray = require('./lib/tools/byte_array');
 const HandleType1 = require('./lib/tools/Packet_handler').handleType1;
 const HandleType2 = require('./lib/tools/Packet_handler').handleType2;
+const HandleType4 = require('./lib/tools/Packet_handler').handleType4;
 const HandleTeachIn = require('./lib/tools/Packet_handler').handleTeachIn;
-const ManualTeachIn = require('./lib/tools/Packet_handler').manualTeachIn;
 const predifnedDeviceTeachIn = require('./lib/tools/Packet_handler').predifnedDeviceTeachin;
 
 const jsonLogic = require('json-logic-js');
@@ -34,7 +33,7 @@ let AVAILABLE_PORTS = {};
 let SERIAL_PORT = null;
 let SERIALPORT_ESP3_PARSER = null;
 
-let teachinMethod = null;
+let teachinInfo = null;
 let queue = [];
 let timeoutQueue;
 
@@ -48,6 +47,7 @@ class Enocean extends utils.Adapter {
 			...options,
 			name: 'enocean',
 		});
+		this.queue = [];
 		this.on('ready', this.onReady.bind(this));
 		//this.on('objectChange', this.onObjectChange.bind(this));
 		this.on('stateChange', this.onStateChange.bind(this));
@@ -167,6 +167,8 @@ class Enocean extends utils.Adapter {
 								//prevent send data if telegram was received
 								send = false;
 								break;
+								//check if the condition is true
+								//then go thru datafields and collect data from profile or get object IDs with corresponding data
 							}else if(eepProfile.case[c].condition && eepProfile.case[c].condition.command && eepProfile.case[c].condition.command[0].value === state.val){
 								for (const d in eepProfile.case[c].datafield) {
 									const datafield = eepProfile.case[c].datafield[d];
@@ -274,7 +276,7 @@ class Enocean extends utils.Adapter {
 								data = type.concat(data, baseID, 0x00);
 								break;
 						}
-						queue.push({'data': data, 'optionaldata': optionalData, 'packettype': 0x01});
+						this.queue.push({'data': data, 'optionaldata': optionalData, 'packettype': 0x01});
 						//await this.sendData(data, optionalData, 0x01);
 
 						await this.setStateAsync(id, {ack: true});
@@ -323,8 +325,12 @@ class Enocean extends utils.Adapter {
 				respond(EEPList, this);
 				break;
 			case 'autodetect':
-				teachinMethod = codes.telegram_type[obj.message.teachin_method];
+				teachinInfo = {teachinMethod: codes.telegram_type[obj.message.teachin_method], name: obj.message.device, mfr: obj.message.mfr};
 				this.setState('gateway.teachin', {val: true, expire: 60});
+				if(teachinInfo.teachinMethod === 'C6'){
+					await this.makeControllerPostmaster();
+					await this.enableSmartACKteachin();
+				}
 				respond({ error: null, result: 'Ready' }, this);
 				break;
 			case 'newDevice':
@@ -392,7 +398,12 @@ class Enocean extends utils.Adapter {
 		//open serial port, set adapter state to connected and wait for messages
 		SERIAL_PORT.on('open', async () => {
 			this.setState('info.connection', true, true);
+			//await this.resetController();
+			//Not supported by USB300 await this.enableTransparentMode();
 			await this.getGatewayInfo();
+			//Not supported by USB300 await this.deleteSmartACKMailbox();
+			//await this.resetSmartACKClient();
+			//Not supported by USB300 await this.readMailboxStatus();
 			this.sendQueue();
 
 			SERIALPORT_ESP3_PARSER.on('data', (data) => {
@@ -431,13 +442,14 @@ class Enocean extends utils.Adapter {
 					if (teachin.val === false) {
 						const telegram = new HandleType1(this, esp3packet);
 						await this.setStateAsync('gateway.lastID', {val: telegram.senderID, ack: true});
-					} else if (teachin.val === true) {
+					} else if (teachin.val === true && teachinInfo !== null) {
 						const telegram = new RadioTelegram(esp3packet);
 						await this.setStateAsync('gateway.lastID', {val: telegram.senderID, ack: true});
-						if (teachinMethod === 'UTE'){
+						if (teachinInfo.teachinMethod === 'UTE') {
+							new HandleTeachIn(this, esp3packet, teachinInfo);
+						}else if (telegram.type.toString(16) === teachinInfo.teachinMethod.toLowerCase()){
 							new HandleTeachIn(this, esp3packet);
-						}else if (telegram.type.toString(16) === teachinMethod.toLowerCase()){
-							new HandleTeachIn(this, esp3packet);
+							teachinInfo = null;
 						}
 					}
 				}
@@ -446,8 +458,8 @@ class Enocean extends utils.Adapter {
 			}
 			case 2: //RESPONSE
 			{
-				//new HandleType2(this, ESP3Packet);
-				this.log.debug('Packet type 2 received: ' + toHex(esp3packet.type));
+				const telegram = new HandleType2(this, data);
+				this.log.debug('Packet type 2 received: ' + JSON.stringify(telegram.main));
 				break;
 			}
 			case 3: //RADIO_SUB_TEL
@@ -455,6 +467,8 @@ class Enocean extends utils.Adapter {
 				break;
 			case 4: //EVENT
 				this.log.debug('Event message received.');
+				new HandleType4(this, esp3packet, teachinInfo);
+				teachinInfo = null;
 				break;
 			case 5: //COMMON_COMMAND
 				this.log.debug('Common command received.');
@@ -533,6 +547,25 @@ class Enocean extends utils.Adapter {
 			baseId = telegram.data.toString('hex');
 		}
 
+		//Smart ACK 06: SA_RD_LEARNDCLIENTS
+		data = Buffer.from([0x06]);
+		const sa_rd_learndclients = await this.sendData(data, null, 6);
+		if(sa_rd_learndclients === true){
+			const returnSaRdLearndclients = await this.waitForResponse();
+			const telegram = new HandleType2(this, returnSaRdLearndclients);
+			//baseId = telegram.data.toString('hex');
+			const resData = telegram.main.data;
+			//console.log( (resData.length / 2)/9 );
+			//console.log(resData);
+			let mailboxes = [];
+			for(let i = 0; i < (resData.length / 2)/9; i++){
+				let mailbox = {};
+				//TODO: split string into mailbox objects and show in?
+
+			}
+
+		}
+
 		const gatewayObject = {
 			native: {
 				BaseID: baseId,
@@ -551,6 +584,59 @@ class Enocean extends utils.Adapter {
 		await this.extendObjectAsync('gateway', gatewayObject);
 	}
 
+	async resetController(){
+		const data = Buffer.from([0x02]);
+		const res = await this.sendData(data, null, 5);
+		const response = await this.waitForResponse();
+		const telegram = new HandleType2(this, response);
+	}
+
+	async enableTransparentMode(){
+		const data = Buffer.from([0x3e, 0x01]);
+		const res = await this.sendData(data, null, 5);
+		const response = await this.waitForResponse();
+		const telegram = new HandleType2(this, response);
+	}
+
+	async enableSmartACKteachin(){
+		const data = Buffer.from([0x01, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00]);
+		const res = await this.sendData(data, null, 6);
+		const response = await this.waitForResponse();
+		const telegram = new HandleType2(this, response);
+	}
+
+	async readMailboxStatus(){
+		const data = Buffer.from([0x09, 0x05, 0x96, 0x1d, 0x4f, 0x01, 0x9d, 0x45, 0x44]);
+		const res = await this.sendData(data, null, 6);
+		const response = await this.waitForResponse();
+		const telegram = new HandleType2(this, response);
+		console.log(`Read mailbox status: ${JSON.stringify(telegram.main)}`);
+	}
+
+	async resetSmartACKClient(){
+		const data = Buffer.from([0x05, 0x05, 0x96, 0x1d, 0x4f]);
+		const res = await this.sendData(data, null, 6);
+		const response = await this.waitForResponse();
+		const telegram = new HandleType2(this, response);
+		console.log(`Reset Smart ACK client: ${JSON.stringify(telegram.main)}`);
+	}
+
+	//Delete Mailbox on Controller - On USB300 not supported?
+	async deleteSmartACKMailbox(){
+		const data = Buffer.from([0x0a, 0x05, 0x83, 0x4b, 0x83, 0x01, 0x9d, 0x45, 0x44]);
+		const res = await this.sendData(data, null, 6);
+		const response = await this.waitForResponse();
+		const telegram = new HandleType2(this, response);
+		console.log(`Delet Smart ACK mailbox: ${JSON.stringify(telegram.main)}`);
+	}
+
+	async makeControllerPostmaster(){
+		const data = Buffer.from([0x08, 0x14]);
+		const res = await this.sendData(data, null, 6);
+		const response = await this.waitForResponse();
+		const telegram = new HandleType2(this, response);
+	}
+
 	//wait for response from USB Stick/Modul
 	waitForResponse(){
 		return new Promise((resolve) => {
@@ -563,12 +649,12 @@ class Enocean extends utils.Adapter {
 	}
 
 	async sendQueue(){
-		if(queue.length > 0){
-			const data = queue[0].data;
-			const optionalData = queue[0].optionaldata;
-			const packetType = queue[0].packettype;
+		if(this.queue.length > 0){
+			const data = this.queue[0].data;
+			const optionalData = this.queue[0].optionaldata;
+			const packetType = this.queue[0].packettype;
 			await this.sendData(data, optionalData, packetType);
-			queue.splice(0,1);
+			this.queue.splice(0,1);
 		}
 		timeoutQueue = setTimeout( () => {
 			this.sendQueue();

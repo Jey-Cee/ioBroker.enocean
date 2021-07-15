@@ -2391,6 +2391,22 @@
           "2": "Auf 'Gerät Hinzufügen' klicken."
         }
       }
+    },
+    "eHandle ConnectHome": {
+      "EEP": ["F6-10-00"],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'"
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
     }
   },
   "HORA": {
@@ -2587,6 +2603,22 @@
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
           "2": "Anlernmodus am Rollershutter starten. Für weitere informationen bitte die Anleitung des Rollershutter lesen."
+        }
+      }
+    },
+    "Soft Button (TSB-2-2-01)": {
+      "EEP": ["D2-03-0A"],
+      "autocreate": true,
+      "teachin_method": "UTE",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your Soft Button. For more information please read the manual of Soft Button."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am Soft Button starten. Für weitere informationen bitte die Anleitung des Soft Button lesen."
         }
       }
     },
@@ -2836,6 +2868,64 @@
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
           "2": "Anlernmodus am D 4511 FU-EBIM ST starten. Für weitere informationen bitte die Anleitung des D 4511 FU-EBIM ST lesen."
+        }
+      }
+    }
+  },
+  "REHAU": {
+    "Smart Guard": {
+      "EEP": [
+        "D2-06-10"
+      ],
+      "autocreate": true,
+      "teachin_method": "SM_LRN_REQ",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your Smart Guard. For more information please read the manual of Smart Guard."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am Smart Guard starten. Für weitere informationen bitte die Anleitung des Smart Guard lesen."
+        }
+      }
+    },
+    "Smart Guard Inline / Ontop": {
+      "EEP": [
+        "D2-06-11"
+      ],
+      "autocreate": true,
+      "teachin_method": "SM_LRN_REQ",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your Smart Guard. For more information please read the manual of Smart Guard."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am Smart Guard starten. Für weitere informationen bitte die Anleitung des Smart Guard lesen."
+        }
+      }
+    }
+  },
+  "SCHÜCO": {
+    "SenseTrack wireless": {
+      "EEP": [
+        "F6-10-00"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'"
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
         }
       }
     }
