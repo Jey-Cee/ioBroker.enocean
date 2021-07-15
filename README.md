@@ -174,6 +174,17 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 
 ## Changelog
 
+### 0.4.0
+* added Permundo PSC 234 & PSC 152 
+* added Nodon Soft Button (TSB-2-2-01)
+* added Eltako FFT60SB 
+* added REHAU Smart Guard & Smart Guard Inline / Ontop 
+* added Hoppe eHandle ConnectHome
+* added SCHÜCO SenseTrack wireless
+* added Smart ACK teachin procedure
+* fix teach-in Nodon SDO-2-1-05
+* TF-13-07 set Dimming Level to 100% with on command
+
 ### 0.3.8
 * added Thermokon SR04 & SR07
 * added Micropelt MVA003

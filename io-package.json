@@ -1,34 +1,19 @@
 {
     "common": {
         "name": "enocean",
-        "version": "0.3.8",
+        "version": "0.4.0",
         "news": {
-            "0.1.5": {
-                "en": "added virtual switch\nrewrite A5-20-01\nfix profile A5-02-13"
-            },
-            "0.1.4": {
-                "en": "added base id offset\nadded new devices"
-            },
-            "0.1.3": {
-                "en": "fix profile F6-10-00"
-            },
-            "0.1.2": {
-                "en": " fix 4BS Teach-in\nadded profile A510-20\nadded profile TF14-02 relais contact\nfix profile D5-00-01\nfix profile A5-04-01\nfix profile TF-13-02"
-            },
-            "0.1.1": {
-                "en": "fix Teach-in/out \n fix send data \nfix profile D2-05-00"
-            },
-            "0.1.0": {
-                "en": "initial release",
-                "de": "Erstveröffentlichung",
-                "ru": "Начальная версия",
-                "pt": "lançamento inicial",
-                "nl": "Eerste uitgave",
-                "fr": "Première version",
-                "it": "Versione iniziale",
-                "es": "Versión inicial",
-                "pl": "Pierwsze wydanie",
-                "zh-cn": "首次出版"
+            "0.4.0": {
+                "en": "added Permundo PSC 234 & PSC 152 \nadded Nodon Soft Button (TSB-2-2-01)\nadded Eltako FFT60SB \nadded REHAU Smart Guard & Smart Guard Inline / Ontop \nadded Hoppe eHandle ConnectHome\nadded SCHÜCO SenseTrack wireless\nadded Smart ACK teachin procedure\nfix teach-in Nodon SDO-2-1-05\nTF-13-07 set Dimming Level to 100% with on command",
+                "de": "Permundo PSC 234 & PSC 152 hinzugefügt\nNodon-Softbutton hinzugefügt (TSB-2-2-01)\nEltako FFT60SB . hinzugefügt\nREHAU Smart Guard & Smart Guard Inline / Ontop hinzugefügt\nHoppe eHandle ConnectHome hinzugefügt\nSCHÜCO SenseTrack wireless hinzugefügt\nSmart ACK Teach-In-Verfahren hinzugefügt\nFix Teach-in Nodon SDO-2-1-05\nTF-13-07 Dimmlevel auf 100 % mit Ein-Befehl einstellen",
+                "ru": "добавлены Permundo PSC 234 и PSC 152\nдобавлена программная кнопка Nodon (TSB-2-2-01)\nдобавлен Eltako FFT60SB\nдобавлены REHAU Smart Guard и Smart Guard Inline / Ontop\nдобавлен Hoppe eHandle ConnectHome\nдобавлена беспроводная связь SCHÜCO SenseTrack\nдобавлена процедура обучения Smart ACK\nисправить обучение Nodon SDO-2-1-05\nTF-13-07 устанавливает уровень затемнения на 100% по команде.",
+                "pt": "adicionado Permundo PSC 234 e PSC 152\nadicionado Nodon Soft Button (TSB-2-2-01)\nadicionado Eltako FFT60SB\nadicionado REHAU Smart Guard e Smart Guard Inline / Ontop\nadicionado Hoppe eHandle ConnectHome\nadicionado SCHÜCO SenseTrack wireless\nadicionado procedimento de aprendizagem Smart ACK\ncorrigir teach-in Nodon SDO-2-1-05\nTF-13-07 definir o nível de escurecimento para 100% com o comando",
+                "nl": "toegevoegd Permundo PSC 234 & PSC 152\ntoegevoegde Nodon Soft Button (TSB-2-2-01)\ntoegevoegd Eltako FFT60SB\nREHAU Smart Guard & Smart Guard Inline / Ontop toegevoegd\ntoegevoegd Hoppe eHandle ConnectHome\ntoegevoegd SCHÜCO SenseTrack draadloos\nSmart ACK-aanleerprocedure toegevoegd\nfix teach-in Nodon SDO-2-1-05\nTF-13-07 dimniveau instellen op 100% met op commando",
+                "fr": "ajouté Permundo PSC 234 & PSC 152\nAjout du bouton programmable Nodon (TSB-2-2-01)\najouté Eltako FFT60SB\najouté REHAU Smart Guard & Smart Guard Inline / Ontop\najouté Hoppe eHandle ConnectHome\najouté SCHÜCO SenseTrack sans fil\najout de la procédure d'apprentissage Smart ACK\ncorrection de l'apprentissage Nodon SDO-2-1-05\nTF-13-07 régler le niveau de gradation à 100% avec sur commande",
+                "it": "aggiunto Permundo PSC 234 e PSC 152\naggiunto Nodon Soft Button (TSB-2-2-01)\naggiunto Eltako FFT60SB\naggiunto REHAU Smart Guard e Smart Guard Inline/Ontop\naggiunto Hoppe eHandle ConnectHome\naggiunto SCHÜCO SenseTrack wireless\naggiunta procedura di apprendimento Smart ACK\ncorrezione Teach-in Nodon SDO-2-1-05\nTF-13-07 imposta il livello di attenuazione al 100% con il comando on",
+                "es": "Se agregó Permundo PSC 234 y PSC 152\nSe agregó el botón programable de Nodon (TSB-2-2-01)\nañadido Eltako FFT60SB\nagregado REHAU Smart Guard y Smart Guard Inline / Ontop\nagregado Hoppe eHandle ConnectHome\nagregado SCHÜCO SenseTrack inalámbrico\nagregado procedimiento de aprendizaje Smart ACK\narreglar aprendizaje Nodon SDO-2-1-05\nTF-13-07 establece el nivel de atenuación al 100% con un comando",
+                "pl": "dodano Permundo PSC 234 i PSC 152\ndodano przycisk miękki Nodon (TSB-2-2-01)\ndodano Eltako FFT60SB\ndodano REHAU Smart Guard i Smart Guard Inline / Ontop\ndodano Hoppe eHandle ConnectHome\ndodano bezprzewodowy SCHÜCO SenseTrack\ndodano procedurę uczenia Smart ACK\nnaprawiono uczenie Nodon SDO-2-1-05\nTF-13-07 ustawia poziom ściemniania na 100% za pomocą polecenia",
+                "zh-cn": "添加了 Permundo PSC 234 和 PSC 152\n添加了 Nodon 软按钮 (TSB-2-2-01)\n添加了 Eltako FFT60SB\n添加 REHAU Smart Guard & Smart Guard Inline / Ontop\n添加了 Hoppe eHandle ConnectHome\n添加了旭格 SenseTrack 无线\n增加了Smart ACK教学程序\n修复示教 Nodon SDO-2-1-05\nTF-13-07 使用命令将调光级别设置为 100%"
             }
         },
         "title": "EnOcean",
