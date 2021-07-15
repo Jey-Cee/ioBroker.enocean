@@ -18,11 +18,11 @@
     "url": "git+https://github.com/Jey-Cee/ioBroker.enocean.git"
   },
   "dependencies": {
-    "@iobroker/adapter-core": "^2.4.0",
+    "@iobroker/adapter-core": "^2.5.0",
     "gulp-util": "^3.0.8",
-    "serialport": "^9.0.0",
-    "@serialport/parser-byte-length": "^9.0.1",
-    "json-logic-js": "^2.0.0"
+    "serialport": "^9.2.0",
+    "@serialport/parser-byte-length": "^9.0.7",
+    "json-logic-js": "^2.0.1"
   },
   "devDependencies": {
     "@iobroker/testing": "^2.0.2",
