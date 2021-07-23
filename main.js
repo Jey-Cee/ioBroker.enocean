@@ -35,6 +35,7 @@ let SERIAL_PORT = null;
 let SERIALPORT_ESP3_PARSER = null;
 
 let tcpClient = null;
+let tcpReconnectCounter = 0;
 
 let teachinMethod = null;
 const queue = [];
@@ -83,10 +84,7 @@ class Enocean extends utils.Adapter {
 		}
 
 		if (this.config.ser2net === true){
-			tcpClient = new net.Socket();
-			await socketConnectAsync(this.config['ser2net-port'], this.config['ser2net-ip']);
-			SERIALPORT_ESP3_PARSER = tcpClient.pipe(new SERIALPORT_PARSER_CLASS());
-			await this.packetListenerTCP();
+			this.connectTCP();
 		}
 	}
 
@@ -98,6 +96,10 @@ class Enocean extends utils.Adapter {
 		try {
 			if (SERIAL_PORT !== null) {
 				SERIAL_PORT.close();
+			}
+
+			if (tcpClient !== null) {
+				tcpClient.destroy();
 			}
 
 			this.setState('info.connection', false, true);
@@ -403,6 +405,17 @@ class Enocean extends utils.Adapter {
 		return result;
 	}
 
+	async connectTCP(){
+		try {
+			tcpClient = new net.Socket();
+			await this.socketConnectAsync(this.config['ser2net-port'], this.config['ser2net-ip']);
+			SERIALPORT_ESP3_PARSER = tcpClient.pipe(new SERIALPORT_PARSER_CLASS());
+			await this.packetListenerTCP();
+		} catch (error) {
+			this.log.warn('Can not connect to host: ' + error);
+		}
+	}
+
 	async packetListenerSerial() {
 		//open serial port, set adapter state to connected and wait for messages
 		SERIAL_PORT.on('open', async () => {
@@ -433,7 +446,7 @@ class Enocean extends utils.Adapter {
 	}
 
 	async packetListenerTCP() {
-
+		tcpReconnectCounter = 0;
 		this.setState('info.connection', true, true);
 		await this.getGatewayInfo();
 		this.sendQueue();
@@ -450,6 +463,14 @@ class Enocean extends utils.Adapter {
 		tcpClient.on('close', () => {
 			this.log.info('The TCP port was closed.');
 			this.setState('info.connection', false, true);
+			if (tcpReconnectCounter >= 3){
+				tcpReconnectCounter += 1;
+				setTimeout(() => {
+					this.log.info('Trying to reconnect. Attempt no. ' + tcpReconnectCounter);
+					this.connectTCP();
+				}, 60 * 1000);
+			}
+
 		});
 
 	}
@@ -677,6 +698,15 @@ class Enocean extends utils.Adapter {
 		});
 	}
 
+	socketConnectAsync(port, ip){
+		return new Promise((resolve) => {
+			const cb = () => {
+				resolve(true);
+			};
+			tcpClient.connect(port, ip, cb);
+		});
+	}
+
 	async sendQueue(){
 		if(this.queue.length > 0){
 			const data = this.queue[0].data;
@@ -776,17 +806,6 @@ function toHex(byte) {
 
 function dec2hexString(dec) {
 	return (dec+0x10000).toString(16).substr(-4).toUpperCase();
-}
-
-function socketConnectAsync(port, ip){
-	return new Promise((resolve) => {
-		const cb = () => {
-			resolve(true);
-		};
-
-		tcpClient.connect(port, ip, cb);
-
-	});
 }
 
 
