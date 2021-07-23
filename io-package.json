@@ -82,7 +82,10 @@
         ]
     },
     "native": {
-        "serialport": ""
+        "serialport": "",
+        "ser2net": false,
+        "ser2net-ip": "",
+        "ser2net-port": 2000
     },
     "objects": [],
     "instanceObjects": [
