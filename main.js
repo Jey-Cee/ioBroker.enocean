@@ -2,7 +2,6 @@
 
 const utils = require('@iobroker/adapter-core');
 const SerialPort = require('serialport');
-const ByteLength = require('@serialport/parser-byte-length');
 const os = require('os');
 const fs = require('fs');
 const path = require('path');
@@ -328,7 +327,7 @@ class Enocean extends utils.Adapter {
 			case 'autodetect':
 				teachinMethod = {teachinMethod: codes.telegram_type[obj.message.teachin_method], name: obj.message.device, mfr: obj.message.mfr};
 				this.setState('gateway.teachin', {val: true, expire: 60});
-				if(teachinInfo.teachinMethod === 'C6'){
+				if(teachinMethod.teachinMethod === 'C6'){
 					await this.makeControllerPostmaster();
 					await this.enableSmartACKteachin();
 				}
@@ -447,7 +446,7 @@ class Enocean extends utils.Adapter {
 						if (teachinMethod.teachinMethod === 'UTE') {
 							new HandleTeachIn(this, esp3packet, teachinMethod);
 						}else if (telegram.type.toString(16) === teachinMethod.teachinMethod.toLowerCase()){
-							new HandleTeachIn(this, esp3packet);
+							new HandleTeachIn(this, esp3packet, teachinMethod);
 							teachinMethod = null;
 						}
 					}

@@ -39,7 +39,8 @@
             "role": "state",
             "type": "boolean",
             "read": true,
-            "write": true
+            "write": true,
+            "def": true
           },
           "value_out": {
             "if": [
@@ -57,7 +58,8 @@
             "role": "state",
             "type": "boolean",
             "read": true,
-            "write": true
+            "write": true,
+            "def": true
           },
           "value": {
             "==": [{"var": "value"}, 1]
@@ -79,6 +81,7 @@
             "type": "number",
             "read": true,
             "write": true,
+            "def": 0,
             "states": "0:No change; 1:Normal sensitivity; 2:Low sensitivity;"
           },
           "value": {
@@ -147,7 +150,8 @@
             "role": "state",
             "type": "boolean",
             "read": true,
-            "write": false
+            "write": false,
+            "def": true
           },
           "value": {
             "==": [{"var": "value"}, 1]

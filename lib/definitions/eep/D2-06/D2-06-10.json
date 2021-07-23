@@ -41,7 +41,8 @@
             "role": "state",
             "type": "boolean",
             "read": true,
-            "write": true
+            "write": true,
+            "def": true
           },
           "value_out": {
             "if": [
@@ -59,7 +60,8 @@
             "role": "state",
             "type": "boolean",
             "read": true,
-            "write": true
+            "write": true,
+            "def": true
           },
           "value": {
             "==": [{"var": "value"}, 1]
@@ -130,7 +132,8 @@
             "role": "state",
             "type": "boolean",
             "read": true,
-            "write": false
+            "write": false,
+            "def": true
           },
           "value": {
             "==": [{"var": "value"}, 1]

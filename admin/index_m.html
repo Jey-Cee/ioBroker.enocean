@@ -313,11 +313,11 @@
 			$('#addDeviceSubmit').on('click', () => {
 				const manufacturer = $('#select-manufacturer').val();
 				const device = $('#select-device').val();
+				const name = device;
 
 				if (deviceList[manufacturer][device].autocreate === false) {
 					const eep = $('#select-eep').val();
 					const deviceId = $('#device-id').val();
-					const name = device;
 					const baseIDoffset = deviceList[manufacturer][device].id_offset;
 					const broadcast = deviceList[manufacturer][device].broadcast;
 
@@ -329,7 +329,7 @@
 
 
 				} else {
-					sendTo(null, 'autodetect', {teachin_method: deviceList[manufacturer][device].teachin_method}, (data) => {
+					sendTo(null, 'autodetect', {teachin_method: deviceList[manufacturer][device].teachin_method, device: name, mfr: manufacturer}, (data) => {
 						setInterval( () => {
 							getDevices();
 						}, 1000)
