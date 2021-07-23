@@ -2,6 +2,7 @@
 
 const utils = require('@iobroker/adapter-core');
 const SerialPort = require('serialport');
+const net = require('net');
 const os = require('os');
 const fs = require('fs');
 const path = require('path');
@@ -73,11 +74,13 @@ class Enocean extends utils.Adapter {
 
 		AVAILABLE_PORTS = ports.map(p => p.path);
 
-		if (this.config.serialport) {
+		if (this.config.serialport && this) {
 			SERIAL_PORT = new SerialPort(this.config.serialport, { baudRate: 57600});
 			SERIALPORT_ESP3_PARSER = SERIAL_PORT.pipe(new SERIALPORT_PARSER_CLASS());
 			await this.packetListener();
 		}
+
+		if()
 
 	}
 
