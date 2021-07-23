@@ -2,6 +2,7 @@
 
 const utils = require('@iobroker/adapter-core');
 const SerialPort = require('serialport');
+const net = require('net');
 const os = require('os');
 const fs = require('fs');
 const path = require('path');
@@ -33,8 +34,10 @@ let AVAILABLE_PORTS = {};
 let SERIAL_PORT = null;
 let SERIALPORT_ESP3_PARSER = null;
 
+let tcpClient = null;
+
 let teachinMethod = null;
-let queue = [];
+const queue = [];
 let timeoutQueue;
 
 class Enocean extends utils.Adapter {
@@ -73,12 +76,18 @@ class Enocean extends utils.Adapter {
 
 		AVAILABLE_PORTS = ports.map(p => p.path);
 
-		if (this.config.serialport) {
+		if (this.config.serialport && this.config.ser2net === false) {
 			SERIAL_PORT = new SerialPort(this.config.serialport, { baudRate: 57600});
 			SERIALPORT_ESP3_PARSER = SERIAL_PORT.pipe(new SERIALPORT_PARSER_CLASS());
-			await this.packetListener();
+			await this.packetListenerSerial();
 		}
 
+		if (this.config.ser2net === true){
+			tcpClient = new net.Socket();
+			await socketConnectAsync(this.config['ser2net-port'], this.config['ser2net-ip']);
+			SERIALPORT_ESP3_PARSER = tcpClient.pipe(new SERIALPORT_PARSER_CLASS());
+			await this.packetListenerTCP();
+		}
 	}
 
 	/**
@@ -123,7 +132,7 @@ class Enocean extends utils.Adapter {
 					}
 					break;
 				case 'gateway.repeater.level': {
-					let data = ByteArray.from([0x09, 0x00, 0x00]);
+					const data = ByteArray.from([0x09, 0x00, 0x00]);
 					const mode = await this.getStateAsync('gateway.repeater.mode');
 					data.setValue(mode.val, 8,8);
 					data.setValue(state.val, 16, 8);
@@ -131,7 +140,7 @@ class Enocean extends utils.Adapter {
 					break;
 				}
 				case 'gateway.repeater.mode': {
-					let data = ByteArray.from([0x09, 0x00, 0x00]);
+					const data = ByteArray.from([0x09, 0x00, 0x00]);
 					const level = await this.getStateAsync('gateway.repeater.level');
 					data.setValue(state.val, 8,8);
 					data.setValue(level.val, 16, 8);
@@ -234,7 +243,7 @@ class Enocean extends utils.Adapter {
 							devId = 'ffffffff';
 						}
 						const tempId = devId.toUpperCase().match(/.{1,2}/g);
-						let receiverID = [];
+						const receiverID = [];
 						for(const b in tempId) {
 							receiverID.push('0x' + tempId[b]);
 						}
@@ -246,7 +255,7 @@ class Enocean extends utils.Adapter {
 						}
 						baseID = ByteArray.from(baseID.match(/.{1,2}/g));
 
-						let optionalData = subTelNum.concat(receiverID, [0xFF, 0x00]);
+						const optionalData = subTelNum.concat(receiverID, [0xFF, 0x00]);
 						let type;
 						switch (rorg) {
 
@@ -394,7 +403,7 @@ class Enocean extends utils.Adapter {
 		return result;
 	}
 
-	async packetListener() {
+	async packetListenerSerial() {
 		//open serial port, set adapter state to connected and wait for messages
 		SERIAL_PORT.on('open', async () => {
 			this.setState('info.connection', true, true);
@@ -418,6 +427,28 @@ class Enocean extends utils.Adapter {
 		//listen to close serial port
 		SERIAL_PORT.on('close', () => {
 			this.log.info('The serial port was closed.');
+			this.setState('info.connection', false, true);
+		});
+
+	}
+
+	async packetListenerTCP() {
+
+		this.setState('info.connection', true, true);
+		await this.getGatewayInfo();
+		this.sendQueue();
+
+		SERIALPORT_ESP3_PARSER.on('data', (data) => {
+			this.parseMessage(data);
+		});
+
+
+		tcpClient.on('error', (err) => {
+			this.log.warn('An error occured at TCP port: ' + err);
+		});
+
+		tcpClient.on('close', () => {
+			this.log.info('The TCP port was closed.');
 			this.setState('info.connection', false, true);
 		});
 
@@ -555,9 +586,9 @@ class Enocean extends utils.Adapter {
 			const resData = telegram.main.data;
 			//console.log( (resData.length / 2)/9 );
 			//console.log(resData);
-			let mailboxes = [];
+			const mailboxes = [];
 			for(let i = 0; i < (resData.length / 2)/9; i++){
-				let mailbox = {};
+				const mailbox = {};
 				//TODO: split string into mailbox objects and show in?
 
 			}
@@ -681,14 +712,23 @@ class Enocean extends utils.Adapter {
 		}
 
 
-
-		SERIAL_PORT.write(Buffer.concat(payload), (err) => {
-			if(err){
-				this.log.warn('Error sending data: ' + err);
-				return false;
-			}
-			this.log.debug('Sent data: ' + Buffer.concat(payload).toString('hex'));
-		});
+		if (this.config.ser2net === false) {
+			SERIAL_PORT.write(Buffer.concat(payload), (err) => {
+				if (err) {
+					this.log.warn('Error sending data: ' + err);
+					return false;
+				}
+				this.log.debug('Sent data: ' + Buffer.concat(payload).toString('hex'));
+			});
+		} else {
+			tcpClient.write(Buffer.concat(payload), (err) => {
+				if (err) {
+					this.log.warn('Error sending data: ' + err);
+					return false;
+				}
+				this.log.debug('Sent data: ' + Buffer.concat(payload).toString('hex'));
+			});
+		}
 		//const resWrite = await this.writeAsync(Buffer.concat(payload));
 		//this.log.info(resWrite);
 		//this.log.debug('Sent data: ' + Buffer.concat(payload).toString('hex'));
@@ -738,6 +778,16 @@ function dec2hexString(dec) {
 	return (dec+0x10000).toString(16).substr(-4).toUpperCase();
 }
 
+function socketConnectAsync(port, ip){
+	return new Promise((resolve) => {
+		const cb = () => {
+			resolve(true);
+		};
+
+		tcpClient.connect(port, ip, cb);
+
+	});
+}
 
 
 
