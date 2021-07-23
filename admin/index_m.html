@@ -231,6 +231,10 @@
 			let selectorInputs = document.querySelectorAll('select');
 			instances = M.FormSelect.init(selectorInputs);
 
+			if(settings.ser2net === false){
+				$('#options-serialport-div').removeClass('hide');
+			}
+
 			// example: select elements with id=key and class=value and insert value
 			if (!settings) return;
 			$('.value').each(function () {
@@ -251,6 +255,15 @@
 			});
 			showdown.setFlavor('github');
 			sponsorsList();
+
+			$('#options-switch-usb').on('change', () => {
+				if( $('#options-switch-usb').prop('checked') === true ){
+					$('#options-serialport-div').addClass('hide');
+					$('#options-ser2net-ip-div').remove
+				} else {
+					$('#options-serialport-div').removeClass('hide');
+				}
+			})
 
 			$('#serialport').on('change', () => {
 				onChange();
@@ -396,9 +409,25 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="input-field col s12 m6 l3">
+					<div class="switch col s4 input-field">
+						<label>
+							USB/Serial
+							<input id="options-switch-usb" type="checkbox">
+							<span class="lever"></span>
+							Serial over network (Ser2Net)
+						</label>
+					</div>
+					<div id="options-serialport-div" class="input-field col s12 m6 l3 hide">
 						<select id="serialport" class="value save" type="text" ></select>
 						<label for="serialport" class="translate">Serial port</label>
+					</div>
+					<div id="options-ser2net-ip-div" class="input-field col s4 hide">
+						<input class="text" id="ser2net-ip" size="15" type="text">
+						<label class="translate active" for="ser2net-ip">IP</label>
+					</div>
+					<div id="option-ser2net-port-div" class="input-field col s4 hide">
+						<input class="text" id="ser2net-port" size="15" type="number">
+						<label class="translate active" for="ser2net-port">Port</label>
 					</div>
 					<div class="col s1">
 						<!-- spacer -->
