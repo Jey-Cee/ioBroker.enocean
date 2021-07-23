@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "enocean",
-        "version": "0.4.1",
+        "version": "0.4.2",
         "news": {
             "0.4.0": {
                 "en": "added Permundo PSC 234 & PSC 152 \nadded Nodon Soft Button (TSB-2-2-01)\nadded Eltako FFT60SB \nadded REHAU Smart Guard & Smart Guard Inline / Ontop \nadded Hoppe eHandle ConnectHome\nadded SCHÜCO SenseTrack wireless\nadded Smart ACK teachin procedure\nfix teach-in Nodon SDO-2-1-05\nTF-13-07 set Dimming Level to 100% with on command",
@@ -70,10 +70,7 @@
         ]
     },
     "native": {
-        "serialport": "",
-        "ser2net": false,
-        "ser2net-ip": "",
-        "ser2net-port": ""
+        "serialport": ""
     },
     "objects": [],
     "instanceObjects": [
