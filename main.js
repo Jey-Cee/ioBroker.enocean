@@ -2,6 +2,7 @@
 
 const utils = require('@iobroker/adapter-core');
 const SerialPort = require('serialport');
+const net = require('net');
 const os = require('os');
 const fs = require('fs');
 const path = require('path');
@@ -32,6 +33,9 @@ const PLATFORM = os.platform();
 let AVAILABLE_PORTS = {};
 let SERIAL_PORT = null;
 let SERIALPORT_ESP3_PARSER = null;
+
+let tcpClient = null;
+let tcpReconnectCounter = 0;
 
 let teachinMethod = null;
 let queue = [];
@@ -73,12 +77,15 @@ class Enocean extends utils.Adapter {
 
 		AVAILABLE_PORTS = ports.map(p => p.path);
 
-		if (this.config.serialport && this) {
+		if (this.config.serialport && this.config.ser2net === false) {
 			SERIAL_PORT = new SerialPort(this.config.serialport, { baudRate: 57600});
 			SERIALPORT_ESP3_PARSER = SERIAL_PORT.pipe(new SERIALPORT_PARSER_CLASS());
-			await this.packetListener();
+			await this.packetListenerSerial();
 		}
 
+		if (this.config.ser2net === true){
+			this.connectTCP();
+		}
 	}
 
 	/**
@@ -89,6 +96,10 @@ class Enocean extends utils.Adapter {
 		try {
 			if (SERIAL_PORT !== null) {
 				SERIAL_PORT.close();
+			}
+
+			if (tcpClient !== null) {
+				tcpClient.destroy();
 			}
 
 			this.setState('info.connection', false, true);
@@ -394,7 +405,18 @@ class Enocean extends utils.Adapter {
 		return result;
 	}
 
-	async packetListener() {
+	async connectTCP(){
+		try {
+			tcpClient = new net.Socket();
+			await this.socketConnectAsync(this.config['ser2net-port'], this.config['ser2net-ip']);
+			SERIALPORT_ESP3_PARSER = tcpClient.pipe(new SERIALPORT_PARSER_CLASS());
+			await this.packetListenerTCP();
+		} catch (error) {
+			this.log.warn('Can not connect to host: ' + error);
+		}
+	}
+
+	async packetListenerSerial() {
 		//open serial port, set adapter state to connected and wait for messages
 		SERIAL_PORT.on('open', async () => {
 			this.setState('info.connection', true, true);
@@ -419,6 +441,36 @@ class Enocean extends utils.Adapter {
 		SERIAL_PORT.on('close', () => {
 			this.log.info('The serial port was closed.');
 			this.setState('info.connection', false, true);
+		});
+
+	}
+
+	async packetListenerTCP() {
+		tcpReconnectCounter = 0;
+		this.setState('info.connection', true, true);
+		await this.getGatewayInfo();
+		this.sendQueue();
+
+		SERIALPORT_ESP3_PARSER.on('data', (data) => {
+			this.parseMessage(data);
+		});
+
+
+		tcpClient.on('error', (err) => {
+			this.log.warn('An error occured at TCP port: ' + err);
+		});
+
+		tcpClient.on('close', () => {
+			this.log.info('The TCP port was closed.');
+			this.setState('info.connection', false, true);
+			if (tcpReconnectCounter >= 3){
+				tcpReconnectCounter += 1;
+				setTimeout(() => {
+					this.log.info('Trying to reconnect. Attempt no. ' + tcpReconnectCounter);
+					this.connectTCP();
+				}, 60 * 1000);
+			}
+
 		});
 
 	}
@@ -646,6 +698,15 @@ class Enocean extends utils.Adapter {
 		});
 	}
 
+	socketConnectAsync(port, ip){
+		return new Promise((resolve) => {
+			const cb = () => {
+				resolve(true);
+			};
+			tcpClient.connect(port, ip, cb);
+		});
+	}
+
 	async sendQueue(){
 		if(this.queue.length > 0){
 			const data = this.queue[0].data;
@@ -681,14 +742,23 @@ class Enocean extends utils.Adapter {
 		}
 
 
-
-		SERIAL_PORT.write(Buffer.concat(payload), (err) => {
-			if(err){
-				this.log.warn('Error sending data: ' + err);
-				return false;
-			}
-			this.log.debug('Sent data: ' + Buffer.concat(payload).toString('hex'));
-		});
+		if (this.config.ser2net === false) {
+			SERIAL_PORT.write(Buffer.concat(payload), (err) => {
+				if (err) {
+					this.log.warn('Error sending data: ' + err);
+					return false;
+				}
+				this.log.debug('Sent data: ' + Buffer.concat(payload).toString('hex'));
+			});
+		} else {
+			tcpClient.write(Buffer.concat(payload), (err) => {
+				if (err) {
+					this.log.warn('Error sending data: ' + err);
+					return false;
+				}
+				this.log.debug('Sent data: ' + Buffer.concat(payload).toString('hex'));
+			});
+		}
 		//const resWrite = await this.writeAsync(Buffer.concat(payload));
 		//this.log.info(resWrite);
 		//this.log.debug('Sent data: ' + Buffer.concat(payload).toString('hex'));

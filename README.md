@@ -174,7 +174,8 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 
 ## Changelog
 
-### 0.4.3 (2021-07-24)
+### **WORK IN PROGRESS**
+* added serial over network (ser2net) capabilities
 * added release script
 
 ### 0.4.0
