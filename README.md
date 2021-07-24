@@ -174,7 +174,7 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 0.4.3 (2021-07-24)
 * added release script
 
 ### 0.4.0
