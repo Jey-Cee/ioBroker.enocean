@@ -1,0 +1,39 @@
+error: wrong number of arguments
+Verwendung: git config [<Optionen>]
+
+Ort der Konfigurationsdatei
+    --global              globale Konfigurationsdatei verwenden
+    --system              systemweite Konfigurationsdatei verwenden
+    --local               Konfigurationsdatei des Repositories verwenden
+    -f, --file <Datei>    die angegebene Konfigurationsdatei verwenden
+    --blob <Blob-Id>      Konfiguration von angegebenem Blob-Objekt lesen
+
+Aktion
+    --get                 Wert zurückgeben: Name [Wert-regex]
+    --get-all             alle Werte zurückgeben: Schlüssel [Wert-regex]
+    --get-regexp          Werte für den regulären Ausdruck zurückgeben: Name-regex [Wert-regex]
+    --get-urlmatch        Wert spezifisch für eine URL zurückgeben: section[.var] URL
+    --replace-all         alle passenden Variablen ersetzen: Name Wert [Wert-regex]
+    --add                 neue Variable hinzufügen: Name Wert
+    --unset               eine Variable entfernen: Name [Wert-regex]
+    --unset-all           alle Übereinstimmungen entfernen: Name [Wert-regex]
+    --rename-section      eine Sektion umbenennen: alter-Name neuer-Name
+    --remove-section      eine Sektion entfernen: Name
+    -l, --list            alles auflisten
+    -e, --edit            einen Editor öffnen
+    --get-color           die konfigurierte Farbe finden: Slot [Standard]
+    --get-colorbool       die Farbeinstellung finden: Slot [Standard-Ausgabe-ist-Terminal]
+
+Typ
+    --bool                Wert ist "true" oder "false"
+    --int                 Wert ist eine Dezimalzahl
+    --bool-or-int         Wert ist --bool oder --int
+    --path                Wert ist ein Pfad (Datei oder Verzeichnisname)
+    --expiry-date         Wert ist ein Verfallsdatum
+
+Sonstiges
+    -z, --null            schließt Werte mit NUL-Byte ab
+    --name-only           nur Variablennamen anzeigen
+    --includes            beachtet "include"-Direktiven beim Nachschlagen
+    --show-origin         Ursprung der Konfiguration anzeigen (Datei, Standard-Eingabe, Blob, Befehlszeile)
+

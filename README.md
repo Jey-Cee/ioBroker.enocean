@@ -174,6 +174,9 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+* added release script
+
 ### 0.4.0
 * added Permundo PSC 234 & PSC 152 
 * added Nodon Soft Button (TSB-2-2-01)
