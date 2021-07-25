@@ -606,14 +606,15 @@ class Enocean extends utils.Adapter {
 			//baseId = telegram.data.toString('hex');
 			const resData = telegram.main.data;
 			//console.log( (resData.length / 2)/9 );
-			//console.log(resData);
-			let mailboxes = [];
-			for(let i = 0; i < (resData.length / 2)/9; i++){
-				let mailbox = {};
-				//TODO: split string into mailbox objects and show in?
+			//console.log(resData);+
+			if(resData !== undefined){
+				let mailboxes = [];
+				for(let i = 0; i < (resData.length / 2)/9; i++){
+					let mailbox = {};
+					//TODO: split string into mailbox objects and show in?
 
+				}
 			}
-
 		}
 
 		const gatewayObject = {

@@ -174,6 +174,9 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+* fix crash if no mailboxes present in controller
+
 ### 0.5.0 (2021-07-25)
 * added serial over network (ser2net) capabilities
 * added release script
