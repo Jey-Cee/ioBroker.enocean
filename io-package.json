@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "enocean",
-        "version": "0.5.0",
+        "version": "0.5.1",
         "news": {
+            "0.5.1": {
+                "en": "fix crash if no mailboxes present in controller",
+                "de": "Absturz behoben, wenn keine Postfächer im Controller vorhanden sind",
+                "ru": "исправить сбой, если в контроллере нет почтовых ящиков",
+                "pt": "consertar a falha se nenhuma caixa de correio estiver presente no controlador",
+                "nl": "crash repareren als er geen mailboxen aanwezig zijn in de controller",
+                "fr": "correction d'un crash si aucune boîte aux lettres n'est présente dans le contrôleur",
+                "it": "correggere il crash se non sono presenti caselle di posta nel controller",
+                "es": "arreglar el bloqueo si no hay buzones presentes en el controlador",
+                "pl": "napraw awarię, jeśli w kontrolerze nie ma skrzynek pocztowych",
+                "zh-cn": "如果控制器中没有邮箱，则修复崩溃"
+            },
             "0.5.0": {
                 "en": "added serial over network (ser2net) capabilities\nadded release script",
                 "de": "Seriell über Netzwerk (ser2net) hinzugefügt)\nRelease-Skript hinzugefügt",
