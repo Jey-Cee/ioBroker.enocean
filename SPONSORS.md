@@ -12,6 +12,7 @@ Thank you to ...
 | mane444 | mustang | Schrubbel |
 | edi112 | Sepp | Fabio |
 | Stefan | Streuber | Andibr |
+| Holger S. | | |
 
 ## 2020
 #### Kickstarter campaign

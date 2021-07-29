@@ -2429,6 +2429,26 @@
       }
     }
   },
+  "KESSEL": {
+    "Staufix Control": {
+      "EEP": [
+        "A5-30-03"
+      ],
+      "autocreate": true,
+      "teachin_method": "4BS",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your Staufix Control. For more information please read the manual of Staufix Control."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am Staufix Control starten. Für weitere informationen bitte die Anleitung des Staufix Control lesen."
+        }
+      }
+    }
+  },
   "KIEBACK_AND_PETER": {
     "MD15-FTL-HE": {
       "EEP": [
