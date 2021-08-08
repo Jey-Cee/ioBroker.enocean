@@ -175,7 +175,9 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 ## Changelog
 
 ### **WORK IN PROGRESS**
-
+* fix context for sendData when called from packet handler
+* fix teachin method
+* fix ser2net reconnect
 
 ### 0.5.1 (2021-07-25)
 * fix crash if no mailboxes present in controller

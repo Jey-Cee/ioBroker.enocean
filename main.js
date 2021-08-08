@@ -38,8 +38,8 @@ let tcpClient = null;
 let tcpReconnectCounter = 0;
 
 let teachinMethod = null;
-let queue = [];
-let timeoutQueue;
+const queue = [];
+let timeoutQueue, timeoutWait;
 
 class Enocean extends utils.Adapter {
 
@@ -134,19 +134,19 @@ class Enocean extends utils.Adapter {
 					}
 					break;
 				case 'gateway.repeater.level': {
-					let data = ByteArray.from([0x09, 0x00, 0x00]);
+					const data = ByteArray.from([0x09, 0x00, 0x00]);
 					const mode = await this.getStateAsync('gateway.repeater.mode');
 					data.setValue(mode.val, 8,8);
 					data.setValue(state.val, 16, 8);
-					await this.sendData(data, null, 5);
+					await this.sendData(this, data, null, 5);
 					break;
 				}
 				case 'gateway.repeater.mode': {
-					let data = ByteArray.from([0x09, 0x00, 0x00]);
+					const data = ByteArray.from([0x09, 0x00, 0x00]);
 					const level = await this.getStateAsync('gateway.repeater.level');
 					data.setValue(state.val, 8,8);
 					data.setValue(level.val, 16, 8);
-					await this.sendData(data, null, 5);
+					await this.sendData(this, data, null, 5);
 					break;
 				}
 			}
@@ -245,7 +245,7 @@ class Enocean extends utils.Adapter {
 							devId = 'ffffffff';
 						}
 						const tempId = devId.toUpperCase().match(/.{1,2}/g);
-						let receiverID = [];
+						const receiverID = [];
 						for(const b in tempId) {
 							receiverID.push('0x' + tempId[b]);
 						}
@@ -257,7 +257,7 @@ class Enocean extends utils.Adapter {
 						}
 						baseID = ByteArray.from(baseID.match(/.{1,2}/g));
 
-						let optionalData = subTelNum.concat(receiverID, [0xFF, 0x00]);
+						const optionalData = subTelNum.concat(receiverID, [0xFF, 0x00]);
 						let type;
 						switch (rorg) {
 
@@ -410,6 +410,7 @@ class Enocean extends utils.Adapter {
 			tcpClient = new net.Socket();
 			await this.socketConnectAsync(this.config['ser2net-port'], this.config['ser2net-ip']);
 			SERIALPORT_ESP3_PARSER = tcpClient.pipe(new SERIALPORT_PARSER_CLASS());
+			tcpReconnectCounter = 0;
 			await this.packetListenerTCP();
 		} catch (error) {
 			this.log.warn('Can not connect to host: ' + error);
@@ -446,7 +447,6 @@ class Enocean extends utils.Adapter {
 	}
 
 	async packetListenerTCP() {
-		tcpReconnectCounter = 0;
 		this.setState('info.connection', true, true);
 		await this.getGatewayInfo();
 		this.sendQueue();
@@ -460,18 +460,21 @@ class Enocean extends utils.Adapter {
 			this.log.warn('An error occured at TCP port: ' + err);
 		});
 
-		tcpClient.on('close', () => {
+		tcpClient.on('close', async () => {
 			this.log.info('The TCP port was closed.');
 			this.setState('info.connection', false, true);
-			if (tcpReconnectCounter >= 3){
-				tcpReconnectCounter += 1;
-				setTimeout(() => {
-					this.log.info('Trying to reconnect. Attempt no. ' + tcpReconnectCounter);
-					this.connectTCP();
-				}, 60 * 1000);
-			}
-
+			await this.reconnectTCP();
 		});
+
+	}
+
+	async reconnectTCP(){
+		if (tcpReconnectCounter <= 30){
+			tcpReconnectCounter += 1;
+			await this.wait(60);
+			this.log.info('Trying to reconnect. Attempt no. ' + tcpReconnectCounter);
+			this.connectTCP();
+		}
 
 	}
 
@@ -552,7 +555,7 @@ class Enocean extends utils.Adapter {
 
 		//03: CO_RD_VERSION
 		data = Buffer.from([0x03]);
-		const rd_version = await this.sendData(data, null, 5);
+		const rd_version = await this.sendData(this, data, null, 5);
 		if(rd_version === true){
 			const returnVersion = await this.waitForResponse();
 			appVersion_main = parseInt(returnVersion.slice(7, 8).toString('hex'), 16);
@@ -570,7 +573,7 @@ class Enocean extends utils.Adapter {
 
 		//10: CO_RD_REPEATER
 		data = Buffer.from([0x0A]);
-		const rd_repeater = await this.sendData(data, null, 5);
+		const rd_repeater = await this.sendData(this, data, null, 5);
 		if(rd_repeater === true){
 			const returnRepeater = await this.waitForResponse();
 			repEnable = returnRepeater.slice(7, 8);
@@ -581,7 +584,7 @@ class Enocean extends utils.Adapter {
 
 		//37: CO_GET_FREQUENCY_INFO
 		data = Buffer.from([0x25]);
-		const get_frequency = await this.sendData(data, null, 5);
+		const get_frequency = await this.sendData(this, data, null, 5);
 		if(get_frequency === true){
 			const returnFrequency = await this.waitForResponse();
 			frequency = '0x' + returnFrequency.slice(7, 8).toString('hex');
@@ -590,7 +593,7 @@ class Enocean extends utils.Adapter {
 
 		//08: CO_RD_IDBASE
 		data = Buffer.from([0x08]);
-		const rd_idbase = await this.sendData(data, null, 5);
+		const rd_idbase = await this.sendData(this, data, null, 5);
 		if(rd_idbase === true){
 			const returnIdbase = await this.waitForResponse();
 			const telegram = new ResponseTelegram(returnIdbase);
@@ -599,7 +602,7 @@ class Enocean extends utils.Adapter {
 
 		//Smart ACK 06: SA_RD_LEARNDCLIENTS
 		data = Buffer.from([0x06]);
-		const sa_rd_learndclients = await this.sendData(data, null, 6);
+		const sa_rd_learndclients = await this.sendData(this, data, null, 6);
 		if(sa_rd_learndclients === true){
 			const returnSaRdLearndclients = await this.waitForResponse();
 			const telegram = new HandleType2(this, returnSaRdLearndclients);
@@ -608,9 +611,9 @@ class Enocean extends utils.Adapter {
 			//console.log( (resData.length / 2)/9 );
 			//console.log(resData);+
 			if(resData !== undefined){
-				let mailboxes = [];
+				const mailboxes = [];
 				for(let i = 0; i < (resData.length / 2)/9; i++){
-					let mailbox = {};
+					const mailbox = {};
 					//TODO: split string into mailbox objects and show in?
 
 				}
@@ -637,28 +640,28 @@ class Enocean extends utils.Adapter {
 
 	async resetController(){
 		const data = Buffer.from([0x02]);
-		const res = await this.sendData(data, null, 5);
+		const res = await this.sendData(this, data, null, 5);
 		const response = await this.waitForResponse();
 		const telegram = new HandleType2(this, response);
 	}
 
 	async enableTransparentMode(){
 		const data = Buffer.from([0x3e, 0x01]);
-		const res = await this.sendData(data, null, 5);
+		const res = await this.sendData(this, data, null, 5);
 		const response = await this.waitForResponse();
 		const telegram = new HandleType2(this, response);
 	}
 
 	async enableSmartACKteachin(){
 		const data = Buffer.from([0x01, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00]);
-		const res = await this.sendData(data, null, 6);
+		const res = await this.sendData(this, data, null, 6);
 		const response = await this.waitForResponse();
 		const telegram = new HandleType2(this, response);
 	}
 
 	async readMailboxStatus(){
 		const data = Buffer.from([0x09, 0x05, 0x96, 0x1d, 0x4f, 0x01, 0x9d, 0x45, 0x44]);
-		const res = await this.sendData(data, null, 6);
+		const res = await this.sendData(this, data, null, 6);
 		const response = await this.waitForResponse();
 		const telegram = new HandleType2(this, response);
 		console.log(`Read mailbox status: ${JSON.stringify(telegram.main)}`);
@@ -666,7 +669,7 @@ class Enocean extends utils.Adapter {
 
 	async resetSmartACKClient(){
 		const data = Buffer.from([0x05, 0x05, 0x96, 0x1d, 0x4f]);
-		const res = await this.sendData(data, null, 6);
+		const res = await this.sendData(this, data, null, 6);
 		const response = await this.waitForResponse();
 		const telegram = new HandleType2(this, response);
 		console.log(`Reset Smart ACK client: ${JSON.stringify(telegram.main)}`);
@@ -675,7 +678,7 @@ class Enocean extends utils.Adapter {
 	//Delete Mailbox on Controller - On USB300 not supported?
 	async deleteSmartACKMailbox(){
 		const data = Buffer.from([0x0a, 0x05, 0x83, 0x4b, 0x83, 0x01, 0x9d, 0x45, 0x44]);
-		const res = await this.sendData(data, null, 6);
+		const res = await this.sendData(this, data, null, 6);
 		const response = await this.waitForResponse();
 		const telegram = new HandleType2(this, response);
 		console.log(`Delet Smart ACK mailbox: ${JSON.stringify(telegram.main)}`);
@@ -683,7 +686,7 @@ class Enocean extends utils.Adapter {
 
 	async makeControllerPostmaster(){
 		const data = Buffer.from([0x08, 0x14]);
-		const res = await this.sendData(data, null, 6);
+		const res = await this.sendData(this, data, null, 6);
 		const response = await this.waitForResponse();
 		const telegram = new HandleType2(this, response);
 	}
@@ -699,12 +702,30 @@ class Enocean extends utils.Adapter {
 		});
 	}
 
+	/**
+	 *
+	 * @param {number} time
+	 * @returns {Promise<boolean>}
+	 */
+	wait(time){
+		return new Promise( (resolve) => {
+			timeoutWait = setTimeout( () => {
+				resolve(true);
+			}, time *  1000);
+		});
+	}
+
 	socketConnectAsync(port, ip){
 		return new Promise((resolve) => {
 			const cb = () => {
 				resolve(true);
 			};
-			tcpClient.connect(port, ip, cb);
+			const connection = tcpClient.connect(port, ip, cb);
+			connection.on('error', (err) => {
+				this.log.warn(`Error: ${err}`);
+				this.reconnectTCP();
+			});
+			connection.pipe(process.stdout);
 		});
 	}
 
@@ -713,7 +734,7 @@ class Enocean extends utils.Adapter {
 			const data = this.queue[0].data;
 			const optionalData = this.queue[0].optionaldata;
 			const packetType = this.queue[0].packettype;
-			await this.sendData(data, optionalData, packetType);
+			await this.sendData(this, data, optionalData, packetType);
 			this.queue.splice(0,1);
 		}
 		timeoutQueue = setTimeout( () => {
@@ -723,12 +744,13 @@ class Enocean extends utils.Adapter {
 
 	/**
 	 *
+	 * @param {object} that
 	 * @param {array} data
 	 * @param {array} optionalData
 	 * @param {number} packetType
 	 * @returns {Promise<boolean>}
 	 */
-	async sendData(data, optionalData, packetType){
+	async sendData(that, data, optionalData, packetType){
 		const sync = Buffer.from([0x55]);
 		const dataLenHex = dec2hexString(data.length);
 		const header = Buffer.from([ '0x' + dataLenHex.substring(1, 2), '0x' + dataLenHex.substring(3, 4), optionalData !== null ? 0x07 : 0x00, packetType.toString(16) ]);
@@ -743,21 +765,21 @@ class Enocean extends utils.Adapter {
 		}
 
 
-		if (this.config.ser2net === false) {
+		if (that.config.ser2net === false) {
 			SERIAL_PORT.write(Buffer.concat(payload), (err) => {
 				if (err) {
-					this.log.warn('Error sending data: ' + err);
+					that.log.warn('Error sending data: ' + err);
 					return false;
 				}
-				this.log.debug('Sent data: ' + Buffer.concat(payload).toString('hex'));
+				that.log.debug('Sent data: ' + Buffer.concat(payload).toString('hex'));
 			});
 		} else {
 			tcpClient.write(Buffer.concat(payload), (err) => {
 				if (err) {
-					this.log.warn('Error sending data: ' + err);
+					that.log.warn('Error sending data: ' + err);
 					return false;
 				}
-				this.log.debug('Sent data: ' + Buffer.concat(payload).toString('hex'));
+				that.log.debug('Sent data: ' + Buffer.concat(payload).toString('hex'));
 			});
 		}
 		//const resWrite = await this.writeAsync(Buffer.concat(payload));
