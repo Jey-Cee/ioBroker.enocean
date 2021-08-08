@@ -174,7 +174,7 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 
 ## Changelog
 
-### 0.5.2 (2021-08-08)
+### **WORK IN PROGRESS**
 * fix context for sendData when called from packet handler
 * fix teachin method
 * fix ser2net reconnect
