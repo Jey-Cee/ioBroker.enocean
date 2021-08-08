@@ -1,0 +1,5 @@
+chore: release v0.5.2
+
+fix context for sendData when called from packet handler
+fix teachin method
+fix ser2net reconnect
