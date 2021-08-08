@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "enocean",
-        "version": "0.5.1",
+        "version": "0.5.2",
         "news": {
+            "0.5.2": {
+                "en": "fix context for sendData when called from packet handler\nfix teachin method\nfix ser2net reconnect",
+                "de": "Kontext für sendData beim Aufruf vom Pakethandler behoben\nTeach-Methode fixieren\nSer2net Reconnect beheben",
+                "ru": "исправить контекст для sendData при вызове из обработчика пакетов\nисправить метод обучения\nисправить переподключение ser2net",
+                "pt": "consertar o contexto para sendData quando chamado do manipulador de pacotes\ncorrigir método de ensino\nconsertar ser2net reconectar",
+                "nl": "fix context voor sendData wanneer aangeroepen vanuit pakkethandler\nleermethode repareren\nfix ser2net opnieuw verbinden",
+                "fr": "correction du contexte pour sendData lorsqu'il est appelé depuis le gestionnaire de paquets\ncorriger la méthode d'enseignement\ncorrection de la reconnexion de ser2net",
+                "it": "corregge il contesto per sendData quando viene chiamato dal gestore di pacchetti\nfissare il metodo di insegnamento\ncorreggere la riconnessione di ser2net",
+                "es": "corregir el contexto para sendData cuando se llama desde el controlador de paquetes\narreglar el método de enseñanza\narreglar ser2net reconectar",
+                "pl": "napraw kontekst dla sendData przy wywołaniu z programu obsługi pakietów\nnapraw metodę nauczania\nnapraw ponowne połączenie ser2net",
+                "zh-cn": "从数据包处理程序调用时修复 sendData 的上下文\n固定教学方法\n修复 ser2net 重新连接"
+            },
             "0.5.1": {
                 "en": "fix crash if no mailboxes present in controller",
                 "de": "Absturz behoben, wenn keine Postfächer im Controller vorhanden sind",
