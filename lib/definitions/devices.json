@@ -2434,7 +2434,7 @@
       "EEP": [
         "A5-30-03"
       ],
-      "autocreate": true,
+      "autocreate": false,
       "teachin_method": "4BS",
       "id_offset": true,
       "help": {
