@@ -2432,9 +2432,9 @@
   "KESSEL": {
     "Staufix Control": {
       "EEP": [
-        "A5-30-03"
+        "A5-38-08"
       ],
-      "autocreate": false,
+      "autocreate": true,
       "teachin_method": "4BS",
       "id_offset": true,
       "help": {
