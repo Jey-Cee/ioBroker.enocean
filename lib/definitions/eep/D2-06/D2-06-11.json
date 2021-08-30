@@ -50,8 +50,8 @@
           }
         },
         {
-          "data": "Pre-Alarm enabled",
-          "shortcut": "PAE",
+          "data": "Enable Pre-Alarm",
+          "shortcut": "EPA",
           "bitoffs": "3",
           "bitsize": "1",
           "iobroker": {
