@@ -176,6 +176,7 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 
 ### **WORK IN PROGRESS**
 * added EEP A5-38-08
+* split datapoint PAE for D2-06-10 & 11 to EPA und PAE
 
 ### 0.5.3 (2021-08-08)
 * fix context for sendData when called from packet handler
