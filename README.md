@@ -175,8 +175,12 @@ To test telegram handling create a channel with name development and in this cha
 ## Changelog
 
 ### **WORK IN PROGRESS**
-* added EEP A5-38-08
+* added Kessel Staufix Control
+* added Thermokon SR-MDS Solar
+* added Omnio WS-CH-102
+* added PENTAIR Transmitter FTJP
 * split datapoint PAE for D2-06-10 & 11 to EPA und PAE
+
 
 ### 0.5.3 (2021-08-08)
 * fix context for sendData when called from packet handler
