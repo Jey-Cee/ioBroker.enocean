@@ -2913,7 +2913,8 @@
   "REHAU": {
     "Smart Guard": {
       "EEP": [
-        "D2-06-10"
+        "D2-06-10",
+        "D0-00-06"
       ],
       "autocreate": true,
       "teachin_method": "SM_LRN_REQ",
@@ -2931,7 +2932,8 @@
     },
     "Smart Guard Inline / Ontop": {
       "EEP": [
-        "D2-06-11"
+        "D2-06-11",
+        "D0-00-06"
       ],
       "autocreate": true,
       "teachin_method": "SM_LRN_REQ",

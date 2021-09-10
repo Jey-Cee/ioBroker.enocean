@@ -58,9 +58,6 @@ Now you should be able to control the device.
 - Device does not react to command: Open the device Object in the Object tab, go to native and look if there are more than one EEPs registered. 
 If yes the first one has to be the one that will control the device. 
 
-## Supported Teach-in procedures
-- 4BS (Variation 1 & 2)
-- UTE - Universal Uni- and Bidirectional Teach-in
 
 ## Profile definition file
 
@@ -171,6 +168,9 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
       }
     }
 ```
+
+## For development
+To test telegram handling create a channel with name development and in this channel a object with name telegram, type string.
 
 ## Changelog
 

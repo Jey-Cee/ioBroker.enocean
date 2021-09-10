@@ -1,0 +1,30 @@
+{
+  "eep": "D0-00-06",
+  "rorg_number": "0xD0",
+  "telegram": "SIG",
+  "func_number": "0x00",
+  "type_number": "0x06",
+  "type_title": "Energy status of device",
+  "bidirectional": false,
+  "case": [
+    {
+      "send": false,
+      "datafield": [
+        {
+          "data": "Battery",
+          "shortcut": "BATT",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "iobroker": {
+            "role": "state",
+            "type": "number",
+            "read": true,
+            "write": false,
+            "states": "0:last message due to power loss. Gasp of death.;"
+          },
+          "value": {"var":"value"}
+        }
+      ]
+    }
+  ]
+}
