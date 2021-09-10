@@ -1,0 +1,42 @@
+{
+    "eep": "MV-01-01",
+    "rorg_number": "0xA5",
+    "telegram": "4BS",
+    "func_number": "0x01",
+    "type_number": "0x01",
+    "type_title": "Kessel Staufix Control",
+    "bidirectional": false,
+    "case": [
+        {
+            "send": false,
+            "condition": [{
+            "bitoffs": "0",
+            "bitsize": "8",
+            "value": 1
+        }],
+            "datafield": [
+                {
+                    "data": "Alarm",
+                    "shortcut": "AL",
+                    "bitoffs": "29",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false,
+                        "def": false
+                    },
+                    "value": {
+                        "==": [
+                            {
+                                "var": "value"
+                            },
+                            1
+                        ]
+                    }
+                }
+            ]
+        }
+    ]
+}

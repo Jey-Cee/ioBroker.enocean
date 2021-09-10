@@ -2432,7 +2432,7 @@
   "KESSEL": {
     "Staufix Control": {
       "EEP": [
-        "A5-38-08"
+        "MV-01-01"
       ],
       "autocreate": true,
       "teachin_method": "4BS",
@@ -2779,6 +2779,26 @@
           "3": "Anlernmodus am R-Con T2P starten. Für weitere informationen bitte die Anleitung des R-Con T2P lesen.",
           "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in', nummer 1, senden.",
           "5": "Vorgang für die anderen 3 Kanäle wiederholen."
+        }
+      }
+    }
+  },
+  "PENTAIR": {
+    "Transmitter FTJP": {
+      "EEP": [
+        "A5-30-03"
+      ],
+      "autocreate": true,
+      "teachin_method": "UTE",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your Transmitter FTJP. For more information please read the manual of Transmitter FTJP."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am Transmitter FTJP starten. Für weitere informationen bitte die Anleitung des Transmitter FTJP lesen."
         }
       }
     }

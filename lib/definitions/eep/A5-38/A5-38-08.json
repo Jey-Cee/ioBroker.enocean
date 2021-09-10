@@ -12,6 +12,8 @@
             "condition": {
                 "command": [
                     {
+                        "bitoffs": "0",
+                        "bitsize": "8",
                         "value": 1
                     }
                 ]
@@ -124,6 +126,8 @@
             "condition": {
                 "command": [
                     {
+                        "bitoffs": "0",
+                        "bitsize": "8",
                         "value": 2
                     }
                 ]
@@ -141,9 +145,7 @@
                         "write": true,
                         "states": "1:Switching; 2:Dimming; 3:Setpoint shift; 4:Basic Setpoint; 5:Control variable; 6:Fan stage; 7:Blind Central Command"
                     },
-                    "value": {
-                        "var": "value"
-                    }
+                    "value": 2
                 },
                 {
                     "data": "Dimming value",
@@ -259,6 +261,8 @@
             "condition": {
                 "command": [
                     {
+                        "bitoffs": "0",
+                        "bitsize": "8",
                         "value": 3
                     }
                 ]
@@ -276,9 +280,7 @@
                         "write": true,
                         "states": "1:Switching; 2:Dimming; 3:Setpoint shift; 4:Basic Setpoint; 5:Control variable; 6:Fan stage; 7:Blind Central Command"
                     },
-                    "value": {
-                        "var": "value"
-                    }
+                    "value": 3
                 },
                 {
                     "data": "fixed parameter",
@@ -333,6 +335,8 @@
             "condition": {
                 "command": [
                     {
+                        "bitoffs": "0",
+                        "bitsize": "8",
                         "value": 4
                     }
                 ]
@@ -350,9 +354,7 @@
                         "write": true,
                         "states": "1:Switching; 2:Dimming; 3:Setpoint shift; 4:Basic Setpoint; 5:Control variable; 6:Fan stage; 7:Blind Central Command"
                     },
-                    "value": {
-                        "var": "value"
-                    }
+                    "value": 4
                 },
                 {
                     "data": "fixed parameter",
@@ -407,6 +409,8 @@
             "condition": {
                 "command": [
                     {
+                        "bitoffs": "0",
+                        "bitsize": "8",
                         "value": 5
                     }
                 ]
@@ -424,9 +428,7 @@
                         "write": true,
                         "states": "1:Switching; 2:Dimming; 3:Setpoint shift; 4:Basic Setpoint; 5:Control variable; 6:Fan stage; 7:Blind Central Command"
                     },
-                    "value": {
-                        "var": "value"
-                    }
+                    "value": 5
                 },
                 {
                     "data": "fixed parameter",
@@ -542,6 +544,8 @@
             "condition": {
                 "command": [
                     {
+                        "bitoffs": "0",
+                        "bitsize": "8",
                         "value": 6
                     }
                 ]
@@ -559,7 +563,7 @@
                         "write": true,
                         "states": "1:Switching; 2:Dimming; 3:Setpoint shift; 4:Basic Setpoint; 5:Control variable; 6:Fan stage; 7:Blind Central Command"
                     },
-                    "value": 1
+                    "value": 6
                 }
             ]
         }
