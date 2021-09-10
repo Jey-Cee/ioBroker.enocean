@@ -72,6 +72,13 @@ class Enocean extends utils.Adapter {
 		this.subscribeStates('gateway.*');
 		this.subscribeStates('*.CMD');
 
+		//only for development
+		const devState = await this.getObjectAsync('development');
+		if(devState){
+			this.subscribeStates('development.*');
+		}
+
+
 		// get the list of available serial ports. Needed for win32 systems.
 		const ports = await SerialPort.list();
 
@@ -149,6 +156,11 @@ class Enocean extends utils.Adapter {
 					await this.sendData(this, data, null, 5);
 					break;
 				}
+				case 'development.telegram': {
+					const hex = Buffer.from(state.val, 'hex');
+					await this.parseMessage(hex);
+					break;
+				}
 			}
 
 
@@ -206,7 +218,7 @@ class Enocean extends utils.Adapter {
 								}
 
 							}
-
+							let states
 							//get data from objects
 							for (const s in parameter) {
 								const state = await this.getStateAsync(`${this.namespace}.${devId}.${parameter[s]}`);
