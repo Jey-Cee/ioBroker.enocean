@@ -174,7 +174,7 @@ To test telegram handling create a channel with name development and in this cha
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 0.5.4 (2021-09-10)
 * added Kessel Staufix Control
 * added Thermokon SR-MDS Solar
 * added Omnio WS-CH-102

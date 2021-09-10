@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "enocean",
-        "version": "0.5.3",
+        "version": "0.5.4",
         "news": {
+            "0.5.4": {
+                "en": "added Kessel Staufix Control\nadded Thermokon SR-MDS Solar\nadded Omnio WS-CH-102\nadded PENTAIR Transmitter FTJP\nsplit datapoint PAE for D2-06-10 & 11 to EPA und PAE",
+                "de": "Kessel Staufix-Steuerung hinzugefügt\nhinzugefügt Thermokon SR-MDS Solar\nOmnio WS-CH-102 . hinzugefügt\nPENTAIR-Sender FTJP . hinzugefügt\nDatenpunkt PAE für D2-06-10 & 11 auf EPA und PAE aufteilen",
+                "ru": "добавлен Kessel Staufix Control\nдобавлен Thermokon SR-MDS Solar\nдобавлен Omnio WS-CH-102\nдобавлен PENTAIR Transmitter FTJP\nразделить точку данных PAE для D2-06-10 и 11 на EPA и PAE",
+                "pt": "adicionado Kessel Staufix Control\nadicionado Thermokon SR-MDS Solar\nadicionado Omnio WS-CH-102\nadicionado Transmissor PENTAIR FTJP\ndividir ponto de dados PAE para D2-06-10 e 11 para EPA e PAE",
+                "nl": "Kessel Staufix Control toegevoegd\ntoegevoegd Thermokon SR-MDS Solar\ntoegevoegd Omnio WS-CH-102\ntoegevoegde PENTAIR zender FTJP\ngesplitst datapunt PAE voor D2-06-10 & 11 naar EPA en PAE",
+                "fr": "Ajout du contrôle Kessel Staufix\najouté Thermokon SR-MDS solaire\najouté Omnio WS-CH-102\nAjout du transmetteur PENTAIR FTJP\npoint de données divisé PAE pour D2-06-10 & 11 à EPA et PAE",
+                "it": "aggiunto Kessel Staufix Control\naggiunto Thermokon SR-MDS Solar\naggiunto Omnio WS-CH-102\naggiunto Trasmettitore PENTAIR FTJP\npunto dati diviso PAE per D2-06-10 e 11 su EPA e PAE",
+                "es": "añadido Kessel Staufix Control\nañadido Thermokon SR-MDS Solar\nañadido Omnio WS-CH-102\nTransmisor FTJP PENTAIR añadido\npunto de datos dividido PAE para D2-06-10 y 11 según EPA y PAE",
+                "pl": "dodano kontrolę Kessel Staufix\ndodano Thermokon SR-MDS Solar\ndodano Omnio WS-CH-102\ndodano nadajnik PENTAIR FTJP\npodziel punkt danych PAE dla D2-06-10 i 11 na EPA i PAE",
+                "zh-cn": "添加了 Kessel Staufix 控制\n添加 Thermokon SR-MDS 太阳能\n添加了 Omnio WS-CH-102\n添加了 PENTAIR 发射器 FTJP\n将 D2-06-10 和 11 的数据点 PAE 拆分为 EPA 和 PAE"
+            },
             "0.5.3": {
                 "en": "fix context for sendData when called from packet handler\nfix teachin method\nfix ser2net reconnect",
                 "de": "Kontext für sendData beim Aufruf vom Pakethandler behoben\nTeach-Methode fixieren\nSer2net Reconnect beheben",
