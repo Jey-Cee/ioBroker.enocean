@@ -51,10 +51,8 @@
           "write": false,
           "unit": "°C"
         },
-        "value": {
-          "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.2 ] }, 0]
-        },
-        "decimals": 2
+        "value": { "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.2 ] }, 0]},
+      "decimals": 2
       },
       {
         "data": "Illumination 0...510lx",

@@ -512,6 +512,7 @@ class Enocean extends utils.Adapter {
 						await this.setStateAsync('gateway.lastID', {val: telegram.senderID, ack: true});
 						if (teachinMethod.teachinMethod === 'UTE') {
 							new HandleTeachIn(this, esp3packet, teachinMethod);
+							teachinMethod = null;
 						}else if (telegram.type.toString(16) === teachinMethod.teachinMethod.toLowerCase()){
 							new HandleTeachIn(this, esp3packet, teachinMethod);
 							teachinMethod = null;
