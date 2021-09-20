@@ -40,13 +40,13 @@
           "bitsize": "1",
           "iobroker": {
             "role": "state",
-            "type": "number",
+            "type": "boolean",
             "read": true,
             "write": true,
-            "def": 0
+            "def": false
           },
           "value": {
-            "var": "value"
+            "==": [{"var": "value"}, 1]
           }
         },
         {
@@ -112,13 +112,13 @@
           "bitsize": "1",
           "iobroker": {
             "role": "state",
-            "type": "number",
+            "type": "boolean",
             "read": true,
             "write": true,
-            "def": 0
+            "def": false
           },
           "value": {
-            "var": "value"
+            "==": [{"var": "value"}, 1]
           }
         },
         {

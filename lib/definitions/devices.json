@@ -360,23 +360,17 @@
         "TF-13-07",
         "TF-13-06"
       ],
-      "autocreate": false,
-      "teachin_method": "none",
+      "autocreate": true,
+      "teachin_method": "MSC",
       "id_offset": true,
       "help": {
         "en": {
-          "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the group. Base ID as decimal + Bus ID 1 = ID as decimal => converted to Hex. Example: (Hex: ffcae700) 4291487488 + 1 = 4291487489 => ffcae701",
-          "2": "Click on 'Add Device'.",
-          "3": "Start teach-in mode on FD62NPN-230V. (Tip: It is more convenient to set up with the PCT14 software) For more information, please read the FD62NPN-230V manual.",
-          "4": "Switch to the objects and send the command (CMD) 'Teach-in'.",
-          "5": "Repeat the steps for the second channel."
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your FD62NPN-230V. For more information please read the manual of FD62NPN-230V"
         },
         "de": {
-          "1": "Geräte ID eintragen. Sie setzt sich aus der Basis ID des Funk-Antennenmodul (z.B. FAM14) und der Bus ID der Gruppe zusammen. Basis ID in Dezimal  + Bus ID = ID als Dezimal => umgewandelt in Hex. Beispiel: (Hex: ffcae700) 4291487488 +  1 = 4291487489 => ffcae701.",
-          "2": "Auf 'Gerät Hinzufügen' klicken.",
-          "3": "Anlernmodus am FD62NPN-230V starten. (Tipp: Komfortabler ist die Einrichtung mit der Software PCT14) Für weitere informationen bitte die Anleitung des FD62NPN-230V lesen.",
-          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden.",
-          "5": "Vorgang für den zweiten Kanal Wiederholen."
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am FD62NPN-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FD62NPN-230V lesen."
         }
       }
     },
@@ -727,21 +721,17 @@
         "TF-13-11",
         "TF-14-02"
       ],
-      "autocreate": false,
-      "teachin_method": "none",
+      "autocreate": true,
+      "teachin_method": "MSC",
       "id_offset": true,
       "help": {
         "en": {
-          "1": "Enter device ID.",
-          "2": "Click on 'Add Device'.",
-          "3": "Start teach-in mode on FL62NP-230V. For more information, please read the FL62NP-230V manual.",
-          "4": "Switch to the objects and send the command (CMD) 'Teach-in', number 2."
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your FL62NP-230V. For more information please read the manual of FL62NP-230V"
         },
         "de": {
-          "1": "Geräte ID eintragen.",
-          "2": "Auf 'Gerät Hinzufügen' klicken.",
-          "3": "Anlernmodus am FL62NP-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FL62NP-230V lesen.",
-          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in', nummer 2, senden."
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am FL62NP-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FL62NP-230V lesen."
         }
       }
     },

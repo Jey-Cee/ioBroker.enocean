@@ -514,8 +514,11 @@ class Enocean extends utils.Adapter {
 							new HandleTeachIn(this, esp3packet, teachinMethod);
 							teachinMethod = null;
 						}else if (telegram.type.toString(16) === teachinMethod.teachinMethod.toLowerCase()){
+							this.log.info('Teachin device');
 							new HandleTeachIn(this, esp3packet, teachinMethod);
-							teachinMethod = null;
+							if(telegram.type.toString(16) !== 'd1'){
+								teachinMethod = null;
+							}
 						}
 					}
 				}
