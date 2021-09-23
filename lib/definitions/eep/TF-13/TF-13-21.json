@@ -1,0 +1,704 @@
+{
+    "eep": "TF-13-21",
+    "rorg_number": "0xA5",
+    "telegram": "4BS",
+    "func_number": "0x00",
+    "type_number": "0x00",
+    "type_title": "FRGBW71L",
+    "bidirectional": false,
+    "case":[
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 0
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Command ID",
+                    "shortcut": "CMD",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": false,
+                        "write": true,
+                        "states": "0:Red; 1:Green; 2:Blue; 3:White; 4:Dim up; 5:Dim down; 6:Dim stop; 7:Teach-in"
+                    },
+                    "value": 0
+                },
+                {
+                    "data": "Red",
+                    "shortcut": "R",
+                    "bitoffs": "0",
+                    "bitsize": "16",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "min": 0,
+                        "max": 1024,
+                        "def": 0
+                    },
+                    "value_out": {"var": "value"}
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Set red dim value",
+                    "bitoffs": "16",
+                    "bitsize": "8",
+                    "value": 16
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "GFVS",
+                    "bitoffs": "24",
+                    "bitsize": "8",
+                    "value": 15
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 1
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Green",
+                    "shortcut": "G",
+                    "bitoffs": "0",
+                    "bitsize": "16",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "min": 0,
+                        "max": 1023,
+                        "def": 0
+                    },
+                    "value_out": {"var": "value"}
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Set green dim value",
+                    "bitoffs": "16",
+                    "bitsize": "8",
+                    "value": 17
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "GFVS",
+                    "bitoffs": "24",
+                    "bitsize": "8",
+                    "value": 15
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 2
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Blue",
+                    "shortcut": "B",
+                    "bitoffs": "0",
+                    "bitsize": "16",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "min": 0,
+                        "max": 1023,
+                        "def": 0
+                    },
+                    "value_out": {"var": "value"}
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Set blue dim value",
+                    "bitoffs": "16",
+                    "bitsize": "8",
+                    "value": 18
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "GFVS",
+                    "bitoffs": "24",
+                    "bitsize": "8",
+                    "value": 15
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 3
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "White",
+                    "shortcut": "W",
+                    "bitoffs": "0",
+                    "bitsize": "16",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "min": 0,
+                        "max": 1023,
+                        "def": 0
+                    },
+                    "value_out": {"var": "value"}
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Set red dim value",
+                    "bitoffs": "16",
+                    "bitsize": "8",
+                    "value": 19
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "GFVS",
+                    "bitoffs": "24",
+                    "bitsize": "8",
+                    "value": 15
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 4
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Dim speed",
+                    "shortcut": "DS",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "def": 0
+                    },
+                    "value_out": {"var": "value"}
+                },
+                {
+                    "data": "Dim red",
+                    "shortcut": "DR",
+                    "bitoffs": "15",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": true,
+                        "def": false
+                    },
+                    "value_out": {
+                        "if": [
+                            {"==":[false, {"var": "value"}]}, 0,
+                            {"==":[true, {"var": "value"}]}, 1
+                        ]
+                    }
+                },
+                {
+                    "data": "Dim green",
+                    "shortcut": "DG",
+                    "bitoffs": "14",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": true,
+                        "def": false
+                    },
+                    "value_out": {
+                        "if": [
+                            {"==":[false, {"var": "value"}]}, 0,
+                            {"==":[true, {"var": "value"}]}, 1
+                        ]
+                    }
+                },
+                {
+                    "data": "Dim blue",
+                    "shortcut": "DB",
+                    "bitoffs": "13",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": true,
+                        "def": false
+                    },
+                    "value_out": {
+                        "if": [
+                            {"==":[false, {"var": "value"}]}, 0,
+                            {"==":[true, {"var": "value"}]}, 1
+                        ]
+                    }
+                },
+                {
+                    "data": "Dim white",
+                    "shortcut": "DW",
+                    "bitoffs": "12",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": true,
+                        "def": false
+                    },
+                    "value_out": {
+                        "if": [
+                            {"==":[false, {"var": "value"}]}, 0,
+                            {"==":[true, {"var": "value"}]}, 1
+                        ]
+                    }
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Not used",
+                    "bitoffs": "8",
+                    "bitsize": "4",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Dim up",
+                    "bitoffs": "16",
+                    "bitsize": "8",
+                    "value": 48
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "GFVS",
+                    "bitoffs": "24",
+                    "bitsize": "8",
+                    "value": 15
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 5
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Dim speed",
+                    "shortcut": "DS",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "def": 0
+                    },
+                    "value_out": {"var": "value"}
+                },
+                {
+                    "data": "Dim red",
+                    "shortcut": "DR",
+                    "bitoffs": "15",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": true,
+                        "def": false
+                    },
+                    "value_out": {
+                        "if": [
+                            {"==":[false, {"var": "value"}]}, 0,
+                            {"==":[true, {"var": "value"}]}, 1
+                        ]
+                    }
+                },
+                {
+                    "data": "Dim green",
+                    "shortcut": "DG",
+                    "bitoffs": "14",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": true,
+                        "def": false
+                    },
+                    "value_out": {
+                        "if": [
+                            {"==":[false, {"var": "value"}]}, 0,
+                            {"==":[true, {"var": "value"}]}, 1
+                        ]
+                    }
+                },
+                {
+                    "data": "Dim blue",
+                    "shortcut": "DB",
+                    "bitoffs": "13",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": true,
+                        "def": false
+                    },
+                    "value_out": {
+                        "if": [
+                            {"==":[false, {"var": "value"}]}, 0,
+                            {"==":[true, {"var": "value"}]}, 1
+                        ]
+                    }
+                },
+                {
+                    "data": "Dim white",
+                    "shortcut": "DW",
+                    "bitoffs": "12",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": true,
+                        "def": false
+                    },
+                    "value_out": {
+                        "if": [
+                            {"==":[false, {"var": "value"}]}, 0,
+                            {"==":[true, {"var": "value"}]}, 1
+                        ]
+                    }
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Not used",
+                    "bitoffs": "8",
+                    "bitsize": "4",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Dim down",
+                    "bitoffs": "16",
+                    "bitsize": "8",
+                    "value": 49
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "GFVS",
+                    "bitoffs": "24",
+                    "bitsize": "8",
+                    "value": 15
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 6
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Dim speed",
+                    "shortcut": "DS",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "def": 0
+                    },
+                    "value_out": {"var": "value"}
+                },
+                {
+                    "data": "Dim red",
+                    "shortcut": "DR",
+                    "bitoffs": "15",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": true,
+                        "def": false
+                    },
+                    "value_out": {
+                        "if": [
+                            {"==":[false, {"var": "value"}]}, 0,
+                            {"==":[true, {"var": "value"}]}, 1
+                        ]
+                    }
+                },
+                {
+                    "data": "Dim green",
+                    "shortcut": "DG",
+                    "bitoffs": "14",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": true,
+                        "def": false
+                    },
+                    "value_out": {
+                        "if": [
+                            {"==":[false, {"var": "value"}]}, 0,
+                            {"==":[true, {"var": "value"}]}, 1
+                        ]
+                    }
+                },
+                {
+                    "data": "Dim blue",
+                    "shortcut": "DB",
+                    "bitoffs": "13",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": true,
+                        "def": false
+                    },
+                    "value_out": {
+                        "if": [
+                            {"==":[false, {"var": "value"}]}, 0,
+                            {"==":[true, {"var": "value"}]}, 1
+                        ]
+                    }
+                },
+                {
+                    "data": "Dim white",
+                    "shortcut": "DW",
+                    "bitoffs": "12",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": true,
+                        "def": false
+                    },
+                    "value_out": {
+                        "if": [
+                            {"==":[false, {"var": "value"}]}, 0,
+                            {"==":[true, {"var": "value"}]}, 1
+                        ]
+                    }
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Not used",
+                    "bitoffs": "8",
+                    "bitsize": "4",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Dim stop",
+                    "bitoffs": "16",
+                    "bitsize": "8",
+                    "value": 50
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "GFVS",
+                    "bitoffs": "24",
+                    "bitsize": "8",
+                    "value": 15
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 7
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "description": "Teachin DB3",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 255
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Teachin DB2",
+                    "bitoffs": "8",
+                    "bitsize": "8",
+                    "value": 248
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Teachin DB1",
+                    "bitoffs": "16",
+                    "bitsize": "8",
+                    "value": 13
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Teachin DB0",
+                    "bitoffs": "24",
+                    "bitsize": "8",
+                    "value": 135
+                }
+            ]
+        },
+        {
+            "send": false,
+            "condition": {
+                "bitoffs": "16",
+                "bitsize": "8",
+                "value": 16
+            },
+            "datafield": [
+                {
+                    "data": "Red",
+                    "shortcut": "R",
+                    "bitoffs": "0",
+                    "bitsize": "16",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "min": 0,
+                        "max": 1023,
+                        "def": 0
+                    },
+                    "value": {"var": "value"}
+                }
+            ]
+        },
+        {
+            "send": false,
+            "condition": {
+                "bitoffs": "16",
+                "bitsize": "8",
+                "value": 17
+            },
+            "datafield": [
+                {
+                    "data": "Green",
+                    "shortcut": "G",
+                    "bitoffs": "0",
+                    "bitsize": "16",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "min": 0,
+                        "max": 1023,
+                        "def": 0
+                    },
+                    "value": {"var": "value"}
+                }
+            ]
+        },
+        {
+            "send": false,
+            "condition": {
+                "bitoffs": "16",
+                "bitsize": "8",
+                "value": 18
+            },
+            "datafield": [
+                {
+                    "data": "Blue",
+                    "shortcut": "B",
+                    "bitoffs": "0",
+                    "bitsize": "16",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "min": 0,
+                        "max": 1023,
+                        "def": 0
+                    },
+                    "value": {"var": "value"}
+                }
+            ]
+        },
+        {
+            "send": false,
+            "condition": {
+                "bitoffs": "16",
+                "bitsize": "8",
+                "value": 19
+            },
+            "datafield": [
+                {
+                    "data": "White",
+                    "shortcut": "W",
+                    "bitoffs": "0",
+                    "bitsize": "16",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "min": 0,
+                        "max": 1023,
+                        "def": 0
+                    },
+                    "value": {"var": "value"}
+                }
+            ]
+        }
+    ]
+}

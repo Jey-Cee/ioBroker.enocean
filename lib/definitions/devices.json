@@ -376,6 +376,7 @@
     },
     "FDG14": {
       "EEP": [
+        "TF-13-07",
         "TF-13-06"
       ],
       "autocreate": false,
@@ -867,6 +868,55 @@
           "2": "Auf 'Gerät Hinzufügen' klicken.",
           "3": "Anlernmodus am FR62NP-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FR62NP-230V lesen.",
           "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in', nummer 2, senden."
+        }
+      }
+    },
+    "FRGBW71L (Single or all channel)": {
+      "EEP": [
+        "TF-13-07",
+        "TF-13-06"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID. Each channel has its own ID, the range is printed on the device. ID for all channels is first ID plus 4.",
+          "2": "Click on 'Add Device'.",
+          "3": "Start teach-in mode on FRGBW71L for the channel to teachin. For more information, please read the FRGBW71L manual.",
+          "4": "Switch to the objects and send the command (CMD) 'Teach-in'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen. Jeder Kanal hat seine eigene ID, der ID Bereich ist auf dem Gerät aufgedruckt. Die ID für alle Kanäle ist die erste ID plus 4.",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Anlernmodus am FRGBW71L starten für den Kanal der eingelernt werden soll. Für weitere informationen bitte die Anleitung des FRGBW71L lesen.",
+          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden."
+        }
+      }
+    },
+    "FRGBW71L (Master)": {
+      "EEP": [
+        "TF-13-21"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID. The ID consist of Device ID for first channel + 5. Example: (Hex: ffcae709) 4291487497 + 5 = 4291487502 = FFCAE70E",
+          "2": "Click on 'Add Device'.",
+          "3": "Turn upper rotary switch on FRGBW71L to 9 or 10",
+          "4": "Turn mid rotary switch on FRGBW71L to LRN",
+          "5": "Switch to the objects and send the command (CMD) 'Teach-in'.",
+          "6": "Turn mid rotary switch on FRGBW71L away from LRN"
+        },
+        "de": {
+          "1": "Geräte ID eintragen. Die ID setzt sich aus der Geräte ID des ersten Kanals + 5 zusammen. Beispiel: (Hex: ffcae709) 4291487497 + 5 = 4291487502 = FFCAE70E",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Den oberen Drehschalter am FRGBW71L auf 9 oder 10 Drehen.",
+          "4": "Den mittleren Drehschalter am FRGBW71L auf LRN Drehen.",
+          "5": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden.",
+          "6": "Den mittleren Drehschalter am FRGBW71L von LRN weg Drehen."
         }
       }
     },
@@ -1481,6 +1531,29 @@
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
           "2": "Anlernmodus am FTA65L starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FTA65L lesen."
+        }
+      }
+    },
+    "FTAF55D/230V": {
+      "EEP": [
+        "TF-13-20",
+        "TF-14-02"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID. ",
+          "2": "Click on 'Add Device'.",
+          "3": "Start teach-in mode on FTAF55D/230V.",
+          "4": "Switch to the objects and send the command (CMD) 'Teach-in'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen. ",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Anlernmodus am FTAF55D/230V starten.",
+          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden."
         }
       }
     },
