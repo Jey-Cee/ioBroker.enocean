@@ -29,7 +29,7 @@
           "type": "number",
           "read": true,
           "write": true,
-          "states": "0:Off; 1:On; 2:Teach-in"
+          "states": "0:Off; 1:On; 2:Teach-in; 3:Request confirmation telegram"
         },
           "value": 0
       },
@@ -191,6 +191,47 @@
           "bitsize": "8",
           "value": 128
         }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 3
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "24",
+          "bitsize": "8",
+          "value": 8
+        }
+
       ]
     }
   ]

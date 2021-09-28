@@ -25,7 +25,7 @@
                         "type": "number",
                         "read": false,
                         "write": true,
-                        "states": "0:Red; 1:Green; 2:Blue; 3:White; 4:Dim up; 5:Dim down; 6:Dim stop; 7:Teach-in"
+                        "states": "0:Red; 1:Green; 2:Blue; 3:White; 4:Dim up; 5:Dim down; 6:Dim stop; 7:Teach-in; 8:Request confirmation telegram"
                     },
                     "value": 0
                 },
@@ -698,6 +698,47 @@
                     },
                     "value": {"var": "value"}
                 }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 8
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "description": "dummy",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 15
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "dummy",
+                    "bitoffs": "8",
+                    "bitsize": "8",
+                    "value": 2
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "dummy",
+                    "bitoffs": "16",
+                    "bitsize": "8",
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "dummy",
+                    "bitoffs": "24",
+                    "bitsize": "8",
+                    "value": 0
+                }
+
             ]
         }
     ]
