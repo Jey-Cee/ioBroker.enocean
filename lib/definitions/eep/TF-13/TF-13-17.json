@@ -13,11 +13,6 @@
                 "bitoffs": "0",
                 "bitsize": "8",
                 "value": 112
-            },
-            {
-                "bitoffs": "0",
-                "bitsize": "8",
-                "value": 80
             }],
             "datafield": [
                 {
@@ -31,7 +26,31 @@
                         "read": true,
                         "write": false
                     },
-                    "value": {"===": [ { "var": "value" }, 112 ]}
+                    "value": true
+
+                }
+            ]
+        },
+        {
+            "send": false,
+            "condition": [{
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 80
+                }],
+            "datafield": [
+                {
+                    "data": "Channel 1",
+                    "shortcut": "CH1",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "switch",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": false
 
                 }
             ]
@@ -42,8 +61,26 @@
                 "bitoffs": "0",
                 "bitsize": "8",
                 "value": 48
-            },
+            }],
+            "datafield": [
                 {
+                    "data": "Channel 2",
+                    "shortcut": "CH2",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "switch",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": true
+                }
+            ]
+        },
+        {
+            "send": false,
+            "condition": [{
                     "bitoffs": "0",
                     "bitsize": "8",
                     "value": 16
@@ -60,9 +97,7 @@
                         "read": true,
                         "write": false
                     },
-                    "value": {
-                        "===": [ { "var": "value" }, 48 ]
-                    }
+                    "value": false
                 }
             ]
         }

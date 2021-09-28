@@ -32,6 +32,8 @@
                 {
                     "data": "Level",
                     "shortcut": "LVL",
+                    "bitoffs": "8",
+                    "bitsize": "8",
                     "iobroker": {
                         "role": "level.dimmer",
                         "type": "number",
@@ -45,6 +47,8 @@
                 {
                     "data": "Dimming speed",
                     "shortcut": "DS",
+                    "bitoffs": "16",
+                    "bitsize": "8",
                     "iobroker": {
                         "role": "level",
                         "type": "number",

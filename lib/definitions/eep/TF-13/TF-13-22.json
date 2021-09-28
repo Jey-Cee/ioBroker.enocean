@@ -1,0 +1,60 @@
+{
+    "eep": "TF-13-22",
+    "rorg_number": "0xF6",
+    "telegram": "RPS",
+    "func_number": "0x00",
+    "type_number": "0x00",
+    "type_title": "FMS61NP-230V",
+    "bidirectional": false,
+    "case": [
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 0
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Command ID",
+                    "shortcut": "CMD",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": false,
+                        "write": true,
+                        "states": "0:CH 1; 1:CH 2;"
+                    }
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "CH 1",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 16
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 1
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "description": "CH 2",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 48
+                }
+            ]
+        }
+    ]
+}
