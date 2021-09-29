@@ -25,12 +25,12 @@
                         "type": "number",
                         "read": false,
                         "write": true,
-                        "states": "0:CH 1; 1:CH 2;"
+                        "states": "0:CH 1 On; 1:CH 1 Off; 2:CH 2 On; 3:CH 2 Off"
                     }
                 },
                 {
                     "data": "fixed parameter",
-                    "description": "CH 1",
+                    "description": "CH 1 On",
                     "bitoffs": "0",
                     "bitsize": "8",
                     "value": 16
@@ -49,10 +49,48 @@
             "datafield": [
                 {
                     "data": "fixed parameter",
-                    "description": "CH 2",
+                    "description": "CH 1 Off",
                     "bitoffs": "0",
                     "bitsize": "8",
                     "value": 48
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 2
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "description": "CH 2 On",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 80
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 3
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "description": "CH 2 Off",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 112
                 }
             ]
         }
