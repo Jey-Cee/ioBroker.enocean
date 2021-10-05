@@ -76,8 +76,8 @@
             },
             "datafield": [
                 {
-                    "data": "Meter Reading",
-                    "shortcut": "MR",
+                    "data": "Power consumption",
+                    "shortcut": "PC",
                     "bitoffs": "0",
                     "bitsize": "24",
                     "iobroker": {

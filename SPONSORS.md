@@ -13,7 +13,7 @@ Thank you to ...
 | edi112 | Sepp | Fabio |
 | Stefan | Streuber | Andibr |
 | Holger S. | Michael M. | tobitobsta |
-| Kevin L. | | |
+| Kevin L. | Jürgen S. | |
 
 ## 2020
 #### Kickstarter campaign

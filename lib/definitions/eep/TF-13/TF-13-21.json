@@ -599,9 +599,13 @@
         {
             "send": false,
             "condition": {
-                "bitoffs": "16",
-                "bitsize": "8",
-                "value": 16
+               "color": [
+                   {
+                       "bitoffs": "16",
+                       "bitsize": "8",
+                       "value": 16
+                   }
+               ]
             },
             "datafield": [
                 {
@@ -625,9 +629,43 @@
         {
             "send": false,
             "condition": {
-                "bitoffs": "16",
-                "bitsize": "8",
-                "value": 17
+                "color": [
+                    {
+                        "bitoffs": "16",
+                        "bitsize": "8",
+                        "value": 64
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Red",
+                    "shortcut": "R",
+                    "bitoffs": "0",
+                    "bitsize": "16",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "min": 0,
+                        "max": 1023,
+                        "def": 0
+                    },
+                    "value": {"var": "value"}
+                }
+            ]
+        },
+        {
+            "send": false,
+            "condition": {
+                "color": [
+                    {
+                        "bitoffs": "16",
+                        "bitsize": "8",
+                        "value": 17
+                    }
+                ]
             },
             "datafield": [
                 {
@@ -651,9 +689,43 @@
         {
             "send": false,
             "condition": {
-                "bitoffs": "16",
-                "bitsize": "8",
-                "value": 18
+                "color": [
+                    {
+                        "bitoffs": "16",
+                        "bitsize": "8",
+                        "value": 65
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Green",
+                    "shortcut": "G",
+                    "bitoffs": "0",
+                    "bitsize": "16",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "min": 0,
+                        "max": 1023,
+                        "def": 0
+                    },
+                    "value": {"var": "value"}
+                }
+            ]
+        },
+        {
+            "send": false,
+            "condition": {
+                "color": [
+                    {
+                        "bitoffs": "16",
+                        "bitsize": "8",
+                        "value": 18
+                    }
+                ]
             },
             "datafield": [
                 {
@@ -677,9 +749,73 @@
         {
             "send": false,
             "condition": {
-                "bitoffs": "16",
-                "bitsize": "8",
-                "value": 19
+                "color": [
+                    {
+                        "bitoffs": "16",
+                        "bitsize": "8",
+                        "value": 66
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Blue",
+                    "shortcut": "B",
+                    "bitoffs": "0",
+                    "bitsize": "16",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "min": 0,
+                        "max": 1023,
+                        "def": 0
+                    },
+                    "value": {"var": "value"}
+                }
+            ]
+        },
+        {
+            "send": false,
+            "condition": {
+                "color": [
+                    {
+                        "bitoffs": "16",
+                        "bitsize": "8",
+                        "value": 19
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "White",
+                    "shortcut": "W",
+                    "bitoffs": "0",
+                    "bitsize": "16",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": true,
+                        "write": true,
+                        "min": 0,
+                        "max": 1023,
+                        "def": 0
+                    },
+                    "value": {"var": "value"}
+                }
+            ]
+        },
+        {
+            "send": false,
+            "condition": {
+                "color": [
+                    {
+                        "bitoffs": "16",
+                        "bitsize": "8",
+                        "value": 67
+                    }
+                ]
             },
             "datafield": [
                 {

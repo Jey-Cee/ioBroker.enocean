@@ -26,7 +26,8 @@
                         "read": false,
                         "write": true,
                         "states": "0:CH 1 On; 1:CH 1 Off; 2:CH 2 On; 3:CH 2 Off"
-                    }
+                    },
+                    "value": 0
                 },
                 {
                     "data": "fixed parameter",
