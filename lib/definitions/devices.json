@@ -275,6 +275,22 @@
         }
       }
     },
+    "FAH": {
+      "EEP": ["TF-13-23"],
+      "autocreate": false,
+      "teachin_method": "4BS",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
     "FAH60B": {
       "EEP": ["TF-13-10"],
       "autocreate": false,

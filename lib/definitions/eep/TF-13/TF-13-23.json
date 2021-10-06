@@ -1,0 +1,58 @@
+{
+    "eep": "TF-13-23",
+    "rorg_number": "0xA5",
+    "telegram": "4BS",
+    "func_number": "0x00",
+    "type_number": "0x00",
+    "type_title": "Brightness sensor FAH 300-30000 Lux",
+    "bidirectional": false,
+    "case": [
+        {
+            "send": false,
+            "datafield": [
+                {
+                    "data": "Supply Voltage 0...5.1V",
+                    "shortcut": "SVC",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "value.battery",
+                        "type": "number",
+                        "unit": "V",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "+": [{"*":[{"-":[{"var":  "value"}, 0]},0.02]}, 0]
+                    },
+                    "decimals": 2
+                },
+                {
+                    "data": "Illumination",
+                    "shortcut": "ILL",
+                    "bitoffs": "8",
+                    "bitsize": "8",
+                    "value": {
+                        "+": [
+                            {
+                                "*": [
+                                    {
+                                        "-": [
+                                            {
+                                                "var": "value"
+                                            },
+                                            1
+                                        ]
+                                    },
+                                    116.92913
+                                ]
+                            },
+                            300
+                        ]
+                    },
+                    "decimals": 0
+                }
+            ]
+        }
+    ]
+}
