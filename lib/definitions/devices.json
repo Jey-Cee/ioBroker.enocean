@@ -275,22 +275,6 @@
         }
       }
     },
-    "FAH": {
-      "EEP": ["TF-13-23"],
-      "autocreate": true,
-      "teachin_method": "4BS",
-      "id_offset": false,
-      "help": {
-        "en": {
-          "1": "Click on 'Add Device'.",
-          "2": "Press LRN Button on FAH."
-        },
-        "de": {
-          "1": "Auf 'Gerät Hinzufügen' klicken.",
-          "2": "LRN Button am FAH Drücken."
-        }
-      }
-    },
     "FAH60B": {
       "EEP": ["TF-13-10"],
       "autocreate": false,
