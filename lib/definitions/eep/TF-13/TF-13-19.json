@@ -20,8 +20,6 @@
                 {
                     "data": "Command ID",
                     "shortcut": "CMD",
-                    "bitoffs": "0",
-                    "bitsize": "3",
                     "iobroker": {
                         "role": "state",
                         "type": "number",
@@ -29,14 +27,21 @@
                         "write": true,
                         "states": "0:OFF; 1:ON;"
                     },
-                    "value": 3
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "OFF",
+                    "bitoffs": "0",
+                    "bitsize": "3",
+                    "value": 0
                 },
                 {
                     "data": "fixed parameter",
                     "description": "OFF",
                     "bitoffs": "3",
                     "bitsize": "1",
-                    "value": 0
+                    "value": 1
                 }
             ]
         },
