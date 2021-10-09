@@ -277,7 +277,7 @@
     },
     "FAH": {
       "EEP": [ "TF-13-23" ],
-      "autocreate": true,
+      "autocreate": false,
       "teachin_method": "4BS",
       "id_offset": false,
       "help": {
