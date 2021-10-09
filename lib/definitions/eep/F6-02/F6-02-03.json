@@ -1,0 +1,325 @@
+{
+    "eep": "F6-02-03",
+    "rorg_number": "0xF6",
+    "telegram": "RPS",
+    "func_number": "0x02",
+    "type_number": "0x03",
+    "type_title": "Switch",
+    "bidirectional": false,
+    "case": [
+        {
+            "send": false,
+            "condition":
+                {
+                    "statusfield": [
+                        {
+                            "bitoffs": "2",
+                            "bitsize": "1",
+                            "value": 1
+                        },
+                        {
+                            "bitoffs": "3",
+                            "bitsize": "1",
+                            "value": 1
+                        }
+                    ],
+                    "second_action": [
+                        {
+                            "bitoffs": "7",
+                            "bitsize": "1",
+                            "value": 0
+                        }
+                    ]
+                },
+            "datafield": [
+                {
+                    "data": "Button AI",
+                    "shortcut": "AI",
+                    "bitoffs": "0",
+                    "bitsize": "3",
+                    "iobroker": {
+                        "role": "switch",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [{"var": "value"}, 0]
+                    }
+                },
+                {
+                    "data": "Button A0",
+                    "shortcut": "A0",
+                    "bitoffs": "0",
+                    "bitsize": "3",
+                    "iobroker": {
+                        "role": "switch",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [{"var": "value"}, 1]
+                    }
+                },
+                {
+                    "data": "Button BI",
+                    "shortcut": "BI",
+                    "bitoffs": "0",
+                    "bitsize": "3",
+                    "iobroker": {
+                        "role": "switch",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [{"var":  "value"}, 2]
+                    }
+                },
+                {
+                    "data": "Button B0",
+                    "shortcut": "B0",
+                    "bitoffs": "0",
+                    "bitsize": "3",
+                    "iobroker": {
+                        "role": "switch",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": {
+                        "==": [{"var":  "value"}, 3]
+                    }
+                }
+            ]
+        },
+        {
+            "send": false,
+            "condition": {
+                "statusfield": [
+                    {
+                        "bitoffs": "2",
+                        "bitsize": "1",
+                        "value": "1"
+                    },
+                    {
+                        "bitoffs": "3",
+                        "bitsize": "1",
+                        "value": "1"
+                    }
+                ],
+                "multi_buttons": [
+                    {
+                        "bitoffs": "0",
+                        "bitsize": "8",
+                        "value": 55
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Buttons A0 + B0",
+                    "shortcut": "A0B0",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "switch",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": true
+                }
+            ]
+        },
+        {
+            "send": false,
+            "condition": {
+                "statusfield": [
+                    {
+                        "bitoffs": "2",
+                        "bitsize": "1",
+                        "value": "1"
+                    },
+                    {
+                        "bitoffs": "3",
+                        "bitsize": "1",
+                        "value": "1"
+                    }
+                ],
+                "multi_buttons": [
+                    {
+                        "bitoffs": "0",
+                        "bitsize": "8",
+                        "value": 21
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Buttons AI + BI",
+                    "shortcut": "AIBI",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "switch",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": true
+                }
+            ]
+        },
+        {
+            "send": false,
+            "condition": {
+                "statusfield": [
+                    {
+                        "bitoffs": "2",
+                        "bitsize": "1",
+                        "value": "1"
+                    },
+                    {
+                        "bitoffs": "3",
+                        "bitsize": "1",
+                        "value": "1"
+                    }
+                ],
+                "multi_buttons": [
+                    {
+                        "bitoffs": "0",
+                        "bitsize": "8",
+                        "value": 53
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Buttons A0 + BI",
+                    "shortcut": "A0BI",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "switch",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": true
+                }
+            ]
+        },
+        {
+            "send": false,
+            "condition": {
+                "statusfield": [
+                    {
+                        "bitoffs": "2",
+                        "bitsize": "1",
+                        "value": "1"
+                    },
+                    {
+                        "bitoffs": "3",
+                        "bitsize": "1",
+                        "value": "1"
+                    }
+                ],
+                "multi_buttons": [
+                    {
+                        "bitoffs": "0",
+                        "bitsize": "8",
+                        "value": 23
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Buttons AI + B0",
+                    "shortcut": "AIB0",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "iobroker": {
+                        "role": "switch",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": true
+                }
+            ]
+        },
+        {
+            "send": false,
+            "condition": [{
+                    "bitoffs": "3",
+                    "bitsize": "1",
+                    "value": "0"
+            }],
+            "datafield": [
+                {
+                    "data": "Button AI",
+                    "shortcut": "AI",
+                    "bitoffs": "0",
+                    "bitsize": "3",
+                    "value": false
+                },
+                {
+                    "data": "Button A0",
+                    "shortcut": "A0",
+                    "bitoffs": "0",
+                    "bitsize": "3",
+                    "value": false
+                },
+                {
+                    "data": "Button BI",
+                    "shortcut": "BI",
+                    "bitoffs": "0",
+                    "bitsize": "3",
+                    "value": false
+                },
+                {
+                    "data": "Button B0",
+                    "shortcut": "B0",
+                    "bitoffs": "0",
+                    "bitsize": "3",
+                    "value": false
+
+                },
+                {
+                    "data": "Button A0 + B0",
+                    "shortcut": "A0B0",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": false
+
+                },
+                {
+                    "data": "Button AI + BI",
+                    "shortcut": "AIBI",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": false
+
+                },
+                {
+                    "data": "Button A0 + BI",
+                    "shortcut": "A0BI",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": false
+
+                },
+                {
+                    "data": "Button AI + B0",
+                    "shortcut": "AIB0",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": false
+
+                }
+            ]
+        }
+    ]
+}
