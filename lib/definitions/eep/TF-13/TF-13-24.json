@@ -1,10 +1,10 @@
 {
-    "eep": "TF-13-19",
+    "eep": "TF-13-24",
     "rorg_number": "0xF6",
     "telegram": "RPS",
     "func_number": "0x00",
     "type_number": "0x00",
-    "type_title": "Switch",
+    "type_title": "FSSA-230V",
     "bidirectional": false,
     "case": [
         {
@@ -33,10 +33,10 @@
                 },
                 {
                     "data": "fixed parameter",
-                    "description": "OFF",
+                    "description": "released",
                     "bitoffs": "3",
                     "bitsize": "1",
-                    "value": 0
+                    "value": 1
                 }
             ]
         },

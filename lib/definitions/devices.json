@@ -371,6 +371,25 @@
         }
       }
     },
+    "FD62NP-230V": {
+      "EEP": [
+        "TF-13-07",
+        "TF-13-06"
+      ],
+      "autocreate": true,
+      "teachin_method": "MSC",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your FD62NP-230V. For more information please read the manual of FD62NP-230V"
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus (Lernmodus entsperren) am FD62NP-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FD62NP-230V lesen."
+        }
+      }
+    },
     "FD62NPN-230V": {
       "EEP": [
         "TF-13-07",
@@ -1402,7 +1421,7 @@
     },
     "FSSA-230V": {
       "EEP": [
-        "TF-13-19","TF-14-02"
+        "TF-13-24","TF-14-02"
       ],
       "autocreate": false,
       "teachin_method": "none",
@@ -3336,7 +3355,7 @@
       }
     },
     "SR-MDS Solar (F6-02-02)": {
-      "EEP": ["F6-02-01"],
+      "EEP": ["F6-02-02"],
       "autocreate": false,
       "teachin_method": "4BS",
       "id_offset": false,
