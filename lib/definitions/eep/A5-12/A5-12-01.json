@@ -9,126 +9,60 @@
     "case": [
         {
             "send": false,
-            "condition": {
-                "command": [
-                    {
-                        "bitoffs": "29",
-                        "bitsize": "1",
-                        "value": 0
-                    },
-                    {
-                        "bitoffs": "27",
-                        "bitsize": "1",
-                        "value": 0
-                    }
-                ]
-            },
-            "datafield": [
+        "condition": {
+            "command": [
                 {
-                    "data": "Day Meter Reading",
-                    "shortcut": "DMR",
-                    "bitoffs": "0",
-                    "bitsize": "24",
-                    "iobroker": {
-                        "role": "value.power.consumption",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "def": 0
-                    },
-                    "secondArgument": {
-                        "bitoffs": "30",
-                        "bitsize": "2"
-                    },
-                    "value": {
-                        "if": [
-                            {"==":[{"var": "value2"}, 0]}, {"var": "value"},
-                            {"==":[{"var": "value2"}, 1]}, {"/": [{"var": "value"}, 10]},
-                            {"==":[{"var": "value2"}, 2]}, {"/": [{"var": "value"}, 100]},
-                            {"==":[{"var": "value2"}, 2]}, {"/": [{"var": "value"}, 1000]}
-                        ]
-                    },
-                    "unit": "kWh"
-                },
-                {
-                    "data": "Tariff info",
-                    "shortcut": "TI",
-                    "bitoffs": "24",
-                    "bitsize": "4",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "def": 0
-                    },
-                    "value": {
-                        "var": "value"
-                    }
-                }
-        ]
-    },
-        {
-            "send": false,
-            "condition": {
-                "command": [
-                    {
-                        "bitoffs": "29",
-                        "bitsize": "1",
-                        "value": 0
-                    },
-                    {
-                        "bitoffs": "27",
-                        "bitsize": "1",
-                        "value": 1
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Night Meter Reading",
-                    "shortcut": "NMR",
-                    "bitoffs": "0",
-                    "bitsize": "24",
-                    "iobroker": {
-                        "role": "value.power.consumption",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "def": 0
-                    },
-                    "secondArgument": {
-                        "bitoffs": "30",
-                        "bitsize": "2"
-                    },
-                    "value": {
-                        "if": [
-                            {"==":[{"var": "value2"}, 0]}, {"var": "value"},
-                            {"==":[{"var": "value2"}, 1]}, {"/": [{"var": "value"}, 10]},
-                            {"==":[{"var": "value2"}, 2]}, {"/": [{"var": "value"}, 100]},
-                            {"==":[{"var": "value2"}, 2]}, {"/": [{"var": "value"}, 1000]}
-                        ]
-                    },
-                    "unit": "kWh"
-                },
-                {
-                    "data": "Tariff info",
-                    "shortcut": "TI",
-                    "bitoffs": "24",
-                    "bitsize": "4",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "def": 0
-                    },
-                    "value": {
-                        "var": "value"
-                    }
+                    "bitoffs": "29",
+                    "bitsize": "1",
+                    "value": 0
                 }
             ]
         },
+        "datafield": [
+            {
+                "data": "Meter Reading",
+                "shortcut": "MR",
+                "bitoffs": "0",
+                "bitsize": "24",
+                "iobroker": {
+                    "role": "value.power.consumption",
+                    "type": "number",
+                    "read": true,
+                    "write": false,
+                    "def": 0
+                },
+                "secondArgument": {
+                    "bitoffs": "30",
+                    "bitsize": "2"
+                },
+                "value": {
+                    "if": [
+                        {"==":[{"var": "value2"}, 0]}, {"var": "value"},
+                        {"==":[{"var": "value2"}, 1]}, {"/": [{"var": "value"}, 10]},
+                        {"==":[{"var": "value2"}, 2]}, {"/": [{"var": "value"}, 100]},
+                        {"==":[{"var": "value2"}, 2]}, {"/": [{"var": "value"}, 1000]}
+                    ]
+                },
+                "unit": "kWh"
+            },
+            {
+                "data": "Tariff info",
+                "shortcut": "TI",
+                "bitoffs": "24",
+                "bitsize": "4",
+                "iobroker": {
+                    "role": "state",
+                    "type": "number",
+                    "read": true,
+                    "write": false,
+                    "def": 0
+                },
+                "value": {
+                    "var": "value"
+                }
+            }
+        ]
+    },
         {
             "send": false,
             "condition": {
