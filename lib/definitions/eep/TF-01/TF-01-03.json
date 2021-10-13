@@ -1,0 +1,50 @@
+{
+    "eep": "TF-01-03",
+    "rorg_number": "0xF6",
+    "telegram": "RPS",
+    "func_number": "0x00",
+    "type_number": "0x00",
+    "type_title": "TF-TTB",
+    "bidirectional": false,
+    "case": [
+        {
+            "send": false,
+            "condition": [{
+                "bitoffs": "0",
+                "bitsize": "3",
+                "value": 3
+            }],
+            "datafield": [
+                {
+                    "data": "Button",
+                    "shortcut": "BTN",
+                    "bitoffs": "0",
+                    "bitsize": "3",
+                    "iobroker": {
+                        "role": "switch",
+                        "type": "boolean",
+                        "read": true,
+                        "write": false
+                    },
+                    "value": true
+                }
+            ]
+        },{
+            "send": false,
+            "condition": [{
+                    "bitoffs": "3",
+                    "bitsize": "1",
+                    "value": 0
+            }],
+            "datafield": [
+                {
+                    "data": "Button",
+                    "shortcut": "BTN",
+                    "bitoffs": "0",
+                    "bitsize": "3",
+                    "value": false
+                }
+            ]
+        }
+    ]
+}
