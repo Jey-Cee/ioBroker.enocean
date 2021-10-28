@@ -1014,20 +1014,20 @@
       "id_offset": true,
       "help": {
         "en": {
-          "1": "Enter device ID. \nEach channel has its own ID, the range is printed on the device. ID for all channels is first ID plus 4. \n1 = Red, 2 = Green, 3 = Blue, 4 = White",
+          "1": "Enter device ID. Each channel has its own ID, the range is printed on the device. ID for all channels is first ID plus 4. 1 = Red, 2 = Green, 3 = Blue, 4 = White, 5 = All.",
           "2": "Click on 'Add Device'.",
           "3": "Start teach-in mode on FRGBW71L for the channel to teachin, use 9 or 10 on the upper rotary switch. For more information, please read the FRGBW71L manual.",
           "4": "Switch to the objects and send the command (CMD) 'Teach-in'."
         },
         "de": {
-          "1": "Geräte ID eintragen. \nJeder Kanal hat seine eigene ID, der ID Bereich ist auf dem Gerät aufgedruckt. Die ID für alle Kanäle ist die erste ID plus 4. \n1 = Rot, 2 = Grün, 3 = Blau, 4 = Weiß",
+          "1": "Geräte ID eintragen. Jeder Kanal hat seine eigene ID, der ID Bereich ist auf dem Gerät aufgedruckt. Die ID für alle Kanäle ist die erste ID plus 4. 1 = Rot, 2 = Grün, 3 = Blau, 4 = Weiß, 5 = Alle.",
           "2": "Auf 'Gerät Hinzufügen' klicken.",
           "3": "Anlernmodus am FRGBW71L starten für den Kanal der eingelernt werden soll, am oberen Drehschalter 9 oder 10 auswählen. Für weitere informationen bitte die Anleitung des FRGBW71L lesen.",
           "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden."
         }
       }
     },
-    "FRGBW71L (Master)": {
+    "FRGBW71L (ioBroker controls Master)": {
       "EEP": [
         "TF-13-21"
       ],
@@ -1036,21 +1036,50 @@
       "id_offset": true,
       "help": {
         "en": {
-          "1": "Enter device ID. The ID consist of Device ID for first channel + 5. Example: (Hex: ffcae709) 4291487497 + 5 = 4291487502 = FFCAE70E",
-          "2": "Click on 'Add Device'.",
-          "3": "Choose if ioBroker is the master, this enables dimming control for selected channels, or ioBroker controls the master. <br>a) ioBroker is the master: <br>- Switch FRGBW71L off (no powersupply). <br>- Turn upper rotary switch on FRGBW71L to 1. <br>- Turn mid rotary switch on FRGBW71L to min. <br>- Turn lower rotary switch on FRGBW71L to max. <br><br>b) ioBroker controls the master: <br>- Turn upper rotary switch on FRGBW71L to 10. <br>- Turn mid rotary switch on FRGBW71L to LRN.",
-          "4": "a) Turn on FRGBW71L.",
-          "5": "Switch to the objects and send the command (CMD) 'Teach-in'.",
-          "6": "a) Set all FRGBW71L to the same minimum brightness and dimming speed. For more information read the manual of FRGBW71L, chapter Master-Slave operation."
+          "1": "ioBroker controls a Master-FRGBW71L. Dimming control for selected channels is not possible.",
+          "2": "Enter device ID. The ID consist of Device ID for first channel + 5. Example: (Hex: ffcae709) 4291487497 + 5 = 4291487502 = FFCAE70E",
+          "3": "Click on 'Add Device'.",
+          "4": "Turn upper rotary switch on FRGBW71L to 10. <br>Turn mid rotary switch on FRGBW71L to LRN.",
+          "5": "Switch to the objects and send the command (CMD) 'Teach-in'."
+        },
+        "de": {
+          "1": "ioBroker steuert den Master-FRGBW71L. Die Dimmsteuerung für die ausgewählten Kanäle ist nicht möglich.",
+          "2": "Geräte ID eintragen. Die ID setzt sich aus der Geräte ID des ersten Kanals + 5 zusammen. Beispiel: (Hex: ffcae709) 4291487497 + 5 = 4291487502 = FFCAE70E",
+          "3": "Auf 'Gerät Hinzufügen' klicken.",
+          "4": "Oberen Drehschalter am FRGBW71L auf 10 stellen. <br>Mittleren Drehschalter am FRGBW71L auf LRN stellen.",
+          "5": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden."
+        }
+      }
+    },
+    "FRGBW71L (ioBroker is Master)": {
+      "EEP": [
+        "TF-13-21"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "broadcast": true,
+      "help": {
+        "en": {
+          "1": "ioBroker is the master. All FRGBW71L are slaves. This enables dimming control for selected channels.",
+          "2": "Enter a unique device ID used for the master.",
+          "3": "Click on 'Add Device'.",
+          "4": "First clear memory contents completely and then clear the device configuration for every FRGBW71L.",
+          "5": "Switch all FRGBW71L off (no powersupply). <br>Turn upper rotary switch on all FRGBW71L to 1. <br>Turn mid rotary switch on all FRGBW71L to min. <br>Turn lower rotary switch on all FRGBW71L to max.",
+          "6": "Turn on all FRGBW71L.",
+          "7": "Switch to the objects and send the command (CMD) 'Teach-in'.",
+          "8": "Set all FRGBW71L to the same minimum brightness and dimming speed. For more information read the manual of FRGBW71L, chapter Master-Slave operation."
 
         },
         "de": {
-          "1": "Geräte ID eintragen. Die ID setzt sich aus der Geräte ID des ersten Kanals + 5 zusammen. Beispiel: (Hex: ffcae709) 4291487497 + 5 = 4291487502 = FFCAE70E",
-          "2": "Auf 'Gerät Hinzufügen' klicken.",
-          "3": "Wählen Sie aus ob ioBroker der Master ist, dies ermöglicht die Dimmsteuerung für die ausgewählten Kanäle, oder ioBroker den Master steuert. <br>a) ioBroker ist der Master: <br>FRGBW71L ausschalten (keine Spannungsversorgung). <br>Oberen Drehschalter an FRGBW71L auf 1 drehen. <br>Mittleren Drehschalter an FRGBW71L auf min drehen. <br>Unteren Drehschalter am FRGBW71L auf max drehen. <br><br>b) ioBroker steuert den Master: <br>Oberen Drehschalter am FRGBW71L auf 10 stellen. <br>Mittleren Drehschalter am FRGBW71L auf LRN stellen.",
-          "4": "a) FRGBW71L einschalten.",
-          "5": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden.",
-          "6": "a) Alle FRGBW71L auf die selbe Mindesthelligkeit und Dimmspeed einstellen. Für mehr informationen bitte die Anleitung des FRGBW71L, Abschnitt Master-Slave Betrieb lesen."
+          "1": "ioBroker ist Master. Alle FRGBW71L sind Slaves. Dies ermöglicht die Dimmsteuerung für die ausgewählten Kanäle.",
+          "2": "Eindeutige Geräte ID für den Master eintragen.",
+          "3": "Auf 'Gerät Hinzufügen' klicken.",
+          "4": "Bei allen FRGBW71L erst den Speicherinhalt komplett leeren und dann die Gerätekonfiguration löschen.",
+          "5": "Alle FRGBW71L ausschalten (keine Spannungsversorgung). <br>Oberen Drehschalter an allen FRGBW71L auf 1 drehen. <br>Mittleren Drehschalter an allen FRGBW71L auf min drehen. <br>Unteren Drehschalter an allen FRGBW71L auf max drehen.",
+          "6": "Alle FRGBW71L einschalten.",
+          "7": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden.",
+          "8": "Alle FRGBW71L auf die selbe Mindesthelligkeit und Dimmspeed einstellen. Für mehr informationen bitte die Anleitung des FRGBW71L, Abschnitt Master-Slave Betrieb lesen."
         }
       }
     },
