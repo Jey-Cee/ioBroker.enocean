@@ -4,7 +4,7 @@
     "telegram": "4BS",
     "func_number": "0x00",
     "type_number": "0x00",
-    "type_title": "FTRx5HS, FTAFx5D",
+    "type_title": "FTAFx5D",
     "bidirectional": false,
     "case":[
         {
@@ -30,45 +30,6 @@
                     "value": 0
                 },
                 {
-                    "data": "Night reduction",
-                    "shortcut": "NR",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "def": 0,
-                        "unit": "°K"
-                    },
-                    "value_out": {
-                        "if": [
-                            {"==":[0, {"var": "value"}]}, 0,
-                            {"==":[1, {"var": "value"}]}, 6,
-                            {"==":[2, {"var": "value"}]}, 12,
-                            {"==":[3, {"var": "value"}]}, 19,
-                            {"==":[4, {"var": "value"}]}, 25,
-                            {"==":[5, {"var": "value"}]}, 31
-                        ]
-                    }
-                },
-                {
-                    "data": "Temperature",
-                    "shortcut": "TMP",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "iobroker": {
-                        "role": "value.temperature",
-                        "type": "number",
-                        "unit": "°C",
-                        "read": true,
-                        "write": true
-                    },
-                    "value_out": {"+":[{"/":[{"-":[{"var":"value"},0]},-0.1568627450980392]},255]},
-                    "decimals": 2
-                },
-                {
                     "data": "Set point 12...28°C",
                     "shortcut": "SP",
                     "bitoffs": "8",
@@ -83,24 +44,24 @@
                 },
                 {
                     "data": "fixed parameter",
-                    "description": "Not used",
-                    "bitoffs": "24",
-                    "bitsize": "4",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Represents learnbit",
+                    "description": "must be set",
                     "bitoffs": "28",
                     "bitsize": "1",
                     "value": 1
                 },
                 {
-                    "data": "fixed parameter",
-                    "description": "Not used",
-                    "bitoffs": "29",
-                    "bitsize": "3",
-                    "value": 7
+                    "data": "Set point priority",
+                    "shortcut": "SPRI",
+                    "bitoffs": "30",
+                    "bitsize": "1",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "boolean",
+                        "read": true,
+                        "write": true,
+                        "def": true
+                    },
+                    "value_out": {"if":[{"var":"value"},0,1]}
                 }
             ]
         },
@@ -156,7 +117,7 @@
                         "role": "state",
                         "type": "number",
                         "read": true,
-                        "write": true,
+                        "write": false,
                         "def": 0,
                         "unit": "°K"
                     },
@@ -181,7 +142,7 @@
                         "type": "number",
                         "unit": "°C",
                         "read": true,
-                        "write": true
+                        "write": false
                     },
                     "value": {
                         "+": [ { "*": [ { "-": [{"var": "value"}, 255] }, -0.156862745 ]}, 0]
@@ -199,27 +160,6 @@
                         "write": true
                     },
                     "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]}
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Not used",
-                    "bitoffs": "24",
-                    "bitsize": "4",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Represents learnbit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Not used",
-                    "bitoffs": "29",
-                    "bitsize": "3",
-                    "value": 7
                 }
             ]
         }
