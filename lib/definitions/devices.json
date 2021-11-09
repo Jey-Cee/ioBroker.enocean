@@ -67,7 +67,7 @@
       }
     },
     "PTM200": {
-      "EEP": ["F6-02-03"],
+      "EEP": ["F6-02-01"],
       "autocreate": true,
       "teachin_method": "RPS",
       "id_offset": false,
@@ -83,7 +83,7 @@
       }
     },
     "PTM210": {
-      "EEP": ["F6-02-03"],
+      "EEP": ["F6-02-01"],
       "autocreate": true,
       "teachin_method": "RPS",
       "id_offset": false,
@@ -99,7 +99,7 @@
       }
     },
     "PTM215": {
-      "EEP": ["F6-02-03"],
+      "EEP": ["F6-02-01"],
       "autocreate": true,
       "teachin_method": "RPS",
       "id_offset": false,

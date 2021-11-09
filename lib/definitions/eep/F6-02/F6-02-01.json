@@ -1,9 +1,9 @@
 {
-    "eep": "F6-02-03",
+    "eep": "F6-02-01",
     "rorg_number": "0xF6",
     "telegram": "RPS",
     "func_number": "0x02",
-    "type_number": "0x03",
+    "type_number": "0x01",
     "type_title": "Switch",
     "bidirectional": false,
     "case": [
