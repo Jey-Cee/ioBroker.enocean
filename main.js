@@ -348,7 +348,7 @@ class Enocean extends utils.Adapter {
 				respond(EEPList, this);
 				break;
 			case 'autodetect':
-				teachinMethod = {teachinMethod: codes.telegram_type[obj.message.teachin_method], name: obj.message.device, mfr: obj.message.mfr};
+				teachinMethod = {teachinMethod: codes.telegram_type[obj.message.teachin_method], name: obj.message.device, mfr: obj.message.mfr, eep: obj.message.eep};
 				this.setState('gateway.teachin', {val: true, expire: 60});
 				if(teachinMethod.teachinMethod === 'C6'){
 					await this.makeControllerPostmaster();

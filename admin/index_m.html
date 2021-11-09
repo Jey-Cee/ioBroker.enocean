@@ -352,7 +352,7 @@
 
 
 				} else {
-					sendTo(null, 'autodetect', {teachin_method: deviceList[manufacturer][device].teachin_method, device: name, mfr: manufacturer}, (data) => {
+					sendTo(null, 'autodetect', {teachin_method: deviceList[manufacturer][device].teachin_method, device: name, mfr: manufacturer, eep: deviceList[manufacturer][device].EEP}, (data) => {
 						setInterval( () => {
 							getDevices();
 						}, 1000)
