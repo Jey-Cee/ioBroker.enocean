@@ -6,6 +6,19 @@
   "type_number": "0x06",
   "type_title": "Gas Sensor Radon",
   "bidirectional": false,
+  "objects": {
+    "Act": {
+      "type": "state",
+      "common": {
+        "name": "Gas Radon",
+        "role": "value.gas",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "unit": "Bq/m³"
+      }
+    }
+  },
   "case": [
     {
       "send": false,
@@ -15,16 +28,7 @@
         "shortcut": "Act",
         "bitoffs": "0",
         "bitsize": "10",
-        "iobroker": {
-          "role": "value.gas",
-          "type": "number",
-          "read": true,
-          "write": false,
-          "unit": "Bq/m³"
-        },
-        "value": {
-          "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 1 ] }, 0]
-        }
+        "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 1 ] }, 0]}
       }
     ]
   }]

@@ -6,6 +6,9 @@
     "type_number": "0x02",
     "type_title": "Switch",
     "bidirectional": false,
+    "objects": {
+        "preDefined": ["AI", "A0", "BI", "B0"]
+    },
     "case": [
         {
             "send": false,
@@ -29,63 +32,32 @@
                     "shortcut": "AI",
                     "bitoffs": "0",
                     "bitsize": "3",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "==": [{"var": "value"}, 0]
-                    }
+                    "value": {"==": [{"var": "value"}, 0]}
                 },
                 {
                     "data": "Button A0",
                     "shortcut": "A0",
                     "bitoffs": "0",
                     "bitsize": "3",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "==": [{"var": "value"}, 1]
-                    }
+                    "value": {"==": [{"var": "value"}, 1]}
                 },
                 {
                     "data": "Button BI",
                     "shortcut": "BI",
                     "bitoffs": "0",
                     "bitsize": "3",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "==": [{"var":  "value"}, 2]
-                    }
+                    "value": {"==": [{"var":  "value"}, 2]}
                 },
                 {
                     "data": "Button B0",
                     "shortcut": "B0",
                     "bitoffs": "0",
                     "bitsize": "3",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "==": [{"var":  "value"}, 3]
-                    }
+                    "value": {"==": [{"var":  "value"}, 3]}
                 }
             ]
-        },{
+        },
+        {
             "send": false,
             "condition": [{
                     "bitoffs": "3",

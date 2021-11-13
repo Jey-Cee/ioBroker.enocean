@@ -6,6 +6,9 @@
   "type_number": "0x02",
   "type_title": "Temperature and humidity Sensor Range -20°C to +60°C and 0% to 100%",
   "bidirectional": false,
+  "objects": {
+    "preDefined": ["TMP", "HUM"]
+  },
   "case": [
     {
       "send": false,
@@ -22,13 +25,6 @@
           "shortcut": "TMP",
           "bitoffs": "16",
           "bitsize": "8",
-          "iobroker": {
-            "role": "value.temperature",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "unit": "°C"
-          },
           "value": {"+": [{ "*": [{ "-": [{ "var": "value"}, 0 ]}, 0.32 ]}, -20 ]},
           "decimals": 2
         },
@@ -37,31 +33,7 @@
           "shortcut": "HM",
           "bitoffs": "8",
           "bitsize": "8",
-          "iobroker": {
-            "role": "value.humidity",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "unit": "%"
-          },
-          "value": {
-            "+": [
-              {
-                "*": [
-                  {
-                    "-": [
-                      {
-                        "var": "value"
-                      },
-                      0
-                    ]
-                  },
-                  0.4
-                ]
-              },
-              0
-            ]
-          },
+          "value": {"+": [{"*": [{"-": [{"var": "value"}, 0]}, 0.4]}, 0]},
           "decimals": 2
         }
       ]
@@ -81,16 +53,7 @@
           "shortcut": "HM",
           "bitoffs": "8",
           "bitsize": "8",
-          "iobroker": {
-            "role": "value.humidity",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "unit": "%"
-          },
-          "value": {
-            "+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.4 ] }, 0 ]
-          },
+          "value": {"+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.4 ] }, 0 ]},
           "decimals": 2
         }
       ]

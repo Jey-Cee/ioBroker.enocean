@@ -6,6 +6,30 @@
     "type_number": "0x00",
     "type_title": "Window Handle",
     "bidirectional": false,
+    "objects": {
+        "WIN": {
+            "type": "state",
+            "common": {
+                "name": "Window open",
+                "role": "switch",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        "WINT": {
+            "type": "state",
+            "common": {
+                "name": "Window tilt",
+                "role": "switch",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        }
+    },
     "case": [
         {
             "send": false,
@@ -15,30 +39,14 @@
                     "shortcut": "WIN",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                            "!==": [ { "var": "value" }, 240 ]
-                    }
+                    "value": {"!==": [ { "var": "value" }, 240 ]}
                 },
                 {
                     "data": "Window tilt",
                     "shortcut": "WINT",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "===": [ { "var": "value" }, 208 ]
-                    }
+                    "value": {"===": [ { "var": "value" }, 208 ]}
                 }
             ]
         }

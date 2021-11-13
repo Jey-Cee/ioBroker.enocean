@@ -6,6 +6,9 @@
     "type_number": "0x00",
     "type_title": "Brightness sensor 0-100 Lux & 300-30000 Lux",
     "bidirectional": false,
+    "objects": {
+        "preDefined": ["ILL"]
+    },
     "case": [
         {
             "send": false,
@@ -22,13 +25,6 @@
                     "shortcut": "ILL",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "value.brightness",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "unit": "lx"
-                    },
                     "value": { "var": "value" },
                     "decimals": 0
                 }

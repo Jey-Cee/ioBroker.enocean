@@ -6,6 +6,20 @@
   "type_number": "0x06",
   "type_title": "Energy status of device",
   "bidirectional": false,
+  "objects": {
+    "BATT": {
+      "type": "state",
+      "common": {
+        "name": "Battery",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": "0:last message due to power loss. Gasp of death.;"
+      },
+      "native": {}
+    }
+  },
   "case": [
     {
       "send": false,
@@ -15,13 +29,6 @@
           "shortcut": "BATT",
           "bitoffs": "8",
           "bitsize": "8",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": false,
-            "states": "0:last message due to power loss. Gasp of death.;"
-          },
           "value": {"var":"value"}
         }
       ]

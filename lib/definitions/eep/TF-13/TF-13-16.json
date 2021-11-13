@@ -6,6 +6,19 @@
     "type_number": "0x00",
     "type_title": "FKF65 Key Card switch",
     "bidirectional": false,
+    "objects": {
+        "KC": {
+            "type": "state",
+            "common": {
+                "name": "Key Card",
+                "role": "switch",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        }
+    },
     "case": [{
         "send": false,
         "datafield": [
@@ -14,12 +27,6 @@
                 "shortcut": "KC",
                 "bitoffs": "0",
                 "bitsize": "8",
-                "iobroker": {
-                    "role": "switch",
-                    "type": "boolean",
-                    "read": true,
-                    "write": false
-                },
                 "value": {"var": "value"}
             }
         ]

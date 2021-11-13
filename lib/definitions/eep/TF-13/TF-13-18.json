@@ -6,6 +6,20 @@
     "type_number": "0x00",
     "type_title": "Switch",
     "bidirectional": false,
+    "objects": {
+        "CMD": {
+            "type": "state",
+            "common": {
+                "name": "Command",
+                "role": "state",
+                "type": "number",
+                "read": false,
+                "write": true,
+                "states": "0:CH 1 OFF; 1:CH 1 ON; 2:CH 2 OFF; 3:CH 2 ON;"
+            },
+            "native": {}
+        }
+    },
     "case": [
         {
             "send": true,
@@ -22,13 +36,6 @@
                     "shortcut": "CMD",
                     "bitoffs": "0",
                     "bitsize": "3",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": false,
-                        "write": true,
-                        "states": "0:CH 1 OFF; 1:CH 1 ON; 2:CH 2 OFF; 3:CH 2 ON;"
-                    },
                     "value": 0
                 },
                 {

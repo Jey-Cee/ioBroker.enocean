@@ -6,6 +6,20 @@
   "type_number": "0x01",
   "type_title": "Multi-Func Sensor Window/Door with Supply Voltage monitor",
   "bidirectional": false,
+  "objects": {
+    "preDefined": ["SVC"],
+    "CT": {
+      "type": "state",
+      "common": {
+        "name": "Contact open",
+        "role": "indicator",
+        "type": "boolean",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    }
+  },
   "case": [{
     "send": false,
     "datafield": [
@@ -14,28 +28,13 @@
         "shortcut": "CT",
         "bitoffs": "31",
         "bitsize": "1",
-        "iobroker": {
-          "role": "indicator",
-          "type": "boolean",
-          "read": true,
-          "write": false
-        },
-        "value": {
-          "===": [{"var": "value"}, 0]
-        }
+        "value": {"===": [{"var": "value"}, 0]}
       },
       {
         "data": "Supply Voltage 0...5.0V (Optional)",
         "shortcut": "SVC",
         "bitoffs": "0",
         "bitsize": "8",
-        "iobroker": {
-          "role": "value.battery",
-          "type": "number",
-          "unit": "V",
-          "read": true,
-          "write": false
-        },
         "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.0196078431372549]},0]},
         "decimals": 2
       }

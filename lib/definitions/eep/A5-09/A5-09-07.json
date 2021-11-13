@@ -6,6 +6,44 @@
   "type_number": "0x07",
   "type_title": "Gas Sensor Particles",
   "bidirectional": false,
+  "objects": {
+    "PM10": {
+      "type": "state",
+      "common": {
+        "name": "Dust less than 10µm",
+        "role": "value.gas",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "unit": "µg/m³"
+      },
+      "native": {}
+    },
+    "PM2_5": {
+      "type": "state",
+      "common": {
+        "name": "Dust less than 2.5µm",
+        "role": "value.gas",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "unit": "µg/m³"
+      },
+      "native": {}
+    },
+    "PM1": {
+      "type": "state",
+      "common": {
+        "name": "Dust less than 1µm",
+        "role": "value.gas",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "unit": "µg/m³"
+      },
+      "native": {}
+    }
+  },
   "case":[
     {
       "send": false,
@@ -22,16 +60,7 @@
           "shortcut": "PM10",
           "bitoffs": "0",
           "bitsize": "9",
-          "iobroker": {
-            "role": "value.gas",
-            "type": "number",
-            "read": true,
-            "write": false,
-            "unit": "µg/m³"
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": {"var": "value"}
         }
       ]
     },
@@ -50,16 +79,7 @@
           "shortcut": "PM2_5",
           "bitoffs": "9",
           "bitsize": "9",
-          "iobroker": {
-            "role": "value.gas",
-            "type": "number",
-            "read": true,
-            "write": false,
-            "unit": "µg/m³"
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": {"var": "value"}
         }
       ]
     },
@@ -78,16 +98,7 @@
           "shortcut": "PM1",
           "bitoffs": "18",
           "bitsize": "9",
-          "iobroker": {
-            "role": "value.gas",
-            "type": "number",
-            "read": true,
-            "write": false,
-            "unit": "µg/m³"
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": {"var": "value"}
         }
       ]
     }

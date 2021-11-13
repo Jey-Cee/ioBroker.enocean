@@ -6,6 +6,21 @@
     "type_number": "0x00",
     "type_title": "Dimmer status",
     "bidirectional": false,
+    "objects": {
+        "preDefined": ["ON"],
+        "LVL": {
+            "type": "state",
+            "common": {
+                "name": "Level",
+                "role": "level.dimmer",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "unit": "%"
+            },
+            "native": {}
+        }
+    },
     "case": [
         {
             "send": false,
@@ -15,31 +30,14 @@
                     "shortcut": "LVL",
                     "bitoffs": "8",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "level.dimmer",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "unit": "%"
-                    },
-                    "value": {
-                            "var": "value"
-                    }
+                    "value": {"var": "value"}
                 },
                 {
                     "data": "On",
                     "shortcut": "ON",
                     "bitoffs": "24",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": true
-                    },
-                    "value": {
-                        "===": [ { "var": "value" }, 9 ]
-                    }
+                    "value": {"===": [ { "var": "value" }, 9 ]}
                 }
             ]
         }

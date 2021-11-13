@@ -6,6 +6,53 @@
     "type_number": "0x03",
     "type_title": "Switch",
     "bidirectional": false,
+    "objects": {
+        "preDefined": ["AI", "A0", "BI", "B0"],
+        "A0B0": {
+            "type": "state",
+            "common": {
+                "name": "Button A0 + B0",
+                "role": "switch",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        "AIBI": {
+            "type": "state",
+            "common": {
+                "name": "Button AI + BI",
+                "role": "switch",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        "A0BI": {
+            "type": "state",
+            "common": {
+                "name": "Button A0 + BI",
+                "role": "switch",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        "AIB0": {
+            "type": "state",
+            "common": {
+                "name": "Button AI + B0",
+                "role": "switch",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        }
+    },
     "case": [
         {
             "send": false,
@@ -37,60 +84,28 @@
                     "shortcut": "AI",
                     "bitoffs": "0",
                     "bitsize": "3",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "==": [{"var": "value"}, 0]
-                    }
+                    "value": {"==": [{"var": "value"}, 0]}
                 },
                 {
                     "data": "Button A0",
                     "shortcut": "A0",
                     "bitoffs": "0",
                     "bitsize": "3",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "==": [{"var": "value"}, 1]
-                    }
+                    "value": {"==": [{"var": "value"}, 1]}
                 },
                 {
                     "data": "Button BI",
                     "shortcut": "BI",
                     "bitoffs": "0",
                     "bitsize": "3",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "==": [{"var":  "value"}, 2]
-                    }
+                    "value": {"==": [{"var":  "value"}, 2]}
                 },
                 {
                     "data": "Button B0",
                     "shortcut": "B0",
                     "bitoffs": "0",
                     "bitsize": "3",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "==": [{"var":  "value"}, 3]
-                    }
+                    "value": {"==": [{"var":  "value"}, 3]}
                 }
             ]
         },
@@ -123,12 +138,6 @@
                     "shortcut": "A0B0",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
                     "value": true
                 }
             ]
@@ -162,12 +171,6 @@
                     "shortcut": "AIBI",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
                     "value": true
                 }
             ]
@@ -201,12 +204,6 @@
                     "shortcut": "A0BI",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
                     "value": true
                 }
             ]
@@ -240,12 +237,6 @@
                     "shortcut": "AIB0",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
                     "value": true
                 }
             ]

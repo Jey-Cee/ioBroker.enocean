@@ -6,6 +6,44 @@
     "type_number": "0x01",
     "type_title": "Autmoated Meter Reading (AMR) Electricity",
     "bidirectional": false,
+    "objects": {
+        "MR": {
+            "type": "state",
+            "common": {
+                "name": "Meter reading",
+                "role": "value.power.consumption",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "def": 0
+            },
+            "native": {}
+        },
+        "TI": {
+            "type": "state",
+            "common": {
+                "name": "Tariff info",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "def": 0
+            },
+            "native": {}
+        },
+        "PC": {
+            "type": "state",
+            "common": {
+                "name": "Power consumption",
+                "role": "value.power",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "def": 0
+            },
+            "native": {}
+        }
+    },
     "case": [
         {
             "send": false,
@@ -24,13 +62,6 @@
                 "shortcut": "MR",
                 "bitoffs": "0",
                 "bitsize": "24",
-                "iobroker": {
-                    "role": "value.power.consumption",
-                    "type": "number",
-                    "read": true,
-                    "write": false,
-                    "def": 0
-                },
                 "secondArgument": {
                     "bitoffs": "30",
                     "bitsize": "2"
@@ -50,16 +81,7 @@
                 "shortcut": "TI",
                 "bitoffs": "24",
                 "bitsize": "4",
-                "iobroker": {
-                    "role": "state",
-                    "type": "number",
-                    "read": true,
-                    "write": false,
-                    "def": 0
-                },
-                "value": {
-                    "var": "value"
-                }
+                "value": {"var": "value"}
             }
         ]
     },
@@ -80,13 +102,6 @@
                     "shortcut": "PC",
                     "bitoffs": "0",
                     "bitsize": "24",
-                    "iobroker": {
-                        "role": "value.power",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "def": 0
-                    },
                     "secondArgument": {
                         "bitoffs": "30",
                         "bitsize": "2"
@@ -106,16 +121,7 @@
                     "shortcut": "TI",
                     "bitoffs": "24",
                     "bitsize": "4",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "def": 0
-                    },
-                    "value": {
-                        "var": "value"
-                    }
+                    "value": {"var": "value"}
                 }
             ]
         }

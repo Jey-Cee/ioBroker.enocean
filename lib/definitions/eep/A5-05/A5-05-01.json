@@ -6,6 +6,32 @@
   "type_number": "0x01",
   "type_title": "Barometric Sensor Range 500 to 1150 hPa",
   "bidirectional": false,
+  "objects": {
+    "BAR": {
+      "type": "state",
+      "common": {
+        "name": "Barometer",
+        "role": "value.pressure",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "unit": "hPa"
+      },
+      "native": {}
+    },
+    "TTP": {
+      "type": "state",
+      "common": {
+        "name": "Telegram Type",
+        "role": "indicator",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": "0: Heartbeat; 1: Event triggered"
+      },
+      "native": {}
+    }
+  },
   "case": [{
     "send": false,
     "datafield": [
@@ -14,16 +40,7 @@
         "shortcut": "BAR",
         "bitoffs": "6",
         "bitsize": "10",
-        "iobroker": {
-          "role": "value.pressure",
-          "type": "number",
-          "read": true,
-          "write": false,
-          "unit": "hPa"
-        },
-        "value": {
-          "+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.63539 ] }, 500]
-        },
+        "value": {"+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.63539 ] }, 500]},
         "decimals": 2
       },
       {
@@ -31,16 +48,7 @@
         "shortcut": "TTP",
         "bitoffs": "31",
         "bitsize": "1",
-        "iobroker": {
-          "role": "indicator",
-          "type": "number",
-          "read": true,
-          "write": false,
-          "states": "0: Heartbeat; 1: Event triggered"
-        },
-        "value": {
-          "var": "value"
-        }
+        "value": {"var": "value"}
       }
     ]
   }]

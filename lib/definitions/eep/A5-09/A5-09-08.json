@@ -6,6 +6,9 @@
   "type_number": "0x08",
   "type_title": "Gas Sensor Pure CO2-Sensor",
   "bidirectional": false,
+  "objects": {
+    "preDefined": ["CO2"]
+  },
   "case":[
     {
       "send": false,
@@ -15,16 +18,7 @@
         "shortcut": "CO2",
         "bitoffs": "16",
         "bitsize": "8",
-        "iobroker": {
-          "role": "value.gas",
-          "type": "number",
-          "read": true,
-          "write": false,
-          "unit": "ppm"
-        },
-        "value": {
-          "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 7.8431 ] }, 0]
-        }
+        "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 7.8431 ] }, 0]}
       }
     ]
   }]

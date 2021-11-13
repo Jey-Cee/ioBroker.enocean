@@ -6,6 +6,56 @@
     "type_number": "0x00",
     "type_title": "Rollershutter state",
     "bidirectional": false,
+    "objects": {
+        "TOP": {
+            "type": "state",
+            "common": {
+                "name": "Top end position",
+                "role": "switch",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        "BOT": {
+            "type": "state",
+            "common": {
+                "name": "Bottom end position",
+                "role": "switch",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        "UP": {
+            "type": "state",
+            "common": {
+                "name": "Move up",
+                "role": "switch",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        "DO": {
+            "type": "state",
+            "common": {
+                "name": "Move down",
+                "role": "switch",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        }
+    },
     "case": [
         {
             "send": false,
@@ -15,64 +65,28 @@
                     "shortcut": "TOP",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false,
-                        "def": false
-                    },
-                    "value": {
-                            "==": [ { "var": "value" }, 112 ]
-                    }
+                    "value": {"==": [ { "var": "value" }, 112 ]}
                 },
                 {
                     "data": "Bottom end position",
                     "shortcut": "BOT",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false,
-                        "def": false
-                    },
-                    "value": {
-                        "==": [ { "var": "value" }, 80 ]
-                    }
+                    "value": {"==": [ { "var": "value" }, 80 ]}
                 },
                 {
                     "data": "Move up",
                     "shortcut": "UP",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false,
-                        "def": false
-                    },
-                    "value": {
-                        "==": [ { "var": "value" }, 1 ]
-                    }
+                    "value": {"==": [ { "var": "value" }, 1 ]}
                 },
                 {
                     "data": "Move down",
                     "shortcut": "DO",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false,
-                        "def": false
-                    },
-                    "value": {
-                        "==": [ { "var": "value" }, 2 ]
-                    }
+                    "value": {"==": [ { "var": "value" }, 2 ]}
                 }
             ]
         }

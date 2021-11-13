@@ -6,6 +6,95 @@
     "type_number": "0x00",
     "type_title": "PSC 152 Blind control and status",
     "bidirectional": false,
+    "objects": {
+        "preDefined": ["POS"],
+        "CMD": {
+            "type": "state",
+            "common": {
+                "name": "Command",
+                "role": "state",
+                "type": "number",
+                "read": false,
+                "write": true,
+                "states": "0:Open; 1:Close; 2:Stop; 3:Goto position; 4:Status request; 5:Teach-in"
+            },
+            "native": {}
+        },
+        "AN": {
+            "type": "state",
+            "common": {
+                "name": "Angle",
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "unit": "°",
+                "min": 0,
+                "max": 180,
+                "def": 0
+            },
+            "native": {}
+        },
+        "ES": {
+            "type": "state",
+            "common": {
+                "name": "Error state",
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": "0:No Error; 1:End positions are not configured; 2:Internal failure; 3:Not used;"
+            },
+            "native": {}
+        },
+        "EP": {
+            "type": "state",
+            "common": {
+                "name": "End-position",
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": "0:No End-position available; 1:No End-position reached; 2:Blind fully open; 3:Blind fully closed;"
+            },
+            "native": {}
+        },
+        "ST": {
+            "type": "state",
+            "common": {
+                "name": "Status",
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": "0:No Status available; 1:Blind is stopped; 2:Blind opens; 3:Blind closes;"
+            },
+            "native": {}
+        },
+        "SM": {
+            "type": "state",
+            "common": {
+                "name": "Service mode active",
+                "role": "value",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        "MOTP": {
+            "type": "state",
+            "common": {
+                "name": "Mode of the position",
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": "0:Normal mode: 0% fully open; 1:Inverse mode: 0% fully closed;"
+            },
+            "native": {}
+        }
+    },
     "case":[
         {
         "send": true,
@@ -17,18 +106,6 @@
             ]
         },
         "datafield": [
-            {
-                "data": "Command ID",
-                "shortcut": "CMD",
-                "iobroker": {
-                    "role": "state",
-                    "type": "number",
-                    "read": false,
-                    "write": true,
-                    "states": "0:Open; 1:Close; 2:Stop; 3:Goto position; 4:Status request; 5:Teach-in"
-                },
-                "value": {"var":"value"}
-            },
             {
                 "data": "fixed parameter",
                 "description": "CMD 0x07",
@@ -224,16 +301,6 @@
                     "shortcut": "POS",
                     "bitoffs": "8",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "level.blind",
-                        "type": "number",
-                        "unit": "%",
-                        "read": false,
-                        "write": true,
-                        "min": 0,
-                        "max": 100,
-                        "def": 0
-                    },
                     "value": {"var":"value"}
                 },
                 {
@@ -241,16 +308,6 @@
                     "shortcut": "AN",
                     "bitoffs": "16",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "value",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "unit": "°",
-                        "min": 0,
-                        "max": 180,
-                        "def": 0
-                    },
                     "value": {"+":[{"*":[{"-":[{"var":"value"},0]},2]},0]}
                 },
                 {
@@ -385,13 +442,6 @@
                     "shortcut": "POS",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "value",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "unit": "%"
-                    },
                     "value": {"var": "value"}
                 },
                 {
@@ -399,13 +449,6 @@
                     "shortcut": "AN",
                     "bitoffs": "9",
                     "bitsize": "7",
-                    "iobroker": {
-                        "role": "value",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "unit": "°"
-                    },
                     "value": {"+":[{"*":[{"-":[{"var":"value"},0]},2]},0]}
                 },
                 {
@@ -413,13 +456,6 @@
                     "shortcut": "ES",
                     "bitoffs": "18",
                     "bitsize": "2",
-                    "iobroker": {
-                        "role": "value",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "states": "0:No Error; 1:End positions are not configured; 2:Internal failure; 3:Not used;"
-                    },
                     "value": {"var": "value"}
                 },
                 {
@@ -427,13 +463,6 @@
                     "shortcut": "EP",
                     "bitoffs": "20",
                     "bitsize": "2",
-                    "iobroker": {
-                        "role": "value",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "states": "0:No End-position available; 1:No End-position reached; 2:Blind fully open; 3:Blind fully closed;"
-                    },
                     "value": {"var": "value"}
                 },
                 {
@@ -441,13 +470,6 @@
                     "shortcut": "ST",
                     "bitoffs": "22",
                     "bitsize": "2",
-                    "iobroker": {
-                        "role": "value",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "states": "0:No Status available; 1:Blind is stopped; 2:Blind opens; 3:Blind closes;"
-                    },
                     "value": {"var": "value"}
                 },
                 {
@@ -455,12 +477,6 @@
                     "shortcut": "SM",
                     "bitoffs": "24",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "value",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
                     "value": {"==": [{"var": "value"}, 1]}
                 },
                 {
@@ -468,13 +484,6 @@
                     "shortcut": "MOTP",
                     "bitoffs": "25",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "value",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "states": "0:Normal mode: 0% fully open; 1:Inverse mode: 0% fully closed;"
-                    },
                     "value": {"var": "value"}
                 }
             ]

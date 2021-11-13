@@ -6,6 +6,31 @@
     "type_number": "0x20",
     "type_title": "Room Operating Panel",
     "bidirectional": false,
+    "objects": {
+        "preDefined": ["TMP", "SP"],
+        "BATT": {
+            "type": "state",
+            "common": {
+                "name": "Battery Low",
+                "role": "indicator.lowbat",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        "ACT": {
+            "type": "state",
+            "common": {
+                "name": "User interaction",
+                "role": "indicator",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        }
+    },
     "case": [{
         "send": false,
         "datafield": [
@@ -14,67 +39,29 @@
                 "shortcut": "TMP",
                 "bitoffs": "16",
                 "bitsize": "8",
-                "iobroker": {
-                    "role": "value.temperature",
-                    "type": "number",
-                    "unit": "°C",
-                    "read": true,
-                    "write": false
-                },
-                "value": {
-                    "+": [{
-                    "*": [
-                        { "-": [{"var": "value"}, 0] },
-                        0.16
-                    ]}, 0]
-                },
+                "value": {"+": [{"*": [{ "-": [{"var": "value"}, 0] }, 0.16]}, 0]},
                 "decimals": 2
             },
             {
                 "data": "Set point",
                 "shortcut": "SP",
-                "description": "Set point (linear) Min.-...Max+",
                 "bitoffs": "0",
                 "bitsize": "8",
-                "iobroker": {
-                    "role": "value",
-                    "type": "number",
-                    "read": true,
-                    "write": false
-                },
-                "value": {
-                    "var":  "value"
-                }
+                "value": {"var":  "value"}
             },
             {
                 "data": "Battery Low",
                 "shortcut": "BATT",
                 "bitoffs": "27",
                 "bitsize": "1",
-                "iobroker": {
-                    "role": "indicator.lowbat",
-                    "type": "boolean",
-                    "read": true,
-                    "write": false
-                },
-                "value": {
-                    "==": [{"var": "value"}, 1]
-                }
+                "value": {"==": [{"var": "value"}, 1]}
             },
             {
                 "data": "User interaction",
                 "shortcut": "ACT",
                 "bitoffs": "31",
                 "bitsize": "1",
-                "iobroker": {
-                    "role": "indicator",
-                    "type": "boolean",
-                    "read": true,
-                    "write": false
-                },
-                "value": {
-                    "==": [{"var": "value"}, 1]
-                }
+                "value": {"==": [{"var": "value"}, 1]}
             }
         ]
     }]

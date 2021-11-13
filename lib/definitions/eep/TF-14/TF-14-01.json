@@ -6,6 +6,33 @@
   "type_number": "0x08",
   "type_title": "Actuator channel",
   "bidirectional": true,
+  "objects": {
+    "CMD": {
+      "type": "state",
+      "common": {
+        "name": "Command",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": "0:Off; 1: On; 2:Teach-in"
+      },
+      "native": {}
+    },
+    "BS": {
+      "type": "state",
+      "common": {
+        "name": "Block channel state",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": "0:Not Blocked; 1:Blocked",
+        "def": 0
+      },
+      "native": {}
+    }
+  },
   "case": [
     {
       "send": false,
@@ -15,13 +42,6 @@
           "shortcut": "CMD",
           "bitoffs": "0",
           "bitsize": "8",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "0:Off; 1: On; 2:Teach-in"
-          },
           "value": 1
         },
         {
@@ -29,14 +49,6 @@
           "shortcut": "BS",
           "bitoffs": "29",
           "bitsize": "1",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "0:Not Blocked; 1:Blocked",
-            "def": 0
-          },
           "value": {"var":  "value"}
         }
       ]

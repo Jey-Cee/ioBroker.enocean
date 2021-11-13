@@ -6,6 +6,9 @@
   "type_number": "0x20",
   "type_title": "10 Bit Temperature Sensor Range -10°C to +41.2°C",
   "bidirectional": false,
+  "objects": {
+    "preDefined": ["TMP"]
+  },
   "case": [
     {
       "send": false,
@@ -15,13 +18,6 @@
         "shortcut": "TMP",
         "bitoffs": "14",
         "bitsize": "10",
-        "iobroker": {
-          "role": "value.temperature",
-          "type": "number",
-          "read": true,
-          "write": true,
-          "unit": "°C"
-        },
         "value": {
           "+": [ { "*": [ { "-": [ { "var": "value" }, -1023 ] }, -0.05005 ] }, -10 ]
         },

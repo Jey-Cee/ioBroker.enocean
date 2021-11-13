@@ -6,6 +6,18 @@
     "type_number": "0x00",
     "type_title": "TF-TTB",
     "bidirectional": false,
+    "objects": {
+        "BTN": {
+            "type": "state",
+            "common": {
+                "role": "switch",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        }
+    },
     "case": [
         {
             "send": false,
@@ -20,16 +32,11 @@
                     "shortcut": "BTN",
                     "bitoffs": "0",
                     "bitsize": "3",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
                     "value": true
                 }
             ]
-        },{
+        },
+        {
             "send": false,
             "condition": [{
                     "bitoffs": "3",

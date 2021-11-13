@@ -6,6 +6,20 @@
     "type_number": "0x00",
     "type_title": "Relais contact",
     "bidirectional": false,
+    "objects": {
+        "RO": {
+            "type": "state",
+            "common": {
+                "name": "Relais on",
+                "role": "switch",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def":  false
+            },
+            "native": {}
+        }
+    },
     "case": [
         {
             "send": false,
@@ -15,16 +29,7 @@
                     "shortcut": "RO",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false,
-                        "def":  false
-                    },
-                    "value": {
-                            "===": [ { "var": "value" }, 112 ]
-                    }
+                    "value": {"===": [ { "var": "value" }, 112 ]}
                 }
             ]
         }

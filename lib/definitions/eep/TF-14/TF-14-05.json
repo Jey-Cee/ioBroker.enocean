@@ -6,6 +6,33 @@
   "type_number": "0x06",
   "type_title": "F4HK14 Heating/Cooling actuator",
   "bidirectional": true,
+  "objects": {
+    "preDefined": ["SP"],
+    "CMD": {
+      "type": "state",
+      "common": {
+        "name": "Command",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": "0:Send data; 1: Teach-in"
+      },
+      "native": {}
+    },
+    "PRI": {
+      "type": "state",
+      "common": {
+        "name": "Priority",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": "8:ioBroker only; 10:Set point +/-3K form any other controller are accepted; 13:New set point from any controller are accepted;"
+      },
+      "native": {}
+    }
+  },
   "case": [
     {
       "send": true,
@@ -19,18 +46,6 @@
         ]
       },
       "datafield": [
-          {
-            "data": "Command ID",
-            "shortcut": "CMD",
-            "iobroker": {
-              "role": "state",
-              "type": "number",
-              "read": true,
-              "write": true,
-              "states": "0:Send data; 1: Teach-in"
-            },
-            "value": 0
-          },
         {
           "data": "fixed parameter",
           "description": "Not used",
@@ -43,13 +58,6 @@
           "shortcut": "SP",
           "bitoffs": "8",
           "bitsize": "8",
-          "iobroker": {
-            "role": "value",
-            "type": "number",
-            "read": true,
-            "write": false,
-            "unit": "°C"
-          },
           "value_out": {"/":[{"-":[{"+":[{"var":"value"},0]},0]},0.1568627450980392]}
         },
         {
@@ -64,13 +72,6 @@
           "shortcut": "PRI",
           "bitoffs": "24",
           "bitsize": "8",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "8:ioBroker only; 10:Set point +/-3K form any other controller are accepted; 13:New set point from any controller are accepted;"
-          },
           "value": {"var": "value"}
         },
         {

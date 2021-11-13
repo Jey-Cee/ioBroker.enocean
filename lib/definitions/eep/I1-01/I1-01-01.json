@@ -6,6 +6,58 @@
   "type_number": "0x08",
   "type_title": "Switching",
   "bidirectional": false,
+  "objects": {
+    "CMD": {
+      "type": "state",
+      "common": {
+        "name": "Command",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": "0:Off; 1:On; 2:Teach-in"
+      },
+      "native": {}
+    },
+    "TIM": {
+      "type": "state",
+      "common": {
+        "name": "Time",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "def": 0,
+        "min": 0,
+        "max": 6553.5,
+        "unit": "s"
+      },
+      "native": {}
+    },
+    "LCK": {
+      "type": "state",
+      "common": {
+        "name": "Lock",
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    "DEL": {
+      "type": "state",
+      "common": {
+        "name": "Delay or duration",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": "0:Duration; 1:Delay"
+      },
+      "native": {}
+    }
+  },
   "case": [
     {
       "send": true,
@@ -22,36 +74,15 @@
         "shortcut": "CMD",
         "bitoffs": "0",
         "bitsize": "8",
-        "iobroker": {
-          "role": "state",
-          "type": "number",
-          "read": true,
-          "write": true,
-          "states": "0:Off; 1:On; 2:Teach-in"
-        },
-          "value": 1
+        "value": 1
       },
         {
           "data": "Time",
           "shortcut": "TIM",
           "bitoffs": "8",
           "bitsize": "16",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "def": 0,
-            "min": 0,
-            "max": 6553.5,
-            "unit": "s"
-          },
-          "value": {
-            "+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.1 ] }, 0 ]
-          },
-          "value_out": {
-            "/": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0.1 ] }, 0 ]
-          }
+          "value": {"+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.1 ] }, 0 ]},
+          "value_out": {"/": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0.1 ] }, 0 ]}
         },
         {
           "data": "fixed parameter",
@@ -62,40 +93,19 @@
         },
         {
           "data": "Lock",
-          "shortcut": "LCk",
+          "shortcut": "LCK",
           "bitoffs": "29",
           "bitsize": "1",
-          "iobroker": {
-            "role": "state",
-            "type": "boolean",
-            "read": true,
-            "write": true
-          },
-          "value": {
-            "var": "value"
-          },
-          "value_out": {
-            "===": [{"var": "value"}, 1]
-          }
+          "value": {"var": "value"},
+          "value_out": {"===": [{"var": "value"}, 1]}
         },
         {
           "data": "Delay or duration",
           "shortcut": "DEL",
           "bitoffs": "30",
           "bitsize": "1",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "0:Duration; 1:Delay"
-          },
-          "value": {
-            "var": "value"
-          },
-          "value_out": {
-            "===": [{"var": "value"}, 1]
-          }
+          "value": {"var": "value"},
+          "value_out": {"===": [{"var": "value"}, 1]}
         },
         {
           "data": "fixed parameter",
@@ -128,22 +138,8 @@
           "shortcut": "TIM",
           "bitoffs": "8",
           "bitsize": "16",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "def": 0,
-            "min": 0,
-            "max": 6553.5,
-            "unit": "s"
-          },
-          "value": {
-            "+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.1 ] }, 0 ]
-          },
-          "value_out": {
-            "/": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0.1 ] }, 0 ]
-          }
+          "value": {"+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.1 ] }, 0 ]},
+          "value_out": {"/": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0.1 ] }, 0 ]}
         },
         {
           "data": "fixed parameter",
@@ -154,40 +150,19 @@
         },
         {
           "data": "Lock",
-          "shortcut": "LCk",
+          "shortcut": "LCK",
           "bitoffs": "29",
           "bitsize": "1",
-          "iobroker": {
-            "role": "state",
-            "type": "boolean",
-            "read": true,
-            "write": true
-          },
-          "value": {
-            "var": "value"
-          },
-          "value_out": {
-            "===": [{"var": "value"}, 1]
-          }
+          "value": {"var": "value"},
+          "value_out": {"===": [{"var": "value"}, 1]}
         },
         {
           "data": "Delay or duration",
           "shortcut": "DEL",
           "bitoffs": "30",
           "bitsize": "1",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "0:Duration; 1:Delay"
-          },
-          "value": {
-            "var": "value"
-          },
-          "value_out": {
-            "===": [{"var": "value"}, 1]
-          }
+          "value": {"var": "value"},
+          "value_out": {"===": [{"var": "value"}, 1]}
         },
         {
           "data": "fixed parameter",

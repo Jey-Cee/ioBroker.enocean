@@ -6,6 +6,19 @@
     "type_number": "0x00",
     "type_title": "Heating relais mode",
     "bidirectional": false,
+    "objects": {
+        "MO": {
+            "type": "state",
+            "common": {
+                "name": "Mode",
+                "role": "state",
+                "type": "string",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        }
+    },
     "case": [
         {
             "send": false,
@@ -15,12 +28,6 @@
                     "shortcut": "MO",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "string",
-                        "read": true,
-                        "write": false
-                    },
                     "value": {
                         "if": [
                             {"==": [{"var": "value"}, 112]}, "On or Normal mode",

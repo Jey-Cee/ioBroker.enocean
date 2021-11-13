@@ -6,7 +6,11 @@
     "type_number": "0x05",
     "type_title": "Room Operating Panel Temperature, Set point, Occupancy control",
     "bidirectional": false,
-    "case": [{
+    "objects": {
+        "preDefined": ["TMP", "SP", "OCC"]
+    },
+    "case": [
+        {
         "send": false,
         "datafield": [
             {
@@ -14,20 +18,7 @@
                 "shortcut": "TMP",
                 "bitoffs": "16",
                 "bitsize": "8",
-                "iobroker": {
-                    "role": "value.temperature",
-                    "type": "number",
-                    "unit": "°C",
-                    "read": true,
-                    "write": false
-                },
-                "value": {
-                    "+": [{
-                    "*": [
-                        { "-": [{"var": "value"}, 0] },
-                        0.156862745
-                    ]}, 0]
-                },
+                "value": {"+": [{"*": [{ "-": [{"var": "value"}, 0] }, 0.156862745]}, 0]},
                 "decimals": 2
             },
             {
@@ -35,30 +26,14 @@
                 "shortcut": "SP",
                 "bitoffs": "8",
                 "bitsize": "8",
-                "iobroker": {
-                    "role": "value",
-                    "type": "number",
-                    "read": true,
-                    "write": false
-                },
-                "value": {
-                    "var":  "value"
-                }
+                "value": {"var":  "value"}
             },
             {
                 "data": "Occupancy Button pressed",
                 "shortcut": "OCC",
                 "bitoffs": "31",
                 "bitsize": "1",
-                "iobroker": {
-                    "role": "switch",
-                    "type": "boolean",
-                    "read": true,
-                    "write": false
-                },
-                "value": {
-                    "==": [{"var": "value"}, 1]
-                }
+                "value": {"==": [{"var": "value"}, 1]}
             }
         ]
     }]

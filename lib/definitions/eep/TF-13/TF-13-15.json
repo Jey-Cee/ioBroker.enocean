@@ -6,6 +6,19 @@
     "type_number": "0x00",
     "type_title": "Room Operating Panel ON/OFF",
     "bidirectional": false,
+    "objects": {
+        "ST": {
+            "type": "state",
+            "common": {
+                "name": "State",
+                "role": "switch",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        }
+    },
     "case": [{
         "send": false,
         "datafield": [
@@ -14,15 +27,7 @@
                 "shortcut": "ST",
                 "bitoffs": "31",
                 "bitsize": "1",
-                "iobroker": {
-                    "role": "switch",
-                    "type": "boolean",
-                    "read": true,
-                    "write": false
-                },
-                "value": {
-                    "==": [{"var": "value"}, 1]
-                }
+                "value": {"==": [{"var": "value"}, 1]}
             }
         ]
     }]

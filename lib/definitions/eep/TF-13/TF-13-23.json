@@ -6,6 +6,9 @@
     "type_number": "0x00",
     "type_title": "Brightness sensor FAH 300-30000 Lux",
     "bidirectional": false,
+    "objects": {
+        "preDefined": ["SVC", "ILL"]
+    },
     "case": [
         {
             "send": false,
@@ -15,16 +18,7 @@
                     "shortcut": "SVC",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "value.battery",
-                        "type": "number",
-                        "unit": "V",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "+": [{"*":[{"-":[{"var":  "value"}, 0]},0.02]}, 0]
-                    },
+                    "value": {"+": [{"*":[{"-":[{"var":  "value"}, 0]},0.02]}, 0]},
                     "decimals": 2
                 },
                 {
@@ -32,16 +26,7 @@
                     "shortcut": "ILL",
                     "bitoffs": "8",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "value.brightness",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "unit": "lx"
-                    },
-                    "value": {
-                        "+": [{ "*": [{ "-": [{"var": "value"}, 0]}, 116.47058823529412]}, 300]
-                    },
+                    "value": {"+": [{ "*": [{ "-": [{"var": "value"}, 0]}, 116.47058823529412]}, 300]},
                     "decimals": 0
                 }
             ]

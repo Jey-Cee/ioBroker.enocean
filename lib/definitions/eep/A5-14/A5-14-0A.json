@@ -6,6 +6,33 @@
   "type_number": "0x0A",
   "type_title": "Multi-Func Sensor Window/Door with Supply Voltage monitor and Vibration detection",
   "bidirectional": false,
+  "objects": {
+    "preDefined": ["SVC"],
+    "VIB": {
+      "type": "state",
+      "common": {
+        "name": "Vibration",
+        "role": "indicator",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": "0: No vibration; 1: Vibration detected"
+      },
+      "native": {}
+    },
+    "CT": {
+      "type": "state",
+      "common": {
+        "name": "Contact",
+        "role": "indicator",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": "0: Closed; 1: Tilt; 3: Open"
+      },
+      "native": {}
+    }
+  },
   "case": [{
     "send": false,
     "datafield": [
@@ -14,48 +41,21 @@
         "shortcut": "VIB",
         "bitoffs": "31",
         "bitsize": "1",
-        "iobroker": {
-          "role": "indicator",
-          "type": "number",
-          "read": true,
-          "write": false,
-          "states": "0: No vibration; 1: Vibration detected"
-        },
-        "value": {
-          "var": "value"
-        }
+        "value": {"var": "value"}
       },
       {
         "data": "Contact",
         "shortcut": "CT",
         "bitoffs": "29",
         "bitsize": "2",
-        "iobroker": {
-          "role": "indicator",
-          "type": "number",
-          "read": true,
-          "write": false,
-          "states": "0: Closed; 1: Tilt; 3: Open"
-        },
-        "value": {
-          "var": "value"
-        }
+        "value": {"var": "value"}
       },
       {
         "data": "Supply Voltage 0...5.0V (Optional)",
         "shortcut": "SVC",
         "bitoffs": "0",
         "bitsize": "8",
-        "iobroker": {
-          "role": "value.battery",
-          "type": "number",
-          "unit": "V",
-          "read": true,
-          "write": false
-        },
-        "value": {
-          "+": [{"*":[{"-":[{"var":  "value"}, 0 ]}, 0.02 ]}, 0 ]
-        },
+        "value": {"+": [{"*":[{"-":[{"var":  "value"}, 0 ]}, 0.02 ]}, 0 ]},
         "decimals": 2
       }
     ]

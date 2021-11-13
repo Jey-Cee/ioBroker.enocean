@@ -1,16 +1,17 @@
 {
-    "eep": "TF-13-17",
+    "eep": "MV-01-02",
     "rorg_number": "0xF6",
     "telegram": "RPS",
     "func_number": "0x00",
     "type_number": "0x00",
-    "type_title": "2 channel state",
+    "type_title": "Nodon SIN-2-2-01 2 channel state",
     "bidirectional": false,
     "objects": {
-        "CH1": {
+        "preDefined": ["CH1", "CH2"],
+        "CH1.ON": {
             "type": "state",
             "common": {
-                "name": "Channel 1",
+                "name": "ON",
                 "role": "switch",
                 "type": "boolean",
                 "read": true,
@@ -18,10 +19,10 @@
             },
             "native": {}
         },
-        "CH2": {
+        "CH2.ON": {
             "type": "state",
             "common": {
-                "name": "Channel 2",
+                "name": "ON",
                 "role": "switch",
                 "type": "boolean",
                 "read": true,
@@ -40,8 +41,8 @@
             }],
             "datafield": [
                 {
-                    "data": "Channel 1",
-                    "shortcut": "CH1",
+                    "data": "ON",
+                    "shortcut": "CH2.ON",
                     "bitoffs": "0",
                     "bitsize": "8",
                     "value": true
@@ -58,8 +59,8 @@
                 }],
             "datafield": [
                 {
-                    "data": "Channel 1",
-                    "shortcut": "CH1",
+                    "data": "ON",
+                    "shortcut": "CH2.ON",
                     "bitoffs": "0",
                     "bitsize": "8",
                     "value": false
@@ -76,8 +77,8 @@
             }],
             "datafield": [
                 {
-                    "data": "Channel 2",
-                    "shortcut": "CH2",
+                    "data": "ON",
+                    "shortcut": "CH1.ON",
                     "bitoffs": "0",
                     "bitsize": "8",
                     "value": true
@@ -93,8 +94,8 @@
                 }],
             "datafield": [
                 {
-                    "data": "Channel 2",
-                    "shortcut": "CH2",
+                    "data": "ON",
+                    "shortcut": "CH1.ON",
                     "bitoffs": "0",
                     "bitsize": "8",
                     "value": false

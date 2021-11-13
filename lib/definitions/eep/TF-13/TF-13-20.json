@@ -6,6 +6,34 @@
     "type_number": "0x00",
     "type_title": "FTRx5HS, FTAFx5D",
     "bidirectional": false,
+    "objects": {
+        "preDefined": ["TMP", "SP"],
+        "CMD": {
+            "type": "state",
+            "common": {
+                "name": "Command",
+                "role": "state",
+                "type": "number",
+                "read": false,
+                "write": true,
+                "states": "0:Send data; 1:Teach-in"
+            },
+            "native": {}
+        },
+        "NR": {
+            "type": "state",
+            "common": {
+                "name": "Night reduction",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "def": 0,
+                "unit": "°K"
+            },
+            "native": {}
+        }
+    },
     "case":[
         {
             "send": true,
@@ -18,30 +46,10 @@
             },
             "datafield": [
                 {
-                    "data": "Command ID",
-                    "shortcut": "CMD",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": false,
-                        "write": true,
-                        "states": "0:Send data; 1:Teach-in"
-                    },
-                    "value": 0
-                },
-                {
                     "data": "Night reduction",
                     "shortcut": "NR",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "def": 0,
-                        "unit": "°K"
-                    },
                     "value_out": {
                         "if": [
                             {"==":[0, {"var": "value"}]}, 0,
@@ -58,13 +66,6 @@
                     "shortcut": "TMP",
                     "bitoffs": "16",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "value.temperature",
-                        "type": "number",
-                        "unit": "°C",
-                        "read": true,
-                        "write": true
-                    },
                     "value_out": {"+":[{"/":[{"-":[{"var":"value"},0]},-0.1568627450980392]},255]},
                     "decimals": 2
                 },
@@ -73,12 +74,6 @@
                     "shortcut": "SP",
                     "bitoffs": "8",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "value",
-                        "type": "number",
-                        "read": true,
-                        "write": true
-                    },
                     "value_out": {"+":[{"/":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]}
                 },
                 {
@@ -152,14 +147,6 @@
                     "shortcut": "NR",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "def": 0,
-                        "unit": "°K"
-                    },
                     "value": {
                         "if": [
                             {"==":[0, {"var": "value"}]}, 0,
@@ -176,28 +163,13 @@
                     "shortcut": "TMP",
                     "bitoffs": "16",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "value.temperature",
-                        "type": "number",
-                        "unit": "°C",
-                        "read": true,
-                        "write": true
-                    },
-                    "value": {
-                        "+": [ { "*": [ { "-": [{"var": "value"}, 255] }, -0.156862745 ]}, 0]
-                    }
+                    "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 255] }, -0.156862745 ]}, 0]}
                 },
                 {
                     "data": "Set point 12...28°C",
                     "shortcut": "SP",
                     "bitoffs": "8",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "value",
-                        "type": "number",
-                        "read": true,
-                        "write": true
-                    },
                     "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]}
                 },
                 {

@@ -6,6 +6,259 @@
     "type_number": "0x08",
     "type_title": "Central Command - Gateway",
     "bidirectional": true,
+    "objects": {
+        "CMD": {
+            "type": "state",
+            "common": {
+                "name": "Command",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "states": "1:Switching; 2:Dimming; 3:Setpoint shift; 4:Basic Setpoint; 5:Control variable; 6:Fan stage; 7:Blind Central Command"
+            },
+            "native": {}
+        },
+        "switching": {
+            "type": "channel",
+            "common": {
+                "name": "Switching"
+            }
+        },
+        "switching.TIM": {
+            "type": "state",
+            "common": {
+                "name": "Time",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "unit": "s",
+                "min": 0,
+                "max": 6553.5,
+                "def": 0
+            },
+            "native": {}
+        },
+        "swtiching.LCK": {
+            "type": "state",
+            "common": {
+                "name": "Lock",
+                "role": "state",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        "switching.DEL": {
+            "type": "state",
+            "common": {
+                "name": "Delay or duration",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": "0:Duration; 1:Delay",
+                "def": 0
+            },
+            "native": {}
+        },
+        "switching.SW": {
+            "type": "state",
+            "common": {
+                "name": "ON",
+                "role": "state",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        "dimming": {
+            "type": "channel",
+            "common": {
+                "name": "Dimming"
+            }
+        },
+        "dimming.EDIM": {
+            "type": "state",
+            "common": {
+                "name": "Dimming value",
+                "role": "level.dimmer",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "unit": "%",
+                "min": 0,
+                "max": 100,
+                "def": 0
+            },
+            "native": {}
+        },
+        "dimming.RMP": {
+            "type": "state",
+            "common": {
+                "name": "Ramping time",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "unit": "s",
+                "min": 0,
+                "max": 255,
+                "def": 0
+            },
+            "native": {}
+        },
+        "dimming.EDIMR": {
+            "type": "state",
+            "common": {
+                "name": "Dimming Range",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": "0:Absolute; 1:Relative",
+                "def": 0
+            },
+            "native": {}
+        },
+        "dimming.STR": {
+            "type": "state",
+            "common": {
+                "name": "Store final value",
+                "role": "state",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        "dimming.SW": {
+            "type": "state",
+            "common": {
+                "name": "ON",
+                "role": "state",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        "setpoint": {
+            "type": "channel",
+            "common": {
+                "name": "Setpoint"
+            }
+        },
+        "setpoint.SP": {
+            "type": "state",
+            "common": {
+                "name": "Set point shift",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "unit": "K",
+                "min": -12.7,
+                "max": 12.8,
+                "def": 0
+            },
+            "native": {}
+        },
+        "setpoint.BSP": {
+            "type": "state",
+            "common": {
+                "name": "Basic Setpoint",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "unit": "°C",
+                "min": 0,
+                "max": 51.2,
+                "def": 1
+            }
+        },
+        "control_variable": {
+            "type": "channel",
+            "common": {
+                "name": "Control variable override"
+            }
+        },
+        "control_variable.CVOV": {
+            "type": "state",
+            "common": {
+                "name": "Control variable override",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "unit": "%",
+                "min": 0,
+                "max": 100,
+                "def": 0
+            },
+            "native": {}
+        },
+        "control_variable.CM": {
+            "type": "state",
+            "common": {
+                "name": "Controller mode",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": "0:Automatic mode; 1:Heating; 2:Cooling; 3:Off",
+                "def": 0
+            },
+            "native": {}
+        },
+        "control_variable.CS": {
+            "type": "state",
+            "common": {
+                "name": "Controller state",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": "0:Automatic; 1:Override",
+                "def": 0
+            },
+            "native": {}
+        },
+        "control_variable.ENHO": {
+            "type": "state",
+            "common": {
+                "name": "Energy Hold off",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": "0:Normal; 1:Energy holdoff/Dew point",
+                "def": 0
+            },
+            "native": {}
+        },
+        "control_variable.RMOCC": {
+            "type": "state",
+            "common": {
+                "name": "Room occupancy",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": "0:Occupied; 1:Unoccupied; 2: Standby",
+                "def": 0
+            },
+            "native": {}
+        }
+    },
     "case": [
         {
             "send": true,
@@ -24,32 +277,13 @@
                     "shortcut": "CMD",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "states": "1:Switching; 2:Dimming; 3:Setpoint shift; 4:Basic Setpoint; 5:Control variable; 6:Fan stage; 7:Blind Central Command"
-                    },
-                    "value": {
-                        "var": 1
-                    }
+                    "value": 1
                 },
                 {
                     "data": "Time",
                     "shortcut": "switching.TIM",
                     "bitoffs": "8",
                     "bitsize": "16",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "unit": "s",
-                        "min": 0,
-                        "max": 6553.5,
-                        "def": 0
-                    },
                     "value": {"+":[{"*":[{"-":[{"var":"value"},1]},0.09999999999999999]},0.1]},
                     "decimals": 1
                 },
@@ -65,59 +299,21 @@
                     "shortcut": "switching.LCK",
                     "bitoffs": "29",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false,
-                        "def": false
-                    },
-                    "value": {
-                        "==": [
-                            {
-                                "var": "value"
-                            },
-                            1
-                        ]
-                    }
+                    "value": {"==": [{"var": "value"}, 1]}
                 },
                 {
                     "data": "Delay or duration",
                     "shortcut": "switching.DEL",
                     "bitoffs": "30",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "states": "0:Duration; 1:Delay",
-                        "def": 0
-                    },
-                    "value": {
-                        "var": "value"
-                    }
+                    "value": {"var": "value"}
                 },
                 {
                     "data": "ON",
                     "shortcut": "switching.SW",
                     "bitoffs": "31",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false,
-                        "def": false
-                    },
-                    "value": {
-                        "==": [
-                            {
-                                "var": "value"
-                            },
-                            1
-                        ]
-                    }
+                    "value": {"==": [{"var": "value"}, 1]}
                 }
             ]
         },
@@ -138,13 +334,6 @@
                     "shortcut": "CMD",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "states": "1:Switching; 2:Dimming; 3:Setpoint shift; 4:Basic Setpoint; 5:Control variable; 6:Fan stage; 7:Blind Central Command"
-                    },
                     "value": 2
                 },
                 {
@@ -152,16 +341,6 @@
                     "shortcut": "dimming.EDIM",
                     "bitoffs": "8",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "level.dimmer",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "unit": "%",
-                        "min": 0,
-                        "max": 100,
-                        "def": 0
-                    },
                     "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.39215686274509803]},0]},
                     "decimals": 0
                 },
@@ -170,16 +349,6 @@
                     "shortcut": "dimming.RMP",
                     "bitoffs": "16",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "unit": "s",
-                        "min": 0,
-                        "max": 255,
-                        "def": 0
-                    },
                     "value": {"var":"value"},
                     "decimals": 0
                 },
@@ -202,14 +371,6 @@
                     "shortcut": "dimming.EDIMR",
                     "bitoffs": "29",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "states": "0:Absolute; 1:Relative",
-                        "def": 0
-                    },
                     "value": {"var": "value"}
                 },
                 {
@@ -217,42 +378,14 @@
                     "shortcut": "dimming.STR",
                     "bitoffs": "30",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false,
-                        "def": false
-                    },
-                    "value": {
-                        "==": [
-                            {
-                                "var": "value"
-                            },
-                            1
-                        ]
-                    }
+                    "value": {"==": [{"var": "value"}, 1]}
                 },
                 {
                     "data": "ON",
                     "shortcut": "dimming.SW",
                     "bitoffs": "31",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false,
-                        "def": false
-                    },
-                    "value": {
-                        "==": [
-                            {
-                                "var": "value"
-                            },
-                            1
-                        ]
-                    }
+                    "value": {"==": [{"var": "value"}, 1]}
                 }
             ]
         },
@@ -273,13 +406,6 @@
                     "shortcut": "CMD",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "states": "1:Switching; 2:Dimming; 3:Setpoint shift; 4:Basic Setpoint; 5:Control variable; 6:Fan stage; 7:Blind Central Command"
-                    },
                     "value": 3
                 },
                 {
@@ -291,19 +417,9 @@
                 },
                 {
                     "data": "Setpoint shift",
-                    "shortcut": "setpoint_shift.SP",
+                    "shortcut": "setpoint.SP",
                     "bitoffs": "16",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "unit": "K",
-                        "min": -12.7,
-                        "max": 12.8,
-                        "def": 0
-                    },
                     "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.1]},-12.7]},
                     "decimals": 1
                 },
@@ -347,13 +463,6 @@
                     "shortcut": "CMD",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "states": "1:Switching; 2:Dimming; 3:Setpoint shift; 4:Basic Setpoint; 5:Control variable; 6:Fan stage; 7:Blind Central Command"
-                    },
                     "value": 4
                 },
                 {
@@ -365,19 +474,9 @@
                 },
                 {
                     "data": "Basic Setpoint",
-                    "shortcut": "basic_setpoint.BSP",
+                    "shortcut": "setpoint.BSP",
                     "bitoffs": "16",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "unit": "°C",
-                        "min": 0,
-                        "max": 51.2,
-                        "def": 1
-                    },
                     "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.20078431372549022]},0]},
                     "decimals": 1
                 },
@@ -421,13 +520,6 @@
                     "shortcut": "CMD",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "states": "1:Switching; 2:Dimming; 3:Setpoint shift; 4:Basic Setpoint; 5:Control variable; 6:Fan stage; 7:Blind Central Command"
-                    },
                     "value": 5
                 },
                 {
@@ -442,16 +534,6 @@
                     "shortcut": "control_variable.CVOV",
                     "bitoffs": "16",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "unit": "%",
-                        "min": 0,
-                        "max": 100,
-                        "def": 0
-                    },
                     "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.39215686274509803]},0]},
                     "decimals": 0
                 },
@@ -467,34 +549,14 @@
                     "shortcut": "control_variable.CM",
                     "bitoffs": "25",
                     "bitsize": "2",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "states": "0:Automatic mode; 1:Heating; 2:Cooling; 3:Off",
-                        "def": 0
-                    },
-                    "value": {
-                        "var": "value"
-                    }
+                    "value": {"var": "value"}
                 },
                 {
                     "data": "Controller state",
                     "shortcut": "control_variable.CS",
                     "bitoffs": "27",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "states": "0:Automatic; 1:Override",
-                        "def": 0
-                    },
-                    "value": {
-                        "var": "value"
-                    }
+                    "value": {"var": "value"}
                 },
                 {
                     "data": "fixed parameter",
@@ -508,34 +570,14 @@
                     "shortcut": "control_variable.ENHO",
                     "bitoffs": "29",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "states": "0:Normal; 1:Energy holdoff/Dew point",
-                        "def": 0
-                    },
-                    "value": {
-                        "var": "value"
-                    }
+                    "value": {"var": "value"}
                 },
                 {
                     "data": "Room occupancy",
                     "shortcut": "control_variable.RMOCC",
                     "bitoffs": "30",
                     "bitsize": "2",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "states": "0:Occupied; 1:Unoccupied; 2: Standby",
-                        "def": 0
-                    },
-                    "value": {
-                        "var": "value"
-                    }
+                    "value": {"var": "value"}
                 }
             ]
         },
@@ -556,13 +598,6 @@
                     "shortcut": "CMD",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "states": "1:Switching; 2:Dimming; 3:Setpoint shift; 4:Basic Setpoint; 5:Control variable; 6:Fan stage; 7:Blind Central Command"
-                    },
                     "value": 6
                 }
             ]

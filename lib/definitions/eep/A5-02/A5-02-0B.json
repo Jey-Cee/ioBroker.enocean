@@ -6,6 +6,9 @@
   "type_number": "0x0B",
   "type_title": "Temperature Sensor Range +60°C to +100°C",
   "bidirectional": false,
+  "objects": {
+    "preDefined": ["TMP"]
+  },
   "case": [
     {
       "send": false,
@@ -15,13 +18,6 @@
           "shortcut": "TMP",
           "bitoffs": "16",
           "bitsize": "8",
-          "iobroker": {
-            "role": "value.temperature",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "unit": "°C"
-          },
           "value": {
             "+": [ { "*": [ { "-": [ { "var": "value" }, -255 ] }, -0.1569  ] }, 60 ]
           },

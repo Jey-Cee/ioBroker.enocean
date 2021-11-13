@@ -6,6 +6,19 @@
     "type_number": "0x01",
     "type_title": "Key Card switch",
     "bidirectional": false,
+    "objects": {
+        "KC": {
+            "type": "state",
+            "common": {
+                "name": "Key Card",
+                "role": "switch",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        }
+    },
     "case": [
         {
             "send": false,
@@ -29,18 +42,11 @@
                     "shortcut": "KC",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "==": [{"var": "value"}, 112]
-                    }
+                    "value": {"==": [{"var": "value"}, 112]}
                 }
             ]
-        },{
+        },
+        {
             "send": false,
             "condition": {
                 "statusfield": [
@@ -62,15 +68,7 @@
                     "shortcut": "KC",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "==": [{"var": "value"}, 0]
-                    }
+                    "value": {"==": [{"var": "value"}, 0]}
                 }
             ]
         }

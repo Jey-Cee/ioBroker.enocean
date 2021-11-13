@@ -6,6 +6,59 @@
     "type_number": "0x00",
     "type_title": "Dimmer control",
     "bidirectional": true,
+    "objects": {
+        "CMD": {
+            "type": "common",
+            "common": {
+                "name": "Command",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "states": "0:Off; 1:On; 3:Set level; 4: Teach-in; 5: Teach-in FSUD; 6: Request confirmation telegram"
+            },
+            "native": {}
+        },
+        "LVL": {
+            "type": "state",
+            "common": {
+                "name": "Level",
+                "role": "level.dimmer",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "unit": "%",
+                "def": 100
+            },
+            "native": {}
+        },
+        "DS": {
+            "type": "state",
+            "common": {
+                "name": "Dimming speed",
+                "role": "level",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "states": "0:Use hardware setting",
+                "def": 0
+            },
+            "native": {}
+        },
+        "BL": {
+            "type": "state",
+            "common": {
+                "name": "Block level",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "states": "0:false; 1:true",
+                "def": 0
+            },
+            "native": {}
+        }
+    },
     "case": [
         {
             "send": false,
@@ -18,30 +71,10 @@
             },
             "datafield": [
                 {
-                    "data": "Command",
-                    "shortcut": "CMD",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "states": "0:Off; 1:On; 3:Set level; 4: Teach-in; 5: Teach-in FSUD; 6: Request confirmation telegram"
-                    },
-                    "value": 0
-                },
-                {
                     "data": "Level",
                     "shortcut": "LVL",
                     "bitoffs": "8",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "level.dimmer",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "unit": "%",
-                        "def": 100
-                    },
                     "value": 100
                 },
                 {
@@ -49,27 +82,6 @@
                     "shortcut": "DS",
                     "bitoffs": "16",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "level",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "states": "0:Use hardware setting",
-                        "def": 0
-                    },
-                    "value": 0
-                },
-                {
-                    "data": "Block level",
-                    "shortcut": "BL",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "states": "0:false; 1:true",
-                        "def": 0
-                    },
                     "value": 0
                 }
             ]
@@ -97,9 +109,7 @@
                     "description": "Off",
                     "bitoffs": "16",
                     "bitsize": "8",
-                    "value": {
-                        "var": "value"
-                    }
+                    "value": {"var": "value"}
                 },
                 {
                     "data": "fixed parameter",
@@ -187,9 +197,7 @@
                     "description": "Off",
                     "bitoffs": "8",
                     "bitsize": "8",
-                    "value": {
-                        "var": "value"
-                    }
+                    "value": {"var": "value"}
                 },
                 {
                     "data": "Dimming speed",
@@ -197,9 +205,7 @@
                     "description": "Off",
                     "bitoffs": "16",
                     "bitsize": "8",
-                    "value": {
-                        "var": "value"
-                    }
+                    "value": {"var": "value"}
                 },
                 {
                     "data": "fixed parameter",

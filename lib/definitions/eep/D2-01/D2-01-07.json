@@ -6,6 +6,31 @@
   "type_number": "0x07",
   "type_title": "Electronic switch",
   "bidirectional": true,
+  "objects": {
+    "CMD": {
+      "type": "state",
+      "command": {
+        "name": "Command",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": "0:OFF;1:ON;2:Status query;"
+      },
+      "native": {}
+    },
+    "OV": {
+      "type": "state",
+      "common": {
+        "name": "Output ON",
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    }
+  },
   "case": [
     {
       "send": true,
@@ -17,18 +42,6 @@
         ]
       },
       "datafield": [
-        {
-          "data": "Command ID",
-          "shortcut": "CMD",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "0:OFF;1:ON;2:Status query;"
-          },
-          "value": 0
-        },
         {
           "data": "fixed parameter",
           "description": "command",
@@ -138,15 +151,7 @@
           "shortcut": "OV",
           "bitoffs": "17",
           "bitsize": "7",
-          "iobroker": {
-            "role": "state",
-            "type": "boolean",
-            "read": true,
-            "write": true
-          },
-          "value": {
-            "==": [{"var": "value"}, 100]
-          }
+          "value": {"==": [{"var": "value"}, 100]}
         }
       ]
     }

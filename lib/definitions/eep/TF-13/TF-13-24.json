@@ -6,6 +6,20 @@
     "type_number": "0x00",
     "type_title": "FSSA-230V",
     "bidirectional": false,
+    "objects": {
+        "CMD": {
+            "type": "state",
+            "common": {
+                "name": "Command",
+                "role": "state",
+                "type": "number",
+                "read": false,
+                "write": true,
+                "states": "0:OFF; 1:ON;"
+            },
+            "native": {}
+        }
+    },
     "case": [
         {
             "send": true,
@@ -18,17 +32,10 @@
             },
             "datafield": [
                 {
-                    "data": "Command ID",
-                    "shortcut": "CMD",
+                    "data": "fixed parameter",
+                    "description": "OFF",
                     "bitoffs": "0",
                     "bitsize": "3",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": false,
-                        "write": true,
-                        "states": "0:OFF; 1:ON;"
-                    },
                     "value": 3
                 },
                 {

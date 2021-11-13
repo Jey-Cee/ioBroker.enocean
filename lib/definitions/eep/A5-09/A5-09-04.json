@@ -6,6 +6,21 @@
   "type_number": "0x04",
   "type_title": "Gas Sensor CO2-Sensor",
   "bidirectional": false,
+  "objects": {
+    "preDefined": ["TMP", "HUM"],
+    "Conc": {
+      "type": "state",
+      "common": {
+        "name": "Gas CO2 concentration",
+        "role": "value.gas",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "unit": "ppm"
+      },
+      "native": {}
+    }
+  },
   "case": [
     {
       "send": false,
@@ -15,19 +30,10 @@
         "shortcut": "Conc",
         "bitoffs": "8",
         "bitsize": "8",
-        "iobroker": {
-          "role": "value.gas",
-          "type": "number",
-          "read": true,
-          "write": false,
-          "unit": "ppm"
-        },
-        "value": {
-          "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 10 ] }, 0]
-        }
+        "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 10 ] }, 0]}
       }
     ]
-  },
+    },
     {
       "send": false,
       "condition": {
@@ -43,16 +49,7 @@
           "shortcut": "TMP",
           "bitoffs": "16",
           "bitsize": "8",
-          "iobroker": {
-            "role": "value.temperature",
-            "type": "number",
-            "read": true,
-            "write": false,
-            "unit": "°C"
-          },
-          "value": {
-            "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.2 ] }, 0 ]
-          },
+          "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.2 ] }, 0 ]},
           "decimals": 2
         }
       ]
@@ -72,16 +69,7 @@
           "shortcut": "HUM",
           "bitoffs": "8",
           "bitsize": "8",
-          "iobroker": {
-            "role": "value.humidity",
-            "type": "number",
-            "read": true,
-            "write": false,
-            "unit": "%"
-          },
-          "value": {
-            "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.5 ] }, 0 ]
-          },
+          "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.5 ] }, 0 ]},
           "decimals": 2
         }
       ]

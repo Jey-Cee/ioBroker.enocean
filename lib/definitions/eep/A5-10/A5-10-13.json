@@ -6,6 +6,9 @@
     "type_number": "0x13",
     "type_title": "Room Operating Panel Temperature, Humidity and Occupancy control",
     "bidirectional": false,
+    "objects": {
+        "preDefined": ["TMP", "HUM", "OCC"]
+    },
     "case": [{
         "send": false,
         "datafield": [
@@ -14,36 +17,14 @@
                 "shortcut": "HUM",
                 "bitoffs": "8",
                 "bitsize": "8",
-                "iobroker": {
-                    "role": "value.humidity",
-                    "type": "number",
-                    "unit": "%",
-                    "read": true,
-                    "write": false
-                },
-                "value": {
-                    "+": [{"*": [{"-": [{"var": "value"}, 0]}, 0.4]}, 0]
-                }
+                "value": {"+": [{"*": [{"-": [{"var": "value"}, 0]}, 0.4]}, 0]}
             },
             {
                 "data": "Temperature",
                 "shortcut": "TMP",
                 "bitoffs": "16",
                 "bitsize": "8",
-                "iobroker": {
-                    "role": "value.temperature",
-                    "type": "number",
-                    "unit": "°C",
-                    "read": true,
-                    "write": false
-                },
-                "value": {
-                    "+": [{
-                    "*": [
-                        { "-": [{"var": "value"}, 0] },
-                        0.156862745
-                    ]}, 0]
-                },
+                "value": {"+": [{"*": [{ "-": [{"var": "value"}, 0] }, 0.156862745]}, 0]},
                 "decimals": 2
             },
             {
@@ -51,15 +32,7 @@
                 "shortcut": "OCC",
                 "bitoffs": "31",
                 "bitsize": "1",
-                "iobroker": {
-                    "role": "switch",
-                    "type": "boolean",
-                    "read": true,
-                    "write": false
-                },
-                "value": {
-                    "==": [{"var": "value"}, 0]
-                }
+                "value": {"==": [{"var": "value"}, 0]}
             }
         ]
     }]

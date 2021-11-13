@@ -6,6 +6,9 @@
   "type_number": "0x03",
   "type_title": "Occupancy with Supply voltage monitor",
   "bidirectional": false,
+  "objects": {
+    "preDefined": ["ILL", "PIRS", "SVC"]
+  },
   "case": [{
     "send": false,
     "datafield": [
@@ -14,16 +17,7 @@
         "shortcut": "ILL",
         "bitoffs": "8",
         "bitsize": "10",
-        "iobroker": {
-          "role": "value.brightness",
-          "type": "number",
-          "read": true,
-          "write": false,
-          "unit": "lx"
-        },
-        "value": {
-          "+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 1 ] }, 0]
-        },
+        "value": {"+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 1 ] }, 0]},
         "decimals": 2
       },
       {
@@ -31,31 +25,14 @@
         "shortcut": "PIRS",
         "bitoffs": "24",
         "bitsize": "1",
-        "iobroker": {
-          "role": "sensor.motion",
-          "type": "boolean",
-          "read": true,
-          "write": false
-        },
-        "value": {
-          "==": [{"var": "value"}, 0]
-        }
+        "value": {"==": [{"var": "value"}, 0]}
       },
       {
         "data": "Supply Voltage 0...5.0V (Optional)",
         "shortcut": "SVC",
         "bitoffs": "0",
         "bitsize": "8",
-        "iobroker": {
-          "role": "value.battery",
-          "type": "number",
-          "unit": "V",
-          "read": true,
-          "write": false
-        },
-        "value": {
-          "+": [{"*":[{"-":[{"var":  "value"}, 0]},0.02]}, 0]
-        },
+        "value": {"+": [{"*":[{"-":[{"var":  "value"}, 0]},0.02]}, 0]},
         "decimals": 2
       }
     ]

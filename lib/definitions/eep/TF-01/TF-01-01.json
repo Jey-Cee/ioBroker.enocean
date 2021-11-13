@@ -6,6 +6,32 @@
   "type_number": "0x7F",
   "type_title": "Blind actuator",
   "bidirectional": true,
+  "objects": {
+    "CMD": {
+      "type": "state",
+      "common": {
+        "name": "Command",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": "0:Stop; 1:Up; 2:Down; 3:Teach-in; 4:Block local switch; 5:Unblock local switch"
+      },
+      "native": {}
+    },
+    "RT": {
+      "type": "state",
+      "common": {
+        "name": "Running time",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "unit": "100ms"
+      },
+      "native": {}
+    }
+  },
   "case": [
     {
       "send": true,
@@ -24,32 +50,14 @@
         "shortcut": "CMD",
         "bitoffs": "16",
         "bitsize": "8",
-        "iobroker": {
-          "role": "state",
-          "type": "number",
-          "read": true,
-          "write": true,
-          "states": "0:Stop; 1:Up; 2:Down; 3:Teach-in; 4:Block local switch; 5:Unblock local switch"
+          "value": {"var": "value"}
         },
-          "value": {
-            "var": "value"
-          }
-      },
         {
           "data": "Running time",
           "shortcut": "RT",
           "bitoffs": "0",
           "bitsize": "16",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "unit": "100ms"
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": {"var": "value"}
         },
         {
           "data": "fixed parameter",
@@ -77,32 +85,14 @@
           "shortcut": "CMD",
           "bitoffs": "16",
           "bitsize": "8",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "0:Stop; 1:Up; 2:Down;  3:Teach-in; 4:Block local switch; 5:Unblock local switch"
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": {"var": "value"}
         },
         {
           "data": "Running time",
           "shortcut": "RT",
           "bitoffs": "0",
           "bitsize": "16",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "unit": "s"
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": {"var": "value"}
         },
         {
           "data": "fixed parameter",
@@ -130,32 +120,14 @@
           "shortcut": "CMD",
           "bitoffs": "16",
           "bitsize": "8",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "0:Stop; 1:Up; 2:Down;  3:Teach-in; 4:Block local switch; 5:Unblock local switch"
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": {"var": "value"}
         },
         {
           "data": "Running time",
           "shortcut": "RT",
           "bitoffs": "8",
           "bitsize": "8",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "unit": "s"
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": {"var": "value"}
         },
         {
           "data": "fixed parameter",

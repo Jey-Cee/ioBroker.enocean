@@ -6,6 +6,21 @@
     "type_number": "0x00",
     "type_title": "FTKB Battery status",
     "bidirectional": false,
+    "objects": {
+        "preDefined": ["SVC"],
+        "ES": {
+            "type": "state",
+            "common": {
+                "name": "Energy storage 0...5.0V",
+                "role": "value.battery",
+                "type": "number",
+                "unit": "V",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        }
+    },
     "case": [
         {
             "send": false,
@@ -15,16 +30,7 @@
                     "shortcut": "SVC",
                     "bitoffs": "8",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "value.battery",
-                        "type": "number",
-                        "unit": "V",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "+": [{"*":[{"-":[{"var":  "value"}, 0]}, 0.02 ]}, 0]
-                    },
+                    "value": {"+": [{"*":[{"-":[{"var":  "value"}, 0]}, 0.02 ]}, 0]},
                     "decimals": 2
                 },
                 {
@@ -32,16 +38,7 @@
                     "shortcut": "ES",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "value.battery",
-                        "type": "number",
-                        "unit": "V",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "+": [{"*":[{"-":[{"var":  "value"}, 0]}, 0.02 ]}, 0 ]
-                    },
+                    "value": {"+": [{"*":[{"-":[{"var":  "value"}, 0]}, 0.02 ]}, 0 ]},
                     "decimals": 2
                 }
             ]

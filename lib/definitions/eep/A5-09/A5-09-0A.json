@@ -6,6 +6,21 @@
   "type_number": "0x0A",
   "type_title": "Gas Sensor Hydrogen",
   "bidirectional": false,
+  "objects": {
+    "preDefined": ["TMP", "SVC"],
+    "Conc": {
+      "type": "state",
+      "common": {
+        "name": "Hydrogen concentration",
+        "role": "value.gas",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "unit": "ppm"
+      },
+      "native": {}
+    }
+  },
   "case":[
     {
       "send": false,
@@ -15,16 +30,7 @@
           "shortcut": "Conc",
           "bitoffs": "0",
           "bitsize": "16",
-          "iobroker": {
-            "role": "value.gas",
-            "type": "number",
-            "read": true,
-            "write": false,
-            "unit": "ppm"
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": {"var": "value"}
         }
       ]
     },
@@ -43,16 +49,7 @@
           "shortcut": "TMP",
           "bitoffs": "16",
           "bitsize": "8",
-          "iobroker": {
-            "role": "value.gas",
-            "type": "number",
-            "read": true,
-            "write": false,
-            "unit": "°C"
-          },
-          "value": {
-            "+": [ { "*": [ { "-": [ { "var":  "value" }, 0 ] }, 0.3137 ] }, -20 ]
-          }
+          "value": {"+": [ { "*": [ { "-": [ { "var":  "value" }, 0 ] }, 0.3137 ] }, -20 ]}
         }
       ]
     },
@@ -71,16 +68,7 @@
           "shortcut": "SVC",
           "bitoffs": "24",
           "bitsize": "4",
-          "iobroker": {
-            "role": "value.battery",
-            "type": "number",
-            "unit": "V",
-            "read": true,
-            "write": false
-          },
-          "value": {
-            "+": [ { "*": [ { "-": [ { "var":  "value" }, 0 ] }, 0.2 ] }, 2]
-          },
+          "value": {"+": [ { "*": [ { "-": [ { "var":  "value" }, 0 ] }, 0.2 ] }, 2]},
           "decimals": 2
         }
       ]

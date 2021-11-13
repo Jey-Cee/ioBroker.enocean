@@ -6,6 +6,136 @@
     "type_number": "0x00",
     "type_title": "FRGBW71L",
     "bidirectional": false,
+    "objects": {
+        "CMD": {
+            "type": "state",
+            "common": {
+                "name": "Command",
+                "role": "state",
+                "type": "number",
+                "read": false,
+                "write": true,
+                "states": "0:Red; 1:Green; 2:Blue; 3:White; 4:Dim up; 5:Dim down; 6:Dim stop; 7:Teach-in; 8:Request confirmation telegram"
+            },
+            "native": {}
+        },
+        "R": {
+            "type": "state",
+            "common": {
+                "name": "Red",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "min": 0,
+                "max": 1024,
+                "def": 0
+            },
+            "native": {}
+        },
+        "G": {
+            "type": "state",
+            "common": {
+                "name": "Green",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "min": 0,
+                "max": 1024,
+                "def": 0
+            },
+            "native": {}
+        },
+        "B": {
+            "type": "state",
+            "common": {
+                "name": "Blue",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "min": 0,
+                "max": 1024,
+                "def": 0
+            },
+            "native": {}
+        },
+        "W": {
+            "type": "state",
+            "common": {
+                "name": "White",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "min": 0,
+                "max": 1024,
+                "def": 0
+            },
+            "native": {}
+        },
+        "DS": {
+            "type": "state",
+            "common": {
+                "name": "Dim speed",
+                "role": "state",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "def": 0
+            },
+            "native": {}
+        },
+        "DR": {
+            "type": "state",
+            "common": {
+                "name": "Dim red",
+                "role": "state",
+                "type": "boolean",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {}
+        },
+        "DG": {
+            "type": "state",
+            "common": {
+                "name": "Dim green",
+                "role": "state",
+                "type": "boolean",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {}
+        },
+        "DB": {
+            "type": "state",
+            "common": {
+                "name": "Dim blue",
+                "role": "state",
+                "type": "boolean",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {}
+        },
+        "DW": {
+            "type": "state",
+            "common": {
+                "name": "Dim white",
+                "role": "state",
+                "type": "boolean",
+                "read": true,
+                "write": true,
+                "def": false
+            },
+            "native": {}
+        }
+    },
     "case":[
         {
             "send": true,
@@ -18,31 +148,10 @@
             },
             "datafield": [
                 {
-                    "data": "Command ID",
-                    "shortcut": "CMD",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": false,
-                        "write": true,
-                        "states": "0:Red; 1:Green; 2:Blue; 3:White; 4:Dim up; 5:Dim down; 6:Dim stop; 7:Teach-in; 8:Request confirmation telegram"
-                    },
-                    "value": 0
-                },
-                {
                     "data": "Red",
                     "shortcut": "R",
                     "bitoffs": "0",
                     "bitsize": "16",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "min": 0,
-                        "max": 1024,
-                        "def": 0
-                    },
                     "value_out": {"var": "value"}
                 },
                 {
@@ -76,15 +185,6 @@
                     "shortcut": "G",
                     "bitoffs": "0",
                     "bitsize": "16",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "min": 0,
-                        "max": 1023,
-                        "def": 0
-                    },
                     "value_out": {"var": "value"}
                 },
                 {
@@ -118,15 +218,6 @@
                     "shortcut": "B",
                     "bitoffs": "0",
                     "bitsize": "16",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "min": 0,
-                        "max": 1023,
-                        "def": 0
-                    },
                     "value_out": {"var": "value"}
                 },
                 {
@@ -160,15 +251,6 @@
                     "shortcut": "W",
                     "bitoffs": "0",
                     "bitsize": "16",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "min": 0,
-                        "max": 1023,
-                        "def": 0
-                    },
                     "value_out": {"var": "value"}
                 },
                 {
@@ -202,13 +284,6 @@
                     "shortcut": "DS",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "def": 0
-                    },
                     "value_out": {"var": "value"}
                 },
                 {
@@ -216,13 +291,6 @@
                     "shortcut": "DR",
                     "bitoffs": "15",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": true,
-                        "def": false
-                    },
                     "value_out": {
                         "if": [
                             {"==":[false, {"var": "value"}]}, 0,
@@ -235,13 +303,6 @@
                     "shortcut": "DG",
                     "bitoffs": "14",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": true,
-                        "def": false
-                    },
                     "value_out": {
                         "if": [
                             {"==":[false, {"var": "value"}]}, 0,
@@ -254,13 +315,6 @@
                     "shortcut": "DB",
                     "bitoffs": "13",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": true,
-                        "def": false
-                    },
                     "value_out": {
                         "if": [
                             {"==":[false, {"var": "value"}]}, 0,
@@ -273,13 +327,6 @@
                     "shortcut": "DW",
                     "bitoffs": "12",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": true,
-                        "def": false
-                    },
                     "value_out": {
                         "if": [
                             {"==":[false, {"var": "value"}]}, 0,
@@ -325,13 +372,6 @@
                     "shortcut": "DS",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "def": 0
-                    },
                     "value_out": {"var": "value"}
                 },
                 {
@@ -339,13 +379,6 @@
                     "shortcut": "DR",
                     "bitoffs": "15",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": true,
-                        "def": false
-                    },
                     "value_out": {
                         "if": [
                             {"==":[false, {"var": "value"}]}, 0,
@@ -358,13 +391,6 @@
                     "shortcut": "DG",
                     "bitoffs": "14",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": true,
-                        "def": false
-                    },
                     "value_out": {
                         "if": [
                             {"==":[false, {"var": "value"}]}, 0,
@@ -377,13 +403,6 @@
                     "shortcut": "DB",
                     "bitoffs": "13",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": true,
-                        "def": false
-                    },
                     "value_out": {
                         "if": [
                             {"==":[false, {"var": "value"}]}, 0,
@@ -396,13 +415,6 @@
                     "shortcut": "DW",
                     "bitoffs": "12",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": true,
-                        "def": false
-                    },
                     "value_out": {
                         "if": [
                             {"==":[false, {"var": "value"}]}, 0,
@@ -448,13 +460,6 @@
                     "shortcut": "DS",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "def": 0
-                    },
                     "value_out": {"var": "value"}
                 },
                 {
@@ -462,13 +467,6 @@
                     "shortcut": "DR",
                     "bitoffs": "15",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": true,
-                        "def": false
-                    },
                     "value_out": {
                         "if": [
                             {"==":[false, {"var": "value"}]}, 0,
@@ -481,13 +479,6 @@
                     "shortcut": "DG",
                     "bitoffs": "14",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": true,
-                        "def": false
-                    },
                     "value_out": {
                         "if": [
                             {"==":[false, {"var": "value"}]}, 0,
@@ -500,13 +491,6 @@
                     "shortcut": "DB",
                     "bitoffs": "13",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": true,
-                        "def": false
-                    },
                     "value_out": {
                         "if": [
                             {"==":[false, {"var": "value"}]}, 0,
@@ -519,13 +503,6 @@
                     "shortcut": "DW",
                     "bitoffs": "12",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": true,
-                        "def": false
-                    },
                     "value_out": {
                         "if": [
                             {"==":[false, {"var": "value"}]}, 0,
@@ -613,15 +590,6 @@
                     "shortcut": "R",
                     "bitoffs": "0",
                     "bitsize": "16",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "min": 0,
-                        "max": 1023,
-                        "def": 0
-                    },
                     "value": {"var": "value"}
                 }
             ]
@@ -643,15 +611,6 @@
                     "shortcut": "R",
                     "bitoffs": "0",
                     "bitsize": "16",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "min": 0,
-                        "max": 1023,
-                        "def": 0
-                    },
                     "value": {"var": "value"}
                 }
             ]
@@ -673,15 +632,6 @@
                     "shortcut": "G",
                     "bitoffs": "0",
                     "bitsize": "16",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "min": 0,
-                        "max": 1023,
-                        "def": 0
-                    },
                     "value": {"var": "value"}
                 }
             ]
@@ -703,15 +653,6 @@
                     "shortcut": "G",
                     "bitoffs": "0",
                     "bitsize": "16",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "min": 0,
-                        "max": 1023,
-                        "def": 0
-                    },
                     "value": {"var": "value"}
                 }
             ]
@@ -733,15 +674,6 @@
                     "shortcut": "B",
                     "bitoffs": "0",
                     "bitsize": "16",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "min": 0,
-                        "max": 1023,
-                        "def": 0
-                    },
                     "value": {"var": "value"}
                 }
             ]
@@ -763,15 +695,6 @@
                     "shortcut": "B",
                     "bitoffs": "0",
                     "bitsize": "16",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "min": 0,
-                        "max": 1023,
-                        "def": 0
-                    },
                     "value": {"var": "value"}
                 }
             ]
@@ -793,15 +716,6 @@
                     "shortcut": "W",
                     "bitoffs": "0",
                     "bitsize": "16",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "min": 0,
-                        "max": 1023,
-                        "def": 0
-                    },
                     "value": {"var": "value"}
                 }
             ]
@@ -823,15 +737,6 @@
                     "shortcut": "W",
                     "bitoffs": "0",
                     "bitsize": "16",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "min": 0,
-                        "max": 1023,
-                        "def": 0
-                    },
                     "value": {"var": "value"}
                 }
             ]

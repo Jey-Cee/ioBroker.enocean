@@ -6,6 +6,114 @@
     "type_number": "0x03",
     "type_title": "Blind status",
     "bidirectional": false,
+    "objects": {
+        "preDefined": ["POS"],
+        "AS": {
+            "type": "state",
+            "common": {
+                "name": "Angle sign",
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": "0:Positive; 1:Negative"
+            },
+            "native": {}
+        },
+        "AN": {
+            "type": "state",
+            "common": {
+                "name": "Angle",
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "unit": "°"
+            },
+            "native": {}
+        },
+        "PVF": {
+            "type": "state",
+            "common": {
+                "name": "Position value available",
+                "role": "value",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        "AVF": {
+            "type": "state",
+            "common": {
+                "name": "Angle value available",
+                "role": "value",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        "ES": {
+            "type": "state",
+            "common": {
+                "name": "Error state",
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": "0:No Error; 1:End positions are not configured; 2:Internal failure; 3:Not used;"
+            },
+            "native": {}
+        },
+        "EP": {
+            "type": "state",
+            "common": {
+                "name": "End-position",
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": "0:No End-position available; 1:No End-position reached; 2:Blind fully open; 3:Blind fully closed;"
+            },
+            "native": {}
+        },
+        "ST": {
+            "type": "state",
+            "common": {
+                "name": "Status",
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": "0:No Status available; 1:Blind is stopped; 2:Blind opens; 3:Blind closes;"
+            },
+            "native": {}
+        },
+        "SM": {
+            "type": "state",
+            "common": {
+                "name": "Service mode active",
+                "role": "value",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        "MOTP": {
+            "type": "state",
+            "common": {
+                "name": "Mode of the position",
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": "0:Normal mode: 0% fully open; 1:Inverse mode: 0% fully closed;"
+            },
+            "native": {}
+        }
+    },
     "case": [
         {
         "send": false,
@@ -15,13 +123,6 @@
                 "shortcut": "POS",
                 "bitoffs": "0",
                 "bitsize": "8",
-                "iobroker": {
-                    "role": "value",
-                    "type": "number",
-                    "read": true,
-                    "write": false,
-                    "unit": "%"
-                },
                 "value": {"var": "value"}
             },
             {
@@ -29,13 +130,6 @@
                 "shortcut": "AS",
                 "bitoffs": "8",
                 "bitsize": "1",
-                "iobroker": {
-                    "role": "value",
-                    "type": "number",
-                    "read": true,
-                    "write": false,
-                    "states": "0:Positive; 1:Negative"
-                },
                 "value": {"var": "value"}
             },
             {
@@ -43,13 +137,6 @@
                 "shortcut": "AN",
                 "bitoffs": "9",
                 "bitsize": "7",
-                "iobroker": {
-                    "role": "value",
-                    "type": "number",
-                    "read": true,
-                    "write": false,
-                    "unit": "°"
-                },
                 "value": {"+":[{"*":[{"-":[{"var":"value"},0]},2]},0]}
             },
             {
@@ -57,12 +144,6 @@
                 "shortcut": "PVF",
                 "bitoffs": "16",
                 "bitsize": "1",
-                "iobroker": {
-                    "role": "value",
-                    "type": "boolean",
-                    "read": true,
-                    "write": false
-                },
                 "value": {"==": [{"var": "value"}, 1]}
             },
             {
@@ -70,12 +151,6 @@
                 "shortcut": "AVF",
                 "bitoffs": "17",
                 "bitsize": "1",
-                "iobroker": {
-                    "role": "value",
-                    "type": "boolean",
-                    "read": true,
-                    "write": false
-                },
                 "value": {"==": [{"var": "value"}, 1]}
             },
             {
@@ -83,13 +158,6 @@
                 "shortcut": "ES",
                 "bitoffs": "18",
                 "bitsize": "2",
-                "iobroker": {
-                    "role": "value",
-                    "type": "number",
-                    "read": true,
-                    "write": false,
-                    "states": "0:No Error; 1:End positions are not configured; 2:Internal failure; 3:Not used;"
-                },
                 "value": {"var": "value"}
             },
             {
@@ -97,13 +165,6 @@
                 "shortcut": "EP",
                 "bitoffs": "20",
                 "bitsize": "2",
-                "iobroker": {
-                    "role": "value",
-                    "type": "number",
-                    "read": true,
-                    "write": false,
-                    "states": "0:No End-position available; 1:No End-position reached; 2:Blind fully open; 3:Blind fully closed;"
-                },
                 "value": {"var": "value"}
             },
             {
@@ -111,13 +172,6 @@
                 "shortcut": "ST",
                 "bitoffs": "22",
                 "bitsize": "2",
-                "iobroker": {
-                    "role": "value",
-                    "type": "number",
-                    "read": true,
-                    "write": false,
-                    "states": "0:No Status available; 1:Blind is stopped; 2:Blind opens; 3:Blind closes;"
-                },
                 "value": {"var": "value"}
             },
             {
@@ -125,12 +179,6 @@
                 "shortcut": "SM",
                 "bitoffs": "24",
                 "bitsize": "1",
-                "iobroker": {
-                    "role": "value",
-                    "type": "boolean",
-                    "read": true,
-                    "write": false
-                },
                 "value": {"==": [{"var": "value"}, 1]}
             },
             {
@@ -138,13 +186,6 @@
                 "shortcut": "MOTP",
                 "bitoffs": "25",
                 "bitsize": "1",
-                "iobroker": {
-                    "role": "value",
-                    "type": "number",
-                    "read": true,
-                    "write": false,
-                    "states": "0:Normal mode: 0% fully open; 1:Inverse mode: 0% fully closed;"
-                },
                 "value": {"var": "value"}
             }
         ]

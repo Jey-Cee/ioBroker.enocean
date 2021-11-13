@@ -1,0 +1,898 @@
+{
+  "eep": "D2-01-12",
+  "rorg_number": "0xD2",
+  "telegram": "VLD",
+  "func_number": "0x01",
+  "type_number": "0x12",
+  "type_title": "Electronic switch with local control",
+  "bidirectional": true,
+  "objects": {
+    "CMD": {
+      "type": "state",
+      "common": {
+        "name": "Command to send",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": "0:CH 1 OFF;1:CH 1 ON;2:CH 2 OFF; 3:CH 2 ON; 4:CH 1 Set output settings; 5:CH 2 Set output settings; 6:Status query; 7:CH 1 Set External Interface Settings; 8:CH 2 Set External Interface Settings; 9:Get External Interface Settings"
+      },
+      "native": {}
+    },
+    "de": {
+      "type": "state",
+      "common": {
+        "name": "Taught-in devices",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": "0:Disable taught-in devices;1:Enable taught-in devices"
+      },
+      "native": {}
+    },
+    "DN": {
+      "type": "state",
+      "common": {
+        "name": "User interface indication",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": "0:Day;1:Night"
+      },
+      "native": {}
+    },
+    "CH1": {
+      "type": "channel",
+      "common": {
+        "name": "Channel 1"
+      }
+    },
+    "CH2": {
+      "type": "channel",
+      "common": {
+        "name": "Channel 2"
+      }
+    },
+    "CH1.DS": {
+      "type": "state",
+      "common": {
+        "name": "Default state",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": "0:Off;1:On;2:Remember previous state"
+      }
+    },
+    "CH1.AOT": {
+      "type": "state",
+      "common": {
+        "name": "Auto OFF Timer",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "unit": "s"
+      },
+      "native": {}
+    },
+    "CH1.DOT": {
+      "type": "state",
+      "common": {
+        "name": "Delay OFF Timer",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "unit": "s"
+      },
+      "native": {}
+    },
+    "CH1.EBM": {
+      "type": "state",
+      "common": {
+        "name": "External switch type",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": "0:Not applicable;1:External Switch;2:External Bush Button;3:Auto detect"
+      },
+      "native": {}
+    },
+    "CH1.SWT": {
+      "type": "state",
+      "common": {
+        "name": "2-State Switch",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": "0:Change of key state sets ON or OFF;1:Specific ON/OFF positions"
+      },
+      "native": {}
+    },
+    "CH1.ON": {
+      "type": "state",
+      "common": {
+        "name": "ON",
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    "CH1.LC": {
+      "type": "state",
+      "common": {
+        "name": "Local control enabled",
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    "CH2.DS": {
+      "type": "state",
+      "common": {
+        "name": "Default state",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": "0:Off;1:On;2:Remember previous state"
+      }
+    },
+    "CH2.AOT": {
+      "type": "state",
+      "common": {
+        "name": "Auto OFF Timer",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "unit": "s"
+      },
+      "native": {}
+    },
+    "CH2.DOT": {
+      "type": "state",
+      "common": {
+        "name": "Delay OFF Timer",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "unit": "s"
+      },
+      "native": {}
+    },
+    "CH2.EBM": {
+      "type": "state",
+      "common": {
+        "name": "External switch type",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": "0:Not applicable;1:External Switch;2:External Bush Button;3:Auto detect"
+      },
+      "native": {}
+    },
+    "CH2.SWT": {
+      "type": "state",
+      "common": {
+        "name": "2-State Switch",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": "0:Change of key state sets ON or OFF;1:Specific ON/OFF positions"
+      },
+      "native": {}
+    },
+    "CH2.ON": {
+      "type": "state",
+      "common": {
+        "name": "ON",
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    "CH2.LC": {
+      "type": "state",
+      "common": {
+        "name": "Local control enabled",
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 0
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Command ID",
+          "shortcut": "CMD",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "command",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy byte",
+          "bitoffs": "8",
+          "bitsize": "3",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Channel 1",
+          "bitoffs": "11",
+          "bitsize": "5",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Output off",
+          "bitoffs": "17",
+          "bitsize": "7",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "command",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy byte",
+          "bitoffs": "8",
+          "bitsize": "3",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Channel 1",
+          "bitoffs": "11",
+          "bitsize": "5",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Output on",
+          "bitoffs": "17",
+          "bitsize": "7",
+          "value": 100
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 2
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "command",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy byte",
+          "bitoffs": "8",
+          "bitsize": "3",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Channel 2",
+          "bitoffs": "11",
+          "bitsize": "5",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Output off",
+          "bitoffs": "17",
+          "bitsize": "7",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 3
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "command",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy byte",
+          "bitoffs": "8",
+          "bitsize": "3",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Channel 2",
+          "bitoffs": "11",
+          "bitsize": "5",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Output on",
+          "bitoffs": "17",
+          "bitsize": "7",
+          "value": 100
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 4
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "command",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 2
+        },
+        {
+          "data": "Taught-in devices",
+          "shortcut": "de",
+          "bitoffs": "0",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Channel 1",
+          "bitoffs": "11",
+          "bitsize": "5",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy bit",
+          "bitoffs": "16",
+          "bitsize": "4",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy bit",
+          "bitoffs": "20",
+          "bitsize": "4",
+          "value": 0
+        },
+        {
+          "data": "User interface indication",
+          "shortcut": "DN",
+          "bitoffs": "24",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy bit",
+          "bitoffs": "25",
+          "bitsize": "1",
+          "value": 0
+        },
+        {
+          "data": "Default state",
+          "shortcut": "CH1.DS",
+          "bitoffs": "26",
+          "bitsize": "2",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy bit",
+          "bitoffs": "27",
+          "bitsize": "1",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 5
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "command",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 2
+        },
+        {
+          "data": "Taught-in devices",
+          "shortcut": "de",
+          "bitoffs": "0",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Channel 2",
+          "bitoffs": "11",
+          "bitsize": "5",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy bit",
+          "bitoffs": "16",
+          "bitsize": "4",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy bit",
+          "bitoffs": "20",
+          "bitsize": "4",
+          "value": 0
+        },
+        {
+          "data": "User interface indication",
+          "shortcut": "DN",
+          "bitoffs": "24",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy bit",
+          "bitoffs": "25",
+          "bitsize": "1",
+          "value": 0
+        },
+        {
+          "data": "Default state",
+          "shortcut": "CH2.DS",
+          "bitoffs": "26",
+          "bitsize": "2",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy bit",
+          "bitoffs": "27",
+          "bitsize": "1",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 6
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "command",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 3
+        },
+        {
+          "data": "fixed parameter",
+          "description": "All Channel",
+          "bitoffs": "11",
+          "bitsize": "5",
+          "value": {
+            "var": 30
+          }
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 7
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "command",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 11
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Channel 1",
+          "bitoffs": "11",
+          "bitsize": "5",
+          "value": {
+            "var": 0
+          }
+        },
+        {
+          "data": "Auto OFF Timer",
+          "shortcut": "CH1.AOT",
+          "bitoffs": "16",
+          "bitsize": "16",
+          "value_out": {
+              "*":[{"var": "value"},10]
+          }
+        },
+        {
+          "data": "Delay OFF Timer",
+          "shortcut": "CH1.DOT",
+          "bitoffs": "32",
+          "bitsize": "16",
+          "value_out": {
+            "*":[{"var": "value"},10]
+          }
+        },
+        {
+          "data": "External switch type",
+          "shortcut": "CH1.EBM",
+          "bitoffs": "48",
+          "bitsize": "2",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "2-State Switch",
+          "shortcut": "CH1.SWT",
+          "bitoffs": "50",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 8
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "command",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 11
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Channel 1",
+          "bitoffs": "11",
+          "bitsize": "5",
+          "value": {
+            "var": 0
+          }
+        },
+        {
+          "data": "Auto OFF Timer",
+          "shortcut": "CH2.AOT",
+          "bitoffs": "16",
+          "bitsize": "16",
+          "value_out": {
+            "*":[{"var": "value"},10]
+          }
+        },
+        {
+          "data": "Delay OFF Timer",
+          "shortcut": "CH2.DOT",
+          "bitoffs": "32",
+          "bitsize": "16",
+          "value_out": {
+            "*":[{"var": "value"},10]
+          }
+        },
+        {
+          "data": "External switch type",
+          "shortcut": "CH2.EBM",
+          "bitoffs": "48",
+          "bitsize": "2",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "2-State Switch",
+          "shortcut": "CH2.SWT",
+          "bitoffs": "50",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 9
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "command",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 12
+        },
+        {
+          "data": "fixed parameter",
+          "description": "All Channel",
+          "bitoffs": "11",
+          "bitsize": "5",
+          "value": 30
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [{
+        "bitoffs": "4",
+        "bitsize": "4",
+        "value": 4
+      },
+        {
+          "bitoffs": "11",
+          "bitsize": "5",
+          "value": 0
+        }
+      ],
+      "datafield": [
+        {
+          "data": "ON",
+          "shortcut": "CH1.ON",
+          "bitoffs": "17",
+          "bitsize": "7",
+          "value": {
+            "==": [{"var": "value"}, 100]
+          }
+        },
+        {
+          "data": "Local control enabled",
+          "shortcut": "CH1.LC",
+          "bitoffs": "16",
+          "bitsize": "1",
+          "value": {
+            "==": [{"var": "value"}, 1]
+          }
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [{
+        "bitoffs": "4",
+        "bitsize": "4",
+        "value": 4
+      },
+        {
+          "bitoffs": "11",
+          "bitsize": "5",
+          "value": 1
+        }
+      ],
+      "datafield": [
+        {
+          "data": "ON",
+          "shortcut": "CH2.ON",
+          "bitoffs": "17",
+          "bitsize": "7",
+          "value": {
+            "==": [{"var": "value"}, 100]
+          }
+        },
+        {
+          "data": "Local control enabled",
+          "shortcut": "CH2.LC",
+          "bitoffs": "16",
+          "bitsize": "1",
+          "value": {
+            "==": [{"var": "value"}, 1]
+          }
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [{
+        "bitoffs": "4",
+        "bitsize": "4",
+        "value": 13
+      },
+        {
+          "bitoffs": "11",
+          "bitsize": "5",
+          "value": 0
+        }],
+      "datafield": [
+        {
+          "data": "ON",
+          "shortcut": "CH1.ON",
+          "bitoffs": "17",
+          "bitsize": "7",
+          "value": {
+            "==": [{"var": "value"}, 100]
+          }
+        },
+        {
+          "data": "Auto OFF Timer",
+          "shortcut": "CH1.AOT",
+          "bitoffs": "16",
+          "bitsize": "16",
+          "value": {
+            "/":[{"var": "value"},10]
+          }
+        },
+        {
+          "data": "Delay OFF Timer",
+          "shortcut": "CH1.DOT",
+          "bitoffs": "32",
+          "bitsize": "16",
+          "value": {
+            "/":[{"var": "value"},10]
+          }
+        },
+        {
+          "data": "External Switch",
+          "shortcut": "CH1.EBM",
+          "bitoffs": "48",
+          "bitsize": "2",
+          "value": { "var": "value" }
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [{
+        "bitoffs": "4",
+        "bitsize": "4",
+        "value": 13
+      },
+        {
+          "bitoffs": "11",
+          "bitsize": "5",
+          "value": 1
+        }],
+      "datafield": [
+        {
+          "data": "Auto OFF Timer",
+          "shortcut": "CH2.AOT",
+          "bitoffs": "16",
+          "bitsize": "16",
+          "value": {
+            "/":[{"var": "value"},10]
+          }
+        },
+        {
+          "data": "Delay OFF Timer",
+          "shortcut": "CH2.DOT",
+          "bitoffs": "32",
+          "bitsize": "16",
+          "value": {
+            "/":[{"var": "value"},10]
+          }
+        },
+        {
+          "data": "Delay OFF Timer",
+          "shortcut": "CH2.DOT",
+          "bitoffs": "32",
+          "bitsize": "16",
+          "value": {
+            "/":[{"var": "value"},10]
+          }
+        },
+        {
+          "data": "External Switch",
+          "shortcut": "CH2.EBM",
+          "bitoffs": "48",
+          "bitsize": "2",
+          "value": { "var": "value" }
+        }
+      ]
+    }
+  ]
+}

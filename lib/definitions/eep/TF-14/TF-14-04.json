@@ -6,6 +6,67 @@
   "type_number": "0x7F",
   "type_title": "FSB14 Blind actuator",
   "bidirectional": true,
+  "objects": {
+    "CMD": {
+      "type": "state",
+      "common": {
+        "name": "Command",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": "0:Stop; 1:Up; 2:Down; 3:Teach-in"
+      },
+      "native": {}
+    },
+    "RT": {
+      "type": "state",
+      "common": {
+        "name": "Running time",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "unit": "s"
+      },
+      "native": {}
+    },
+    "BS": {
+      "type": "state",
+      "common": {
+        "name": "Block local switch",
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": true
+      },
+      "native": {}
+    },
+    "UP": {
+      "type": "state",
+      "common": {
+        "name": "Move up",
+        "role": "switch",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "DO": {
+      "type": "state",
+      "common": {
+        "name": "Move down",
+        "role": "switch",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  },
   "case": [
     {
       "send": false,
@@ -20,16 +81,7 @@
           "shortcut": "RT",
           "bitoffs": "0",
           "bitsize": "16",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "unit": "s"
-          },
-          "value": {
-            "/": [{"var": "value"}, 10]
-          },
+          "value": {"/": [{"var": "value"}, 10]},
           "decimals": 1
         },
         {
@@ -37,12 +89,6 @@
           "shortcut": "BS",
           "bitoffs": "29",
           "bitsize": "1",
-          "iobroker": {
-            "role": "state",
-            "type": "boolean",
-            "read": true,
-            "write": true
-          },
           "value": 0
         },
         {
@@ -50,32 +96,14 @@
           "shortcut": "UP",
           "bitoffs": "16",
           "bitsize": "8",
-          "iobroker": {
-            "role": "switch",
-            "type": "boolean",
-            "read": true,
-            "write": false,
-            "def": false
-          },
-          "value": {
-            "==": [ { "var": "value" }, 1 ]
-          }
+          "value": {"==": [ { "var": "value" }, 1 ]}
         },
         {
           "data": "Move down",
           "shortcut": "DO",
           "bitoffs": "16",
           "bitsize": "8",
-          "iobroker": {
-            "role": "switch",
-            "type": "boolean",
-            "read": true,
-            "write": false,
-            "def": false
-          },
-          "value": {
-            "==": [ { "var": "value" }, 2 ]
-          }
+          "value": {"==": [ { "var": "value" }, 2 ]}
         }
       ]
     },
@@ -92,16 +120,7 @@
           "shortcut": "RT",
           "bitoffs": "0",
           "bitsize": "16",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "unit": "s"
-          },
-          "value": {
-            "/": [{"var": "value"}, 10]
-          },
+          "value": {"/": [{"var": "value"}, 10]},
           "decimals": 1
         },
         {
@@ -109,45 +128,21 @@
           "shortcut": "BS",
           "bitoffs": "29",
           "bitsize": "1",
-          "iobroker": {
-            "role": "state",
-            "type": "boolean",
-            "read": true,
-            "write": true
-          },
-          "value": {
-            "var": 1
-          }
+          "value": 1
         },
         {
           "data": "Move up",
           "shortcut": "UP",
           "bitoffs": "16",
           "bitsize": "8",
-          "iobroker": {
-            "role": "switch",
-            "type": "boolean",
-            "read": true,
-            "write": false
-          },
-          "value": {
-            "==": [ { "var": "value" }, 1 ]
-          }
+          "value": {"==": [ { "var": "value" }, 1 ]}
         },
         {
           "data": "Move down",
           "shortcut": "DO",
           "bitoffs": "16",
           "bitsize": "8",
-          "iobroker": {
-            "role": "switch",
-            "type": "boolean",
-            "read": true,
-            "write": false
-          },
-          "value": {
-            "==": [ { "var": "value" }, 2 ]
-          }
+          "value": {"==": [ { "var": "value" }, 2 ]}
         }
       ]
     },
@@ -168,13 +163,6 @@
         "shortcut": "CMD",
         "bitoffs": "16",
         "bitsize": "8",
-        "iobroker": {
-          "role": "state",
-          "type": "number",
-          "read": true,
-          "write": true,
-          "states": "0:Stop; 1:Up; 2:Down; 3:Teach-in"
-        },
           "value": 0
       },
         {
@@ -182,16 +170,7 @@
           "shortcut": "RT",
           "bitoffs": "0",
           "bitsize": "16",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "unit": "s"
-          },
-          "value": {
-            "/": [{"var": "value"}, 10]
-          },
+          "value": {"/": [{"var": "value"}, 10]},
           "value_out": 255,
           "decimals": 1
         },
@@ -214,15 +193,7 @@
           "shortcut": "BS",
           "bitoffs": "29",
           "bitsize": "1",
-          "iobroker": {
-            "role": "state",
-            "type": "boolean",
-            "read": true,
-            "write": true
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": {"var": "value"}
         }
       ]
     },
@@ -250,16 +221,7 @@
           "shortcut": "RT",
           "bitoffs": "0",
           "bitsize": "16",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "unit": "s"
-          },
-          "value": {
-            "/": [{"var": "value"}, 10]
-          },
+          "value": {"/": [{"var": "value"}, 10]},
           "value_out": {"var": "value"},
           "decimals": 1
         },
@@ -282,15 +244,7 @@
           "shortcut": "BS",
           "bitoffs": "29",
           "bitsize": "1",
-          "iobroker": {
-            "role": "state",
-            "type": "boolean",
-            "read": true,
-            "write": true
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": {"var": "value"}
         }
       ]
     },
@@ -318,16 +272,7 @@
           "shortcut": "RT",
           "bitoffs": "0",
           "bitsize": "16",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "unit": "s"
-          },
-          "value": {
-            "/": [{"var": "value"}, 10]
-          },
+          "value": {"/": [{"var": "value"}, 10]},
           "value_out": {"var": "value"},
           "decimals": 1
         },
@@ -350,15 +295,7 @@
           "shortcut": "BS",
           "bitoffs": "29",
           "bitsize": "1",
-          "iobroker": {
-            "role": "state",
-            "type": "boolean",
-            "read": true,
-            "write": true
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": {"var": "value"}
         }
       ]
     },

@@ -6,6 +6,20 @@
   "type_number": "0x01",
   "type_title": "Weather Station",
   "bidirectional": false,
+  "objects": {
+    "preDefined": ["TMP", "ILL", "RAN", "WND"],
+    "DN": {
+      "type": "state",
+      "common": {
+        "name": "Day",
+        "role": "switch",
+        "type": "boolean",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    }
+  },
   "case": [{
     "send": false,
     "datafield": [
@@ -14,49 +28,22 @@
         "shortcut": "TMP",
         "bitoffs": "8",
         "bitsize": "8",
-        "iobroker": {
-          "role": "value.temperature",
-          "type": "number",
-          "read": true,
-          "write": false,
-          "unit": "°C"
-        },
-        "value": {
-          "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.4706 ] }, -40]
-        },
+        "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.4706 ] }, -40]},
         "decimals": 2
       },
       {
         "data": "Dawn sensor",
-        "shortcut": "DWS",
+        "shortcut": "ILL",
         "bitoffs": "0",
         "bitsize": "8",
-        "iobroker": {
-          "role": "value.brightness",
-          "type": "number",
-          "read": true,
-          "write": false,
-          "unit": "lx"
-        },
-        "value": {
-          "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 3.9176 ] }, 0]
-        }
+        "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 3.9176 ] }, 0]}
       },
       {
         "data": "Wind speed",
         "shortcut": "WND",
         "bitoffs": "0",
         "bitsize": "8",
-        "iobroker": {
-          "role": "value.battery",
-          "type": "number",
-          "read": true,
-          "write": false,
-          "unit": "V"
-        },
-        "value": {
-          "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.2745 ] }, 0]
-        },
+        "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.2745 ] }, 0]},
         "decimals": 2
       },
       {
@@ -64,30 +51,14 @@
         "shortcut": "DN",
         "bitoffs": "29",
         "bitsize": "1",
-        "iobroker": {
-          "role": "switch",
-          "type": "boolean",
-          "read": true,
-          "write": false
-        },
-        "value": {
-          "==": [{"var": "value"}, 0]
-        }
+        "value": {"==": [{"var": "value"}, 0]}
       },
       {
         "data": "Rain",
         "shortcut": "RAN",
         "bitoffs": "30",
         "bitsize": "1",
-        "iobroker": {
-          "role": "switch",
-          "type": "boolean",
-          "read": true,
-          "write": false
-        },
-        "value": {
-          "==": [{"var": "value"}, 0]
-        }
+        "value": {"==": [{"var": "value"}, 0]}
       }
     ]
   }]

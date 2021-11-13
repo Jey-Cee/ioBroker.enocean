@@ -6,6 +6,9 @@
   "type_number": "0x00",
   "type_title": "Light and Occupancy sensor Range 0lx to 2048lx",
   "bidirectional": false,
+  "objects": {
+    "preDefined": ["PIRS", "ILL", "SVC"]
+  },
   "case": [{
     "send": false,
     "datafield": [
@@ -14,51 +17,21 @@
         "shortcut": "PIRS",
         "bitoffs": "24",
         "bitsize": "8",
-        "iobroker": {
-          "role": "sensor.motion",
-          "type": "boolean",
-          "read": true,
-          "write": false
-        },
-        "value": {
-          "==": [{"var": "value"}, 13]
-        }
+        "value": {"==": [{"var": "value"}, 13]}
       },
       {
         "data": "Illumination 0...2048lx",
         "shortcut": "ILL",
         "bitoffs": "8",
         "bitsize": "8",
-        "iobroker": {
-          "role": "value.brightness",
-          "type": "number",
-          "read": true,
-          "write": false,
-          "unit": "lx"
-        },
-        "value": {
-          "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 8.0314 ] }, 0]
-        }
+        "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 8.0314 ] }, 0]}
       },
       {
         "data": "Supply voltage 0…5.1V",
         "shortcut": "SVC",
         "bitoffs": "0",
         "bitsize": "8",
-        "iobroker": {
-          "role": "value.battery",
-          "type": "number",
-          "read": true,
-          "write": false,
-          "unit": "V"
-        },
-        "value": {
-          "+": [{
-            "*": [
-              { "-": [{"var": "value"}, 0] },
-              0.02
-            ]}, 0]
-        },
+        "value": {"+": [{"*": [{ "-": [{"var": "value"}, 0] }, 0.02]}, 0]},
         "decimals": 2
       }
     ]

@@ -6,6 +6,19 @@
     "type_number": "0x00",
     "type_title": "Window/Door contact",
     "bidirectional": false,
+    "objects": {
+        "WIN": {
+            "type": "state",
+            "common": {
+                "name": "state",
+                "role": "switch",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "name": {}
+        }
+    },
     "case": [
         {
             "send": false,
@@ -15,15 +28,7 @@
                     "shortcut": "WIN",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "switch",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                            "===": [ { "var": "value" }, 224 ]
-                    }
+                    "value": {"===": [ { "var": "value" }, 224 ]}
                 }
             ]
         }

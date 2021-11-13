@@ -6,6 +6,87 @@
     "type_number": "0x04",
     "type_title": "Extended Light status",
     "bidirectional": false,
+    "objects": {
+        "preDefined": ["ON"],
+        "P1": {
+            "type": "state",
+            "common": {
+                "name": "Parameter 1",
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        "P2": {
+            "type": "state",
+            "common": {
+                "name": "Parameter 2",
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        "P3": {
+            "type": "state",
+            "common": {
+                "name": "Parameter 3",
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        "SM": {
+            "type": "state",
+            "common": {
+                "name": "Service mode",
+                "role": "value",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        "OHS": {
+            "type": "state",
+            "common": {
+                "name": "Operating hours available",
+                "role": "value",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        "ES": {
+            "type": "state",
+            "common": {
+                "name": "Error state",
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": "0:No Error; 1:Lamp-failure; 2:Internal failure; 3:Failure on the external periphery;"
+            }
+        },
+        "PM": {
+            "type": "state",
+            "common": {
+                "name": "Parameter Mode",
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": "0:8 Bit Dimmer value and lamp operating hours; 1:RGB Value; 2:Energy metering; 3:Not used;"
+            },
+            "native": {}
+        }
+    },
     "case": [{
         "send": false,
         "datafield": [
@@ -14,12 +95,6 @@
                 "shortcut": "P1",
                 "bitoffs": "0",
                 "bitsize": "8",
-                "iobroker": {
-                    "role": "value",
-                    "type": "number",
-                    "read": true,
-                    "write": false
-                },
                 "value": {"var": "value"}
             },
             {
@@ -27,12 +102,6 @@
                 "shortcut": "P2",
                 "bitoffs": "8",
                 "bitsize": "8",
-                "iobroker": {
-                    "role": "value",
-                    "type": "number",
-                    "read": true,
-                    "write": false
-                },
                 "value": {"var": "value"}
             },
             {
@@ -40,12 +109,6 @@
                 "shortcut": "P3",
                 "bitoffs": "16",
                 "bitsize": "8",
-                "iobroker": {
-                    "role": "value",
-                    "type": "number",
-                    "read": true,
-                    "write": false
-                },
                 "value": {"var": "value"}
             },
             {
@@ -53,12 +116,6 @@
                 "shortcut": "SM",
                 "bitoffs": "24",
                 "bitsize": "1",
-                "iobroker": {
-                    "role": "value",
-                    "type": "boolean",
-                    "read": true,
-                    "write": false
-                },
                 "value": {"==": [{"var": "value"}, 1]}
             },
             {
@@ -66,12 +123,6 @@
                 "shortcut": "OHS",
                 "bitoffs": "24",
                 "bitsize": "1",
-                "iobroker": {
-                    "role": "value",
-                    "type": "boolean",
-                    "read": true,
-                    "write": false
-                },
                 "value": {"==": [{"var": "value"}, 1]}
             },
             {
@@ -79,13 +130,6 @@
                 "shortcut": "ES",
                 "bitoffs": "26",
                 "bitsize": "2",
-                "iobroker": {
-                    "role": "value",
-                    "type": "number",
-                    "read": true,
-                    "write": false,
-                    "states": "0:No Error; 1:Lamp-failure; 2:Internal failure; 3:Failure on the external periphery;"
-                },
                 "value": {"var": "value"}
             },
             {
@@ -100,26 +144,13 @@
                 "shortcut": "PM",
                 "bitoffs": "29",
                 "bitsize": "2",
-                "iobroker": {
-                    "role": "value",
-                    "type": "number",
-                    "read": true,
-                    "write": false,
-                    "states": "0:8 Bit Dimmer value and lamp operating hours; 1:RGB Value; 2:Energy metering; 3:Not used;"
-                },
                 "value": {"var": "value"}
             },
             {
                 "data": "ON",
-                "shortcut": "ST",
+                "shortcut": "ON",
                 "bitoffs": "31",
                 "bitsize": "1",
-                "iobroker": {
-                    "role": "value",
-                    "type": "boolean",
-                    "read": true,
-                    "write": false
-                },
                 "value": {"==": [{"var": "value"}, 1]}
             }
         ]

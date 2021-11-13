@@ -6,6 +6,19 @@
   "type_number": "0x01",
   "type_title": "Single Input Contact",
   "bidirectional": false,
+  "objects": {
+    "CO": {
+      "type": "state",
+      "common": {
+        "name": "Contact open",
+        "role": "indicator",
+        "type": "boolean",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    }
+  },
   "case": [{
     "send": false,
     "datafield": [
@@ -14,15 +27,7 @@
         "shortcut": "CO",
         "bitoffs": "7",
         "bitsize": "1",
-        "iobroker": {
-          "role": "indicator",
-          "type": "boolean",
-          "read": true,
-          "write": false
-        },
-        "value": {
-          "===": [{"var": "value"}, 0]
-        }
+        "value": {"===": [{"var": "value"}, 0]}
       }
     ]
   }]

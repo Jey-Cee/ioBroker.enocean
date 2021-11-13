@@ -6,6 +6,32 @@
   "type_number": "0x7F",
   "type_title": "Switch actuator",
   "bidirectional": true,
+  "objects": {
+    "CMD": {
+      "type": "state",
+      "common": {
+        "name": "Command",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": "0:Off; 1:On; 2:Teach-in; 3:Teach-in (1)"
+      },
+      "native": {}
+    },
+    "SB": {
+      "type": "state",
+      "common": {
+        "name": "State blocked",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "def": 0
+      },
+      "native": {}
+    }
+  },
   "case": [
     {
       "send": true,
@@ -24,13 +50,6 @@
           "shortcut": "CMD",
           "bitoffs": "31",
           "bitsize": "1",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "0:Off; 1:On; 2:Teach-in; 3:Teach-in (1)"
-          },
           "value": 0
         },
         {
@@ -38,16 +57,7 @@
           "shortcut": "SB",
           "bitoffs": "29",
           "bitsize": "1",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "def": 0
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": {"var": "value"}
         },
         {
           "data": "fixed parameter",
@@ -96,13 +106,6 @@
           "shortcut": "CMD",
           "bitoffs": "31",
           "bitsize": "1",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "states": "0:Off; 1:On; 2:Teach-in; 3:Teach-in (1)"
-          },
           "value": 1
         },
         {
@@ -110,16 +113,7 @@
           "shortcut": "SB",
           "bitoffs": "29",
           "bitsize": "1",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": true,
-            "def": 0
-          },
-          "value": {
-            "var": "value"
-          }
+          "value": {"var": "value"}
         },
         {
           "data": "fixed parameter",

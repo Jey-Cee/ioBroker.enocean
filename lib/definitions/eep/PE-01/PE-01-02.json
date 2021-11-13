@@ -6,6 +6,9 @@
   "type_number": "0x00",
   "type_title": "PSC 152 Energy measurement",
   "bidirectional": true,
+  "objects": {
+    "preDefined": ["EC", "AC"]
+  },
   "case": [
     {
       "send": false,
@@ -20,12 +23,6 @@
           "shortcut": "EC",
           "bitoffs": "16",
           "bitsize": "32",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": false
-          },
           "condition": {
             "or": [
               {"==":[{"var": "value2"}, 0]},
@@ -53,12 +50,6 @@
           "shortcut": "AC",
           "bitoffs": "16",
           "bitsize": "32",
-          "iobroker": {
-            "role": "state",
-            "type": "number",
-            "read": true,
-            "write": false
-          },
           "condition": {
             "or": [
               {"==":[{"var": "value2"}, 3]},

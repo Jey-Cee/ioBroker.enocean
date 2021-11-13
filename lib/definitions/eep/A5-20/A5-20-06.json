@@ -6,6 +6,124 @@
     "type_number": "0x06",
     "type_title": "Harvesting-powered actuator with local temperature offset control (BI-DIR)",
     "bidirectional": true,
+    "objects": {
+        "preDefined": ["in", "in.CV", "in.TMP", "in.DWO"],
+        "in.LOM": {
+            "type": "state",
+            "common": {
+                "name": "Local offset mode",
+                "role": "indicator",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": "0:Temperature offset; 1:Temperature with offset"
+            },
+            "native": {}
+        },
+        "in.LO": {
+            "type": "state",
+            "common": {
+                "name": "Local offset",
+                "role": "value.temperature",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "unit": "°C"
+            },
+            "native": {}
+        },
+        "in.TSL": {
+            "type": "state",
+            "common": {
+                "name": "Temperature selection",
+                "role": "indicator",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": "0:Ambient sensor temp; 1:Feed sensor temperature"
+            },
+            "native": {}
+        },
+        "in.ENIE": {
+            "type": "state",
+            "common": {
+                "name": "Harvesting status",
+                "role": "indicator",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        "in.ES": {
+            "type": "state",
+            "common": {
+                "name": "Charge level of energy storage",
+                "role": "indicator",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": "0:Low, almost discharged; 1:Sufficiently charged"
+            },
+            "native": {}
+        },
+        "in.RCE": {
+            "type": "state",
+            "common": {
+                "name": "Radio communication error",
+                "role": "indicator",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        "in.RSS": {
+            "type": "state",
+            "common": {
+                "name": "Week Radio Signal",
+                "role": "indicator",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        "in.ACO": {
+            "type": "state",
+            "common": {
+                "name": "Actuator is blocked",
+                "role": "indicator",
+                "type": "boolean",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        },
+        "SP": {
+            "type": "state",
+            "common": {
+                "name": "Valve position (0...100) or temperature setpoint (0...+40°C)",
+                "role": "level",
+                "type": "number",
+                "read": false,
+                "write": true
+            },
+            "native": {}
+        },
+        "TMP": {
+            "type": "state",
+            "common": {
+                "name": "Send actual room temperature",
+                "role": "value.temperature",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "unit": "°C"
+            },
+            "native": {}
+        }
+    },
     "case": [
         {
             "send": false,
@@ -15,29 +133,13 @@
                     "shortcut": "in.CV",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "value.valve",
-                        "type": "number",
-                        "unit": "%",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "var": "value"
-                    }
+                    "value": {"var": "value"}
                 },
                 {
                     "data": "Local offset mode",
                     "shortcut": "in.LOM",
                     "bitoffs": "8",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "indicator",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "states": "0:Temperature offset; 1:Temperature with offset"
-                    },
                     "value": {"var": "value"}
                 },
                 {
@@ -45,13 +147,6 @@
                     "shortcut": "in.LO",
                     "bitoffs": "9",
                     "bitsize": "7",
-                    "iobroker": {
-                        "role": "value.temperature",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "unit": "°C"
-                    },
                     "secondArgument": {
                         "bitoffs": "8",
                         "bitsize": "1"
@@ -64,13 +159,6 @@
                     "shortcut": "in.LO",
                     "bitoffs": "9",
                     "bitsize": "7",
-                    "iobroker": {
-                        "role": "value.temperature",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "unit": "°C"
-                    },
                     "secondArgument": {
                         "bitoffs": "8",
                         "bitsize": "1"
@@ -97,28 +185,13 @@
                     "shortcut": "in.TMP",
                     "bitoffs": "16",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "indicator",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "+": [{ "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.5]}, 0]
-                    }
+                    "value": {"+": [{ "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.5]}, 0]}
                 },
                 {
                     "data": "Temperature selection",
                     "shortcut": "in.TSL",
                     "bitoffs": "24",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "indicator",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "states": "0:Ambient sensor temp; 1:Feed sensor temperature"
-                    },
                     "value": { "var": "value" }
                 },
                 {
@@ -126,33 +199,13 @@
                     "shortcut": "in.ENIE",
                     "bitoffs": "25",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "indicator",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "==": [
-                            {
-                                "var": "value"
-                            },
-                            1
-                        ]
-                    }
+                    "value": {"==": [{"var": "value"}, 1]}
                 },
                 {
                     "data": "Charge level of energy storage",
                     "shortcut": "in.ES",
                     "bitoffs": "26",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "indicator",
-                        "type": "number",
-                        "read": true,
-                        "write": false,
-                        "states": "0:Low, almost discharged; 1:Sufficiently charged"
-                    },
                     "value": { "var": "value" }
                 },
                 {
@@ -160,65 +213,28 @@
                     "shortcut": "in.DWO",
                     "bitoffs": "27",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "indicator",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "==": [
-                            {
-                                "var": "value"
-                            },
-                            1
-                        ]
-                    }
+                    "value": {"==": [{"var": "value"}, 1]}
                 },
                 {
                     "data": "Radio communication error",
                     "shortcut": "in.RCE",
                     "bitoffs": "29",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "indicator",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "==": [ { "var": "value" }, 1 ]
-                    }
+                    "value": {"==": [ { "var": "value" }, 1 ]}
                 },
                 {
                     "data": "Week Radio Signal",
                     "shortcut": "in.RSS",
                     "bitoffs": "30",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "indicator",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "==": [ { "var": "value" }, 1 ]
-                    }
+                    "value": {"==": [ { "var": "value" }, 1 ]}
                 },
                 {
                     "data": "Actuator is blocked",
                     "shortcut": "in.ACO",
                     "bitoffs": "31",
                     "bitsize": "1",
-                    "iobroker": {
-                        "role": "indicator",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false
-                    },
-                    "value": {
-                        "==": [ { "var": "value" }, 1 ]
-                    }
+                    "value": {"==": [ { "var": "value" }, 1 ]}
                 }
             ]
         },
@@ -233,33 +249,11 @@
             },
             "datafield": [
                 {
-                    "data": "Command",
-                    "shortcut": "CMD",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "states": "0:Set Valve position; 1:Set Temperature; 2:Summer mode;"
-                    },
-                    "value": {
-                        "var": "value"
-                    }
-                },
-                {
                     "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
                     "shortcut": "SP",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "level",
-                        "type": "number",
-                        "read": false,
-                        "write": true
-                    },
-                    "value": {
-                        "var": "value"
-                    }
+                    "value": {"var": "value"}
                 },
                 {
                     "data": "fixed parameter",
@@ -306,15 +300,7 @@
                     "shortcut": "SP",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "level",
-                        "type": "number",
-                        "read": false,
-                        "write": true
-                    },
-                    "value": {
-                        "var": "value"
-                    },
+                    "value": {"var": "value"},
                     "value_out": {"/": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 0.5]}
                 },
                 {
@@ -322,13 +308,6 @@
                     "shortcut": "TMP",
                     "bitoffs": "8",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "value.temperature",
-                        "type": "number",
-                        "read": true,
-                        "write": true,
-                        "unit": "°C"
-                    },
                     "value_out": {"/": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 0.25 ]},
                     "decimals": 2
                 },
@@ -363,15 +342,7 @@
                     "shortcut": "SP",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "level",
-                        "type": "number",
-                        "read": false,
-                        "write": true
-                    },
-                    "value": {
-                        "var": "value"
-                    }
+                    "value": {"var": "value"}
                 },
                 {
                     "data": "fixed parameter",

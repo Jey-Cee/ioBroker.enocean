@@ -6,6 +6,9 @@
   "type_number": "0x01",
   "type_title": "Light Sensor Range 300lx to 60.000lx",
   "bidirectional": false,
+  "objects": {
+    "preDefined": ["ILL", "SVC"]
+  },
   "case": [
     {
       "send": false,
@@ -22,16 +25,7 @@
         "shortcut": "ILL",
         "bitoffs": "8",
         "bitsize": "8",
-        "iobroker": {
-          "role": "value.brightness",
-          "type": "number",
-          "read": true,
-          "write": false,
-          "unit": "lx"
-        },
-        "value": {
-          "+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 116.4706 ] }, 300]
-        },
+        "value": {"+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 116.4706 ] }, 300]},
         "decimals": 2
       },
       {
@@ -39,16 +33,7 @@
         "shortcut": "SVC",
         "bitoffs": "0",
         "bitsize": "8",
-        "iobroker": {
-          "role": "value.battery",
-          "type": "number",
-          "unit": "V",
-          "read": true,
-          "write": false
-        },
-        "value": {
-          "+": [{"*":[{"-":[{"var":  "value"}, 0]},0.02]}, 0]
-        },
+        "value": {"+": [{"*":[{"-":[{"var":  "value"}, 0]},0.02]}, 0]},
         "decimals": 2
       }
     ]
@@ -68,16 +53,7 @@
           "shortcut": "ILL",
           "bitoffs": "16",
           "bitsize": "8",
-          "iobroker": {
-            "role": "value.brightness",
-            "type": "number",
-            "read": true,
-            "write": false,
-            "unit": "lx"
-          },
-          "value": {
-            "+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 235.2941 ] }, 600]
-          },
+          "value": {"+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 235.2941 ] }, 600]},
           "decimals": 2
         },
         {
@@ -85,16 +61,7 @@
           "shortcut": "SVC",
           "bitoffs": "0",
           "bitsize": "8",
-          "iobroker": {
-            "role": "value.battery",
-            "type": "number",
-            "unit": "V",
-            "read": true,
-            "write": false
-          },
-          "value": {
-            "+": [{"*":[{"-":[{"var":  "value"}, 0]},0.02]}, 0]
-          },
+          "value": {"+": [{"*":[{"-":[{"var":  "value"}, 0]},0.02]}, 0]},
           "decimals": 2
         }
       ]

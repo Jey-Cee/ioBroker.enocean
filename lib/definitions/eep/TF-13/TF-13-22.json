@@ -6,6 +6,19 @@
     "type_number": "0x00",
     "type_title": "FMS61NP-230V",
     "bidirectional": false,
+    "objects": {
+        "CMD": {
+            "type": "state",
+            "common": {
+                "name": "Command",
+                "role": "state",
+                "type": "number",
+                "read": false,
+                "write": true,
+                "states": "0:CH 1 On; 1:CH 1 Off; 2:CH 2 On; 3:CH 2 Off"
+            }
+        }
+    },
     "case": [
         {
             "send": true,
@@ -17,18 +30,6 @@
                 ]
             },
             "datafield": [
-                {
-                    "data": "Command ID",
-                    "shortcut": "CMD",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": false,
-                        "write": true,
-                        "states": "0:CH 1 On; 1:CH 1 Off; 2:CH 2 On; 3:CH 2 Off"
-                    },
-                    "value": 0
-                },
                 {
                     "data": "fixed parameter",
                     "description": "CH 1 On",

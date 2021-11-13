@@ -6,6 +6,19 @@
     "type_number": "0x00",
     "type_title": "FTS14EM",
     "bidirectional": false,
+    "objects": {
+        "SW": {
+            "type": "state",
+            "common": {
+                "name": "Switch",
+                "role": "state",
+                "type": "string",
+                "read": true,
+                "write": false
+            },
+            "native": {}
+        }
+    },
     "case": [
         {
             "send": false,
@@ -15,12 +28,6 @@
                     "shortcut": "SW",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "string",
-                        "read": true,
-                        "write": false
-                    },
                     "value": {
                         "if": [
                             {"==": [{"var": "value"}, 112]}, true,

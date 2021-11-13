@@ -6,6 +6,21 @@
     "type_number": "0x00",
     "type_title": "FRW",
     "bidirectional": false,
+    "objects": {
+        "preDefined": ["AL"],
+        "BL": {
+            "type": "state",
+            "common": {
+                "name": "Battery Low",
+                "role": "state",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        }
+    },
     "case": [
         {
             "send": false,
@@ -15,32 +30,14 @@
                     "shortcut": "AL",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false,
-                        "def": false
-                    },
-                    "value": {
-                        "==": [{"var": "value"}, 16]
-                    }
+                    "value": {"==": [{"var": "value"}, 16]}
                 },
                 {
                     "data": "Battery Low",
                     "shortcut": "BL",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "boolean",
-                        "read": true,
-                        "write": false,
-                        "def": false
-                    },
-                    "value": {
-                        "==": [{"var": "value"}, 30]
-                    }
+                    "value": {"==": [{"var": "value"}, 30]}
                 }
             ]
         }

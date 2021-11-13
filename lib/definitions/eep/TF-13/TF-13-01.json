@@ -6,6 +6,33 @@
   "type_number": "0x01",
   "type_title": "FWS61",
   "bidirectional": true,
+  "objects": {
+    "preDefined": ["TMP", "RAN", "WND", "SNW", "SNS", "SNE"],
+    "CMD": {
+      "type": "state",
+      "command": {
+        "name": "Command",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": "0:Teach-in;"
+      },
+      "native": {}
+    },
+    "DWS": {
+      "type": "state",
+      "common": {
+        "name": "Dawn sensor",
+        "role": "value.brightness",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "unit": "lx"
+      },
+      "native": {}
+    }
+  },
   "case": [
     {
       "send": true,
@@ -24,16 +51,7 @@
         "shortcut": "CMD",
         "bitoffs": "0",
         "bitsize": "8",
-        "iobroker": {
-          "role": "state",
-          "type": "number",
-          "read": true,
-          "write": true,
-          "states": "0:Teach-in;"
-        },
-          "value": {
-            "var": "value"
-          }
+          "value": {"var": "value"}
       },
         {
           "data": "fixed parameter",
@@ -87,16 +105,7 @@
           "shortcut": "TMP",
           "bitoffs": "8",
           "bitsize": "8",
-          "iobroker": {
-            "role": "value.temperature",
-            "type": "number",
-            "read": true,
-            "write": false,
-            "unit": "°C"
-          },
-          "value": {
-            "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.4706 ] }, -40]
-          },
+          "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.4706 ] }, -40]},
           "decimals": 2
         },
         {
@@ -104,32 +113,14 @@
           "shortcut": "DWS",
           "bitoffs": "0",
           "bitsize": "8",
-          "iobroker": {
-            "role": "value.brightness",
-            "type": "number",
-            "read": true,
-            "write": false,
-            "unit": "lx"
-          },
-          "value": {
-            "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 3.9219 ] }, 0]
-          }
+          "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 3.9219 ] }, 0]}
         },
         {
           "data": "Wind speed",
           "shortcut": "WND",
           "bitoffs": "16",
           "bitsize": "8",
-          "iobroker": {
-            "role": "value.speed.wind",
-            "type": "number",
-            "read": true,
-            "write": false,
-            "unit": "m/s"
-          },
-          "value": {
-            "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.2745 ] }, 0 ]
-          },
+          "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.2745 ] }, 0 ]},
           "decimals": 2
         },
         {
@@ -137,15 +128,7 @@
           "shortcut": "RAN",
           "bitoffs": "24",
           "bitsize": "8",
-          "iobroker": {
-            "role": "switch",
-            "type": "boolean",
-            "read": true,
-            "write": false
-          },
-          "value": {
-            "==": [{"var": "value"}, 26]
-          }
+          "value": {"==": [{"var": "value"}, 26]}
         }
       ]
     },
@@ -166,48 +149,21 @@
           "shortcut": "SNW",
           "bitoffs": "0",
           "bitsize": "8",
-          "iobroker": {
-            "role": "value.brightness",
-            "type": "number",
-            "read": true,
-            "write": false,
-            "unit": "klx"
-          },
-          "value": {
-            "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.5882 ] }, 0]
-          }
+          "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.5882 ] }, 0]}
         },
         {
           "data": "Sun South",
           "shortcut": "SNS",
           "bitoffs": "8",
           "bitsize": "8",
-          "iobroker": {
-            "role": "value.brightness",
-            "type": "number",
-            "read": true,
-            "write": false,
-            "unit": "klx"
-          },
-          "value": {
-            "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.5882 ] }, 0]
-          }
+          "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.5882 ] }, 0]}
         },
         {
           "data": "Sun East",
           "shortcut": "SNE",
           "bitoffs": "16",
           "bitsize": "8",
-          "iobroker": {
-            "role": "value.brightness",
-            "type": "number",
-            "read": true,
-            "write": false,
-            "unit": "klx"
-          },
-          "value": {
-            "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.5882 ] }, 0]
-          }
+          "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.5882 ] }, 0]}
         }
       ]
     }

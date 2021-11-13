@@ -6,6 +6,21 @@
   "type_number": "0x02",
   "type_title": "Sun Intensity",
   "bidirectional": false,
+  "objects": {
+    "preDefined": ["SNW", "SNS", "SNE"],
+    "HEM": {
+      "type": "state",
+      "common": {
+        "name": "Hemisphere",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": "0:North; 1:South"
+      },
+      "native": {}
+    }
+  },
   "case": [{
     "send": false,
     "datafield": [
@@ -14,64 +29,28 @@
         "shortcut": "SNW",
         "bitoffs": "0",
         "bitsize": "8",
-        "iobroker": {
-          "role": "value.brightness",
-          "type": "number",
-          "read": true,
-          "write": false,
-          "unit": "klx"
-        },
-        "value": {
-          "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.5882 ] }, 0]
-        }
+        "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.5882 ] }, 0]}
       },
       {
         "data": "Sun South",
         "shortcut": "SNS",
         "bitoffs": "8",
         "bitsize": "8",
-        "iobroker": {
-          "role": "value.brightness",
-          "type": "number",
-          "read": true,
-          "write": false,
-          "unit": "klx"
-        },
-        "value": {
-          "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.5882 ] }, 0 ]
-        }
+        "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.5882 ] }, 0 ]}
       },
       {
         "data": "Sun East",
         "shortcut": "SNE",
         "bitoffs": "16",
         "bitsize": "8",
-        "iobroker": {
-          "role": "value.brightness",
-          "type": "number",
-          "read": true,
-          "write": false,
-          "unit": "klx"
-        },
-        "value": {
-          "+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.5882 ] }, 0]
-        }
+        "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.5882 ] }, 0]}
       },
       {
         "data": "Hemisphere",
         "shortcut": "HEM",
         "bitoffs": "29",
         "bitsize": "1",
-        "iobroker": {
-          "role": "state",
-          "type": "number",
-          "read": true,
-          "write": false,
-          "states": "0:North; 1:South"
-        },
-        "value": {
-          "var": "value"
-        }
+        "value": {"var": "value"}
       }
     ]
   }]
