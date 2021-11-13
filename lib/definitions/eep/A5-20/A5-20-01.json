@@ -257,7 +257,13 @@
                     "shortcut": "SPN",
                     "bitoffs": "22",
                     "bitsize": "1",
-                    "value": {"==": [{"var": "value"}, 1]}
+                    "value": {"==": [{"var": "value"}, 1]},
+                    "value_out": {
+                        "if": [
+                            {"==":[false, {"var": "value"}]}, 0,
+                            {"==":[true, {"var": "value"}]}, 1
+                        ]
+                    }
                 },
                 {
                     "data": "fixed parameter",
