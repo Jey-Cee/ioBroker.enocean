@@ -7,7 +7,7 @@
     "type_title": "FTRx5HS, FTAFx5D",
     "bidirectional": false,
     "objects": {
-        "preDefined": ["TMP", "SP"],
+        "preDefined": ["SP"],
         "CMD": {
             "type": "state",
             "common": {
@@ -30,6 +30,18 @@
                 "write": true,
                 "def": 0,
                 "unit": "°K"
+            },
+            "native": {}
+        },
+        "SPRI": {
+            "type": "state",
+            "common": {
+                "name": "Set point priority",
+                "role": "state",
+                "type": "boolean",
+                "read": true,
+                "write": true,
+                "def": true
             },
             "native": {}
         }
@@ -62,14 +74,6 @@
                     }
                 },
                 {
-                    "data": "Temperature",
-                    "shortcut": "TMP",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "value_out": {"+":[{"/":[{"-":[{"var":"value"},0]},-0.1568627450980392]},255]},
-                    "decimals": 2
-                },
-                {
                     "data": "Set point 12...28°C",
                     "shortcut": "SP",
                     "bitoffs": "8",
@@ -78,9 +82,9 @@
                 },
                 {
                     "data": "fixed parameter",
-                    "description": "Not used",
-                    "bitoffs": "24",
-                    "bitsize": "4",
+                    "description": "dummy",
+                    "bitoffs": "16",
+                    "bitsize": "8",
                     "value": 0
                 },
                 {
@@ -91,11 +95,11 @@
                     "value": 1
                 },
                 {
-                    "data": "fixed parameter",
-                    "description": "Not used",
-                    "bitoffs": "29",
-                    "bitsize": "3",
-                    "value": 7
+                    "data": "Set point priority",
+                    "shortcut": "SPRI",
+                    "bitoffs": "30",
+                    "bitsize": "1",
+                    "value_out": {"if":[{"var":"value"},0,1]}
                 }
             ]
         },
@@ -171,27 +175,6 @@
                     "bitoffs": "8",
                     "bitsize": "8",
                     "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]}
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Not used",
-                    "bitoffs": "24",
-                    "bitsize": "4",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Represents learnbit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Not used",
-                    "bitoffs": "29",
-                    "bitsize": "3",
-                    "value": 7
                 }
             ]
         }
