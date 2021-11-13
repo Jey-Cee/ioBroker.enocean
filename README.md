@@ -175,7 +175,9 @@ To test telegram handling create a channel with name development and in this cha
 ## Changelog
 
 ### **WORK IN PROGRESS**
-* added Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH
+* (j1s2e3 / Jey-Cee) added Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB(PioTek Tracker), FLGTF55
+* (j1s2e3) added virtual Window/Door contact
+* seperated objects from datafields
 * fix Teachin for Eltako devices
 
 ### 0.5.4 (2021-09-10)
