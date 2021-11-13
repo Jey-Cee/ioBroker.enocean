@@ -1,0 +1,75 @@
+{
+    "eep": "X1-01-03",
+    "rorg_number": "0xA5",
+    "telegram": "4BS",
+    "func_number": "0x10",
+    "type_number": "0x06",
+    "type_title": "Window/Door contact",
+    "bidirectional": false,
+    "objects": {
+        "CMD": {
+            "type": "state",
+            "common": {
+                "name": "Command",
+                "role": "state",
+                "type": "number",
+                "read": false,
+                "write": true,
+                "states": "0:Closed; 1:Open"
+            },
+            "native": {}
+        }
+    },
+    "case":[
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 0
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "Command ID",
+                    "shortcut": "CMD",
+                    "iobroker": {
+                        "role": "state",
+                        "type": "number",
+                        "read": false,
+                        "write": true,
+                        "states": "0:Closed; 1:Open"
+                    },
+                    "value": 0
+                },
+                {
+                    "data": "fixed parameter",
+                    "description": "Closed",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 240
+                }
+            ]
+        },
+        {
+            "send": true,
+            "condition": {
+                "command": [
+                    {
+                        "value": 1
+                    }
+                ]
+            },
+            "datafield": [
+                {
+                    "data": "fixed parameter",
+                    "description": "Open",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": 224
+                }
+            ]
+        }
+    ]
+}
