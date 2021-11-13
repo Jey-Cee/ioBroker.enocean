@@ -39,6 +39,7 @@
                 "type": "number",
                 "read": true,
                 "write": false,
+                "states": "0:Day; 1:Night",
                 "def": 0
             },
             "native": {}
@@ -59,8 +60,7 @@
     "case": [
         {
             "send": false,
-            "condition": {
-                "command": [
+            "condition": [
                     {
                         "bitoffs": "29",
                         "bitsize": "1",
@@ -71,8 +71,7 @@
                         "bitsize": "1",
                         "value": 0
                     }
-                ]
-            },
+            ],
             "datafield": [
                 {
                     "data": "Day Meter Reading",
@@ -104,8 +103,7 @@
     },
         {
             "send": false,
-            "condition": {
-                "command": [
+            "condition": [
                     {
                         "bitoffs": "29",
                         "bitsize": "1",
@@ -116,8 +114,7 @@
                         "bitsize": "1",
                         "value": 1
                     }
-                ]
-            },
+            ],
             "datafield": [
                 {
                     "data": "Night Meter Reading",
@@ -151,15 +148,13 @@
         },
         {
             "send": false,
-            "condition": {
-                "command": [
+            "condition": [
                     {
                         "bitoffs": "29",
                         "bitsize": "1",
                         "value": 1
                     }
-                ]
-            },
+            ],
             "datafield": [
                 {
                     "data": "Power consumption",
