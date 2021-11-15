@@ -82,6 +82,7 @@ class Enocean extends utils.Adapter {
 		// get the list of available serial ports. Needed for win32 systems.
 		const ports = await SerialPort.list();
 
+		console.log(ports);
 		AVAILABLE_PORTS = ports.map(p => p.path);
 
 		if (this.config.serialport && this.config.ser2net === false) {
@@ -475,7 +476,10 @@ class Enocean extends utils.Adapter {
 		tcpClient.on('close', async () => {
 			this.log.info('The TCP port was closed.');
 			this.setState('info.connection', false, true);
-			await this.reconnectTCP();
+			if(tcpReconnectCounter === 0) {
+				this.reconnectTCP();
+			}
+
 		});
 
 	}
@@ -734,11 +738,12 @@ class Enocean extends utils.Adapter {
 	socketConnectAsync(port, ip){
 		return new Promise((resolve) => {
 			const cb = () => {
+				tcpClient.setKeepAlive(true, 2500);
 				resolve(true);
 			};
 			const connection = tcpClient.connect(port, ip, cb);
 			connection.on('error', (err) => {
-				this.log.warn(`Error: ${err}`);
+				this.log.warn(`${err}`);
 				this.reconnectTCP();
 			});
 			connection.pipe(process.stdout);
