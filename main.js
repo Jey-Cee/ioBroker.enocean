@@ -379,7 +379,7 @@ class Enocean extends utils.Adapter {
 
 	// filter serial devices function filterSerialPorts(path) {
 	filterSerialPorts(path) {
-		console.log(path);
+
 		// get only serial port names
 		if (!(/(tty(ACM|USB|AMA|MFD|Enocean|enocean|EnOcean|\.usbserial-)|rfcomm|(serial\/by-id))/).test(path)) return false;
 
@@ -453,6 +453,7 @@ class Enocean extends utils.Adapter {
 		SERIAL_PORT.on('open', async () => {
 			this.setState('info.connection', true, true);
 			await this.getGatewayInfo();
+			await this.extractSenderIdFromDevices();
 			//Not supported by USB300 await this.deleteSmartACKMailbox();
 			//await this.resetSmartACKClient();
 			//Not supported by USB300 await this.readMailboxStatus();
@@ -588,9 +589,28 @@ class Enocean extends utils.Adapter {
 		}
 	}
 
+	async extractSenderIdFromDevices() {
+		const devices = await this.getDevicesAsync();
+		const gateway = await this.getObjectAsync('gateway');
+		let senderIDs = gateway.native.senderIDs;
+
+		for (const d in devices) {
+			const patt = new RegExp('gateway');
+			if(!patt.test(devices[d]._id) && devices[d].native.Sender_ID) {
+				senderIDs[devices[d].native.Sender_ID] = devices[d].native.id;
+			}
+		}
+
+		await this.extendObjectAsync('gateway', {
+			native: {
+				senderIDs: senderIDs
+			}
+		});
+	}
+
 	async getGatewayInfo(){
 		let data, appVersion_main, appVersion_beta, appVersion_alpha, appVersion_build, apiVersion_main, apiVersion_beta, apiVersion_alpha, apiVersion_build, chipId, chipVersion, appDescription, repEnable, repLevel, frequency, protocol, baseId;
-
+		let senderIDs = {};
 		//03: CO_RD_VERSION
 		data = Buffer.from([0x03]);
 		const rd_version = await this.sendData(this, data, null, 5);
@@ -636,6 +656,7 @@ class Enocean extends utils.Adapter {
 			const returnIdbase = await this.waitForResponse();
 			const telegram = new ResponseTelegram(returnIdbase);
 			baseId = telegram.data.toString('hex');
+			senderIDs = await idRangeCalc(baseId);
 		}
 
 		//Smart ACK 06: SA_RD_LEARNDCLIENTS
@@ -674,6 +695,16 @@ class Enocean extends utils.Adapter {
 		this.log.info(JSON.stringify(gatewayObject.native));
 
 		await this.extendObjectAsync('gateway', gatewayObject);
+
+		const gateway = await this.getObjectAsync('gateway');
+
+		if(!gateway.native.senderIDs) {
+			await this.extendObjectAsync('gateway', {
+				native: {
+					senderIDs: senderIDs
+				}
+			});
+		}
 	}
 
 	async resetController(){
@@ -870,7 +901,22 @@ function dec2hexString(dec) {
 	return (dec+0x10000).toString(16).substr(-4).toUpperCase();
 }
 
+/**
+ * Calculate available sender IDs and return a json object
+ * @param {string} baseId
+ * @returns {Promise<{}>} sender ID list as json
+ */
+async function idRangeCalc(baseId) {
+	const baseInt = parseInt(baseId, 16);
+	let result = {};
 
+	for (let i = 1; i < 127; i++) {
+		let idInt = baseInt + i;
+		let idHex = idInt.toString(16);
+		result[idHex] = '';
+	}
+	return result;
+}
 
 
 

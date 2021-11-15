@@ -177,7 +177,9 @@ To test telegram handling create a channel with name development and in this cha
 ### **WORK IN PROGRESS**
 * (j1s2e3 / Jey-Cee) added Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB(PioTek Tracker), FLGTF55
 * (j1s2e3) added virtual Window/Door contact
+* use /dev/serial/by-id/xxx as path for USB device #104
 * seperated objects from datafields
+* detect when socket connection is broken #72
 * fix Teachin for Eltako devices
 
 ### 0.5.4 (2021-09-10)
