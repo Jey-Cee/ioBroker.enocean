@@ -82,7 +82,6 @@ class Enocean extends utils.Adapter {
 		// get the list of available serial ports. Needed for win32 systems.
 		const ports = await SerialPort.list();
 
-		console.log(ports);
 		AVAILABLE_PORTS = ports.map(p => p.path);
 
 		if (this.config.serialport && this.config.ser2net === false) {
@@ -380,8 +379,9 @@ class Enocean extends utils.Adapter {
 
 	// filter serial devices function filterSerialPorts(path) {
 	filterSerialPorts(path) {
+		console.log(path);
 		// get only serial port names
-		if (!(/(tty(ACM|USB|AMA|MFD|Enocean|enocean|EnOcean|\.usbserial-)|rfcomm)/).test(path)) return false;
+		if (!(/(tty(ACM|USB|AMA|MFD|Enocean|enocean|EnOcean|\.usbserial-)|rfcomm|(serial\/by-id))/).test(path)) return false;
 
 		return fs
 			.statSync(path)
@@ -395,8 +395,9 @@ class Enocean extends utils.Adapter {
 		if (PLATFORM === 'linux' || PLATFORM === 'darwin') {
 			// Filter out the devices that aren't serial ports
 			const devDirName = '/dev';
+			const byIdDirName = '/dev/serial/by-id';
 
-			let ports;
+			let ports, byId;
 			try {
 				ports = fs
 					.readdirSync(devDirName)
@@ -410,6 +411,23 @@ class Enocean extends utils.Adapter {
 			} catch (e) {
 				this.log.error('Cannot read "' + devDirName + '": ' + e);
 				ports = [];
+			}
+
+			try {
+				byId = fs
+					.readdirSync(byIdDirName)
+					.map(function (file) {
+						return path.join(byIdDirName, file);
+					})
+					.filter(this.filterSerialPorts)
+					.map(function (port) {
+						return { path: port };
+					});
+			} catch (e) {
+				this.log.error('Cannot read "' + devDirName + '": ' + e);
+			}
+			for(const i in byId){
+				ports.push(byId[i]);
 			}
 			result = ports.map(p => p.path);
 		} else if (PLATFORM === 'win32') {
