@@ -8,14 +8,21 @@
     "bidirectional": true,
     "objects": {
         "CMD": {
-            "type": "common",
+            "type": "state",
             "common": {
                 "name": "Command",
                 "role": "state",
                 "type": "number",
                 "read": true,
                 "write": true,
-                "states": "0:Off; 1:On; 3:Set level; 4: Teach-in; 5: Teach-in FSUD; 6: Request confirmation telegram"
+                "states": {
+                  "0" : "Off",
+                  "1" : "On",
+                  "2" : "Set level",
+                  "3" : "Teach-in",
+                  "4" : "Teach-in FSUD",
+                  "5":  "Request confirmation telegram"
+                }
             },
             "native": {}
         },
@@ -40,7 +47,12 @@
                 "type": "number",
                 "read": true,
                 "write": true,
-                "states": "0:Use hardware setting",
+                "states": {
+                  "0" : "Use hardware setting",
+                  "1" : "fast",
+                  "128" : "medium",
+                  "255" : "slow"
+                },
                 "def": 0
             },
             "native": {}
@@ -53,39 +65,16 @@
                 "type": "number",
                 "read": true,
                 "write": true,
-                "states": "0:false; 1:true",
+                "states": {
+                  "0" : "false",
+                  "1" : "true"
+                },
                 "def": 0
             },
             "native": {}
         }
     },
     "case": [
-        {
-            "send": false,
-            "condition": {
-                "command": [
-                    {
-                        "value": 255
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Level",
-                    "shortcut": "LVL",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": 100
-                },
-                {
-                    "data": "Dimming speed",
-                    "shortcut": "DS",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "value": 0
-                }
-            ]
-        },
         {
             "send": true,
             "condition": {
@@ -179,7 +168,7 @@
             "condition": {
                 "command": [
                     {
-                        "value": 3
+                        "value": 2
                     }
                 ]
             },
@@ -228,7 +217,7 @@
             "condition": {
                 "command": [
                     {
-                        "value": 4
+                        "value": 3
                     }
                 ]
             },
@@ -269,7 +258,7 @@
             "condition": {
                 "command": [
                     {
-                        "value": 5
+                        "value": 4
                     }
                 ]
             },
@@ -310,7 +299,7 @@
             "condition": {
                 "command": [
                     {
-                        "value": 6
+                        "value": 5
                     }
                 ]
             },
