@@ -15,7 +15,10 @@
                 "type": "number",
                 "read": false,
                 "write": true,
-                "states": "0:OFF; 1:ON;"
+                "states": {
+                    "0" : "Off",
+                    "1" : "On"
+                }
             },
             "native": {}
         }
@@ -33,17 +36,10 @@
             "datafield": [
                 {
                     "data": "fixed parameter",
-                    "description": "OFF",
+                    "description": "Off",
                     "bitoffs": "0",
-                    "bitsize": "3",
-                    "value": 3
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "released",
-                    "bitoffs": "3",
-                    "bitsize": "1",
-                    "value": 1
+                    "bitsize": "8",
+                    "value": 80
                 }
             ]
         },
@@ -59,17 +55,10 @@
             "datafield": [
                 {
                     "data": "fixed parameter",
-                    "description": "ON",
+                    "description": "On",
                     "bitoffs": "0",
-                    "bitsize": "3",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "released",
-                    "bitoffs": "3",
-                    "bitsize": "1",
-                    "value": 1
+                    "bitsize": "8",
+                    "value": 112
                 }
             ]
         }
