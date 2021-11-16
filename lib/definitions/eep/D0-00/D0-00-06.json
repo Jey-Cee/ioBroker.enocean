@@ -15,7 +15,7 @@
         "type": "number",
         "read": true,
         "write": false,
-        "states": "0:last message due to power loss. Gasp of death.;"
+        "states": {"0": "lastmessage due to power loss. Gasp of death."}
       },
       "native": {}
     }

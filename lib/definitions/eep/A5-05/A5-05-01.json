@@ -27,7 +27,9 @@
         "type": "number",
         "read": true,
         "write": false,
-        "states": "0: Heartbeat; 1: Event triggered"
+        "states": {
+          "0": "Heartbeat", "1": "Event triggered"
+        }
       },
       "native": {}
     }

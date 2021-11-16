@@ -7,7 +7,7 @@
     "type_title": "FTRx5HS, FTAFx5D",
     "bidirectional": false,
     "objects": {
-        "preDefined": ["SP"],
+        "preDefined": ["SP", "TMP"],
         "CMD": {
             "type": "state",
             "common": {
@@ -16,7 +16,7 @@
                 "type": "number",
                 "read": false,
                 "write": true,
-                "states": "0:Send data; 1:Teach-in"
+                "states": {"0": "Senddata","1": "Teach-in"}
             },
             "native": {}
         },

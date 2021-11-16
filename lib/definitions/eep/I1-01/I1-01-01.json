@@ -15,7 +15,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Off; 1:On; 2:Teach-in"
+        "states": {"0": "Off","1": "On","2": "Teach-in"}
       },
       "native": {}
     },
@@ -53,7 +53,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Duration; 1:Delay"
+        "states": {"0": "Duration","1": "Delay"}
       },
       "native": {}
     }

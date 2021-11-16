@@ -71,7 +71,9 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": "0:No Error; 1:Lamp-failure; 2:Internal failure; 3:Failure on the external periphery;"
+                "states": {
+                    "0":"No Error", "1":"Lamp-failure", "2":"Internal failure", "3":"Failure on the external periphery"
+                }
             }
         },
         "PM": {
@@ -82,7 +84,9 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": "0:8 Bit Dimmer value and lamp operating hours; 1:RGB Value; 2:Energy metering; 3:Not used;"
+                "states": {
+                    "0":"8 Bit Dimmer value and lamp operating hours", "1":"RGB Value", "2":"Energy metering", "3":"Not used"
+                }
             },
             "native": {}
         }

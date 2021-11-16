@@ -30,7 +30,7 @@
         "type": "number",
         "read": true,
         "write": false,
-        "states": "1: Simple press; 2:Double press; 3:Long press; 4:Long press released"
+        "states": {"1": "Simple press","2": "Doublepress","3": "Longpress","4": "Longpress released"}
       },
       "native": {}
     }

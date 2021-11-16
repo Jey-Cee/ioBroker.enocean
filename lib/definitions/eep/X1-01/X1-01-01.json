@@ -15,7 +15,7 @@
                 "type": "number",
                 "read": false,
                 "write": true,
-                "states": "0:Button AI; 1:Button A0; 2:Button BI; 3:Button B0; 4:Release"
+                "states": {"0": "ButtonAI","1": "ButtonA0","2": "ButtonBI","3": "ButtonB0","4": "Release"}
             },
             "native": {}
         }

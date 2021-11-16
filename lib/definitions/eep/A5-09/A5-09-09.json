@@ -16,7 +16,9 @@
         "type": "number",
         "read": true,
         "write": false,
-        "states": "0: Power OK; 1: Power Failure"
+        "states": {
+          "0": "Power OK", "1": "Power Failure"
+        }
       },
       "native": {}
     }

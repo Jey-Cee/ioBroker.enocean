@@ -16,7 +16,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Teach-in;"
+        "states": {"0": "Teach-in"}
       },
       "native": {}
     },

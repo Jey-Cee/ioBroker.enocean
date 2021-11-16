@@ -15,7 +15,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Stop; 1:Up; 2:Down; 3:Teach-in; 4:Block local switch; 5:Unblock local switch"
+        "states": {"0": "Stop","1": "Up","2": "Down","3": "Teach-in","4": "Blocklocal switch","5": "Unblocklocal switch"}
       },
       "native": {}
     },

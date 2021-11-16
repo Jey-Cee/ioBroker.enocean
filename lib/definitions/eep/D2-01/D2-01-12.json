@@ -15,7 +15,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:CH 1 OFF;1:CH 1 ON;2:CH 2 OFF; 3:CH 2 ON; 4:CH 1 Set output settings; 5:CH 2 Set output settings; 6:Status query; 7:CH 1 Set External Interface Settings; 8:CH 2 Set External Interface Settings; 9:Get External Interface Settings"
+        "states": {"0": "CH1 OFF","1": "CH1 ON","2": "CH2 OFF","3": "CH2 ON","4": "CH1 Set output settings","5": "CH2 Set output settings","6": "Statusquery","7": "CH1 Set External Interface Settings","8": "CH2 Set External Interface Settings","9": "GetExternal Interface Settings"}
       },
       "native": {}
     },
@@ -27,7 +27,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Disable taught-in devices;1:Enable taught-in devices"
+        "states": {"0": "Disabletaught-in devices","1": "Enabletaught-in devices"}
       },
       "native": {}
     },
@@ -39,7 +39,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Day;1:Night"
+        "states": {"0": "Day","1": "Night"}
       },
       "native": {}
     },
@@ -63,7 +63,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Off;1:On;2:Remember previous state"
+        "states": {"0": "Off","1": "On","2": "Rememberprevious state"}
       }
     },
     "CH1.AOT": {
@@ -98,7 +98,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Not applicable;1:External Switch;2:External Bush Button;3:Auto detect"
+        "states": {"0": "Notapplicable","1": "ExternalSwitch","2": "ExternalBush Button","3": "Autodetect"}
       },
       "native": {}
     },
@@ -110,7 +110,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Change of key state sets ON or OFF;1:Specific ON/OFF positions"
+        "states": {"0": "Changeof key state sets ON or OFF","1": "SpecificON/OFF positions"}
       },
       "native": {}
     },
@@ -144,7 +144,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Off;1:On;2:Remember previous state"
+        "states": {"0": "Off","1": "On","2": "Rememberprevious state"}
       }
     },
     "CH2.AOT": {
@@ -179,7 +179,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Not applicable;1:External Switch;2:External Bush Button;3:Auto detect"
+        "states": {"0": "Notapplicable","1": "ExternalSwitch","2": "ExternalBush Button","3": "Autodetect"}
       },
       "native": {}
     },
@@ -191,7 +191,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Change of key state sets ON or OFF;1:Specific ON/OFF positions"
+        "states": {"0": "Changeof key state sets ON or OFF","1": "SpecificON/OFF positions"}
       },
       "native": {}
     },

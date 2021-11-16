@@ -16,7 +16,7 @@
         "read": true,
         "write": false,
         "unit": "°C",
-        "states": "1021:Out of range negative;1022:Out of range positive;1023:Error;"
+        "states": {"1021": "Outof range negative","1022": "Outof range positive","1023": "Error"}
       },
       "native": {}
     },
@@ -29,7 +29,7 @@
         "read": true,
         "write": false,
         "unit": "%",
-        "states": "254:Supported + Invalid; 255:Not Supported"
+        "states": {"254": "Supported+ Invalid","255": "NotSupported"}
       }
     },
     "ILL": {
@@ -41,7 +41,7 @@
         "read": true,
         "write": false,
         "unit": "lx",
-        "states": "131071: Error"
+        "states": {"131071": "Error"}
       },
       "native": {}
     },
@@ -53,7 +53,7 @@
         "type": "number",
         "read": true,
         "write": false,
-        "states": "0:Periodic update; 1:Threshold 1 exceeded; 2:Threshold 2 exceeded"
+        "states": {"0": "Periodicupdate","1": "Threshold1 exceeded","2": "Threshold2 exceeded"}
       },
       "native": {}
     },
@@ -65,7 +65,7 @@
         "type": "number",
         "read": true,
         "write": false,
-        "states": "1021:Out of range negative;1022:Out of range positive;1023:Error;"
+        "states": {"1021": "Outof range negative","1022": "Outof range positive","1023": "Error"}
       },
       "native": {}
     },
@@ -77,7 +77,7 @@
         "type": "number",
         "read": true,
         "write": false,
-        "states": "1021:Out of range negative;1022:Out of range positive;1023:Error;"
+        "states": {"1021": "Outof range negative","1022": "Outof range positive","1023": "Error"}
       },
       "native": {}
     },
@@ -89,7 +89,7 @@
         "type": "number",
         "read": true,
         "write": false,
-        "states": "1021:Out of range negative;1022:Out of range positive;1023:Error;"
+        "states": {"1021": "Outof range negative","1022": "Outof range positive","1023": "Error"}
       },
       "native": {}
     },

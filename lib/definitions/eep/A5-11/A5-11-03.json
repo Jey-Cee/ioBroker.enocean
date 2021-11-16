@@ -16,7 +16,9 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": "0:Positive; 1:Negative"
+                "states": {
+                    "0":"Positive", "1":"Negative"
+                }
             },
             "native": {}
         },
@@ -62,7 +64,9 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": "0:No Error; 1:End positions are not configured; 2:Internal failure; 3:Not used;"
+                "states": {
+                    "0":"No Error", "1":"End positions are not configured", "2":"Internal failure", "3":"Not used"
+                }
             },
             "native": {}
         },
@@ -74,7 +78,9 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": "0:No End-position available; 1:No End-position reached; 2:Blind fully open; 3:Blind fully closed;"
+                "states": {
+                    "0":"No End-position available", "1":"No End-position reached", "2":"Blind fully open", "3":"Blind fully closed"
+                }
             },
             "native": {}
         },
@@ -86,7 +92,9 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": "0:No Status available; 1:Blind is stopped; 2:Blind opens; 3:Blind closes;"
+                "states": {
+                    "0":"No Status available", "1":"Blind is stopped", "2":"Blind opens", "3":"Blind closes"
+                }
             },
             "native": {}
         },
@@ -109,7 +117,9 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": "0:Normal mode: 0% fully open; 1:Inverse mode: 0% fully closed;"
+                "states": {
+                    "0":"Normal mode: 0% fully open", "1":"Inverse mode: 0% fully closed"
+                }
             },
             "native": {}
         }

@@ -15,7 +15,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Off; 1: On; 2:Teach-in"
+        "states": {"0": "Off","1": "On","2": "Teach-in"}
       },
       "native": {}
     },
@@ -27,7 +27,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Not Blocked; 1:Blocked",
+        "states": {"0": "NotBlocked","1": "Blocked"},
         "def": 0
       },
       "native": {}

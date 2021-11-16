@@ -15,7 +15,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "1:Go to Position; 2:Stop; 3:Query Position and Angle; 4:Reply Position and Angle; 5:Set parameters; 6:Got to top; 7:Go to bottom"
+        "states": {"1": "Goto Position","2": "Stop","3": "QueryPosition and Angle","4": "ReplyPosition and Angle","5": "Setparameters","6": "Gotto top","7": "Goto bottom"}
       },
       "native": {}
     },
@@ -27,7 +27,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "127:Do not change / position unknown",
+        "states": {"127": "Donot change / position unknown"},
         "unit": "%"
       },
       "native": {}
@@ -40,7 +40,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "127:Do not change / position unknown",
+        "states": {"127": "Donot change / position unknown"},
         "unit": "%"
       },
       "native": {}
@@ -53,7 +53,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Go directly to POS/ANG; 1:Go up (0%), then to POS/ANG; 2:Go down (100%), then to POS/ANG"
+        "states": {"0": "Godirectly to POS/ANG","1": "Goup (0%), then to POS/ANG","2": "Godown (100%), then to POS/ANG"}
       },
       "native": {}
     },
@@ -65,7 +65,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Do not change; 1:Set blockage mode; 2:Set alarm mode; 7:Deblockage"
+        "states": {"0": "Donot change","1": "Setblockage mode","2": "Setalarm mode","7": "Deblockage"}
       },
       "native": {}
     },
@@ -77,7 +77,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Channel 1; 1:Channel 2; 2:Channel 3; 3:Channel 4; 15:All channels"
+        "states": {"0": "Channel1","1": "Channel2","2": "Channel3","3": "Channel4","15": "Allchannels"}
       },
       "native": {}
     },
@@ -89,7 +89,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "32767:No change"
+        "states": {"32767": "Nochange"}
       },
       "native": {}
     },
@@ -101,7 +101,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:No rotation; 255:No change"
+        "states": {"0": "Norotation","255": "Nochange"}
       },
       "native": {}
     },
@@ -113,7 +113,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:No action; 1:Immediate stop; 2:Go up (0%); 3:Go down (100%); 7:No change"
+        "states": {"0": "Noaction","1": "Immediatestop","2": "Goup (0%)","3": "Godown (100%)","7": "Nochange"}
       },
       "native": {}
     }

@@ -16,7 +16,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:OFF;1:ON;2:Set output settings;3:Status query;4:Set measurement settings;5:Measurement query;6:Reset measurement values;"
+        "states": {"0": "OFF","1": "ON","2": "Setoutput settings","3": "Statusquery","4": "Setmeasurement settings","5": "Measurementquery","6": "Resetmeasurement values"}
       },
       "native": {}
     },
@@ -28,7 +28,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Disable taught-in devices;1:Enable taught-in devices"
+        "states": {"0": "Disabletaught-in devices","1": "Enabletaught-in devices"}
+
       },
       "native": {}
     },
@@ -40,7 +41,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Static off;1:Automatic restart"
+        "states": {"0": "Staticoff","1": "Automaticrestart"}
       },
       "native": {}
     },
@@ -52,7 +53,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Not active;1:Trigger signal"
+        "states": {"0": "Notactive","1": "Triggersignal"}
       },
       "native": {}
     },
@@ -64,7 +65,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Disable local control;1:Enable local control"
+        "states": {"0": "Disablelocal control","1": "Enablelocal control"}
       },
       "native": {}
     },
@@ -76,7 +77,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Day operation;1:Night operation"
+        "states": {"0": "Dayoperation","1": "Nightoperation"}
+
       },
       "native": {}
     },
@@ -88,7 +90,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Off;1:On;2:Remember previous state"
+        "states": {"0": "Off","1": "On","2": "Rememberprevious state"}
+
       },
       "native": {}
     },
@@ -111,7 +114,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Hardware OK;1:Hardware warning;2:Hardware failure;3:Error level not supported"
+        "states": {"0": "HardwareOK","1": "Hardwarewarning","2": "Hardwarefailure","3": "Errorlevel not supported"}
+
       },
       "native": {}
     },
@@ -123,7 +127,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "00:WS;1:Wh;2:kWh;3:W;4:kW"
+        "states": {"00": "WS","1": "Wh","2": "kWh","3": "W","4": "kW"}
       },
       "native": {}
     }

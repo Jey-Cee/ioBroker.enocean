@@ -16,7 +16,9 @@
         "type": "number",
         "read": true,
         "write": false,
-        "states": "0:North; 1:South"
+        "states": {
+          "0":"North", "1":"South"
+        }
       },
       "native": {}
     }

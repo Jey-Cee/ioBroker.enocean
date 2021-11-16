@@ -15,7 +15,8 @@
                 "type": "number",
                 "read": true,
                 "write": true,
-                "states": "1:Switching; 2:Dimming; 3:Setpoint shift; 4:Basic Setpoint; 5:Control variable; 6:Fan stage; 7:Blind Central Command"
+                "states": {"1": "Switching","2": "Dimming","3": "Setpointshift","4": "BasicSetpoint","5": "Controlvariable","6": "Fanstage","7": "BlindCentral Command"}
+
             },
             "native": {}
         },
@@ -60,7 +61,8 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": "0:Duration; 1:Delay",
+                "states": {"0": "Duration","1": "Delay"}
+            ,
                 "def": 0
             },
             "native": {}
@@ -121,7 +123,7 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": "0:Absolute; 1:Relative",
+                "states": {"0": "Absolute","1": "Relative"},
                 "def": 0
             },
             "native": {}
@@ -214,7 +216,7 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": "0:Automatic mode; 1:Heating; 2:Cooling; 3:Off",
+                "states": {"0": "Automaticmode","1": "Heating","2": "Cooling","3": "Off"},
                 "def": 0
             },
             "native": {}
@@ -227,7 +229,7 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": "0:Automatic; 1:Override",
+                "states": {"0": "Automatic","1": "Override"},
                 "def": 0
             },
             "native": {}
@@ -240,7 +242,7 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": "0:Normal; 1:Energy holdoff/Dew point",
+                "states": {"0": "Normal","1": "Energyholdoff/Dew point"},
                 "def": 0
             },
             "native": {}
@@ -253,7 +255,7 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": "0:Occupied; 1:Unoccupied; 2: Standby",
+                "states": {"0": "Occupied","1": "Unoccupied","2": "Standby"},
                 "def": 0
             },
             "native": {}

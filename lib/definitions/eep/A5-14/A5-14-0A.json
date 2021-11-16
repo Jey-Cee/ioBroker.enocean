@@ -16,7 +16,9 @@
         "type": "number",
         "read": true,
         "write": false,
-        "states": "0: No vibration; 1: Vibration detected"
+        "states": {
+          "0": "No vibration", "1": "Vibration detected"
+        }
       },
       "native": {}
     },
@@ -28,7 +30,9 @@
         "type": "number",
         "read": true,
         "write": false,
-        "states": "0: Closed; 1: Tilt; 3: Open"
+        "states": {
+          "0": "Closed", "1": "Tilt", "3": "Open"
+        }
       },
       "native": {}
     }

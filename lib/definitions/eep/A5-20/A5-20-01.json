@@ -16,7 +16,9 @@
                 "type": "number",
                 "read": true,
                 "write": true,
-                "states": "0:Set Valve position; 1:Set Temperature; 2:Summer mode; 3:Open valve; 4:Close valve"
+                "states": {
+                    "0":"Set Valve position", "1":"Set Temperature", "2":"Summer mode", "3":"Open valve", "4":"Close valve"
+                }
             },
             "native": {}
         },

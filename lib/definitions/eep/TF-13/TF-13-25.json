@@ -39,7 +39,7 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": "0:Day; 1:Night",
+                "states": {"0": "Day","1": "Night"},
                 "def": 0
             },
             "native": {}

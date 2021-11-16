@@ -16,7 +16,7 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Send Settings;"
+        "states": {"0": "SendSettings"}
       },
       "native": {}
     },

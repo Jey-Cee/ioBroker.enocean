@@ -16,7 +16,7 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": "0:Temperature offset; 1:Temperature with offset"
+                "states": {"0": "Temperatureoffset","1": "Temperaturewith offset"}
             },
             "native": {}
         },
@@ -40,7 +40,7 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": "0:Ambient sensor temp; 1:Feed sensor temperature"
+                "states": {"0": "Ambientsensor temp","1": "Feedsensor temperature"}
             },
             "native": {}
         },
@@ -63,7 +63,7 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": "0:Low, almost discharged; 1:Sufficiently charged"
+                "states": {"0": "Lowalmost discharged","1": "Sufficientlycharged"}
             },
             "native": {}
         },
