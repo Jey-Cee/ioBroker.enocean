@@ -15,7 +15,12 @@
                 "type": "number",
                 "read": false,
                 "write": true,
-                "states": "0:CH 1 On; 1:CH 1 Off; 2:CH 2 On; 3:CH 2 Off"
+                "states": {
+                    "0" : "Channel 1 On",
+                    "1" : "Channel 1 Off",
+                    "2" : "Channel 2 On",
+                    "3" : "Channel 2 Off"
+                }
             }
         }
     },
