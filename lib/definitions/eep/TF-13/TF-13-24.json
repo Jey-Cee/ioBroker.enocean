@@ -35,15 +35,8 @@
                     "data": "fixed parameter",
                     "description": "OFF",
                     "bitoffs": "0",
-                    "bitsize": "3",
-                    "value": 3
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "released",
-                    "bitoffs": "3",
-                    "bitsize": "1",
-                    "value": 1
+                    "bitsize": "8",
+                    "value": 80
                 }
             ]
         },
@@ -61,15 +54,8 @@
                     "data": "fixed parameter",
                     "description": "ON",
                     "bitoffs": "0",
-                    "bitsize": "3",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "released",
-                    "bitoffs": "3",
-                    "bitsize": "1",
-                    "value": 1
+                    "bitsize": "8",
+                    "value": 112
                 }
             ]
         }

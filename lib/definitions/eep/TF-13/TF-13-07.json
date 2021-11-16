@@ -8,14 +8,14 @@
     "bidirectional": true,
     "objects": {
         "CMD": {
-            "type": "common",
+            "type": "state",
             "common": {
                 "name": "Command",
                 "role": "state",
                 "type": "number",
                 "read": true,
                 "write": true,
-                "states": {"0": "Off","1": "On","3": "Setlevel","4": "Teach-in","5": "Teach-in FSUD","6": "Request confirmation telegram"}
+                "states": {"0": "Off","1": "On","2": "Setlevel","3": "Teach-in","4": "Teach-in FSUD","5": "Request confirmation telegram"}
             },
             "native": {}
         },
@@ -179,7 +179,7 @@
             "condition": {
                 "command": [
                     {
-                        "value": 3
+                        "value": 2
                     }
                 ]
             },
@@ -228,7 +228,7 @@
             "condition": {
                 "command": [
                     {
-                        "value": 4
+                        "value": 3
                     }
                 ]
             },
@@ -269,7 +269,7 @@
             "condition": {
                 "command": [
                     {
-                        "value": 5
+                        "value": 4
                     }
                 ]
             },
@@ -310,7 +310,7 @@
             "condition": {
                 "command": [
                     {
-                        "value": 6
+                        "value": 5
                     }
                 ]
             },
