@@ -15,7 +15,12 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": "0:Off; 1:On; 2:Teach-in; 3:Request confirmation telegram"
+        "states": {
+          "0" : "Off",
+          "1" : "On",
+          "2" : "Teach-in",
+          "3" : "Request confirmation telegram"
+        }
       },
       "native": {}
     },
@@ -38,8 +43,6 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "16",
-            "bitsize": "8",
             "value": 0
           }
         ]
@@ -51,7 +54,7 @@
         "bitoffs": "31",
         "bitsize": "1",
         "value": 0
-      },
+        },
         {
           "data": "State blocked",
           "shortcut": "SB",
@@ -94,8 +97,6 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "16",
-            "bitsize": "8",
             "value": 1
           }
         ]
@@ -150,8 +151,6 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "16",
-            "bitsize": "8",
             "value": 2
           }
         ]
