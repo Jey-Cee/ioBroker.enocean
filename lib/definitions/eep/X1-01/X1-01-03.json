@@ -1,9 +1,9 @@
 {
     "eep": "X1-01-03",
-    "rorg_number": "0xA5",
-    "telegram": "4BS",
+    "rorg_number": "0xF6",
+    "telegram": "RPS",
     "func_number": "0x10",
-    "type_number": "0x06",
+    "type_number": "0x00",
     "type_title": "Window/Door contact",
     "bidirectional": false,
     "objects": {
@@ -15,7 +15,10 @@
                 "type": "number",
                 "read": false,
                 "write": true,
-                "states": "0:Closed; 1:Open"
+                "states": {
+                  "0" : "Closed",
+                  "1" : "Open"
+                }
             },
             "native": {}
         }
@@ -31,18 +34,6 @@
                 ]
             },
             "datafield": [
-                {
-                    "data": "Command ID",
-                    "shortcut": "CMD",
-                    "iobroker": {
-                        "role": "state",
-                        "type": "number",
-                        "read": false,
-                        "write": true,
-                        "states": "0:Closed; 1:Open"
-                    },
-                    "value": 0
-                },
                 {
                     "data": "fixed parameter",
                     "description": "Closed",
