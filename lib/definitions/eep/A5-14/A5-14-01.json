@@ -28,7 +28,7 @@
         "shortcut": "CT",
         "bitoffs": "31",
         "bitsize": "1",
-        "value": {"===": [{"var": "value"}, 0]}
+        "value": {"===": [{"var": "value"}, 1]}
       },
       {
         "data": "Supply Voltage 0...5.0V (Optional)",
