@@ -7,7 +7,7 @@
   "type_title": "Temperature and humidity Sensor Range -20°C to +60°C and 0% to 100%",
   "bidirectional": false,
   "objects": {
-    "preDefined": ["TMP", "HUM"]
+    "preDefined": ["TMP", "HM"]
   },
   "case": [
     {

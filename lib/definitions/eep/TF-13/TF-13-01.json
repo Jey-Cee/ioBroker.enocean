@@ -10,7 +10,7 @@
     "preDefined": ["TMP", "RAN", "WND", "SNW", "SNS", "SNE"],
     "CMD": {
       "type": "state",
-      "command": {
+      "common": {
         "name": "Command",
         "role": "state",
         "type": "number",

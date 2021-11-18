@@ -133,12 +133,7 @@
           "shortcut": "AE",
           "bitoffs": "0",
           "bitsize": "1",
-          "value_out": {
-            "if": [
-              { "==": [{"var": "value"}, true]}, 1,
-              { "==": [{"var": "value"}, false]}, 0
-            ]
-          }
+          "value_out": {"if":[{"var":"value"},1,0]}
         },
         {
           "data": "Enable Pre-Alarm",
@@ -148,12 +143,7 @@
           "value": {
             "==": [{"var": "value"}, 1]
           },
-          "value_out": {
-            "if": [
-              { "==": [{"var": "value"}, true]}, 1,
-              { "==": [{"var": "value"}, false]}, 0
-            ]
-          }
+          "value_out": {"if":[{"var":"value"},1,0]}
         },
         {
           "data": "Set PIR senstivity",

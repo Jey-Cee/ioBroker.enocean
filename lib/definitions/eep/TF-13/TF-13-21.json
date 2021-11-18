@@ -291,48 +291,28 @@
                     "shortcut": "DR",
                     "bitoffs": "15",
                     "bitsize": "1",
-                    "value_out": {
-                        "if": [
-                            {"==":[false, {"var": "value"}]}, 0,
-                            {"==":[true, {"var": "value"}]}, 1
-                        ]
-                    }
+                    "value_out": {"if":[{"var":"value"},1,0]}
                 },
                 {
                     "data": "Dim green",
                     "shortcut": "DG",
                     "bitoffs": "14",
                     "bitsize": "1",
-                    "value_out": {
-                        "if": [
-                            {"==":[false, {"var": "value"}]}, 0,
-                            {"==":[true, {"var": "value"}]}, 1
-                        ]
-                    }
+                    "value_out": {"if":[{"var":"value"},1,0]}
                 },
                 {
                     "data": "Dim blue",
                     "shortcut": "DB",
                     "bitoffs": "13",
                     "bitsize": "1",
-                    "value_out": {
-                        "if": [
-                            {"==":[false, {"var": "value"}]}, 0,
-                            {"==":[true, {"var": "value"}]}, 1
-                        ]
-                    }
+                    "value_out": {"if":[{"var":"value"},1,0]}
                 },
                 {
                     "data": "Dim white",
                     "shortcut": "DW",
                     "bitoffs": "12",
                     "bitsize": "1",
-                    "value_out": {
-                        "if": [
-                            {"==":[false, {"var": "value"}]}, 0,
-                            {"==":[true, {"var": "value"}]}, 1
-                        ]
-                    }
+                    "value_out": {"if":[{"var":"value"},1,0]}
                 },
                 {
                     "data": "fixed parameter",
@@ -379,48 +359,28 @@
                     "shortcut": "DR",
                     "bitoffs": "15",
                     "bitsize": "1",
-                    "value_out": {
-                        "if": [
-                            {"==":[false, {"var": "value"}]}, 0,
-                            {"==":[true, {"var": "value"}]}, 1
-                        ]
-                    }
+                    "value_out": {"if":[{"var":"value"},1,0]}
                 },
                 {
                     "data": "Dim green",
                     "shortcut": "DG",
                     "bitoffs": "14",
                     "bitsize": "1",
-                    "value_out": {
-                        "if": [
-                            {"==":[false, {"var": "value"}]}, 0,
-                            {"==":[true, {"var": "value"}]}, 1
-                        ]
-                    }
+                    "value_out": {"if":[{"var":"value"},1,0]}
                 },
                 {
                     "data": "Dim blue",
                     "shortcut": "DB",
                     "bitoffs": "13",
                     "bitsize": "1",
-                    "value_out": {
-                        "if": [
-                            {"==":[false, {"var": "value"}]}, 0,
-                            {"==":[true, {"var": "value"}]}, 1
-                        ]
-                    }
+                    "value_out": {"if":[{"var":"value"},1,0]}
                 },
                 {
                     "data": "Dim white",
                     "shortcut": "DW",
                     "bitoffs": "12",
                     "bitsize": "1",
-                    "value_out": {
-                        "if": [
-                            {"==":[false, {"var": "value"}]}, 0,
-                            {"==":[true, {"var": "value"}]}, 1
-                        ]
-                    }
+                    "value_out": {"if":[{"var":"value"},1,0]}
                 },
                 {
                     "data": "fixed parameter",
@@ -467,48 +427,28 @@
                     "shortcut": "DR",
                     "bitoffs": "15",
                     "bitsize": "1",
-                    "value_out": {
-                        "if": [
-                            {"==":[false, {"var": "value"}]}, 0,
-                            {"==":[true, {"var": "value"}]}, 1
-                        ]
-                    }
+                    "value_out": {"if":[{"var":"value"},1,0]}
                 },
                 {
                     "data": "Dim green",
                     "shortcut": "DG",
                     "bitoffs": "14",
                     "bitsize": "1",
-                    "value_out": {
-                        "if": [
-                            {"==":[false, {"var": "value"}]}, 0,
-                            {"==":[true, {"var": "value"}]}, 1
-                        ]
-                    }
+                    "value_out": {"if":[{"var":"value"},1,0]}
                 },
                 {
                     "data": "Dim blue",
                     "shortcut": "DB",
                     "bitoffs": "13",
                     "bitsize": "1",
-                    "value_out": {
-                        "if": [
-                            {"==":[false, {"var": "value"}]}, 0,
-                            {"==":[true, {"var": "value"}]}, 1
-                        ]
-                    }
+                    "value_out": {"if":[{"var":"value"},1,0]}
                 },
                 {
                     "data": "Dim white",
                     "shortcut": "DW",
                     "bitoffs": "12",
                     "bitsize": "1",
-                    "value_out": {
-                        "if": [
-                            {"==":[false, {"var": "value"}]}, 0,
-                            {"==":[true, {"var": "value"}]}, 1
-                        ]
-                    }
+                    "value_out": {"if":[{"var":"value"},1,0]}
                 },
                 {
                     "data": "fixed parameter",

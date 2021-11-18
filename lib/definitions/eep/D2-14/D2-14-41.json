@@ -30,7 +30,8 @@
         "write": false,
         "unit": "%",
         "states": {"254": "Supported+ Invalid","255": "NotSupported"}
-      }
+      },
+      "native": {}
     },
     "ILL": {
       "type": "state",

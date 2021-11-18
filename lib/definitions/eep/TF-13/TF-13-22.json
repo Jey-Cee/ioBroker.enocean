@@ -16,7 +16,8 @@
                 "read": false,
                 "write": true,
                 "states": {"0": "CH1 On","1": "CH1 Off","2": "CH2 On","3": "CH2 Off"}
-            }
+            },
+            "native": {}
         }
     },
     "case": [

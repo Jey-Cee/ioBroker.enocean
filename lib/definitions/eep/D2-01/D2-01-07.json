@@ -9,7 +9,7 @@
   "objects": {
     "CMD": {
       "type": "state",
-      "command": {
+      "common": {
         "name": "Command",
         "role": "state",
         "type": "number",

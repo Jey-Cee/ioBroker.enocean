@@ -24,7 +24,8 @@
             "type": "channel",
             "common": {
                 "name": "Switching"
-            }
+            },
+            "native": {}
         },
         "switching.TIM": {
             "type": "state",
@@ -41,7 +42,7 @@
             },
             "native": {}
         },
-        "swtiching.LCK": {
+        "switching.LCK": {
             "type": "state",
             "common": {
                 "name": "Lock",
@@ -83,7 +84,8 @@
             "type": "channel",
             "common": {
                 "name": "Dimming"
-            }
+            },
+            "native": {}
         },
         "dimming.EDIM": {
             "type": "state",
@@ -156,7 +158,8 @@
             "type": "channel",
             "common": {
                 "name": "Setpoint"
-            }
+            },
+            "native": {}
         },
         "setpoint.SP": {
             "type": "state",
@@ -185,13 +188,15 @@
                 "min": 0,
                 "max": 51.2,
                 "def": 1
-            }
+            },
+            "native": {}
         },
         "control_variable": {
             "type": "channel",
             "common": {
                 "name": "Control variable override"
-            }
+            },
+            "native": {}
         },
         "control_variable.CVOV": {
             "type": "state",

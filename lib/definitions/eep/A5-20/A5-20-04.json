@@ -341,12 +341,7 @@
                     "shortcut": "MC",
                     "bitoffs": "17",
                     "bitsize": "1",
-                    "value_out": {
-                        "if": [
-                            { "==": [{"var": "value"}, true]}, 0,
-                            { "==": [{"var": "value"}, false]}, 1
-                        ]
-                    }
+                    "value_out": {"if":[{"var":"value"},0,1]}
                 },
                 {
                     "data": "Wake-up Cycle",
@@ -374,12 +369,7 @@
                     "shortcut": "BLC",
                     "bitoffs": "29",
                     "bitsize": "1",
-                    "value_out": {
-                        "if": [
-                            { "==": [{"var": "value"}, true]}, 1,
-                            { "==": [{"var": "value"}, false]}, 0
-                        ]
-                    }
+                    "value_out": {"if":[{"var":"value"},1,0]}
                 },
                 {
                     "data": "fixed parameter",
@@ -419,12 +409,7 @@
                     "shortcut": "MC",
                     "bitoffs": "17",
                     "bitsize": "1",
-                    "value_out": {
-                        "if": [
-                            { "==": [{"var": "value"}, true]}, 0,
-                            { "==": [{"var": "value"}, false]}, 1
-                        ]
-                    }
+                    "value_out": {"if":[{"var":"value"},0,1]}
                 },
                 {
                     "data": "Wake-up Cycle",
@@ -452,12 +437,7 @@
                     "shortcut": "BLC",
                     "bitoffs": "29",
                     "bitsize": "1",
-                    "value_out": {
-                        "if": [
-                            { "==": [{"var": "value"}, true]}, 1,
-                            { "==": [{"var": "value"}, false]}, 0
-                        ]
-                    }
+                    "value_out": {"if":[{"var":"value"},1,0]}
                 },
                 {
                     "data": "fixed parameter",

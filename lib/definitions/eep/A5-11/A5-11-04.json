@@ -74,7 +74,8 @@
                 "states": {
                     "0":"No Error", "1":"Lamp-failure", "2":"Internal failure", "3":"Failure on the external periphery"
                 }
-            }
+            },
+            "native": {}
         },
         "PM": {
             "type": "state",

@@ -47,13 +47,15 @@
       "type": "channel",
       "common": {
         "name": "Channel 1"
-      }
+      },
+      "native": {}
     },
     "CH2": {
       "type": "channel",
       "common": {
         "name": "Channel 2"
-      }
+      },
+      "native": {}
     },
     "CH1.DS": {
       "type": "state",
@@ -64,7 +66,8 @@
         "read": true,
         "write": true,
         "states": {"0": "Off","1": "On","2": "Rememberprevious state"}
-      }
+      },
+      "native": {}
     },
     "CH1.AOT": {
       "type": "state",
@@ -145,7 +148,8 @@
         "read": true,
         "write": true,
         "states": {"0": "Off","1": "On","2": "Rememberprevious state"}
-      }
+      },
+      "native": {}
     },
     "CH2.AOT": {
       "type": "state",
@@ -605,18 +609,14 @@
           "shortcut": "CH1.AOT",
           "bitoffs": "16",
           "bitsize": "16",
-          "value_out": {
-              "*":[{"var": "value"},10]
-          }
+          "value_out": {"*":[{"var": "value"},10]}
         },
         {
           "data": "Delay OFF Timer",
           "shortcut": "CH1.DOT",
           "bitoffs": "32",
           "bitsize": "16",
-          "value_out": {
-            "*":[{"var": "value"},10]
-          }
+          "value_out": {"*":[{"var": "value"},10]}
         },
         {
           "data": "External switch type",
@@ -669,18 +669,14 @@
           "shortcut": "CH2.AOT",
           "bitoffs": "16",
           "bitsize": "16",
-          "value_out": {
-            "*":[{"var": "value"},10]
-          }
+          "value_out": {"*":[{"var": "value"},10]}
         },
         {
           "data": "Delay OFF Timer",
           "shortcut": "CH2.DOT",
           "bitoffs": "32",
           "bitsize": "16",
-          "value_out": {
-            "*":[{"var": "value"},10]
-          }
+          "value_out": {"*":[{"var": "value"},10]}
         },
         {
           "data": "External switch type",

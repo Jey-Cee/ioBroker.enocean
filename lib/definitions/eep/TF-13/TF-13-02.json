@@ -16,7 +16,7 @@
                 "read": true,
                 "write": false
             },
-            "name": {}
+            "native": {}
         }
     },
     "case": [

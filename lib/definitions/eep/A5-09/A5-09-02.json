@@ -17,7 +17,8 @@
         "read": true,
         "write": false,
         "unit": "ppm"
-      }
+      },
+      "native": {}
     }
   },
   "case": [

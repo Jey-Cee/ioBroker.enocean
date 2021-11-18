@@ -66,12 +66,7 @@
                 "shortcut": "SLSW",
                 "bitoffs": "31",
                 "bitsize": "1",
-                "value_out": {
-                    "if": [
-                        { "==": [{"var": "value"}, true]}, 1,
-                        { "==": [{"var": "value"}, false]}, 0
-                    ]
-                }
+                "value_out": {"if":[{"var":"value"},1,0]}
             }
         ]
     },

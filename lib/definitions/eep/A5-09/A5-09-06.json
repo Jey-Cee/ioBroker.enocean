@@ -16,7 +16,8 @@
         "read": true,
         "write": false,
         "unit": "Bq/m³"
-      }
+      },
+      "native": {}
     }
   },
   "case": [
