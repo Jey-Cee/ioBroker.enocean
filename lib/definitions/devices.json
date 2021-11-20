@@ -775,7 +775,7 @@
         "TF-13-11",
         "TF-14-02"
       ],
-      "autocreate": true,
+      "autocreate": false,
       "teachin_method": "MSC",
       "id_offset": true,
       "help": {

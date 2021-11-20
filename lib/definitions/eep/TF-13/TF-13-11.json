@@ -46,20 +46,6 @@
       },
       "datafield": [
         {
-        "data": "Command ID",
-        "shortcut": "CMD",
-        "bitoffs": "31",
-        "bitsize": "1",
-        "value": 0
-      },
-        {
-          "data": "State blocked",
-          "shortcut": "SB",
-          "bitoffs": "29",
-          "bitsize": "1",
-          "value": {"==": [{"var": "value"}, 1]}
-        },
-        {
           "data": "fixed parameter",
           "description": "dummy",
           "bitoffs": "0",
@@ -86,6 +72,21 @@
           "bitoffs": "28",
           "bitsize": "1",
           "value": 1
+        },
+        {
+          "data": "State blocked",
+          "shortcut": "SB",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": {"==": [{"var": "value"}, 1]},
+          "value_out": {"if": [{"var": "value"}, 1, 0]}
+        },
+        {
+          "data": "fixed parameter",
+          "shortcut": "OFF",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": 0
         }
       ]
     },
@@ -102,20 +103,6 @@
       },
       "datafield": [
         {
-          "data": "Command ID",
-          "shortcut": "CMD",
-          "bitoffs": "31",
-          "bitsize": "1",
-          "value": 1
-        },
-        {
-          "data": "State blocked",
-          "shortcut": "SB",
-          "bitoffs": "29",
-          "bitsize": "1",
-          "value": {"==": [{"var": "value"}, 1]}
-        },
-        {
           "data": "fixed parameter",
           "description": "dummy",
           "bitoffs": "0",
@@ -140,6 +127,21 @@
           "data": "fixed parameter",
           "description": "Learn bit",
           "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "State blocked",
+          "shortcut": "SB",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": {"==": [{"var": "value"}, 1]},
+          "value_out": {"if": [{"var": "value"}, 1, 0]}
+        },
+        {
+          "data": "fixed parameter",
+          "description": "ON",
+          "bitoffs": "31",
           "bitsize": "1",
           "value": 1
         }
