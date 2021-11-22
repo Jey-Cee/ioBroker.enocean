@@ -174,7 +174,7 @@ To test telegram handling create a channel with name development and in this cha
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 0.6.0 (2021-11-22)
 * (j1s2e3 / Jey-Cee) added Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB(PioTek Tracker), FLGTF55
 * (j1s2e3) added virtual Window/Door contact
 * use /dev/serial/by-id/xxx as path for USB device #104
