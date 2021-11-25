@@ -83,6 +83,13 @@
           "bitoffs": "29",
           "bitsize": "1",
           "value": {"var": "value"}
+        },
+        {
+          "data": "fixed parameter",
+          "description": "100ms",
+          "bitoffs": "30",
+          "bitsize": "1",
+          "value": 1
         }
       ]
     },
@@ -125,6 +132,13 @@
           "bitoffs": "29",
           "bitsize": "1",
           "value": {"var": "value"}
+        },
+        {
+          "data": "fixed parameter",
+          "description": "100ms",
+          "bitoffs": "30",
+          "bitsize": "1",
+          "value": 1
         }
       ]
     },
@@ -167,6 +181,13 @@
           "bitoffs": "29",
           "bitsize": "1",
           "value": {"var": "value"}
+        },
+        {
+          "data": "fixed parameter",
+          "description": "100ms",
+          "bitoffs": "30",
+          "bitsize": "1",
+          "value": 1
         }
       ]
     },
