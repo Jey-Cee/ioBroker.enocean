@@ -12,50 +12,21 @@
   "case": [
     {
       "send": false,
-      "condition": {
-        "t_sensor": {
-          "bitoffs": "30",
-          "bitsize": "1",
-          "value": 1
-        }
-      },
       "datafield": [
         {
           "data": "Temperature -20...60°C",
           "shortcut": "TMP",
-          "bitoffs": "16",
-          "bitsize": "8",
+          "bitoffs": "14",
+          "bitsize": "10",
           "value": {"+": [{"*": [{"-": [{"var": "value"}, 0]}, 0.0782]}, -20]},
           "decimals": 2
         },
         {
           "data": "Humidity 0...100%",
           "shortcut": "TMP",
-          "bitoffs": "8",
+          "bitoffs": "0",
           "bitsize": "8",
           "value": {"+": [{"*": [{"-": [{"var": "value"}, 0]}, 0.4]}, 0]},
-          "decimals": 2
-        }
-      ]
-    },
-    {
-      "send": false,
-      "condition": {
-        "t_sensor": {
-          "bitoffs": "30",
-          "bitsize": "1",
-          "value": 0
-        }
-      },
-      "datafield": [
-        {
-          "data": "Humidity 0...100%",
-          "shortcut": "TMP",
-          "bitoffs": "8",
-          "bitsize": "8",
-          "value": {
-            "+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.4 ] }, 0 ]
-          },
           "decimals": 2
         }
       ]

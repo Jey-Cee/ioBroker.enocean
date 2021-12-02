@@ -113,6 +113,25 @@
           "2": "Irgendeine Taste des Tasters betätigen."
         }
       }
+    },
+    "STM 350": {
+      "EEP": [
+        "A5-04-03",
+        "D0-00-06"
+      ],
+      "autocreate": true,
+      "teachin_method": "4BS",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'",
+          "2": "Press the 'Set' button."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken",
+          "2": "'Set' Taste drücken."
+        }
+      }
     }
   },
   "ELTAKO": {
