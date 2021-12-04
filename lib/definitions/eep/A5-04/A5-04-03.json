@@ -19,15 +19,15 @@
           "bitoffs": "14",
           "bitsize": "10",
           "value": {"+": [{"*": [{"-": [{"var": "value"}, 0]}, 0.0782]}, -20]},
-          "decimals": 2
+          "decimals": 1
         },
         {
           "data": "Humidity 0...100%",
-          "shortcut": "TMP",
+          "shortcut": "HUM",
           "bitoffs": "0",
           "bitsize": "8",
           "value": {"+": [{"*": [{"-": [{"var": "value"}, 0]}, 0.4]}, 0]},
-          "decimals": 2
+          "decimals": 1
         }
       ]
     }
