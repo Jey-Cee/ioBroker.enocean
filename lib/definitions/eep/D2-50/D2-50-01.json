@@ -1,0 +1,733 @@
+{
+  "eep": "D2-50-01",
+  "rorg_number": "0xD2",
+  "telegram": "VLD",
+  "func_number": "0x50",
+  "type_number": "0x01",
+  "type_title": "Heat Recovery Ventilation with pre-heater",
+  "bidirectional": true,
+  "objects": {
+    "preDefined": ["in"],
+    "CMD": {
+      "type": "state",
+      "common": {
+        "name": "Command",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {
+          "0": "Ventilation remote transmission request",
+          "1": "Ventilation control",
+          "2": "Ventilation basic status",
+          "3": "Ventilation extended status"
+        }
+      },
+      "native": {}
+    },
+    "RMT": {
+      "type": "state",
+      "common": {
+        "name": "Requested Message Type",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {
+          "0": "Ventilation basic status",
+          "1": "Ventilation extended status"
+        }
+      },
+      "native": {}
+    },
+    "DOMC": {
+      "type": "state",
+      "common": {
+        "name": "Direct Operation Mode Control",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {
+          "0": "Off",
+          "1": "Level 1",
+          "2": "Level 2",
+          "3": "Level 3",
+          "4": "Level 4",
+          "11": "Automatic",
+          "12": "Automatic on demand",
+          "13": "Supply air only",
+          "14": "Exhaust air only",
+          "15": "No action (keep current ventilation mode/level)"
+        }
+      },
+      "native": {}
+    },
+    "OMC": {
+      "type": "state",
+      "common": {
+        "name": "Operation mode control",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {
+          "0": "No action",
+          "1": "Select next operation mode",
+          "2": "Slect previous operation mode"
+        }
+      },
+      "native": {}
+    },
+    "COT": {
+      "type": "state",
+      "common": {
+        "name": "CO2 Threshold (0-100%)",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "unit": "%",
+        "states": {
+          "127": "Default (use threshold configured in device)"
+        }
+      },
+      "native": {}
+    },
+    "HT": {
+      "type": "state",
+      "common": {
+        "name": "Humidity Threshold (0-100%)",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "unit": "%",
+        "states": {
+          "127": "Default (use threshold configured in device)"
+        }
+      },
+      "native": {}
+    },
+    "AQT": {
+      "type": "state",
+      "common": {
+        "name": "Air Quality Threshold (0-100%)",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "unit": "%",
+        "states": {
+          "127": "Default (use threshold configured in device)"
+        }
+      },
+      "native": {}
+    },
+    "in.OMS": {
+      "type": "state",
+      "common": {
+        "name": "Operation mode status",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Off",
+          "1": "Level 1",
+          "2": "Level 2",
+          "3": "Level 3",
+          "4": "Level 4",
+          "11": "Automatic",
+          "12": "Automatic on demand",
+          "13": "Supply air only",
+          "14": "Exhaust air only"
+        }
+      },
+      "native": {}
+    },
+    "in.SFP": {
+      "type": "state",
+      "common": {
+        "name": "Supply Air Flap position",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Closed",
+          "1": "Open"
+        }
+      },
+      "native": {}
+    },
+    "in.EFP": {
+      "type": "state",
+      "common": {
+        "name": "Exhaust Air Flap position",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Closed",
+          "1": "Open"
+        }
+      },
+      "native": {}
+    },
+    "in.DMS": {
+      "type": "state",
+      "common": {
+        "name": "Defrost mode status",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Inactive",
+          "1": "Active"
+        }
+      },
+      "native": {}
+    },
+    "in.CPS": {
+      "type": "state",
+      "common": {
+        "name": "Cooling protection status",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Inactive",
+          "1": "Active"
+        }
+      },
+      "native": {}
+    },
+    "in.OHS": {
+      "type": "state",
+      "common": {
+        "name": "Outdoor Air Heater status",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Inactive",
+          "1": "Active"
+        }
+      },
+      "native": {}
+    },
+    "in.DHS": {
+      "type": "state",
+      "common": {
+        "name": "Drain Heater status",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Inactive",
+          "1": "Active"
+        }
+      },
+      "native": {}
+    },
+    "in.TOMS": {
+      "type": "state",
+      "common": {
+        "name": "Timer operation mode status",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Inactive",
+          "1": "Active"
+        }
+      },
+      "native": {}
+    },
+    "in.FMS": {
+      "type": "state",
+      "common": {
+        "name": "Filter maintenance status",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Maintenance not required",
+          "1": "Maintenance required"
+        }
+      },
+      "native": {}
+    },
+    "in.AQS1": {
+      "type": "state",
+      "common": {
+        "name": "Air Quality sensor 1 (0-100%)",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "unit": "%",
+        "states": {
+          "127": "Not available"
+        }
+      },
+      "native": {}
+    },
+    "in.MSS": {
+      "type": "state",
+      "common": {
+        "name": "Master/Slave configuration status",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Master",
+          "1": "Slave"
+        }
+      },
+      "native": {}
+    },
+    "in.OUTT": {
+      "type": "state",
+      "common": {
+        "name": "Outdoor Air Temperature",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    "in.SPLYT": {
+      "type": "state",
+      "common": {
+        "name": "Supply Air Temperature",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    "in.SPLYFF": {
+      "type": "state",
+      "common": {
+        "name": "Supply Air fan Air Flow rate",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "unit": "m³/h"
+      },
+      "native": {}
+    },
+    "in.EXHFF": {
+      "type": "state",
+      "common": {
+        "name": "Exhaust Air fan Air Flow rate",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "unit": "m³/h"
+      },
+      "native": {}
+    },
+    "in.SPLYFS": {
+      "type": "state",
+      "common": {
+        "name": "Supply Fan Speed",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "unit": "1/min"
+      },
+      "native": {}
+    },
+    "in.EXHFS": {
+      "type": "state",
+      "common": {
+        "name": "Exhaust Fan Speed",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "unit": "1/min"
+      },
+      "native": {}
+    },
+    "in.SVI": {
+      "type": "state",
+      "common": {
+        "name": "Software Version Info",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    "in.OHC": {
+      "type": "state",
+      "common": {
+        "name": "Operation Hours Counter",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "unit": "h"
+      },
+      "native": {}
+    },
+    "in.IMS": {
+      "type": "state",
+      "common": {
+        "name": "Info Message 0...15 status",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "1": "Info no. 00 active",
+          "2": "Info no. 01 active",
+          "4": "Info no. 02 active",
+          "8": "Info no. 03 active",
+          "16": "Info no. 04 active",
+          "32": "Info no. 05 active",
+          "64": "Info no. 06 active",
+          "128": "Info no. 07 active",
+          "256": "Info no. 08 active",
+          "512": "Info no. 09 active",
+          "1024": "Info no. 10 active",
+          "2048": "Info no. 11 active",
+          "4096": "Info no. 12 active",
+          "8192": "Info no. 13 active",
+          "16384": "Info no. 14 active",
+          "32768": "Info no. 15 active"
+        }
+      },
+      "native": {}
+    },
+    "in.FS": {
+      "type": "state",
+      "common": {
+        "name": "Fault 0...31 status",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "1": "Fault no. 00 active",
+          "2": "Fault no. 01 active",
+          "4": "Fault no. 02 active",
+          "8": "Fault no. 03 active",
+          "16": "Fault no. 04 active",
+          "32": "Fault no. 05 active",
+          "64": "Fault no. 06 active",
+          "128": "Fault no. 07 active",
+          "256": "Fault no. 08 active",
+          "512": "Fault no. 09 active",
+          "1024": "Fault no. 10 active",
+          "2048": "Fault no. 11 active",
+          "4096": "Fault no. 12 active",
+          "8192": "Fault no. 13 active",
+          "16384": "Fault no. 14 active",
+          "32768": "Fault no. 15 active",
+          "65536": "Fault no. 16 active",
+          "131072": "Fault no. 17 active",
+          "262144": "Fault no. 18 active",
+          "524288": "Fault no. 19 active",
+          "1048576": "Fault no. 20 active",
+          "2097152": "Fault no. 21 active",
+          "4194304": "Fault no. 22 active",
+          "8388608": "Fault no. 23 active",
+          "16777216": "Fault no. 24 active",
+          "33554432": "Fault no. 25 active",
+          "67108864": "Fault no. 26 active",
+          "134217728": "Fault no. 27 active",
+          "268435456": "Fault no. 28 active",
+          "536870912": "Fault no. 29 active",
+          "1073741824": "Fault no. 30 active",
+          "2147483648": "Fault no. 31 active"
+        }
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 0
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "Message Type: Ventilation remote transmission request",
+          "bitoffs": "0",
+          "bitsize": "3",
+          "value": 0
+        },
+        {
+          "data": "Requested message type",
+          "shortcut": "RMT",
+          "bitoffs": "5",
+          "bitsize": "3",
+          "value": {"var": "value"}
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "Message Type: Ventilation control",
+          "bitoffs": "0",
+          "bitsize": "3",
+          "value": 0
+        },
+        {
+          "data": "Direct operation mode control",
+          "shortcut": "DOMC",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Operation mode control",
+          "shortcut": "OMC",
+          "bitoffs": "8",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "CO2 Threshold",
+          "shortcut": "COT",
+          "bitoffs": "17",
+          "bitsize": "7",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Humidity Threshold",
+          "shortcut": "HT",
+          "bitoffs": "25",
+          "bitsize": "7",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Airquality Threshold",
+          "shortcut": "AQT",
+          "bitoffs": "33",
+          "bitsize": "7",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "41",
+          "bitsize": "7",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "0",
+            "bitsize": "3",
+            "value": 2
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Operation mode status",
+          "shortcut": "in.OMS",
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Supply Air Flap position",
+          "shortcut": "in.SFP",
+          "bitoffs": "14",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Exhaust Air Flap position",
+          "shortcut": "in.EFP",
+          "bitoffs": "15",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Defrost mode status",
+          "shortcut": "in.DMS",
+          "bitoffs": "16",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Cooling protection status",
+          "shortcut": "in.CPS",
+          "bitoffs": "17",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Ooutdoor Air Heater status",
+          "shortcut": "in.OHS",
+          "bitoffs": "18",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Drain Heater status",
+          "shortcut": "in.DHS",
+          "bitoffs": "20",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Timer operation mode status",
+          "shortcut": "in.TOMS",
+          "bitoffs": "21",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Filter Maintenance status",
+          "shortcut": "in.FMS",
+          "bitoffs": "22",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Air Quality Sensor 1",
+          "shortcut": "in.AQS1",
+          "bitoffs": "25",
+          "bitsize": "7",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Master/Slave Configuration status",
+          "shortcut": "in.MSS",
+          "bitoffs": "32",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Outdoor Air Temperature",
+          "shortcut": "in.OUTT",
+          "bitoffs": "40",
+          "bitsize": "7",
+          "value": {"+":[{"*":[{"-":[{"var":"value"},0]},1]},-64]}
+        },
+        {
+          "data": "Supply Air Temperature",
+          "shortcut": "in.SPLYT",
+          "bitoffs": "47",
+          "bitsize": "7",
+          "value": {"+":[{"*":[{"-":[{"var":"value"},0]},1]},-64]}
+        },
+        {
+          "data": "Supply Air Fan Air Flow rate",
+          "shortcut": "in.SPLYFF",
+          "bitoffs": "68",
+          "bitsize": "10",
+          "value": {"var":"value"}
+        },
+        {
+          "data": "Exhaust Air Fan Air Flow rate",
+          "shortcut": "in.EXHFF",
+          "bitoffs": "78",
+          "bitsize": "10",
+          "value": {"var":"value"}
+        },
+        {
+          "data": "Supply Fan Speed",
+          "shortcut": "in.SPLYFS",
+          "bitoffs": "88",
+          "bitsize": "12",
+          "value": {"var":"value"}
+        },
+        {
+          "data": "Exhaust Fan Speed",
+          "shortcut": "in.EXHFS",
+          "bitoffs": "100",
+          "bitsize": "12",
+          "value": {"var":"value"}
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "0",
+            "bitsize": "3",
+            "value": 3
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Software Version Info",
+          "shortcut": "in.SVI",
+          "bitoffs": "4",
+          "bitsize": "12",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Operation Hours Counter",
+          "shortcut": "in.OHC",
+          "bitoffs": "16",
+          "bitsize": "16",
+          "value": {"+":[{"*":[{"-":[{"var":"value"},0]},3]},0]}
+        },
+        {
+          "data": "Info Message 0...15 status",
+          "shortcut": "in.IMS",
+          "bitoffs": "64",
+          "bitsize": "16",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Fault 0...31 satus",
+          "shortcut": "in.FS",
+          "bitoffs": "80",
+          "bitsize": "32",
+          "value": {"var": "value"}
+        }
+      ]
+    }
+  ]
+}
