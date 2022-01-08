@@ -174,6 +174,9 @@ To test telegram handling create a channel with name development and in this cha
 
 ## Changelog
 
+### 0.6.2 (2022-01-08)
+* fix teachin 
+
 ### 0.6.1 (2022-01-08)
 * added Dimplex DL 50 WE2
 * added EnOcean STM 350

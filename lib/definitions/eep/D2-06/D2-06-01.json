@@ -1,0 +1,147 @@
+{
+  "eep": "D2-06-01",
+  "rorg_number": "0xD2",
+  "telegram": "VLD",
+  "func_number": "0x06",
+  "type_number": "0x01",
+  "type_title": "Multisensor Window Handle",
+  "bidirectional": true,
+  "objects": {
+    "preDefined": ["AL"],
+    "CMD": {
+      "type": "state",
+      "common": {
+        "name": "Command",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "SendSettings"}
+      },
+      "native": {}
+    },
+    "AE": {
+      "type": "state",
+      "common": {
+        "name": "Alarm enabled",
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": true,
+        "def": true
+      },
+      "native": {}
+    },
+    "EPA": {
+      "type": "state",
+      "common": {
+        "name": "Enable Pre-Alarm",
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": true,
+        "def": true
+      },
+      "native": {}
+    },
+    "PA": {
+      "type": "state",
+      "common": {
+        "name": "Pre-Alarm",
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    "CT": {
+      "type": "state",
+      "common": {
+        "name": "Window open",
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    "PAE": {
+      "type": "state",
+      "common": {
+        "name": "Pre-Alarm enabled",
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": true
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": true,
+      "auto_answer": true,
+      "condition": {
+        "command": [
+          {
+            "value": 0
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Alarm enabled",
+          "shortcut": "AE",
+          "bitoffs": "0",
+          "bitsize": "1",
+          "value_out": {"if":[{"var":"value"},1,0]}
+        },
+        {
+          "data": "Enable Pre-Alarm",
+          "shortcut": "EPA",
+          "bitoffs": "3",
+          "bitsize": "1",
+          "value": {
+            "==": [{"var": "value"}, 1]
+          },
+          "value_out": {"if":[{"var":"value"},1,0]}
+        }
+      ]
+    },
+    {
+      "send": false,
+      "datafield": [
+        {
+          "data": "Pre-Alarm",
+          "shortcut": "PA",
+          "bitoffs": "0",
+          "bitsize": "1",
+          "value": {"==": [{"var": "value"}, 1]}
+        },
+        {
+          "data": "Alarm",
+          "shortcut": "AL",
+          "bitoffs": "1",
+          "bitsize": "1",
+          "value": {"==": [{"var": "value"}, 1]}
+        },
+        {
+          "data": "Window open",
+          "shortcut": "CT",
+          "bitoffs": "2",
+          "bitsize": "1",
+          "value": {"==": [{"var": "value"}, 0]}
+        },
+        {
+          "data": "Pre-Alarm enabled",
+          "shortcut": "PAE",
+          "bitoffs": "3",
+          "bitsize": "1",
+          "value": {"==": [{"var": "value"}, 1]}
+        }
+      ]
+    }
+  ]
+}

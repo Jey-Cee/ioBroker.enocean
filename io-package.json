@@ -1,7 +1,7 @@
 {
     "common": {
         "name": "enocean",
-        "version": "0.6.1",
+        "version": "0.6.2",
         "news": {
             "0.6.1": {
                 "en": "added Dimplex DL 50 WE2\nadded EnOcean STM 350\nadded Eltako & MACO eTronic\nadded Afriso CO2-Sensor\nchange TF-13-03 set time to 100ms for sending cases\nchange TF-13-07 add On with last value\nfix teachin which makes it hard to add new devices\nfix Humidity datapoint & change decimals from 2 to 1",
