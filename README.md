@@ -174,6 +174,14 @@ To test telegram handling create a channel with name development and in this cha
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+* added Dimplex DL 50 WE2
+* added EnOcean STM 350
+* added Eltako & MACO eTronic
+* change TF-13-03 set time to 100ms for sending cases
+* change TF-13-07 add On with last value
+* fix UTE teachin 
+
 ### 0.6.0 (2021-11-22)
 * (j1s2e3 / Jey-Cee) added Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB(PioTek Tracker), FLGTF55
 * (j1s2e3) added virtual Window/Door contact
