@@ -178,9 +178,11 @@ To test telegram handling create a channel with name development and in this cha
 * added Dimplex DL 50 WE2
 * added EnOcean STM 350
 * added Eltako & MACO eTronic
+* added Afriso CO2-Sensor
 * change TF-13-03 set time to 100ms for sending cases
 * change TF-13-07 add On with last value
-* fix UTE teachin 
+* fix teachin which makes it hard to add new devices
+* (uklatt) fix Humidity datapoint & change decimals from 2 to 1
 
 ### 0.6.0 (2021-11-22)
 * (j1s2e3 / Jey-Cee) added Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB(PioTek Tracker), FLGTF55
