@@ -7,7 +7,7 @@
   "type_title": "Multisensor Window Handle",
   "bidirectional": true,
   "objects": {
-    "preDefined": ["AL"],
+    "preDefined": ["TMP", "HUM", "ILL"],
     "CMD": {
       "type": "state",
       "common": {
@@ -16,14 +16,134 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "SendSettings"}
+        "states": {"0": "Get Configuration Settings", "1":  "Get Log Data", "3":  "Set Configuration"}
       },
       "native": {}
     },
-    "AE": {
+    "BAL": {
       "type": "state",
       "common": {
-        "name": "Alarm enabled",
+        "name": "Burglary Alarm Trigger Signal",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "Not Triggered", "1": "Alarm Triggered", "14":  "Supported + Invalid", "15":  "Not Supported"}
+      },
+      "native": {}
+    },
+    "PPAL": {
+      "type": "state",
+      "common": {
+        "name": "Protection Plus Alarm Trigger Signal",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "Not Triggered", "1": "Triggered", "14":  "Supported + Invalid", "15":  "Not Supported"}
+      },
+      "native": {}
+    },
+    "HP": {
+      "type": "state",
+      "common": {
+        "name": "Position of Handle",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "Undefined", "1": "Up", "2": "Down", "3":  "Left", "4":  "Right", "14":  "Supported + Invalid", "15":  "Not Supported"}
+      },
+      "native": {}
+    },
+    "WS": {
+      "type": "state",
+      "common": {
+        "name": "State of Window",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "Undefined", "1": "Not Tilted", "2":  "Tilted", "14":  "Supported + Invalid", "15":  "Not Supported"}
+      },
+      "native": {}
+    },
+    "BR": {
+      "type": "state",
+      "common": {
+        "name": "Button Right Activities",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "No Change", "1": "Pressed", "3":  "Released", "14":  "Supported + Invalid", "15":  "Not Supported"}
+      },
+      "native": {}
+    },
+    "BL": {
+      "type": "state",
+      "common": {
+        "name": "Button Left Activities",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "No Change", "1": "Pressed", "3": "Released", "14":  "Supported + Invalid", "15":  "Not Supported"}
+      },
+      "native": {}
+    },
+    "M": {
+      "type": "state",
+      "common": {
+        "name": "Motion sensing like typical PIR sensor",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "Not Triggered", "1": "Triggered", "14":  "Supported + Invalid", "15":  "Not Supported"}
+      },
+      "native": {}
+    },
+    "V": {
+      "type": "state",
+      "common": {
+        "name": "Vacation Mode Switch",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "No Change", "1": "ON", "2":  "OFF", "14":  "Supported + Invalid", "15":  "Not Supported"}
+      },
+      "native": {}
+    },
+    "BS": {
+      "type": "state",
+      "common": {
+        "name": "Battery State (5% Steps)",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "unit": "%"
+      },
+      "native": {}
+    },
+    "conf.VM": {
+      "type": "state",
+      "common": {
+        "name": "Vacation Mode",
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": true,
+        "def": false
+      },
+      "native": {}
+    },
+    "conf.HCC": {
+      "type": "state",
+      "common": {
+        "name": "Handle Closed Click Feature Enabled",
         "role": "state",
         "type": "boolean",
         "read": true,
@@ -32,10 +152,10 @@
       },
       "native": {}
     },
-    "EPA": {
+    "conf.BLC": {
       "type": "state",
       "common": {
-        "name": "Enable Pre-Alarm",
+        "name": "Battery Low Click Feature",
         "role": "state",
         "type": "boolean",
         "read": true,
@@ -44,45 +164,403 @@
       },
       "native": {}
     },
-    "PA": {
+    "conf.SUI": {
       "type": "state",
       "common": {
-        "name": "Pre-Alarm",
+        "name": "Sensor Update Interval",
         "role": "state",
-        "type": "boolean",
+        "type": "number",
         "read": true,
-        "write": false
+        "write": true,
+        "min": 5,
+        "max": 65535,
+        "def": 5,
+        "unit": "s"
       },
       "native": {}
     },
-    "CT": {
+    "conf.VBI": {
       "type": "state",
       "common": {
-        "name": "Window open",
+        "name": "Vacation Blink Interval",
         "role": "state",
-        "type": "boolean",
+        "type": "number",
         "read": true,
-        "write": false
+        "write": true,
+        "min": 3,
+        "max": 255,
+        "def": 3,
+        "unit": "s"
       },
       "native": {}
     },
-    "PAE": {
+    "log.PON": {
       "type": "state",
       "common": {
-        "name": "Pre-Alarm enabled",
+        "name": "Number of Power ONs",
         "role": "state",
-        "type": "boolean",
+        "type": "number",
         "read": true,
-        "write": false,
-        "def": true
+        "write": true,
+        "def": 0
+      },
+      "native": {}
+    },
+    "log.ALL": {
+      "type": "state",
+      "common": {
+        "name": "Number of Alrams",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "def": 0
+      },
+      "native": {}
+    },
+    "log.HMC": {
+      "type": "state",
+      "common": {
+        "name": "Number of Handle Movements Closed",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "def": 0
+      },
+      "native": {}
+    },
+    "log.HMO": {
+      "type": "state",
+      "common": {
+        "name": "Number of Handle Movments Opened",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "def": 0
+      },
+      "native": {}
+    },
+    "log.HMT": {
+      "type": "state",
+      "common": {
+        "name": "Number of Handle Movements Tilted",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "def": 0
+      },
+      "native": {}
+    },
+    "log.WT": {
+      "type": "state",
+      "common": {
+        "name": "Number of Window Tilts",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "def": 0
+      },
+      "native": {}
+    },
+    "log.BRP": {
+      "type": "state",
+      "common": {
+        "name": "Number of Button Right Presses",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "def": 0
+      },
+      "native": {}
+    },
+    "log.BLP": {
+      "type": "state",
+      "common": {
+        "name": "Number of Button Left Presses",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "def": 0
       },
       "native": {}
     }
   },
   "case": [
     {
+      "send": false,
+      "condition": [
+          {
+            "bitoffs": "0",
+            "bitsize": "8",
+            "value": 0
+          }
+      ],
+      "datafield": [
+        {
+          "data": "Burglary Alarm Trigger Signal",
+          "shortcut": "BAL",
+          "bitoffs": "8",
+          "bitsize": "4",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Protection Plus Alarm Trigger Signal",
+          "shortcut": "PPAL",
+          "bitoffs": "12",
+          "bitsize": "4",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Position of Handle",
+          "shortcut": "HP",
+          "bitoffs": "16",
+          "bitsize": "4",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "State of Window",
+          "shortcut": "WS",
+          "bitoffs": "20",
+          "bitsize": "4",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Button Right Activities",
+          "shortcut": "BR",
+          "bitoffs": "24",
+          "bitsize": "4",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Button Left Activities",
+          "shortcut": "BL",
+          "bitoffs": "28",
+          "bitsize": "4",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Motion sensing like typical PIR sensors",
+          "shortcut": "M",
+          "bitoffs": "32",
+          "bitsize": "4",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Vacation Mode",
+          "shortcut": "V",
+          "bitoffs": "36",
+          "bitsize": "4",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Temperature",
+          "shortcut": "TMP",
+          "bitoffs": "40",
+          "bitsize": "8",
+          "value": {
+            "if": [
+              {"==":[{"var":  "value"}, 255]}, 255,
+              {"==":[{"var":  "value"}, 254]}, 254,
+              {"<=":[{"var":  "value"}, 250]}, {"+":[{"*":[{"-":[{"var":"value"},0]},0.32]},-20]}
+            ]
+          }
+        },
+        {
+          "data": "Humidity",
+          "shortcut": "HUM",
+          "bitoffs": "48",
+          "bitsize": "8",
+          "value": {
+            "if": [
+              {"==":[{"var":  "value"}, 255]}, 255,
+              {"==":[{"var":  "value"}, 254]}, 254,
+              {"<=":[{"var":  "value"}, 200]},{"+":[{"*":[{"-":[{"var":"value"},0]},0.5]},0]}
+            ]
+          }
+        },
+        {
+          "data": "Illumination 0...60000 lx",
+          "shortcut": "ILL",
+          "bitoffs": "56",
+          "bitsize": "16",
+          "value": {"var": "value"}
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [
+          {
+            "bitoffs": "0",
+            "bitsize": "8",
+            "value": 16
+          }
+      ],
+      "datafield": [
+        {
+          "data": "Status of Vacation Mode",
+          "shortcut": "conf.VM",
+          "bitoffs": "8",
+          "bitsize": "1",
+          "value": {
+            "if": [
+              {"==":[{"var":  "value"}, 1]}, true,
+              {"==":[{"var":  "value"}, 0]}, false
+            ]
+          }
+        },
+        {
+          "data": "Status of Handle closed Click",
+          "shortcut": "conf.HCC",
+          "bitoffs": "9",
+          "bitsize": "1",
+          "value": {
+            "if": [
+              {"==":[{"var":  "value"}, 2]}, true,
+              {"==":[{"var":  "value"}, 1]}, false
+            ]
+          }
+        },
+        {
+          "data": "Status of Battery Low Click Feature",
+          "shortcut": "conf.BLC",
+          "bitoffs": "9",
+          "bitsize": "1",
+          "value": {
+            "if": [
+              {"==":[{"var":  "value"}, 2]}, true,
+              {"==":[{"var":  "value"}, 1]}, false
+            ]
+          }
+        },
+        {
+          "data": "Sensor Update Interval",
+          "shortcut": "conf.SUI",
+          "bitoffs": "16",
+          "bitsize": "16",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Vacation Blink Interval",
+          "shortcut": "conf.VBI",
+          "bitoffs": "32",
+          "bitsize": "8",
+          "value": {"var": "value"}
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [
+          {
+            "bitoffs": "0",
+            "bitsize": "8",
+            "value": 32
+          }
+      ],
+      "datafield": [
+        {
+          "data": "Number of Power ONs",
+          "shortcut": "log.PON",
+          "bitoffs": "8",
+          "bitsize": "32",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Number of Alarms",
+          "shortcut": "log.ALL",
+          "bitoffs": "40",
+          "bitsize": "32",
+          "value": {"var": "value"}
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [
+        {
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 33
+        }
+      ],
+      "datafield": [
+        {
+          "data": "Number of Handle Movements Closed",
+          "shortcut": "log.HMC",
+          "bitoffs": "8",
+          "bitsize": "32",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Number of Handle Movements Opened",
+          "shortcut": "log.HMO",
+          "bitoffs": "40",
+          "bitsize": "32",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Number of Handle Movements Tilted",
+          "shortcut": "log.HMT",
+          "bitoffs": "72",
+          "bitsize": "32",
+          "value": {"var": "value"}
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [
+        {
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 34
+        }
+      ],
+      "datafield": [
+        {
+          "data": "Number of Window Tilts",
+          "shortcut": "log.WT",
+          "bitoffs": "8",
+          "bitsize": "32",
+          "value": {"var": "value"}
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [
+        {
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 35
+        }
+      ],
+      "datafield": [
+        {
+          "data": "Number of Button Right Presses",
+          "shortcut": "log.BRP",
+          "bitoffs": "8",
+          "bitsize": "32",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Number of Button Left Presses",
+          "shortcut": "log.BLP",
+          "bitoffs": "40",
+          "bitsize": "32",
+          "value": {"var": "value"}
+        }
+      ]
+    },
+    {
       "send": true,
-      "auto_answer": true,
       "condition": {
         "command": [
           {
@@ -92,54 +570,221 @@
       },
       "datafield": [
         {
-          "data": "Alarm enabled",
-          "shortcut": "AE",
+          "data": "fixed parameter",
+          "description": "command",
           "bitoffs": "0",
-          "bitsize": "1",
-          "value_out": {"if":[{"var":"value"},1,0]}
+          "bitsize": "8",
+          "value_out": 128
         },
         {
-          "data": "Enable Pre-Alarm",
-          "shortcut": "EPA",
-          "bitoffs": "3",
+          "data": "fixed parameter",
+          "description": "Get Configuration Settings",
+          "bitoffs": "8",
           "bitsize": "1",
-          "value": {
-            "==": [{"var": "value"}, 1]
-          },
-          "value_out": {"if":[{"var":"value"},1,0]}
+          "value_out": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Get Log data",
+          "bitoffs": "9",
+          "bitsize": "1",
+          "value_out": 0
+        },
+        {
+          "data": "Vacation Mode",
+          "shortcut": "conf.VM",
+          "bitoffs": "10",
+          "bitsize": "1",
+          "value_out": {
+            "if": [
+              {"==":[{"var":  "value"}, true]}, 1,
+              {"==":[{"var":  "value"}, false]}, 0
+            ]
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Handle Closed Click Feature",
+          "bitoffs": "11",
+          "bitsize": "2",
+          "value_out": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Battery Low Click Feature",
+          "bitoffs": "13",
+          "bitsize": "2",
+          "value_out": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Sensor Update Interval",
+          "bitoffs": "16",
+          "bitsize": "16",
+          "value_out": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Vacation Blink Interval",
+          "bitoffs": "32",
+          "bitsize": "8",
+          "value_out": 0
         }
       ]
     },
     {
-      "send": false,
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 1
+          }
+        ]
+      },
       "datafield": [
         {
-          "data": "Pre-Alarm",
-          "shortcut": "PA",
+          "data": "fixed parameter",
+          "description": "command",
           "bitoffs": "0",
-          "bitsize": "1",
-          "value": {"==": [{"var": "value"}, 1]}
+          "bitsize": "8",
+          "value_out": 128
         },
         {
-          "data": "Alarm",
-          "shortcut": "AL",
-          "bitoffs": "1",
+          "data": "fixed parameter",
+          "description": "Get Configuration Settings",
+          "bitoffs": "8",
           "bitsize": "1",
-          "value": {"==": [{"var": "value"}, 1]}
+          "value_out": 0
         },
         {
-          "data": "Window open",
-          "shortcut": "CT",
-          "bitoffs": "2",
+          "data": "fixed parameter",
+          "description": "Get Log data",
+          "bitoffs": "9",
           "bitsize": "1",
-          "value": {"==": [{"var": "value"}, 0]}
+          "value_out": 1
         },
         {
-          "data": "Pre-Alarm enabled",
-          "shortcut": "PAE",
-          "bitoffs": "3",
+          "data": "Vacation Mode",
+          "shortcut": "conf.VM",
+          "bitoffs": "10",
           "bitsize": "1",
-          "value": {"==": [{"var": "value"}, 1]}
+          "value_out": {
+            "if": [
+              {"==":[{"var":  "value"}, true]}, 1,
+              {"==":[{"var":  "value"}, false]}, 0
+            ]
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Handle Closed Click Feature",
+          "bitoffs": "11",
+          "bitsize": "2",
+          "value_out": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Battery Low Click Feature",
+          "bitoffs": "13",
+          "bitsize": "2",
+          "value_out": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Sensor Update Interval",
+          "bitoffs": "16",
+          "bitsize": "16",
+          "value_out": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Vacation Blink Interval",
+          "bitoffs": "32",
+          "bitsize": "8",
+          "value_out": 0
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 3
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "command",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value_out": 128
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Get Configuration Settings",
+          "bitoffs": "8",
+          "bitsize": "1",
+          "value_out": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Get Log data",
+          "bitoffs": "9",
+          "bitsize": "1",
+          "value_out": 0
+        },
+        {
+          "data": "Vacation Mode",
+          "shortcut": "conf.VM",
+          "bitoffs": "10",
+          "bitsize": "1",
+          "value_out": {
+            "if": [
+              {"==":[{"var":  "value"}, true]}, 1,
+              {"==":[{"var":  "value"}, false]}, 0
+            ]
+          }
+        },
+        {
+          "data": "Handle Close Click Feature",
+          "shortcut": "conf.HCC",
+          "bitoffs": "11",
+          "bitsize": "2",
+          "value_out": {
+            "if": [
+              {"==":[{"var":  "value"}, true]}, 2,
+              {"==":[{"var":  "value"}, false]}, 1
+            ]
+          }
+        },
+        {
+          "data": "Battery Low Click Feature",
+          "shortcut": "conf.BLC",
+          "bitoffs": "13",
+          "bitsize": "2",
+          "value_out": {
+            "if": [
+              {"==":[{"var":  "value"}, true]}, 2,
+              {"==":[{"var":  "value"}, false]}, 1
+            ]
+          }
+        },
+        {
+          "data": "Sensor Update Interval",
+          "shortcut": "conf.SUI",
+          "bitoffs": "16",
+          "bitsize": "16",
+          "value_out": {"var":  "value"}
+        },
+        {
+          "data": "Vacation Blink Interval",
+          "shortcut": "conf.VBI",
+          "bitoffs": "32",
+          "bitsize": "8",
+          "value_out": {"var":  "value"}
         }
       ]
     }

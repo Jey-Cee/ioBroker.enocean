@@ -22,7 +22,8 @@
     "gulp-util": "^3.0.8",
     "serialport": "^9.2.0",
     "@serialport/parser-byte-length": "^9.0.7",
-    "json-logic-js": "^2.0.1"
+    "json-logic-js": "^2.0.1",
+    "dm-utils": "UncleSamSwiss/dm-utils#main"
   },
   "devDependencies": {
     "@alcalzone/release-script": "^2.2.1",
