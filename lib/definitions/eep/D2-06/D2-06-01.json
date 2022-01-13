@@ -390,6 +390,13 @@
           "bitoffs": "56",
           "bitsize": "16",
           "value": {"var": "value"}
+        },
+        {
+          "data": "Battery State",
+          "shortcut": "BS",
+          "bitoffs": "72",
+          "bitsize": "5",
+          "value": {"+":[{"*":[{"-":[{"var":"value"},0]},5]},0]}
         }
       ]
     },
