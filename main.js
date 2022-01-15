@@ -6,7 +6,7 @@ const net = require('net');
 const os = require('os');
 const fs = require('fs');
 const path = require('path');
-const dmUtils = require('dm-utils');
+
 
 // structured representation for ESP3 packets
 const ESP3Packet = require('./lib/tools/ESP3Packet').ESP3Packet;
@@ -40,145 +40,7 @@ let tcpReconnectCounter = 0;
 
 let teachinMethod = null;
 const queue = [];
-let timeoutQueue, timeoutWait;
 
-const demoFormSchema = {
-	type: 'tabs',
-	items: {
-		options1: {
-			type: 'panel',
-			label: 'Tab1',
-			icon: 'base64 svg',
-			items: {
-				myPort: {
-					type: 'number',
-					min: 1,
-					max: 65565,
-					label: 'Number',
-					sm: 6,
-					// "validator": "'"!!data.name"'", // else error
-					hidden: 'data.myType === 1',
-					disabled: 'data.myType === 2', // disabled if myType is 2
-				},
-				myType: {
-					// name could support more than one levelhelperText
-					newLine: true,
-					type: 'select',
-					label: 'My Type',
-					sm: 6,
-					options: [
-						{ label: 'option 0', value: 0 },
-						{ label: 'option 1', value: 1 },
-						{ label: 'option 2', value: 2 },
-					],
-				},
-				myBool: {
-					type: 'checkbox',
-					label: 'My checkbox',
-				},
-			},
-		},
-		options2: {
-			type: 'panel',
-			label: 'Tab2',
-			icon: 'base64 svg',
-			items: {
-				secondPort: {
-					type: 'number',
-					min: 1,
-					max: 65565,
-					label: 'Second Number',
-					sm: 6,
-					// "validator": "'"!!data.name"'", // else error
-					hidden: 'data.secondType === 1',
-					disabled: 'data.secondType === 2', // disabled if myType is 2
-				},
-				secondType: {
-					// name could support more than one levelhelperText
-					newLine: true,
-					type: 'select',
-					label: 'Second Type',
-					sm: 6,
-					options: [
-						{ label: 'option 0', value: 0 },
-						{ label: 'option 1', value: 1 },
-						{ label: 'option 2', value: 2 },
-					],
-				},
-				secondBool: {
-					type: 'checkbox',
-					label: 'Second checkbox',
-				},
-			},
-		},
-	},
-};
-
-class dmEnOcean extends dmUtils.DeviceManagement {
-
-	async listDevices() {
-		const devices = await this.adapter.getDevicesAsync();
-		let arrDevices = [];
-		for (let i in devices) {
-			let res = {
-				id: devices[i].native.id ? devices[i].native.id : 'gateway',
-				name: devices[i].common.name,
-				hasDetails: false,
-				actions: [
-					{
-						id: 'delete',
-						icon: 'fas fa-trash-alt',
-						description: 'Delete this device.'
-					}
-				]
-			};
-			arrDevices.push(res);
-		}
-		return arrDevices;
-	}
-
-	async handleDeviceAction(deviceId, actionId, context) {
-		switch (actionId) {
-			case 'delete':
-
-				return { refresh: true };
-			case 'play':
-				this.log.info(`Play was pressed on ${deviceId}`);
-				return { refresh: false };
-			case 'pause':
-				this.log.info(`Pause was pressed on ${deviceId}`);
-				const confirm = await context.showConfirmation('Do you want to refresh the device only?');
-				return { refresh: confirm ? 'device' : 'instance' };
-			case 'forms':
-				this.log.info(`Forms was pressed on ${deviceId}`);
-				const data = await context.showForm(demoFormSchema, { myPort: 8081, secondPort: 8082 });
-				if (!data) {
-					await context.showMessage('You cancelled the previous form!');
-				}
-				else {
-					await context.showMessage(`You entered: ${JSON.stringify(data)}`);
-				}
-				return { refresh: false };
-			default:
-				throw new Error(`Unknown action ${actionId}`);
-		}
-	}
-	async getDeviceDetails(id) {
-		this.log.info(`${this.adapter.namespace}.${id}`);
-		const device = await this.adapter.getStateAsync(`${this.adapter.namespace}.${id}`);
-		const schema = {
-			type: 'panel',
-			items: {
-				text1: {
-					type: 'staticText',
-					text: device.val,
-					sm: 12,
-				}
-			},
-		};
-		return { id, schema };
-	}
-}
 
 class Enocean extends utils.Adapter {
 
@@ -196,7 +58,6 @@ class Enocean extends utils.Adapter {
 		this.on('stateChange', this.onStateChange.bind(this));
 		this.on('message', this.onMessage.bind(this));
 		this.on('unload', this.onUnload.bind(this));
-		this.deviceManagement = new dmEnOcean(this);
 	}
 
 	/**
@@ -250,7 +111,6 @@ class Enocean extends utils.Adapter {
 			}
 
 			this.setState('info.connection', false, true);
-			clearTimeout(timeoutQueue);
 			this.log.info('cleaned everything up...');
 			callback();
 		} catch (e) {
