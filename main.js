@@ -40,6 +40,7 @@ let tcpReconnectCounter = 0;
 
 let teachinMethod = null;
 const queue = [];
+let timeoutQueue, timeoutWait;
 
 
 class Enocean extends utils.Adapter {
