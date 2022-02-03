@@ -722,7 +722,7 @@
         "TF-13-03",
         "TF-13-04"
       ],
-      "autocreate": true,
+      "autocreate": false,
       "teachin_method": "none",
       "id_offset": true,
       "help": {
