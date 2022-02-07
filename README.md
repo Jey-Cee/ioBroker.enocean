@@ -174,6 +174,15 @@ To test telegram handling create a channel with name development and in this cha
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+* added SODA S8
+* added Thermokon SAB+
+* added Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB
+* added Battery state to D2-06-01
+* added default values to all objects
+* updated Eltako FSVA-230V
+* fix FJ62/12-36V DC teachin
+
 ### 0.6.2 (2022-01-08)
 * fix teachin 
 
