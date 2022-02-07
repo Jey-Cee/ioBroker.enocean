@@ -27,6 +27,7 @@
         "type": "number",
         "read": true,
         "write": true,
+        "def": 0,
         "unit": "s"
       },
       "native": {}
@@ -38,7 +39,8 @@
         "role": "state",
         "type": "boolean",
         "read": true,
-        "write": true
+        "write": true,
+        "def": 0
       },
       "native": {}
     },

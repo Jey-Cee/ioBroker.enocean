@@ -83,7 +83,7 @@
         },
         {
           "data": "fixed parameter",
-          "shortcut": "OFF",
+          "description": "OFF",
           "bitoffs": "31",
           "bitsize": "1",
           "value": 0

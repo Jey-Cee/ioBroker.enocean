@@ -645,6 +645,24 @@
         }
       }
     },
+    "FHB": {
+      "EEP": [
+        "TF-13-26"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
     "FHD60SB": {
       "EEP": ["TF-13-10"],
       "autocreate": false,
@@ -1161,6 +1179,24 @@
     "FRW": {
       "EEP": [
         "TF-13-09"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
+    "FRWB": {
+      "EEP": [
+        "TF-13-26"
       ],
       "autocreate": false,
       "teachin_method": "none",
@@ -2470,6 +2506,24 @@
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
           "2": "Irgendeine Taste des Tasters betätigen."
+        }
+      }
+    },
+    "TF-RWB": {
+      "EEP": [
+        "TF-13-26"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
         }
       }
     },
