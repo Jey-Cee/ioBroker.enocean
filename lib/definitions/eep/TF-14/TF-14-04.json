@@ -15,7 +15,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Stop","1": "Up","2": "Down","3": "Teach-in"}
+        "states": {"0": "Stop","1": "Up","2": "Down","3": "Teach-in"},
+        "def": 0
       },
       "native": {}
     },

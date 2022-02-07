@@ -18,7 +18,8 @@
         "write": false,
         "states": {
           "0": "Power OK", "1": "Power Failure"
-        }
+        },
+        "def": 0
       },
       "native": {}
     }

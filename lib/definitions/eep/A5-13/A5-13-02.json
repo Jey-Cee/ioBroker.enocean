@@ -18,7 +18,8 @@
         "write": false,
         "states": {
           "0":"North", "1":"South"
-        }
+        },
+        "def": 0
       },
       "native": {}
     }

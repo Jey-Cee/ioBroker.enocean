@@ -16,7 +16,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "SendSettings"}
+        "states": {"0": "Send Settings"},
+        "def": 0
       },
       "native": {}
     },
@@ -47,13 +48,13 @@
     "SPIR": {
       "type": "state",
       "common": {
-        "name": "Set PIR senstivity",
+        "name": "Set PIR sensitivity",
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "def": 0,
-        "states": {"0": "Nochange","1": "Normalsensitivity","2": "Lowsensitivity"}
+        "states": {"0": "No change","1": "Normal sensitivity","2": "Low sensitivity"},
+        "def": 0
       },
       "native": {}
     },
@@ -64,7 +65,8 @@
         "role": "state",
         "type": "boolean",
         "read": true,
-        "write": false
+        "write": false,
+        "def": false
       },
       "native": {}
     },
@@ -75,7 +77,8 @@
         "role": "state",
         "type": "boolean",
         "read": true,
-        "write": false
+        "write": false,
+        "def": false
       },
       "native": {}
     },
@@ -99,19 +102,21 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Unknown","1": "Tilt","2": "Nottilt"}
+        "states": {"0": "Unknown","1": "Tilt","2": "Not tilt"},
+        "def": 0
       },
       "native": {}
     },
     "PIR": {
       "type": "state",
       "common": {
-        "name": "PIR senstivity",
+        "name": "PIR sensitivity",
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Normalsensitivity","1": "Lowsensitivity"}
+        "states": {"0": "Normal sensitivity","1": "Low sensitivity"},
+        "def": 0
       },
       "native": {}
     }

@@ -15,6 +15,7 @@
         "type": "number",
         "read": true,
         "write": false,
+        "def": 0,
         "unit": "ppm"
       },
       "native": {}
@@ -64,7 +65,8 @@
           "34": "Putrescine",
           "35": "Caproic acid",
           "255": "Ozone"
-        }
+        },
+        "def": 0
       },
       "native": {}
     },
@@ -78,7 +80,8 @@
         "write": false,
         "states": {
           "0":"ppb", "1":"µg/m³"
-        }
+        },
+        "def": 0
       },
       "native": {}
     }

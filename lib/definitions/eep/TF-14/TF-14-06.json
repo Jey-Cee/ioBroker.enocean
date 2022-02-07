@@ -12,9 +12,10 @@
             "common": {
                 "name": "Switch",
                 "role": "state",
-                "type": "string",
+                "type": "boolean",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": false
             },
             "native": {}
         }
@@ -33,8 +34,8 @@
                             {"==": [{"var": "value"}, 112]}, true,
                             {"==": [{"var": "value"}, 80]}, true,
                             {"==": [{"var": "value"}, 48]}, true,
-                            {"==": [{"var": "value"}, 16]},true,
-                            {"==": [{"var": "value"}, 0]},false
+                            {"==": [{"var": "value"}, 16]}, true,
+                            {"==": [{"var": "value"}, 0]}, false
                         ]
                     }
                 }

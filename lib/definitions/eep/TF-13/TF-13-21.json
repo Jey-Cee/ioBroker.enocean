@@ -15,7 +15,8 @@
                 "type": "number",
                 "read": false,
                 "write": true,
-                "states": {"0": "Red","1": "Green","2": "Blue","3": "White","4": "Dimup","5": "Dimdown","6": "Dimstop","7": "Teach-in","8": "Request confirmation telegram"}
+                "states": {"0": "Red","1": "Green","2": "Blue","3": "White","4": "Dimup","5": "Dim down","6": "Dim stop","7": "Teach-in","8": "Request confirmation telegram"},
+                "def": 0
             },
             "native": {}
         },

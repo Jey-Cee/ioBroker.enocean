@@ -15,7 +15,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Off","1": "On","2": "Teach-in"}
+        "states": {"0": "Off","1": "On","2": "Teach-in"},
+        "def": 0
       },
       "native": {}
     },
@@ -27,10 +28,10 @@
         "type": "number",
         "read": true,
         "write": true,
-        "def": 0,
         "min": 0,
         "max": 6553.5,
-        "unit": "s"
+        "unit": "s",
+        "def": 0
       },
       "native": {}
     },
@@ -41,7 +42,8 @@
         "role": "state",
         "type": "boolean",
         "read": true,
-        "write": true
+        "write": true,
+        "def": false
       },
       "native": {}
     },
@@ -53,7 +55,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Duration","1": "Delay"}
+        "states": {"0": "Duration","1": "Delay"},
+        "def": 0
       },
       "native": {}
     }

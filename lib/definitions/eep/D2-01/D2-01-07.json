@@ -15,7 +15,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "OFF","1": "ON","2": "Statusquery"}
+        "states": {"0": "OFF","1": "ON","2": "Statusquery"},
+        "def": 0
       },
       "native": {}
     },
@@ -26,7 +27,8 @@
         "role": "state",
         "type": "boolean",
         "read": true,
-        "write": true
+        "write": true,
+        "def": false
       },
       "native": {}
     }

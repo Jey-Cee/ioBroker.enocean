@@ -16,7 +16,8 @@
                 "type": "number",
                 "read": false,
                 "write": true,
-                "states": {"0": "Open","1": "Close","2": "Stop","3": "Gotoposition","4": "Statusrequest","5": "Teach-in"}
+                "states": {"0": "Open","1": "Close","2": "Stop","3": "Goto position","4": "Status request","5": "Teach-in"},
+                "def": 0
             },
             "native": {}
         },
@@ -43,7 +44,8 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": {"0": "NoError","1": "Endpositions are not configured","2": "Internalfailure","3": "Notused"}
+                "states": {"0": "No Error","1": "End positions are not configured","2": "Internal failure","3": "Not used"},
+                "def": 0
             },
             "native": {}
         },
@@ -55,7 +57,8 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": {"0": "NoEnd-position available","1": "NoEnd-position reached","2": "Blindfully open","3": "Blindfully closed"}
+                "states": {"0": "No End-position available","1": "No End-position reached","2": "Blind fully open","3": "Blind fully closed"},
+                "def": 0
             },
             "native": {}
         },
@@ -67,7 +70,8 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": {"0": "NoStatus available","1": "Blindis stopped","2": "Blindopens","3": "Blindcloses"}
+                "states": {"0": "No Status available","1": "Blind is stopped","2": "Blind opens","3": "Blind closes"},
+                "def": 0
             },
             "native": {}
         },
@@ -78,7 +82,8 @@
                 "role": "value",
                 "type": "boolean",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": false
             },
             "native": {}
         },
@@ -90,7 +95,8 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": {"0": "Normalmode","1": "Inversemode"}
+                "states": {"0": "Normal mode","1": "Inverse mode"},
+                "def": 0
             },
             "native": {}
         }

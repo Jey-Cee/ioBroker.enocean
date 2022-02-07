@@ -15,7 +15,8 @@
                 "type": "number",
                 "read": false,
                 "write": true,
-                "states": {"0": "ON/OFF"}
+                "states": {"0": "ON/OFF"},
+                "def": 0
             },
             "native": {}
         }

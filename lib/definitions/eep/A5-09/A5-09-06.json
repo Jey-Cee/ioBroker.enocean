@@ -15,6 +15,7 @@
         "type": "number",
         "read": true,
         "write": false,
+        "def": 0,
         "unit": "Bq/m³"
       },
       "native": {}

@@ -14,7 +14,8 @@
                 "role": "state",
                 "type": "string",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": ""
             },
             "native": {}
         }

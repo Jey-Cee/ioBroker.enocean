@@ -16,7 +16,8 @@
                 "type": "number",
                 "read": false,
                 "write": true,
-                "states": {"0": "Senddata","1": "Teach-in"}
+                "states": {"0": "Send data","1": "Teach-in"},
+                "def": 0
             },
             "native": {}
         }

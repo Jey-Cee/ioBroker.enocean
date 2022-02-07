@@ -15,7 +15,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Stop","1": "Up","2": "Down","3": "Teach-in"}
+        "states": {"0": "Stop","1": "Up","2": "Down","3": "Teach-in"},
+        "def": 0
       },
       "native": {}
     },
@@ -27,7 +28,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "unit": "100ms"
+        "unit": "100ms",
+        "def": 0
       },
       "native": {}
     },
@@ -38,7 +40,8 @@
         "role": "state",
         "type": "boolean",
         "read": true,
-        "write": true
+        "write": true,
+        "def": false
       },
       "native": {}
     }

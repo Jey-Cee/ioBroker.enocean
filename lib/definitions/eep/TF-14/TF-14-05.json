@@ -16,7 +16,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Senddata","1": "Teach-in"}
+        "states": {"0": "Send data","1": "Teach-in"},
+        "def": 0
       },
       "native": {}
     },
@@ -28,7 +29,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"8": "ioBrokeronly","10": "Setpoint +/-3K form any other controller are accepted","13": "Newset point from any controller are accepted"}
+        "states": {"8": "ioBroker only","10": "Set point +/-3K form any other controller are accepted","13": "New set point from any controller are accepted"},
+        "def": 13
       },
       "native": {}
     }

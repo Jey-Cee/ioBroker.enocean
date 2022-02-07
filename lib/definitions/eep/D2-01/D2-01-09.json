@@ -16,7 +16,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "OFF","1": "ON","2": "Setoutput settings","3": "Statusquery","4": "Setmeasurement settings","5": "Measurementquery","6": "Resetmeasurement values"}
+        "states": {"0": "OFF","1": "ON","2": "Set output settings","3": "Status query","4": "Set measurement settings","5": "Measurement query","6": "Reset measurement values"},
+        "def": 0
       },
       "native": {}
     },
@@ -28,7 +29,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Switch to new output value","1": "Dim to new output value - timer 1","2": "Dim to new output value - timer 2","3": "Dim to new output value - timer 3","4": "Stop dimming"}
+        "states": {"0": "Switch to new output value","1": "Dim to new output value - timer 1","2": "Dim to new output value - timer 2","3": "Dim to new output value - timer 3","4": "Stop dimming"},
+        "def": 0
       },
       "native": {}
     },
@@ -54,7 +56,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Disabletaught-in devices","1": "Enabletaught-in devices"}
+        "states": {"0": "Disable taught-in devices","1": "Enable taught-in devices"},
+        "def": 0
       },
       "native": {}
     },
@@ -66,7 +69,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Notactive","1": "Triggersignal"}
+        "states": {"0": "Not active","1": "Trigger signal"},
+        "def": 0
       },
       "native": {}
     },
@@ -123,7 +127,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Off","1": "On","2": "Rememberprevious state"}
+        "states": {"0": "Off","1": "On","2": "Remember previous state"},
+        "def": 0
       },
       "native": {}
     },
@@ -135,7 +140,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "HardwareOK","1": "Hardwarewarning","2": "Hardwarefailure","3": "Errorlevel not supported"}
+        "states": {"0": "Hardware OK","1": "Hardware warning","2": "Hardware failure","3": "Error level not supported"},
+        "def": 0
       },
       "native": {}
     },
@@ -147,7 +153,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"00": "WS","1": "Wh","2": "kWh","3": "W","4": "kW"}
+        "states": {"00": "WS","1": "Wh","2": "kWh","3": "W","4": "kW"},
+        "def": 0
       },
       "native": {}
     }

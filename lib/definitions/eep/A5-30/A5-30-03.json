@@ -15,7 +15,8 @@
                 "role": "indicator",
                 "type": "number",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": 0
             },
             "native": {}
         },
@@ -26,7 +27,8 @@
                 "role": "indicator",
                 "type": "number",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": 0
             },
             "native": {}
         },
@@ -37,7 +39,8 @@
                 "role": "indicator",
                 "type": "number",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": 0
             },
             "native": {}
         },
@@ -48,7 +51,8 @@
                 "role": "indicator",
                 "type": "number",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": 0
             },
             "native": {}
         },
@@ -59,7 +63,8 @@
                 "role": "indicator",
                 "type": "number",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": 0
             },
             "native": {}
         }

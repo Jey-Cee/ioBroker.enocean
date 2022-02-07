@@ -15,7 +15,8 @@
                 "role": "indicator.lowbat",
                 "type": "boolean",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": false
             },
             "native": {}
         },
@@ -26,7 +27,8 @@
                 "role": "indicator",
                 "type": "boolean",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": false
             },
             "native": {}
         }

@@ -15,7 +15,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Off","1": "On","2": "Teach-in","3": "Requestconfirmation telegram"}
+        "states": {"0": "Off","1": "On","2": "Teach-in","3": "Request confirmation telegram"},
+        "def": 0
       },
       "native": {}
     },

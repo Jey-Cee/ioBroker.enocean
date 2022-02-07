@@ -16,7 +16,8 @@
                 "type": "number",
                 "unit": "V",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": 0
             },
             "native": {}
         }

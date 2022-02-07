@@ -16,7 +16,8 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": {"0": "Temperatureoffset","1": "Temperaturewith offset"}
+                "states": {"0": "Temperatureoffset","1": "Temperaturewith offset"},
+                "def": 0
             },
             "native": {}
         },
@@ -28,6 +29,7 @@
                 "type": "number",
                 "read": true,
                 "write": false,
+                "def": 0,
                 "unit": "°C"
             },
             "native": {}
@@ -40,7 +42,8 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": {"0": "Ambientsensor temp","1": "Feedsensor temperature"}
+                "states": {"0": "Ambientsensor temp","1": "Feedsensor temperature"},
+                "def": 0
             },
             "native": {}
         },
@@ -51,7 +54,8 @@
                 "role": "indicator",
                 "type": "boolean",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": false
             },
             "native": {}
         },
@@ -63,7 +67,8 @@
                 "type": "number",
                 "read": true,
                 "write": false,
-                "states": {"0": "Lowalmost discharged","1": "Sufficientlycharged"}
+                "states": {"0": "Lowalmost discharged","1": "Sufficientlycharged"},
+                "def": 1
             },
             "native": {}
         },
@@ -74,7 +79,8 @@
                 "role": "indicator",
                 "type": "boolean",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": false
             },
             "native": {}
         },
@@ -85,7 +91,8 @@
                 "role": "indicator",
                 "type": "boolean",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": false
             },
             "native": {}
         },
@@ -96,7 +103,8 @@
                 "role": "indicator",
                 "type": "boolean",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": false
             },
             "native": {}
         },
@@ -107,7 +115,8 @@
                 "role": "level",
                 "type": "number",
                 "read": false,
-                "write": true
+                "write": true,
+                "def": 0
             },
             "native": {}
         },
@@ -119,6 +128,7 @@
                 "type": "number",
                 "read": true,
                 "write": true,
+                "def": 0,
                 "unit": "°C"
             },
             "native": {}

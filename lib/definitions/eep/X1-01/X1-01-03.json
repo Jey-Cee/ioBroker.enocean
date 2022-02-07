@@ -15,7 +15,8 @@
                 "type": "number",
                 "read": false,
                 "write": true,
-                "states": {"0": "Closed","1": "Open"}
+                "states": {"0": "Closed","1": "Open"},
+                "def": 0
             },
             "native": {}
         }

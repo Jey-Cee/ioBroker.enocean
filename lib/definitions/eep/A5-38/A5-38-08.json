@@ -15,8 +15,8 @@
                 "type": "number",
                 "read": true,
                 "write": true,
-                "states": {"1": "Switching","2": "Dimming","3": "Setpointshift","4": "BasicSetpoint","5": "Controlvariable","6": "Fanstage","7": "BlindCentral Command"}
-
+                "states": {"1": "Switching","2": "Dimming","3": "Setpointshift","4": "BasicSetpoint","5": "Controlvariable","6": "Fanstage","7": "BlindCentral Command"},
+                "def": 1
             },
             "native": {}
         },

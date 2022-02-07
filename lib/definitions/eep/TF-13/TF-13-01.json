@@ -16,7 +16,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Teach-in"}
+        "states": {"0": "Teach-in"},
+        "def": 0
       },
       "native": {}
     },
@@ -28,7 +29,8 @@
         "type": "number",
         "read": true,
         "write": false,
-        "unit": "lx"
+        "unit": "lx",
+        "def": 0
       },
       "native": {}
     }

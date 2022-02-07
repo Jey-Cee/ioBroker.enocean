@@ -15,7 +15,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"1": "Goto Position","2": "Stop","3": "QueryPosition and Angle","4": "ReplyPosition and Angle","5": "Setparameters","6": "Gotto top","7": "Goto bottom"}
+        "states": {"1": "Goto Position","2": "Stop","3": "QueryPosition and Angle","4": "ReplyPosition and Angle","5": "Set parameters","6": "Goto top","7": "Goto bottom"},
+        "def": 1
       },
       "native": {}
     },
@@ -27,7 +28,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"127": "Donot change / position unknown"},
+        "states": {"127": "Do not change / position unknown"},
+        "def": 0,
         "unit": "%"
       },
       "native": {}
@@ -40,7 +42,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"127": "Donot change / position unknown"},
+        "states": {"127": "Do not change / position unknown"},
+        "def": 0,
         "unit": "%"
       },
       "native": {}
@@ -53,7 +56,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Godirectly to POS/ANG","1": "Goup (0%), then to POS/ANG","2": "Godown (100%), then to POS/ANG"}
+        "states": {"0": "Go directly to POS/ANG","1": "Go up (0%), then to POS/ANG","2": "Go down (100%), then to POS/ANG"},
+        "def": 0
       },
       "native": {}
     },
@@ -65,7 +69,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Donot change","1": "Setblockage mode","2": "Setalarm mode","7": "Deblockage"}
+        "states": {"0": "Do not change","1": "Set blockage mode","2": "Set alarm mode","7": "De-blockage"},
+        "def": 0
       },
       "native": {}
     },
@@ -77,7 +82,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Channel1","1": "Channel2","2": "Channel3","3": "Channel4","15": "Allchannels"}
+        "states": {"0": "Channel1","1": "Channel2","2": "Channel3","3": "Channel4","15": "All channels"},
+        "def": 15
       },
       "native": {}
     },
@@ -89,7 +95,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"32767": "Nochange"}
+        "states": {"32767": "No change"},
+        "def": 32767
       },
       "native": {}
     },
@@ -101,7 +108,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Norotation","255": "Nochange"}
+        "states": {"0": "No rotation","255": "No change"},
+        "def": 255
       },
       "native": {}
     },
@@ -113,7 +121,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Noaction","1": "Immediatestop","2": "Goup (0%)","3": "Godown (100%)","7": "Nochange"}
+        "states": {"0": "No action","1": "Immediate stop","2": "Go up (0%)","3": "Go down (100%)","7": "No change"},
+        "def": 0
       },
       "native": {}
     }

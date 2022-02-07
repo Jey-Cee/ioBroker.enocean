@@ -15,6 +15,7 @@
         "type": "number",
         "read": true,
         "write": false,
+        "def": 0,
         "unit": "hPa"
       },
       "native": {}
@@ -29,7 +30,8 @@
         "write": false,
         "states": {
           "0": "Heartbeat", "1": "Event triggered"
-        }
+        },
+        "def": 0
       },
       "native": {}
     }

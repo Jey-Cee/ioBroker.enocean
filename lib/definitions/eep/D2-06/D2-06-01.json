@@ -16,7 +16,8 @@
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Get Configuration Settings", "1":  "Get Log Data", "3":  "Set Configuration"}
+        "states": {"0": "Get Configuration Settings", "1":  "Get Log Data", "3":  "Set Configuration"},
+        "def": 0
       },
       "native": {}
     },

@@ -18,7 +18,8 @@
                 "write": true,
                 "states": {
                     "0":"Set Valve position", "1":"Set Temperature", "2":"Summer mode", "3":"Open valve", "4":"Close valve"
-                }
+                },
+                "def": "0"
             },
             "native": {}
         },
@@ -29,7 +30,8 @@
                 "role": "indicator",
                 "type": "boolean",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": false
             },
             "native": {}
         },
@@ -40,7 +42,8 @@
                 "role": "indicator",
                 "type": "boolean",
                 "read": true,
-                "write": false
+                "write": false,
+                "def":false
             },
             "native": {}
         },
@@ -51,7 +54,8 @@
                 "role": "indicator",
                 "type": "boolean",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": false
             },
             "native": {}
         },
@@ -62,7 +66,8 @@
                 "role": "indicator.lowbat",
                 "type": "boolean",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": false
             },
             "native": {}
         },
@@ -73,7 +78,8 @@
                 "role": "indicator",
                 "type": "boolean",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": false
             },
             "native": {}
         },
@@ -84,7 +90,8 @@
                 "role": "indicator",
                 "type": "boolean",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": false
             },
             "native": {}
         },
@@ -95,7 +102,8 @@
                 "role": "indicator",
                 "type": "boolean",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": false
             },
             "native": {}
         },
@@ -106,7 +114,8 @@
                 "role": "indicator",
                 "type": "boolean",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": false
             },
             "native": {}
         },
@@ -117,7 +126,8 @@
                 "role": "level",
                 "type": "number",
                 "read": false,
-                "write": true
+                "write": true,
+                "def": 0
             },
             "native": {}
         },
@@ -128,7 +138,8 @@
                 "role": "state",
                 "type": "boolean",
                 "read": true,
-                "write": true
+                "write": true,
+                "def": false
             },
             "native": {}
         },
@@ -140,6 +151,7 @@
                 "type": "number",
                 "read": true,
                 "write": true,
+                "def": 0,
                 "unit": "°C"
             },
             "native": {}

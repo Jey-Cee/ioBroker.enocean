@@ -15,7 +15,8 @@
                 "role": "value",
                 "type": "number",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": 0
             },
             "native": {}
         },
@@ -26,7 +27,8 @@
                 "role": "value",
                 "type": "number",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": 0
             },
             "native": {}
         },
@@ -37,7 +39,8 @@
                 "role": "value",
                 "type": "number",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": 0
             },
             "native": {}
         },
@@ -48,7 +51,8 @@
                 "role": "value",
                 "type": "boolean",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": false
             },
             "native": {}
         },
@@ -59,7 +63,8 @@
                 "role": "value",
                 "type": "boolean",
                 "read": true,
-                "write": false
+                "write": false,
+                "def": false
             },
             "native": {}
         },
@@ -73,7 +78,8 @@
                 "write": false,
                 "states": {
                     "0":"No Error", "1":"Lamp-failure", "2":"Internal failure", "3":"Failure on the external periphery"
-                }
+                },
+                "def": 0
             },
             "native": {}
         },
@@ -87,7 +93,8 @@
                 "write": false,
                 "states": {
                     "0":"8 Bit Dimmer value and lamp operating hours", "1":"RGB Value", "2":"Energy metering", "3":"Not used"
-                }
+                },
+                "def": 0
             },
             "native": {}
         }

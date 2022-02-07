@@ -15,7 +15,8 @@
                 "type": "number",
                 "read": true,
                 "write": true,
-                "states": {"0": "Off","1": "On","2": "Setlevel","3": "Teach-in","4": "Teach-in FSUD","5": "Request confirmation telegram", "6": "On with last Dim value"}
+                "states": {"0": "Off","1": "On","2": "Set level","3": "Teach-in","4": "Teach-in FSUD","5": "Request confirmation telegram", "6": "On with last Dim value"},
+                "def": 0
             },
             "native": {}
         },
@@ -40,7 +41,7 @@
                 "type": "number",
                 "read": true,
                 "write": true,
-                "states": {"0": "Usehardware setting"},
+                "states": {"0": "Use hardware setting"},
                 "def": 0
             },
             "native": {}

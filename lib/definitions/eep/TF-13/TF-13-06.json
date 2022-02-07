@@ -16,7 +16,8 @@
                 "type": "number",
                 "read": true,
                 "write": true,
-                "unit": "%"
+                "unit": "%",
+                "def": 0
             },
             "native": {}
         }

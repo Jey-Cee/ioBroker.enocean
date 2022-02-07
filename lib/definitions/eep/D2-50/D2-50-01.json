@@ -21,7 +21,8 @@
           "1": "Ventilation control",
           "2": "Ventilation basic status",
           "3": "Ventilation extended status"
-        }
+        },
+        "def": 0
       },
       "native": {}
     },
@@ -36,7 +37,8 @@
         "states": {
           "0": "Ventilation basic status",
           "1": "Ventilation extended status"
-        }
+        },
+        "def": 0
       },
       "native": {}
     },
@@ -59,7 +61,8 @@
           "13": "Supply air only",
           "14": "Exhaust air only",
           "15": "No action (keep current ventilation mode/level)"
-        }
+        },
+        "def": 0
       },
       "native": {}
     },
@@ -74,8 +77,9 @@
         "states": {
           "0": "No action",
           "1": "Select next operation mode",
-          "2": "Slect previous operation mode"
-        }
+          "2": "Select previous operation mode"
+        },
+        "def": 0
       },
       "native": {}
     },
@@ -90,7 +94,8 @@
         "unit": "%",
         "states": {
           "127": "Default (use threshold configured in device)"
-        }
+        },
+        "def": 0
       },
       "native": {}
     },
@@ -105,7 +110,8 @@
         "unit": "%",
         "states": {
           "127": "Default (use threshold configured in device)"
-        }
+        },
+        "def": 0
       },
       "native": {}
     },
@@ -120,7 +126,8 @@
         "unit": "%",
         "states": {
           "127": "Default (use threshold configured in device)"
-        }
+        },
+        "def": 0
       },
       "native": {}
     },
@@ -142,7 +149,8 @@
           "12": "Automatic on demand",
           "13": "Supply air only",
           "14": "Exhaust air only"
-        }
+        },
+        "def": 0
       },
       "native": {}
     },
@@ -157,7 +165,8 @@
         "states": {
           "0": "Closed",
           "1": "Open"
-        }
+        },
+        "def": 0
       },
       "native": {}
     },
@@ -172,7 +181,8 @@
         "states": {
           "0": "Closed",
           "1": "Open"
-        }
+        },
+        "def": 0
       },
       "native": {}
     },
@@ -187,7 +197,8 @@
         "states": {
           "0": "Inactive",
           "1": "Active"
-        }
+        },
+        "def": 0
       },
       "native": {}
     },
@@ -202,7 +213,8 @@
         "states": {
           "0": "Inactive",
           "1": "Active"
-        }
+        },
+        "def": 0
       },
       "native": {}
     },
@@ -217,7 +229,8 @@
         "states": {
           "0": "Inactive",
           "1": "Active"
-        }
+        },
+        "def": 0
       },
       "native": {}
     },
@@ -232,7 +245,8 @@
         "states": {
           "0": "Inactive",
           "1": "Active"
-        }
+        },
+        "def": 0
       },
       "native": {}
     },
@@ -247,7 +261,8 @@
         "states": {
           "0": "Inactive",
           "1": "Active"
-        }
+        },
+        "def": 0
       },
       "native": {}
     },
@@ -262,7 +277,8 @@
         "states": {
           "0": "Maintenance not required",
           "1": "Maintenance required"
-        }
+        },
+        "def": 0
       },
       "native": {}
     },
@@ -277,7 +293,8 @@
         "unit": "%",
         "states": {
           "127": "Not available"
-        }
+        },
+        "def": 0
       },
       "native": {}
     },
@@ -292,7 +309,8 @@
         "states": {
           "0": "Master",
           "1": "Slave"
-        }
+        },
+        "def": 0
       },
       "native": {}
     },
@@ -304,7 +322,8 @@
         "type": "number",
         "read": true,
         "write": false,
-        "unit": "°C"
+        "unit": "°C",
+        "def": 0
       },
       "native": {}
     },
@@ -316,7 +335,8 @@
         "type": "number",
         "read": true,
         "write": false,
-        "unit": "°C"
+        "unit": "°C",
+        "def": 0
       },
       "native": {}
     },
@@ -328,7 +348,8 @@
         "type": "number",
         "read": true,
         "write": false,
-        "unit": "m³/h"
+        "unit": "m³/h",
+        "def": 0
       },
       "native": {}
     },
@@ -340,7 +361,8 @@
         "type": "number",
         "read": true,
         "write": false,
-        "unit": "m³/h"
+        "unit": "m³/h",
+        "def": 0
       },
       "native": {}
     },
@@ -352,7 +374,8 @@
         "type": "number",
         "read": true,
         "write": false,
-        "unit": "1/min"
+        "unit": "1/min",
+        "def": 0
       },
       "native": {}
     },
@@ -364,7 +387,8 @@
         "type": "number",
         "read": true,
         "write": false,
-        "unit": "1/min"
+        "unit": "1/min",
+        "def": 0
       },
       "native": {}
     },
@@ -375,7 +399,8 @@
         "role": "state",
         "type": "number",
         "read": true,
-        "write": false
+        "write": false,
+        "def": 0
       },
       "native": {}
     },
@@ -387,7 +412,8 @@
         "type": "number",
         "read": true,
         "write": false,
-        "unit": "h"
+        "unit": "h",
+        "def": 0
       },
       "native": {}
     },
@@ -416,7 +442,8 @@
           "8192": "Info no. 13 active",
           "16384": "Info no. 14 active",
           "32768": "Info no. 15 active"
-        }
+        },
+        "def": 0
       },
       "native": {}
     },
@@ -461,7 +488,8 @@
           "536870912": "Fault no. 29 active",
           "1073741824": "Fault no. 30 active",
           "2147483648": "Fault no. 31 active"
-        }
+        },
+        "def": 0
       },
       "native": {}
     }
