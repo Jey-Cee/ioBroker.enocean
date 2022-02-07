@@ -174,7 +174,7 @@ To test telegram handling create a channel with name development and in this cha
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 0.6.3 (2022-02-07)
 * added SODA S8
 * added Thermokon SAB+
 * added Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB

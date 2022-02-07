@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "enocean",
-        "version": "0.6.2",
+        "version": "0.6.3",
         "news": {
+            "0.6.3": {
+                "en": "added SODA S8\nadded Thermokon SAB+\nadded Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB\nadded Battery state to D2-06-01\nadded default values to all objects\nupdated Eltako FSVA-230V\nfix FJ62/12-36V DC teachin",
+                "de": "SODA S8 hinzugefügt\nThermokon SAB+ hinzugefügt\nEltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB hinzugefügt\nBatteriestatus zu D2-06-01 hinzugefügt\nStandardwerte zu allen Objekten hinzugefügt\naktualisierte Eltako FSVA-230V\nFix FJ62/12-36V DC einlernen",
+                "ru": "добавлена СОДА S8\nдобавлен Термокон САБ+\nдобавлены Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB и FTFSB\nдобавлено состояние батареи в D2-06-01\nдобавлены значения по умолчанию для всех объектов\nобновленный Эльтако ФСВА-230В\nисправить обучение FJ62/12-36V DC",
+                "pt": "adicionado SODA S8\nadicionado Thermokon SAB+\nadicionados Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB\nestado da bateria adicionado a D2-06-01\nvalores padrão adicionados a todos os objetos\natualizado Eltako FSVA-230V\ncorrigir FJ62/12-36V DC teachin",
+                "nl": "SODA S8 toegevoegd\ntoegevoegd Thermokon SAB+\ntoegevoegd Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB\nbatterijstatus toegevoegd aan D2-06-01\nstandaardwaarden toegevoegd aan alle objecten\nbijgewerkte Eltako FSVA-230V\nfix FJ62/12-36V DC aanleren:",
+                "fr": "ajouté SODA S8\najouté Thermokon SAB+\najouté Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB et FTFSB\najout de l'état de la batterie à D2-06-01\najouté des valeurs par défaut à tous les objets\nmis à jour Eltako FSVA-230V\ncorrection de l'apprentissage FJ62 / 12-36V DC",
+                "it": "aggiunto SODA S8\naggiunto Thermokon SAB+\naggiunto Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB e FTFSB\naggiunto Stato batteria a D2-06-01\naggiunti valori predefiniti a tutti gli oggetti\naggiornato Eltako FSVA-230V\ncorreggere l'apprendimento FJ62/12-36 V CC",
+                "es": "agregado SODA S8\nagregado Thermokon SAB+\nañadido Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB y FTFSB\nestado de la batería agregado a D2-06-01\nvalores predeterminados agregados a todos los objetos\nactualizado Eltako FSVA-230V\narreglar FJ62/12-36V DC enseñanza",
+                "pl": "dodano SODĘ S8\ndodano Thermokon SAB+\ndodano Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB i FTFSB\ndodano stan baterii do D2-06-01\ndodano wartości domyślne do wszystkich obiektów\nzaktualizowany Eltako FSVA-230V\nnapraw nauczanie FJ62/12-36V DC",
+                "zh-cn": "添加了苏打水 S8\n添加 Thermokon SAB+\n添加了 Eltako FHB、FWRB、TF-RWB、FSR61VA、FFT65B、FFT55B、FFTF65B、FTFB 和 FTFSB\n将电池状态添加到 D2-06-01\n为所有对象添加默认值\n更新的 Eltako FSVA-230V\n修复 FJ62/12-36V DC 示教器"
+            },
             "0.6.1": {
                 "en": "added Dimplex DL 50 WE2\nadded EnOcean STM 350\nadded Eltako & MACO eTronic\nadded Afriso CO2-Sensor\nchange TF-13-03 set time to 100ms for sending cases\nchange TF-13-07 add On with last value\nfix teachin which makes it hard to add new devices\nfix Humidity datapoint & change decimals from 2 to 1",
                 "de": "Dimplex DL 50 WE2 . hinzugefügt\nEnOcean STM 350 . hinzugefügt\nEltako & MACO eTronic hinzugefügt\nAfriso CO2-Sensor hinzugefügt\nändere die TF-13-03-Zeit auf 100 ms für das Senden von Fällen\nTF-13-07 ändern Add On mit letztem Wert\nTeach-in behoben, was das Hinzufügen neuer Geräte erschwert\nFeuchtigkeitsdatenpunkt korrigieren & Dezimalstellen von 2 auf 1 ändern",
