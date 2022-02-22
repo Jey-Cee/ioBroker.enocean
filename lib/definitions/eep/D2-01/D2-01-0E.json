@@ -382,7 +382,7 @@
           "description": "Measurement delta",
           "bitoffs": "24",
           "bitsize": "8",
-          "value": 255
+          "value": 1
         },
         {
           "data": "Unit",

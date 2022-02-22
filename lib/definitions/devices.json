@@ -593,7 +593,7 @@
       ],
       "autocreate": false,
       "teachin_method": "none",
-      "id_offset": true,
+      "id_offset": false,
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -2008,8 +2008,7 @@
     },
     "FTK": {
       "EEP": [
-        "D5-00-01",
-        "TF-13-08"
+        "D5-00-01"
       ],
       "autocreate": false,
       "teachin_method": "none",
@@ -2027,12 +2026,11 @@
     },
     "FTKB-gr": {
       "EEP": [
-        "D5-00-01",
-        "TF-13-08"
+        "D5-00-01"
       ],
       "autocreate": false,
       "teachin_method": "none",
-      "id_offset": true,
+      "id_offset": false,
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -2051,7 +2049,7 @@
       ],
       "autocreate": false,
       "teachin_method": "none",
-      "id_offset": true,
+      "id_offset": false,
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -3586,6 +3584,26 @@
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
           "2": "Anlernmodus am D 4511 FU-EBIM ST starten. Für weitere informationen bitte die Anleitung des D 4511 FU-EBIM ST lesen."
+        }
+      }
+    },
+    "452 FU-EBIM JR o.T.": {
+      "EEP": [
+        "PE-01-01"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'",
+          "3": "Goto objects and send command (CMD) Teach-in"
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden."
         }
       }
     }
