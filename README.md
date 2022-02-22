@@ -174,6 +174,9 @@ To test telegram handling create a channel with name development and in this cha
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+* fix split Eltako FSVA-230V & FSR61VA into to sepperate devices for control and measurement
+
 ### 0.6.3 (2022-02-07)
 * added SODA S8
 * added Thermokon SAB+
