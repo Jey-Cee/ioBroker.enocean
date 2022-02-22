@@ -1,9 +1,3 @@
-chore: release v0.6.3
+chore: release v0.6.4
 
-added SODA S8
-added Thermokon SAB+
-added Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB
-added Battery state to D2-06-01
-added default values to all objects
-updated Eltako FSVA-230V
-fix FJ62/12-36V DC teachin
+fix split Eltako FSVA-230V & FSR61VA into to sepperate devices for control and measurement

@@ -354,7 +354,7 @@
           "shortcut": "RM",
           "bitoffs": "8",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value_out": {"var": "value"}
         },
         {
           "data": "fixed parameter",
@@ -368,7 +368,7 @@
           "shortcut": "ep",
           "bitoffs": "10",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value_out": {"var": "value"}
         },
         {
           "data": "fixed parameter",
@@ -389,7 +389,7 @@
           "shortcut": "UN",
           "bitoffs": "21",
           "bitsize": "3",
-          "value": {"var": "value"}
+          "value_out": {"var": "value"}
         },
         {
           "data": "Maximum time between two subsequent actuator messages",
@@ -404,7 +404,7 @@
           "description": "Measurement Response messages [s]",
           "bitoffs": "40",
           "bitsize": "8",
-          "value": {"var": "value"}
+          "value_out": {"var": "value"}
         }
       ]
     },
