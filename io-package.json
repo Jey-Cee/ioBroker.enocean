@@ -1,8 +1,20 @@
 {
     "common": {
         "name": "enocean",
-        "version": "0.6.3",
+        "version": "0.6.4",
         "news": {
+            "0.6.4": {
+                "en": "fix split Eltako FSVA-230V & FSR61VA into to sepperate devices for control and measurement",
+                "de": "Fix Split Eltako FSVA-230V & FSR61VA in getrennte Geräte für Steuerung und Messung",
+                "ru": "исправить разделение Eltako FSVA-230V и FSR61VA на отдельные устройства для управления и измерения",
+                "pt": "corrigir dividir Eltako FSVA-230V e FSR61VA em dispositivos separados para controle e medição",
+                "nl": "fix split Eltako FSVA-230V & FSR61VA in aparte apparaten voor controle en meting",
+                "fr": "fixez les Eltako FSVA-230V et FSR61VA divisés en appareils séparés pour le contrôle et la mesure",
+                "it": "aggiustare la divisione Eltako FSVA-230V e FSR61VA in dispositivi separati per il controllo e la misurazione",
+                "es": "arreglar dividir Eltako FSVA-230V y FSR61VA en dispositivos separados para control y medición",
+                "pl": "napraw rozdzielenie Eltako FSVA-230V i FSR61VA na osobne urządzenia kontrolno-pomiarowe",
+                "zh-cn": "修复拆分 Eltako FSVA-230V 和 FSR61VA 以分离用于控制和测量的设备"
+            },
             "0.6.3": {
                 "en": "added SODA S8\nadded Thermokon SAB+\nadded Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB\nadded Battery state to D2-06-01\nadded default values to all objects\nupdated Eltako FSVA-230V\nfix FJ62/12-36V DC teachin",
                 "de": "SODA S8 hinzugefügt\nThermokon SAB+ hinzugefügt\nEltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB hinzugefügt\nBatteriestatus zu D2-06-01 hinzugefügt\nStandardwerte zu allen Objekten hinzugefügt\naktualisierte Eltako FSVA-230V\nFix FJ62/12-36V DC einlernen",
@@ -236,7 +248,11 @@
                 "type": "number",
                 "read": true,
                 "write": true,
-                "states": {"0":"OFF", "1":"ON", "2":"SELECTIVE"}
+                "states": {
+                    "0": "OFF",
+                    "1": "ON",
+                    "2": "SELECTIVE"
+                }
             },
             "native": {}
         },
@@ -249,7 +265,11 @@
                 "type": "number",
                 "read": true,
                 "write": true,
-                "states": {"0":"OFF", "1":"1-level repeating", "2":"2-level repeating"}
+                "states": {
+                    "0": "OFF",
+                    "1": "1-level repeating",
+                    "2": "2-level repeating"
+                }
             },
             "native": {}
         }

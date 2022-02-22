@@ -174,7 +174,7 @@ To test telegram handling create a channel with name development and in this cha
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 0.6.4 (2022-02-22)
 * fix split Eltako FSVA-230V & FSR61VA into to sepperate devices for control and measurement
 
 ### 0.6.3 (2022-02-07)
