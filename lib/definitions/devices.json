@@ -1591,11 +1591,32 @@
         }
       }
     },
-    "FSR61VA": {
+    "FSR61VA (Control)": {
       "EEP": [
         "TF-13-24",
-        "A5-12-01",
         "TF-14-02"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'.",
+          "3": "Start teach-in mode on FSR61VA. For more information, please read the FSR61VA manual.",
+          "4": "Switch to the objects and send the command (CMD) 'ON', number 1."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken.",
+          "3": "Anlernmodus am FSR61VA starten. Für weitere informationen bitte die Anleitung des FSR61VA lesen.",
+          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'ON', nummer 1, senden."
+        }
+      }
+    },
+    "FSR61VA (Measurement)": {
+      "EEP": [
+        "A5-12-01"
       ],
       "autocreate": false,
       "teachin_method": "none",
@@ -1603,17 +1624,11 @@
       "help": {
         "en": {
           "1": "Enter device ID.",
-          "2": "Click on 'Add Device'.",
-          "3": "Press LRN/CLR for 0.5 seconds.",
-          "4": "Press ON/OFF 2 times.",
-          "5": "Switch to the objects and send the command (CMD) 'ON'."
+          "2": "Click on 'Add Device'."
         },
         "de": {
           "1": "Geräte ID eintragen.",
-          "2": "Auf 'Gerät Hinzufügen' klicken.",
-          "3": "Die LRN/CLR Taste für 0,5 sekunden Drücken.",
-          "4": "Die ON/OFF Taste 2 mal Drücken.",
-          "5": "Zu den Objekten Wechseln und den Befehl (CMD) 'ON' senden."
+          "2": "Auf 'Gerät Hinzufügen' klicken."
         }
       }
     },
@@ -1758,7 +1773,7 @@
         }
       }
     },
-    "FSVA-230V": {
+    "FSVA-230V (Control)": {
       "EEP": [
         "TF-13-24",
         "A5-12-01",
@@ -1766,7 +1781,7 @@
       ],
       "autocreate": false,
       "teachin_method": "none",
-      "id_offset": false,
+      "id_offset": true,
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -1781,6 +1796,24 @@
           "3": "Die LRN/CLR Taste für 0,5 sekunden Drücken.",
           "4": "Die ON/OFF Taste 2 mal Drücken.",
           "5": "Zu den Objekten Wechseln und den Befehl (CMD) 'ON' senden."
+        }
+      }
+    },
+    "FSVA-230V (Measurement)": {
+      "EEP": [
+        "A5-12-01"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
         }
       }
     },

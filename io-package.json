@@ -149,7 +149,7 @@
         "messagebox": true,
         "dependencies": [
             {
-                "js-controller": ">=1.4.2"
+                "js-controller": ">=3.0.0"
             }
         ]
     },
@@ -236,7 +236,7 @@
                 "type": "number",
                 "read": true,
                 "write": true,
-                "states": "0:OFF;1:ON;2:SELECTIVE"
+                "states": {"0":"OFF", "1":"ON", "2":"SELECTIVE"}
             },
             "native": {}
         },
@@ -249,7 +249,7 @@
                 "type": "number",
                 "read": true,
                 "write": true,
-                "states": "0:OFF;1:1-level repeating;2:2-level repeating"
+                "states": {"0":"OFF", "1":"1-level repeating", "2":"2-level repeating"}
             },
             "native": {}
         }

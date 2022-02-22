@@ -102,6 +102,8 @@ class Enocean extends utils.Adapter {
 	 * @param {() => void} callback
 	 */
 	onUnload(callback) {
+		clearTimeout(timeoutWait);
+		clearTimeout(timeoutQueue);
 		try {
 			if (SERIAL_PORT !== null) {
 				SERIAL_PORT.close();
