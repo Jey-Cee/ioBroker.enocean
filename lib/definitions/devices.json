@@ -1776,7 +1776,6 @@
     "FSVA-230V (Control)": {
       "EEP": [
         "TF-13-24",
-        "A5-12-01",
         "TF-14-02"
       ],
       "autocreate": false,
@@ -3034,7 +3033,7 @@
         "A5-20-04"
       ],
       "autocreate": true,
-      "teachin_method": "UTE",
+      "teachin_method": "4BS",
       "id_offset": true,
       "help": {
         "en": {
