@@ -19,7 +19,7 @@
                 "states": {
                     "0":"Set Valve position", "1":"Set Temperature", "2":"Summer mode", "3":"Open valve", "4":"Close valve"
                 },
-                "def": "0"
+                "def": 0
             },
             "native": {}
         },
