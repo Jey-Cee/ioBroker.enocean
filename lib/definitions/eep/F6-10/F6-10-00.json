@@ -11,7 +11,7 @@
             "type": "state",
             "common": {
                 "name": "Window open",
-                "role": "switch",
+                "role": "sensor.window.open",
                 "type": "boolean",
                 "read": true,
                 "write": false,
@@ -23,11 +23,24 @@
             "type": "state",
             "common": {
                 "name": "Window tilt",
-                "role": "switch",
+                "role": "sensor.window.tilt",
                 "type": "boolean",
                 "read": true,
                 "write": false,
                 "def": false
+            },
+            "native": {}
+        },
+        "ST": {
+            "type": "state",
+            "common": {
+                "name": "Window state",
+                "role": "value.window",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "states": {"0":  "CLOSED", "1":  "TILTED", "2":  "OPEN"},
+                "def": 0
             },
             "native": {}
         }
@@ -41,7 +54,12 @@
                     "shortcut": "WIN",
                     "bitoffs": "0",
                     "bitsize": "8",
-                    "value": {"!==": [ { "var": "value" }, 240 ]}
+                    "value": {
+                        "or": [
+                            {"===": [{"var": "value"}, 192]},
+                            {"!==": [{"var": "value"}, 240]}
+                        ]
+                    }
                 },
                 {
                     "data": "Window tilt",
@@ -49,6 +67,19 @@
                     "bitoffs": "0",
                     "bitsize": "8",
                     "value": {"===": [ { "var": "value" }, 208 ]}
+                },
+                {
+                    "data": "Window state",
+                    "shortcut": "ST",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": {
+                        "if": [
+                            {"===": [ { "var":  "value"}, 240]}, 0,
+                            {"===": [ { "var": "value" }, 208]}, 1,
+                            {"===": [ { "var":  "value"}, 192]}, 2,
+                            {"===": [ { "var":  "value"}, 224]}, 2
+                        ]}
                 }
             ]
         }
