@@ -454,8 +454,10 @@ class Enocean extends utils.Adapter {
 	async packetListenerSerial() {
 		//open serial port, set adapter state to connected and wait for messages
 		SERIAL_PORT.on('open', async () => {
-			this.setState('info.connection', true, true);
-			await this.getGatewayInfo();
+			const connected = await this.getGatewayInfo();
+			if (connected === true) {
+				this.setState('info.connection', true, true);
+			}
 			await this.extractSenderIdFromDevices();
 			//Not supported by USB300 await this.deleteSmartACKMailbox();
 			//await this.resetSmartACKClient();
@@ -613,71 +615,102 @@ class Enocean extends utils.Adapter {
 	async getGatewayInfo(){
 		let data, appVersion_main, appVersion_beta, appVersion_alpha, appVersion_build, apiVersion_main, apiVersion_beta, apiVersion_alpha, apiVersion_build, chipId, chipVersion, appDescription, repEnable, repLevel, frequency, protocol, baseId;
 		let senderIDs = {};
+		let connected = false;
 		//03: CO_RD_VERSION
 		data = Buffer.from([0x03]);
 		const rd_version = await this.sendData(this, data, null, 5);
 		if(rd_version === true){
-			const returnVersion = await this.waitForResponse();
-			appVersion_main = parseInt(returnVersion.slice(7, 8).toString('hex'), 16);
-			appVersion_beta = parseInt(returnVersion.slice(8, 9).toString('hex'), 16);
-			appVersion_alpha = parseInt(returnVersion.slice(9, 10).toString('hex'), 16);
-			appVersion_build = parseInt(returnVersion.slice(10, 11).toString('hex'), 16);
-			apiVersion_main = parseInt(returnVersion.slice(11, 12).toString('hex'), 16);
-			apiVersion_beta = parseInt(returnVersion.slice(12, 13).toString('hex'), 16);
-			apiVersion_alpha = parseInt(returnVersion.slice(13, 14).toString('hex'), 16);
-			apiVersion_build = parseInt(returnVersion.slice(14, 15).toString('hex'), 16);
-			chipId  = returnVersion.slice(15, 19).toString('hex');
-			chipVersion = returnVersion.slice(19, 23).toString('hex');
-			appDescription = returnVersion.slice(23, 39).toString('utf8').replace(/\u0000/g, '');
+			try {
+				const returnVersion = await this.waitForResponse('Get version information');
+				appVersion_main = parseInt(returnVersion.slice(7, 8).toString('hex'), 16);
+				appVersion_beta = parseInt(returnVersion.slice(8, 9).toString('hex'), 16);
+				appVersion_alpha = parseInt(returnVersion.slice(9, 10).toString('hex'), 16);
+				appVersion_build = parseInt(returnVersion.slice(10, 11).toString('hex'), 16);
+				apiVersion_main = parseInt(returnVersion.slice(11, 12).toString('hex'), 16);
+				apiVersion_beta = parseInt(returnVersion.slice(12, 13).toString('hex'), 16);
+				apiVersion_alpha = parseInt(returnVersion.slice(13, 14).toString('hex'), 16);
+				apiVersion_build = parseInt(returnVersion.slice(14, 15).toString('hex'), 16);
+				chipId = returnVersion.slice(15, 19).toString('hex');
+				chipVersion = returnVersion.slice(19, 23).toString('hex');
+				appDescription = returnVersion.slice(23, 39).toString('utf8').replace(/\u0000/g, '');
+
+				connected = true;
+			} catch (e) {
+				this.log.error(e);
+			}
 		}
 
 		//10: CO_RD_REPEATER
 		data = Buffer.from([0x0A]);
 		const rd_repeater = await this.sendData(this, data, null, 5);
 		if(rd_repeater === true){
-			const returnRepeater = await this.waitForResponse();
-			repEnable = returnRepeater.slice(7, 8);
-			repLevel = returnRepeater.slice(8, 9);
-			await this.setStateAsync('gateway.repeater.level', {val: repLevel[0], ack: true});
-			await this.setStateAsync('gateway.repeater.mode', {val: repEnable[0], ack: true});
+			try {
+				const returnRepeater = await this.waitForResponse('Get repeater mode and level');
+				repEnable = returnRepeater.slice(7, 8);
+				repLevel = returnRepeater.slice(8, 9);
+				await this.setStateAsync('gateway.repeater.level', {val: repLevel[0], ack: true});
+				await this.setStateAsync('gateway.repeater.mode', {val: repEnable[0], ack: true});
+
+				connected = true;
+			} catch (e) {
+				this.log.error(e);
+			}
 		}
 
 		//37: CO_GET_FREQUENCY_INFO
 		data = Buffer.from([0x25]);
 		const get_frequency = await this.sendData(this, data, null, 5);
 		if(get_frequency === true){
-			const returnFrequency = await this.waitForResponse();
-			frequency = '0x' + returnFrequency.slice(7, 8).toString('hex');
-			protocol = '0x' + returnFrequency.slice(8, 9).toString('hex');
+			try {
+				const returnFrequency = await this.waitForResponse('Get frequency');
+				frequency = '0x' + returnFrequency.slice(7, 8).toString('hex');
+				protocol = '0x' + returnFrequency.slice(8, 9).toString('hex');
+
+				connected = true;
+			} catch (e) {
+				this.log.error(e);
+			}
 		}
 
 		//08: CO_RD_IDBASE
 		data = Buffer.from([0x08]);
 		const rd_idbase = await this.sendData(this, data, null, 5);
 		if(rd_idbase === true){
-			const returnIdbase = await this.waitForResponse();
-			const telegram = new ResponseTelegram(returnIdbase);
-			baseId = telegram.data.toString('hex');
-			senderIDs = await idRangeCalc(baseId);
+			try {
+				const returnIdbase = await this.waitForResponse('Get base ID');
+				const telegram = new ResponseTelegram(returnIdbase);
+				baseId = telegram.data.toString('hex');
+				senderIDs = await idRangeCalc(baseId);
+
+				connected = true;
+			} catch (e) {
+				this.log.error(e);
+			}
 		}
 
 		//Smart ACK 06: SA_RD_LEARNDCLIENTS
 		data = Buffer.from([0x06]);
 		const sa_rd_learndclients = await this.sendData(this, data, null, 6);
 		if(sa_rd_learndclients === true){
-			const returnSaRdLearndclients = await this.waitForResponse();
-			const telegram = new HandleType2(this, returnSaRdLearndclients);
-			//baseId = telegram.data.toString('hex');
-			const resData = telegram.main.data;
-			//console.log( (resData.length / 2)/9 );
-			//console.log(resData);+
-			if(resData !== undefined){
-				const mailboxes = [];
-				for(let i = 0; i < (resData.length / 2)/9; i++){
-					const mailbox = {};
-					//TODO: split string into mailbox objects and show in?
+			try {
+				const returnSaRdLearndclients = await this.waitForResponse('Read learnd devices');
+				const telegram = new HandleType2(this, returnSaRdLearndclients);
+				//baseId = telegram.data.toString('hex');
+				const resData = telegram.main.data;
+				//console.log( (resData.length / 2)/9 );
+				//console.log(resData);+
+				if(resData !== undefined){
+					const mailboxes = [];
+					for(let i = 0; i < (resData.length / 2)/9; i++){
+						const mailbox = {};
+						//TODO: split string into mailbox objects and show in?
 
+					}
 				}
+
+				connected = true;
+			} catch (e) {
+				this.log.error(e);
 			}
 		}
 
@@ -707,6 +740,8 @@ class Enocean extends utils.Adapter {
 				}
 			});
 		}
+
+		return connected;
 	}
 
 	async resetController(){
@@ -763,13 +798,15 @@ class Enocean extends utils.Adapter {
 	}
 
 	//wait for response from USB Stick/Modul
-	waitForResponse(){
-		return new Promise((resolve) => {
+	waitForResponse(info){
+		info = info ? ': ' + info : '';
+		return new Promise((resolve, reject) => {
 			const cb = (data) => {
 				resolve(data);
 				SERIALPORT_ESP3_PARSER.off('data', cb);
 			};
 			SERIALPORT_ESP3_PARSER.on('data', cb);
+			setTimeout(() => {reject('Timeout for response' + info);}, 1000);
 		});
 	}
 
