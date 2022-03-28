@@ -1,0 +1,283 @@
+{
+  "eep": "D2-06-50",
+  "rorg_number": "0xD2",
+  "telegram": "VLD",
+  "func_number": "0x06",
+  "type_number": "0x50",
+  "type_title": "Multisensor Window / Door Handle and Sensors",
+  "bidirectional": false,
+  "objects": {
+    "BA": {
+      "type": "state",
+      "common": {
+        "name": "Burglary Alarm",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {"0": "Not Triggered", "1": "Alarm Triggered"},
+        "def": 0
+      },
+      "native": {}
+    },
+    "AM": {
+      "type": "state",
+      "common": {
+        "name": "Alive Message",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {"0": "Standard status message","1": "Message because of alive cycle"},
+        "def": 0
+      },
+      "native": {}
+    },
+    "WDS": {
+      "type": "state",
+      "common": {
+        "name": "Current status of Sash/Window",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "None","1": "Closed/Closed", "2":  "Closed/Open", "3": "Closed/Tilted", "4":  "Open/Closed", "5":  "Open/Open", "6":  "Open/Tilted", "7":  "Tilted/Closed", "8":  "Tilted/Open", "9": "Tilted/Tilted"},
+        "def": 0
+      },
+      "native": {}
+    },
+    "CT": {
+      "type": "state",
+      "common": {
+        "name": "Counter",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    },
+    "CB": {
+      "type": "state",
+      "common": {
+        "name": "Change Battery",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "states": {"0":  "Battery OK", "1":  "Change battery"}
+      },
+      "native": {}
+    },
+    "BS": {
+      "type": "state",
+      "common": {
+        "name": "Battery State",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "unit": "%"
+      },
+      "native": {}
+    },
+    "MOE": {
+      "type": "state",
+      "common": {
+        "name": "Motion Sensor Error",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "states": {"0":  "OK", "1":  "Error", "2":  "Not Supported"}
+      },
+      "native": {}
+    },
+    "ACE": {
+      "type": "state",
+      "common": {
+        "name": "Accleration Sensor Error",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "states": {"0":  "OK", "1":  "Error", "2":  "Not Supported"}
+      },
+      "native": {}
+    },
+    "MAE": {
+      "type": "state",
+      "common": {
+        "name": "Magnetic Sensor Error",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "states": {"0":  "OK", "1":  "Error", "2":  "Not Supported"}
+      },
+      "native": {}
+    },
+    "SE": {
+      "type": "state",
+      "common": {
+        "name": "System Error",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "states": {"0":  "OK", "1":  "Error", "2":  "Not Supported"}
+      },
+      "native": {}
+    },
+    "CS": {
+      "type": "state",
+      "common": {
+        "name": "Calibration Status",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "states": {"0":  "OK", "1":  "Error", "2":  "Invalid"}
+      },
+      "native": {}
+    },
+    "CAL": {
+      "type": "state",
+      "common": {
+        "name": "Calibration Step (Sash/Window)",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "states": {"0":  "No next step/None", "1":  "Closed/Closed", "2":  "Closed/Open", "3":  "Closed/Tilted", "4": "Open/Closed", "5":  "Open/Open", "6":  "Open/Tilted", "7": "Tilted/Closed", "8":  "Tilted/Open", "9": "Tilted/Tilted", "10":  "Frame Magnet Validation"}
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "condition": [{
+        "bitoffs": "0",
+        "bitsize": "8",
+        "value": 1
+      }],
+      "datafield": [
+        {
+          "data": "Alive Message",
+          "shortcut": "AM",
+          "bitoffs": "8",
+          "bitsize": "1",
+          "value": {"var":"value"}
+        },
+        {
+          "data": "Window Status Event",
+          "shortcut": "WDS",
+          "bitoffs": "9",
+          "bitsize": "7",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Counter",
+          "shortcut": "CT",
+          "bitoffs": "16",
+          "bitsize": "32",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Change Battery",
+          "shortcut": "CB",
+          "bitoffs": "48",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Battery State",
+          "shortcut": "BS",
+          "bitoffs": "49",
+          "bitsize": "7",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Motion Sensor Error",
+          "shortcut": "MOE",
+          "bitoffs": "56",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Accleration Sensor Error",
+          "shortcut": "ACE",
+          "bitoffs": "58",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Magnetic Sensor Error",
+          "shortcut": "MAE",
+          "bitoffs": "60",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "System Error",
+          "shortcut": "SE",
+          "bitoffs": "62",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [
+        {
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 2
+        }],
+      "datafield": [
+        {
+          "data": "Burglary Alarm",
+          "shortcut": "BA",
+          "bitoffs": "12",
+          "bitsize": "4",
+          "value": {"var":"value"}
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [{
+        "bitoffs": "0",
+        "bitsize": "8",
+        "value": 17
+      }],
+      "datafield": [
+        {
+          "data": "Calibration Status",
+          "shortcut": "CS",
+          "bitoffs": "8",
+          "bitsize": "2",
+          "value": {"var":"value"}
+        },
+        {
+          "data": "Calibration Step",
+          "shortcut": "CAL",
+          "bitoffs": "10",
+          "bitsize": "6",
+          "value": {"var": "value"}
+        }
+      ]
+    }
+  ]
+}

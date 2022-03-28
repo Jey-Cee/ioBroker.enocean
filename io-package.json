@@ -169,7 +169,8 @@
         "serialport": "",
         "ser2net": false,
         "ser2net-ip": "",
-        "ser2net-port": 2000
+        "ser2net-port": 2000,
+        "esp2Switch": false
     },
     "objects": [],
     "instanceObjects": [

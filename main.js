@@ -18,6 +18,7 @@ const ByteArray = require('./lib/tools/byte_array');
 const HandleType1 = require('./lib/tools/Packet_handler').handleType1;
 const HandleType2 = require('./lib/tools/Packet_handler').handleType2;
 const HandleType4 = require('./lib/tools/Packet_handler').handleType4;
+const HandleType10 = require('./lib/tools/Packet_handler').handleType10;
 const HandleTeachIn = require('./lib/tools/Packet_handler').handleTeachIn;
 const predifnedDeviceTeachIn = require('./lib/tools/Packet_handler').predifnedDeviceTeachin;
 
@@ -88,7 +89,15 @@ class Enocean extends utils.Adapter {
 
 		if (this.config.serialport && this.config.ser2net === false) {
 			SERIAL_PORT = new SerialPort(this.config.serialport, { baudRate: 57600});
-			SERIALPORT_ESP3_PARSER = SERIAL_PORT.pipe(new SERIALPORT_PARSER_CLASS());
+			/*SERIAL_PORT.on('data', async (data) => {
+				this.log.info(data.toString('hex'));
+			});*/
+			if (this.config.esp2Switch === true) {
+				SERIALPORT_ESP3_PARSER = SERIAL_PORT.pipe(new SERIALPORT_PARSER_CLASS.esp2parser());
+			} else {
+				SERIALPORT_ESP3_PARSER = SERIAL_PORT.pipe(new SERIALPORT_PARSER_CLASS.esp3parser());
+			}
+
 			await this.packetListenerSerial();
 		}
 
@@ -443,7 +452,11 @@ class Enocean extends utils.Adapter {
 		try {
 			tcpClient = new net.Socket();
 			await this.socketConnectAsync(this.config['ser2net-port'], this.config['ser2net-ip']);
-			SERIALPORT_ESP3_PARSER = tcpClient.pipe(new SERIALPORT_PARSER_CLASS());
+			if (this.config.esp2Switch === true) {
+				SERIALPORT_ESP3_PARSER = SERIAL_PORT.pipe(new SERIALPORT_PARSER_CLASS.esp2parser());
+			} else {
+				SERIALPORT_ESP3_PARSER = SERIAL_PORT.pipe(new SERIALPORT_PARSER_CLASS.esp3parser());
+			}
 			tcpReconnectCounter = 0;
 			await this.packetListenerTCP();
 		} catch (error) {
@@ -463,6 +476,10 @@ class Enocean extends utils.Adapter {
 			//await this.resetSmartACKClient();
 			//Not supported by USB300 await this.readMailboxStatus();
 			this.sendQueue();
+
+			/*SERIAL_PORT.on('data', (data) => {
+				console.log(data);
+			});*/
 
 			SERIALPORT_ESP3_PARSER.on('data', (data) => {
 				this.parseMessage(data);
@@ -578,9 +595,11 @@ class Enocean extends utils.Adapter {
 			case 9: //RADIO_MESSAGE
 				this.log.debug('Radio message received.');
 				break;
-			case 10: //RADIO_ERP2
+			case 10: {//RADIO_ERP2
 				this.log.debug('ERP2 protocol radio telegram received.');
+				const telegram = new HandleType10(this, esp3packet, teachinMethod);
 				break;
+			}
 			case 16: //RADIO_802_15_4
 				this.log.debug('802_15_4_RAW Packet received.');
 				break;
