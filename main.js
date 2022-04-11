@@ -453,9 +453,9 @@ class Enocean extends utils.Adapter {
 			tcpClient = new net.Socket();
 			await this.socketConnectAsync(this.config['ser2net-port'], this.config['ser2net-ip']);
 			if (this.config.esp2Switch === true) {
-				SERIALPORT_ESP3_PARSER = SERIAL_PORT.pipe(new SERIALPORT_PARSER_CLASS.esp2parser());
+				SERIALPORT_ESP3_PARSER = tcpClient.pipe(new SERIALPORT_PARSER_CLASS.esp2parser());
 			} else {
-				SERIALPORT_ESP3_PARSER = SERIAL_PORT.pipe(new SERIALPORT_PARSER_CLASS.esp3parser());
+				SERIALPORT_ESP3_PARSER = tcpClient.pipe(new SERIALPORT_PARSER_CLASS.esp3parser());
 			}
 			tcpReconnectCounter = 0;
 			await this.packetListenerTCP();
@@ -596,8 +596,17 @@ class Enocean extends utils.Adapter {
 				this.log.debug('Radio message received.');
 				break;
 			case 10: {//RADIO_ERP2
+				const teachin = await this.getStateAsync(this.namespace + '.gateway.teachin');
+				if (teachin) {
+					if (teachin.val === false){
+						const telegram = new HandleType10(this, esp3packet, teachinMethod);
+					} else {
+						if (teachinMethod !== null) {
+							new HandleTeachIn(this, esp3packet, teachinMethod);
+						}
+					}
+				}
 				this.log.debug('ERP2 protocol radio telegram received.');
-				const telegram = new HandleType10(this, esp3packet, teachinMethod);
 				break;
 			}
 			case 16: //RADIO_802_15_4
