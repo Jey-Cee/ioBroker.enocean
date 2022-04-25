@@ -742,6 +742,16 @@ class Enocean extends utils.Adapter {
 			}
 		}
 
+		//TODO: Read Gateway information from old gateways, split into separate function. Does not work with FGW14.
+		/*data = Buffer.from([0x8B, 0x89, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00]);
+		const gw_info = await this.sendData(this, data, null, 5);
+		try {
+			const info = await this.waitForResponse('Read gateway info');
+			console.log(info);
+		} catch (e) {
+			this.log.error(e);
+		}*/
+
 		const gatewayObject = {
 			native: {
 				BaseID: baseId,
@@ -888,17 +898,33 @@ class Enocean extends utils.Adapter {
 	 * @returns {Promise<boolean>}
 	 */
 	async sendData(that, data, optionalData, packetType){
-		const sync = Buffer.from([0x55]);
-		const dataLenHex = dec2hexString(data.length);
-		const header = Buffer.from([ '0x' + dataLenHex.substring(1, 2), '0x' + dataLenHex.substring(3, 4), optionalData !== null ? 0x07 : 0x00, packetType.toString(16) ]);
-		const crc8h = Buffer.from([CRC8.calcCrc8(header)]);
-		const crc8d = Buffer.from([CRC8.calcCrc8(optionalData !== null ? data.concat(optionalData) : data)]);
 		let payload;
+		if(that.config.esp2Switch === true) {
+			const sync = Buffer.from([0xa5, 0x5a]);
+			const dataLenHex = data.length;
+			console.log(dataLenHex);
+			const header = Buffer.from([dataLenHex, /*packetType.toString(16)*/ 0x07]) ;
+			const crc8h = Buffer.from([CRC8.calcCrc8(header)]);
+			const crc8d = Buffer.from([CRC8.calcCrc8(optionalData !== null ? data.concat(optionalData) : data)]);
 
-		if(optionalData !== null){
-			payload = [sync, header, crc8h, Buffer.from(data), Buffer.from(optionalData), crc8d];
-		}else{
-			payload = [sync, header, crc8h, Buffer.from(data), crc8d];
+			if (optionalData !== null) {
+				payload = [sync, header, Buffer.from(data.slice(1))/*, Buffer.from(optionalData)*/];
+			} else {
+				payload = [sync, header, Buffer.from(data), crc8d];
+			}
+		} else {
+			const sync = Buffer.from([0x55]);
+			const dataLenHex = dec2hexString(data.length);
+			const header = Buffer.from(['0x' + dataLenHex.substring(1, 2), '0x' + dataLenHex.substring(3, 4), optionalData !== null ? 0x07 : 0x00, packetType.toString(16)]);
+			const crc8h = Buffer.from([CRC8.calcCrc8(header)]);
+			const crc8d = Buffer.from([CRC8.calcCrc8(optionalData !== null ? data.concat(optionalData) : data)]);
+
+
+			if (optionalData !== null) {
+				payload = [sync, header, crc8h, Buffer.from(data), Buffer.from(optionalData), crc8d];
+			} else {
+				payload = [sync, header, crc8h, Buffer.from(data), crc8d];
+			}
 		}
 
 

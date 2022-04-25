@@ -31,6 +31,11 @@ DOSMUNG USB Stick with SMA port - [Buy](https://amzn.to/33EapbN)
 
 EnOcean Pi Modul
 
+Eltako FGW14:  
+You have to enable ESP2 mode in the adapter config, to use the FGW14.  
+**Important**: This gateway does not support all features and devices of this adapter.  Known features that does not work: RSSI, Gateway information can not be read.  If there is no technical reason to use this gateway it is highly recomended to use an other one.  
+
+
 ## Control devices
 In general there is a cmd object where you can choose the command that you want to execute. Before you can execute a command you have to set all attributes that are necessary, 
 you can find this information in the profile definition.
