@@ -178,8 +178,7 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 To test telegram handling create a channel with name development and in this channel a object with name telegram, type string.
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 0.7.0 (2022-05-30)
 * added ELTAKO FGW14-USB as possible Gateway (Please read the notes in readme for FGW14-USB)
 * added PEHA 452 FU-EBIM JR o.T.
 * added EUROTRONIC Stella E
@@ -189,7 +188,6 @@ To test telegram handling create a channel with name development and in this cha
 * updated settings page 
 * fix HORA SmartDrive MX teachin
 * fix A5-20-01 CMD default value string to number
-
 
 ### 0.6.4 (2022-02-22)
 * fix split Eltako FSVA-230V & FSR61VA into to sepperate devices for control and measurement
@@ -204,7 +202,7 @@ To test telegram handling create a channel with name development and in this cha
 * fix FJ62/12-36V DC teachin
 
 ### 0.6.2 (2022-01-08)
-* fix teachin 
+* fix teachin
 
 ### 0.6.1 (2022-01-08)
 * added Dimplex DL 50 WE2
@@ -231,7 +229,6 @@ To test telegram handling create a channel with name development and in this cha
 * added Omnio WS-CH-102
 * added PENTAIR Transmitter FTJP
 * split datapoint PAE for D2-06-10 & 11 to EPA und PAE
-
 
 ### 0.5.3 (2021-08-08)
 * fix context for sendData when called from packet handler
@@ -382,7 +379,6 @@ To test telegram handling create a channel with name development and in this cha
 ### 0.1.7
 * added profiles for Eltako F4HK14, FSB14, FUD14
 * fix tf-14-01
-
 
 ### 0.1.5
 * added virtual switch

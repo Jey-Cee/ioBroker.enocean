@@ -1,282 +1,258 @@
 {
-    "common": {
-        "name": "enocean",
-        "version": "0.6.4",
-        "news": {
-            "0.6.4": {
-                "en": "fix split Eltako FSVA-230V & FSR61VA into to sepperate devices for control and measurement",
-                "de": "Fix Split Eltako FSVA-230V & FSR61VA in getrennte Geräte für Steuerung und Messung",
-                "ru": "исправить разделение Eltako FSVA-230V и FSR61VA на отдельные устройства для управления и измерения",
-                "pt": "corrigir dividir Eltako FSVA-230V e FSR61VA em dispositivos separados para controle e medição",
-                "nl": "fix split Eltako FSVA-230V & FSR61VA in aparte apparaten voor controle en meting",
-                "fr": "fixez les Eltako FSVA-230V et FSR61VA divisés en appareils séparés pour le contrôle et la mesure",
-                "it": "aggiustare la divisione Eltako FSVA-230V e FSR61VA in dispositivi separati per il controllo e la misurazione",
-                "es": "arreglar dividir Eltako FSVA-230V y FSR61VA en dispositivos separados para control y medición",
-                "pl": "napraw rozdzielenie Eltako FSVA-230V i FSR61VA na osobne urządzenia kontrolno-pomiarowe",
-                "zh-cn": "修复拆分 Eltako FSVA-230V 和 FSR61VA 以分离用于控制和测量的设备"
-            },
-            "0.6.3": {
-                "en": "added SODA S8\nadded Thermokon SAB+\nadded Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB\nadded Battery state to D2-06-01\nadded default values to all objects\nupdated Eltako FSVA-230V\nfix FJ62/12-36V DC teachin",
-                "de": "SODA S8 hinzugefügt\nThermokon SAB+ hinzugefügt\nEltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB hinzugefügt\nBatteriestatus zu D2-06-01 hinzugefügt\nStandardwerte zu allen Objekten hinzugefügt\naktualisierte Eltako FSVA-230V\nFix FJ62/12-36V DC einlernen",
-                "ru": "добавлена СОДА S8\nдобавлен Термокон САБ+\nдобавлены Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB и FTFSB\nдобавлено состояние батареи в D2-06-01\nдобавлены значения по умолчанию для всех объектов\nобновленный Эльтако ФСВА-230В\nисправить обучение FJ62/12-36V DC",
-                "pt": "adicionado SODA S8\nadicionado Thermokon SAB+\nadicionados Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB\nestado da bateria adicionado a D2-06-01\nvalores padrão adicionados a todos os objetos\natualizado Eltako FSVA-230V\ncorrigir FJ62/12-36V DC teachin",
-                "nl": "SODA S8 toegevoegd\ntoegevoegd Thermokon SAB+\ntoegevoegd Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB\nbatterijstatus toegevoegd aan D2-06-01\nstandaardwaarden toegevoegd aan alle objecten\nbijgewerkte Eltako FSVA-230V\nfix FJ62/12-36V DC aanleren:",
-                "fr": "ajouté SODA S8\najouté Thermokon SAB+\najouté Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB et FTFSB\najout de l'état de la batterie à D2-06-01\najouté des valeurs par défaut à tous les objets\nmis à jour Eltako FSVA-230V\ncorrection de l'apprentissage FJ62 / 12-36V DC",
-                "it": "aggiunto SODA S8\naggiunto Thermokon SAB+\naggiunto Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB e FTFSB\naggiunto Stato batteria a D2-06-01\naggiunti valori predefiniti a tutti gli oggetti\naggiornato Eltako FSVA-230V\ncorreggere l'apprendimento FJ62/12-36 V CC",
-                "es": "agregado SODA S8\nagregado Thermokon SAB+\nañadido Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB y FTFSB\nestado de la batería agregado a D2-06-01\nvalores predeterminados agregados a todos los objetos\nactualizado Eltako FSVA-230V\narreglar FJ62/12-36V DC enseñanza",
-                "pl": "dodano SODĘ S8\ndodano Thermokon SAB+\ndodano Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB i FTFSB\ndodano stan baterii do D2-06-01\ndodano wartości domyślne do wszystkich obiektów\nzaktualizowany Eltako FSVA-230V\nnapraw nauczanie FJ62/12-36V DC",
-                "zh-cn": "添加了苏打水 S8\n添加 Thermokon SAB+\n添加了 Eltako FHB、FWRB、TF-RWB、FSR61VA、FFT65B、FFT55B、FFTF65B、FTFB 和 FTFSB\n将电池状态添加到 D2-06-01\n为所有对象添加默认值\n更新的 Eltako FSVA-230V\n修复 FJ62/12-36V DC 示教器"
-            },
-            "0.6.1": {
-                "en": "added Dimplex DL 50 WE2\nadded EnOcean STM 350\nadded Eltako & MACO eTronic\nadded Afriso CO2-Sensor\nchange TF-13-03 set time to 100ms for sending cases\nchange TF-13-07 add On with last value\nfix teachin which makes it hard to add new devices\nfix Humidity datapoint & change decimals from 2 to 1",
-                "de": "Dimplex DL 50 WE2 . hinzugefügt\nEnOcean STM 350 . hinzugefügt\nEltako & MACO eTronic hinzugefügt\nAfriso CO2-Sensor hinzugefügt\nändere die TF-13-03-Zeit auf 100 ms für das Senden von Fällen\nTF-13-07 ändern Add On mit letztem Wert\nTeach-in behoben, was das Hinzufügen neuer Geräte erschwert\nFeuchtigkeitsdatenpunkt korrigieren & Dezimalstellen von 2 auf 1 ändern",
-                "ru": "добавлен Dimplex DL 50 WE2\nдобавлен EnOcean STM 350\nдобавлены Eltako и MACO eTronic\nдобавлен датчик CO2 Afriso\nизменить время отправки TF-13-03 на 100 мсек.\nзаменить TF-13-07 на последнее значение\nисправить обучение, которое затрудняет добавление новых устройств\nисправить точку данных влажности и изменить десятичные дроби с 2 на 1",
-                "pt": "adicionado Dimplex DL 50 WE2\nadicionado EnOcean STM 350\nadicionado Eltako & MACO eTronic\nadicionado Afriso CO2-Sensor\nalterar TF-13-03 definir o tempo para 100 ms para enviar casos\nalterar TF-13-07 add On com último valor\ncorrigir o ensino, o que torna difícil adicionar novos dispositivos\nconsertar o ponto de dados de umidade e alterar decimais de 2 para 1",
-                "nl": "toegevoegd Dimplex DL 50 WE2\ntoegevoegd EnOcean STM 350\ntoegevoegd Eltako & MACO eTronic\ntoegevoegde Afriso CO2-Sensor\nverander TF-13-03 ingestelde tijd naar 100ms voor het verzenden van cases\nverander TF-13-07 voeg toe met laatste waarde\nrepareer leer waardoor het moeilijk is om nieuwe apparaten toe te voegen\nfix Vochtigheid datapunt & verander decimalen van 2 naar 1",
-                "fr": "ajouté Dimplex DL 50 WE2\najouté EnOcean STM 350\najouté Eltako & MACO eTronic\nAjout du capteur de CO2 Afriso\nchanger le temps de réglage de TF-13-03 à 100 ms pour l'envoi des cas\nmodifier TF-13-07 ajouter avec la dernière valeur\ncorrection de l'enseignement qui rend difficile l'ajout de nouveaux appareils\ncorriger le point de données d'humidité et changer les décimales de 2 à 1",
-                "it": "aggiunto Dimplex DL 50 WE2\naggiunto EnOcean STM 350\naggiunto Eltako & MACO eTronic\naggiunto Afris CO2-Sensor\ncambia TF-13-03 imposta il tempo a 100 ms per l'invio di casi\ncambia TF-13-07 add On con l'ultimo valore\ncorreggere l'insegnamento che rende difficile l'aggiunta di nuovi dispositivi\ncorreggi il punto dati dell'umidità e cambia i decimali da 2 a 1",
-                "es": "añadido Dimplex DL 50 WE2\nañadido EnOcean STM 350\nañadido Eltako & MACO eTronic\nañadido Afriso CO2-Sensor\ncambiar el tiempo establecido TF-13-03 a 100ms para enviar casos\ncambiar TF-13-07 agregar con el último valor\nCorregir la enseñanza que dificulta la adición de nuevos dispositivos.\narreglar el punto de datos de humedad y cambiar los decimales de 2 a 1",
-                "pl": "dodano Dimplex DL 50 WE2\ndodano EnOcean STM 350\ndodano Eltako i MACO eTronic\ndodano czujnik CO2 Afriso\nzmień TF-13-03 ustawiony czas na 100ms dla wysyłania spraw\nzmień TF-13-07 dodaj On z ostatnią wartością\nnaprawić nauczanie, które utrudnia dodawanie nowych urządzeń\nnapraw punkt danych wilgotności i zmień ułamki dziesiętne z 2 na 1",
-                "zh-cn": "添加了 Dimplex DL 50 WE2\n添加了 EnOcean STM 350\n添加了 Eltako 和 MACO eTronic\n添加了 Afriso 二氧化碳传感器\n将 TF-13-03 设置时间更改为 100ms 以发送案例\n更改 TF-13-07 添加最后一个值\n修复导致难以添加新设备的教学\n修复湿度数据点并将小数点从 2 更改为 1"
-            },
-            "0.6.0": {
-                "en": "(j1s2e3 / Jey-Cee) added Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB(PioTek Tracker), FLGTF55\nadded virtual Window/Door contact\nuse /dev/serial/by-id/xxx as path for USB device #104\nuse index for sender ID. Remeber already learnd device IDs.\nseperated objects from datafields\ndetect when socket connection is broken #72\nfix Teachin for Eltako devices",
-                "de": "(j1s2e3 / Jey-Cee) hinzugefügt Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB(PioTek Tracker), FLGTF55\nvirtueller Fenster-/Türkontakt hinzugefügt\nVerwenden Sie /dev/serial/by-id/xxx als Pfad für das USB-Gerät #104\nVerwenden Sie den Index für die Absender-ID. Denken Sie daran, bereits gelernte Geräte-IDs.\ngetrennte Objekte von Datenfeldern\nerkennen, wenn die Socket-Verbindung unterbrochen ist #72\nTeachin für Eltako-Geräte reparieren",
-                "ru": "(j1s2e3 / Jey-Cee) добавлены Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D / 230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB (PioTek Tracker), FLGTF55.\nдобавлен виртуальный оконный / дверной контакт\nиспользуйте / dev / serial / by-id / xxx как путь для USB-устройства №104\nиспользовать индекс для идентификатора отправителя. Remeber уже узнал идентификаторы устройств.\nотдельные объекты от полей данных\nопределить, когда соединение сокета разорвано # 72\nисправить Teachin для устройств Eltako",
-                "pt": "(j1s2e3 / Jey-Cee) adicionado Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D / 230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB (PioTek Tracker), FLGTF55\nadicionado contato virtual de janela / porta\nuse / dev / serial / by-id / xxx como caminho para o dispositivo USB # 104\nuse o índice para o ID do remetente. Lembre-se de já ter aprendido IDs de dispositivos.\nobjetos separados de campos de dados\ndetectar quando a conexão do soquete é interrompida # 72\ncorrigir Teachin para dispositivos Eltako",
-                "nl": "(j1s2e3 / Jey-Cee) toegevoegd Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB(PioTek Tracker), FLGTF55\nvirtueel raam/deur contact toegevoegd\ngebruik /dev/serial/by-id/xxx als pad voor USB-apparaat #104\ngebruik index voor afzender-ID. Onthoud dat je al apparaat-ID's hebt geleerd.\ngescheiden objecten van datavelden\ndetecteren wanneer socketverbinding verbroken is #72\nfix Techin voor Eltako-apparaten",
-                "fr": "(j1s2e3 / Jey-Cee) ajouté Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB (PioTek Tracker), FLGTF55\najout d'un contact virtuel de fenêtre/porte\nutilisez /dev/serial/by-id/xxx comme chemin pour le périphérique USB #104\nutiliser l'index pour l'ID de l'expéditeur. N'oubliez pas les identifiants d'appareils déjà appris.\nobjets séparés des champs de données\ndétecter quand la connexion socket est cassée #72\ncorrection de Teachin pour les appareils Eltako",
-                "it": "(j1s2e3 / Jey-Cee) aggiunto Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB (PioTek Tracker), FLGTF55\naggiunto contatto finestra/porta virtuale\nusa /dev/serial/by-id/xxx come percorso per il dispositivo USB #104\nusa l'indice per l'ID mittente. Ricorda gli ID dei dispositivi già appresi.\noggetti separati dai campi dati\nrileva quando la connessione alla presa è interrotta #72\nfix Teachin per dispositivi Eltako",
-                "es": "(j1s2e3 / Jey-Cee) agregó Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D / 230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB (PioTek Tracker), FLGTF55\ncontacto virtual de ventana / puerta añadido\nuse / dev / serial / by-id / xxx como ruta para el dispositivo USB # 104\nutilice el índice para la identificación del remitente. Recuerde que ya ha aprendido las ID de los dispositivos.\nobjetos separados de los campos de datos\ndetectar cuando la conexión del enchufe está rota # 72\narreglar Teachin para dispositivos Eltako",
-                "pl": "(j1s2e3 / Jey-Cee) dodano Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB (PioTek Tracker), FLGTF55\ndodano wirtualny kontakt okienny/drzwiowy\nużyj /dev/serial/by-id/xxx jako ścieżki dla urządzenia USB #104\nużyj indeksu jako identyfikatora nadawcy. Pamiętaj, że poznałeś już identyfikatory urządzeń.\nodseparowane obiekty od pól danych\nwykrywa, gdy połączenie z gniazdem jest zerwane #72\nnaprawić Teach dla urządzeń Eltako",
-                "zh-cn": "(j1s2e3 / Jey-Cee) 添加 Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB(PioTek Tracker5)\n添加了虚拟窗户/门触点\n使用 /dev/serial/by-id/xxx 作为 USB 设备的路径 #104\n使用索引作为发件人 ID。记住已经学习的设备 ID。\n与数据字段分离的对象\n检测套接字连接何时中断 #72\n修复 Eltako 设备的教学"
-            },
-            "0.5.4": {
-                "en": "added Kessel Staufix Control\nadded Thermokon SR-MDS Solar\nadded Omnio WS-CH-102\nadded PENTAIR Transmitter FTJP\nsplit datapoint PAE for D2-06-10 & 11 to EPA und PAE",
-                "de": "Kessel Staufix-Steuerung hinzugefügt\nhinzugefügt Thermokon SR-MDS Solar\nOmnio WS-CH-102 . hinzugefügt\nPENTAIR-Sender FTJP . hinzugefügt\nDatenpunkt PAE für D2-06-10 & 11 auf EPA und PAE aufteilen",
-                "ru": "добавлен Kessel Staufix Control\nдобавлен Thermokon SR-MDS Solar\nдобавлен Omnio WS-CH-102\nдобавлен PENTAIR Transmitter FTJP\nразделить точку данных PAE для D2-06-10 и 11 на EPA и PAE",
-                "pt": "adicionado Kessel Staufix Control\nadicionado Thermokon SR-MDS Solar\nadicionado Omnio WS-CH-102\nadicionado Transmissor PENTAIR FTJP\ndividir ponto de dados PAE para D2-06-10 e 11 para EPA e PAE",
-                "nl": "Kessel Staufix Control toegevoegd\ntoegevoegd Thermokon SR-MDS Solar\ntoegevoegd Omnio WS-CH-102\ntoegevoegde PENTAIR zender FTJP\ngesplitst datapunt PAE voor D2-06-10 & 11 naar EPA en PAE",
-                "fr": "Ajout du contrôle Kessel Staufix\najouté Thermokon SR-MDS solaire\najouté Omnio WS-CH-102\nAjout du transmetteur PENTAIR FTJP\npoint de données divisé PAE pour D2-06-10 & 11 à EPA et PAE",
-                "it": "aggiunto Kessel Staufix Control\naggiunto Thermokon SR-MDS Solar\naggiunto Omnio WS-CH-102\naggiunto Trasmettitore PENTAIR FTJP\npunto dati diviso PAE per D2-06-10 e 11 su EPA e PAE",
-                "es": "añadido Kessel Staufix Control\nañadido Thermokon SR-MDS Solar\nañadido Omnio WS-CH-102\nTransmisor FTJP PENTAIR añadido\npunto de datos dividido PAE para D2-06-10 y 11 según EPA y PAE",
-                "pl": "dodano kontrolę Kessel Staufix\ndodano Thermokon SR-MDS Solar\ndodano Omnio WS-CH-102\ndodano nadajnik PENTAIR FTJP\npodziel punkt danych PAE dla D2-06-10 i 11 na EPA i PAE",
-                "zh-cn": "添加了 Kessel Staufix 控制\n添加 Thermokon SR-MDS 太阳能\n添加了 Omnio WS-CH-102\n添加了 PENTAIR 发射器 FTJP\n将 D2-06-10 和 11 的数据点 PAE 拆分为 EPA 和 PAE"
-            },
-            "0.5.3": {
-                "en": "fix context for sendData when called from packet handler\nfix teachin method\nfix ser2net reconnect",
-                "de": "Kontext für sendData beim Aufruf vom Pakethandler behoben\nTeach-Methode fixieren\nSer2net Reconnect beheben",
-                "ru": "исправить контекст для sendData при вызове из обработчика пакетов\nисправить метод обучения\nисправить переподключение ser2net",
-                "pt": "consertar o contexto para sendData quando chamado do manipulador de pacotes\ncorrigir método de ensino\nconsertar ser2net reconectar",
-                "nl": "fix context voor sendData wanneer aangeroepen vanuit pakkethandler\nleermethode repareren\nfix ser2net opnieuw verbinden",
-                "fr": "correction du contexte pour sendData lorsqu'il est appelé depuis le gestionnaire de paquets\ncorriger la méthode d'enseignement\ncorrection de la reconnexion de ser2net",
-                "it": "corregge il contesto per sendData quando viene chiamato dal gestore di pacchetti\nfissare il metodo di insegnamento\ncorreggere la riconnessione di ser2net",
-                "es": "corregir el contexto para sendData cuando se llama desde el controlador de paquetes\narreglar el método de enseñanza\narreglar ser2net reconectar",
-                "pl": "napraw kontekst dla sendData przy wywołaniu z programu obsługi pakietów\nnapraw metodę nauczania\nnapraw ponowne połączenie ser2net",
-                "zh-cn": "从数据包处理程序调用时修复 sendData 的上下文\n固定教学方法\n修复 ser2net 重新连接"
-            },
-            "0.5.1": {
-                "en": "fix crash if no mailboxes present in controller",
-                "de": "Absturz behoben, wenn keine Postfächer im Controller vorhanden sind",
-                "ru": "исправить сбой, если в контроллере нет почтовых ящиков",
-                "pt": "consertar a falha se nenhuma caixa de correio estiver presente no controlador",
-                "nl": "crash repareren als er geen mailboxen aanwezig zijn in de controller",
-                "fr": "correction d'un crash si aucune boîte aux lettres n'est présente dans le contrôleur",
-                "it": "correggere il crash se non sono presenti caselle di posta nel controller",
-                "es": "arreglar el bloqueo si no hay buzones presentes en el controlador",
-                "pl": "napraw awarię, jeśli w kontrolerze nie ma skrzynek pocztowych",
-                "zh-cn": "如果控制器中没有邮箱，则修复崩溃"
-            },
-            "0.5.0": {
-                "en": "added serial over network (ser2net) capabilities\nadded release script",
-                "de": "Seriell über Netzwerk (ser2net) hinzugefügt)\nRelease-Skript hinzugefügt",
-                "ru": "добавлены возможности последовательного интерфейса по сети (ser2net)\nдобавлен скрипт выпуска",
-                "pt": "adicionadas capacidades de serial sobre rede (ser2net)\nadicionado script de lançamento",
-                "nl": "toegevoegde seriële via netwerk (ser2net) mogelijkheden\ntoegevoegd releasescript",
-                "fr": "ajout de capacités série sur réseau (ser2net)\nscript de version ajouté",
-                "it": "funzionalità aggiuntive serial over network (ser2net)\nscript di rilascio aggiunto",
-                "es": "capacidades de serial sobre red (ser2net) agregadas\nscript de lanzamiento agregado",
-                "pl": "dodano możliwości transmisji szeregowej przez sieć (ser2net)\ndodano skrypt wydania",
-                "zh-cn": "添加了网络串行 (ser2net) 功能\n添加发布脚本"
-            },
-            "0.4.0": {
-                "en": "added Permundo PSC 234 & PSC 152 \nadded Nodon Soft Button (TSB-2-2-01)\nadded Eltako FFT60SB \nadded REHAU Smart Guard & Smart Guard Inline / Ontop \nadded Hoppe eHandle ConnectHome\nadded SCHÜCO SenseTrack wireless\nadded Smart ACK teachin procedure\nfix teach-in Nodon SDO-2-1-05\nTF-13-07 set Dimming Level to 100% with on command",
-                "de": "Permundo PSC 234 & PSC 152 hinzugefügt\nNodon-Softbutton hinzugefügt (TSB-2-2-01)\nEltako FFT60SB . hinzugefügt\nREHAU Smart Guard & Smart Guard Inline / Ontop hinzugefügt\nHoppe eHandle ConnectHome hinzugefügt\nSCHÜCO SenseTrack wireless hinzugefügt\nSmart ACK Teach-In-Verfahren hinzugefügt\nFix Teach-in Nodon SDO-2-1-05\nTF-13-07 Dimmlevel auf 100 % mit Ein-Befehl einstellen",
-                "ru": "добавлены Permundo PSC 234 и PSC 152\nдобавлена программная кнопка Nodon (TSB-2-2-01)\nдобавлен Eltako FFT60SB\nдобавлены REHAU Smart Guard и Smart Guard Inline / Ontop\nдобавлен Hoppe eHandle ConnectHome\nдобавлена беспроводная связь SCHÜCO SenseTrack\nдобавлена процедура обучения Smart ACK\nисправить обучение Nodon SDO-2-1-05\nTF-13-07 устанавливает уровень затемнения на 100% по команде.",
-                "pt": "adicionado Permundo PSC 234 e PSC 152\nadicionado Nodon Soft Button (TSB-2-2-01)\nadicionado Eltako FFT60SB\nadicionado REHAU Smart Guard e Smart Guard Inline / Ontop\nadicionado Hoppe eHandle ConnectHome\nadicionado SCHÜCO SenseTrack wireless\nadicionado procedimento de aprendizagem Smart ACK\ncorrigir teach-in Nodon SDO-2-1-05\nTF-13-07 definir o nível de escurecimento para 100% com o comando",
-                "nl": "toegevoegd Permundo PSC 234 & PSC 152\ntoegevoegde Nodon Soft Button (TSB-2-2-01)\ntoegevoegd Eltako FFT60SB\nREHAU Smart Guard & Smart Guard Inline / Ontop toegevoegd\ntoegevoegd Hoppe eHandle ConnectHome\ntoegevoegd SCHÜCO SenseTrack draadloos\nSmart ACK-aanleerprocedure toegevoegd\nfix teach-in Nodon SDO-2-1-05\nTF-13-07 dimniveau instellen op 100% met op commando",
-                "fr": "ajouté Permundo PSC 234 & PSC 152\nAjout du bouton programmable Nodon (TSB-2-2-01)\najouté Eltako FFT60SB\najouté REHAU Smart Guard & Smart Guard Inline / Ontop\najouté Hoppe eHandle ConnectHome\najouté SCHÜCO SenseTrack sans fil\najout de la procédure d'apprentissage Smart ACK\ncorrection de l'apprentissage Nodon SDO-2-1-05\nTF-13-07 régler le niveau de gradation à 100% avec sur commande",
-                "it": "aggiunto Permundo PSC 234 e PSC 152\naggiunto Nodon Soft Button (TSB-2-2-01)\naggiunto Eltako FFT60SB\naggiunto REHAU Smart Guard e Smart Guard Inline/Ontop\naggiunto Hoppe eHandle ConnectHome\naggiunto SCHÜCO SenseTrack wireless\naggiunta procedura di apprendimento Smart ACK\ncorrezione Teach-in Nodon SDO-2-1-05\nTF-13-07 imposta il livello di attenuazione al 100% con il comando on",
-                "es": "Se agregó Permundo PSC 234 y PSC 152\nSe agregó el botón programable de Nodon (TSB-2-2-01)\nañadido Eltako FFT60SB\nagregado REHAU Smart Guard y Smart Guard Inline / Ontop\nagregado Hoppe eHandle ConnectHome\nagregado SCHÜCO SenseTrack inalámbrico\nagregado procedimiento de aprendizaje Smart ACK\narreglar aprendizaje Nodon SDO-2-1-05\nTF-13-07 establece el nivel de atenuación al 100% con un comando",
-                "pl": "dodano Permundo PSC 234 i PSC 152\ndodano przycisk miękki Nodon (TSB-2-2-01)\ndodano Eltako FFT60SB\ndodano REHAU Smart Guard i Smart Guard Inline / Ontop\ndodano Hoppe eHandle ConnectHome\ndodano bezprzewodowy SCHÜCO SenseTrack\ndodano procedurę uczenia Smart ACK\nnaprawiono uczenie Nodon SDO-2-1-05\nTF-13-07 ustawia poziom ściemniania na 100% za pomocą polecenia",
-                "zh-cn": "添加了 Permundo PSC 234 和 PSC 152\n添加了 Nodon 软按钮 (TSB-2-2-01)\n添加了 Eltako FFT60SB\n添加 REHAU Smart Guard & Smart Guard Inline / Ontop\n添加了 Hoppe eHandle ConnectHome\n添加了旭格 SenseTrack 无线\n增加了Smart ACK教学程序\n修复示教 Nodon SDO-2-1-05\nTF-13-07 使用命令将调光级别设置为 100%"
-            }
-        },
-        "title": "EnOcean",
-        "titleLang": {
-            "en": "EnOcean",
-            "de": "EnOcean",
-            "ru": "EnOcean",
-            "pt": "EnOcean",
-            "nl": "EnOcean",
-            "fr": "EnOcean",
-            "it": "EnOcean",
-            "es": "EnOcean",
-            "pl": "EnOcean",
-            "zh-cn": "EnOcean"
-        },
-        "desc": {
-            "en": "Connects EnOcean devices via USB/Serial devices with TCM300 Chips",
-            "de": "Verbindet EnOcean-Geräte über USB / Seriell-Geräte mit TCM300-Chips",
-            "ru": "Подключает устройства EnOcean через USB / последовательные устройства с чипами TCM300",
-            "pt": "Conecta dispositivos EnOcean via dispositivos USB / Serial com chips TCM300",
-            "nl": "Verbindt EnOcean-apparaten via USB / seriële apparaten met TCM300-chips",
-            "fr": "Connecte les appareils EnOcean via des appareils USB / série avec des puces TCM300",
-            "it": "Collega i dispositivi EnOcean tramite dispositivi USB / seriali con chip TCM300",
-            "es": "Conecta dispositivos EnOcean a través de dispositivos USB / serie con chips TCM300",
-            "pl": "Łączy urządzenia EnOcean za pośrednictwem urządzeń USB / szeregowych z chipami TCM300",
-            "zh-cn": "通过带有TCM300芯片的USB /串行设备连接EnOcean设备"
-        },
-        "authors": [
-            "Jey Cee <jey-cee@live.com>"
-        ],
-        "keywords": [
-            "EnOcean",
-            "ioBroker",
-            "Love"
-        ],
-        "license": "MIT",
-        "platform": "Javascript/Node.js",
-        "icon": "enocean.png",
-        "enabled": true,
-        "extIcon": "https://raw.githubusercontent.com/jey-cee/ioBroker.enocean/master/admin/enocean.png",
-        "readme": "https://github.com/jey-cee/ioBroker.enocean/blob/master/README.md",
-        "loglevel": "info",
-        "mode": "daemon",
-        "type": "hardware",
-        "compact": true,
-        "connectionType": "local",
-        "dataSource": "poll",
-        "materialize": true,
-        "adminUI": {
-            "config": "materialize"
-        },
-        "messagebox": true,
-        "dependencies": [
-            {
-                "js-controller": ">=3.0.0"
-            }
-        ]
+  "common": {
+    "name": "enocean",
+    "version": "0.7.0",
+    "news": {
+      "0.7.0": {
+        "en": "added ELTAKO FGW14-USB as possible Gateway (Please read the notes in readme for FGW14-USB)\nadded PEHA 452 FU-EBIM JR o.T.\nadded EUROTRONIC Stella E\nadded SIEGENIA senso secure\nadded new Eltako MSC Teachin Telegram for FSR71-2x\nadded state for window to F6-10-00\nupdated settings page \nfix HORA SmartDrive MX teachin\nfix A5-20-01 CMD default value string to number",
+        "de": "ELTAKO FGW14-USB als mögliches Gateway hinzugefügt (Bitte beachten Sie die Hinweise in Readme für FGW14-USB)\nhinzugefügt PEHA 452 FU-EBIM JR o.T.\nEUROTRONIC Stella E hinzugefügt\nSIEGENIA senso secure hinzugefügt\nneues Eltako MSC Teachin Telegramm für FSR71-2x hinzugefügt\nZustand für Fenster zu F6-10-00 hinzugefügt\naktualisierte Einstellungsseite\nEinlernen des HORA SmartDrive MX behoben\nKorrigieren Sie A5-20-01 CMD-Standardwertzeichenfolge in Zahl",
+        "ru": "добавлен ELTAKO FGW14-USB в качестве возможного шлюза (пожалуйста, прочитайте примечания в файле readme для FGW14-USB)\nдобавлен PEHA 452 FU-EBIM JR o.T.\nдобавлен ЕВРОТРОНИК Stella E\nдобавлен SIEGENIA senso secure\nдобавлен новый Eltako MSC Teachin Telegram для FSR71-2x\nдобавлено состояние окна на F6-10-00\nобновленная страница настроек\nисправить обучение HORA SmartDrive MX\nисправить строку значения по умолчанию CMD A5-20-01 на число",
+        "pt": "adicionado ELTAKO FGW14-USB como possível Gateway (Por favor, leia as notas no readme para FGW14-USB)\nadicionado PEHA 452 FU-EBIM JR o.T.\nadicionado EUROTRONIC Stella E\nadicionado SIEGENIA senso seguro\nadicionado novo Eltako MSC Teachin Telegram para FSR71-2x\nestado adicionado para janela para F6-10-00\npágina de configurações atualizada\ncorrigir o ensino do HORA SmartDrive MX\ncorrija a string de valor padrão do CMD A5-20-01 para o número",
+        "nl": "ELTAKO FGW14-USB toegevoegd als mogelijke gateway (lees de opmerkingen in readme voor FGW14-USB)\ntoegevoegd PEHA 452 FU-EBIM JR o.T.\nEUROTRONIC Stella E . toegevoegd\ntoegevoegd SIEGENIA senso secure\nnieuw Eltako MSC Teachin Telegram toegevoegd voor FSR71-2x\nstatus toegevoegd voor venster naar F6-10-00\nbijgewerkte instellingenpagina\nrepareer HORA SmartDrive MX aanleren\nrepareer A5-20-01 CMD standaardwaarde string naar nummer",
+        "fr": "ajouté ELTAKO FGW14-USB comme passerelle possible (veuillez lire les notes dans le fichier readme pour FGW14-USB)\najouté PEHA 452 FU-EBIM JR o.T.\najouté EUROTRONIC Stella E\najouté SIEGENIA senso secure\najout du nouveau télégramme Eltako MSC Teachin pour FSR71-2x\nétat ajouté pour la fenêtre à F6-10-00\npage des paramètres mise à jour\ncorrection de l'apprentissage du HORA SmartDrive MX\ncorrection de la chaîne de valeur par défaut A5-20-01 CMD en nombre",
+        "it": "aggiunto ELTAKO FGW14-USB come possibile Gateway (si prega di leggere le note in readme per FGW14-USB)\naggiunto PEHA 452 FU-EBIM JR o.T.\nha aggiunto EUROTRONIC Stella E\naggiunto SIEGENIA senso secure\naggiunto un nuovo telegramma Eltako MSC Teachin per FSR71-2x\nstato aggiunto per la finestra a F6-10-00\npagina delle impostazioni aggiornate\ncorreggere l'apprendimento HORA SmartDrive MX\nfix A5-20-01 stringa del valore predefinito CMD su numero",
+        "es": "agregó ELTAKO FGW14-USB como posible puerta de enlace (lea las notas en el archivo Léame para FGW14-USB)\nañadido PEHA 452 FU-EBIM JR o.T.\nañadido EUROTRONIC Stella E\nañadido SIEGENIA senso seguro\nañadido nuevo Eltako MSC Teachin Telegram para FSR71-2x\nestado agregado para la ventana a F6-10-00\npágina de configuración actualizada\ncorregir la enseñanza de HORA SmartDrive MX\ncorrija la cadena de valor predeterminado A5-20-01 CMD en el número",
+        "pl": "dodano ELTAKO FGW14-USB jako możliwe Gateway (Proszę przeczytać uwagi w readme dla FGW14-USB)\ndodano PEHA 452 FU-EBIM JR o.T.\ndodano EUROTRONIC Stella E\ndodano SIEGENIA senso secure\ndodano nowy telegram nauczania Eltako MSC dla FSR71-2x\ndodano stan okna do F6-10-00\nzaktualizowana strona ustawień\nnaprawić nauczanie HORA SmartDrive MX\nnapraw domyślny ciąg wartości A5-20-01 CMD na liczbę",
+        "zh-cn": "添加 ELTAKO FGW14-USB 作为可能的网关（请阅读 FGW14-USB 自述文件中的说明）\n添加了 PEHA 452 FU-EBIM JR o.T.\n添加 EUROTRONIC Stella E\n添加了 SIEGENIA senso 安全\n为 FSR71-2x 添加了新的 Eltako MSC 教学电报\n将窗口状态添加到 F6-10-00\n更新的设置页面\n修复 HORA SmartDrive MX 教学\n将 A5-20-01 CMD 默认值字符串修复为数字"
+      },
+      "0.6.4": {
+        "en": "fix split Eltako FSVA-230V & FSR61VA into to sepperate devices for control and measurement",
+        "de": "Fix Split Eltako FSVA-230V & FSR61VA in getrennte Geräte für Steuerung und Messung",
+        "ru": "исправить разделение Eltako FSVA-230V и FSR61VA на отдельные устройства для управления и измерения",
+        "pt": "corrigir dividir Eltako FSVA-230V e FSR61VA em dispositivos separados para controle e medição",
+        "nl": "fix split Eltako FSVA-230V & FSR61VA in aparte apparaten voor controle en meting",
+        "fr": "fixez les Eltako FSVA-230V et FSR61VA divisés en appareils séparés pour le contrôle et la mesure",
+        "it": "aggiustare la divisione Eltako FSVA-230V e FSR61VA in dispositivi separati per il controllo e la misurazione",
+        "es": "arreglar dividir Eltako FSVA-230V y FSR61VA en dispositivos separados para control y medición",
+        "pl": "napraw rozdzielenie Eltako FSVA-230V i FSR61VA na osobne urządzenia kontrolno-pomiarowe",
+        "zh-cn": "修复拆分 Eltako FSVA-230V 和 FSR61VA 以分离用于控制和测量的设备"
+      },
+      "0.6.3": {
+        "en": "added SODA S8\nadded Thermokon SAB+\nadded Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB\nadded Battery state to D2-06-01\nadded default values to all objects\nupdated Eltako FSVA-230V\nfix FJ62/12-36V DC teachin",
+        "de": "SODA S8 hinzugefügt\nThermokon SAB+ hinzugefügt\nEltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB hinzugefügt\nBatteriestatus zu D2-06-01 hinzugefügt\nStandardwerte zu allen Objekten hinzugefügt\naktualisierte Eltako FSVA-230V\nFix FJ62/12-36V DC einlernen",
+        "ru": "добавлена СОДА S8\nдобавлен Термокон САБ+\nдобавлены Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB и FTFSB\nдобавлено состояние батареи в D2-06-01\nдобавлены значения по умолчанию для всех объектов\nобновленный Эльтако ФСВА-230В\nисправить обучение FJ62/12-36V DC",
+        "pt": "adicionado SODA S8\nadicionado Thermokon SAB+\nadicionados Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB\nestado da bateria adicionado a D2-06-01\nvalores padrão adicionados a todos os objetos\natualizado Eltako FSVA-230V\ncorrigir FJ62/12-36V DC teachin",
+        "nl": "SODA S8 toegevoegd\ntoegevoegd Thermokon SAB+\ntoegevoegd Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB\nbatterijstatus toegevoegd aan D2-06-01\nstandaardwaarden toegevoegd aan alle objecten\nbijgewerkte Eltako FSVA-230V\nfix FJ62/12-36V DC aanleren:",
+        "fr": "ajouté SODA S8\najouté Thermokon SAB+\najouté Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB et FTFSB\najout de l'état de la batterie à D2-06-01\najouté des valeurs par défaut à tous les objets\nmis à jour Eltako FSVA-230V\ncorrection de l'apprentissage FJ62 / 12-36V DC",
+        "it": "aggiunto SODA S8\naggiunto Thermokon SAB+\naggiunto Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB e FTFSB\naggiunto Stato batteria a D2-06-01\naggiunti valori predefiniti a tutti gli oggetti\naggiornato Eltako FSVA-230V\ncorreggere l'apprendimento FJ62/12-36 V CC",
+        "es": "agregado SODA S8\nagregado Thermokon SAB+\nañadido Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB y FTFSB\nestado de la batería agregado a D2-06-01\nvalores predeterminados agregados a todos los objetos\nactualizado Eltako FSVA-230V\narreglar FJ62/12-36V DC enseñanza",
+        "pl": "dodano SODĘ S8\ndodano Thermokon SAB+\ndodano Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB i FTFSB\ndodano stan baterii do D2-06-01\ndodano wartości domyślne do wszystkich obiektów\nzaktualizowany Eltako FSVA-230V\nnapraw nauczanie FJ62/12-36V DC",
+        "zh-cn": "添加了苏打水 S8\n添加 Thermokon SAB+\n添加了 Eltako FHB、FWRB、TF-RWB、FSR61VA、FFT65B、FFT55B、FFTF65B、FTFB 和 FTFSB\n将电池状态添加到 D2-06-01\n为所有对象添加默认值\n更新的 Eltako FSVA-230V\n修复 FJ62/12-36V DC 示教器"
+      },
+      "0.6.1": {
+        "en": "added Dimplex DL 50 WE2\nadded EnOcean STM 350\nadded Eltako & MACO eTronic\nadded Afriso CO2-Sensor\nchange TF-13-03 set time to 100ms for sending cases\nchange TF-13-07 add On with last value\nfix teachin which makes it hard to add new devices\nfix Humidity datapoint & change decimals from 2 to 1",
+        "de": "Dimplex DL 50 WE2 . hinzugefügt\nEnOcean STM 350 . hinzugefügt\nEltako & MACO eTronic hinzugefügt\nAfriso CO2-Sensor hinzugefügt\nändere die TF-13-03-Zeit auf 100 ms für das Senden von Fällen\nTF-13-07 ändern Add On mit letztem Wert\nTeach-in behoben, was das Hinzufügen neuer Geräte erschwert\nFeuchtigkeitsdatenpunkt korrigieren & Dezimalstellen von 2 auf 1 ändern",
+        "ru": "добавлен Dimplex DL 50 WE2\nдобавлен EnOcean STM 350\nдобавлены Eltako и MACO eTronic\nдобавлен датчик CO2 Afriso\nизменить время отправки TF-13-03 на 100 мсек.\nзаменить TF-13-07 на последнее значение\nисправить обучение, которое затрудняет добавление новых устройств\nисправить точку данных влажности и изменить десятичные дроби с 2 на 1",
+        "pt": "adicionado Dimplex DL 50 WE2\nadicionado EnOcean STM 350\nadicionado Eltako & MACO eTronic\nadicionado Afriso CO2-Sensor\nalterar TF-13-03 definir o tempo para 100 ms para enviar casos\nalterar TF-13-07 add On com último valor\ncorrigir o ensino, o que torna difícil adicionar novos dispositivos\nconsertar o ponto de dados de umidade e alterar decimais de 2 para 1",
+        "nl": "toegevoegd Dimplex DL 50 WE2\ntoegevoegd EnOcean STM 350\ntoegevoegd Eltako & MACO eTronic\ntoegevoegde Afriso CO2-Sensor\nverander TF-13-03 ingestelde tijd naar 100ms voor het verzenden van cases\nverander TF-13-07 voeg toe met laatste waarde\nrepareer leer waardoor het moeilijk is om nieuwe apparaten toe te voegen\nfix Vochtigheid datapunt & verander decimalen van 2 naar 1",
+        "fr": "ajouté Dimplex DL 50 WE2\najouté EnOcean STM 350\najouté Eltako & MACO eTronic\nAjout du capteur de CO2 Afriso\nchanger le temps de réglage de TF-13-03 à 100 ms pour l'envoi des cas\nmodifier TF-13-07 ajouter avec la dernière valeur\ncorrection de l'enseignement qui rend difficile l'ajout de nouveaux appareils\ncorriger le point de données d'humidité et changer les décimales de 2 à 1",
+        "it": "aggiunto Dimplex DL 50 WE2\naggiunto EnOcean STM 350\naggiunto Eltako & MACO eTronic\naggiunto Afris CO2-Sensor\ncambia TF-13-03 imposta il tempo a 100 ms per l'invio di casi\ncambia TF-13-07 add On con l'ultimo valore\ncorreggere l'insegnamento che rende difficile l'aggiunta di nuovi dispositivi\ncorreggi il punto dati dell'umidità e cambia i decimali da 2 a 1",
+        "es": "añadido Dimplex DL 50 WE2\nañadido EnOcean STM 350\nañadido Eltako & MACO eTronic\nañadido Afriso CO2-Sensor\ncambiar el tiempo establecido TF-13-03 a 100ms para enviar casos\ncambiar TF-13-07 agregar con el último valor\nCorregir la enseñanza que dificulta la adición de nuevos dispositivos.\narreglar el punto de datos de humedad y cambiar los decimales de 2 a 1",
+        "pl": "dodano Dimplex DL 50 WE2\ndodano EnOcean STM 350\ndodano Eltako i MACO eTronic\ndodano czujnik CO2 Afriso\nzmień TF-13-03 ustawiony czas na 100ms dla wysyłania spraw\nzmień TF-13-07 dodaj On z ostatnią wartością\nnaprawić nauczanie, które utrudnia dodawanie nowych urządzeń\nnapraw punkt danych wilgotności i zmień ułamki dziesiętne z 2 na 1",
+        "zh-cn": "添加了 Dimplex DL 50 WE2\n添加了 EnOcean STM 350\n添加了 Eltako 和 MACO eTronic\n添加了 Afriso 二氧化碳传感器\n将 TF-13-03 设置时间更改为 100ms 以发送案例\n更改 TF-13-07 添加最后一个值\n修复导致难以添加新设备的教学\n修复湿度数据点并将小数点从 2 更改为 1"
+      },
+      "0.6.0": {
+        "en": "(j1s2e3 / Jey-Cee) added Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB(PioTek Tracker), FLGTF55\nadded virtual Window/Door contact\nuse /dev/serial/by-id/xxx as path for USB device #104\nuse index for sender ID. Remeber already learnd device IDs.\nseperated objects from datafields\ndetect when socket connection is broken #72\nfix Teachin for Eltako devices",
+        "de": "(j1s2e3 / Jey-Cee) hinzugefügt Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB(PioTek Tracker), FLGTF55\nvirtueller Fenster-/Türkontakt hinzugefügt\nVerwenden Sie /dev/serial/by-id/xxx als Pfad für das USB-Gerät #104\nVerwenden Sie den Index für die Absender-ID. Denken Sie daran, bereits gelernte Geräte-IDs.\ngetrennte Objekte von Datenfeldern\nerkennen, wenn die Socket-Verbindung unterbrochen ist #72\nTeachin für Eltako-Geräte reparieren",
+        "ru": "(j1s2e3 / Jey-Cee) добавлены Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D / 230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB (PioTek Tracker), FLGTF55.\nдобавлен виртуальный оконный / дверной контакт\nиспользуйте / dev / serial / by-id / xxx как путь для USB-устройства №104\nиспользовать индекс для идентификатора отправителя. Remeber уже узнал идентификаторы устройств.\nотдельные объекты от полей данных\nопределить, когда соединение сокета разорвано # 72\nисправить Teachin для устройств Eltako",
+        "pt": "(j1s2e3 / Jey-Cee) adicionado Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D / 230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB (PioTek Tracker), FLGTF55\nadicionado contato virtual de janela / porta\nuse / dev / serial / by-id / xxx como caminho para o dispositivo USB # 104\nuse o índice para o ID do remetente. Lembre-se de já ter aprendido IDs de dispositivos.\nobjetos separados de campos de dados\ndetectar quando a conexão do soquete é interrompida # 72\ncorrigir Teachin para dispositivos Eltako",
+        "nl": "(j1s2e3 / Jey-Cee) toegevoegd Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB(PioTek Tracker), FLGTF55\nvirtueel raam/deur contact toegevoegd\ngebruik /dev/serial/by-id/xxx als pad voor USB-apparaat #104\ngebruik index voor afzender-ID. Onthoud dat je al apparaat-ID's hebt geleerd.\ngescheiden objecten van datavelden\ndetecteren wanneer socketverbinding verbroken is #72\nfix Techin voor Eltako-apparaten",
+        "fr": "(j1s2e3 / Jey-Cee) ajouté Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB (PioTek Tracker), FLGTF55\najout d'un contact virtuel de fenêtre/porte\nutilisez /dev/serial/by-id/xxx comme chemin pour le périphérique USB #104\nutiliser l'index pour l'ID de l'expéditeur. N'oubliez pas les identifiants d'appareils déjà appris.\nobjets séparés des champs de données\ndétecter quand la connexion socket est cassée #72\ncorrection de Teachin pour les appareils Eltako",
+        "it": "(j1s2e3 / Jey-Cee) aggiunto Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB (PioTek Tracker), FLGTF55\naggiunto contatto finestra/porta virtuale\nusa /dev/serial/by-id/xxx come percorso per il dispositivo USB #104\nusa l'indice per l'ID mittente. Ricorda gli ID dei dispositivi già appresi.\noggetti separati dai campi dati\nrileva quando la connessione alla presa è interrotta #72\nfix Teachin per dispositivi Eltako",
+        "es": "(j1s2e3 / Jey-Cee) agregó Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D / 230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB (PioTek Tracker), FLGTF55\ncontacto virtual de ventana / puerta añadido\nuse / dev / serial / by-id / xxx como ruta para el dispositivo USB # 104\nutilice el índice para la identificación del remitente. Recuerde que ya ha aprendido las ID de los dispositivos.\nobjetos separados de los campos de datos\ndetectar cuando la conexión del enchufe está rota # 72\narreglar Teachin para dispositivos Eltako",
+        "pl": "(j1s2e3 / Jey-Cee) dodano Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB (PioTek Tracker), FLGTF55\ndodano wirtualny kontakt okienny/drzwiowy\nużyj /dev/serial/by-id/xxx jako ścieżki dla urządzenia USB #104\nużyj indeksu jako identyfikatora nadawcy. Pamiętaj, że poznałeś już identyfikatory urządzeń.\nodseparowane obiekty od pól danych\nwykrywa, gdy połączenie z gniazdem jest zerwane #72\nnaprawić Teach dla urządzeń Eltako",
+        "zh-cn": "(j1s2e3 / Jey-Cee) 添加 Eltako FL62NPN-230V, FD62NPN-230V, FSSA-230V, FTAF55D/230V, FRGBW71L, FMS65ESB, FAH, FKS-SV, TF-TTB(PioTek Tracker5)\n添加了虚拟窗户/门触点\n使用 /dev/serial/by-id/xxx 作为 USB 设备的路径 #104\n使用索引作为发件人 ID。记住已经学习的设备 ID。\n与数据字段分离的对象\n检测套接字连接何时中断 #72\n修复 Eltako 设备的教学"
+      },
+      "0.5.4": {
+        "en": "added Kessel Staufix Control\nadded Thermokon SR-MDS Solar\nadded Omnio WS-CH-102\nadded PENTAIR Transmitter FTJP\nsplit datapoint PAE for D2-06-10 & 11 to EPA und PAE",
+        "de": "Kessel Staufix-Steuerung hinzugefügt\nhinzugefügt Thermokon SR-MDS Solar\nOmnio WS-CH-102 . hinzugefügt\nPENTAIR-Sender FTJP . hinzugefügt\nDatenpunkt PAE für D2-06-10 & 11 auf EPA und PAE aufteilen",
+        "ru": "добавлен Kessel Staufix Control\nдобавлен Thermokon SR-MDS Solar\nдобавлен Omnio WS-CH-102\nдобавлен PENTAIR Transmitter FTJP\nразделить точку данных PAE для D2-06-10 и 11 на EPA и PAE",
+        "pt": "adicionado Kessel Staufix Control\nadicionado Thermokon SR-MDS Solar\nadicionado Omnio WS-CH-102\nadicionado Transmissor PENTAIR FTJP\ndividir ponto de dados PAE para D2-06-10 e 11 para EPA e PAE",
+        "nl": "Kessel Staufix Control toegevoegd\ntoegevoegd Thermokon SR-MDS Solar\ntoegevoegd Omnio WS-CH-102\ntoegevoegde PENTAIR zender FTJP\ngesplitst datapunt PAE voor D2-06-10 & 11 naar EPA en PAE",
+        "fr": "Ajout du contrôle Kessel Staufix\najouté Thermokon SR-MDS solaire\najouté Omnio WS-CH-102\nAjout du transmetteur PENTAIR FTJP\npoint de données divisé PAE pour D2-06-10 & 11 à EPA et PAE",
+        "it": "aggiunto Kessel Staufix Control\naggiunto Thermokon SR-MDS Solar\naggiunto Omnio WS-CH-102\naggiunto Trasmettitore PENTAIR FTJP\npunto dati diviso PAE per D2-06-10 e 11 su EPA e PAE",
+        "es": "añadido Kessel Staufix Control\nañadido Thermokon SR-MDS Solar\nañadido Omnio WS-CH-102\nTransmisor FTJP PENTAIR añadido\npunto de datos dividido PAE para D2-06-10 y 11 según EPA y PAE",
+        "pl": "dodano kontrolę Kessel Staufix\ndodano Thermokon SR-MDS Solar\ndodano Omnio WS-CH-102\ndodano nadajnik PENTAIR FTJP\npodziel punkt danych PAE dla D2-06-10 i 11 na EPA i PAE",
+        "zh-cn": "添加了 Kessel Staufix 控制\n添加 Thermokon SR-MDS 太阳能\n添加了 Omnio WS-CH-102\n添加了 PENTAIR 发射器 FTJP\n将 D2-06-10 和 11 的数据点 PAE 拆分为 EPA 和 PAE"
+      },
+      "0.5.3": {
+        "en": "fix context for sendData when called from packet handler\nfix teachin method\nfix ser2net reconnect",
+        "de": "Kontext für sendData beim Aufruf vom Pakethandler behoben\nTeach-Methode fixieren\nSer2net Reconnect beheben",
+        "ru": "исправить контекст для sendData при вызове из обработчика пакетов\nисправить метод обучения\nисправить переподключение ser2net",
+        "pt": "consertar o contexto para sendData quando chamado do manipulador de pacotes\ncorrigir método de ensino\nconsertar ser2net reconectar",
+        "nl": "fix context voor sendData wanneer aangeroepen vanuit pakkethandler\nleermethode repareren\nfix ser2net opnieuw verbinden",
+        "fr": "correction du contexte pour sendData lorsqu'il est appelé depuis le gestionnaire de paquets\ncorriger la méthode d'enseignement\ncorrection de la reconnexion de ser2net",
+        "it": "corregge il contesto per sendData quando viene chiamato dal gestore di pacchetti\nfissare il metodo di insegnamento\ncorreggere la riconnessione di ser2net",
+        "es": "corregir el contexto para sendData cuando se llama desde el controlador de paquetes\narreglar el método de enseñanza\narreglar ser2net reconectar",
+        "pl": "napraw kontekst dla sendData przy wywołaniu z programu obsługi pakietów\nnapraw metodę nauczania\nnapraw ponowne połączenie ser2net",
+        "zh-cn": "从数据包处理程序调用时修复 sendData 的上下文\n固定教学方法\n修复 ser2net 重新连接"
+      }
     },
-    "native": {
-        "serialport": "",
-        "ser2net": false,
-        "ser2net-ip": "",
-        "ser2net-port": 2000,
-        "esp2Switch": false,
-        "gateway": ""
+    "title": "EnOcean",
+    "titleLang": {
+      "en": "EnOcean",
+      "de": "EnOcean",
+      "ru": "EnOcean",
+      "pt": "EnOcean",
+      "nl": "EnOcean",
+      "fr": "EnOcean",
+      "it": "EnOcean",
+      "es": "EnOcean",
+      "pl": "EnOcean",
+      "zh-cn": "EnOcean"
     },
-    "objects": [],
-    "instanceObjects": [
-        {
-            "_id": "info",
-            "type": "channel",
-            "common": {
-                "name": "Information"
-            },
-            "native": {}
-        },
-        {
-            "_id": "info.connection",
-            "type": "state",
-            "common": {
-                "role": "indicator.connected",
-                "name": "Device connected",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "gateway",
-            "type": "device",
-            "common": {
-                "role": "",
-                "name": "Gateway",
-                "type": "string",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "gateway.teachin",
-            "type": "state",
-            "common": {
-                "role": "state",
-                "name": "Teach in new devices",
-                "type": "boolean",
-                "read": true,
-                "write": true,
-                "def": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "gateway.lastID",
-            "type": "state",
-            "common": {
-                "role": "state",
-                "name": "Device ID from last received telegram",
-                "type": "string",
-                "read": true,
-                "write": false
-            },
-            "native": {}
-        },
-        {
-            "_id": "gateway.repeater",
-            "type": "channel",
-            "common": {
-                "name": "Repeater"
-            },
-            "native": {}
-        },
-        {
-            "_id": "gateway.repeater.mode",
-            "type": "state",
-            "common": {
-                "role": "state",
-                "name": "Repeater mode",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "states": {
-                    "0": "OFF",
-                    "1": "ON",
-                    "2": "SELECTIVE"
-                }
-            },
-            "native": {}
-        },
-        {
-            "_id": "gateway.repeater.level",
-            "type": "state",
-            "common": {
-                "role": "state",
-                "name": "Repeater level",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "states": {
-                    "0": "OFF",
-                    "1": "1-level repeating",
-                    "2": "2-level repeating"
-                }
-            },
-            "native": {}
-        }
+    "desc": {
+      "en": "Connects EnOcean devices via USB/Serial devices with TCM300 Chips",
+      "de": "Verbindet EnOcean-Geräte über USB / Seriell-Geräte mit TCM300-Chips",
+      "ru": "Подключает устройства EnOcean через USB / последовательные устройства с чипами TCM300",
+      "pt": "Conecta dispositivos EnOcean via dispositivos USB / Serial com chips TCM300",
+      "nl": "Verbindt EnOcean-apparaten via USB / seriële apparaten met TCM300-chips",
+      "fr": "Connecte les appareils EnOcean via des appareils USB / série avec des puces TCM300",
+      "it": "Collega i dispositivi EnOcean tramite dispositivi USB / seriali con chip TCM300",
+      "es": "Conecta dispositivos EnOcean a través de dispositivos USB / serie con chips TCM300",
+      "pl": "Łączy urządzenia EnOcean za pośrednictwem urządzeń USB / szeregowych z chipami TCM300",
+      "zh-cn": "通过带有TCM300芯片的USB /串行设备连接EnOcean设备"
+    },
+    "authors": [
+      "Jey Cee <jey-cee@live.com>"
+    ],
+    "keywords": [
+      "EnOcean",
+      "ioBroker",
+      "Love"
+    ],
+    "license": "MIT",
+    "platform": "Javascript/Node.js",
+    "icon": "enocean.png",
+    "enabled": true,
+    "extIcon": "https://raw.githubusercontent.com/jey-cee/ioBroker.enocean/master/admin/enocean.png",
+    "readme": "https://github.com/jey-cee/ioBroker.enocean/blob/master/README.md",
+    "loglevel": "info",
+    "mode": "daemon",
+    "type": "hardware",
+    "compact": true,
+    "connectionType": "local",
+    "dataSource": "poll",
+    "materialize": true,
+    "adminUI": {
+      "config": "materialize"
+    },
+    "messagebox": true,
+    "dependencies": [
+      {
+        "js-controller": ">=3.0.0"
+      }
     ]
+  },
+  "native": {
+    "serialport": "",
+    "ser2net": false,
+    "ser2net-ip": "",
+    "ser2net-port": 2000,
+    "esp2Switch": false,
+    "gateway": ""
+  },
+  "objects": [],
+  "instanceObjects": [
+    {
+      "_id": "info",
+      "type": "channel",
+      "common": {
+        "name": "Information"
+      },
+      "native": {}
+    },
+    {
+      "_id": "info.connection",
+      "type": "state",
+      "common": {
+        "role": "indicator.connected",
+        "name": "Device connected",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "gateway",
+      "type": "device",
+      "common": {
+        "role": "",
+        "name": "Gateway",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "gateway.teachin",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "Teach in new devices",
+        "type": "boolean",
+        "read": true,
+        "write": true,
+        "def": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "gateway.lastID",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "Device ID from last received telegram",
+        "type": "string",
+        "read": true,
+        "write": false
+      },
+      "native": {}
+    },
+    {
+      "_id": "gateway.repeater",
+      "type": "channel",
+      "common": {
+        "name": "Repeater"
+      },
+      "native": {}
+    },
+    {
+      "_id": "gateway.repeater.mode",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "Repeater mode",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {
+          "0": "OFF",
+          "1": "ON",
+          "2": "SELECTIVE"
+        }
+      },
+      "native": {}
+    },
+    {
+      "_id": "gateway.repeater.level",
+      "type": "state",
+      "common": {
+        "role": "state",
+        "name": "Repeater level",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {
+          "0": "OFF",
+          "1": "1-level repeating",
+          "2": "2-level repeating"
+        }
+      },
+      "native": {}
+    }
+  ]
 }
