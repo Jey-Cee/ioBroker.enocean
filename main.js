@@ -1,7 +1,7 @@
 'use strict';
 
 const utils = require('@iobroker/adapter-core');
-const SerialPort = require('serialport');
+const { SerialPort } = require('serialport');
 const net = require('net');
 const os = require('os');
 const fs = require('fs');
@@ -34,7 +34,7 @@ const PLATFORM = os.platform();
 
 let AVAILABLE_PORTS = {};
 let SERIAL_PORT = null;
-let SERIALPORT_ESP3_PARSER = null;
+let SERIALPORT_PARSER = null;
 
 let tcpClient = null;
 let tcpReconnectCounter = 0;
@@ -87,21 +87,19 @@ class Enocean extends utils.Adapter {
 
 		AVAILABLE_PORTS = ports.map(p => p.path);
 
-		if (this.config.serialport && this.config.ser2net === false) {
-			SERIAL_PORT = new SerialPort(this.config.serialport, { baudRate: 57600});
-			/*SERIAL_PORT.on('data', async (data) => {
-				this.log.info(data.toString('hex'));
-			});*/
-			if (this.config.esp2Switch === true) {
-				SERIALPORT_ESP3_PARSER = SERIAL_PORT.pipe(new SERIALPORT_PARSER_CLASS.esp2parser());
+		if (this.config.serialport && this.config.ser2net === false && this.config.gateway === 'usb300' || this.config.gateway === 'fgw14-usb') {
+			SERIAL_PORT = new SerialPort({ path: this.config.serialport, baudRate: 57600});
+
+			if (this.config.gateway === 'fgw14-usb') {
+				SERIALPORT_PARSER = SERIAL_PORT.pipe(new SERIALPORT_PARSER_CLASS.esp2parser());
 			} else {
-				SERIALPORT_ESP3_PARSER = SERIAL_PORT.pipe(new SERIALPORT_PARSER_CLASS.esp3parser());
+				SERIALPORT_PARSER = SERIAL_PORT.pipe(new SERIALPORT_PARSER_CLASS.esp3parser());
 			}
 
 			await this.packetListenerSerial();
 		}
 
-		if (this.config.ser2net === true){
+		if (this.config.ser2net === true || this.config.gateway === 'all-smart'){
 			this.connectTCP();
 		}
 	}
@@ -452,10 +450,10 @@ class Enocean extends utils.Adapter {
 		try {
 			tcpClient = new net.Socket();
 			await this.socketConnectAsync(this.config['ser2net-port'], this.config['ser2net-ip']);
-			if (this.config.esp2Switch === true) {
-				SERIALPORT_ESP3_PARSER = tcpClient.pipe(new SERIALPORT_PARSER_CLASS.esp2parser());
+			if (this.config.gateway === 'fgw14-usb') {
+				SERIALPORT_PARSER = tcpClient.pipe(new SERIALPORT_PARSER_CLASS.esp2parser());
 			} else {
-				SERIALPORT_ESP3_PARSER = tcpClient.pipe(new SERIALPORT_PARSER_CLASS.esp3parser());
+				SERIALPORT_PARSER = tcpClient.pipe(new SERIALPORT_PARSER_CLASS.esp3parser());
 			}
 			tcpReconnectCounter = 0;
 			await this.packetListenerTCP();
@@ -467,21 +465,24 @@ class Enocean extends utils.Adapter {
 	async packetListenerSerial() {
 		//open serial port, set adapter state to connected and wait for messages
 		SERIAL_PORT.on('open', async () => {
-			const connected = await this.getGatewayInfo();
-			if (connected === true) {
+			if(this.config.gateway !== 'fgw14-usb') {
+				const connected = await this.getGatewayInfo();
+				if (connected === true) {
+					this.setState('info.connection', true, true);
+				}
+
+				await this.extractSenderIdFromDevices();
+				//Not supported by USB300 await this.deleteSmartACKMailbox();
+				//await this.resetSmartACKClient();
+				//Not supported by USB300 await this.readMailboxStatus();
+			} else {
+				await this.dummyGatewayInfo();
 				this.setState('info.connection', true, true);
 			}
-			await this.extractSenderIdFromDevices();
-			//Not supported by USB300 await this.deleteSmartACKMailbox();
-			//await this.resetSmartACKClient();
-			//Not supported by USB300 await this.readMailboxStatus();
+
 			this.sendQueue();
 
-			/*SERIAL_PORT.on('data', (data) => {
-				console.log(data);
-			});*/
-
-			SERIALPORT_ESP3_PARSER.on('data', (data) => {
+			SERIALPORT_PARSER.on('data', (data) => {
 				this.parseMessage(data);
 			});
 		});
@@ -501,11 +502,21 @@ class Enocean extends utils.Adapter {
 	}
 
 	async packetListenerTCP() {
-		this.setState('info.connection', true, true);
-		await this.getGatewayInfo();
+		if(this.config.gateway !== 'fgw14-usb') {
+			const connected = await this.getGatewayInfo();
+			if (connected === true) {
+				this.setState('info.connection', true, true);
+			}
+
+			await this.extractSenderIdFromDevices();
+		} else {
+			await this.dummyGatewayInfo();
+			this.setState('info.connection', true, true);
+		}
+
 		this.sendQueue();
 
-		SERIALPORT_ESP3_PARSER.on('data', (data) => {
+		SERIALPORT_PARSER.on('data', (data) => {
 			this.parseMessage(data);
 		});
 
@@ -638,6 +649,32 @@ class Enocean extends utils.Adapter {
 				senderIDs: senderIDs
 			}
 		});
+	}
+
+	// Create a dummy Gateway for Eltako FGW14
+	async dummyGatewayInfo() {
+		const gatewayObject = {
+			native: {
+				BaseID: 'ffff0000',
+				Frequency: '868.3 Mhz',
+				Protocol: 'ESP2',
+				AppVersion: `1.0.0.0`,
+				ApiVersion: `1.0.0.0`,
+				ChipID: '00000001',
+				ChipVersion: '00000001',
+				AppDescription: 'Eltako RS485 Bus Gateway'
+			}
+		};
+
+		const senderIDs = await idRangeCalc('ffff0000');
+
+		const gateway = await this.getObjectAsync('gateway');
+
+		if(!gateway.native.senderIDs) {
+			gatewayObject.native.senderIDs = senderIDs;
+			await this.extendObjectAsync('gateway', gatewayObject);
+		}
+
 	}
 
 	async getGatewayInfo(){
@@ -841,9 +878,9 @@ class Enocean extends utils.Adapter {
 		return new Promise((resolve, reject) => {
 			const cb = (data) => {
 				resolve(data);
-				SERIALPORT_ESP3_PARSER.off('data', cb);
+				SERIALPORT_PARSER.off('data', cb);
 			};
-			SERIALPORT_ESP3_PARSER.on('data', cb);
+			SERIALPORT_PARSER.on('data', cb);
 			setTimeout(() => {reject('Timeout for response' + info);}, 1000);
 		});
 	}
@@ -899,19 +936,35 @@ class Enocean extends utils.Adapter {
 	 */
 	async sendData(that, data, optionalData, packetType){
 		let payload;
-		if(that.config.esp2Switch === true) {
+		if(that.config.gateway === 'fgw14-usb') {
 			const sync = Buffer.from([0xa5, 0x5a]);
-			const dataLenHex = data.length;
-			console.log(dataLenHex);
-			const header = Buffer.from([dataLenHex, /*packetType.toString(16)*/ 0x07]) ;
-			const crc8h = Buffer.from([CRC8.calcCrc8(header)]);
-			const crc8d = Buffer.from([CRC8.calcCrc8(optionalData !== null ? data.concat(optionalData) : data)]);
+			const header = Buffer.from([0x6b]) ;
 
-			if (optionalData !== null) {
-				payload = [sync, header, Buffer.from(data.slice(1))/*, Buffer.from(optionalData)*/];
-			} else {
-				payload = [sync, header, Buffer.from(data), crc8d];
+
+			const arrData = [...data];
+			switch(arrData[0]) {
+				case 0xA5:
+					arrData.splice(0, 1, 0x07);
+					break;
+				case 0xF6:
+					arrData.splice(0, 1, 0x05);
+					break;
+				case 0xD5:
+					arrData.splice(0, 1, 0x06);
+					break;
 			}
+
+			for(let i = 0; i < arrData.length; i++) {
+				if(arrData[i] === undefined){
+					arrData.splice(i, 1, 0x00);
+				}
+			}
+
+			const buf = Buffer.concat([header, Buffer.from(arrData)]);
+			const crc = crcESP2(buf);
+
+			payload = [sync, header, Buffer.from(arrData), Buffer.from([crc])];
+
 		} else {
 			const sync = Buffer.from([0x55]);
 			const dataLenHex = dec2hexString(data.length);
@@ -928,7 +981,7 @@ class Enocean extends utils.Adapter {
 		}
 
 
-		if (that.config.ser2net === false) {
+		if (that.config.ser2net === false && that.config.gateway !== 'all-smart') {
 			SERIAL_PORT.write(Buffer.concat(payload), (err) => {
 				if (err) {
 					that.log.warn('Error sending data: ' + err);
@@ -1011,6 +1064,14 @@ async function idRangeCalc(baseId) {
 	return result;
 }
 
+function crcESP2(buf) {
+	let result = 0;
+	for (let index = 0; index < buf.length; index++) {
+		result = (result + buf[index]);
+	}
+	result = result & 0xff;
+	return result;
+}
 
 
 // @ts-ignore parent is a valid property on module

@@ -33,7 +33,7 @@ EnOcean Pi Modul
 
 Eltako FGW14:  
 You have to enable ESP2 mode in the adapter config, to use the FGW14.  
-**Important**: This gateway does not support all features and devices of this adapter.  Known features that does not work: RSSI, Gateway information can not be read.  If there is no technical reason to use this gateway it is highly recomended to use an other one.  
+**Important Notes**: This gateway does not support all features and devices of this adapter.  Known features that does not work: RSSI, Gateway information can not be read and only RS485 Bus devices can be controlled without FTD14 (not tested yet).  If there is no technical reason to use this gateway it is highly recomended to use an other one.  
 
 
 ## Control devices
@@ -178,6 +178,18 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 To test telegram handling create a channel with name development and in this channel a object with name telegram, type string.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+* added ELTAKO FGW14-USB as possible Gateway (Please read the notes in readme for FGW14-USB)
+* added PEHA 452 FU-EBIM JR o.T.
+* added EUROTRONIC Stella E
+* added SIEGENIA senso secure
+* added new Eltako MSC Teachin Telegram for FSR71-2x
+* added state for window to F6-10-00
+* updated settings page 
+* fix HORA SmartDrive MX teachin
+* fix A5-20-01 CMD default value string to number
+
 
 ### 0.6.4 (2022-02-22)
 * fix split Eltako FSVA-230V & FSR61VA into to sepperate devices for control and measurement

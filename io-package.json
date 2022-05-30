@@ -158,6 +158,9 @@
         "connectionType": "local",
         "dataSource": "poll",
         "materialize": true,
+        "adminUI": {
+            "config": "materialize"
+        },
         "messagebox": true,
         "dependencies": [
             {
@@ -170,7 +173,8 @@
         "ser2net": false,
         "ser2net-ip": "",
         "ser2net-port": 2000,
-        "esp2Switch": false
+        "esp2Switch": false,
+        "gateway": ""
     },
     "objects": [],
     "instanceObjects": [
