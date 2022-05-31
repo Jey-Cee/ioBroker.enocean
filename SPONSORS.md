@@ -5,15 +5,21 @@ Also you can send me hardware, in this case contact me by email: jey-cee@live.co
 
 Thank you to ...
 
+## 2022
+### Paypal
+|            | |            |
+|---|---|---|
+| Michael F. | JustJoe | |
+
 ## 2021
 #### Paypal
-| | | |
-|----|----|----|
-| mane444 | mustang | Schrubbel |
-| edi112 | Sepp | Fabio |
-| Stefan | Streuber | Andibr |
+| | |            |
+|---|---|---|
+| mane444 | mustang | Schrubbel  |
+| edi112 | Sepp | Berndt S.  |
+| Stefan | Streuber | Andibr     |
 | Holger S. | Michael M. | tobitobsta |
-| Kevin L. | Jürgen S. | |
+| Kevin L. | Jürgen S. |            |
 
 ## 2020
 #### Kickstarter campaign
