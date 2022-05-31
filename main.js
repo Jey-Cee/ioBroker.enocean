@@ -881,7 +881,7 @@ class Enocean extends utils.Adapter {
 				SERIALPORT_PARSER.off('data', cb);
 			};
 			SERIALPORT_PARSER.on('data', cb);
-			setTimeout(() => {reject('Timeout for response' + info);}, 1000);
+			setTimeout(() => {reject('Timeout for response' + info);}, 1500);
 		});
 	}
 
