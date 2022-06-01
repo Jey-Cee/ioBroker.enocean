@@ -655,7 +655,7 @@ class Enocean extends utils.Adapter {
 	async dummyGatewayInfo() {
 		const gatewayObject = {
 			native: {
-				BaseID: 'ffff0000',
+				BaseID: '00010000', // As per Eltako documentation in BR14-SPS-PC-Anbindung.pdf page 2
 				Frequency: '868.3 Mhz',
 				Protocol: 'ESP2',
 				AppVersion: `1.0.0.0`,
@@ -666,7 +666,7 @@ class Enocean extends utils.Adapter {
 			}
 		};
 
-		const senderIDs = await idRangeCalc('ffff0000');
+		const senderIDs = await idRangeCalc('00010000');
 
 		const gateway = await this.getObjectAsync('gateway');
 
