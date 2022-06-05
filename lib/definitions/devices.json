@@ -1537,11 +1537,11 @@
       "help": {
         "en": {
           "1": "Click on 'Add Device'.",
-          "2": "Start teachin mode on your FSR61-230V. For more information please read the manual of FSR61-230V"
+          "2": "Start teachin mode on your FSR61-230V. The lower rotary switch must be set to 80. When delivered, the teach-in mode is active for the first 2 minutes after it is connected to the power. For more information please read the manual of FSR61-230V"
         },
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
-          "2": "Anlernmodus am FSR61-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FSR61-230V lesen."
+          "2": "Anlernmodus am FSR61-230V starten. Der untere Drehschalter muss auf 80 gestellt sein. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FSR61-230V lesen."
         }
       }
     },
