@@ -3512,11 +3512,17 @@
       "help": {
         "en": {
           "1": "Click on 'Add Device'.",
-          "2": "Start teachin mode on your PSC 234. For more information please read the manual of PSC 234."
+          "2": "Start teach-in mode on the PSC 234. Press and hold the touch sensor for 3 seconds. LED flashes red once per second. (For further information please read the manual of the PSC 234).",
+          "3": "Release touch sensor.",
+          "4": "Press and hold the touch sensor for 3 seconds.",
+          "5": "Green LED flashes 5x long in a second interval (bidirectional) OR green LED flashes 1x long (unidirectional)."
         },
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
-          "2": "Anlernmodus am PSC 234 starten. Für weitere informationen bitte die Anleitung des PSC 234 lesen."
+          "2": "Anlernmodus am PSC 234 starten. Touch Sensor für 3 Sekunden gedrückt halten. LED blinkt 1x pro Sekunde rot. (Für weitere informationen bitte die Anleitung des PSC 234 lesen.)",
+          "3": "Touch Sensor Loslassen.",
+          "4": "Touch Sensor für 3 Sekunden gedrückt halten.",
+          "5": "Grüne LED blinkt 5x lang im Sekundenintervall (bidirektional) ODER grüne LED blinkt 1x lang (unidirektional)."
         }
       }
     }
