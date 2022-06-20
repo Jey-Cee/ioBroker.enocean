@@ -308,19 +308,19 @@
     },
     "FAFT60": {
       "EEP": [
-        "D2-01-07"
+        "A5-04-02"
       ],
       "autocreate": true,
-      "teachin_method": "UTE",
+      "teachin_method": "none",
       "id_offset": false,
       "help": {
         "en": {
-          "1": "Click on 'Add Device'.",
-          "2": "Press LRN Button on FAFT60 for 1 second."
+          "1": "Enter device ID.",
+          "2": "Press LRN Button on FAFT60."
         },
         "de": {
-          "1": "Auf 'Gerät Hinzufügen' klicken.",
-          "2": "LRN Button am FAFT60 für 1 Sekunde Drücken."
+          "1": "Geräte ID eintragen",
+          "2": "LRN Button am FAFT60."
         }
       }
     },
