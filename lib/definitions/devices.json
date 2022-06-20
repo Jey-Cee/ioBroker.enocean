@@ -310,7 +310,7 @@
       "EEP": [
         "A5-04-02"
       ],
-      "autocreate": true,
+      "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
       "help": {
