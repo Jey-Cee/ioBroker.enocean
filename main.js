@@ -41,7 +41,7 @@ let tcpReconnectCounter = 0;
 
 let teachinMethod = null;
 const queue = [];
-let timeoutQueue, timeoutWait;
+let timeoutQueue, timeoutWait, timeoutTeachin;
 
 
 class Enocean extends utils.Adapter {
@@ -67,7 +67,7 @@ class Enocean extends utils.Adapter {
 	 */
 	async onReady() {
 		// Reset the connection indicator during startup
-		this.setState('info.connection', false, true);
+		this.setState('info.connection', {val: false, ack: true});
 
 		this.setState('gateway.teachin', {val: false, ack: true});
 
@@ -111,6 +111,7 @@ class Enocean extends utils.Adapter {
 	onUnload(callback) {
 		clearTimeout(timeoutWait);
 		clearTimeout(timeoutQueue);
+		clearTimeout(timeoutTeachin);
 		try {
 			if (SERIAL_PORT !== null) {
 				SERIAL_PORT.close();
@@ -138,16 +139,16 @@ class Enocean extends utils.Adapter {
 		const tmp = id.split('.');
 		const objName = tmp.slice(2).join('.');
 
-		if (state && state.from !== 'system.adapter.' + this.namespace) {
+		if (state && state.ack === false) {
 
 			switch(objName){
 				case 'gateway.teachin':
-
-					if(!state){
-
-					} else if(state.val === true && state.ack === false) {
+					if(state.val === true && state.ack === false) {
 						this.log.info('Teachin mode active');
-						await this.setStateAsync(id, {ack: true, expire: 60});
+						await this.setStateAsync(id, {ack: true});
+						timeoutTeachin = setTimeout(() => {
+							this.setState(id, {val: false, ack: true});
+						}, 60 * 1000);
 					}
 					break;
 				case 'gateway.repeater.level': {
@@ -359,7 +360,10 @@ class Enocean extends utils.Adapter {
 				break;
 			case 'autodetect':
 				teachinMethod = {teachinMethod: codes.telegram_type[obj.message.teachin_method], name: obj.message.device, mfr: obj.message.mfr};
-				this.setState('gateway.teachin', {val: true, expire: 60});
+				this.setState('gateway.teachin', {val: true, ack: true});
+				timeoutTeachin = setTimeout(() => {
+					this.setState('gateway.teachin', {val: false, ack: true});
+				}, 60 * 1000);
 				if(teachinMethod.teachinMethod === 'C6'){
 					await this.makeControllerPostmaster();
 					await this.enableSmartACKteachin();
@@ -468,7 +472,7 @@ class Enocean extends utils.Adapter {
 			if(this.config.gateway !== 'fgw14-usb') {
 				const connected = await this.getGatewayInfo();
 				if (connected === true) {
-					this.setState('info.connection', true, true);
+					this.setState('info.connection', {val: true, ack: true});
 				}
 
 				await this.extractSenderIdFromDevices();
@@ -477,7 +481,7 @@ class Enocean extends utils.Adapter {
 				//Not supported by USB300 await this.readMailboxStatus();
 			} else {
 				await this.dummyGatewayInfo();
-				this.setState('info.connection', true, true);
+				this.setState('info.connection', {val: true, ack: true});
 			}
 
 			this.sendQueue();
@@ -496,7 +500,7 @@ class Enocean extends utils.Adapter {
 		//listen to close serial port
 		SERIAL_PORT.on('close', () => {
 			this.log.info('The serial port was closed.');
-			this.setState('info.connection', false, true);
+			this.setState('info.connection', {val: false, ack: true});
 		});
 
 	}
@@ -505,13 +509,13 @@ class Enocean extends utils.Adapter {
 		if(this.config.gateway !== 'fgw14-usb') {
 			const connected = await this.getGatewayInfo();
 			if (connected === true) {
-				this.setState('info.connection', true, true);
+				this.setState('info.connection', {val: true, ack: true});
 			}
 
 			await this.extractSenderIdFromDevices();
 		} else {
 			await this.dummyGatewayInfo();
-			this.setState('info.connection', true, true);
+			this.setState('info.connection', {val: true, ack: true});
 		}
 
 		this.sendQueue();
@@ -527,7 +531,7 @@ class Enocean extends utils.Adapter {
 
 		tcpClient.on('close', async () => {
 			this.log.info('The TCP port was closed.');
-			this.setState('info.connection', false, true);
+			this.setState('info.connection', {val: false, ack: true});
 			if(tcpReconnectCounter === 0) {
 				this.reconnectTCP();
 			}
