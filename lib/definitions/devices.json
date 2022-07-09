@@ -2763,7 +2763,7 @@
     "TF-TA55J": {
       "EEP": [
         "TF-01-01",
-        "F6-02-02"
+        "TF-13-04"
       ],
       "autocreate": true,
       "teachin_method": "MSC",
@@ -2782,7 +2782,7 @@
     "TF-TA65J": {
       "EEP": [
         "TF-01-01",
-        "F6-02-02"
+        "TF-13-04"
       ],
       "autocreate": true,
       "teachin_method": "MSC",

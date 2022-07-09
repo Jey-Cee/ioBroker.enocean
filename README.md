@@ -178,6 +178,12 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 To test telegram handling create a channel with name development and in this channel a object with name telegram, type string.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+* increase timeout for response time from gateway
+* change base id for dummy gateway info (effects Eltako FGW14)
+* 
+
 ### 0.7.0 (2022-05-30)
 * added ELTAKO FGW14-USB as possible Gateway (Please read the notes in readme for FGW14-USB)
 * added PEHA 452 FU-EBIM JR o.T.
