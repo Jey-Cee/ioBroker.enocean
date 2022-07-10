@@ -395,10 +395,10 @@
 			});
 
 			//make a device request
-			$('#requestDeviceSubmit').on('click', () => {
+			/*$('#requestDeviceSubmit').on('click', () => {
 					//window.open('https://github.com/Jey-Cee/ioBroker.enocean/issues?q=label%3A%22Device+request%22+');
 				    deviceRequest($('#manufacturer').val(), $('#model').val(), $('#prod-date').val(), $('#link').val(), $('#additional').val());
-			})
+			})*/
 
 			// populate the list of known devices
 			getDevices();
@@ -608,36 +608,9 @@
 				<div class="row">
 					<p class="translate">Request Device Text</p>
 				</div>
-				<div class="row">
-					<div class="input-field col s4">
-						<input class="text" id="manufacturer" size="15" type="text">
-						<label class="translate active" for="manufacturer">Manufacturer</label>
-					</div>
-					<div class="input-field col s4">
-						<input class="text" id="model" size="5" type="text">
-						<label class="translate active" for="model">Model</label>
-					</div>
-				</div>
-				<div class="row">
-					<div class="input-field col s4">
-						<input class="text" id="prod-date" size="15" type="text">
-						<label class="translate active" for="prod-date">Production Date</label>
-					</div>
-					<div class="input-field col s4">
-						<input class="text" id="link" size="5"  type="text">
-						<label class="translate active" for="link">Link</label>
-					</div>
-				</div>
-
-				<div class="row">
-					<div class="input-field col s12">
-						<textarea id="additional" class="materialize-textarea"></textarea>
-						<label for="additional">Additional Infromation</label>
-					</div>
-				</div>
 			</div>
 			<div class="modal-footer">
-				<button id="requestDeviceSubmit" class="btn waves-effect waves-light modal-close modal-action translate" type="submit" name="action">Send request</button>
+				<a href="https://github.com/Jey-Cee/ioBroker.enocean/issues/new?assignees=Jey-Cee&labels=Device+request&template=device-request.md&title=" target=”_blank”><button id="requestDeviceSubmit" class="btn waves-effect waves-light modal-close modal-action translate" type="submit" name="action">Send request</button></a>
 				<button class="btn waves-effect waves-light modal-close modal-action translate" href="#!">Close</button>
 			</div>
 		</div>
