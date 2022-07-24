@@ -178,8 +178,7 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 To test telegram handling create a channel with name development and in this channel a object with name telegram, type string.
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 0.7.1 (2022-07-24)
 * increase timeout for response time from gateway
 * change base id for dummy gateway info (effects Eltako FGW14)
 * change EEP for TF-TAx5J

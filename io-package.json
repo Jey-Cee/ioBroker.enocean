@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "enocean",
-    "version": "0.7.0",
+    "version": "0.7.1",
     "news": {
+      "0.7.1": {
+        "en": "increase timeout for response time from gateway\nchange base id for dummy gateway info (effects Eltako FGW14)\nchange EEP for TF-TAx5J\nupdate FSR61-230V (>10/14) help text\nupdate PSC 234 help text\nupdate TF61L-230V help text\nupdate help for Eltako FSR14-2/4x\nfix Teachin for Eltako FAFT60",
+        "de": "zeit für die antwortzeit von gateway erhöhen\nänderung der Basis id für Dummy Gateway info (Effekte Eltako FGW14)\neEP für TF-TAx5J ändern\nupdate FSR61-230V (>10/14) Hilfetext\npSC 234 Hilfetext aktualisieren\ntF61L-230V Hilfetext aktualisieren\nupdate Hilfe für Eltako FSR14-2/4x\nfix Teachin für Eltako FAFT60",
+        "ru": "увеличить timeout для времени отклика от шлюза\nизменение базы id для dummy Gateway info (эффекты Eltako FGW14)\nизменить EEP для TF-TAx5J\nобновление FSR61-230V (>10/14) текст помощи\nобновление PSC 234 текст помощи\nобновление TF61L-230V текст помощи\nобновление помощь для Элтако ФСР14-2/4x\nисправить Teachin для Eltako FAFT60",
+        "pt": "aumentar o tempo de resposta do gateway\nmudança base id para dummy gateway info (efeitos Eltako FGW14)\nmudança EEP para TF-TAx5J\natualização FSR61-230V (>10/14) ajuda texto\natualização PSC 234 ajuda texto\natualizar texto de ajuda TF61L-230V\najuda de atualização para Eltako FSR14-2/4x\ncorrigir Teachin para Eltako FAFT60",
+        "nl": "verhoging van de tijd van de poort\nquality over Quantity (QoQ) Releases Vertaling:\nverander EEP voor TFTAx5 J\nvertaling:\nvertaling:\nvertaling TF61L-230V bericht\nvertaling: Eltako FSR14-2-4\nles voor Eltako FAFT60",
+        "fr": "augmenter le temps de réponse de passerelle\nchange base id for dummy gateway info (effects Eltako FGW14)\neEP pour TF-TAx5J\nmettre à jour FSR61-230V (ACIA10/14) aide le texte\nmettre à jour PSC 234 aide texte\nmettre à jour le texte de l'aide TF61L-230V\nmettre à jour l'aide pour Eltako FSR14-2/4x\ncorrection de Teachin pour Eltako FAFT60",
+        "it": "aumentare il timeout per il tempo di risposta dal gateway\ncambiare base id per informazioni di gateway fittizio (effetti Eltako FGW14)\ncambiamento EEP per TF-TAx5J\naggiornamento FSR61-230V (>10/14) testo di aiuto\naggiornamento PSC 234 aiuto testo\naggiornamento TF61L-230V aiuto testo\naiuto di aggiornamento per Eltako FSR14-2/4x\ncorrezione Teachin per Eltako FAFT60",
+        "es": "aumentar el tiempo de respuesta de la puerta de entrada\ncambio de la base id para la información de la puerta del muñeco (efectos Eltako FGW14)\ncambio EEP para TF-TAx5J\nactualizar FSR61-230V ( prenda10/14) ayuda texto\nactualización PSC 234 ayuda texto\nactualización TF61L-230V ayuda texto\nayuda de actualización para Eltako FSR14-2/4x\nteachin para Eltako FAFT60",
+        "pl": "upływ czasu na czas reakcji z portalu\nzmiana bazowa id dla wiadomości bramkowej (efekty Eltako FGW14)\nzmiana EEP dla TF-TAx5J\nadaptacja FSR61-230V (>10/14)\npSC 234\naktualizacja TF61L-230V pozwala na użycie tekstu\npomoc dla aktualizacji Eltak FSR14-2/4x\nreakcja dla Eltako FAFT60",
+        "zh-cn": "a. 从速公路增加反应时间\nf. 制冷网(ffects Eltako FGW14)\nb. 改革过渡联邦政府-TAx5J\n更新的FSR61-230V(10/14)有助于案文\n更新的PSC234有助于案文\na. 最新资料\n最新帮助 Eltako FSR14-2/4x\nfix Teachin EltakoFA60"
+      },
       "0.7.0": {
         "en": "added ELTAKO FGW14-USB as possible Gateway (Please read the notes in readme for FGW14-USB)\nadded PEHA 452 FU-EBIM JR o.T.\nadded EUROTRONIC Stella E\nadded SIEGENIA senso secure\nadded new Eltako MSC Teachin Telegram for FSR71-2x\nadded state for window to F6-10-00\nupdated settings page \nfix HORA SmartDrive MX teachin\nfix A5-20-01 CMD default value string to number",
         "de": "ELTAKO FGW14-USB als mögliches Gateway hinzugefügt (Bitte beachten Sie die Hinweise in Readme für FGW14-USB)\nhinzugefügt PEHA 452 FU-EBIM JR o.T.\nEUROTRONIC Stella E hinzugefügt\nSIEGENIA senso secure hinzugefügt\nneues Eltako MSC Teachin Telegramm für FSR71-2x hinzugefügt\nZustand für Fenster zu F6-10-00 hinzugefügt\naktualisierte Einstellungsseite\nEinlernen des HORA SmartDrive MX behoben\nKorrigieren Sie A5-20-01 CMD-Standardwertzeichenfolge in Zahl",
@@ -74,18 +86,6 @@
         "es": "añadido Kessel Staufix Control\nañadido Thermokon SR-MDS Solar\nañadido Omnio WS-CH-102\nTransmisor FTJP PENTAIR añadido\npunto de datos dividido PAE para D2-06-10 y 11 según EPA y PAE",
         "pl": "dodano kontrolę Kessel Staufix\ndodano Thermokon SR-MDS Solar\ndodano Omnio WS-CH-102\ndodano nadajnik PENTAIR FTJP\npodziel punkt danych PAE dla D2-06-10 i 11 na EPA i PAE",
         "zh-cn": "添加了 Kessel Staufix 控制\n添加 Thermokon SR-MDS 太阳能\n添加了 Omnio WS-CH-102\n添加了 PENTAIR 发射器 FTJP\n将 D2-06-10 和 11 的数据点 PAE 拆分为 EPA 和 PAE"
-      },
-      "0.5.3": {
-        "en": "fix context for sendData when called from packet handler\nfix teachin method\nfix ser2net reconnect",
-        "de": "Kontext für sendData beim Aufruf vom Pakethandler behoben\nTeach-Methode fixieren\nSer2net Reconnect beheben",
-        "ru": "исправить контекст для sendData при вызове из обработчика пакетов\nисправить метод обучения\nисправить переподключение ser2net",
-        "pt": "consertar o contexto para sendData quando chamado do manipulador de pacotes\ncorrigir método de ensino\nconsertar ser2net reconectar",
-        "nl": "fix context voor sendData wanneer aangeroepen vanuit pakkethandler\nleermethode repareren\nfix ser2net opnieuw verbinden",
-        "fr": "correction du contexte pour sendData lorsqu'il est appelé depuis le gestionnaire de paquets\ncorriger la méthode d'enseignement\ncorrection de la reconnexion de ser2net",
-        "it": "corregge il contesto per sendData quando viene chiamato dal gestore di pacchetti\nfissare il metodo di insegnamento\ncorreggere la riconnessione di ser2net",
-        "es": "corregir el contexto para sendData cuando se llama desde el controlador de paquetes\narreglar el método de enseñanza\narreglar ser2net reconectar",
-        "pl": "napraw kontekst dla sendData przy wywołaniu z programu obsługi pakietów\nnapraw metodę nauczania\nnapraw ponowne połączenie ser2net",
-        "zh-cn": "从数据包处理程序调用时修复 sendData 的上下文\n固定教学方法\n修复 ser2net 重新连接"
       }
     },
     "title": "EnOcean",
