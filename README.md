@@ -182,7 +182,12 @@ To test telegram handling create a channel with name development and in this cha
 ### **WORK IN PROGRESS**
 * increase timeout for response time from gateway
 * change base id for dummy gateway info (effects Eltako FGW14)
-* 
+* change EEP for TF-TAx5J
+* update FSR61-230V (>10/14) help text
+* update PSC 234 help text
+* update TF61L-230V help text
+* update help for Eltako FSR14-2/4x
+* fix Teachin for Eltako FAFT60
 
 ### 0.7.0 (2022-05-30)
 * added ELTAKO FGW14-USB as possible Gateway (Please read the notes in readme for FGW14-USB)
