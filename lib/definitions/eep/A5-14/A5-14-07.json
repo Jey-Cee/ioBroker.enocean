@@ -1,0 +1,69 @@
+{
+  "eep": "A5-14-07",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x14",
+  "type_number": "0x07",
+  "type_title": "Dual-door-contact with States Open/Closed and Locked/Unlocked, Supply voltage monitor",
+  "bidirectional": false,
+  "objects": {
+    "preDefined": ["SVC"],
+    "LCT": {
+      "type": "state",
+      "common": {
+        "name": "Lock Contact",
+        "role": "indicator",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Door Locked", "1": "Door Unlocked"
+        },
+        "def": "0"
+      },
+      "native": {}
+    },
+    "DCT": {
+      "type": "state",
+      "common": {
+        "name": "Door Contact",
+        "role": "indicator",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Door Closed", "1": "Door Open"
+        },
+        "def": "0"
+      },
+      "native": {}
+    }
+  },
+  "case": [{
+    "send": false,
+    "datafield": [
+      {
+        "data": "Lock",
+        "shortcut": "LCT",
+        "bitoffs": "31",
+        "bitsize": "1",
+        "value": {"var": "value"}
+      },
+      {
+        "data": "Contact",
+        "shortcut": "DCT",
+        "bitoffs": "29",
+        "bitsize": "1",
+        "value": {"var": "value"}
+      },
+      {
+        "data": "Supply Voltage 0...5.0V (Optional)",
+        "shortcut": "SVC",
+        "bitoffs": "0",
+        "bitsize": "8",
+        "value": {"+": [{"*":[{"-":[{"var":  "value"}, 0 ]}, 0.02 ]}, 0 ]},
+        "decimals": 2
+      }
+    ]
+  }]
+}
