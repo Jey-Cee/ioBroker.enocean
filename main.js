@@ -488,7 +488,11 @@ class Enocean extends utils.Adapter {
 
 			SERIALPORT_PARSER.on('data', (data) => {
 				this.log.debug(data.toString('hex'));
-				this.parseMessage(data);
+				try {
+					this.parseMessage(data);
+				} catch (error) {
+					this.log.error(error);
+				}
 			});
 		});
 
@@ -523,7 +527,11 @@ class Enocean extends utils.Adapter {
 
 		SERIALPORT_PARSER.on('data', (data) => {
 			this.log.debug(data.toString('hex'));
-			this.parseMessage(data);
+			try {
+				this.parseMessage(data);
+			} catch (error) {
+				this.log.error(error);
+			}
 		});
 
 
