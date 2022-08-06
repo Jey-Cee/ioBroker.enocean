@@ -89,7 +89,9 @@
       }
     },
     "EM-USE-00 (EEP A5-14-07)": {
-      "EEP": ["A5-14-07"],
+      "EEP": [
+        "A5-14-07"
+      ],
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
@@ -4584,4 +4586,4 @@
       }
     }
   }
-},
+}

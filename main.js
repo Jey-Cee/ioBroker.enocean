@@ -487,6 +487,7 @@ class Enocean extends utils.Adapter {
 			this.sendQueue();
 
 			SERIALPORT_PARSER.on('data', (data) => {
+				this.log.debug(data.toString('hex'));
 				this.parseMessage(data);
 			});
 		});
@@ -521,6 +522,7 @@ class Enocean extends utils.Adapter {
 		this.sendQueue();
 
 		SERIALPORT_PARSER.on('data', (data) => {
+			this.log.debug(data.toString('hex'));
 			this.parseMessage(data);
 		});
 
@@ -555,7 +557,6 @@ class Enocean extends utils.Adapter {
 	 * @param {Buffer} data The received data
 	 */
 	async parseMessage(data) {
-		this.log.debug(data.toString('hex'));
 		const esp3packet = new ESP3Packet(data);
 
 		switch (esp3packet.type) {
