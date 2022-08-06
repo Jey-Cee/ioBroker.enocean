@@ -486,10 +486,10 @@ class Enocean extends utils.Adapter {
 
 			this.sendQueue();
 
-			SERIALPORT_PARSER.on('data', (data) => {
+			SERIALPORT_PARSER.on('data', async (data) => {
 				this.log.debug(data.toString('hex'));
 				try {
-					this.parseMessage(data);
+					await this.parseMessage(data);
 				} catch (error) {
 					this.log.error(error);
 				}
@@ -525,10 +525,10 @@ class Enocean extends utils.Adapter {
 
 		this.sendQueue();
 
-		SERIALPORT_PARSER.on('data', (data) => {
+		SERIALPORT_PARSER.on('data', async (data) => {
 			this.log.debug(data.toString('hex'));
 			try {
-				this.parseMessage(data);
+				await this.parseMessage(data);
 			} catch (error) {
 				this.log.error(error);
 			}
