@@ -1,0 +1,1878 @@
+{
+  "eep": "D2-10-01",
+  "rorg_number": "0xD2",
+  "telegram": "VLD",
+  "func_number": "0x10",
+  "type_number": "0x01",
+  "type_title": "Room control panels with temperature and fan speed control, room status information and time program",
+  "bidirectional": true,
+  "objects": {
+    "CMD": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Command",
+          "de": "Befehl"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "General Message", "1":  "Data Message", "2":  "Configuration Message", "3":  "Room Control Setup", "4":  "Time Program Setup"},
+        "def": 0,
+        "desc": {
+          "en": "Send a command to the device.",
+          "de": "Einen Befehl an das Gerät senden."
+        }
+      },
+      "native": {}
+    },
+    "communication.MID": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Received message identifier",
+          "de": "Empfangene Nachrichten-ID"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "General Message", "1":  "Data Message", "2":  "Configuration Message", "3":  "Room Control Setup", "4":  "Time Program Setup"},
+        "def": 0,
+        "desc": {
+          "en": "Defines the type of message.",
+          "de": "Definiert den Typ der Nachricht."
+        }
+      },
+      "native": {}
+    },
+    "communication.MCF": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Message contionuation flag",
+          "de": "Fortsetzung der Nachricht"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "Complete", "1": "Incomplete", "2":  "Automatic message control"},
+        "def": 0,
+        "desc": {
+          "en": "Indicates if another telegram has to be expected or if the message is complete.",
+          "de": "Gibt an ob ein weiteres Telegramm erwartet wird oder ob das Telegramm komplett ist."
+        }
+      },
+      "native": {}
+    },
+    "communication.IRC": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Information request classifier",
+          "de": "Klassifikator für Informationsanfragen"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "Acknowledge request", "1": "Data request", "2":  "Configuration request", "3":  "Room control setup request", "4":  "Time program request"},
+        "def": 0,
+        "desc": {
+          "en": "Defines the type of information request.",
+          "de": "Definiert den Typ der Informationsanfrage."
+        }
+      },
+      "native": {}
+    },
+    "communication.FBC": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Feedback classifier",
+          "de": "Klassifikator für Rückmeldungen"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "Acknowledge / heartbeat", "1": "Telegram repetition request", "2":  "Message repetition request"},
+        "def": 0,
+        "desc": {
+          "en": "Defines the type of feedback",
+          "de": "Definiert den Typ des Feedback"
+        }
+      },
+      "native": {}
+    },
+    "communication.GMT": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "General message type",
+          "de": "Genereller Nachrichtentyp"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "Feedback", "1": "Information request"},
+        "def": 0,
+        "desc": {
+          "en": "Indicates if the general message is a feedback or an information request.",
+          "de": "Gibt an ob die generelle Nachricht ein Feedback oder eine Informationsanfrage ist."
+        }
+      },
+      "native": {}
+    },
+    "data.CW1": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Custom warning 1",
+          "de": "Benutzerdefinierte Warnung 1"
+        },
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": true,
+        "def": false,
+        "desc": {
+          "en": "Flag for an application specific warning.",
+          "de": "Flag für eine spezifische Anwendungswarnung."
+        }
+      },
+      "native": {}
+    },
+    "data.CW2": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Custom warning 2",
+          "de": "Benutzerdefinierte Warnung 2"
+        },
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": true,
+        "def": false,
+        "desc": {
+          "en": "Flag for an application specific warning.",
+          "de": "Flag für eine spezifische Anwendungswarnung."
+        }
+      },
+      "native": {}
+    },
+    "data.WOD": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Window open detection",
+          "de": "Erkennung von offenen Fenstern"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "No Change", "1": "Closed", "2":  "Open"},
+        "def": 0,
+        "desc": {
+          "en": "Indicates if an open window is detected.",
+          "de": "Gibt an ob ein offenes Fenster erkannt wird."
+        }
+      },
+      "native": {}
+    },
+    "data.BS": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Battery status",
+          "de": "Batteriestatus"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "No Change", "1": "Good", "2":  "Low", "3": "Critical"},
+        "def": 0,
+        "desc": {
+          "en": "Represents the battery status as state.",
+          "de": "Representiert den Batteriestatus."
+        }
+      },
+      "native": {}
+    },
+    "data.OBS": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Occupancy button status",
+          "de": "Belegungsschalter status"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "No Change", "1": "Button pressed and occupied", "2":  "Button pressed and unoccupied"},
+        "def": 0,
+        "desc": {
+          "en": "Indicates if the occupancy was pressed and its occupancy status.",
+          "de": "Gibt an ob der Belegungsschalter gedrückt wurde und seinen Belegungsstatus."
+        }
+      },
+      "native": {}
+    },
+    "data.RCM": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Room control mode",
+          "de": "Raumkontrollmodus"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "Comfort", "1": "Economy", "2":  "Pre-Comfort", "3": "Bulding protection"},
+        "def": 0,
+        "desc": {
+          "en": "Indicates if the occupancy was pressed and its occupancy status.",
+          "de": "Gibt an ob der Belegungsschalter gedrückt wurde und seinen Belegungsstatus."
+        }
+      },
+      "native": {}
+    },
+    "data.SPV": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Temperature set point validity",
+          "de": "Temperatur set point valide"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "No cahnge", "1": "Valid value"},
+        "def": 0,
+        "desc": {
+          "en": "Indicates if the temperature set point value is valid.",
+          "de": "Gibt an ob der Temperatur-Sollwert gültig ist."
+        }
+      },
+      "native": {}
+    },
+    "data.TPV": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Temperature validity",
+          "de": "Temperatur valide"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "No cahnge", "1": "Valid value"},
+        "def": 0,
+        "desc": {
+          "en": "Indicates if the temperature value is valid.",
+          "de": "Gibt an ob der Temperatur Wert gültig ist."
+        }
+      },
+      "native": {}
+    },
+    "data.TSP": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Temperature set point",
+          "de": "Temperatur-Sollwert"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 40,
+        "def": 0,
+        "desc": {
+          "en": "Recent temperature set point.",
+          "de": "Aktueller Temperatur-Sollwert."
+        }
+      },
+      "native": {}
+    },
+    "data.TMP": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Temperature",
+          "de": "Temperatur"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 40,
+        "def": 0,
+        "unit": "°C",
+        "desc": {
+          "en": "Recent room temperature.",
+          "de": "Aktuelle Raumtemperatur."
+        }
+      },
+      "native": {}
+    },
+    "config.TSL": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Temperature scale lock",
+          "de": "Temperatur-Skalen-Sperre"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "Locked", "1": "Unlocked"},
+        "def": 0,
+        "desc": {
+          "en": "Indicates if the temperature scale can be changed at the room control panel.",
+          "de": "Gibt an ob die Temperatur-Skala am Raumbedienungsgerät geändert werden kann."
+        }
+      },
+      "native": {}
+    },
+    "config.DCL": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Display content lock",
+          "de": "Display-Inhalt-Sperre"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "Locked", "1": "Unlocked"},
+        "def": 0,
+        "desc": {
+          "en": "Indicates if the display content can be changed at the room control panel.",
+          "de": "Gibt an ob der Display-Inhalt am Raumbedienungsgerät geändert werden kann."
+        }
+      },
+      "native": {}
+    },
+    "config.DTL": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Date / Time lock",
+          "de": "Datum / Zeit-Sperre"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "Locked", "1": "Unlocked"},
+        "def": 0,
+        "desc": {
+          "en": "Indicates if date and time can be change at the room control panel.",
+          "de": "Gibt an ob das Datum und die Zeit am Raumbedienungsgerät geändert werden kann."
+        }
+      },
+      "native": {}
+    },
+    "config.TPL": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Time program lock",
+          "de": "Zeitprogramm-Sperre"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "Locked", "1": "Unlocked"},
+        "def": 0,
+        "desc": {
+          "en": "Indicates if the time program can be changed at the room control panel.",
+          "de": "Gibt an ob das Zeitprogramm am Raumbedienungsgerät geändert werden kann."
+        }
+      },
+      "native": {}
+    },
+    "config.OBL": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Occupancy button lock",
+          "de": "Belegungstaster-Sperre"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "Locked", "1": "Unlocked"},
+        "def": 0,
+        "desc": {
+          "en": "Indicates if the occupancy status can be changed at the room control panel.",
+          "de": "Gibt an ob der Belegungsstatus am Raumbedienungsgerät geändert werden kann."
+        }
+      },
+      "native": {}
+    },
+    "config.SPL": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Temperatrue set point lock",
+          "de": "Temperatur-Sollwert-Sperre"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "Locked", "1": "Unlocked"},
+        "def": 0,
+        "desc": {
+          "en": "Indicates if the temperature set point can be changed at the room control panel.",
+          "de": "Gibt an ob der Temperatur-Sollwert am Raumbedienungsgerät geändert werden kann."
+        }
+      },
+      "native": {}
+    },
+    "config.RCI": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Radio communication interval",
+          "de": "Kommunikations-Intervall"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "No communication interval", "60": "1...60 minutes (set the value you want)", "61":  "3 hours", "62":  "12 hours", "63": "24 hours"},
+        "def": 0,
+        "desc": {
+          "en": "Defines the longest time between two consecutive radio telegrams (clock-based communication).",
+          "de": "Definiert die längste Zeit zwischen zwei Radio-Telegrammen (Zeit basierte Kommunikation)."
+        }
+      },
+      "native": {}
+    },
+    "config.KL": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Key lock",
+          "de": "Tasten-Sperre"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "Locked", "1": "Unlocked"},
+        "def": 0,
+        "desc": {
+          "en": "Indicates if all buttons on the device are locked.",
+          "de": "Gibt an ob alle Tasten des Gerätes gesperrt sind."
+        }
+      },
+      "native": {}
+    },
+    "config.DC": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Display content",
+          "de": "Display-Inhalt"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "No Change", "1": "Default", "2": "Time", "3":  "Room temperature (internal)", "4": "Room temperature (external)", "5": "Temperature set point", "6": "Display off", "7": "Humidity"},
+        "def": 0,
+        "desc": {
+          "en": "Defines the main display content.",
+          "de": "Definiert den Haupt-Display-Inhalt."
+        }
+      },
+      "native": {}
+    },
+    "config.TS": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Temperature scale",
+          "de": "Temperatur-Einheit"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "No change", "1": "Default", "2": "Celsius", "3": "Fahrenheit"},
+        "def": 0,
+        "desc": {
+          "en": "Defines the used temperature scale for the room control panel display and menus.",
+          "de": "Definiert die Temperatur-Einheit für das Raumbedienungsgerät und die Menüs."
+        }
+      },
+      "native": {}
+    },
+    "config.DST": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Daylight saving time flag",
+          "de": "Sommerzeit-Flag"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "Supported", "1": "Not supported"},
+        "def": 0,
+        "desc": {
+          "en": "Indicates if the device supports daylight saving time.",
+          "de": "Gibt an ob das Gerät die Sommerzeit unterstützt."
+        }
+      },
+      "native": {}
+    },
+    "config.TN": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Time notation",
+          "de": "Zeit-Notation"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "No change", "1": "Default", "2": "24-hour", "3": "12-hour"},
+        "def": 0,
+        "desc": {
+          "en": "Defines the used time notation.",
+          "de": "Definiert die verwendete Zeit-Notation."
+        }
+      },
+      "native": {}
+    },
+    "config.DAY": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Day",
+          "de": "Tag"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "min": 1,
+        "max": 31,
+        "def": 1,
+        "desc": {
+          "en": "Date format: YYYY/MM/DD",
+          "de": "Datumsformat: JJJJ/MM/TT"
+        }
+      },
+      "native": {}
+    },
+    "config.MON": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Month",
+          "de": "Monat"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "min": 1,
+        "max": 12,
+        "def": 1,
+        "desc": {
+          "en": "Date format: YYYY/MM/DD",
+          "de": "Datumsformat: JJJJ/MM/TT"
+        }
+      },
+      "native": {}
+    },
+    "config.YR": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Year",
+          "de": "Jahr"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "min": 2000,
+        "max": 2127,
+        "def": 2022,
+        "desc": {
+          "en": "Date format: YYYY/MM/DD",
+          "de": "Datumsformat: JJJJ/MM/TT"
+        }
+      },
+      "native": {}
+    },
+    "config.MIN": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Minute",
+          "de": "Minute"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 59,
+        "def": 0,
+        "unit": "min",
+        "desc": {
+          "en": "Time format: HH:MM",
+          "de": "Zeitformat: HH:MM"
+        }
+      },
+      "native": {}
+    },
+    "config.HR": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Hour",
+          "de": "Stunde"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 23,
+        "def": 0,
+        "unit": "hour",
+        "desc": {
+          "en": "Time format: HH:MM",
+          "de": "Zeitformat: HH:MM"
+        }
+      },
+      "native": {}
+    },
+    "config.DTU": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Date / time updateflag ",
+          "de": "Datums-/Zeit-Update-Flag"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "No Update", "1": "Update"},
+        "def": 0,
+        "desc": {
+          "en": "Defines if an update of date or time is provided.",
+          "de": "Definiert ob ein Update von Datum oder Zeit gegeben wird."
+        }
+      },
+      "native": {}
+    },
+    "room_control_setup.SPB": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Temperature set point building protection mode",
+          "de": "Temperatur-Sollwert Gebäude Schutzmodus"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 40,
+        "def": 0,
+        "unit": "°C",
+        "desc": {
+          "en": "Temperature set point building protection mode.",
+          "de": "Temperatur-Sollwert zum Gebäude schutz."
+        }
+      },
+      "native": {}
+    },
+    "room_control_setup.SPE": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Temperature set point economy mode",
+          "de": "Temperatur-Sollwert Sparmodus"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 40,
+        "def": 0,
+        "unit": "°C",
+        "desc": {
+          "en": "Temperature set point economy mode.",
+          "de": "Temperatur-Sollwert im Sparmodus."
+        }
+      },
+      "native": {}
+    },
+    "room_control_setup.SPC": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Temperature set point comfort mode",
+          "de": "Temperatur-Sollwert Komfortmodus"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 40,
+        "def": 0,
+        "unit": "°C",
+        "desc": {
+          "en": "Temperature set point comfort mode.",
+          "de": "Temperatur-Sollwert im Komfortmodus."
+        }
+      },
+      "native": {}
+    },
+    "room_control_setup.SFB": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Temperature set point flag building protection mode",
+          "de": "Temperatur-Sollwert-Flag Gebäude Schutzmodus"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "def": 0,
+        "states": {"0": "No Update", "1": "Valid value"},
+        "desc": {
+          "en": "Indicates if a temperature set point for the building protection mode is provided.",
+          "de": "Zeigt an ob ein Temperatur-Sollwert für den Gebäude Schutzmodus gesetzt ist."
+        }
+      },
+      "native": {}
+    },
+    "room_control_setup.SFE": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Temperature set point flag economy mode",
+          "de": "Temperatur-Sollwert-Flag Sparmodus"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "def": 0,
+        "states": {"0": "No Update", "1": "Valid value"},
+        "desc": {
+          "en": "Indicates if a temperature set point for the economy mode is provided.",
+          "de": "Zeigt an ob ein Temperatur-Sollwert für den Sparmodus gesetzt ist."
+        }
+      },
+      "native": {}
+    },
+    "room_control_setup.SFC": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Temperature set point flag comfort mode",
+          "de": "Temperatur-Sollwert-Flag Komfortmodus"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "def": 0,
+        "states": {"0": "No Update", "1": "Valid value"},
+        "desc": {
+          "en": "Indicates if a temperature set point for the comfort mode is provided.",
+          "de": "Zeigt an ob ein Temperatur-Sollwert für den Komfortmodus gesetzt ist."
+        }
+      },
+      "native": {}
+    },
+    "time_program_setup.ETM": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "End time: Minute",
+          "de": "Endzeit: Minute"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 59,
+        "unit": "min",
+        "def": 0,
+        "desc": {
+          "en": "Time format: HH:MM",
+          "de": "Zeitformat: HH:MM"
+        }
+      },
+      "native": {}
+    },
+    "time_program_setup.ETH": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "End time: Hour",
+          "de": "Endzeit: Stunde"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 23,
+        "unit": "h",
+        "def": 0,
+        "desc": {
+          "en": "Time format: HH:MM",
+          "de": "Zeitformat: HH:MM"
+        }
+      },
+      "native": {}
+    },
+    "time_program_setup.STM": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Start time: Minute",
+          "de": "Startzeit: Minute"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 59,
+        "unit": "min",
+        "def": 0,
+        "desc": {
+          "en": "Time format: HH:MM",
+          "de": "Zeitformat: HH:MM"
+        }
+      },
+      "native": {}
+    },
+    "time_program_setup.STH": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Start time: Hour",
+          "de": "Startzeit: Stunde"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "min": 0,
+        "max": 23,
+        "unit": "h",
+        "def": 0,
+        "desc": {
+          "en": "Time format: HH:MM",
+          "de": "Zeitformat: HH:MM"
+        }
+      },
+      "native": {}
+    },
+    "time_program_setup.PER": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Period",
+          "de": "Periode"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "Monday - Sunday", "1": "Monday - Friday", "2": "Saturday - Sunday", "3": "Monday", "4": "Tuesday", "5": "Wednesday", "6": "Thursday", "7": "Friday", "8": "Saturday", "9": "Sunday", "10":  "Monday - Wednesday", "11": "Tuesday - Thursday", "12": "Wednesday - Friday", "13": "Thursday - Friday", "14": "Friday - Sunday", "15": "Friday - Monday"},
+        "def": 0,
+        "desc": {
+          "en": "Time format: HH:MM",
+          "de": "Zeitformat: HH:MM"
+        }
+      },
+      "native": {}
+    },
+    "time_program_setup.RCM": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Room control mode",
+          "de": "Raumsteuerungsmodus"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "Comfort", "1": "Economy", "2": "Pre-comfort", "3": "Building protection"},
+        "def": 0,
+        "desc": {
+          "en": "Assigned room control mode for the provided schedule time.",
+          "de": "Zugewiesener Raumsteuerungsmodus für die angegebene Zeit."
+        }
+      },
+      "native": {}
+    },
+    "time_program_setup.TPD": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Time program deletion",
+          "de": "Zeitprogramm Löschung"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {"0": "No deletion", "1": "Deletion"},
+        "def": 0,
+        "desc": {
+          "en": "Deletes the stored time program.",
+          "de": "Löscht das gespeicherte Zeitprogramm."
+        }
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 0
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "Message identifier",
+          "bitoffs": "0",
+          "bitsize": "3",
+          "value": 0
+        },
+        {
+          "data": "Message continuation flag",
+          "shortcut": "communication.MCF",
+          "bitoffs": "6",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Information request classifier",
+          "shortcut": "communication.IRC",
+          "bitoffs": "10",
+          "bitsize": "3",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Feedback classifier",
+          "shortcut": "communication.FBC",
+          "bitoffs": "13",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "General message type",
+          "shortcut": "communication.GMT",
+          "bitoffs": "15",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "Message identifier",
+          "bitoffs": "0",
+          "bitsize": "3",
+          "value": 1
+        },
+        {
+          "data": "Message continuation flag",
+          "shortcut": "communication.MCF",
+          "bitoffs": "6",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Custom warning 1",
+          "shortcut": "data.CW1",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": {
+            "==": [{"var": "value"}, 1]
+          },
+          "value_out": {"if":[{"var":"value"},1,0]}
+        },
+        {
+          "data": "Custom warning 2",
+          "shortcut": "data.CW2",
+          "bitoffs": "27",
+          "bitsize": "1",
+          "value": {
+            "==": [{"var": "value"}, 1]
+          },
+          "value_out": {"if":[{"var":"value"},1,0]}
+        },
+        {
+          "data": "Window open detection",
+          "shortcut": "data.WOD",
+          "bitoffs": "30",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Battey status",
+          "shortcut": "data.BS",
+          "bitoffs": "33",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Occupancy button status",
+          "shortcut": "data.OBS",
+          "bitoffs": "38",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Room control mode",
+          "shortcut": "data.RCM",
+          "bitoffs": "44",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Temperature set point validity",
+          "shortcut": "data.SPV",
+          "bitoffs": "46",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Temperature validity",
+          "shortcut": "data.TPV",
+          "bitoffs": "38",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Temperature set point 0...40°C",
+          "shortcut": "data.TSP",
+          "bitoffs": "48",
+          "bitsize": "8",
+          "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]},
+          "value_out": {"+":[{"/":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]},
+          "decimals": 1
+        },
+        {
+          "data": "Temperature 0...40°C",
+          "shortcut": "data.TMP",
+          "bitoffs": "56",
+          "bitsize": "8",
+          "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]},
+          "value_out": {"+":[{"/":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]},
+          "decimals": 1
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 2
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "Message identifier",
+          "bitoffs": "0",
+          "bitsize": "3",
+          "value": 2
+        },
+        {
+          "data": "Message continuation flag",
+          "shortcut": "communication.MCF",
+          "bitoffs": "6",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Temperature scale lock",
+          "shortcut": "config.TSL",
+          "bitoffs": "9",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Display content lock",
+          "shortcut": "config.DCL",
+          "bitoffs": "10",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Date / Time lock",
+          "shortcut": "config.DTL",
+          "bitoffs": "11",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Time program lock",
+          "shortcut": "config.TPL",
+          "bitoffs": "12",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Occupancy button lock",
+          "shortcut": "config.OBL",
+          "bitoffs": "13",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Temperature set point lock",
+          "shortcut": "config.SPL",
+          "bitoffs": "14",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Radio communication interval",
+          "shortcut": "config.RCI",
+          "bitoffs": "16",
+          "bitsize": "6",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Key lock",
+          "shortcut": "config.KL",
+          "bitoffs": "22",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Display content",
+          "shortcut": "config.DC",
+          "bitoffs": "24",
+          "bitsize": "3",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Temperature scale",
+          "shortcut": "config.TS",
+          "bitoffs": "27",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Daylight saving time flag",
+          "shortcut": "config.DST",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Time notation",
+          "shortcut": "config.TN",
+          "bitoffs": "30",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Day",
+          "shortcut": "config.DAY",
+          "bitoffs": "32",
+          "bitsize": "5",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Month",
+          "shortcut": "config.MON",
+          "bitoffs": "37",
+          "bitsize": "4",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Year",
+          "shortcut": "config.YR",
+          "bitoffs": "41",
+          "bitsize": "7",
+          "value": {"+": [{"var": "value"}, 2000]}
+        },
+        {
+          "data": "Minute",
+          "shortcut": "config.MIN",
+          "bitoffs": "48",
+          "bitsize": "6",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Hour",
+          "shortcut": "config.HR",
+          "bitoffs": "56",
+          "bitsize": "5",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Date / Time update flag",
+          "shortcut": "config.DTU",
+          "bitoffs": "63",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 3
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "Message identifier",
+          "bitoffs": "0",
+          "bitsize": "3",
+          "value": 3
+        },
+        {
+          "data": "Message continuation flag",
+          "shortcut": "communication.MCF",
+          "bitoffs": "6",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Temperature set point building protection mode",
+          "shortcut": "room_control_setup.SPB",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]},
+          "value_out": {"+":[{"/":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]},
+          "decimals": 1
+        },
+        {
+          "data": "Temperature set point economy mode",
+          "shortcut": "room_control_setup.SPE",
+          "bitoffs": "24",
+          "bitsize": "8",
+          "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]},
+          "value_out": {"+":[{"/":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]},
+          "decimals": 1
+        },
+        {
+          "data": "Temperature set point comfort mode",
+          "shortcut": "room_control_setup.SPC",
+          "bitoffs": "32",
+          "bitsize": "8",
+          "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]},
+          "value_out": {"+":[{"/":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]},
+          "decimals": 1
+        },
+        {
+          "data": "Temperature set point flag building protection mode",
+          "shortcut": "room_control_setup.SFB",
+          "bitoffs": "44",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Temperature set point flag economy mode",
+          "shortcut": "room_control_setup.SFE",
+          "bitoffs": "46",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Temperature set point flag comfort mode",
+          "shortcut": "room_control_setup.SFC",
+          "bitoffs": "47",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 4
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "Message identifier",
+          "bitoffs": "0",
+          "bitsize": "3",
+          "value": 4
+        },
+        {
+          "data": "Message continuation flag",
+          "shortcut": "communication.MCF",
+          "bitoffs": "6",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "End time: Minute",
+          "shortcut": "time_program_setup.ETM",
+          "bitoffs": "10",
+          "bitsize": "6",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "End time: Hour",
+          "shortcut": "time_program_setup.ETH",
+          "bitoffs": "19",
+          "bitsize": "5",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Start time: Minute",
+          "shortcut": "time_program_setup.STM",
+          "bitoffs": "26",
+          "bitsize": "6",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Start time: Hour",
+          "shortcut": "time_program_setup.STH",
+          "bitoffs": "35",
+          "bitsize": "5",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Period",
+          "shortcut": "time_program_setup.PER",
+          "bitoffs": "40",
+          "bitsize": "4",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Room control mode",
+          "shortcut": "time_program_setup.RCM",
+          "bitoffs": "44",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Time program deletion",
+          "shortcut": "time_program_setup.TPD",
+          "bitoffs": "47",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [
+        {
+          "bitoffs": "0",
+          "bitsize": "3",
+          "value": 0
+        }
+      ],
+      "datafield": [
+        {
+          "data": "Message identifier",
+          "shortcut": "communication.MID",
+          "bitoffs": "0",
+          "bitsize": "3",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Message continuation flag",
+          "shortcut": "communication.MCF",
+          "bitoffs": "6",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Information request classifier",
+          "shortcut": "communication.IRC",
+          "bitoffs": "10",
+          "bitsize": "3",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Feedback classifier",
+          "shortcut": "communication.FBC",
+          "bitoffs": "13",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "General message type",
+          "shortcut": "communication.GMT",
+          "bitoffs": "15",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [
+        {
+          "bitoffs": "0",
+          "bitsize": "3",
+          "value": 1
+        }
+      ],
+      "datafield": [
+        {
+          "data": "Message identifier",
+          "shortcut": "communication.MID",
+          "bitoffs": "0",
+          "bitsize": "3",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Message continuation flag",
+          "shortcut": "communication.MCF",
+          "bitoffs": "6",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Custom warning 1",
+          "shortcut": "data.CW1",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": {
+            "==": [{"var": "value"}, 1]
+          }
+        },
+        {
+          "data": "Custom warning 2",
+          "shortcut": "data.CW2",
+          "bitoffs": "27",
+          "bitsize": "1",
+          "value": {
+            "==": [{"var": "value"}, 1]
+          }
+        },
+        {
+          "data": "Window open detection",
+          "shortcut": "data.WOD",
+          "bitoffs": "30",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Battey status",
+          "shortcut": "data.BS",
+          "bitoffs": "33",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Occupancy button status",
+          "shortcut": "data.OBS",
+          "bitoffs": "38",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Room control mode",
+          "shortcut": "data.RCM",
+          "bitoffs": "44",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Temperature set point validity",
+          "shortcut": "data.SPV",
+          "bitoffs": "46",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Temperature validity",
+          "shortcut": "data.TPV",
+          "bitoffs": "38",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Temperature set point 0...40°C",
+          "shortcut": "data.TSP",
+          "bitoffs": "48",
+          "bitsize": "8",
+          "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]},
+          "decimals": 1
+        },
+        {
+          "data": "Temperature 0...40°C",
+          "shortcut": "data.TMP",
+          "bitoffs": "56",
+          "bitsize": "8",
+          "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]},
+          "decimals": 1
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "0",
+            "bitsize": "3",
+            "value": 2
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Message identifier",
+          "shortcut": "communication.MID",
+          "bitoffs": "0",
+          "bitsize": "3",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Message continuation flag",
+          "shortcut": "communication.MCF",
+          "bitoffs": "6",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Temperature scale lock",
+          "shortcut": "config.TSL",
+          "bitoffs": "9",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Display content lock",
+          "shortcut": "config.DCL",
+          "bitoffs": "10",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Date / Time lock",
+          "shortcut": "config.DTL",
+          "bitoffs": "11",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Time program lock",
+          "shortcut": "config.TPL",
+          "bitoffs": "12",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Occupancy button lock",
+          "shortcut": "config.OBL",
+          "bitoffs": "13",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Temperature set point lock",
+          "shortcut": "config.SPL",
+          "bitoffs": "14",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Radio communication interval",
+          "shortcut": "config.RCI",
+          "bitoffs": "16",
+          "bitsize": "6",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Key lock",
+          "shortcut": "config.KL",
+          "bitoffs": "22",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Display content",
+          "shortcut": "config.DC",
+          "bitoffs": "24",
+          "bitsize": "3",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Temperature scale",
+          "shortcut": "config.TS",
+          "bitoffs": "27",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Daylight saving time flag",
+          "shortcut": "config.DST",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Time notation",
+          "shortcut": "config.TN",
+          "bitoffs": "30",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Day",
+          "shortcut": "config.DAY",
+          "bitoffs": "32",
+          "bitsize": "5",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Month",
+          "shortcut": "config.MON",
+          "bitoffs": "37",
+          "bitsize": "4",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Year",
+          "shortcut": "config.YR",
+          "bitoffs": "41",
+          "bitsize": "7",
+          "value": {"+": [{"var": "value"}, 2000]}
+        },
+        {
+          "data": "Minute",
+          "shortcut": "config.MIN",
+          "bitoffs": "48",
+          "bitsize": "6",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Hour",
+          "shortcut": "config.HR",
+          "bitoffs": "56",
+          "bitsize": "5",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Date / Time update flag",
+          "shortcut": "config.DTU",
+          "bitoffs": "63",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [
+        {
+          "bitoffs": "0",
+          "bitsize": "3",
+          "value": 3
+        }
+      ],
+      "datafield": [
+        {
+          "data": "Message identifier",
+          "shortcut": "communication.MID",
+          "bitoffs": "0",
+          "bitsize": "3",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Message continuation flag",
+          "shortcut": "communication.MCF",
+          "bitoffs": "6",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Temperature set point building protection mode",
+          "shortcut": "room_control_setup.SPB",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]},
+          "decimals": 1
+        },
+        {
+          "data": "Temperature set point economy mode",
+          "shortcut": "room_control_setup.SPE",
+          "bitoffs": "24",
+          "bitsize": "8",
+          "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]},
+          "decimals": 1
+        },
+        {
+          "data": "Temperature set point comfort mode",
+          "shortcut": "room_control_setup.SPC",
+          "bitoffs": "32",
+          "bitsize": "8",
+          "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]},
+          "decimals": 1
+        },
+        {
+          "data": "Temperature set point flag building protection mode",
+          "shortcut": "room_control_setup.SFB",
+          "bitoffs": "44",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Temperature set point flag economy mode",
+          "shortcut": "room_control_setup.SFE",
+          "bitoffs": "46",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Temperature set point flag comfort mode",
+          "shortcut": "room_control_setup.SFC",
+          "bitoffs": "47",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [
+        {
+          "bitoffs": "0",
+          "bitsize": "3",
+          "value": 4
+        }
+      ],
+      "datafield": [
+        {
+          "data": "Message identifier",
+          "shortcut": "communication.MID",
+          "bitoffs": "0",
+          "bitsize": "3",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Message continuation flag",
+          "shortcut": "communication.MCF",
+          "bitoffs": "6",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "End time: Minute",
+          "shortcut": "time_program_setup.ETM",
+          "bitoffs": "10",
+          "bitsize": "6",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "End time: Hour",
+          "shortcut": "time_program_setup.ETH",
+          "bitoffs": "19",
+          "bitsize": "5",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Start time: Minute",
+          "shortcut": "time_program_setup.STM",
+          "bitoffs": "26",
+          "bitsize": "6",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Start time: Hour",
+          "shortcut": "time_program_setup.STH",
+          "bitoffs": "35",
+          "bitsize": "5",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Period",
+          "shortcut": "time_program_setup.PER",
+          "bitoffs": "40",
+          "bitsize": "4",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Room control mode",
+          "shortcut": "time_program_setup.RCM",
+          "bitoffs": "44",
+          "bitsize": "2",
+          "value": {"var": "value"}
+        },
+        {
+          "data": "Time program deletion",
+          "shortcut": "time_program_setup.TPD",
+          "bitoffs": "47",
+          "bitsize": "1",
+          "value": {"var": "value"}
+        }
+      ]
+    }
+  ]
+}
