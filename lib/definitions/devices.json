@@ -3193,6 +3193,24 @@
           "2": "Anlernmodus am MD15-FTL-OV starten. Für weitere informationen bitte die Anleitung des MD15-FTL-OV lesen."
         }
       }
+    },
+    "RBW322-FTL": {
+      "EEP": [
+        "D2-10-01"
+      ],
+      "autocreate": true,
+      "teachin_method": "UTE",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your RBW322-FTL. For more information please read the manual of RBW322-FTL."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am RBW322-FTL starten. Für weitere informationen bitte die Anleitung des RBW322-FTL lesen."
+        }
+      }
     }
   },
   "MACO": {
