@@ -1251,7 +1251,7 @@
           "shortcut": "config.YR",
           "bitoffs": "41",
           "bitsize": "7",
-          "value": {"+": [{"var": "value"}, 2000]}
+          "value_out": {"-": [{"var": "value"}, 2000]}
         },
         {
           "data": "Minute",
@@ -1576,15 +1576,12 @@
     },
     {
       "send": false,
-      "condition": {
-        "command": [
+      "condition":
           {
             "bitoffs": "0",
             "bitsize": "3",
             "value": 2
-          }
-        ]
-      },
+          },
       "datafield": [
         {
           "data": "Message identifier",

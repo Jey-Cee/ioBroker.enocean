@@ -258,7 +258,6 @@ class Enocean extends utils.Adapter {
 								}
 							}
 						}
-
 						if(send === false || !data){
 							break;
 						}
@@ -310,6 +309,7 @@ class Enocean extends utils.Adapter {
 								data = type.concat(data, baseID, 0x00);
 								break;
 						}
+
 						this.queue.push({'data': data, 'optionaldata': optionalData, 'packettype': 0x01});
 						//await this.sendData(data, optionalData, 0x01);
 
