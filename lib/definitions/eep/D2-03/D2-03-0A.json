@@ -10,7 +10,10 @@
     "BATT": {
       "type": "state",
       "common": {
-        "name": "Battery level",
+        "name": {
+          "en": "Battery level",
+          "de": "Batteriestand"
+        },
         "role": "value.battery",
         "type": "number",
         "read": true,
@@ -25,12 +28,20 @@
     "BA": {
       "type": "state",
       "common": {
-        "name": "Button Action",
+        "name": {
+          "en": "Button Action",
+          "de": "Tastenaktion"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": false,
-        "states": {"1": "Simple press","2": "Double press","3": "Long press","4": "Long press released"},
+        "states": {
+          "1": "Simple press",
+          "2": "Double press",
+          "3": "Long press",
+          "4": "Long press released"
+        },
         "def": 0
       },
       "native": {}
@@ -45,14 +56,18 @@
           "shortcut": "BATT",
           "bitoffs": "0",
           "bitsize": "8",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Button Action",
           "shortcut": "BA",
           "bitoffs": "8",
           "bitsize": "8",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     }

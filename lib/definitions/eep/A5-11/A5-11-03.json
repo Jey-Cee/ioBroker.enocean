@@ -1,213 +1,304 @@
 {
-    "eep": "A5-11-03",
-    "rorg_number": "0xA5",
-    "telegram": "4BS",
-    "func_number": "0x11",
-    "type_number": "0x03",
-    "type_title": "Blind status",
-    "bidirectional": false,
-    "objects": {
-        "preDefined": ["POS"],
-        "AS": {
-            "type": "state",
-            "common": {
-                "name": "Angle sign",
-                "role": "value",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "states": {
-                    "0":"Positive", "1":"Negative"
-                },
-                "def": 0
-            },
-            "native": {}
+  "eep": "A5-11-03",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x11",
+  "type_number": "0x03",
+  "type_title": "Blind status",
+  "bidirectional": false,
+  "objects": {
+    "preDefined": [
+      "POS"
+    ],
+    "AS": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Angle sign",
+          "de": "Vorzeichen Winkel"
+
         },
-        "AN": {
-            "type": "state",
-            "common": {
-                "name": "Angle",
-                "role": "value",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "unit": "°"
-            },
-            "native": {}
+        "role": "value",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Positive",
+          "1": "Negative"
         },
-        "PVF": {
-            "type": "state",
-            "common": {
-                "name": "Position value available",
-                "role": "value",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "AVF": {
-            "type": "state",
-            "common": {
-                "name": "Angle value available",
-                "role": "value",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "ES": {
-            "type": "state",
-            "common": {
-                "name": "Error state",
-                "role": "value",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "states": {
-                    "0":"No Error", "1":"End positions are not configured", "2":"Internal failure", "3":"Not used"
-                },
-                "def": 0
-            },
-            "native": {}
-        },
-        "EP": {
-            "type": "state",
-            "common": {
-                "name": "End-position",
-                "role": "value",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "states": {
-                    "0":"No End-position available", "1":"No End-position reached", "2":"Blind fully open", "3":"Blind fully closed"
-                },
-                "def": 0
-            },
-            "native": {}
-        },
-        "ST": {
-            "type": "state",
-            "common": {
-                "name": "Status",
-                "role": "value",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "states": {
-                    "0":"No Status available", "1":"Blind is stopped", "2":"Blind opens", "3":"Blind closes"
-                },
-                "def": 0
-            },
-            "native": {}
-        },
-        "SM": {
-            "type": "state",
-            "common": {
-                "name": "Service mode active",
-                "role": "value",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "MOTP": {
-            "type": "state",
-            "common": {
-                "name": "Mode of the position",
-                "role": "value",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "states": {
-                    "0":"Normal mode: 0% fully open", "1":"Inverse mode: 0% fully closed"
-                },
-                "def": 0
-            },
-            "native": {}
-        }
+        "def": 0
+      },
+      "native": {}
     },
-    "case": [
-        {
-        "send": false,
-        "datafield": [
-            {
-                "data": "Position",
-                "shortcut": "POS",
-                "bitoffs": "0",
-                "bitsize": "8",
-                "value": {"var": "value"}
-            },
-            {
-                "data": "Angle sign",
-                "shortcut": "AS",
-                "bitoffs": "8",
-                "bitsize": "1",
-                "value": {"var": "value"}
-            },
-            {
-                "data": "Angle",
-                "shortcut": "AN",
-                "bitoffs": "9",
-                "bitsize": "7",
-                "value": {"+":[{"*":[{"-":[{"var":"value"},0]},2]},0]}
-            },
-            {
-                "data": "Position value available",
-                "shortcut": "PVF",
-                "bitoffs": "16",
-                "bitsize": "1",
-                "value": {"==": [{"var": "value"}, 1]}
-            },
-            {
-                "data": "Angle value available",
-                "shortcut": "AVF",
-                "bitoffs": "17",
-                "bitsize": "1",
-                "value": {"==": [{"var": "value"}, 1]}
-            },
-            {
-                "data": "Error state",
-                "shortcut": "ES",
-                "bitoffs": "18",
-                "bitsize": "2",
-                "value": {"var": "value"}
-            },
-            {
-                "data": "End-position",
-                "shortcut": "EP",
-                "bitoffs": "20",
-                "bitsize": "2",
-                "value": {"var": "value"}
-            },
-            {
-                "data": "Status",
-                "shortcut": "ST",
-                "bitoffs": "22",
-                "bitsize": "2",
-                "value": {"var": "value"}
-            },
-            {
-                "data": "Service mode active",
-                "shortcut": "SM",
-                "bitoffs": "24",
-                "bitsize": "1",
-                "value": {"==": [{"var": "value"}, 1]}
-            },
-            {
-                "data": "Mode of the position",
-                "shortcut": "MOTP",
-                "bitoffs": "25",
-                "bitsize": "1",
-                "value": {"var": "value"}
-            }
-        ]
+    "AN": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Angle",
+          "de": "Winkel"
+        },
+        "role": "value",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "unit": "°"
+      },
+      "native": {}
+    },
+    "PVF": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Position value available",
+          "de": "Positionswert verfügbar"
+        },
+        "role": "value",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "AVF": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Angle value available",
+          "de": "Winkelwert verfügbar"
+        },
+        "role": "value",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "ES": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Error state",
+          "de": "Fehlerzustand"
+        },
+        "role": "value",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "No Error",
+          "1": "End positions are not configured",
+          "2": "Internal failure",
+          "3": "Not used"
+        },
+        "def": 0
+      },
+      "native": {}
+    },
+    "EP": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "End-position",
+          "de": "Endposition"
+        },
+        "role": "value",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "No End-position available",
+          "1": "No End-position reached",
+          "2": "Blind fully open",
+          "3": "Blind fully closed"
+        },
+        "def": 0
+      },
+      "native": {}
+    },
+    "ST": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Status",
+          "de": "Status"
+        },
+        "role": "value",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "No Status available",
+          "1": "Blind is stopped",
+          "2": "Blind opens",
+          "3": "Blind closes"
+        },
+        "def": 0
+      },
+      "native": {}
+    },
+    "SM": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Service mode active",
+          "de": "Service-Modus aktiv"
+        },
+        "role": "value",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "MOTP": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Mode of the position",
+          "de": "Positionswertmodus"
+        },
+        "role": "value",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Normal mode: 0% fully open",
+          "1": "Inverse mode: 0% fully closed"
+        },
+        "def": 0
+      },
+      "native": {}
     }
-    ]
+  },
+  "case": [
+    {
+      "send": false,
+      "datafield": [
+        {
+          "data": "Position",
+          "shortcut": "POS",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Angle sign",
+          "shortcut": "AS",
+          "bitoffs": "8",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Angle",
+          "shortcut": "AN",
+          "bitoffs": "9",
+          "bitsize": "7",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  2
+                ]
+              },
+              0
+            ]
+          }
+        },
+        {
+          "data": "Position value available",
+          "shortcut": "PVF",
+          "bitoffs": "16",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
+        },
+        {
+          "data": "Angle value available",
+          "shortcut": "AVF",
+          "bitoffs": "17",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
+        },
+        {
+          "data": "Error state",
+          "shortcut": "ES",
+          "bitoffs": "18",
+          "bitsize": "2",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "End-position",
+          "shortcut": "EP",
+          "bitoffs": "20",
+          "bitsize": "2",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Status",
+          "shortcut": "ST",
+          "bitoffs": "22",
+          "bitsize": "2",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Service mode active",
+          "shortcut": "SM",
+          "bitoffs": "24",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
+        },
+        {
+          "data": "Mode of the position",
+          "shortcut": "MOTP",
+          "bitoffs": "25",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    }
+  ]
 }

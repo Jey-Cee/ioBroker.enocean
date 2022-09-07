@@ -1,37 +1,47 @@
 {
-    "eep": "TF-14-02",
-    "rorg_number": "0xF6",
-    "telegram": "RPS",
-    "func_number": "0x00",
-    "type_number": "0x00",
-    "type_title": "Relais contact",
-    "bidirectional": false,
-    "objects": {
-        "RO": {
-            "type": "state",
-            "common": {
-                "name": "Relais on",
-                "role": "switch",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def":  false
-            },
-            "native": {}
-        }
-    },
-    "case": [
+  "eep": "TF-14-02",
+  "rorg_number": "0xF6",
+  "telegram": "RPS",
+  "func_number": "0x00",
+  "type_number": "0x00",
+  "type_title": "Relais contact",
+  "bidirectional": false,
+  "objects": {
+    "RO": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Relais on",
+          "de": "Relais an"
+        },
+        "role": "switch",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "datafield": [
         {
-            "send": false,
-            "datafield": [
-                {
-                    "data": "Relais on",
-                    "shortcut": "RO",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"===": [ { "var": "value" }, 112 ]}
-                }
+          "data": "Relais on",
+          "shortcut": "RO",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "===": [
+              {
+                "var": "value"
+              },
+              112
             ]
+          }
         }
-    ]
+      ]
+    }
+  ]
 }

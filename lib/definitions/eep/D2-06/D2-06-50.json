@@ -10,12 +10,18 @@
     "BA": {
       "type": "state",
       "common": {
-        "name": "Burglary Alarm",
+        "name": {
+          "en": "Burglary Alarm",
+          "de": "Einbruchalarm"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": false,
-        "states": {"0": "Not Triggered", "1": "Alarm Triggered"},
+        "states": {
+          "0": "Not Triggered",
+          "1": "Alarm Triggered"
+        },
         "def": 0
       },
       "native": {}
@@ -23,12 +29,18 @@
     "AM": {
       "type": "state",
       "common": {
-        "name": "Alive Message",
+        "name": {
+          "en": "Alive Message",
+          "de": "Alive Nachricht"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": false,
-        "states": {"0": "Standard status message","1": "Message because of alive cycle"},
+        "states": {
+          "0": "Standard status message",
+          "1": "Message because of alive cycle"
+        },
         "def": 0
       },
       "native": {}
@@ -36,12 +48,26 @@
     "WDS": {
       "type": "state",
       "common": {
-        "name": "Current status of Sash/Window",
+        "name": {
+          "en": "Current status of Sash/Window",
+          "de": "Aktueller Status des Fensters"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "None","1": "Closed/Closed", "2":  "Closed/Open", "3": "Closed/Tilted", "4":  "Open/Closed", "5":  "Open/Open", "6":  "Open/Tilted", "7":  "Tilted/Closed", "8":  "Tilted/Open", "9": "Tilted/Tilted"},
+        "states": {
+          "0": "None",
+          "1": "Closed/Closed",
+          "2": "Closed/Open",
+          "3": "Closed/Tilted",
+          "4": "Open/Closed",
+          "5": "Open/Open",
+          "6": "Open/Tilted",
+          "7": "Tilted/Closed",
+          "8": "Tilted/Open",
+          "9": "Tilted/Tilted"
+        },
         "def": 0
       },
       "native": {}
@@ -49,7 +75,10 @@
     "CT": {
       "type": "state",
       "common": {
-        "name": "Counter",
+        "name": {
+          "en": "Counter",
+          "de": "Zähler"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -61,20 +90,29 @@
     "CB": {
       "type": "state",
       "common": {
-        "name": "Change Battery",
+        "name": {
+          "en": "Change Battery",
+          "de": "Batteriewechsel"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": false,
         "def": 0,
-        "states": {"0":  "Battery OK", "1":  "Change battery"}
+        "states": {
+          "0": "Battery OK",
+          "1": "Change battery"
+        }
       },
       "native": {}
     },
     "BS": {
       "type": "state",
       "common": {
-        "name": "Battery State",
+        "name": {
+          "en": "Battery State",
+          "de": "Batteriestatus"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -87,78 +125,128 @@
     "MOE": {
       "type": "state",
       "common": {
-        "name": "Motion Sensor Error",
+        "name": {
+          "en": "Motion Sensor Error",
+          "de": "Fehler Bewegungsmelder"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": false,
         "def": 0,
-        "states": {"0":  "OK", "1":  "Error", "2":  "Not Supported"}
+        "states": {
+          "0": "OK",
+          "1": "Error",
+          "2": "Not Supported"
+        }
       },
       "native": {}
     },
     "ACE": {
       "type": "state",
       "common": {
-        "name": "Accleration Sensor Error",
+        "name": {
+          "en": "Accleration Sensor Error",
+          "de": "Fehler Beschleunigungssensor"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": false,
         "def": 0,
-        "states": {"0":  "OK", "1":  "Error", "2":  "Not Supported"}
+        "states": {
+          "0": "OK",
+          "1": "Error",
+          "2": "Not Supported"
+        }
       },
       "native": {}
     },
     "MAE": {
       "type": "state",
       "common": {
-        "name": "Magnetic Sensor Error",
+        "name": {
+          "en": "Magnetic Sensor Error",
+          "de": "Fehler Magnetkontakt"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": false,
         "def": 0,
-        "states": {"0":  "OK", "1":  "Error", "2":  "Not Supported"}
+        "states": {
+          "0": "OK",
+          "1": "Error",
+          "2": "Not Supported"
+        }
       },
       "native": {}
     },
     "SE": {
       "type": "state",
       "common": {
-        "name": "System Error",
+        "name": {
+          "en": "System Error",
+          "de": "Systemfehler"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": false,
         "def": 0,
-        "states": {"0":  "OK", "1":  "Error", "2":  "Not Supported"}
+        "states": {
+          "0": "OK",
+          "1": "Error",
+          "2": "Not Supported"
+        }
       },
       "native": {}
     },
     "CS": {
       "type": "state",
       "common": {
-        "name": "Calibration Status",
+        "name": {
+          "en": "Calibration Status",
+          "de": "Kalibrierungsstatus"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": false,
         "def": 0,
-        "states": {"0":  "OK", "1":  "Error", "2":  "Invalid"}
+        "states": {
+          "0": "OK",
+          "1": "Error",
+          "2": "Invalid"
+        }
       },
       "native": {}
     },
     "CAL": {
       "type": "state",
       "common": {
-        "name": "Calibration Step (Sash/Window)",
+        "name": {
+          "en": "Calibration Step (Sash/Window)",
+          "de": "Kalibrierungsschritt (Fensterflügel/Fenster)"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": false,
         "def": 0,
-        "states": {"0":  "No next step/None", "1":  "Closed/Closed", "2":  "Closed/Open", "3":  "Closed/Tilted", "4": "Open/Closed", "5":  "Open/Open", "6":  "Open/Tilted", "7": "Tilted/Closed", "8":  "Tilted/Open", "9": "Tilted/Tilted", "10":  "Frame Magnet Validation"}
+        "states": {
+          "0": "No next step/None",
+          "1": "Closed/Closed",
+          "2": "Closed/Open",
+          "3": "Closed/Tilted",
+          "4": "Open/Closed",
+          "5": "Open/Open",
+          "6": "Open/Tilted",
+          "7": "Tilted/Closed",
+          "8": "Tilted/Open",
+          "9": "Tilted/Tilted",
+          "10": "Frame Magnet Validation"
+        }
       },
       "native": {}
     }
@@ -166,74 +254,94 @@
   "case": [
     {
       "send": false,
-      "condition": [{
-        "bitoffs": "0",
-        "bitsize": "8",
-        "value": 1
-      }],
+      "condition": [
+        {
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 1
+        }
+      ],
       "datafield": [
         {
           "data": "Alive Message",
           "shortcut": "AM",
           "bitoffs": "8",
           "bitsize": "1",
-          "value": {"var":"value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Window Status Event",
           "shortcut": "WDS",
           "bitoffs": "9",
           "bitsize": "7",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Counter",
           "shortcut": "CT",
           "bitoffs": "16",
           "bitsize": "32",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Change Battery",
           "shortcut": "CB",
           "bitoffs": "48",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Battery State",
           "shortcut": "BS",
           "bitoffs": "49",
           "bitsize": "7",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Motion Sensor Error",
           "shortcut": "MOE",
           "bitoffs": "56",
           "bitsize": "2",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Accleration Sensor Error",
           "shortcut": "ACE",
           "bitoffs": "58",
           "bitsize": "2",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Magnetic Sensor Error",
           "shortcut": "MAE",
           "bitoffs": "60",
           "bitsize": "2",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "System Error",
           "shortcut": "SE",
           "bitoffs": "62",
           "bitsize": "2",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     },
@@ -244,38 +352,47 @@
           "bitoffs": "0",
           "bitsize": "8",
           "value": 2
-        }],
+        }
+      ],
       "datafield": [
         {
           "data": "Burglary Alarm",
           "shortcut": "BA",
           "bitoffs": "12",
           "bitsize": "4",
-          "value": {"var":"value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     },
     {
       "send": false,
-      "condition": [{
-        "bitoffs": "0",
-        "bitsize": "8",
-        "value": 17
-      }],
+      "condition": [
+        {
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 17
+        }
+      ],
       "datafield": [
         {
           "data": "Calibration Status",
           "shortcut": "CS",
           "bitoffs": "8",
           "bitsize": "2",
-          "value": {"var":"value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Calibration Step",
           "shortcut": "CAL",
           "bitoffs": "10",
           "bitsize": "6",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     }

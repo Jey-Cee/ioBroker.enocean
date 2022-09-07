@@ -1,94 +1,134 @@
 {
-    "eep": "TF-13-04",
-    "rorg_number": "0xF6",
-    "telegram": "RPS",
-    "func_number": "0x00",
-    "type_number": "0x00",
-    "type_title": "Rollershutter state",
-    "bidirectional": false,
-    "objects": {
-        "TOP": {
-            "type": "state",
-            "common": {
-                "name": "Top end position",
-                "role": "switch",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
+  "eep": "TF-13-04",
+  "rorg_number": "0xF6",
+  "telegram": "RPS",
+  "func_number": "0x00",
+  "type_number": "0x00",
+  "type_title": "Rollershutter state",
+  "bidirectional": false,
+  "objects": {
+    "TOP": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Top end position",
+          "de": "Obere Endposition"
         },
-        "BOT": {
-            "type": "state",
-            "common": {
-                "name": "Bottom end position",
-                "role": "switch",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "UP": {
-            "type": "state",
-            "common": {
-                "name": "Move up",
-                "role": "switch",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "DO": {
-            "type": "state",
-            "common": {
-                "name": "Move down",
-                "role": "switch",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        }
+        "role": "switch",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
     },
-    "case": [
+    "BOT": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Bottom end position",
+          "de": "Untere Endposition"
+        },
+        "role": "switch",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "UP": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Move up",
+          "de": "Hochfahren"
+        },
+        "role": "switch",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "DO": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Move down",
+          "de": "Runterfahren"
+        },
+        "role": "switch",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "datafield": [
         {
-            "send": false,
-            "datafield": [
-                {
-                    "data": "Top end position",
-                    "shortcut": "TOP",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"==": [ { "var": "value" }, 112 ]}
-                },
-                {
-                    "data": "Bottom end position",
-                    "shortcut": "BOT",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"==": [ { "var": "value" }, 80 ]}
-                },
-                {
-                    "data": "Move up",
-                    "shortcut": "UP",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"==": [ { "var": "value" }, 1 ]}
-                },
-                {
-                    "data": "Move down",
-                    "shortcut": "DO",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"==": [ { "var": "value" }, 2 ]}
-                }
+          "data": "Top end position",
+          "shortcut": "TOP",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              112
             ]
+          }
+        },
+        {
+          "data": "Bottom end position",
+          "shortcut": "BOT",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              80
+            ]
+          }
+        },
+        {
+          "data": "Move up",
+          "shortcut": "UP",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
+        },
+        {
+          "data": "Move down",
+          "shortcut": "DO",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              2
+            ]
+          }
         }
-    ]
+      ]
+    }
+  ]
 }

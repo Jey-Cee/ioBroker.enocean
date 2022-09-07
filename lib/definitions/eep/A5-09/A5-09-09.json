@@ -7,17 +7,23 @@
   "type_title": "Gas Sensor Pure CO2-Sensor with Power Failure Detection",
   "bidirectional": false,
   "objects": {
-    "preDefined": ["CO2"],
+    "preDefined": [
+      "CO2"
+    ],
     "PFD": {
       "type": "state",
       "common": {
-        "name": "Power Failure detection",
+        "name": {
+          "en": "Power Failure detection",
+          "de": "Stromausfallerkennung"
+        },
         "role": "indicator",
         "type": "number",
         "read": true,
         "write": false,
         "states": {
-          "0": "Power OK", "1": "Power Failure"
+          "0": "Power OK",
+          "1": "Power Failure"
         },
         "def": 0
       },
@@ -27,21 +33,41 @@
   "case": [
     {
       "send": false,
-    "datafield": [
-      {
-        "data": "Gas CO2 measurement",
-        "shortcut": "CO2",
-        "bitoffs": "16",
-        "bitsize": "8",
-        "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 7.8431 ] }, 0]}
-      },
-      {
-        "data": "Power Failure detection",
-        "shortcut": "PFD",
-        "bitoffs": "29",
-        "bitsize": "1",
-        "value": {"var": "value"}
-      }
-    ]
-  }]
+      "datafield": [
+        {
+          "data": "Gas CO2 measurement",
+          "shortcut": "CO2",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  7.8431
+                ]
+              },
+              0
+            ]
+          }
+        },
+        {
+          "data": "Power Failure detection",
+          "shortcut": "PFD",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    }
+  ]
 }

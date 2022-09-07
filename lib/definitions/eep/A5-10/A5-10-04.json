@@ -1,63 +1,140 @@
 {
-    "eep": "A5-10-04",
-    "rorg_number": "0xA5",
-    "telegram": "4BS",
-    "func_number": "0x10",
-    "type_number": "0x04",
-    "type_title": "Room Operating Panel Temperature, Set point, Fan Speed control",
-    "bidirectional": false,
-    "objects": {
-        "preDefined": ["TMP", "SP", "FAN"],
-        "FAN": {
-            "type": "state",
-            "common": {
-                "name": "Turn-switch for fan speed",
-                "role": "value.temperature",
-                "type": "number",
-                "unit": "°C",
-                "read": true,
-                "write": false,
-                "states": {
-                    "0": "OFF", "1":"Stage 1", "2":"Stage 2", "3":"Stage 3", "4":"Stage Auto"
-                },
-                "def": 0
-            },
-            "native": {}
-        }
-    },
-    "case": [{
-        "send": false,
-        "datafield": [
-            {
-                "data": "Turn-switch for fan speed",
-                "shortcut": "FAN",
-                "bitoffs": "0",
-                "bitsize": "8",
-                "value": {
-                    "if": [
-                        {"<=":[210, {"var": "value"}, 255]}, 4,
-                        {"<=":[190, {"var": "value"}, 209]}, 0,
-                        {"<=":[165, {"var": "value"}, 189]}, 1,
-                        {"<=":[145, {"var": "value"}, 164]}, 2,
-                        {"<=":[0, {"var": "value"}, 144]}, 3
+  "eep": "A5-10-04",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x10",
+  "type_number": "0x04",
+  "type_title": "Room Operating Panel Temperature, Set point, Fan Speed control",
+  "bidirectional": false,
+  "objects": {
+    "preDefined": [
+      "TMP",
+      "SP",
+      "FAN"
+    ],
+    "FAN": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Turn-switch for fan speed",
+          "de": "Dreh-Schalter für Lüftergeschwindigkeit"
+        },
+        "role": "value.temperature",
+        "type": "number",
+        "unit": "°C",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "OFF",
+          "1": "Stage 1",
+          "2": "Stage 2",
+          "3": "Stage 3",
+          "4": "Stage Auto"
+        },
+        "def": 0
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "datafield": [
+        {
+          "data": "Turn-switch for fan speed",
+          "shortcut": "FAN",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "if": [
+              {
+                "<=": [
+                  210,
+                  {
+                    "var": "value"
+                  },
+                  255
+                ]
+              },
+              4,
+              {
+                "<=": [
+                  190,
+                  {
+                    "var": "value"
+                  },
+                  209
+                ]
+              },
+              0,
+              {
+                "<=": [
+                  165,
+                  {
+                    "var": "value"
+                  },
+                  189
+                ]
+              },
+              1,
+              {
+                "<=": [
+                  145,
+                  {
+                    "var": "value"
+                  },
+                  164
+                ]
+              },
+              2,
+              {
+                "<=": [
+                  0,
+                  {
+                    "var": "value"
+                  },
+                  144
+                ]
+              },
+              3
+            ]
+          }
+        },
+        {
+          "data": "Temperature",
+          "shortcut": "TMP",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      255
                     ]
-                }
-            },
-            {
-                "data": "Temperature",
-                "shortcut": "TMP",
-                "bitoffs": "16",
-                "bitsize": "8",
-                "value": {"+":[{"*":[{"-":[{"var":"value"},255]},-0.1568627450980392]},0]},
-                "decimals": 2
-            },
-            {
-                "data": "Set point",
-                "shortcut": "SP",
-                "bitoffs": "8",
-                "bitsize": "8",
-                "value": {"var":  "value"}
-            }
-        ]
-    }]
+                  },
+                  -0.1568627450980392
+                ]
+              },
+              0
+            ]
+          },
+          "decimals": 2
+        },
+        {
+          "data": "Set point",
+          "shortcut": "SP",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    }
+  ]
 }

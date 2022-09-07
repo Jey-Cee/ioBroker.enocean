@@ -10,12 +10,19 @@
     "CMD": {
       "type": "state",
       "common": {
-        "name": "Command",
+        "name": {
+          "en": "Command",
+          "de": "Befehl"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Off","1": "On","2": "Teach-in"},
+        "states": {
+          "0": "Off",
+          "1": "On",
+          "2": "Teach-in"
+        },
         "def": 0
       },
       "native": {}
@@ -23,7 +30,10 @@
     "TIM": {
       "type": "state",
       "common": {
-        "name": "Time",
+        "name": {
+          "en": "Time",
+          "de": "Zeit"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -38,7 +48,10 @@
     "LCK": {
       "type": "state",
       "common": {
-        "name": "Lock",
+        "name": {
+          "en": "Lock",
+          "de": "Sperre"
+        },
         "role": "state",
         "type": "boolean",
         "read": true,
@@ -50,12 +63,18 @@
     "DEL": {
       "type": "state",
       "common": {
-        "name": "Delay or duration",
+        "name": {
+          "en": "Delay or duration",
+          "de": "Verzögerung oder Dauer"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Duration","1": "Delay"},
+        "states": {
+          "0": "Duration",
+          "1": "Delay"
+        },
         "def": 0
       },
       "native": {}
@@ -73,19 +92,53 @@
       },
       "datafield": [
         {
-        "data": "Command ID",
-        "shortcut": "CMD",
-        "bitoffs": "0",
-        "bitsize": "8",
-        "value": 1
-      },
+          "data": "Command ID",
+          "shortcut": "CMD",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 1
+        },
         {
           "data": "Time",
           "shortcut": "TIM",
           "bitoffs": "8",
           "bitsize": "16",
-          "value": {"+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.1 ] }, 0 ]},
-          "value_out": {"/": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0.1 ] }, 0 ]}
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.1
+                ]
+              },
+              0
+            ]
+          },
+          "value_out": {
+            "/": [
+              {
+                "+": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.1
+                ]
+              },
+              0
+            ]
+          }
         },
         {
           "data": "fixed parameter",
@@ -99,16 +152,34 @@
           "shortcut": "LCK",
           "bitoffs": "29",
           "bitsize": "1",
-          "value": {"var": "value"},
-          "value_out": {"===": [{"var": "value"}, 1]}
+          "value": {
+            "var": "value"
+          },
+          "value_out": {
+            "===": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
         },
         {
           "data": "Delay or duration",
           "shortcut": "DEL",
           "bitoffs": "30",
           "bitsize": "1",
-          "value": {"var": "value"},
-          "value_out": {"===": [{"var": "value"}, 1]}
+          "value": {
+            "var": "value"
+          },
+          "value_out": {
+            "===": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
         },
         {
           "data": "fixed parameter",
@@ -141,8 +212,42 @@
           "shortcut": "TIM",
           "bitoffs": "8",
           "bitsize": "16",
-          "value": {"+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.1 ] }, 0 ]},
-          "value_out": {"/": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0.1 ] }, 0 ]}
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.1
+                ]
+              },
+              0
+            ]
+          },
+          "value_out": {
+            "/": [
+              {
+                "+": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.1
+                ]
+              },
+              0
+            ]
+          }
         },
         {
           "data": "fixed parameter",
@@ -156,16 +261,34 @@
           "shortcut": "LCK",
           "bitoffs": "29",
           "bitsize": "1",
-          "value": {"var": "value"},
-          "value_out": {"===": [{"var": "value"}, 1]}
+          "value": {
+            "var": "value"
+          },
+          "value_out": {
+            "===": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
         },
         {
           "data": "Delay or duration",
           "shortcut": "DEL",
           "bitoffs": "30",
           "bitsize": "1",
-          "value": {"var": "value"},
-          "value_out": {"===": [{"var": "value"}, 1]}
+          "value": {
+            "var": "value"
+          },
+          "value_out": {
+            "===": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
         },
         {
           "data": "fixed parameter",

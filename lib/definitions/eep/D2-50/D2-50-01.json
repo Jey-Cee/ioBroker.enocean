@@ -7,11 +7,16 @@
   "type_title": "Heat Recovery Ventilation with pre-heater",
   "bidirectional": true,
   "objects": {
-    "preDefined": ["in"],
+    "preDefined": [
+      "in"
+    ],
     "CMD": {
       "type": "state",
       "common": {
-        "name": "Command",
+        "name": {
+          "en": "Command",
+          "de": "Befehl"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -29,7 +34,10 @@
     "RMT": {
       "type": "state",
       "common": {
-        "name": "Requested Message Type",
+        "name": {
+          "en": "Requested Message Type",
+          "de": "Angeforderte Nachrichtenart"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -45,7 +53,10 @@
     "DOMC": {
       "type": "state",
       "common": {
-        "name": "Direct Operation Mode Control",
+        "name": {
+          "en": "Direct Operation Mode Control",
+          "de": "Direkter Betriebsmodus"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -69,7 +80,10 @@
     "OMC": {
       "type": "state",
       "common": {
-        "name": "Operation mode control",
+        "name": {
+          "en": "Operation mode control",
+          "de": "Betriebsmodus"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -86,7 +100,10 @@
     "COT": {
       "type": "state",
       "common": {
-        "name": "CO2 Threshold (0-100%)",
+        "name": {
+          "en": "CO2 Threshold (0-100%)",
+          "de": "CO2 Schwellwert (0-100%)"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -102,7 +119,10 @@
     "HT": {
       "type": "state",
       "common": {
-        "name": "Humidity Threshold (0-100%)",
+        "name": {
+          "en": "Humidity Threshold (0-100%)",
+          "de": "Feuchtigkeitsschwellwert (0-100%)"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -118,7 +138,10 @@
     "AQT": {
       "type": "state",
       "common": {
-        "name": "Air Quality Threshold (0-100%)",
+        "name": {
+          "en": "Air Quality Threshold (0-100%)",
+          "de": "Luftqualitätsschwellwert (0-100%)"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -134,7 +157,10 @@
     "in.OMS": {
       "type": "state",
       "common": {
-        "name": "Operation mode status",
+        "name": {
+          "en": "Operation mode status",
+          "de": "Betriebsmodus"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -157,7 +183,10 @@
     "in.SFP": {
       "type": "state",
       "common": {
-        "name": "Supply Air Flap position",
+        "name": {
+          "en": "Supply Air Flap position",
+          "de": "Zuluft Klappenstellung"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -173,7 +202,10 @@
     "in.EFP": {
       "type": "state",
       "common": {
-        "name": "Exhaust Air Flap position",
+        "name": {
+          "en": "Exhaust Air Flap position",
+          "de": "Abluft Klappenstellung"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -189,7 +221,10 @@
     "in.DMS": {
       "type": "state",
       "common": {
-        "name": "Defrost mode status",
+        "name": {
+          "en": "Defrost mode status",
+          "de": "Status des Abtaumodus"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -205,7 +240,10 @@
     "in.CPS": {
       "type": "state",
       "common": {
-        "name": "Cooling protection status",
+        "name": {
+          "en": "Cooling protection status",
+          "de": "Status des Kühlungsschutz"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -221,7 +259,10 @@
     "in.OHS": {
       "type": "state",
       "common": {
-        "name": "Outdoor Air Heater status",
+        "name": {
+          "en": "Outdoor Air Heater status",
+          "de": "Status der Außenluftheizung"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -237,7 +278,10 @@
     "in.DHS": {
       "type": "state",
       "common": {
-        "name": "Drain Heater status",
+        "name": {
+          "en": "Drain Heater status",
+          "de": "Status der Entlüftungsheizung"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -253,7 +297,10 @@
     "in.TOMS": {
       "type": "state",
       "common": {
-        "name": "Timer operation mode status",
+        "name": {
+          "en": "Timer operation mode status",
+          "de": "Status des Timer-Betriebsmodus"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -269,7 +316,10 @@
     "in.FMS": {
       "type": "state",
       "common": {
-        "name": "Filter maintenance status",
+        "name": {
+          "en": "Filter maintenance status",
+          "de": "Status der Filterwartung"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -285,7 +335,10 @@
     "in.AQS1": {
       "type": "state",
       "common": {
-        "name": "Air Quality sensor 1 (0-100%)",
+        "name": {
+          "en": "Air Quality sensor 1 (0-100%)",
+          "de": "Luftqualitätssensor 1 (0-100%)"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -301,7 +354,10 @@
     "in.MSS": {
       "type": "state",
       "common": {
-        "name": "Master/Slave configuration status",
+        "name": {
+          "en": "Master/Slave configuration status",
+          "de": "Status der Master/Slave-Konfiguration"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -317,7 +373,10 @@
     "in.OUTT": {
       "type": "state",
       "common": {
-        "name": "Outdoor Air Temperature",
+        "name": {
+          "en": "Outdoor Air Temperature",
+          "de": "Außentemperatur"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -330,7 +389,10 @@
     "in.SPLYT": {
       "type": "state",
       "common": {
-        "name": "Supply Air Temperature",
+        "name": {
+          "en": "Supply Air Temperature",
+          "de": "Zulufttemperatur"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -343,7 +405,10 @@
     "in.SPLYFF": {
       "type": "state",
       "common": {
-        "name": "Supply Air fan Air Flow rate",
+        "name": {
+          "en": "Supply Air fan Air Flow rate",
+          "de": "Zuluftventilator Luftdurchsatz"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -356,7 +421,10 @@
     "in.EXHFF": {
       "type": "state",
       "common": {
-        "name": "Exhaust Air fan Air Flow rate",
+        "name": {
+          "en": "Exhaust Air fan Air Flow rate",
+          "de": "Abluftventilator Luftdurchsatz"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -369,7 +437,10 @@
     "in.SPLYFS": {
       "type": "state",
       "common": {
-        "name": "Supply Fan Speed",
+        "name": {
+          "en": "Supply Fan Speed",
+          "de": "Zuluftventilator Geschwindigkeit"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -382,7 +453,10 @@
     "in.EXHFS": {
       "type": "state",
       "common": {
-        "name": "Exhaust Fan Speed",
+        "name": {
+          "en": "Exhaust Fan Speed",
+          "de": "Abluftventilator Geschwindigkeit"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -395,7 +469,10 @@
     "in.SVI": {
       "type": "state",
       "common": {
-        "name": "Software Version Info",
+        "name": {
+          "en": "Software Version Info",
+          "de": "Software Version Info"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -407,7 +484,10 @@
     "in.OHC": {
       "type": "state",
       "common": {
-        "name": "Operation Hours Counter",
+        "name": {
+          "en": "Operation Hours Counter",
+          "de": "Betriebsstunden Zähler"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -420,7 +500,10 @@
     "in.IMS": {
       "type": "state",
       "common": {
-        "name": "Info Message 0...15 status",
+        "name": {
+          "en": "Info Message 0...15 status",
+          "de": "Info Nachricht 0...15 Status"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -450,7 +533,10 @@
     "in.FS": {
       "type": "state",
       "common": {
-        "name": "Fault 0...31 status",
+        "name": {
+          "en": "Fault 0...31 status",
+          "de": "Fehler 0...31 Status"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -517,7 +603,9 @@
           "shortcut": "RMT",
           "bitoffs": "5",
           "bitsize": "3",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     },
@@ -543,35 +631,45 @@
           "shortcut": "DOMC",
           "bitoffs": "4",
           "bitsize": "4",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Operation mode control",
           "shortcut": "OMC",
           "bitoffs": "8",
           "bitsize": "2",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "CO2 Threshold",
           "shortcut": "COT",
           "bitoffs": "17",
           "bitsize": "7",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Humidity Threshold",
           "shortcut": "HT",
           "bitoffs": "25",
           "bitsize": "7",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Airquality Threshold",
           "shortcut": "AQT",
           "bitoffs": "33",
           "bitsize": "7",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "fixed parameter",
@@ -599,119 +697,183 @@
           "shortcut": "in.OMS",
           "bitoffs": "4",
           "bitsize": "4",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Supply Air Flap position",
           "shortcut": "in.SFP",
           "bitoffs": "14",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Exhaust Air Flap position",
           "shortcut": "in.EFP",
           "bitoffs": "15",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Defrost mode status",
           "shortcut": "in.DMS",
           "bitoffs": "16",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Cooling protection status",
           "shortcut": "in.CPS",
           "bitoffs": "17",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Ooutdoor Air Heater status",
           "shortcut": "in.OHS",
           "bitoffs": "18",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Drain Heater status",
           "shortcut": "in.DHS",
           "bitoffs": "20",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Timer operation mode status",
           "shortcut": "in.TOMS",
           "bitoffs": "21",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Filter Maintenance status",
           "shortcut": "in.FMS",
           "bitoffs": "22",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Air Quality Sensor 1",
           "shortcut": "in.AQS1",
           "bitoffs": "25",
           "bitsize": "7",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Master/Slave Configuration status",
           "shortcut": "in.MSS",
           "bitoffs": "32",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Outdoor Air Temperature",
           "shortcut": "in.OUTT",
           "bitoffs": "40",
           "bitsize": "7",
-          "value": {"+":[{"*":[{"-":[{"var":"value"},0]},1]},-64]}
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  1
+                ]
+              },
+              -64
+            ]
+          }
         },
         {
           "data": "Supply Air Temperature",
           "shortcut": "in.SPLYT",
           "bitoffs": "47",
           "bitsize": "7",
-          "value": {"+":[{"*":[{"-":[{"var":"value"},0]},1]},-64]}
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  1
+                ]
+              },
+              -64
+            ]
+          }
         },
         {
           "data": "Supply Air Fan Air Flow rate",
           "shortcut": "in.SPLYFF",
           "bitoffs": "68",
           "bitsize": "10",
-          "value": {"var":"value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Exhaust Air Fan Air Flow rate",
           "shortcut": "in.EXHFF",
           "bitoffs": "78",
           "bitsize": "10",
-          "value": {"var":"value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Supply Fan Speed",
           "shortcut": "in.SPLYFS",
           "bitoffs": "88",
           "bitsize": "12",
-          "value": {"var":"value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Exhaust Fan Speed",
           "shortcut": "in.EXHFS",
           "bitoffs": "100",
           "bitsize": "12",
-          "value": {"var":"value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     },
@@ -732,28 +894,51 @@
           "shortcut": "in.SVI",
           "bitoffs": "4",
           "bitsize": "12",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Operation Hours Counter",
           "shortcut": "in.OHC",
           "bitoffs": "16",
           "bitsize": "16",
-          "value": {"+":[{"*":[{"-":[{"var":"value"},0]},3]},0]}
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  3
+                ]
+              },
+              0
+            ]
+          }
         },
         {
           "data": "Info Message 0...15 status",
           "shortcut": "in.IMS",
           "bitoffs": "64",
           "bitsize": "16",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Fault 0...31 satus",
           "shortcut": "in.FS",
           "bitoffs": "80",
           "bitsize": "32",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     }

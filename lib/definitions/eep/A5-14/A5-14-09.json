@@ -7,11 +7,16 @@
   "type_title": "Multi-Func Sensor Window/Door with states Open/Closed/Tilt, supply voltage monitor",
   "bidirectional": false,
   "objects": {
-    "preDefined": ["SVC"],
+    "preDefined": [
+      "SVC"
+    ],
     "OP": {
       "type": "state",
       "common": {
-        "name": "Open",
+        "name": {
+          "en": "Open",
+          "de": "Offen"
+        },
         "role": "sensor.window",
         "type": "boolean",
         "read": true,
@@ -23,7 +28,10 @@
     "TL": {
       "type": "state",
       "common": {
-        "name": "Tilt",
+        "name": {
+          "en": "Tilt",
+          "de": "Neigung"
+        },
         "role": "sensor.window",
         "type": "boolean",
         "read": true,
@@ -33,31 +41,64 @@
       "native": {}
     }
   },
-  "case": [{
-    "send": false,
-    "datafield": [
-      {
-        "data": "Open",
-        "shortcut": "OP",
-        "bitoffs": "29",
-        "bitsize": "2",
-        "value": {"==": [{"var": "value"}, 3]}
-      },
-      {
-        "data": "Tilt",
-        "shortcut": "TL",
-        "bitoffs": "29",
-        "bitsize": "2",
-        "value": {"==": [{"var": "value"}, 1]}
-      },
-      {
-        "data": "Supply Voltage 0...5.0V (Optional)",
-        "shortcut": "SVC",
-        "bitoffs": "0",
-        "bitsize": "8",
-        "value": {"+": [{"*":[{"-":[{"var":  "value"}, 0 ]}, 0.02 ]}, 0 ]},
-        "decimals": 2
-      }
-    ]
-  }]
+  "case": [
+    {
+      "send": false,
+      "datafield": [
+        {
+          "data": "Open",
+          "shortcut": "OP",
+          "bitoffs": "29",
+          "bitsize": "2",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              3
+            ]
+          }
+        },
+        {
+          "data": "Tilt",
+          "shortcut": "TL",
+          "bitoffs": "29",
+          "bitsize": "2",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
+        },
+        {
+          "data": "Supply Voltage 0...5.0V (Optional)",
+          "shortcut": "SVC",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.02
+                ]
+              },
+              0
+            ]
+          },
+          "decimals": 2
+        }
+      ]
+    }
+  ]
 }

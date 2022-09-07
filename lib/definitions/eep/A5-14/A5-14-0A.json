@@ -7,17 +7,23 @@
   "type_title": "Multi-Func Sensor Window/Door with Supply Voltage monitor and Vibration detection",
   "bidirectional": false,
   "objects": {
-    "preDefined": ["SVC"],
+    "preDefined": [
+      "SVC"
+    ],
     "VIB": {
       "type": "state",
       "common": {
-        "name": "Vibration",
+        "name": {
+          "en": "Vibration",
+          "de": "Vibration"
+        },
         "role": "indicator",
         "type": "number",
         "read": true,
         "write": false,
         "states": {
-          "0": "No vibration", "1": "Vibration detected"
+          "0": "No vibration",
+          "1": "Vibration detected"
         },
         "def": 0
       },
@@ -26,44 +32,72 @@
     "CT": {
       "type": "state",
       "common": {
-        "name": "Contact",
+        "name": {
+          "en": "Contact",
+          "de": "Kontakt"
+        },
         "role": "indicator",
         "type": "number",
         "read": true,
         "write": false,
         "states": {
-          "0": "Closed", "1": "Tilt", "3": "Open"
+          "0": "Closed",
+          "1": "Tilt",
+          "3": "Open"
         },
         "def": 0
       },
       "native": {}
     }
   },
-  "case": [{
-    "send": false,
-    "datafield": [
-      {
-        "data": "Vibration",
-        "shortcut": "VIB",
-        "bitoffs": "31",
-        "bitsize": "1",
-        "value": {"var": "value"}
-      },
-      {
-        "data": "Contact",
-        "shortcut": "CT",
-        "bitoffs": "29",
-        "bitsize": "2",
-        "value": {"var": "value"}
-      },
-      {
-        "data": "Supply Voltage 0...5.0V (Optional)",
-        "shortcut": "SVC",
-        "bitoffs": "0",
-        "bitsize": "8",
-        "value": {"+": [{"*":[{"-":[{"var":  "value"}, 0 ]}, 0.02 ]}, 0 ]},
-        "decimals": 2
-      }
-    ]
-  }]
+  "case": [
+    {
+      "send": false,
+      "datafield": [
+        {
+          "data": "Vibration",
+          "shortcut": "VIB",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Contact",
+          "shortcut": "CT",
+          "bitoffs": "29",
+          "bitsize": "2",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Supply Voltage 0...5.0V (Optional)",
+          "shortcut": "SVC",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.02
+                ]
+              },
+              0
+            ]
+          },
+          "decimals": 2
+        }
+      ]
+    }
+  ]
 }

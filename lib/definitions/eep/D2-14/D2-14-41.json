@@ -10,54 +10,79 @@
     "TMP": {
       "type": "state",
       "common": {
-        "name": "Temperature",
+        "name": {
+          "en": "Temperature",
+          "de": "Temperatur"
+        },
         "role": "value.temperature",
         "type": "number",
         "read": true,
         "write": false,
         "def": 0,
         "unit": "°C",
-        "states": {"1021": "Out of range negative","1022": "Out of range positive","1023": "Error"}
+        "states": {
+          "1021": "Out of range negative",
+          "1022": "Out of range positive",
+          "1023": "Error"
+        }
       },
       "native": {}
     },
     "HM": {
       "type": "state",
       "common": {
-        "name": "Relative humidity",
+        "name": {
+          "en": "Relative humidity",
+          "de": "Relative Luftfeuchtigkeit"
+        },
         "role": "value.humidity",
         "type": "number",
         "read": true,
         "write": false,
         "def": 0,
         "unit": "%",
-        "states": {"254": "Supported + Invalid","255": "Not Supported"}
+        "states": {
+          "254": "Supported + Invalid",
+          "255": "Not Supported"
+        }
       },
       "native": {}
     },
     "ILL": {
       "type": "state",
       "common": {
-        "name": "Illumination 0...100.000lx",
+        "name": {
+          "en": "Illumination 0...100.000lx",
+          "de": "Beleuchtungsstärke 0...100.000lx"
+        },
         "role": "value.brightness",
         "type": "number",
         "read": true,
         "write": false,
         "def": 0,
         "unit": "lx",
-        "states": {"131071": "Error"}
+        "states": {
+          "131071": "Error"
+        }
       },
       "native": {}
     },
     "ASS": {
       "type": "state",
       "common": {
-        "name": "Acceleration sensor status",
+        "name": {
+          "en": "Acceleration sensor status",
+          "de": "Beschleunigungssensor Status"
+        },
         "role": "indicator",
         "type": "number",
         "read": true,
         "write": false,
-        "states": {"0": "Periodic update","1": "Threshold 1 exceeded","2": "Threshold 2 exceeded"},
+        "states": {
+          "0": "Periodic update",
+          "1": "Threshold 1 exceeded",
+          "2": "Threshold 2 exceeded"
+        },
         "def": 0
       },
       "native": {}
@@ -65,12 +90,19 @@
     "X": {
       "type": "state",
       "common": {
-        "name": "Acceleration X",
+        "name": {
+          "en": "Acceleration X",
+          "de": "Beschleunigung X"
+        },
         "role": "value",
         "type": "number",
         "read": true,
         "write": false,
-        "states": {"1021": "Out of range negative","1022": "Out of range positive","1023": "Error"},
+        "states": {
+          "1021": "Out of range negative",
+          "1022": "Out of range positive",
+          "1023": "Error"
+        },
         "def": 0
       },
       "native": {}
@@ -78,12 +110,19 @@
     "Y": {
       "type": "state",
       "common": {
-        "name": "Acceleration Y",
+        "name": {
+          "en": "Acceleration Y",
+          "de": "Beschleunigung Y"
+        },
         "role": "value",
         "type": "number",
         "read": true,
         "write": false,
-        "states": {"1021": "Out of range negative","1022": "Out of range positive","1023": "Error"},
+        "states": {
+          "1021": "Out of range negative",
+          "1022": "Out of range positive",
+          "1023": "Error"
+        },
         "def": 0
       },
       "native": {}
@@ -91,12 +130,19 @@
     "Z": {
       "type": "state",
       "common": {
-        "name": "Acceleration Z",
+        "name": {
+          "en": "Acceleration Z",
+          "de": "Beschleunigung Z"
+        },
         "role": "value",
         "type": "number",
         "read": true,
         "write": false,
-        "states": {"1021": "Out of range negative","1022": "Out of range positive","1023": "Error"},
+        "states": {
+          "1021": "Out of range negative",
+          "1022": "Out of range positive",
+          "1023": "Error"
+        },
         "def": 0
       },
       "native": {}
@@ -104,7 +150,10 @@
     "CO": {
       "type": "state",
       "common": {
-        "name": "Contact open",
+        "name": {
+          "en": "Contact open",
+          "de": "Kontakt offen"
+        },
         "role": "sensor.door",
         "type": "boolean",
         "read": true,
@@ -119,18 +168,53 @@
       "send": false,
       "datafield": [
         {
-        "data": "Temperature",
-        "shortcut": "TMP",
-        "bitoffs": "0",
-        "bitsize": "10",
+          "data": "Temperature",
+          "shortcut": "TMP",
+          "bitoffs": "0",
+          "bitsize": "10",
           "value": {
             "if": [
-              {"<": [ {"var":"value"}, 1000] },  {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.1 ] }, -40] },
-              {">": [ {"var":"value"}, 1001] }, {"var":"value"}
+              {
+                "<": [
+                  {
+                    "var": "value"
+                  },
+                  1000
+                ]
+              },
+              {
+                "+": [
+                  {
+                    "*": [
+                      {
+                        "-": [
+                          {
+                            "var": "value"
+                          },
+                          0
+                        ]
+                      },
+                      0.1
+                    ]
+                  },
+                  -40
+                ]
+              },
+              {
+                ">": [
+                  {
+                    "var": "value"
+                  },
+                  1001
+                ]
+              },
+              {
+                "var": "value"
+              }
             ]
           },
           "decimals": 2
-      },
+        },
         {
           "data": "Relative humidity",
           "shortcut": "HM",
@@ -138,8 +222,43 @@
           "bitsize": "8",
           "value": {
             "if": [
-              {"<": [ {"var":"value"}, 200] },  {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.5 ] }, 0] },
-              {">": [ {"var":"value"}, 254] }, {"var":"value"}
+              {
+                "<": [
+                  {
+                    "var": "value"
+                  },
+                  200
+                ]
+              },
+              {
+                "+": [
+                  {
+                    "*": [
+                      {
+                        "-": [
+                          {
+                            "var": "value"
+                          },
+                          0
+                        ]
+                      },
+                      0.5
+                    ]
+                  },
+                  0
+                ]
+              },
+              {
+                ">": [
+                  {
+                    "var": "value"
+                  },
+                  254
+                ]
+              },
+              {
+                "var": "value"
+              }
             ]
           },
           "decimals": 2
@@ -149,14 +268,18 @@
           "shortcut": "ILL",
           "bitoffs": "18",
           "bitsize": "17",
-          "value": {"var":"value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Acceleration sensor status",
           "shortcut": "ASS",
           "bitoffs": "35",
           "bitsize": "2",
-          "value": {"var":"value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Acceleration X",
@@ -165,8 +288,43 @@
           "bitsize": "10",
           "value": {
             "if": [
-              {"<": [ {"var":"value"}, 1000] },  {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.005 ] }, -2.5] },
-              {">": [ {"var":"value"}, 1001] }, {"var":"value"}
+              {
+                "<": [
+                  {
+                    "var": "value"
+                  },
+                  1000
+                ]
+              },
+              {
+                "+": [
+                  {
+                    "*": [
+                      {
+                        "-": [
+                          {
+                            "var": "value"
+                          },
+                          0
+                        ]
+                      },
+                      0.005
+                    ]
+                  },
+                  -2.5
+                ]
+              },
+              {
+                ">": [
+                  {
+                    "var": "value"
+                  },
+                  1001
+                ]
+              },
+              {
+                "var": "value"
+              }
             ]
           },
           "decimals": 2
@@ -178,8 +336,43 @@
           "bitsize": "10",
           "value": {
             "if": [
-              {"<": [ {"var":"value"}, 1000] },  {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.005 ] }, -2.5] },
-              {">": [ {"var":"value"}, 1001] }, {"var":"value"}
+              {
+                "<": [
+                  {
+                    "var": "value"
+                  },
+                  1000
+                ]
+              },
+              {
+                "+": [
+                  {
+                    "*": [
+                      {
+                        "-": [
+                          {
+                            "var": "value"
+                          },
+                          0
+                        ]
+                      },
+                      0.005
+                    ]
+                  },
+                  -2.5
+                ]
+              },
+              {
+                ">": [
+                  {
+                    "var": "value"
+                  },
+                  1001
+                ]
+              },
+              {
+                "var": "value"
+              }
             ]
           },
           "decimals": 2
@@ -191,8 +384,43 @@
           "bitsize": "10",
           "value": {
             "if": [
-              {"<": [ {"var":"value"}, 1000] },  {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.005 ] }, -2.5] },
-              {">": [ {"var":"value"}, 1001] }, {"var":"value"}
+              {
+                "<": [
+                  {
+                    "var": "value"
+                  },
+                  1000
+                ]
+              },
+              {
+                "+": [
+                  {
+                    "*": [
+                      {
+                        "-": [
+                          {
+                            "var": "value"
+                          },
+                          0
+                        ]
+                      },
+                      0.005
+                    ]
+                  },
+                  -2.5
+                ]
+              },
+              {
+                ">": [
+                  {
+                    "var": "value"
+                  },
+                  1001
+                ]
+              },
+              {
+                "var": "value"
+              }
             ]
           },
           "decimals": 2
@@ -202,7 +430,14 @@
           "shortcut": "CO",
           "bitoffs": "67",
           "bitsize": "1",
-          "value": {"===": [{"var": "value"}, 0]}
+          "value": {
+            "===": [
+              {
+                "var": "value"
+              },
+              0
+            ]
+          }
         }
       ]
     }

@@ -1,35 +1,42 @@
 {
-    "eep": "TF-13-16",
-    "rorg_number": "0xF6",
-    "telegram": "RPS",
-    "func_number": "0x00",
-    "type_number": "0x00",
-    "type_title": "FKF65 Key Card switch",
-    "bidirectional": false,
-    "objects": {
-        "KC": {
-            "type": "state",
-            "common": {
-                "name": "Key Card",
-                "role": "switch",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
+  "eep": "TF-13-16",
+  "rorg_number": "0xF6",
+  "telegram": "RPS",
+  "func_number": "0x00",
+  "type_number": "0x00",
+  "type_title": "FKF65 Key Card switch",
+  "bidirectional": false,
+  "objects": {
+    "KC": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Key Card inserted",
+          "de": "Key Card eingesteckt"
+        },
+        "role": "switch",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "datafield": [
+        {
+          "data": "Key Card",
+          "shortcut": "KC",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "var": "value"
+          }
         }
-    },
-    "case": [{
-        "send": false,
-        "datafield": [
-            {
-                "data": "Key Card",
-                "shortcut": "KC",
-                "bitoffs": "0",
-                "bitsize": "8",
-                "value": {"var": "value"}
-            }
-        ]
-    }]
+      ]
+    }
+  ]
 }

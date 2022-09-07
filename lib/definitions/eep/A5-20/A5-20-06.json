@@ -1,381 +1,644 @@
 {
-    "eep": "A5-20-06",
-    "rorg_number": "0xA5",
-    "telegram": "4BS",
-    "func_number": "0x20",
-    "type_number": "0x06",
-    "type_title": "Harvesting-powered actuator with local temperature offset control (BI-DIR)",
-    "bidirectional": true,
-    "objects": {
-        "preDefined": ["in", "in.CV", "in.TMP", "in.DWO"],
-        "in.LOM": {
-            "type": "state",
-            "common": {
-                "name": "Local offset mode",
-                "role": "indicator",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "states": {"0": "Temperatureoffset","1": "Temperaturewith offset"},
-                "def": 0
-            },
-            "native": {}
+  "eep": "A5-20-06",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x20",
+  "type_number": "0x06",
+  "type_title": "Harvesting-powered actuator with local temperature offset control (BI-DIR)",
+  "bidirectional": true,
+  "objects": {
+    "preDefined": [
+      "in",
+      "in.CV",
+      "in.TMP",
+      "in.DWO"
+    ],
+    "in.LOM": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Local offset mode",
+          "de": "Lokaler Offset-Modus"
         },
-        "in.LO": {
-            "type": "state",
-            "common": {
-                "name": "Local offset",
-                "role": "value.temperature",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": 0,
-                "unit": "°C"
-            },
-            "native": {}
+        "role": "indicator",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Temperatureoffset",
+          "1": "Temperaturewith offset"
         },
-        "in.TSL": {
-            "type": "state",
-            "common": {
-                "name": "Temperature selection",
-                "role": "indicator",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "states": {"0": "Ambientsensor temp","1": "Feedsensor temperature"},
-                "def": 0
-            },
-            "native": {}
-        },
-        "in.ENIE": {
-            "type": "state",
-            "common": {
-                "name": "Harvesting status",
-                "role": "indicator",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "in.ES": {
-            "type": "state",
-            "common": {
-                "name": "Charge level of energy storage",
-                "role": "indicator",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "states": {"0": "Lowalmost discharged","1": "Sufficientlycharged"},
-                "def": 1
-            },
-            "native": {}
-        },
-        "in.RCE": {
-            "type": "state",
-            "common": {
-                "name": "Radio communication error",
-                "role": "indicator",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "in.RSS": {
-            "type": "state",
-            "common": {
-                "name": "Week Radio Signal",
-                "role": "indicator",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "in.ACO": {
-            "type": "state",
-            "common": {
-                "name": "Actuator is blocked",
-                "role": "indicator",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "SP": {
-            "type": "state",
-            "common": {
-                "name": "Valve position (0...100) or temperature setpoint (0...+40°C)",
-                "role": "level",
-                "type": "number",
-                "read": false,
-                "write": true,
-                "def": 0
-            },
-            "native": {}
-        },
-        "TMP": {
-            "type": "state",
-            "common": {
-                "name": "Send actual room temperature",
-                "role": "value.temperature",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "def": 0,
-                "unit": "°C"
-            },
-            "native": {}
-        }
+        "def": 0
+      },
+      "native": {}
     },
-    "case": [
+    "in.LO": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Local offset",
+          "de": "Lokaler Offset"
+        },
+        "role": "value.temperature",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    "in.TSL": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Temperature selection",
+          "de": "Temperaturauswahl"
+        },
+        "role": "indicator",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Ambientsensor temp",
+          "1": "Feedsensor temperature"
+        },
+        "def": 0
+      },
+      "native": {}
+    },
+    "in.ENIE": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Harvesting status",
+          "de": "Energieernte-Status"
+        },
+        "role": "indicator",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "in.ES": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Charge level of energy storage",
+          "de": "Ladezustand des Energiespeicher"
+        },
+        "role": "indicator",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Lowalmost discharged",
+          "1": "Sufficientlycharged"
+        },
+        "def": 1
+      },
+      "native": {}
+    },
+    "in.RCE": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Radio communication error",
+          "de": "Fehler der Funkkommunikation"
+        },
+        "role": "indicator",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "in.RSS": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Weak Radio Signal",
+          "de": "Schwaches Funksignal"
+        },
+        "role": "indicator",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "in.ACO": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Actuator is blocked",
+          "de": "Aktor ist blockiert"
+        },
+        "role": "indicator",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "SP": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Valve position (0...100) or temperature setpoint (0...+40°C)",
+          "de": "Ventilposition (0...100) oder Temperatur-Sollwert (0...+40°C)"
+        },
+        "role": "level",
+        "type": "number",
+        "read": false,
+        "write": true,
+        "def": 0
+      },
+      "native": {}
+    },
+    "TMP": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Send actual room temperature",
+          "de": "Sende aktuelle Raumtemperatur"
+        },
+        "role": "value.temperature",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "def": 0,
+        "unit": "°C"
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "datafield": [
         {
-            "send": false,
-            "datafield": [
-                {
-                    "data": "Current Value 0...100%",
-                    "shortcut": "in.CV",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "Local offset mode",
-                    "shortcut": "in.LOM",
-                    "bitoffs": "8",
-                    "bitsize": "1",
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "Local offset",
-                    "shortcut": "in.LO",
-                    "bitoffs": "9",
-                    "bitsize": "7",
-                    "secondArgument": {
-                        "bitoffs": "8",
-                        "bitsize": "1"
-                    },
-                    "condition": { "==": [ { "var": "value2" }, 1 ] },
-                    "value": { "+": [{ "*": [{ "-": [{ "var": "value" }, 0]}, 0.5]}, 0]}
-                },
-                {
-                    "data": "Local offset",
-                    "shortcut": "in.LO",
-                    "bitoffs": "9",
-                    "bitsize": "7",
-                    "secondArgument": {
-                        "bitoffs": "8",
-                        "bitsize": "1"
-                    },
-                    "condition": { "==": [ { "var": "value2" }, 0 ] },
-                    "value": {
-                        "if": [
-                                {"==":[{"var":  "value"}, 0]}, 0,
-                                {"==":[{"var":  "value"}, 1]}, 1,
-                                {"==":[{"var":  "value"}, 2]}, 2,
-                                {"==":[{"var":  "value"}, 3]}, 3,
-                                {"==":[{"var":  "value"}, 4]}, 4,
-                                {"==":[{"var":  "value"}, 5]}, 5,
-                                {"==":[{"var":  "value"}, 123]}, -5,
-                                {"==":[{"var":  "value"}, 124]}, -4,
-                                {"==":[{"var":  "value"}, 125]}, -3,
-                                {"==":[{"var":  "value"}, 126]}, -2,
-                                {"==":[{"var":  "value"}, 127]}, -1
-                            ]
-                    }
-                },
-                {
-                    "data": "Temperature",
-                    "shortcut": "in.TMP",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "value": {"+": [{ "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.5]}, 0]}
-                },
-                {
-                    "data": "Temperature selection",
-                    "shortcut": "in.TSL",
-                    "bitoffs": "24",
-                    "bitsize": "1",
-                    "value": { "var": "value" }
-                },
-                {
-                    "data": "Harvesting status",
-                    "shortcut": "in.ENIE",
-                    "bitoffs": "25",
-                    "bitsize": "1",
-                    "value": {"==": [{"var": "value"}, 1]}
-                },
-                {
-                    "data": "Charge level of energy storage",
-                    "shortcut": "in.ES",
-                    "bitoffs": "26",
-                    "bitsize": "1",
-                    "value": { "var": "value" }
-                },
-                {
-                    "data": "Detection, window open",
-                    "shortcut": "in.DWO",
-                    "bitoffs": "27",
-                    "bitsize": "1",
-                    "value": {"==": [{"var": "value"}, 1]}
-                },
-                {
-                    "data": "Radio communication error",
-                    "shortcut": "in.RCE",
-                    "bitoffs": "29",
-                    "bitsize": "1",
-                    "value": {"==": [ { "var": "value" }, 1 ]}
-                },
-                {
-                    "data": "Week Radio Signal",
-                    "shortcut": "in.RSS",
-                    "bitoffs": "30",
-                    "bitsize": "1",
-                    "value": {"==": [ { "var": "value" }, 1 ]}
-                },
-                {
-                    "data": "Actuator is blocked",
-                    "shortcut": "in.ACO",
-                    "bitoffs": "31",
-                    "bitsize": "1",
-                    "value": {"==": [ { "var": "value" }, 1 ]}
-                }
-            ]
+          "data": "Current Value 0...100%",
+          "shortcut": "in.CV",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "var": "value"
+          }
         },
         {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 0
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
-                    "shortcut": "SP",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Setpoint selection",
-                    "bitoffs": "21",
-                    "bitsize": "1",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Not used",
-                    "bitoffs": "24",
-                    "bitsize": "4",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Represents the learnbit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "fixed parameter",
-                    "bitoffs": "29",
-                    "bitsize": "3",
-                    "value": 0
-                }
-            ]
+          "data": "Local offset mode",
+          "shortcut": "in.LOM",
+          "bitoffs": "8",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
         },
         {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 1
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
-                    "shortcut": "SP",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"var": "value"},
-                    "value_out": {"/": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 0.5]}
-                },
-                {
-                    "data": "Send actual room temperature",
-                    "shortcut": "TMP",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value_out": {"/": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 0.25 ]},
-                    "decimals": 2
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Setpoint selection",
-                    "bitoffs": "21",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Learn Bit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
+          "data": "Local offset",
+          "shortcut": "in.LO",
+          "bitoffs": "9",
+          "bitsize": "7",
+          "secondArgument": {
+            "bitoffs": "8",
+            "bitsize": "1"
+          },
+          "condition": {
+            "==": [
+              {
+                "var": "value2"
+              },
+              1
             ]
+          },
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.5
+                ]
+              },
+              0
+            ]
+          }
         },
         {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 2
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
-                    "shortcut": "SP",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy byte",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Summer Bit",
-                    "bitoffs": "20",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Learn Bit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
+          "data": "Local offset",
+          "shortcut": "in.LO",
+          "bitoffs": "9",
+          "bitsize": "7",
+          "secondArgument": {
+            "bitoffs": "8",
+            "bitsize": "1"
+          },
+          "condition": {
+            "==": [
+              {
+                "var": "value2"
+              },
+              0
             ]
+          },
+          "value": {
+            "if": [
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  0
+                ]
+              },
+              0,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  1
+                ]
+              },
+              1,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  2
+                ]
+              },
+              2,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  3
+                ]
+              },
+              3,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  4
+                ]
+              },
+              4,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  5
+                ]
+              },
+              5,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  123
+                ]
+              },
+              -5,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  124
+                ]
+              },
+              -4,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  125
+                ]
+              },
+              -3,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  126
+                ]
+              },
+              -2,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  127
+                ]
+              },
+              -1
+            ]
+          }
+        },
+        {
+          "data": "Temperature",
+          "shortcut": "in.TMP",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.5
+                ]
+              },
+              0
+            ]
+          }
+        },
+        {
+          "data": "Temperature selection",
+          "shortcut": "in.TSL",
+          "bitoffs": "24",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Harvesting status",
+          "shortcut": "in.ENIE",
+          "bitoffs": "25",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
+        },
+        {
+          "data": "Charge level of energy storage",
+          "shortcut": "in.ES",
+          "bitoffs": "26",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Detection, window open",
+          "shortcut": "in.DWO",
+          "bitoffs": "27",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
+        },
+        {
+          "data": "Radio communication error",
+          "shortcut": "in.RCE",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
+        },
+        {
+          "data": "Week Radio Signal",
+          "shortcut": "in.RSS",
+          "bitoffs": "30",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
+        },
+        {
+          "data": "Actuator is blocked",
+          "shortcut": "in.ACO",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
         }
-    ]
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 0
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
+          "shortcut": "SP",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Setpoint selection",
+          "bitoffs": "21",
+          "bitsize": "1",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Not used",
+          "bitoffs": "24",
+          "bitsize": "4",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Represents the learnbit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "fixed parameter",
+          "bitoffs": "29",
+          "bitsize": "3",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
+          "shortcut": "SP",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "var": "value"
+          },
+          "value_out": {
+            "/": [
+              {
+                "+": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0
+                ]
+              },
+              0.5
+            ]
+          }
+        },
+        {
+          "data": "Send actual room temperature",
+          "shortcut": "TMP",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value_out": {
+            "/": [
+              {
+                "+": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0
+                ]
+              },
+              0.25
+            ]
+          },
+          "decimals": 2
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Setpoint selection",
+          "bitoffs": "21",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Learn Bit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 2
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
+          "shortcut": "SP",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy byte",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Summer Bit",
+          "bitoffs": "20",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Learn Bit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        }
+      ]
+    }
+  ]
 }

@@ -10,12 +10,20 @@
     "CMD": {
       "type": "state",
       "common": {
-        "name": "Command",
+        "name": {
+          "en": "Command",
+          "de": "Befehl"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Off","1": "On","2": "Teach-in","3": "Teach-in(1)"},
+        "states": {
+          "0": "Off",
+          "1": "On",
+          "2": "Teach-in",
+          "3": "Teach-in(1)"
+        },
         "def": 0
       },
       "native": {}
@@ -23,7 +31,10 @@
     "SB": {
       "type": "state",
       "common": {
-        "name": "State blocked",
+        "name": {
+          "en": "State blocked",
+          "de": "Status blockiert"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -58,7 +69,9 @@
           "shortcut": "SB",
           "bitoffs": "29",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "fixed parameter",
@@ -114,7 +127,9 @@
           "shortcut": "SB",
           "bitoffs": "29",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "fixed parameter",

@@ -1,35 +1,47 @@
 {
-    "eep": "TF-13-15",
-    "rorg_number": "0xA5",
-    "telegram": "4BS",
-    "func_number": "0x00",
-    "type_number": "0x00",
-    "type_title": "Room Operating Panel ON/OFF",
-    "bidirectional": false,
-    "objects": {
-        "ST": {
-            "type": "state",
-            "common": {
-                "name": "State",
-                "role": "switch",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
+  "eep": "TF-13-15",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x00",
+  "type_number": "0x00",
+  "type_title": "Room Operating Panel ON/OFF",
+  "bidirectional": false,
+  "objects": {
+    "ST": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "ON",
+          "de": "EIN"
+        },
+        "role": "switch",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "datafield": [
+        {
+          "data": "State",
+          "shortcut": "ST",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
         }
-    },
-    "case": [{
-        "send": false,
-        "datafield": [
-            {
-                "data": "State",
-                "shortcut": "ST",
-                "bitoffs": "31",
-                "bitsize": "1",
-                "value": {"==": [{"var": "value"}, 1]}
-            }
-        ]
-    }]
+      ]
+    }
+  ]
 }

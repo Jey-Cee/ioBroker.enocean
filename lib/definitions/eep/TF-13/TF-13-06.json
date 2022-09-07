@@ -1,46 +1,60 @@
 {
-    "eep": "TF-13-06",
-    "rorg_number": "0xA5",
-    "telegram": "4BS",
-    "func_number": "0x00",
-    "type_number": "0x00",
-    "type_title": "Dimmer status",
-    "bidirectional": false,
-    "objects": {
-        "preDefined": ["ON"],
-        "LVL": {
-            "type": "state",
-            "common": {
-                "name": "Level",
-                "role": "level.dimmer",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "unit": "%",
-                "def": 0
-            },
-            "native": {}
-        }
-    },
-    "case": [
+  "eep": "TF-13-06",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x00",
+  "type_number": "0x00",
+  "type_title": "Dimmer status",
+  "bidirectional": false,
+  "objects": {
+    "preDefined": [
+      "ON"
+    ],
+    "LVL": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Level",
+          "de": "Level"
+        },
+        "role": "level.dimmer",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "unit": "%",
+        "def": 0
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "datafield": [
         {
-            "send": false,
-            "datafield": [
-                {
-                    "data": "Level",
-                    "shortcut": "LVL",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "On",
-                    "shortcut": "ON",
-                    "bitoffs": "24",
-                    "bitsize": "8",
-                    "value": {"===": [ { "var": "value" }, 9 ]}
-                }
+          "data": "Level",
+          "shortcut": "LVL",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "On",
+          "shortcut": "ON",
+          "bitoffs": "24",
+          "bitsize": "8",
+          "value": {
+            "===": [
+              {
+                "var": "value"
+              },
+              9
             ]
+          }
         }
-    ]
+      ]
+    }
+  ]
 }

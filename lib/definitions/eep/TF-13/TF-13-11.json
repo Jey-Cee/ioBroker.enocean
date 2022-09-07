@@ -10,12 +10,20 @@
     "CMD": {
       "type": "state",
       "common": {
-        "name": "Command",
+        "name": {
+          "en": "Command",
+          "de": "Befehl"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Off","1": "On","2": "Teach-in","3": "Request confirmation telegram"},
+        "states": {
+          "0": "Off",
+          "1": "On",
+          "2": "Teach-in",
+          "3": "Request confirmation telegram"
+        },
         "def": 0
       },
       "native": {}
@@ -23,7 +31,10 @@
     "SB": {
       "type": "state",
       "common": {
-        "name": "State blocked",
+        "name": {
+          "en": "State blocked",
+          "de": "Status blockiert"
+        },
         "role": "state",
         "type": "boolean",
         "read": true,
@@ -79,8 +90,23 @@
           "shortcut": "SB",
           "bitoffs": "29",
           "bitsize": "1",
-          "value": {"==": [{"var": "value"}, 1]},
-          "value_out": {"if": [{"var": "value"}, 1, 0]}
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          },
+          "value_out": {
+            "if": [
+              {
+                "var": "value"
+              },
+              1,
+              0
+            ]
+          }
         },
         {
           "data": "fixed parameter",
@@ -136,8 +162,23 @@
           "shortcut": "SB",
           "bitoffs": "29",
           "bitsize": "1",
-          "value": {"==": [{"var": "value"}, 1]},
-          "value_out": {"if": [{"var": "value"}, 1, 0]}
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          },
+          "value_out": {
+            "if": [
+              {
+                "var": "value"
+              },
+              1,
+              0
+            ]
+          }
         },
         {
           "data": "fixed parameter",
@@ -228,7 +269,6 @@
           "bitsize": "8",
           "value": 8
         }
-
       ]
     }
   ]

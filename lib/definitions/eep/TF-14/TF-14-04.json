@@ -10,12 +10,20 @@
     "CMD": {
       "type": "state",
       "common": {
-        "name": "Command",
+        "name": {
+          "en": "Command",
+          "de": "Befehl"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Stop","1": "Up","2": "Down","3": "Teach-in"},
+        "states": {
+          "0": "Stop",
+          "1": "Up",
+          "2": "Down",
+          "3": "Teach-in"
+        },
         "def": 0
       },
       "native": {}
@@ -23,7 +31,10 @@
     "RT": {
       "type": "state",
       "common": {
-        "name": "Running time (deprecated)",
+        "name": {
+          "en": "Running time (deprecated)",
+          "de": "Laufzeit (veraltet)"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -36,7 +47,10 @@
     "TT": {
       "type": "state",
       "common": {
-        "name": "Traveled time",
+        "name": {
+          "en": "Traveled time",
+          "de": "Gefahrene Zeit"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -49,7 +63,10 @@
     "TTT": {
       "type": "state",
       "common": {
-        "name": "Time to travel",
+        "name": {
+          "en": "Time to travel",
+          "de": "Zeit zum Fahren"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -62,7 +79,10 @@
     "BS": {
       "type": "state",
       "common": {
-        "name": "Block local switch",
+        "name": {
+          "en": "Block local switch",
+          "de": "Lokalen Schalter blockieren"
+        },
         "role": "state",
         "type": "boolean",
         "read": true,
@@ -74,7 +94,10 @@
     "UP": {
       "type": "state",
       "common": {
-        "name": "Move up",
+        "name": {
+          "en": "Move up",
+          "de": "Hochgefahren"
+        },
         "role": "switch",
         "type": "boolean",
         "read": true,
@@ -86,7 +109,10 @@
     "DO": {
       "type": "state",
       "common": {
-        "name": "Move down",
+        "name": {
+          "en": "Move down",
+          "de": "Runtergefahren"
+        },
         "role": "switch",
         "type": "boolean",
         "read": true,
@@ -110,7 +136,14 @@
           "shortcut": "RT",
           "bitoffs": "0",
           "bitsize": "16",
-          "value": {"/": [{"var": "value"}, 10]},
+          "value": {
+            "/": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
           "decimals": 1
         },
         {
@@ -118,7 +151,14 @@
           "shortcut": "TT",
           "bitoffs": "0",
           "bitsize": "16",
-          "value": {"/": [{"var": "value"}, 10]},
+          "value": {
+            "/": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
           "decimals": 1
         },
         {
@@ -133,14 +173,28 @@
           "shortcut": "UP",
           "bitoffs": "16",
           "bitsize": "8",
-          "value": {"==": [ { "var": "value" }, 1 ]}
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
         },
         {
           "data": "Move down",
           "shortcut": "DO",
           "bitoffs": "16",
           "bitsize": "8",
-          "value": {"==": [ { "var": "value" }, 2 ]}
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              2
+            ]
+          }
         }
       ]
     },
@@ -157,7 +211,14 @@
           "shortcut": "RT",
           "bitoffs": "0",
           "bitsize": "16",
-          "value": {"/": [{"var": "value"}, 10]},
+          "value": {
+            "/": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
           "decimals": 1
         },
         {
@@ -165,7 +226,14 @@
           "shortcut": "TT",
           "bitoffs": "0",
           "bitsize": "16",
-          "value": {"/": [{"var": "value"}, 10]},
+          "value": {
+            "/": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
           "decimals": 1
         },
         {
@@ -180,14 +248,28 @@
           "shortcut": "UP",
           "bitoffs": "16",
           "bitsize": "8",
-          "value": {"==": [ { "var": "value" }, 1 ]}
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
         },
         {
           "data": "Move down",
           "shortcut": "DO",
           "bitoffs": "16",
           "bitsize": "8",
-          "value": {"==": [ { "var": "value" }, 2 ]}
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              2
+            ]
+          }
         }
       ]
     },
@@ -204,18 +286,25 @@
       },
       "datafield": [
         {
-        "data": "Command ID",
-        "shortcut": "CMD",
-        "bitoffs": "16",
-        "bitsize": "8",
+          "data": "Command ID",
+          "shortcut": "CMD",
+          "bitoffs": "16",
+          "bitsize": "8",
           "value": 0
-      },
+        },
         {
           "data": "Running time",
           "shortcut": "RT",
           "bitoffs": "0",
           "bitsize": "16",
-          "value": {"/": [{"var": "value"}, 10]},
+          "value": {
+            "/": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
           "value_out": 255,
           "decimals": 1
         },
@@ -224,7 +313,14 @@
           "shortcut": "TTT",
           "bitoffs": "0",
           "bitsize": "16",
-          "value": {"/": [{"var": "value"}, 10]},
+          "value": {
+            "/": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
           "decimals": 1
         },
         {
@@ -246,7 +342,9 @@
           "shortcut": "BS",
           "bitoffs": "29",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     },
@@ -274,8 +372,17 @@
           "shortcut": "RT",
           "bitoffs": "0",
           "bitsize": "16",
-          "value": {"/": [{"var": "value"}, 10]},
-          "value_out": {"var": "value"},
+          "value": {
+            "/": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
+          "value_out": {
+            "var": "value"
+          },
           "decimals": 1
         },
         {
@@ -283,7 +390,14 @@
           "shortcut": "TTT",
           "bitoffs": "0",
           "bitsize": "16",
-          "value": {"/": [{"var": "value"}, 10]},
+          "value": {
+            "/": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
           "decimals": 1
         },
         {
@@ -305,7 +419,9 @@
           "shortcut": "BS",
           "bitoffs": "29",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     },
@@ -333,8 +449,17 @@
           "shortcut": "RT",
           "bitoffs": "0",
           "bitsize": "16",
-          "value": {"/": [{"var": "value"}, 10]},
-          "value_out": {"var": "value"},
+          "value": {
+            "/": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
+          "value_out": {
+            "var": "value"
+          },
           "decimals": 1
         },
         {
@@ -342,7 +467,14 @@
           "shortcut": "TTT",
           "bitoffs": "0",
           "bitsize": "16",
-          "value": {"/": [{"var": "value"}, 10]},
+          "value": {
+            "/": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
           "decimals": 1
         },
         {
@@ -364,7 +496,9 @@
           "shortcut": "BS",
           "bitoffs": "29",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     },
@@ -380,7 +514,6 @@
         ]
       },
       "datafield": [
-
         {
           "data": "fixed parameter",
           "description": "teachin",

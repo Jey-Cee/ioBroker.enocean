@@ -7,11 +7,17 @@
   "type_title": "Gas Sensor CO-Sensor 0ppm to 1020ppm",
   "bidirectional": false,
   "objects": {
-    "preDefined": ["TMP", "SVC"],
+    "preDefined": [
+      "TMP",
+      "SVC"
+    ],
     "Conc": {
       "type": "state",
       "common": {
-        "name": "Gas concentration",
+        "name": {
+          "en": "Gas concentration",
+          "de": "Gas-Konzentration"
+        },
         "role": "value.gas",
         "type": "number",
         "read": true,
@@ -32,24 +38,58 @@
           "value": 0
         }
       },
-    "datafield": [
-      {
-        "data": "Gas concentration",
-        "shortcut": "Conc",
-        "bitoffs": "8",
-        "bitsize": "8",
-        "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 4 ] }, 0]}
-      },
-      {
-        "data": "Supply voltage 0…5.1V",
-        "shortcut": "SVC",
-        "bitoffs": "0",
-        "bitsize": "8",
-        "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.02 ] }, 0 ]},
-        "decimals": 2
-      }
-    ]
-  },
+      "datafield": [
+        {
+          "data": "Gas concentration",
+          "shortcut": "Conc",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  4
+                ]
+              },
+              0
+            ]
+          }
+        },
+        {
+          "data": "Supply voltage 0…5.1V",
+          "shortcut": "SVC",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.02
+                ]
+              },
+              0
+            ]
+          },
+          "decimals": 2
+        }
+      ]
+    },
     {
       "send": false,
       "condition": {
@@ -65,7 +105,24 @@
           "shortcut": "TMP",
           "bitoffs": "16",
           "bitsize": "8",
-          "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.2 ] }, 0 ]},
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.2
+                ]
+              },
+              0
+            ]
+          },
           "decimals": 2
         },
         {
@@ -73,17 +130,51 @@
           "shortcut": "Conc",
           "bitoffs": "8",
           "bitsize": "8",
-          "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 4 ] }, 0]}
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  4
+                ]
+              },
+              0
+            ]
+          }
         },
         {
           "data": "Supply voltage 0…5.1V",
           "shortcut": "SVC",
           "bitoffs": "0",
           "bitsize": "8",
-          "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.02 ] }, 0 ]},
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.02
+                ]
+              },
+              0
+            ]
+          },
           "decimals": 2
         }
       ]
     }
-    ]
+  ]
 }

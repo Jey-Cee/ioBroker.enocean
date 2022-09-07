@@ -1,77 +1,94 @@
 {
-    "eep": "F6-04-01",
-    "rorg_number": "0xF6",
-    "telegram": "RPS",
-    "func_number": "0x04",
-    "type_number": "0x01",
-    "type_title": "Key Card switch",
-    "bidirectional": false,
-    "objects": {
-        "KC": {
-            "type": "state",
-            "common": {
-                "name": "Key Card",
-                "role": "switch",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        }
-    },
-    "case": [
-        {
-            "send": false,
-            "condition": {
-                "statusfield": [
-                    {
-                        "bitoffs": "2",
-                        "bitsize": "1",
-                        "value": "1"
-                    },
-                    {
-                        "bitoffs": "3",
-                        "bitsize": "1",
-                        "value": "1"
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Key Card",
-                    "shortcut": "KC",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"==": [{"var": "value"}, 112]}
-                }
-            ]
+  "eep": "F6-04-01",
+  "rorg_number": "0xF6",
+  "telegram": "RPS",
+  "func_number": "0x04",
+  "type_number": "0x01",
+  "type_title": "Key Card switch",
+  "bidirectional": false,
+  "objects": {
+    "KC": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Key Card",
+          "de": "Key Card"
         },
+        "role": "switch",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "condition": {
+        "statusfield": [
+          {
+            "bitoffs": "2",
+            "bitsize": "1",
+            "value": "1"
+          },
+          {
+            "bitoffs": "3",
+            "bitsize": "1",
+            "value": "1"
+          }
+        ]
+      },
+      "datafield": [
         {
-            "send": false,
-            "condition": {
-                "statusfield": [
-                    {
-                        "bitoffs": "2",
-                        "bitsize": "1",
-                        "value": "1"
-                    },
-                    {
-                        "bitoffs": "3",
-                        "bitsize": "1",
-                        "value": "0"
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Key Card",
-                    "shortcut": "KC",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"==": [{"var": "value"}, 0]}
-                }
+          "data": "Key Card",
+          "shortcut": "KC",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              112
             ]
+          }
         }
-    ]
+      ]
+    },
+    {
+      "send": false,
+      "condition": {
+        "statusfield": [
+          {
+            "bitoffs": "2",
+            "bitsize": "1",
+            "value": "1"
+          },
+          {
+            "bitoffs": "3",
+            "bitsize": "1",
+            "value": "0"
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Key Card",
+          "shortcut": "KC",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              0
+            ]
+          }
+        }
+      ]
+    }
+  ]
 }

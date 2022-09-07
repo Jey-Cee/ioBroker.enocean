@@ -10,12 +10,26 @@
     "CMD": {
       "type": "state",
       "common": {
-        "name": "Command to send",
+        "name": {
+          "en": "Command to send",
+          "de": "Befehl"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "CH1 OFF","1": "CH1 ON","2": "CH2 OFF","3": "CH2 ON","4": "CH1 Set output settings","5": "CH2 Set output settings","6": "Status query","7": "CH1 Set External Interface Settings","8": "CH2 Set External Interface Settings","9": "GetExternal Interface Settings"},
+        "states": {
+          "0": "CH1 OFF",
+          "1": "CH1 ON",
+          "2": "CH2 OFF",
+          "3": "CH2 ON",
+          "4": "CH1 Set output settings",
+          "5": "CH2 Set output settings",
+          "6": "Status query",
+          "7": "CH1 Set External Interface Settings",
+          "8": "CH2 Set External Interface Settings",
+          "9": "GetExternal Interface Settings"
+        },
         "def": 0
       },
       "native": {}
@@ -23,12 +37,18 @@
     "de": {
       "type": "state",
       "common": {
-        "name": "Taught-in devices",
+        "name": {
+          "en": "Taught-in devices",
+          "de": "Geräte Einlernen"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Disable taught-in devices","1": "Enable taught-in devices"},
+        "states": {
+          "0": "Disable taught-in devices",
+          "1": "Enable taught-in devices"
+        },
         "def": 0
       },
       "native": {}
@@ -36,12 +56,18 @@
     "DN": {
       "type": "state",
       "common": {
-        "name": "User interface indication",
+        "name": {
+          "en": "User interface indication",
+          "de": "Anzeige"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Day","1": "Night"},
+        "states": {
+          "0": "Day",
+          "1": "Night"
+        },
         "def": 0
       },
       "native": {}
@@ -49,26 +75,39 @@
     "CH1": {
       "type": "channel",
       "common": {
-        "name": "Channel 1"
+        "name": {
+          "en": "Channel 1",
+          "de": "Kanal 1"
+        }
       },
       "native": {}
     },
     "CH2": {
       "type": "channel",
       "common": {
-        "name": "Channel 2"
+        "name": {
+          "en": "Channel 2",
+          "de": "Kanal 2"
+        }
       },
       "native": {}
     },
     "CH1.DS": {
       "type": "state",
       "common": {
-        "name": "Default state",
+        "name": {
+          "en": "Default state",
+          "de": "Standard Zustand"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Off","1": "On","2": "Remember previous state"},
+        "states": {
+          "0": "Off",
+          "1": "On",
+          "2": "Remember previous state"
+        },
         "def": 0
       },
       "native": {}
@@ -76,7 +115,10 @@
     "CH1.AOT": {
       "type": "state",
       "common": {
-        "name": "Auto OFF Timer",
+        "name": {
+          "en": "Auto OFF Timer",
+          "de": "Auto OFF Timer"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -89,7 +131,10 @@
     "CH1.DOT": {
       "type": "state",
       "common": {
-        "name": "Delay OFF Timer",
+        "name": {
+          "en": "Delay OFF Timer",
+          "de": "Delay OFF Timer"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -102,12 +147,20 @@
     "CH1.EBM": {
       "type": "state",
       "common": {
-        "name": "External switch type",
+        "name": {
+          "en": "External switch type",
+          "de": "Externes Schaltgerät"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Not applicable","1": "External Switch","2": "External Push Button","3": "Autodetect"},
+        "states": {
+          "0": "Not applicable",
+          "1": "External Switch",
+          "2": "External Push Button",
+          "3": "Autodetect"
+        },
         "def": 0
       },
       "native": {}
@@ -115,12 +168,18 @@
     "CH1.SWT": {
       "type": "state",
       "common": {
-        "name": "2-State Switch",
+        "name": {
+          "en": "2-State Switch",
+          "de": "2-Stellenschalter"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Change of key state sets ON or OFF","1": "Specific ON/OFF positions"},
+        "states": {
+          "0": "Change of key state sets ON or OFF",
+          "1": "Specific ON/OFF positions"
+        },
         "def": 0
       },
       "native": {}
@@ -128,7 +187,10 @@
     "CH1.ON": {
       "type": "state",
       "common": {
-        "name": "ON",
+        "name": {
+          "en": "ON",
+          "de": "ON"
+        },
         "role": "state",
         "type": "boolean",
         "read": true,
@@ -140,7 +202,10 @@
     "CH1.LC": {
       "type": "state",
       "common": {
-        "name": "Local control enabled",
+        "name": {
+          "en": "Local control enabled",
+          "de": "Lokale Steuerung"
+        },
         "role": "state",
         "type": "boolean",
         "read": true,
@@ -152,12 +217,19 @@
     "CH2.DS": {
       "type": "state",
       "common": {
-        "name": "Default state",
+        "name": {
+          "en": "Default state",
+          "de": "Standard Zustand"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Off","1": "On","2": "Remember previous state"},
+        "states": {
+          "0": "Off",
+          "1": "On",
+          "2": "Remember previous state"
+        },
         "def": 0
       },
       "native": {}
@@ -165,7 +237,10 @@
     "CH2.AOT": {
       "type": "state",
       "common": {
-        "name": "Auto OFF Timer",
+        "name": {
+          "en": "Auto OFF Timer",
+          "de": "Auto OFF Timer"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -178,7 +253,10 @@
     "CH2.DOT": {
       "type": "state",
       "common": {
-        "name": "Delay OFF Timer",
+        "name": {
+          "en": "Delay OFF Timer",
+          "de": "Delay OFF Timer"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -191,12 +269,20 @@
     "CH2.EBM": {
       "type": "state",
       "common": {
-        "name": "External switch type",
+        "name": {
+          "en": "External switch type",
+          "de": "Externes Schaltgerät"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Not applicable","1": "External Switch","2": "External Push Button","3": "Autodetect"},
+        "states": {
+          "0": "Not applicable",
+          "1": "External Switch",
+          "2": "External Push Button",
+          "3": "Autodetect"
+        },
         "def": 0
       },
       "native": {}
@@ -204,12 +290,18 @@
     "CH2.SWT": {
       "type": "state",
       "common": {
-        "name": "2-State Switch",
+        "name": {
+          "en": "2-State Switch",
+          "de": "2-Stellenschalter"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Change of key state sets ON or OFF","1": "Specific ON/OFF positions"},
+        "states": {
+          "0": "Change of key state sets ON or OFF",
+          "1": "Specific ON/OFF positions"
+        },
         "def": 0
       },
       "native": {}
@@ -217,7 +309,10 @@
     "CH2.ON": {
       "type": "state",
       "common": {
-        "name": "ON",
+        "name": {
+          "en": "ON",
+          "de": "ON"
+        },
         "role": "state",
         "type": "boolean",
         "read": true,
@@ -229,7 +324,10 @@
     "CH2.LC": {
       "type": "state",
       "common": {
-        "name": "Local control enabled",
+        "name": {
+          "en": "Local control enabled",
+          "de": "Lokale Steuerung"
+        },
         "role": "state",
         "type": "boolean",
         "read": true,
@@ -626,14 +724,28 @@
           "shortcut": "CH1.AOT",
           "bitoffs": "16",
           "bitsize": "16",
-          "value_out": {"*":[{"var": "value"},10]}
+          "value_out": {
+            "*": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          }
         },
         {
           "data": "Delay OFF Timer",
           "shortcut": "CH1.DOT",
           "bitoffs": "32",
           "bitsize": "16",
-          "value_out": {"*":[{"var": "value"},10]}
+          "value_out": {
+            "*": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          }
         },
         {
           "data": "External switch type",
@@ -686,14 +798,28 @@
           "shortcut": "CH2.AOT",
           "bitoffs": "16",
           "bitsize": "16",
-          "value_out": {"*":[{"var": "value"},10]}
+          "value_out": {
+            "*": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          }
         },
         {
           "data": "Delay OFF Timer",
           "shortcut": "CH2.DOT",
           "bitoffs": "32",
           "bitsize": "16",
-          "value_out": {"*":[{"var": "value"},10]}
+          "value_out": {
+            "*": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          }
         },
         {
           "data": "External switch type",
@@ -743,11 +869,12 @@
     },
     {
       "send": false,
-      "condition": [{
-        "bitoffs": "4",
-        "bitsize": "4",
-        "value": 4
-      },
+      "condition": [
+        {
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 4
+        },
         {
           "bitoffs": "11",
           "bitsize": "5",
@@ -761,7 +888,12 @@
           "bitoffs": "17",
           "bitsize": "7",
           "value": {
-            "==": [{"var": "value"}, 100]
+            "==": [
+              {
+                "var": "value"
+              },
+              100
+            ]
           }
         },
         {
@@ -770,18 +902,24 @@
           "bitoffs": "16",
           "bitsize": "1",
           "value": {
-            "==": [{"var": "value"}, 1]
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
           }
         }
       ]
     },
     {
       "send": false,
-      "condition": [{
-        "bitoffs": "4",
-        "bitsize": "4",
-        "value": 4
-      },
+      "condition": [
+        {
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 4
+        },
         {
           "bitoffs": "11",
           "bitsize": "5",
@@ -795,7 +933,12 @@
           "bitoffs": "17",
           "bitsize": "7",
           "value": {
-            "==": [{"var": "value"}, 100]
+            "==": [
+              {
+                "var": "value"
+              },
+              100
+            ]
           }
         },
         {
@@ -804,23 +947,30 @@
           "bitoffs": "16",
           "bitsize": "1",
           "value": {
-            "==": [{"var": "value"}, 1]
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
           }
         }
       ]
     },
     {
       "send": false,
-      "condition": [{
-        "bitoffs": "4",
-        "bitsize": "4",
-        "value": 13
-      },
+      "condition": [
+        {
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 13
+        },
         {
           "bitoffs": "11",
           "bitsize": "5",
           "value": 0
-        }],
+        }
+      ],
       "datafield": [
         {
           "data": "ON",
@@ -828,7 +978,12 @@
           "bitoffs": "17",
           "bitsize": "7",
           "value": {
-            "==": [{"var": "value"}, 100]
+            "==": [
+              {
+                "var": "value"
+              },
+              100
+            ]
           }
         },
         {
@@ -837,7 +992,12 @@
           "bitoffs": "16",
           "bitsize": "16",
           "value": {
-            "/":[{"var": "value"},10]
+            "/": [
+              {
+                "var": "value"
+              },
+              10
+            ]
           }
         },
         {
@@ -846,7 +1006,12 @@
           "bitoffs": "32",
           "bitsize": "16",
           "value": {
-            "/":[{"var": "value"},10]
+            "/": [
+              {
+                "var": "value"
+              },
+              10
+            ]
           }
         },
         {
@@ -854,22 +1019,26 @@
           "shortcut": "CH1.EBM",
           "bitoffs": "48",
           "bitsize": "2",
-          "value": { "var": "value" }
+          "value": {
+            "var": "value"
+          }
         }
       ]
     },
     {
       "send": false,
-      "condition": [{
-        "bitoffs": "4",
-        "bitsize": "4",
-        "value": 13
-      },
+      "condition": [
+        {
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 13
+        },
         {
           "bitoffs": "11",
           "bitsize": "5",
           "value": 1
-        }],
+        }
+      ],
       "datafield": [
         {
           "data": "Auto OFF Timer",
@@ -877,7 +1046,12 @@
           "bitoffs": "16",
           "bitsize": "16",
           "value": {
-            "/":[{"var": "value"},10]
+            "/": [
+              {
+                "var": "value"
+              },
+              10
+            ]
           }
         },
         {
@@ -886,7 +1060,12 @@
           "bitoffs": "32",
           "bitsize": "16",
           "value": {
-            "/":[{"var": "value"},10]
+            "/": [
+              {
+                "var": "value"
+              },
+              10
+            ]
           }
         },
         {
@@ -895,7 +1074,12 @@
           "bitoffs": "32",
           "bitsize": "16",
           "value": {
-            "/":[{"var": "value"},10]
+            "/": [
+              {
+                "var": "value"
+              },
+              10
+            ]
           }
         },
         {
@@ -903,7 +1087,9 @@
           "shortcut": "CH2.EBM",
           "bitoffs": "48",
           "bitsize": "2",
-          "value": { "var": "value" }
+          "value": {
+            "var": "value"
+          }
         }
       ]
     }

@@ -1,458 +1,661 @@
 {
-    "eep": "A5-20-01",
-    "rorg_number": "0xA5",
-    "telegram": "4BS",
-    "func_number": "0x20",
-    "type_number": "0x01",
-    "type_title": "Battery Powered Actuator",
-    "bidirectional": true,
-    "objects": {
-        "preDefined": ["in", "in.CV", "in.TMP", "in.DWO"],
-        "CMD": {
-            "type": "state",
-            "common": {
-                "name": "Command",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "states": {
-                    "0":"Set Valve position", "1":"Set Temperature", "2":"Summer mode", "3":"Open valve", "4":"Close valve"
-                },
-                "def": 0
-            },
-            "native": {}
+  "eep": "A5-20-01",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x20",
+  "type_number": "0x01",
+  "type_title": "Battery Powered Actuator",
+  "bidirectional": true,
+  "objects": {
+    "preDefined": [
+      "in",
+      "in.CV",
+      "in.TMP",
+      "in.DWO"
+    ],
+    "CMD": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Command",
+          "de": "Befehl"
         },
-        "in.SC": {
-            "type": "state",
-            "common": {
-                "name": "Service On",
-                "role": "indicator",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {
+          "0": "Set Valve position",
+          "1": "Set Temperature",
+          "2": "Summer mode",
+          "3": "Open valve",
+          "4": "Close valve"
         },
-        "in.ENIE": {
-            "type": "state",
-            "common": {
-                "name": "Energy input enabled",
-                "role": "indicator",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def":false
-            },
-            "native": {}
-        },
-        "in.ES": {
-            "type": "state",
-            "common": {
-                "name": "Energy Storage",
-                "role": "indicator",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "in.BCAP": {
-            "type": "state",
-            "common": {
-                "name": "Battery capacity low",
-                "role": "indicator.lowbat",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "in.CCO": {
-            "type": "state",
-            "common": {
-                "name": "Contact, cover open",
-                "role": "indicator",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "in.FTS": {
-            "type": "state",
-            "common": {
-                "name": "Failure temperature sensor, out off range",
-                "role": "indicator",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "in.ACO": {
-            "type": "state",
-            "common": {
-                "name": "Actuator obstructed",
-                "role": "indicator",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "in.ASC": {
-            "type": "state",
-            "common": {
-                "name": "Actuator self-controlled",
-                "role": "indicator",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "SP": {
-            "type": "state",
-            "common": {
-                "name": "Valve position (0...100) or temperature setpoint (0...+40°C)",
-                "role": "level",
-                "type": "number",
-                "read": false,
-                "write": true,
-                "def": 0
-            },
-            "native": {}
-        },
-        "SPN": {
-            "type": "state",
-            "common": {
-                "name": "Set point inverse (Valve only)",
-                "role": "state",
-                "type": "boolean",
-                "read": true,
-                "write": true,
-                "def": false
-            },
-            "native": {}
-        },
-        "TMP": {
-            "type": "state",
-            "common": {
-                "name": "Send actual room temperature",
-                "role": "value.temperature",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "def": 0,
-                "unit": "°C"
-            },
-            "native": {}
-        }
+        "def": 0
+      },
+      "native": {}
     },
-    "case": [
+    "in.SC": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Service On",
+          "de": "Service On"
+        },
+        "role": "indicator",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "in.ENIE": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Energy input enabled",
+          "de": "Energieeingang aktiviert"
+        },
+        "role": "indicator",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "in.ES": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Energy Storage",
+          "de": "Energie Speicher"
+        },
+        "role": "indicator",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "in.BCAP": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Battery capacity low",
+          "de": "Batteriekapazität niedrig"
+        },
+        "role": "indicator.lowbat",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "in.CCO": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Contact, cover open",
+          "de": "Kontakt, Deckel offen"
+        },
+        "role": "indicator",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "in.FTS": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Failure temperature sensor, out off range",
+          "de": "Fehler Temperatursensor, ausserhalb des Bereichs"
+        },
+        "role": "indicator",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "in.ACO": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Actuator obstructed",
+          "de": "Aktor blockiert"
+        },
+        "role": "indicator",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "in.ASC": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Actuator self-controlled",
+          "de": "Aktor selbstgesteuert"
+        },
+        "role": "indicator",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "SP": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Valve position (0...100) or temperature setpoint (0...+40°C)",
+          "de": "Ventilposition (0...100) oder Temperatur Sollwert (0...+40°C)"
+        },
+        "role": "level",
+        "type": "number",
+        "read": false,
+        "write": true,
+        "def": 0
+      },
+      "native": {}
+    },
+    "SPN": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Set point inverse (Valve only)",
+          "de": "Sollwert umgekehrt (nur Ventilsteuerung)"
+        },
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": true,
+        "def": false
+      },
+      "native": {}
+    },
+    "TMP": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Send actual room temperature",
+          "de": "Sende aktuelle Raumtemperatur"
+        },
+        "role": "value.temperature",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "def": 0,
+        "unit": "°C"
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "datafield": [
         {
-            "send": false,
-            "datafield": [
-                {
-                    "data": "Current Value 0...100%",
-                    "shortcut": "in.CV",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "Service On",
-                    "shortcut": "in.SC",
-                    "bitoffs": "8",
-                    "bitsize": "1",
-                    "value": {"==": [{"var": "value"}, 1]}
-                },
-                {
-                    "data": "Energy input enabled",
-                    "shortcut": "in.ENIE",
-                    "bitoffs": "9",
-                    "bitsize": "1",
-                    "value": {"==": [{"var": "value"}, 1]}
-                },
-                {
-                    "data": "Energy Storage",
-                    "shortcut": "in.ES",
-                    "bitoffs": "10",
-                    "bitsize": "1",
-                    "value": {"==": [{"var": "value"}, 1]}
-                },
-                {
-                    "data": "Battery capacity low",
-                    "shortcut": "in.BCAP",
-                    "bitoffs": "11",
-                    "bitsize": "1",
-                    "value": {"==": [{"var": "value"}, 0]}
-                },
-                {
-                    "data": "Contact, cover open",
-                    "shortcut": "in.CCO",
-                    "bitoffs": "12",
-                    "bitsize": "1",
-                    "value": {"==": [{"var": "value"}, 1]}
-                },
-                {
-                    "data": "Failure temperature sensor, out off range",
-                    "shortcut": "in.FTS",
-                    "bitoffs": "13",
-                    "bitsize": "1",
-                    "value": {"==": [ { "var": "value" }, 1 ]}
-                },
-                {
-                    "data": "Detection, window open",
-                    "shortcut": "in.DWO",
-                    "bitoffs": "14",
-                    "bitsize": "1",
-                    "value": {"==": [{"var": "value"}, 1]}
-                },
-                {
-                    "data": "Actuator obstructed",
-                    "shortcut": "in.ACO",
-                    "bitoffs": "9",
-                    "bitsize": "1",
-                    "value": {"==": [ { "var": "value" }, 1 ]}
-                },
-                {
-                    "data": "Temperature 0...40°C",
-                    "shortcut": "in.TMP",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "value": {"*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 0.1569 ]},
-                    "decimals": 2
-                },
-                {
-                    "data": "Actuator self-controlled",
-                    "shortcut": "in.ASC",
-                    "bitoffs": "29",
-                    "bitsize": "1",
-                    "value": {"==": [ { "var": "value" }, 1 ]}
-                }
-            ]
+          "data": "Current Value 0...100%",
+          "shortcut": "in.CV",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "var": "value"
+          }
         },
         {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 0
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
-                    "shortcut": "SP",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"var": "value"},
-                    "value_out": {"var": "value"}
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Setpoint selection",
-                    "bitoffs": "21",
-                    "bitsize": "1",
-                    "value": 0
-                },
-                {
-                    "data": "Set point inverse (Valve only)",
-                    "shortcut": "SPN",
-                    "bitoffs": "22",
-                    "bitsize": "1",
-                    "value": {"==": [{"var": "value"}, 1]},
-                    "value_out": {"if":[{"var":"value"},1,0]}
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Represents the learnbit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
+          "data": "Service On",
+          "shortcut": "in.SC",
+          "bitoffs": "8",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
             ]
+          }
         },
         {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 1
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
-                    "shortcut": "SP",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"var": "value"},
-                    "value_out": {"*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 6.375 ]}
-                },
-                {
-                    "data": "Send actual room temperature",
-                    "shortcut": "TMP",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": {"+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 6.375 ] }, 0 ]},
-                    "value_out": {"*": [ { "+": [ { "-": [ { "var": "value" }, 0 ] }, 0 ] }, 6.375 ]},
-                    "decimals": 2
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Setpoint selection",
-                    "bitoffs": "21",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Learn Bit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
+          "data": "Energy input enabled",
+          "shortcut": "in.ENIE",
+          "bitoffs": "9",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
             ]
+          }
         },
         {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 2
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
-                    "shortcut": "SP",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"var": "value"},
-                    "value_out": {"var": "value"}
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Summer Bit",
-                    "bitoffs": "20",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Learn Bit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
+          "data": "Energy Storage",
+          "shortcut": "in.ES",
+          "bitoffs": "10",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
             ]
+          }
         },
         {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 3
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy byte",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy byte",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Valve open",
-                    "bitoffs": "18",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Service mode ON",
-                    "bitoffs": "23",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Learn Bit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
+          "data": "Battery capacity low",
+          "shortcut": "in.BCAP",
+          "bitoffs": "11",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              0
             ]
+          }
         },
         {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 4
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy byte",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy byte",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Valve closed",
-                    "bitoffs": "19",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Service mode ON",
-                    "bitoffs": "23",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Learn Bit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
+          "data": "Contact, cover open",
+          "shortcut": "in.CCO",
+          "bitoffs": "12",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
             ]
+          }
+        },
+        {
+          "data": "Failure temperature sensor, out off range",
+          "shortcut": "in.FTS",
+          "bitoffs": "13",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
+        },
+        {
+          "data": "Detection, window open",
+          "shortcut": "in.DWO",
+          "bitoffs": "14",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
+        },
+        {
+          "data": "Actuator obstructed",
+          "shortcut": "in.ACO",
+          "bitoffs": "9",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
+        },
+        {
+          "data": "Temperature 0...40°C",
+          "shortcut": "in.TMP",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": {
+            "*": [
+              {
+                "+": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0
+                ]
+              },
+              0.1569
+            ]
+          },
+          "decimals": 2
+        },
+        {
+          "data": "Actuator self-controlled",
+          "shortcut": "in.ASC",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
         }
-    ]
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 0
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
+          "shortcut": "SP",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "var": "value"
+          },
+          "value_out": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Setpoint selection",
+          "bitoffs": "21",
+          "bitsize": "1",
+          "value": 0
+        },
+        {
+          "data": "Set point inverse (Valve only)",
+          "shortcut": "SPN",
+          "bitoffs": "22",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          },
+          "value_out": {
+            "if": [
+              {
+                "var": "value"
+              },
+              1,
+              0
+            ]
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Represents the learnbit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
+          "shortcut": "SP",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "var": "value"
+          },
+          "value_out": {
+            "*": [
+              {
+                "+": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0
+                ]
+              },
+              6.375
+            ]
+          }
+        },
+        {
+          "data": "Send actual room temperature",
+          "shortcut": "TMP",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  6.375
+                ]
+              },
+              0
+            ]
+          },
+          "value_out": {
+            "*": [
+              {
+                "+": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0
+                ]
+              },
+              6.375
+            ]
+          },
+          "decimals": 2
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Setpoint selection",
+          "bitoffs": "21",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Learn Bit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 2
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Valve position (0...100) or temperature setpoint (0...+40°C)",
+          "shortcut": "SP",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "var": "value"
+          },
+          "value_out": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Summer Bit",
+          "bitoffs": "20",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Learn Bit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 3
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "dummy byte",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy byte",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Valve open",
+          "bitoffs": "18",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Service mode ON",
+          "bitoffs": "23",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Learn Bit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 4
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "dummy byte",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy byte",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Valve closed",
+          "bitoffs": "19",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Service mode ON",
+          "bitoffs": "23",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Learn Bit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        }
+      ]
+    }
+  ]
 }

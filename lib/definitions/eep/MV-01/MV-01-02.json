@@ -1,108 +1,123 @@
 {
-    "eep": "MV-01-02",
-    "rorg_number": "0xF6",
-    "telegram": "RPS",
-    "func_number": "0x00",
-    "type_number": "0x00",
-    "type_title": "Nodon SIN-2-2-01 2 channel state",
-    "bidirectional": false,
-    "objects": {
-        "preDefined": ["CH1", "CH2"],
-        "CH1.ON": {
-            "type": "state",
-            "common": {
-                "name": "ON",
-                "role": "switch",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
+  "eep": "MV-01-02",
+  "rorg_number": "0xF6",
+  "telegram": "RPS",
+  "func_number": "0x00",
+  "type_number": "0x00",
+  "type_title": "Nodon SIN-2-2-01 2 channel state",
+  "bidirectional": false,
+  "objects": {
+    "preDefined": [
+      "CH1",
+      "CH2"
+    ],
+    "CH1.ON": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "ON",
+          "de": "EIN"
         },
-        "CH2.ON": {
-            "type": "state",
-            "common": {
-                "name": "ON",
-                "role": "switch",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        }
+        "role": "switch",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
     },
-    "case": [
-        {
-            "send": false,
-            "condition": [{
-                "bitoffs": "0",
-                "bitsize": "8",
-                "value": 112
-            }],
-            "datafield": [
-                {
-                    "data": "ON",
-                    "shortcut": "CH2.ON",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": true
-
-                }
-            ]
+    "CH2.ON": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "ON",
+          "de": "EIN"
         },
+        "role": "switch",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "condition": [
         {
-            "send": false,
-            "condition": [{
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 80
-                }],
-            "datafield": [
-                {
-                    "data": "ON",
-                    "shortcut": "CH2.ON",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": false
-
-                }
-            ]
-        },
-        {
-            "send": false,
-            "condition": [{
-                "bitoffs": "0",
-                "bitsize": "8",
-                "value": 48
-            }],
-            "datafield": [
-                {
-                    "data": "ON",
-                    "shortcut": "CH1.ON",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": true
-                }
-            ]
-        },
-        {
-            "send": false,
-            "condition": [{
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 16
-                }],
-            "datafield": [
-                {
-                    "data": "ON",
-                    "shortcut": "CH1.ON",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": false
-                }
-            ]
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 112
         }
-    ]
+      ],
+      "datafield": [
+        {
+          "data": "ON",
+          "shortcut": "CH2.ON",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": true
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [
+        {
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 80
+        }
+      ],
+      "datafield": [
+        {
+          "data": "ON",
+          "shortcut": "CH2.ON",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": false
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [
+        {
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 48
+        }
+      ],
+      "datafield": [
+        {
+          "data": "ON",
+          "shortcut": "CH1.ON",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": true
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [
+        {
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 16
+        }
+      ],
+      "datafield": [
+        {
+          "data": "ON",
+          "shortcut": "CH1.ON",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": false
+        }
+      ]
+    }
+  ]
 }

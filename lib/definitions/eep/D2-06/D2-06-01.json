@@ -7,16 +7,27 @@
   "type_title": "Multisensor Window Handle",
   "bidirectional": true,
   "objects": {
-    "preDefined": ["TMP", "HUM", "ILL"],
+    "preDefined": [
+      "TMP",
+      "HUM",
+      "ILL"
+    ],
     "CMD": {
       "type": "state",
       "common": {
-        "name": "Command",
+        "name": {
+          "en": "Command",
+          "de": "Befehl"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Get Configuration Settings", "1":  "Get Log Data", "3":  "Set Configuration"},
+        "states": {
+          "0": "Get Configuration Settings",
+          "1": "Get Log Data",
+          "3": "Set Configuration"
+        },
         "def": 0
       },
       "native": {}
@@ -24,12 +35,20 @@
     "BAL": {
       "type": "state",
       "common": {
-        "name": "Burglary Alarm Trigger Signal",
+        "name": {
+          "en": "Burglary Alarm Trigger Signal",
+          "de": "Einbruchalarm Auslösesignal"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Not Triggered", "1": "Alarm Triggered", "14":  "Supported + Invalid", "15":  "Not Supported"},
+        "states": {
+          "0": "Not Triggered",
+          "1": "Alarm Triggered",
+          "14": "Supported + Invalid",
+          "15": "Not Supported"
+        },
         "def": 0
       },
       "native": {}
@@ -37,12 +56,20 @@
     "PPAL": {
       "type": "state",
       "common": {
-        "name": "Protection Plus Alarm Trigger Signal",
+        "name": {
+          "en": "Protection Plus Alarm Trigger Signal",
+          "de": "Schutz Plus Alarm Auslösesignal"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Not Triggered", "1": "Triggered", "14":  "Supported + Invalid", "15":  "Not Supported"},
+        "states": {
+          "0": "Not Triggered",
+          "1": "Triggered",
+          "14": "Supported + Invalid",
+          "15": "Not Supported"
+        },
         "def": 0
       },
       "native": {}
@@ -50,12 +77,23 @@
     "HP": {
       "type": "state",
       "common": {
-        "name": "Position of Handle",
+        "name": {
+          "en": "Position of Handle",
+          "de": "Position des Griffes"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Undefined", "1": "Up", "2": "Down", "3":  "Left", "4":  "Right", "14":  "Supported + Invalid", "15":  "Not Supported"},
+        "states": {
+          "0": "Undefined",
+          "1": "Up",
+          "2": "Down",
+          "3": "Left",
+          "4": "Right",
+          "14": "Supported + Invalid",
+          "15": "Not Supported"
+        },
         "def": 0
       },
       "native": {}
@@ -63,12 +101,21 @@
     "WS": {
       "type": "state",
       "common": {
-        "name": "State of Window",
+        "name": {
+          "en": "State of Window",
+          "de": "Status des Fensters"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Undefined", "1": "Not Tilted", "2":  "Tilted", "14":  "Supported + Invalid", "15":  "Not Supported"},
+        "states": {
+          "0": "Undefined",
+          "1": "Not Tilted",
+          "2": "Tilted",
+          "14": "Supported + Invalid",
+          "15": "Not Supported"
+        },
         "def": 0
       },
       "native": {}
@@ -76,12 +123,21 @@
     "BR": {
       "type": "state",
       "common": {
-        "name": "Button Right Activities",
+        "name": {
+          "en": "Button Right Activities",
+          "de": "Rechte Taste Aktivitäten"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "No Change", "1": "Pressed", "3":  "Released", "14":  "Supported + Invalid", "15":  "Not Supported"},
+        "states": {
+          "0": "No Change",
+          "1": "Pressed",
+          "3": "Released",
+          "14": "Supported + Invalid",
+          "15": "Not Supported"
+        },
         "def": 0
       },
       "native": {}
@@ -89,12 +145,21 @@
     "BL": {
       "type": "state",
       "common": {
-        "name": "Button Left Activities",
+        "name": {
+          "en": "Button Left Activities",
+          "de": "Linke Taste Aktivitäten"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "No Change", "1": "Pressed", "3": "Released", "14":  "Supported + Invalid", "15":  "Not Supported"},
+        "states": {
+          "0": "No Change",
+          "1": "Pressed",
+          "3": "Released",
+          "14": "Supported + Invalid",
+          "15": "Not Supported"
+        },
         "def": 0
       },
       "native": {}
@@ -102,12 +167,20 @@
     "M": {
       "type": "state",
       "common": {
-        "name": "Motion sensing like typical PIR sensor",
+        "name": {
+          "en": "Motion sensing like typical PIR sensor",
+          "de": "Bewegungsmelder wie typischer PIR Sensor"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Not Triggered", "1": "Triggered", "14":  "Supported + Invalid", "15":  "Not Supported"},
+        "states": {
+          "0": "Not Triggered",
+          "1": "Triggered",
+          "14": "Supported + Invalid",
+          "15": "Not Supported"
+        },
         "def": 0
       },
       "native": {}
@@ -115,12 +188,21 @@
     "V": {
       "type": "state",
       "common": {
-        "name": "Vacation Mode Switch",
+        "name": {
+          "en": "Vacation Mode Switch",
+          "de": "Urlaubsmodus Schalter"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "No Change", "1": "ON", "2":  "OFF", "14":  "Supported + Invalid", "15":  "Not Supported"},
+        "states": {
+          "0": "No Change",
+          "1": "ON",
+          "2": "OFF",
+          "14": "Supported + Invalid",
+          "15": "Not Supported"
+        },
         "def": 0
       },
       "native": {}
@@ -128,7 +210,10 @@
     "BS": {
       "type": "state",
       "common": {
-        "name": "Battery State (5% Steps)",
+        "name": {
+          "en": "Battery State (5% Steps)",
+          "de": "Batteriestatus (5% Schritte)"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -141,7 +226,10 @@
     "conf.VM": {
       "type": "state",
       "common": {
-        "name": "Vacation Mode",
+        "name": {
+          "en": "Vacation Mode",
+          "de": "Urlaubsmodus"
+        },
         "role": "state",
         "type": "boolean",
         "read": true,
@@ -153,7 +241,10 @@
     "conf.HCC": {
       "type": "state",
       "common": {
-        "name": "Handle Closed Click Feature Enabled",
+        "name": {
+          "en": "Handle Closed Click Feature Enabled",
+          "de": "Griff geschlossen Klick Funktion aktiviert"
+        },
         "role": "state",
         "type": "boolean",
         "read": true,
@@ -165,7 +256,10 @@
     "conf.BLC": {
       "type": "state",
       "common": {
-        "name": "Battery Low Click Feature",
+        "name": {
+          "en": "Battery Low Click Feature",
+          "de": "Batterie niedrig Klick Funktion"
+        },
         "role": "state",
         "type": "boolean",
         "read": true,
@@ -177,7 +271,10 @@
     "conf.SUI": {
       "type": "state",
       "common": {
-        "name": "Sensor Update Interval",
+        "name": {
+          "en": "Sensor Update Interval",
+          "de": "Sensor Update Intervall"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -192,7 +289,10 @@
     "conf.VBI": {
       "type": "state",
       "common": {
-        "name": "Vacation Blink Interval",
+        "name": {
+          "en": "Vacation Blink Interval",
+          "de": "Urlaubs Blink Intervall"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -207,7 +307,10 @@
     "log.PON": {
       "type": "state",
       "common": {
-        "name": "Number of Power ONs",
+        "name": {
+          "en": "Number of Power ONs",
+          "de": "Anzahl der Einschaltvorgänge"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -219,7 +322,10 @@
     "log.ALL": {
       "type": "state",
       "common": {
-        "name": "Number of Alrams",
+        "name": {
+          "en": "Number of Alrams",
+          "de": "Anzahl der Alarme"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -231,7 +337,10 @@
     "log.HMC": {
       "type": "state",
       "common": {
-        "name": "Number of Handle Movements Closed",
+        "name": {
+          "en": "Number of Handle Movements Closed",
+          "de": "Anzahl der Griffbewegungen geschlossen"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -243,7 +352,10 @@
     "log.HMO": {
       "type": "state",
       "common": {
-        "name": "Number of Handle Movments Opened",
+        "name": {
+          "en": "Number of Handle Movments Opened",
+          "de": "Anzahl der Griffbewegungen geöffnet"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -255,7 +367,10 @@
     "log.HMT": {
       "type": "state",
       "common": {
-        "name": "Number of Handle Movements Tilted",
+        "name": {
+          "en": "Number of Handle Movements Tilted",
+          "de": "Anzahl der Griffbewegungen gekippt"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -267,7 +382,10 @@
     "log.WT": {
       "type": "state",
       "common": {
-        "name": "Number of Window Tilts",
+        "name": {
+          "en": "Number of Window Tilts",
+          "de": "Anzahl der Fenster Kippungen"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -279,7 +397,10 @@
     "log.BRP": {
       "type": "state",
       "common": {
-        "name": "Number of Button Right Presses",
+        "name": {
+          "en": "Number of Button Right Presses",
+          "de": "Anzahl der Button Rechts Drückungen"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -291,7 +412,10 @@
     "log.BLP": {
       "type": "state",
       "common": {
-        "name": "Number of Button Left Presses",
+        "name": {
+          "en": "Number of Button Left Presses",
+          "de": "Anzahl der Button Links Drückungen"
+        },
         "role": "state",
         "type": "number",
         "read": true,
@@ -305,11 +429,11 @@
     {
       "send": false,
       "condition": [
-          {
-            "bitoffs": "0",
-            "bitsize": "8",
-            "value": 0
-          }
+        {
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 0
+        }
       ],
       "datafield": [
         {
@@ -317,56 +441,72 @@
           "shortcut": "BAL",
           "bitoffs": "8",
           "bitsize": "4",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Protection Plus Alarm Trigger Signal",
           "shortcut": "PPAL",
           "bitoffs": "12",
           "bitsize": "4",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Position of Handle",
           "shortcut": "HP",
           "bitoffs": "16",
           "bitsize": "4",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "State of Window",
           "shortcut": "WS",
           "bitoffs": "20",
           "bitsize": "4",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Button Right Activities",
           "shortcut": "BR",
           "bitoffs": "24",
           "bitsize": "4",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Button Left Activities",
           "shortcut": "BL",
           "bitoffs": "28",
           "bitsize": "4",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Motion sensing like typical PIR sensors",
           "shortcut": "M",
           "bitoffs": "32",
           "bitsize": "4",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Vacation Mode",
           "shortcut": "V",
           "bitoffs": "36",
           "bitsize": "4",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Temperature",
@@ -375,9 +515,50 @@
           "bitsize": "8",
           "value": {
             "if": [
-              {"==":[{"var":  "value"}, 255]}, 255,
-              {"==":[{"var":  "value"}, 254]}, 254,
-              {"<=":[{"var":  "value"}, 250]}, {"+":[{"*":[{"-":[{"var":"value"},0]},0.32]},-20]}
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  255
+                ]
+              },
+              255,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  254
+                ]
+              },
+              254,
+              {
+                "<=": [
+                  {
+                    "var": "value"
+                  },
+                  250
+                ]
+              },
+              {
+                "+": [
+                  {
+                    "*": [
+                      {
+                        "-": [
+                          {
+                            "var": "value"
+                          },
+                          0
+                        ]
+                      },
+                      0.32
+                    ]
+                  },
+                  -20
+                ]
+              }
             ]
           }
         },
@@ -388,9 +569,50 @@
           "bitsize": "8",
           "value": {
             "if": [
-              {"==":[{"var":  "value"}, 255]}, 255,
-              {"==":[{"var":  "value"}, 254]}, 254,
-              {"<=":[{"var":  "value"}, 200]},{"+":[{"*":[{"-":[{"var":"value"},0]},0.5]},0]}
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  255
+                ]
+              },
+              255,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  254
+                ]
+              },
+              254,
+              {
+                "<=": [
+                  {
+                    "var": "value"
+                  },
+                  200
+                ]
+              },
+              {
+                "+": [
+                  {
+                    "*": [
+                      {
+                        "-": [
+                          {
+                            "var": "value"
+                          },
+                          0
+                        ]
+                      },
+                      0.5
+                    ]
+                  },
+                  0
+                ]
+              }
             ]
           }
         },
@@ -399,25 +621,44 @@
           "shortcut": "ILL",
           "bitoffs": "56",
           "bitsize": "16",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Battery State",
           "shortcut": "BS",
           "bitoffs": "72",
           "bitsize": "5",
-          "value": {"+":[{"*":[{"-":[{"var":"value"},0]},5]},0]}
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  5
+                ]
+              },
+              0
+            ]
+          }
         }
       ]
     },
     {
       "send": false,
       "condition": [
-          {
-            "bitoffs": "0",
-            "bitsize": "8",
-            "value": 16
-          }
+        {
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 16
+        }
       ],
       "datafield": [
         {
@@ -427,8 +668,24 @@
           "bitsize": "1",
           "value": {
             "if": [
-              {"==":[{"var":  "value"}, 1]}, true,
-              {"==":[{"var":  "value"}, 0]}, false
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  1
+                ]
+              },
+              true,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  0
+                ]
+              },
+              false
             ]
           }
         },
@@ -439,8 +696,24 @@
           "bitsize": "1",
           "value": {
             "if": [
-              {"==":[{"var":  "value"}, 2]}, true,
-              {"==":[{"var":  "value"}, 1]}, false
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  2
+                ]
+              },
+              true,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  1
+                ]
+              },
+              false
             ]
           }
         },
@@ -451,8 +724,24 @@
           "bitsize": "1",
           "value": {
             "if": [
-              {"==":[{"var":  "value"}, 2]}, true,
-              {"==":[{"var":  "value"}, 1]}, false
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  2
+                ]
+              },
+              true,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  1
+                ]
+              },
+              false
             ]
           }
         },
@@ -461,25 +750,29 @@
           "shortcut": "conf.SUI",
           "bitoffs": "16",
           "bitsize": "16",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Vacation Blink Interval",
           "shortcut": "conf.VBI",
           "bitoffs": "32",
           "bitsize": "8",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     },
     {
       "send": false,
       "condition": [
-          {
-            "bitoffs": "0",
-            "bitsize": "8",
-            "value": 32
-          }
+        {
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 32
+        }
       ],
       "datafield": [
         {
@@ -487,14 +780,18 @@
           "shortcut": "log.PON",
           "bitoffs": "8",
           "bitsize": "32",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Number of Alarms",
           "shortcut": "log.ALL",
           "bitoffs": "40",
           "bitsize": "32",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     },
@@ -513,21 +810,27 @@
           "shortcut": "log.HMC",
           "bitoffs": "8",
           "bitsize": "32",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Number of Handle Movements Opened",
           "shortcut": "log.HMO",
           "bitoffs": "40",
           "bitsize": "32",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Number of Handle Movements Tilted",
           "shortcut": "log.HMT",
           "bitoffs": "72",
           "bitsize": "32",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     },
@@ -546,7 +849,9 @@
           "shortcut": "log.WT",
           "bitoffs": "8",
           "bitsize": "32",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     },
@@ -565,14 +870,18 @@
           "shortcut": "log.BRP",
           "bitoffs": "8",
           "bitsize": "32",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Number of Button Left Presses",
           "shortcut": "log.BLP",
           "bitoffs": "40",
           "bitsize": "32",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     },
@@ -614,8 +923,24 @@
           "bitsize": "1",
           "value_out": {
             "if": [
-              {"==":[{"var":  "value"}, true]}, 1,
-              {"==":[{"var":  "value"}, false]}, 0
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  true
+                ]
+              },
+              1,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  false
+                ]
+              },
+              0
             ]
           }
         },
@@ -687,8 +1012,24 @@
           "bitsize": "1",
           "value_out": {
             "if": [
-              {"==":[{"var":  "value"}, true]}, 1,
-              {"==":[{"var":  "value"}, false]}, 0
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  true
+                ]
+              },
+              1,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  false
+                ]
+              },
+              0
             ]
           }
         },
@@ -760,8 +1101,24 @@
           "bitsize": "1",
           "value_out": {
             "if": [
-              {"==":[{"var":  "value"}, true]}, 1,
-              {"==":[{"var":  "value"}, false]}, 0
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  true
+                ]
+              },
+              1,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  false
+                ]
+              },
+              0
             ]
           }
         },
@@ -772,8 +1129,24 @@
           "bitsize": "2",
           "value_out": {
             "if": [
-              {"==":[{"var":  "value"}, true]}, 2,
-              {"==":[{"var":  "value"}, false]}, 1
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  true
+                ]
+              },
+              2,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  false
+                ]
+              },
+              1
             ]
           }
         },
@@ -784,8 +1157,24 @@
           "bitsize": "2",
           "value_out": {
             "if": [
-              {"==":[{"var":  "value"}, true]}, 2,
-              {"==":[{"var":  "value"}, false]}, 1
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  true
+                ]
+              },
+              2,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  false
+                ]
+              },
+              1
             ]
           }
         },
@@ -794,14 +1183,18 @@
           "shortcut": "conf.SUI",
           "bitoffs": "16",
           "bitsize": "16",
-          "value_out": {"var":  "value"}
+          "value_out": {
+            "var": "value"
+          }
         },
         {
           "data": "Vacation Blink Interval",
           "shortcut": "conf.VBI",
           "bitoffs": "32",
           "bitsize": "8",
-          "value_out": {"var":  "value"}
+          "value_out": {
+            "var": "value"
+          }
         }
       ]
     }

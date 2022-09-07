@@ -1,51 +1,89 @@
 {
-    "eep": "TF-13-26",
-    "rorg_number": "0xA5",
-    "telegram": "4BS",
-    "func_number": "0x00",
-    "type_number": "0x00",
-    "type_title": "FRWB, TF-RWB, FHMB",
-    "bidirectional": false,
-    "objects": {
-        "preDefined": ["TMP"],
-        "AL": {
-            "type": "state",
-            "common": {
-                "name": "Alarm",
-                "role": "sensor.alarm.fire",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        }
-    },
-    "case": [
+  "eep": "TF-13-26",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x00",
+  "type_number": "0x00",
+  "type_title": "FRWB, TF-RWB, FHMB",
+  "bidirectional": false,
+  "objects": {
+    "preDefined": [
+      "TMP"
+    ],
+    "AL": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Alarm",
+          "de": "Alarm"
+        },
+        "role": "sensor.alarm.fire",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "datafield": [
         {
-            "send": false,
-            "datafield": [
-                {
-                    "data": "Temperature 0...40°C",
-                    "shortcut": "TMP",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": {"+":[{"*":[{"-":[{"var":"value"},255]},-0.1568627450980392]},0]},
-                    "decimals": 2
-                },
-                {
-                    "data": "Alarm",
-                    "shortcut": "AL",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "value": {
-                        "if": [
-                            {"==":[{"var":  "value"}, 15]}, true,
-                            {"==":[{"var":  "value"}, 31]}, false
-                        ]
-                    }
-                }
+          "data": "Temperature 0...40°C",
+          "shortcut": "TMP",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      255
+                    ]
+                  },
+                  -0.1568627450980392
+                ]
+              },
+              0
             ]
+          },
+          "decimals": 2
+        },
+        {
+          "data": "Alarm",
+          "shortcut": "AL",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": {
+            "if": [
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  15
+                ]
+              },
+              true,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  31
+                ]
+              },
+              false
+            ]
+          }
         }
-    ]
+      ]
+    }
+  ]
 }

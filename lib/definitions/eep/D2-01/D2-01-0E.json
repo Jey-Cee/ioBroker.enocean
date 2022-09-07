@@ -7,16 +7,35 @@
   "type_title": "Electronic switch with energy measurement and local control",
   "bidirectional": true,
   "objects": {
-    "preDefined": ["RM", "ep", "MAT", "MIT", "qu", "EC", "AC"],
+    "preDefined": [
+      "RM",
+      "ep",
+      "MAT",
+      "MIT",
+      "qu",
+      "EC",
+      "AC"
+    ],
     "CMD": {
       "type": "state",
       "common": {
-        "name": "Command",
+        "name": {
+          "en": "Command",
+          "de": "Befehl"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "OFF","1": "ON","2": "Set output settings","3": "Status query","4": "Set measurement settings","5": "Measurement query","6": "Reset measurement values"},
+        "states": {
+          "0": "OFF",
+          "1": "ON",
+          "2": "Set output settings",
+          "3": "Status query",
+          "4": "Set measurement settings",
+          "5": "Measurement query",
+          "6": "Reset measurement values"
+        },
         "def": 0
       },
       "native": {}
@@ -24,12 +43,18 @@
     "de": {
       "type": "state",
       "common": {
-        "name": "Taught-in devices",
+        "name": {
+          "en": "Taught-in devices",
+          "de": "Geräte Einlernen"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Disable taught-in devices","1": "Enable taught-in devices"},
+        "states": {
+          "0": "Disable taught-in devices",
+          "1": "Enable taught-in devices"
+        },
         "def": 0
       },
       "native": {}
@@ -37,12 +62,18 @@
     "LC": {
       "type": "state",
       "common": {
-        "name": "Local control",
+        "name": {
+          "en": "Local control",
+          "de": "Lokale Steuerung"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Disable local control","1": "Enable local control"},
+        "states": {
+          "0": "Disable local control",
+          "1": "Enable local control"
+        },
         "def": 0
       },
       "native": {}
@@ -50,12 +81,18 @@
     "dn": {
       "type": "state",
       "common": {
-        "name": "User interface indication",
+        "name": {
+          "en": "User interface indication",
+          "de": "Bedienoberfläche Anzeige"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Day operation","1": "Night operation"},
+        "states": {
+          "0": "Day operation",
+          "1": "Night operation"
+        },
         "def": 0
       },
       "native": {}
@@ -63,12 +100,19 @@
     "DS": {
       "type": "state",
       "common": {
-        "name": "Default state",
+        "name": {
+          "en": "Default state",
+          "de": "Standardzustand"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Off","1": "On","2": "Remember previous state"},
+        "states": {
+          "0": "Off",
+          "1": "On",
+          "2": "Remember previous state"
+        },
         "def": 0
       },
       "native": {}
@@ -76,7 +120,10 @@
     "OV": {
       "type": "state",
       "common": {
-        "name": "Output on",
+        "name": {
+          "en": "Output on",
+          "de": "Ausgang an"
+        },
         "role": "state",
         "type": "boolean",
         "read": true,
@@ -88,12 +135,20 @@
     "EL": {
       "type": "state",
       "common": {
-        "name": "Error Level",
+        "name": {
+          "en": "Error Level",
+          "de": "Fehlerniveau"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Hardware OK","1": "Hardware warning","2": "Hardware failure","3": "Error level not supported"},
+        "states": {
+          "0": "Hardware OK",
+          "1": "Hardware warning",
+          "2": "Hardware failure",
+          "3": "Error level not supported"
+        },
         "def": 0
       },
       "native": {}
@@ -101,12 +156,21 @@
     "UN": {
       "type": "state",
       "common": {
-        "name": "Unit",
+        "name": {
+          "en": "Unit",
+          "de": "Einheit"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"00": "WS","1": "Wh","2": "kWh","3": "W","4": "kW"},
+        "states": {
+          "1": "Wh",
+          "2": "kWh",
+          "3": "W",
+          "4": "kW",
+          "00": "WS"
+        },
         "def": 0
       },
       "native": {}
@@ -215,7 +279,9 @@
           "shortcut": "de",
           "bitoffs": "0",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "fixed parameter",
@@ -236,7 +302,9 @@
           "shortcut": "LC",
           "bitoffs": "10",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "fixed parameter",
@@ -250,7 +318,9 @@
           "shortcut": "dn",
           "bitoffs": "24",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "fixed parameter",
@@ -264,7 +334,9 @@
           "shortcut": "DS",
           "bitoffs": "26",
           "bitsize": "2",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "fixed parameter",
@@ -303,32 +375,45 @@
     },
     {
       "send": false,
-      "condition": [{
-            "bitoffs": "4",
-            "bitsize": "4",
-            "value": 4
-      }],
+      "condition": [
+        {
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 4
+        }
+      ],
       "datafield": [
         {
           "data": "Output on",
           "shortcut": "OV",
           "bitoffs": "17",
           "bitsize": "7",
-          "value": {"==": [{"var": "value"}, 100]}
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              100
+            ]
+          }
         },
         {
           "data": "Error level",
           "shortcut": "EL",
           "bitoffs": "9",
           "bitsize": "2",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Local control",
           "shortcut": "LC",
           "bitoffs": "16",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     },
@@ -354,7 +439,9 @@
           "shortcut": "RM",
           "bitoffs": "8",
           "bitsize": "1",
-          "value_out": {"var": "value"}
+          "value_out": {
+            "var": "value"
+          }
         },
         {
           "data": "fixed parameter",
@@ -368,7 +455,9 @@
           "shortcut": "ep",
           "bitoffs": "10",
           "bitsize": "1",
-          "value_out": {"var": "value"}
+          "value_out": {
+            "var": "value"
+          }
         },
         {
           "data": "fixed parameter",
@@ -389,14 +478,33 @@
           "shortcut": "UN",
           "bitoffs": "21",
           "bitsize": "3",
-          "value_out": {"var": "value"}
+          "value_out": {
+            "var": "value"
+          }
         },
         {
           "data": "Maximum time between two subsequent actuator messages",
           "shortcut": "MAT",
           "bitoffs": "32",
           "bitsize": "8",
-          "value_out": {"/": [{"+": [{ "-": [{"var": "value"}, 0] }, 0]}, 10]}
+          "value_out": {
+            "/": [
+              {
+                "+": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0
+                ]
+              },
+              10
+            ]
+          }
         },
         {
           "data": "Minimum time between two subsequent actuator messages",
@@ -404,7 +512,9 @@
           "description": "Measurement Response messages [s]",
           "bitoffs": "40",
           "bitsize": "8",
-          "value_out": {"var": "value"}
+          "value_out": {
+            "var": "value"
+          }
         }
       ]
     },
@@ -430,17 +540,21 @@
           "shortcut": "qu",
           "bitoffs": "10",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     },
     {
       "send": false,
-      "condition": [{
-            "bitoffs": "4",
-            "bitsize": "4",
-            "value": 7
-      }],
+      "condition": [
+        {
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 7
+        }
+      ],
       "datafield": [
         {
           "data": "Energy counter",
@@ -448,11 +562,32 @@
           "bitoffs": "16",
           "bitsize": "32",
           "condition": {
-              "or": [
-                {"==":[{"var": "value2"}, 0]},
-                {"==":[{"var": "value2"}, 1]},
-                {"==":[{"var": "value2"}, 2]}
-              ]
+            "or": [
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  0
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  1
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  2
+                ]
+              }
+            ]
           },
           "secondArgument": {
             "bitoffs": "8",
@@ -461,11 +596,35 @@
           "value": {
             "var": "value"
           },
-          "unit":{
+          "unit": {
             "if": [
-              {"==":[{"var": "value2"}, 0]}, "Ws",
-              {"==":[{"var": "value2"}, 1]}, "Wh",
-              {"==":[{"var": "value2"}, 2]}, "kWh"
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  0
+                ]
+              },
+              "Ws",
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  1
+                ]
+              },
+              "Wh",
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  2
+                ]
+              },
+              "kWh"
             ]
           }
         },
@@ -476,8 +635,22 @@
           "bitsize": "32",
           "condition": {
             "or": [
-              {"==":[{"var": "value2"}, 3]},
-              {"==":[{"var": "value2"}, 4]}
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  3
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  4
+                ]
+              }
             ]
           },
           "secondArgument": {
@@ -487,10 +660,26 @@
           "value": {
             "var": "value"
           },
-          "unit":{
+          "unit": {
             "if": [
-              {"==":[{"var": "value2"}, 3]}, "W",
-              {"==":[{"var": "value2"}, 4]}, "kW"
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  3
+                ]
+              },
+              "W",
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  4
+                ]
+              },
+              "kW"
             ]
           }
         }
@@ -518,7 +707,9 @@
           "shortcut": "RM",
           "bitoffs": "8",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "fixed parameter",
@@ -532,7 +723,9 @@
           "shortcut": "ep",
           "bitoffs": "10",
           "bitsize": "1",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "fixed parameter",
@@ -553,14 +746,33 @@
           "shortcut": "UN",
           "bitoffs": "21",
           "bitsize": "3",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         },
         {
           "data": "Maximum time between two subsequent actuator messages",
           "shortcut": "MAT",
           "bitoffs": "32",
           "bitsize": "8",
-          "value_out": {"/": [{"+": [{ "-": [{"var": "value"}, 0] }, 0]}, 10]}
+          "value_out": {
+            "/": [
+              {
+                "+": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0
+                ]
+              },
+              10
+            ]
+          }
         },
         {
           "data": "Minimum time between two subsequent actuator messages",
@@ -568,7 +780,9 @@
           "description": "Measurement Response messages [s]",
           "bitoffs": "40",
           "bitsize": "8",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     }

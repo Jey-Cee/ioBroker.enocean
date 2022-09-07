@@ -1,37 +1,47 @@
 {
-    "eep": "TF-13-02",
-    "rorg_number": "0xF6",
-    "telegram": "RPS",
-    "func_number": "0x10",
-    "type_number": "0x00",
-    "type_title": "Window/Door contact",
-    "bidirectional": false,
-    "objects": {
-        "WIN": {
-            "type": "state",
-            "common": {
-                "name": "state",
-                "role": "switch",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        }
-    },
-    "case": [
+  "eep": "TF-13-02",
+  "rorg_number": "0xF6",
+  "telegram": "RPS",
+  "func_number": "0x10",
+  "type_number": "0x00",
+  "type_title": "Window/Door contact",
+  "bidirectional": false,
+  "objects": {
+    "WIN": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Window/Door open",
+          "de": "Fenster/Tür offen"
+        },
+        "role": "switch",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "datafield": [
         {
-            "send": false,
-            "datafield": [
-                {
-                    "data": "Window/Door open",
-                    "shortcut": "WIN",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"===": [ { "var": "value" }, 224 ]}
-                }
+          "data": "Window/Door open",
+          "shortcut": "WIN",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "===": [
+              {
+                "var": "value"
+              },
+              224
             ]
+          }
         }
-    ]
+      ]
+    }
+  ]
 }

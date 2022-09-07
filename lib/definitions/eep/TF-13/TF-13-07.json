@@ -1,398 +1,426 @@
 {
-    "eep": "TF-13-07",
-    "rorg_number": "0xA5",
-    "telegram": "4BS",
-    "func_number": "0x00",
-    "type_number": "0x00",
-    "type_title": "Dimmer control",
-    "bidirectional": true,
-    "objects": {
-        "CMD": {
-            "type": "state",
-            "common": {
-                "name": "Command",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "states": {"0": "Off","1": "On","2": "Set level","3": "Teach-in","4": "Teach-in FSUD","5": "Request confirmation telegram", "6": "On with last Dim value"},
-                "def": 0
-            },
-            "native": {}
+  "eep": "TF-13-07",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x00",
+  "type_number": "0x00",
+  "type_title": "Dimmer control",
+  "bidirectional": true,
+  "objects": {
+    "CMD": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Command",
+          "de": "Befehl"
         },
-        "LVL": {
-            "type": "state",
-            "common": {
-                "name": "Level",
-                "role": "level.dimmer",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "unit": "%",
-                "def": 100
-            },
-            "native": {}
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {
+          "0": "Off",
+          "1": "On",
+          "2": "Set level",
+          "3": "Teach-in",
+          "4": "Teach-in FSUD",
+          "5": "Request confirmation telegram",
+          "6": "On with last Dim value"
         },
-        "DS": {
-            "type": "state",
-            "common": {
-                "name": "Dimming speed",
-                "role": "level",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "states": {"0": "Use hardware setting"},
-                "def": 0
-            },
-            "native": {}
-        },
-        "BL": {
-            "type": "state",
-            "common": {
-                "name": "Block level",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "states": {"0": "false","1": "true"},
-                "def": 0
-            },
-            "native": {}
-        }
+        "def": 0
+      },
+      "native": {}
     },
-    "case": [
+    "LVL": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Level",
+          "de": "Level"
+        },
+        "role": "level.dimmer",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "unit": "%",
+        "def": 100
+      },
+      "native": {}
+    },
+    "DS": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Dimming speed",
+          "de": "Dimmgeschwindigkeit"
+        },
+        "role": "level",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {
+          "0": "Use hardware setting"
+        },
+        "def": 0
+      },
+      "native": {}
+    },
+    "BL": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Block level",
+          "de": "Block Level"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {
+          "0": "false",
+          "1": "true"
+        },
+        "def": 0
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "condition": {
+        "command": [
+          {
+            "value": 255
+          }
+        ]
+      },
+      "datafield": [
         {
-            "send": false,
-            "condition": {
-                "command": [
-                    {
-                        "value": 255
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Level",
-                    "shortcut": "LVL",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": 100
-                },
-                {
-                    "data": "Dimming speed",
-                    "shortcut": "DS",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "value": 0
-                }
-            ]
+          "data": "Level",
+          "shortcut": "LVL",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 100
         },
         {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 0
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 2
-                },
-                {
-                    "data": "Dimming speed",
-                    "shortcut": "DS",
-                    "description": "Off",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Off",
-                    "bitoffs": "31",
-                    "bitsize": "1",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Learn Bit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 1
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 2
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Dimming level",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": 100
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Dimming speed",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "On",
-                    "bitoffs": "31",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Learn Bit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 2
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 2
-                },
-                {
-                    "data": "Dimming level",
-                    "shortcut": "LVL",
-                    "description": "Off",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "Dimming speed",
-                    "shortcut": "DS",
-                    "description": "Off",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "On",
-                    "bitoffs": "31",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Learn Bit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 3
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 224
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": 64
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "value": 208
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy",
-                    "bitoffs": "24",
-                    "bitsize": "8",
-                    "value": 128
-                }
-
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 4
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 2
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy",
-                    "bitoffs": "24",
-                    "bitsize": "8",
-                    "value": 0
-                }
-
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 5
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy",
-                    "bitoffs": "24",
-                    "bitsize": "8",
-                    "value": 8
-                }
-
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 6
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 2
-                },
-                {
-                    "data": "Dimming Level",
-                    "shortcut": "LVL",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": 100
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Dimming speed",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "On",
-                    "bitoffs": "31",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Learn Bit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                }
-            ]
+          "data": "Dimming speed",
+          "shortcut": "DS",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": 0
         }
-    ]
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 0
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 2
+        },
+        {
+          "data": "Dimming speed",
+          "shortcut": "DS",
+          "description": "Off",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Off",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Learn Bit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 2
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Dimming level",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 100
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Dimming speed",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "On",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Learn Bit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 2
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 2
+        },
+        {
+          "data": "Dimming level",
+          "shortcut": "LVL",
+          "description": "Off",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Dimming speed",
+          "shortcut": "DS",
+          "description": "Off",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "On",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Learn Bit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 3
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 224
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 64
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": 208
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "24",
+          "bitsize": "8",
+          "value": 128
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 4
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 2
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "24",
+          "bitsize": "8",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 5
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "24",
+          "bitsize": "8",
+          "value": 8
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 6
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 2
+        },
+        {
+          "data": "Dimming Level",
+          "shortcut": "LVL",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 100
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Dimming speed",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "On",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Learn Bit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        }
+      ]
+    }
+  ]
 }

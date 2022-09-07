@@ -10,7 +10,10 @@
     "CO": {
       "type": "state",
       "common": {
-        "name": "Contact open",
+        "name": {
+          "en": "Contact open",
+          "de": "Kontakt offen"
+        },
         "role": "indicator",
         "type": "boolean",
         "read": true,
@@ -20,16 +23,25 @@
       "native": {}
     }
   },
-  "case": [{
-    "send": false,
-    "datafield": [
-      {
-        "data": "Contact open",
-        "shortcut": "CO",
-        "bitoffs": "7",
-        "bitsize": "1",
-        "value": {"===": [{"var": "value"}, 0]}
-      }
-    ]
-  }]
+  "case": [
+    {
+      "send": false,
+      "datafield": [
+        {
+          "data": "Contact open",
+          "shortcut": "CO",
+          "bitoffs": "7",
+          "bitsize": "1",
+          "value": {
+            "===": [
+              {
+                "var": "value"
+              },
+              0
+            ]
+          }
+        }
+      ]
+    }
+  ]
 }

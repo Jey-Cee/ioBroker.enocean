@@ -10,7 +10,10 @@
     "PM10": {
       "type": "state",
       "common": {
-        "name": "Dust less than 10µm",
+        "name": {
+          "en": "Dust less than 10µm",
+          "de": "Staub kleiner 10µm"
+        },
         "role": "value.gas",
         "type": "number",
         "read": true,
@@ -23,7 +26,10 @@
     "PM2_5": {
       "type": "state",
       "common": {
-        "name": "Dust less than 2.5µm",
+        "name": {
+          "en": "Dust less than 2.5µm",
+          "de": "Staub kleiner 2.5µm"
+        },
         "role": "value.gas",
         "type": "number",
         "read": true,
@@ -36,7 +42,10 @@
     "PM1": {
       "type": "state",
       "common": {
-        "name": "Dust less than 1µm",
+        "name": {
+          "en": "Dust less than 1µm",
+          "de": "Staub kleiner 1µm"
+        },
         "role": "value.gas",
         "type": "number",
         "read": true,
@@ -47,7 +56,7 @@
       "native": {}
     }
   },
-  "case":[
+  "case": [
     {
       "send": false,
       "condition": {
@@ -63,7 +72,9 @@
           "shortcut": "PM10",
           "bitoffs": "0",
           "bitsize": "9",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     },
@@ -82,7 +93,9 @@
           "shortcut": "PM2_5",
           "bitoffs": "9",
           "bitsize": "9",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     },
@@ -101,7 +114,9 @@
           "shortcut": "PM1",
           "bitoffs": "18",
           "bitsize": "9",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     }

@@ -1,183 +1,353 @@
 {
-    "eep": "TF-13-20",
-    "rorg_number": "0xA5",
-    "telegram": "4BS",
-    "func_number": "0x00",
-    "type_number": "0x00",
-    "type_title": "FTRx5HS, FTAFx5D",
-    "bidirectional": false,
-    "objects": {
-        "preDefined": ["SP", "TMP"],
-        "CMD": {
-            "type": "state",
-            "common": {
-                "name": "Command",
-                "role": "state",
-                "type": "number",
-                "read": false,
-                "write": true,
-                "states": {"0": "Send data","1": "Teach-in"},
-                "def": 0
-            },
-            "native": {}
+  "eep": "TF-13-20",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x00",
+  "type_number": "0x00",
+  "type_title": "FTRx5HS, FTAFx5D",
+  "bidirectional": false,
+  "objects": {
+    "preDefined": [
+      "SP",
+      "TMP"
+    ],
+    "CMD": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Command",
+          "de": "Befehl"
         },
-        "NR": {
-            "type": "state",
-            "common": {
-                "name": "Night reduction",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "def": 0,
-                "unit": "°K"
-            },
-            "native": {}
+        "role": "state",
+        "type": "number",
+        "read": false,
+        "write": true,
+        "states": {
+          "0": "Send data",
+          "1": "Teach-in"
         },
-        "SPRI": {
-            "type": "state",
-            "common": {
-                "name": "Set point priority",
-                "role": "state",
-                "type": "boolean",
-                "read": true,
-                "write": true,
-                "def": true
-            },
-            "native": {}
-        }
+        "def": 0
+      },
+      "native": {}
     },
-    "case":[
+    "NR": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Night reduction",
+          "de": "Nachtabsenkung"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "def": 0,
+        "unit": "°K"
+      },
+      "native": {}
+    },
+    "SPRI": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Set point priority",
+          "de": "Sollwertpriorität"
+        },
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": true,
+        "def": true
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 0
+          }
+        ]
+      },
+      "datafield": [
         {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 0
-                    }
+          "data": "Night reduction",
+          "shortcut": "NR",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value_out": {
+            "if": [
+              {
+                "==": [
+                  0,
+                  {
+                    "var": "value"
+                  }
                 ]
-            },
-            "datafield": [
-                {
-                    "data": "Night reduction",
-                    "shortcut": "NR",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value_out": {
-                        "if": [
-                            {"==":[0, {"var": "value"}]}, 0,
-                            {"==":[1, {"var": "value"}]}, 6,
-                            {"==":[2, {"var": "value"}]}, 12,
-                            {"==":[3, {"var": "value"}]}, 19,
-                            {"==":[4, {"var": "value"}]}, 25,
-                            {"==":[5, {"var": "value"}]}, 31
-                        ]
-                    }
-                },
-                {
-                    "data": "Set point 12...28°C",
-                    "shortcut": "SP",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value_out": {"+":[{"/":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]}
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "dummy",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Represents learnbit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "Set point priority",
-                    "shortcut": "SPRI",
-                    "bitoffs": "30",
-                    "bitsize": "1",
-                    "value_out": {"if":[{"var":"value"},0,1]}
-                }
+              },
+              0,
+              {
+                "==": [
+                  1,
+                  {
+                    "var": "value"
+                  }
+                ]
+              },
+              6,
+              {
+                "==": [
+                  2,
+                  {
+                    "var": "value"
+                  }
+                ]
+              },
+              12,
+              {
+                "==": [
+                  3,
+                  {
+                    "var": "value"
+                  }
+                ]
+              },
+              19,
+              {
+                "==": [
+                  4,
+                  {
+                    "var": "value"
+                  }
+                ]
+              },
+              25,
+              {
+                "==": [
+                  5,
+                  {
+                    "var": "value"
+                  }
+                ]
+              },
+              31
             ]
+          }
         },
         {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 1
-                    }
+          "data": "Set point 12...28°C",
+          "shortcut": "SP",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value_out": {
+            "+": [
+              {
+                "/": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.1568627450980392
                 ]
-            },
-            "datafield": [
-                {
-                    "data": "fixed parameter",
-                    "description": "teachin byte 1",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 64
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "teachin byte 2",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": 48
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "teachin byte 3",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "value": 13
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "teachin byte 4",
-                    "bitoffs": "24",
-                    "bitsize": "8",
-                    "value": 133
-                }
+              },
+              0
             ]
+          }
         },
         {
-            "send": false,
-            "datafield": [
-                {
-                    "data": "Night reduction",
-                    "shortcut": "NR",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {
-                        "if": [
-                            {"==":[0, {"var": "value"}]}, 0,
-                            {"==":[6, {"var": "value"}]}, 1,
-                            {"==":[12, {"var": "value"}]}, 2,
-                            {"==":[19, {"var": "value"}]}, 3,
-                            {"==":[25, {"var": "value"}]}, 4,
-                            {"==":[31, {"var": "value"}]}, 5
-                        ]
-                    }
-                },
-                {
-                    "data": "Temperature",
-                    "shortcut": "TMP",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 255] }, -0.156862745 ]}, 0]}
-                },
-                {
-                    "data": "Set point 12...28°C",
-                    "shortcut": "SP",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]}
-                }
+          "data": "fixed parameter",
+          "description": "dummy",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Represents learnbit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "Set point priority",
+          "shortcut": "SPRI",
+          "bitoffs": "30",
+          "bitsize": "1",
+          "value_out": {
+            "if": [
+              {
+                "var": "value"
+              },
+              0,
+              1
             ]
+          }
         }
-    ]
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "teachin byte 1",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 64
+        },
+        {
+          "data": "fixed parameter",
+          "description": "teachin byte 2",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 48
+        },
+        {
+          "data": "fixed parameter",
+          "description": "teachin byte 3",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": 13
+        },
+        {
+          "data": "fixed parameter",
+          "description": "teachin byte 4",
+          "bitoffs": "24",
+          "bitsize": "8",
+          "value": 133
+        }
+      ]
+    },
+    {
+      "send": false,
+      "datafield": [
+        {
+          "data": "Night reduction",
+          "shortcut": "NR",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "if": [
+              {
+                "==": [
+                  0,
+                  {
+                    "var": "value"
+                  }
+                ]
+              },
+              0,
+              {
+                "==": [
+                  6,
+                  {
+                    "var": "value"
+                  }
+                ]
+              },
+              1,
+              {
+                "==": [
+                  12,
+                  {
+                    "var": "value"
+                  }
+                ]
+              },
+              2,
+              {
+                "==": [
+                  19,
+                  {
+                    "var": "value"
+                  }
+                ]
+              },
+              3,
+              {
+                "==": [
+                  25,
+                  {
+                    "var": "value"
+                  }
+                ]
+              },
+              4,
+              {
+                "==": [
+                  31,
+                  {
+                    "var": "value"
+                  }
+                ]
+              },
+              5
+            ]
+          }
+        },
+        {
+          "data": "Temperature",
+          "shortcut": "TMP",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      255
+                    ]
+                  },
+                  -0.156862745
+                ]
+              },
+              0
+            ]
+          }
+        },
+        {
+          "data": "Set point 12...28°C",
+          "shortcut": "SP",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.1568627450980392
+                ]
+              },
+              0
+            ]
+          }
+        }
+      ]
+    }
+  ]
 }

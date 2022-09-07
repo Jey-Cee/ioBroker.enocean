@@ -1,45 +1,64 @@
 {
-    "eep": "TF-13-09",
-    "rorg_number": "0xF6",
-    "telegram": "RPS",
-    "func_number": "0x00",
-    "type_number": "0x00",
-    "type_title": "FRW",
-    "bidirectional": false,
-    "objects": {
-        "preDefined": ["AL"],
-        "BL": {
-            "type": "state",
-            "common": {
-                "name": "Battery Low",
-                "role": "state",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        }
-    },
-    "case": [
+  "eep": "TF-13-09",
+  "rorg_number": "0xF6",
+  "telegram": "RPS",
+  "func_number": "0x00",
+  "type_number": "0x00",
+  "type_title": "FRW",
+  "bidirectional": false,
+  "objects": {
+    "preDefined": [
+      "AL"
+    ],
+    "BL": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Battery Low",
+          "de": "Batterie schwach"
+        },
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "datafield": [
         {
-            "send": false,
-            "datafield": [
-                {
-                    "data": "Alarm",
-                    "shortcut": "AL",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"==": [{"var": "value"}, 16]}
-                },
-                {
-                    "data": "Battery Low",
-                    "shortcut": "BL",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"==": [{"var": "value"}, 30]}
-                }
+          "data": "Alarm",
+          "shortcut": "AL",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              16
             ]
+          }
+        },
+        {
+          "data": "Battery Low",
+          "shortcut": "BL",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              30
+            ]
+          }
         }
-    ]
+      ]
+    }
+  ]
 }

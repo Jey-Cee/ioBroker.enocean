@@ -1,613 +1,831 @@
 {
-    "eep": "A5-38-08",
-    "rorg_number": "0xA5",
-    "telegram": "4BS",
-    "func_number": "0x38",
-    "type_number": "0x08",
-    "type_title": "Central Command - Gateway",
-    "bidirectional": true,
-    "objects": {
-        "CMD": {
-            "type": "state",
-            "common": {
-                "name": "Command",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "states": {"1": "Switching","2": "Dimming","3": "Setpointshift","4": "BasicSetpoint","5": "Controlvariable","6": "Fanstage","7": "BlindCentral Command"},
-                "def": 1
-            },
-            "native": {}
+  "eep": "A5-38-08",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x38",
+  "type_number": "0x08",
+  "type_title": "Central Command - Gateway",
+  "bidirectional": true,
+  "objects": {
+    "CMD": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Command",
+          "de": "Befehl"
         },
-        "switching": {
-            "type": "channel",
-            "common": {
-                "name": "Switching"
-            },
-            "native": {}
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {
+          "1": "Switching",
+          "2": "Dimming",
+          "3": "Setpointshift",
+          "4": "BasicSetpoint",
+          "5": "Controlvariable",
+          "6": "Fanstage",
+          "7": "BlindCentral Command"
         },
-        "switching.TIM": {
-            "type": "state",
-            "common": {
-                "name": "Time",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "unit": "s",
-                "min": 0,
-                "max": 6553.5,
-                "def": 0
-            },
-            "native": {}
-        },
-        "switching.LCK": {
-            "type": "state",
-            "common": {
-                "name": "Lock",
-                "role": "state",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "switching.DEL": {
-            "type": "state",
-            "common": {
-                "name": "Delay or duration",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "states": {"0": "Duration","1": "Delay"}
-            ,
-                "def": 0
-            },
-            "native": {}
-        },
-        "switching.SW": {
-            "type": "state",
-            "common": {
-                "name": "ON",
-                "role": "state",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "dimming": {
-            "type": "channel",
-            "common": {
-                "name": "Dimming"
-            },
-            "native": {}
-        },
-        "dimming.EDIM": {
-            "type": "state",
-            "common": {
-                "name": "Dimming value",
-                "role": "level.dimmer",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "unit": "%",
-                "min": 0,
-                "max": 100,
-                "def": 0
-            },
-            "native": {}
-        },
-        "dimming.RMP": {
-            "type": "state",
-            "common": {
-                "name": "Ramping time",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "unit": "s",
-                "min": 0,
-                "max": 255,
-                "def": 0
-            },
-            "native": {}
-        },
-        "dimming.EDIMR": {
-            "type": "state",
-            "common": {
-                "name": "Dimming Range",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "states": {"0": "Absolute","1": "Relative"},
-                "def": 0
-            },
-            "native": {}
-        },
-        "dimming.STR": {
-            "type": "state",
-            "common": {
-                "name": "Store final value",
-                "role": "state",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "dimming.SW": {
-            "type": "state",
-            "common": {
-                "name": "ON",
-                "role": "state",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "setpoint": {
-            "type": "channel",
-            "common": {
-                "name": "Setpoint"
-            },
-            "native": {}
-        },
-        "setpoint.SP": {
-            "type": "state",
-            "common": {
-                "name": "Set point shift",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "unit": "K",
-                "min": -12.7,
-                "max": 12.8,
-                "def": 0
-            },
-            "native": {}
-        },
-        "setpoint.BSP": {
-            "type": "state",
-            "common": {
-                "name": "Basic Setpoint",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "unit": "°C",
-                "min": 0,
-                "max": 51.2,
-                "def": 1
-            },
-            "native": {}
-        },
-        "control_variable": {
-            "type": "channel",
-            "common": {
-                "name": "Control variable override"
-            },
-            "native": {}
-        },
-        "control_variable.CVOV": {
-            "type": "state",
-            "common": {
-                "name": "Control variable override",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "unit": "%",
-                "min": 0,
-                "max": 100,
-                "def": 0
-            },
-            "native": {}
-        },
-        "control_variable.CM": {
-            "type": "state",
-            "common": {
-                "name": "Controller mode",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "states": {"0": "Automaticmode","1": "Heating","2": "Cooling","3": "Off"},
-                "def": 0
-            },
-            "native": {}
-        },
-        "control_variable.CS": {
-            "type": "state",
-            "common": {
-                "name": "Controller state",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "states": {"0": "Automatic","1": "Override"},
-                "def": 0
-            },
-            "native": {}
-        },
-        "control_variable.ENHO": {
-            "type": "state",
-            "common": {
-                "name": "Energy Hold off",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "states": {"0": "Normal","1": "Energyholdoff/Dew point"},
-                "def": 0
-            },
-            "native": {}
-        },
-        "control_variable.RMOCC": {
-            "type": "state",
-            "common": {
-                "name": "Room occupancy",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "states": {"0": "Occupied","1": "Unoccupied","2": "Standby"},
-                "def": 0
-            },
-            "native": {}
-        }
+        "def": 1
+      },
+      "native": {}
     },
-    "case": [
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "bitoffs": "0",
-                        "bitsize": "8",
-                        "value": 1
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Command",
-                    "shortcut": "CMD",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 1
-                },
-                {
-                    "data": "Time",
-                    "shortcut": "switching.TIM",
-                    "bitoffs": "8",
-                    "bitsize": "16",
-                    "value": {"+":[{"*":[{"-":[{"var":"value"},1]},0.09999999999999999]},0.1]},
-                    "decimals": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Represents the learnbit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "Lock",
-                    "shortcut": "switching.LCK",
-                    "bitoffs": "29",
-                    "bitsize": "1",
-                    "value": {"==": [{"var": "value"}, 1]}
-                },
-                {
-                    "data": "Delay or duration",
-                    "shortcut": "switching.DEL",
-                    "bitoffs": "30",
-                    "bitsize": "1",
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "ON",
-                    "shortcut": "switching.SW",
-                    "bitoffs": "31",
-                    "bitsize": "1",
-                    "value": {"==": [{"var": "value"}, 1]}
-                }
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "bitoffs": "0",
-                        "bitsize": "8",
-                        "value": 2
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Command",
-                    "shortcut": "CMD",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 2
-                },
-                {
-                    "data": "Dimming value",
-                    "shortcut": "dimming.EDIM",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.39215686274509803]},0]},
-                    "decimals": 0
-                },
-                {
-                    "data": "Ramping time",
-                    "shortcut": "dimming.RMP",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "value": {"var":"value"},
-                    "decimals": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Not used",
-                    "bitoffs": "24",
-                    "bitsize": "4",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Represents the learnbit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "Dimming Range",
-                    "shortcut": "dimming.EDIMR",
-                    "bitoffs": "29",
-                    "bitsize": "1",
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "Store final value",
-                    "shortcut": "dimming.STR",
-                    "bitoffs": "30",
-                    "bitsize": "1",
-                    "value": {"==": [{"var": "value"}, 1]}
-                },
-                {
-                    "data": "ON",
-                    "shortcut": "dimming.SW",
-                    "bitoffs": "31",
-                    "bitsize": "1",
-                    "value": {"==": [{"var": "value"}, 1]}
-                }
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "bitoffs": "0",
-                        "bitsize": "8",
-                        "value": 3
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Command",
-                    "shortcut": "CMD",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 3
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Not used",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "Setpoint shift",
-                    "shortcut": "setpoint.SP",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.1]},-12.7]},
-                    "decimals": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Not used",
-                    "bitoffs": "24",
-                    "bitsize": "4",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Represents the learnbit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Not used",
-                    "bitoffs": "29",
-                    "bitsize": "3",
-                    "value": 0
-                }
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "bitoffs": "0",
-                        "bitsize": "8",
-                        "value": 4
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Command",
-                    "shortcut": "CMD",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 4
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Not used",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": 1
-                },
-                {
-                    "data": "Basic Setpoint",
-                    "shortcut": "setpoint.BSP",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.20078431372549022]},0]},
-                    "decimals": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Not used",
-                    "bitoffs": "24",
-                    "bitsize": "4",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Represents the learnbit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Not used",
-                    "bitoffs": "29",
-                    "bitsize": "3",
-                    "value": 1
-                }
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "bitoffs": "0",
-                        "bitsize": "8",
-                        "value": 5
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Command",
-                    "shortcut": "CMD",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 5
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Not used",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "Control variable override",
-                    "shortcut": "control_variable.CVOV",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.39215686274509803]},0]},
-                    "decimals": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Not used",
-                    "bitoffs": "24",
-                    "bitsize": "1",
-                    "value": 0
-                },
-                {
-                    "data": "Controller mode",
-                    "shortcut": "control_variable.CM",
-                    "bitoffs": "25",
-                    "bitsize": "2",
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "Controller state",
-                    "shortcut": "control_variable.CS",
-                    "bitoffs": "27",
-                    "bitsize": "1",
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Represents the learnbit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "Energy Hold off",
-                    "shortcut": "control_variable.ENHO",
-                    "bitoffs": "29",
-                    "bitsize": "1",
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "Room occupancy",
-                    "shortcut": "control_variable.RMOCC",
-                    "bitoffs": "30",
-                    "bitsize": "2",
-                    "value": {"var": "value"}
-                }
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "bitoffs": "0",
-                        "bitsize": "8",
-                        "value": 6
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Command",
-                    "shortcut": "CMD",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 6
-                }
-            ]
+    "switching": {
+      "type": "channel",
+      "common": {
+        "name": {
+          "en": "Switching",
+          "de": "Schalten"
         }
-    ]
+      },
+      "native": {}
+    },
+    "switching.TIM": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Time",
+          "de": "Zeit"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "unit": "s",
+        "min": 0,
+        "max": 6553.5,
+        "def": 0
+      },
+      "native": {}
+    },
+    "switching.LCK": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Lock",
+          "de": "Sperre"
+        },
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "switching.DEL": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Delay or duration",
+          "de": "Verzögerung oder Dauer"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Duration",
+          "1": "Delay"
+        },
+        "def": 0
+      },
+      "native": {}
+    },
+    "switching.SW": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "ON",
+          "de": "EIN"
+        },
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "dimming": {
+      "type": "channel",
+      "common": {
+        "name": {
+          "en": "Dimming",
+          "de": "Dimmen"
+        }
+      },
+      "native": {}
+    },
+    "dimming.EDIM": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Dimming value",
+          "de": "Dimmwert"
+        },
+        "role": "level.dimmer",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "unit": "%",
+        "min": 0,
+        "max": 100,
+        "def": 0
+      },
+      "native": {}
+    },
+    "dimming.RMP": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Ramping time",
+          "de": "Rampe"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "unit": "s",
+        "min": 0,
+        "max": 255,
+        "def": 0
+      },
+      "native": {}
+    },
+    "dimming.EDIMR": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Dimming Range",
+          "de": "Dimmbereich"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Absolute",
+          "1": "Relative"
+        },
+        "def": 0
+      },
+      "native": {}
+    },
+    "dimming.STR": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Store final value",
+          "de": "Endwert speichern"
+        },
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "dimming.SW": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "ON",
+          "de": "EIN"
+        },
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "setpoint": {
+      "type": "channel",
+      "common": {
+        "name": {
+          "en": "Setpoint",
+          "de": "Sollwert"
+        }
+      },
+      "native": {}
+    },
+    "setpoint.SP": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Set point shift",
+          "de": "Sollwertverschiebung"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "unit": "K",
+        "min": -12.7,
+        "max": 12.8,
+        "def": 0
+      },
+      "native": {}
+    },
+    "setpoint.BSP": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Basic Setpoint",
+          "de": "Grund-Sollwert"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "unit": "°C",
+        "min": 0,
+        "max": 51.2,
+        "def": 1
+      },
+      "native": {}
+    },
+    "control_variable": {
+      "type": "channel",
+      "common": {
+        "name": {
+          "en": "Control variable override",
+          "de": "Überschreiben der Regelgröße"
+        }
+      },
+      "native": {}
+    },
+    "control_variable.CVOV": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Control variable override",
+          "de": "Überschreiben der Regelgröße"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "unit": "%",
+        "min": 0,
+        "max": 100,
+        "def": 0
+      },
+      "native": {}
+    },
+    "control_variable.CM": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Controller mode",
+          "de": "Reglermodus"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Automaticmode",
+          "1": "Heating",
+          "2": "Cooling",
+          "3": "Off"
+        },
+        "def": 0
+      },
+      "native": {}
+    },
+    "control_variable.CS": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Controller state",
+          "de": "Reglerstatus"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Automatic",
+          "1": "Override"
+        },
+        "def": 0
+      },
+      "native": {}
+    },
+    "control_variable.ENHO": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Energy Hold off",
+          "de": "Energieabschaltung"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Normal",
+          "1": "Energyholdoff/Dew point"
+        },
+        "def": 0
+      },
+      "native": {}
+    },
+    "control_variable.RMOCC": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Room occupancy",
+          "de": "Raumbelegung"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Occupied",
+          "1": "Unoccupied",
+          "2": "Standby"
+        },
+        "def": 0
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "0",
+            "bitsize": "8",
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Command",
+          "shortcut": "CMD",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 1
+        },
+        {
+          "data": "Time",
+          "shortcut": "switching.TIM",
+          "bitoffs": "8",
+          "bitsize": "16",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      1
+                    ]
+                  },
+                  0.09999999999999999
+                ]
+              },
+              0.1
+            ]
+          },
+          "decimals": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Represents the learnbit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "Lock",
+          "shortcut": "switching.LCK",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
+        },
+        {
+          "data": "Delay or duration",
+          "shortcut": "switching.DEL",
+          "bitoffs": "30",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "ON",
+          "shortcut": "switching.SW",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "0",
+            "bitsize": "8",
+            "value": 2
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Command",
+          "shortcut": "CMD",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 2
+        },
+        {
+          "data": "Dimming value",
+          "shortcut": "dimming.EDIM",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.39215686274509803
+                ]
+              },
+              0
+            ]
+          },
+          "decimals": 0
+        },
+        {
+          "data": "Ramping time",
+          "shortcut": "dimming.RMP",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": {
+            "var": "value"
+          },
+          "decimals": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Not used",
+          "bitoffs": "24",
+          "bitsize": "4",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Represents the learnbit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "Dimming Range",
+          "shortcut": "dimming.EDIMR",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Store final value",
+          "shortcut": "dimming.STR",
+          "bitoffs": "30",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
+        },
+        {
+          "data": "ON",
+          "shortcut": "dimming.SW",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "0",
+            "bitsize": "8",
+            "value": 3
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Command",
+          "shortcut": "CMD",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 3
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Not used",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "Setpoint shift",
+          "shortcut": "setpoint.SP",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.1
+                ]
+              },
+              -12.7
+            ]
+          },
+          "decimals": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Not used",
+          "bitoffs": "24",
+          "bitsize": "4",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Represents the learnbit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Not used",
+          "bitoffs": "29",
+          "bitsize": "3",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "0",
+            "bitsize": "8",
+            "value": 4
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Command",
+          "shortcut": "CMD",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 4
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Not used",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 1
+        },
+        {
+          "data": "Basic Setpoint",
+          "shortcut": "setpoint.BSP",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.20078431372549022
+                ]
+              },
+              0
+            ]
+          },
+          "decimals": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Not used",
+          "bitoffs": "24",
+          "bitsize": "4",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Represents the learnbit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Not used",
+          "bitoffs": "29",
+          "bitsize": "3",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "0",
+            "bitsize": "8",
+            "value": 5
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Command",
+          "shortcut": "CMD",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 5
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Not used",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "Control variable override",
+          "shortcut": "control_variable.CVOV",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.39215686274509803
+                ]
+              },
+              0
+            ]
+          },
+          "decimals": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Not used",
+          "bitoffs": "24",
+          "bitsize": "1",
+          "value": 0
+        },
+        {
+          "data": "Controller mode",
+          "shortcut": "control_variable.CM",
+          "bitoffs": "25",
+          "bitsize": "2",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Controller state",
+          "shortcut": "control_variable.CS",
+          "bitoffs": "27",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Represents the learnbit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "Energy Hold off",
+          "shortcut": "control_variable.ENHO",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Room occupancy",
+          "shortcut": "control_variable.RMOCC",
+          "bitoffs": "30",
+          "bitsize": "2",
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "0",
+            "bitsize": "8",
+            "value": 6
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Command",
+          "shortcut": "CMD",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 6
+        }
+      ]
+    }
+  ]
 }

@@ -10,12 +10,17 @@
     "BATT": {
       "type": "state",
       "common": {
-        "name": "Battery",
+        "name": {
+          "en": "Battery",
+          "de": "Batterie"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": false,
-        "states": {"0": "last message due to power loss. Gasp of death."},
+        "states": {
+          "0": "last message due to power loss. Gasp of death."
+        },
         "def": 0
       },
       "native": {}
@@ -30,7 +35,9 @@
           "shortcut": "BATT",
           "bitoffs": "8",
           "bitsize": "8",
-          "value": {"var":"value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     }

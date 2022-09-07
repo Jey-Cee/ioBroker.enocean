@@ -7,11 +7,17 @@
   "type_title": "Gas Sensor CO2-Sensor",
   "bidirectional": false,
   "objects": {
-    "preDefined": ["TMP", "HUM"],
+    "preDefined": [
+      "TMP",
+      "HUM"
+    ],
     "Conc": {
       "type": "state",
       "common": {
-        "name": "Gas CO2 concentration",
+        "name": {
+          "en": "Gas CO2 concentration",
+          "de": "Gas CO2 Konzentration"
+        },
         "role": "value.gas",
         "type": "number",
         "read": true,
@@ -25,15 +31,32 @@
   "case": [
     {
       "send": false,
-    "datafield": [
-      {
-        "data": "Gas CO2 concentration",
-        "shortcut": "Conc",
-        "bitoffs": "8",
-        "bitsize": "8",
-        "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 10 ] }, 0]}
-      }
-    ]
+      "datafield": [
+        {
+          "data": "Gas CO2 concentration",
+          "shortcut": "Conc",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  10
+                ]
+              },
+              0
+            ]
+          }
+        }
+      ]
     },
     {
       "send": false,
@@ -50,7 +73,24 @@
           "shortcut": "TMP",
           "bitoffs": "16",
           "bitsize": "8",
-          "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.2 ] }, 0 ]},
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.2
+                ]
+              },
+              0
+            ]
+          },
           "decimals": 2
         }
       ]
@@ -70,10 +110,27 @@
           "shortcut": "HUM",
           "bitoffs": "8",
           "bitsize": "8",
-          "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.5 ] }, 0 ]},
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.5
+                ]
+              },
+              0
+            ]
+          },
           "decimals": 2
         }
       ]
     }
-    ]
+  ]
 }

@@ -7,16 +7,23 @@
   "type_title": "Multisensor Window Intrusion detection system for Windows",
   "bidirectional": true,
   "objects": {
-    "preDefined": ["AL"],
+    "preDefined": [
+      "AL"
+    ],
     "CMD": {
       "type": "state",
       "common": {
-        "name": "Command",
+        "name": {
+          "en": "Command",
+          "de": "Befehl"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Send Settings"},
+        "states": {
+          "0": "Send Settings"
+        },
         "def": 0
       },
       "native": {}
@@ -24,7 +31,10 @@
     "AE": {
       "type": "state",
       "common": {
-        "name": "Alarm enabled",
+        "name": {
+          "en": "Alarm enabled",
+          "de": "Alarm aktiviert"
+        },
         "role": "state",
         "type": "boolean",
         "read": true,
@@ -36,7 +46,10 @@
     "EPA": {
       "type": "state",
       "common": {
-        "name": "Enable Pre-Alarm",
+        "name": {
+          "en": "Enable Pre-Alarm",
+          "de": "Aktiviere Vorwarnung"
+        },
         "role": "state",
         "type": "boolean",
         "read": true,
@@ -48,7 +61,10 @@
     "PA": {
       "type": "state",
       "common": {
-        "name": "Pre-Alarm",
+        "name": {
+          "en": "Pre-Alarm",
+          "de": "Vorwarnung"
+        },
         "role": "state",
         "type": "boolean",
         "read": true,
@@ -60,7 +76,10 @@
     "CT": {
       "type": "state",
       "common": {
-        "name": "Window open",
+        "name": {
+          "en": "Window open",
+          "de": "Fenster offen"
+        },
         "role": "state",
         "type": "boolean",
         "read": true,
@@ -72,7 +91,10 @@
     "PAE": {
       "type": "state",
       "common": {
-        "name": "Pre-Alarm enabled",
+        "name": {
+          "en": "Pre-Alarm enabled",
+          "de": "Vorwarnung aktiviert"
+        },
         "role": "state",
         "type": "boolean",
         "read": true,
@@ -99,7 +121,15 @@
           "shortcut": "AE",
           "bitoffs": "0",
           "bitsize": "1",
-          "value_out": {"if":[{"var":"value"},1,0]}
+          "value_out": {
+            "if": [
+              {
+                "var": "value"
+              },
+              1,
+              0
+            ]
+          }
         },
         {
           "data": "Enable Pre-Alarm",
@@ -107,9 +137,22 @@
           "bitoffs": "3",
           "bitsize": "1",
           "value": {
-            "==": [{"var": "value"}, 1]
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
           },
-          "value_out": {"if":[{"var":"value"},1,0]}
+          "value_out": {
+            "if": [
+              {
+                "var": "value"
+              },
+              1,
+              0
+            ]
+          }
         }
       ]
     },
@@ -121,28 +164,56 @@
           "shortcut": "PA",
           "bitoffs": "0",
           "bitsize": "1",
-          "value": {"==": [{"var": "value"}, 1]}
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
         },
         {
           "data": "Alarm",
           "shortcut": "AL",
           "bitoffs": "1",
           "bitsize": "1",
-          "value": {"==": [{"var": "value"}, 1]}
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
         },
         {
           "data": "Window open",
           "shortcut": "CT",
           "bitoffs": "2",
           "bitsize": "1",
-          "value": {"==": [{"var": "value"}, 0]}
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              0
+            ]
+          }
         },
         {
           "data": "Pre-Alarm enabled",
           "shortcut": "PAE",
           "bitoffs": "3",
           "bitsize": "1",
-          "value": {"==": [{"var": "value"}, 1]}
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
         }
       ]
     }

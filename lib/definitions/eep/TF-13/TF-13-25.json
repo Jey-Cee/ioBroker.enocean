@@ -1,181 +1,363 @@
 {
-    "eep": "TF-13-25",
-    "rorg_number": "0xA5",
-    "telegram": "4BS",
-    "func_number": "0x00",
-    "type_number": "0x00",
-    "type_title": "FSDG14, FWZ14, FWZ12, DSZ14DRS, DSZ14WDRS",
-    "bidirectional": false,
-    "objects": {
-        "DMR": {
-            "type": "state",
-            "common": {
-                "name": "Day Meter Reading",
-                "role": "value.power.consumption",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": 0
-            },
-            "native": {}
+  "eep": "TF-13-25",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x00",
+  "type_number": "0x00",
+  "type_title": "FSDG14, FWZ14, FWZ12, DSZ14DRS, DSZ14WDRS",
+  "bidirectional": false,
+  "objects": {
+    "DMR": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Day Meter Reading",
+          "de": "Tageszählerstand"
         },
-        "NMR": {
-            "type": "state",
-            "common": {
-                "name": "Night Meter Reading",
-                "role": "value.power.consumption",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": 0
-            },
-            "native": {}
-        },
-        "TI": {
-            "type": "state",
-            "common": {
-                "name": "Tariff info",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "states": {"0": "Day","1": "Night"},
-                "def": 0
-            },
-            "native": {}
-        },
-        "PC": {
-            "type": "state",
-            "common": {
-                "name": "Power consumption",
-                "role": "value.power",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": 0
-            },
-            "native": {}
-        }
+        "role": "value.power.consumption",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
     },
-    "case": [
-        {
-            "send": false,
-            "condition": [
-                    {
-                        "bitoffs": "29",
-                        "bitsize": "1",
-                        "value": 0
-                    },
-                    {
-                        "bitoffs": "27",
-                        "bitsize": "1",
-                        "value": 0
-                    }
-            ],
-            "datafield": [
-                {
-                    "data": "Day Meter Reading",
-                    "shortcut": "DMR",
-                    "bitoffs": "0",
-                    "bitsize": "24",
-                    "secondArgument": {
-                        "bitoffs": "30",
-                        "bitsize": "2"
-                    },
-                    "value": {
-                        "if": [
-                            {"==":[{"var": "value2"}, 0]}, {"var": "value"},
-                            {"==":[{"var": "value2"}, 1]}, {"/": [{"var": "value"}, 10]},
-                            {"==":[{"var": "value2"}, 2]}, {"/": [{"var": "value"}, 100]},
-                            {"==":[{"var": "value2"}, 2]}, {"/": [{"var": "value"}, 1000]}
-                        ]
-                    },
-                    "unit": "kWh"
-                },
-                {
-                    "data": "Tariff info",
-                    "shortcut": "TI",
-                    "bitoffs": "24",
-                    "bitsize": "4",
-                    "value": {"var": "value"}
-                }
-        ]
+    "NMR": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Night Meter Reading",
+          "de": "Nachtzählerstand"
+        },
+        "role": "value.power.consumption",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
     },
+    "TI": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Tariff info",
+          "de": "Tarif-Info"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Day",
+          "1": "Night"
+        },
+        "def": 0
+      },
+      "native": {}
+    },
+    "PC": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Power consumption",
+          "de": "Stromverbrauch"
+        },
+        "role": "value.power",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "condition": [
         {
-            "send": false,
-            "condition": [
-                    {
-                        "bitoffs": "29",
-                        "bitsize": "1",
-                        "value": 0
-                    },
-                    {
-                        "bitoffs": "27",
-                        "bitsize": "1",
-                        "value": 1
-                    }
-            ],
-            "datafield": [
-                {
-                    "data": "Night Meter Reading",
-                    "shortcut": "NMR",
-                    "bitoffs": "0",
-                    "bitsize": "24",
-                    "secondArgument": {
-                        "bitoffs": "30",
-                        "bitsize": "2"
-                    },
-                    "value": {
-                        "if": [
-                            {"==":[{"var": "value2"}, 0]}, {"var": "value"},
-                            {"==":[{"var": "value2"}, 1]}, {"/": [{"var": "value"}, 10]},
-                            {"==":[{"var": "value2"}, 2]}, {"/": [{"var": "value"}, 100]},
-                            {"==":[{"var": "value2"}, 2]}, {"/": [{"var": "value"}, 1000]}
-                        ]
-                    },
-                    "unit": "kWh"
-                },
-                {
-                    "data": "Tariff info",
-                    "shortcut": "TI",
-                    "bitoffs": "24",
-                    "bitsize": "4",
-                    "value": {
-                        "var": "value"
-                    }
-                }
-            ]
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": 0
         },
         {
-            "send": false,
-            "condition": [
-                    {
-                        "bitoffs": "29",
-                        "bitsize": "1",
-                        "value": 1
-                    }
-            ],
-            "datafield": [
-                {
-                    "data": "Power consumption",
-                    "shortcut": "PC",
-                    "bitoffs": "0",
-                    "bitsize": "24",
-                    "secondArgument": {
-                        "bitoffs": "30",
-                        "bitsize": "2"
-                    },
-                    "value": {
-                        "if": [
-                            {"==":[{"var": "value2"}, 0]}, {"var": "value"},
-                            {"==":[{"var": "value2"}, 1]}, {"/": [{"var": "value"}, 10]},
-                            {"==":[{"var": "value2"}, 2]}, {"/": [{"var": "value"}, 100]},
-                            {"==":[{"var": "value2"}, 2]}, {"/": [{"var": "value"}, 1000]}
-                        ]
-                    },
-                    "unit": "W"
-                }
-            ]
+          "bitoffs": "27",
+          "bitsize": "1",
+          "value": 0
         }
-    ]
+      ],
+      "datafield": [
+        {
+          "data": "Day Meter Reading",
+          "shortcut": "DMR",
+          "bitoffs": "0",
+          "bitsize": "24",
+          "secondArgument": {
+            "bitoffs": "30",
+            "bitsize": "2"
+          },
+          "value": {
+            "if": [
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  0
+                ]
+              },
+              {
+                "var": "value"
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  1
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  10
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  2
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  100
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  2
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  1000
+                ]
+              }
+            ]
+          },
+          "unit": "kWh"
+        },
+        {
+          "data": "Tariff info",
+          "shortcut": "TI",
+          "bitoffs": "24",
+          "bitsize": "4",
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [
+        {
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": 0
+        },
+        {
+          "bitoffs": "27",
+          "bitsize": "1",
+          "value": 1
+        }
+      ],
+      "datafield": [
+        {
+          "data": "Night Meter Reading",
+          "shortcut": "NMR",
+          "bitoffs": "0",
+          "bitsize": "24",
+          "secondArgument": {
+            "bitoffs": "30",
+            "bitsize": "2"
+          },
+          "value": {
+            "if": [
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  0
+                ]
+              },
+              {
+                "var": "value"
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  1
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  10
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  2
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  100
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  2
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  1000
+                ]
+              }
+            ]
+          },
+          "unit": "kWh"
+        },
+        {
+          "data": "Tariff info",
+          "shortcut": "TI",
+          "bitoffs": "24",
+          "bitsize": "4",
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [
+        {
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": 1
+        }
+      ],
+      "datafield": [
+        {
+          "data": "Power consumption",
+          "shortcut": "PC",
+          "bitoffs": "0",
+          "bitsize": "24",
+          "secondArgument": {
+            "bitoffs": "30",
+            "bitsize": "2"
+          },
+          "value": {
+            "if": [
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  0
+                ]
+              },
+              {
+                "var": "value"
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  1
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  10
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  2
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  100
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  2
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  1000
+                ]
+              }
+            ]
+          },
+          "unit": "W"
+        }
+      ]
+    }
+  ]
 }

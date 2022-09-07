@@ -1,465 +1,680 @@
 {
-    "eep": "A5-20-04",
-    "rorg_number": "0xA5",
-    "telegram": "4BS",
-    "func_number": "0x20",
-    "type_number": "0x04",
-    "type_title": "Heating Radiator Valve Actuating Drive",
-    "bidirectional": true,
-    "objects": {
-        "preDefined": ["in", "in.CV"],
-        "CMD": {
-            "type": "state",
-            "common": {
-                "name": "Command",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "states": {
-                    "0":"Set Valve position", "1":"Set Temperature", "2":"Summer mode", "3":"Open valve", "4":"Close valve"
-                },
-                "def": 0
-            },
-            "native": {}
+  "eep": "A5-20-04",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x20",
+  "type_number": "0x04",
+  "type_title": "Heating Radiator Valve Actuating Drive",
+  "bidirectional": true,
+  "objects": {
+    "preDefined": [
+      "in",
+      "in.CV"
+    ],
+    "CMD": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Command",
+          "de": "Befehl"
         },
-        "in.TMP": {
-            "type": "state",
-            "common": {
-                "name": "Temperature Feed or Set Point 20...80°C or 10...30°C",
-                "role": "value.temperature",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "def": 0,
-                "unit": "°C"
-            },
-            "native": {}
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {
+          "0": "Set Valve position",
+          "1": "Set Temperature",
+          "2": "Summer mode",
+          "3": "Open valve",
+          "4": "Close valve"
         },
-        "in.RTMP": {
-            "type": "state",
-            "common": {
-                "name": "Room Temperature 10...30°C",
-                "role": "value.temperature",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": 10,
-                "unit": "°C"
-            },
-            "native": {}
-        },
-        "in.FC": {
-            "type": "state",
-            "common": {
-                "name": "Failure Code",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": 0
-            },
-            "native": {}
-        },
-        "in.MST": {
-            "type": "state",
-            "common": {
-                "name": "Measurement active",
-                "role": "indicator",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "in.BLS": {
-            "type": "state",
-            "common": {
-                "name": "Buttons locked",
-                "role": "indicator",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "in.TS": {
-            "type": "state",
-            "common": {
-                "name": "Temperature selection",
-                "role": "indicator",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "states": {
-                    "0":"Feed Temperature", "1":"Temperature Set point"
-                },
-                "def": 0
-            },
-            "native": {}
-        },
-        "POS": {
-            "type": "state",
-            "common": {
-                "name": "Valve position (0...100)",
-                "role": "level",
-                "type": "number",
-                "read": false,
-                "write": true,
-                "def": 0
-            },
-            "native": {}
-        },
-        "MC": {
-            "type": "state",
-            "common": {
-                "name": "Measurement active",
-                "role": "state",
-                "type": "boolean",
-                "read": true,
-                "write": true,
-                "def": false
-            },
-            "native": {}
-        },
-        "WUC": {
-            "type": "state",
-            "common": {
-                "name": "Wake-up Cycle",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "states": {
-                    "00": "10 sec",
-                    "1": "60 sec",
-                    "2": "90 sec",
-                    "3": "120 sec",
-                    "4": "150 sec",
-                    "5": "180 sec",
-                    "6": "210 sec",
-                    "7": "240 sec",
-                    "8": "270 sec",
-                    "9": "300 sec (5 min)",
-                    "10": "330 sec",
-                    "11": "360 sec",
-                    "12": "390 sec",
-                    "13": "420 sec",
-                    "14": "450 sec",
-                    "15": "480 sec",
-                    "16": "510 sec",
-                    "17": "540 sec",
-                    "18": "570 sec",
-                    "19": "600 sec (10 min)",
-                    "20": "630 sec",
-                    "21": "660 sec",
-                    "22": "690 sec",
-                    "23": "720 sec",
-                    "24": "750 sec",
-                    "25": "780 sec",
-                    "26": "810 sec",
-                    "27": "840 sec",
-                    "28": "870 sec",
-                    "29": "900 sec (15 min)",
-                    "30": "930 sec",
-                    "31": "960 sec",
-                    "32": "990 sec",
-                    "33": "1020 sec",
-                    "34": "1050 sec",
-                    "35": "1080 sec",
-                    "36": "1110 sec",
-                    "37": "1140 sec",
-                    "38": "1170 sec",
-                    "39": "1200 sec (20 min)",
-                    "40": "1230 sec",
-                    "41": "1260 sec",
-                    "42": "1290 sec",
-                    "43": "1320 sec",
-                    "44": "1350 sec",
-                    "45": "1380 sec",
-                    "46": "1410 sec",
-                    "47": "1440 sec",
-                    "48": "1470 sec",
-                    "49": "1500 sec (25 min)",
-                    "50": "3 hours",
-                    "51": "6 hours",
-                    "52": "9 hours",
-                    "53": "12 hours",
-                    "54": "15 hours",
-                    "55": "18 hours",
-                    "56": "21 hours",
-                    "57": "24 hours",
-                    "58": "27 hours",
-                    "59": "30 hours",
-                    "60": "33 hours",
-                    "61": "36 hours",
-                    "62": "39 hours",
-                    "63": "42 hours"
-                },
-                "def": 19
-            },
-            "native": {}
-        },
-        "DSO": {
-            "type": "state",
-            "common": {
-                "name": "Display orientation",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": true,
-                "states": {"0": "0°","1": "90°","2": "180°","3": "270°"},
-                "def": 0
-            },
-            "native": {}
-        },
-        "BLC": {
-            "type": "state",
-            "common": {
-                "name": "Button lock",
-                "role": "state",
-                "type": "boolean",
-                "read": true,
-                "write": true,
-                "def": false
-            },
-            "native": {}
-        },
-        "TSP": {
-            "type": "state",
-            "common": {
-                "name": "Temperature setpoint (0...+30°C)",
-                "role": "level.temperature",
-                "type": "number",
-                "read": false,
-                "write": true,
-                "def": 0
-            },
-            "native": {}
-        }
+        "def": 0
+      },
+      "native": {}
     },
-    "case": [
+    "in.TMP": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Temperature Feed or Set Point 20...80°C or 10...30°C",
+          "de": "Temperatur Eingang oder Sollwert 20...80°C oder 10...30°C"
+        },
+        "role": "value.temperature",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "def": 0,
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    "in.RTMP": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Room Temperature 10...30°C",
+          "de": "Raumtemperatur 10...30°C"
+        },
+        "role": "value.temperature",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 10,
+        "unit": "°C"
+      },
+      "native": {}
+    },
+    "in.FC": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Failure Code",
+          "de": "Fehlercode"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    },
+    "in.MST": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Measurement active",
+          "de": "Messung aktiv"
+        },
+        "role": "indicator",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "in.BLS": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Buttons locked",
+          "de": "Tasten gesperrt"
+        },
+        "role": "indicator",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "in.TS": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Temperature selection",
+          "de": "Temperaturauswahl"
+        },
+        "role": "indicator",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "Feed Temperature",
+          "1": "Temperature Set point"
+        },
+        "def": 0
+      },
+      "native": {}
+    },
+    "POS": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Valve position (0...100)",
+          "de": "Ventilposition (0...100)"
+        },
+        "role": "level",
+        "type": "number",
+        "read": false,
+        "write": true,
+        "def": 0
+      },
+      "native": {}
+    },
+    "MC": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Measurement active",
+          "de": "Messung aktiv"
+        },
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": true,
+        "def": false
+      },
+      "native": {}
+    },
+    "WUC": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Wake-up Cycle",
+          "de": "Aufweckzyklus"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {
+          "1": "60 sec",
+          "2": "90 sec",
+          "3": "120 sec",
+          "4": "150 sec",
+          "5": "180 sec",
+          "6": "210 sec",
+          "7": "240 sec",
+          "8": "270 sec",
+          "9": "300 sec (5 min)",
+          "10": "330 sec",
+          "11": "360 sec",
+          "12": "390 sec",
+          "13": "420 sec",
+          "14": "450 sec",
+          "15": "480 sec",
+          "16": "510 sec",
+          "17": "540 sec",
+          "18": "570 sec",
+          "19": "600 sec (10 min)",
+          "20": "630 sec",
+          "21": "660 sec",
+          "22": "690 sec",
+          "23": "720 sec",
+          "24": "750 sec",
+          "25": "780 sec",
+          "26": "810 sec",
+          "27": "840 sec",
+          "28": "870 sec",
+          "29": "900 sec (15 min)",
+          "30": "930 sec",
+          "31": "960 sec",
+          "32": "990 sec",
+          "33": "1020 sec",
+          "34": "1050 sec",
+          "35": "1080 sec",
+          "36": "1110 sec",
+          "37": "1140 sec",
+          "38": "1170 sec",
+          "39": "1200 sec (20 min)",
+          "40": "1230 sec",
+          "41": "1260 sec",
+          "42": "1290 sec",
+          "43": "1320 sec",
+          "44": "1350 sec",
+          "45": "1380 sec",
+          "46": "1410 sec",
+          "47": "1440 sec",
+          "48": "1470 sec",
+          "49": "1500 sec (25 min)",
+          "50": "3 hours",
+          "51": "6 hours",
+          "52": "9 hours",
+          "53": "12 hours",
+          "54": "15 hours",
+          "55": "18 hours",
+          "56": "21 hours",
+          "57": "24 hours",
+          "58": "27 hours",
+          "59": "30 hours",
+          "60": "33 hours",
+          "61": "36 hours",
+          "62": "39 hours",
+          "63": "42 hours",
+          "00": "10 sec"
+        },
+        "def": 19
+      },
+      "native": {}
+    },
+    "DSO": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Display orientation",
+          "de": "Displayausrichtung"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "states": {
+          "0": "0°",
+          "1": "90°",
+          "2": "180°",
+          "3": "270°"
+        },
+        "def": 0
+      },
+      "native": {}
+    },
+    "BLC": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Button lock",
+          "de": "Tastensperre"
+        },
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": true,
+        "def": false
+      },
+      "native": {}
+    },
+    "TSP": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Temperature setpoint (0...+30°C)",
+          "de": "Temperatursetpunkt (0...+30°C)"
+        },
+        "role": "level.temperature",
+        "type": "number",
+        "read": false,
+        "write": true,
+        "def": 0
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "datafield": [
         {
-            "send": false,
-            "datafield": [
-                {
-                    "data": "Current Value 0...100%",
-                    "shortcut": "in.CV",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "Temperature Feed or Set Point 20...80°C or 10...30°C",
-                    "shortcut": "in.TMP",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "secondArgument": {
-                        "bitoffs": "30",
-                        "bitsize": "1"
-                    },
-                    "condition": { "==": [ { "var": "value2" }, 0] },
-                    "value": {"+": [{ "*": [{ "-": [{ "var": "value"}, 0 ]}, 0.23529411764705882 ]}, 20 ]},
-                    "decimals": 2
-                },
-                {
-                    "data": "Temperature Feed or Set Point 20...80°C or 10...30°C",
-                    "shortcut": "in.TMP",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "secondArgument": {
-                        "bitoffs": "30",
-                        "bitsize": "1"
-                    },
-                    "condition": { "==": [ { "var": "value2" }, 1] },
-                    "value": {"+": [{ "*": [{ "-": [{ "var": "value"}, 0 ]}, 0.0784313725490196 ]}, 10 ]},
-                    "decimals": 2
-                },
-                {
-                    "data": "Room Temperature 10...30°C",
-                    "shortcut": "in.RTMP",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "secondArgument": {
-                        "bitoffs": "31",
-                        "bitsize": "1"
-                    },
-                    "condition": { "==": [ { "var": "value2" }, 0 ] },
-                    "value": {"+": [{ "*": [{ "-": [{ "var": "value"}, 0 ]}, 0.0784313725490196 ]}, 10 ]},
-                    "decimals": 2
-                },
-                {
-                    "data": "Failure Code",
-                    "shortcut": "in.FC",
-                    "bitoffs": "16",
-                    "bitsize": "8",
-                    "secondArgument": {
-                        "bitoffs": "31",
-                        "bitsize": "1"
-                    },
-                    "condition": { "==": [ { "var": "value2" }, 1 ] },
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "Measurement active",
-                    "shortcut": "in.MST",
-                    "bitoffs": "24",
-                    "bitsize": "1",
-                    "value": {"==": [{"var": "value"}, 0]}
-                },
-                {
-                    "data": "Buttons locked",
-                    "shortcut": "in.BLS",
-                    "bitoffs": "29",
-                    "bitsize": "1",
-                    "value": {"==": [{"var": "value"}, 1]}
-                },
-                {
-                    "data": "Temperature selection",
-                    "shortcut": "in.TS",
-                    "bitoffs": "30",
-                    "bitsize": "1",
-                    "value": {"==": [{"var": "value"}, 1]}
-                }
-            ]
+          "data": "Current Value 0...100%",
+          "shortcut": "in.CV",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "var": "value"
+          }
         },
         {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 0
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Valve position (0...100)",
-                    "shortcut": "POS",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Temperature Setpoint",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "Measurement active",
-                    "shortcut": "MC",
-                    "bitoffs": "17",
-                    "bitsize": "1",
-                    "value_out": {"if":[{"var":"value"},0,1]}
-                },
-                {
-                    "data": "Wake-up Cycle",
-                    "shortcut": "WUC",
-                    "bitoffs": "18",
-                    "bitsize": "6",
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "Display orientation",
-                    "shortcut": "DSO",
-                    "bitoffs": "26",
-                    "bitsize": "2",
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Represents the learnbit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "Button lock",
-                    "shortcut": "BLC",
-                    "bitoffs": "29",
-                    "bitsize": "1",
-                    "value_out": {"if":[{"var":"value"},1,0]}
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Service command",
-                    "bitoffs": "30",
-                    "bitsize": "2",
-                    "value": 0
-                }
+          "data": "Temperature Feed or Set Point 20...80°C or 10...30°C",
+          "shortcut": "in.TMP",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "secondArgument": {
+            "bitoffs": "30",
+            "bitsize": "1"
+          },
+          "condition": {
+            "==": [
+              {
+                "var": "value2"
+              },
+              0
             ]
+          },
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.23529411764705882
+                ]
+              },
+              20
+            ]
+          },
+          "decimals": 2
         },
         {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 1
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "fixed parameter",
-                    "description": "Valve position",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 0
-                },
-                {
-                    "data": "Temperature setpoint (0...+30°C)",
-                    "shortcut": "TSP",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value_out": {"/":[{"-":[{"+":[{"var":"value"},0]},10]},0.0784313725490196]}
-                },
-                {
-                    "data": "Measurement active",
-                    "shortcut": "MC",
-                    "bitoffs": "17",
-                    "bitsize": "1",
-                    "value_out": {"if":[{"var":"value"},0,1]}
-                },
-                {
-                    "data": "Wake-up Cycle",
-                    "shortcut": "WUC",
-                    "bitoffs": "18",
-                    "bitsize": "6",
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "Display orientation",
-                    "shortcut": "DSO",
-                    "bitoffs": "26",
-                    "bitsize": "2",
-                    "value": {"var": "value"}
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Learn Bit",
-                    "bitoffs": "28",
-                    "bitsize": "1",
-                    "value": 1
-                },
-                {
-                    "data": "Button lock",
-                    "shortcut": "BLC",
-                    "bitoffs": "29",
-                    "bitsize": "1",
-                    "value_out": {"if":[{"var":"value"},1,0]}
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "Service command",
-                    "bitoffs": "30",
-                    "bitsize": "2",
-                    "value": 0
-                }
+          "data": "Temperature Feed or Set Point 20...80°C or 10...30°C",
+          "shortcut": "in.TMP",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "secondArgument": {
+            "bitoffs": "30",
+            "bitsize": "1"
+          },
+          "condition": {
+            "==": [
+              {
+                "var": "value2"
+              },
+              1
             ]
+          },
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.0784313725490196
+                ]
+              },
+              10
+            ]
+          },
+          "decimals": 2
+        },
+        {
+          "data": "Room Temperature 10...30°C",
+          "shortcut": "in.RTMP",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "secondArgument": {
+            "bitoffs": "31",
+            "bitsize": "1"
+          },
+          "condition": {
+            "==": [
+              {
+                "var": "value2"
+              },
+              0
+            ]
+          },
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.0784313725490196
+                ]
+              },
+              10
+            ]
+          },
+          "decimals": 2
+        },
+        {
+          "data": "Failure Code",
+          "shortcut": "in.FC",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "secondArgument": {
+            "bitoffs": "31",
+            "bitsize": "1"
+          },
+          "condition": {
+            "==": [
+              {
+                "var": "value2"
+              },
+              1
+            ]
+          },
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Measurement active",
+          "shortcut": "in.MST",
+          "bitoffs": "24",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              0
+            ]
+          }
+        },
+        {
+          "data": "Buttons locked",
+          "shortcut": "in.BLS",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
+        },
+        {
+          "data": "Temperature selection",
+          "shortcut": "in.TS",
+          "bitoffs": "30",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
         }
-    ]
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 0
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Valve position (0...100)",
+          "shortcut": "POS",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Temperature Setpoint",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "Measurement active",
+          "shortcut": "MC",
+          "bitoffs": "17",
+          "bitsize": "1",
+          "value_out": {
+            "if": [
+              {
+                "var": "value"
+              },
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "data": "Wake-up Cycle",
+          "shortcut": "WUC",
+          "bitoffs": "18",
+          "bitsize": "6",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Display orientation",
+          "shortcut": "DSO",
+          "bitoffs": "26",
+          "bitsize": "2",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Represents the learnbit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "Button lock",
+          "shortcut": "BLC",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value_out": {
+            "if": [
+              {
+                "var": "value"
+              },
+              1,
+              0
+            ]
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Service command",
+          "bitoffs": "30",
+          "bitsize": "2",
+          "value": 0
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "Valve position",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 0
+        },
+        {
+          "data": "Temperature setpoint (0...+30°C)",
+          "shortcut": "TSP",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value_out": {
+            "/": [
+              {
+                "-": [
+                  {
+                    "+": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  10
+                ]
+              },
+              0.0784313725490196
+            ]
+          }
+        },
+        {
+          "data": "Measurement active",
+          "shortcut": "MC",
+          "bitoffs": "17",
+          "bitsize": "1",
+          "value_out": {
+            "if": [
+              {
+                "var": "value"
+              },
+              0,
+              1
+            ]
+          }
+        },
+        {
+          "data": "Wake-up Cycle",
+          "shortcut": "WUC",
+          "bitoffs": "18",
+          "bitsize": "6",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Display orientation",
+          "shortcut": "DSO",
+          "bitoffs": "26",
+          "bitsize": "2",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Learn Bit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "Button lock",
+          "shortcut": "BLC",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value_out": {
+            "if": [
+              {
+                "var": "value"
+              },
+              1,
+              0
+            ]
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Service command",
+          "bitoffs": "30",
+          "bitsize": "2",
+          "value": 0
+        }
+      ]
+    }
+  ]
 }

@@ -1,64 +1,70 @@
 {
-    "eep": "X1-01-03",
-    "rorg_number": "0xF6",
-    "telegram": "RPS",
-    "func_number": "0x10",
-    "type_number": "0x00",
-    "type_title": "Window/Door contact",
-    "bidirectional": false,
-    "objects": {
-        "CMD": {
-            "type": "state",
-            "common": {
-                "name": "Command",
-                "role": "state",
-                "type": "number",
-                "read": false,
-                "write": true,
-                "states": {"0": "Closed","1": "Open"},
-                "def": 0
-            },
-            "native": {}
-        }
-    },
-    "case":[
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 0
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "fixed parameter",
-                    "description": "Closed",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 240
-                }
-            ]
+  "eep": "X1-01-03",
+  "rorg_number": "0xF6",
+  "telegram": "RPS",
+  "func_number": "0x10",
+  "type_number": "0x00",
+  "type_title": "Window/Door contact",
+  "bidirectional": false,
+  "objects": {
+    "CMD": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Command",
+          "de": "Befehl"
         },
+        "role": "state",
+        "type": "number",
+        "read": false,
+        "write": true,
+        "states": {
+          "0": "Closed",
+          "1": "Open"
+        },
+        "def": 0
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 0
+          }
+        ]
+      },
+      "datafield": [
         {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 1
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "fixed parameter",
-                    "description": "Open",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": 224
-                }
-            ]
+          "data": "fixed parameter",
+          "description": "Closed",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 240
         }
-    ]
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "Open",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 224
+        }
+      ]
+    }
+  ]
 }

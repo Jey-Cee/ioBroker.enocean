@@ -1,44 +1,79 @@
 {
-    "eep": "TF-14-03",
-    "rorg_number": "0xF6",
-    "telegram": "RPS",
-    "func_number": "0x00",
-    "type_number": "0x00",
-    "type_title": "Heating relais mode",
-    "bidirectional": false,
-    "objects": {
-        "MO": {
-            "type": "state",
-            "common": {
-                "name": "Mode",
-                "role": "state",
-                "type": "string",
-                "read": true,
-                "write": false,
-                "def": ""
-            },
-            "native": {}
-        }
-    },
-    "case": [
+  "eep": "TF-14-03",
+  "rorg_number": "0xF6",
+  "telegram": "RPS",
+  "func_number": "0x00",
+  "type_number": "0x00",
+  "type_title": "Heating relais mode",
+  "bidirectional": false,
+  "objects": {
+    "MO": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Mode",
+          "de": "Modus"
+        },
+        "role": "state",
+        "type": "string",
+        "read": true,
+        "write": false,
+        "def": ""
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "datafield": [
         {
-            "send": false,
-            "datafield": [
-                {
-                    "data": "Mode",
-                    "shortcut": "MO",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {
-                        "if": [
-                            {"==": [{"var": "value"}, 112]}, "On or Normal mode",
-                            {"==": [{"var": "value"}, 80]}, "Off or Night reduction",
-                            {"==": [{"var": "value"}, 48]}, "Reduced operation",
-                            {"==": [{"var": "value"}, 16]}, "OFF"
-                        ]
-                    }
-                }
+          "data": "Mode",
+          "shortcut": "MO",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "if": [
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  112
+                ]
+              },
+              "On or Normal mode",
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  80
+                ]
+              },
+              "Off or Night reduction",
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  48
+                ]
+              },
+              "Reduced operation",
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  16
+                ]
+              },
+              "OFF"
             ]
+          }
         }
-    ]
+      ]
+    }
+  ]
 }

@@ -1,48 +1,87 @@
 {
-    "eep": "TF-13-08",
-    "rorg_number": "0xA5",
-    "telegram": "4BS",
-    "func_number": "0x00",
-    "type_number": "0x00",
-    "type_title": "FTKB Battery status",
-    "bidirectional": false,
-    "objects": {
-        "preDefined": ["SVC"],
-        "ES": {
-            "type": "state",
-            "common": {
-                "name": "Energy storage 0...5.0V",
-                "role": "value.battery",
-                "type": "number",
-                "unit": "V",
-                "read": true,
-                "write": false,
-                "def": 0
-            },
-            "native": {}
-        }
-    },
-    "case": [
+  "eep": "TF-13-08",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x00",
+  "type_number": "0x00",
+  "type_title": "FTKB Battery status",
+  "bidirectional": false,
+  "objects": {
+    "preDefined": [
+      "SVC"
+    ],
+    "ES": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Energy storage 0...5.0V",
+          "de": "Energiespeicher 0...5.0V"
+        },
+        "role": "value.battery",
+        "type": "number",
+        "unit": "V",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "datafield": [
         {
-            "send": false,
-            "datafield": [
-                {
-                    "data": "Supply Voltage 0...5.0V",
-                    "shortcut": "SVC",
-                    "bitoffs": "8",
-                    "bitsize": "8",
-                    "value": {"+": [{"*":[{"-":[{"var":  "value"}, 0]}, 0.02 ]}, 0]},
-                    "decimals": 2
-                },
-                {
-                    "data": "Energy storage 0...5.0V",
-                    "shortcut": "ES",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"+": [{"*":[{"-":[{"var":  "value"}, 0]}, 0.02 ]}, 0 ]},
-                    "decimals": 2
-                }
+          "data": "Supply Voltage 0...5.0V",
+          "shortcut": "SVC",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.02
+                ]
+              },
+              0
             ]
+          },
+          "decimals": 2
+        },
+        {
+          "data": "Energy storage 0...5.0V",
+          "shortcut": "ES",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.02
+                ]
+              },
+              0
+            ]
+          },
+          "decimals": 2
         }
-    ]
+      ]
+    }
+  ]
 }

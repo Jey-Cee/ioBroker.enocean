@@ -1,87 +1,154 @@
 {
-    "eep": "F6-10-00",
-    "rorg_number": "0xF6",
-    "telegram": "RPS",
-    "func_number": "0x10",
-    "type_number": "0x00",
-    "type_title": "Window Handle",
-    "bidirectional": false,
-    "objects": {
-        "WIN": {
-            "type": "state",
-            "common": {
-                "name": "Window open",
-                "role": "sensor.window.open",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
+  "eep": "F6-10-00",
+  "rorg_number": "0xF6",
+  "telegram": "RPS",
+  "func_number": "0x10",
+  "type_number": "0x00",
+  "type_title": "Window Handle",
+  "bidirectional": false,
+  "objects": {
+    "WIN": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Window open",
+          "de": "Fenster offen"
         },
-        "WINT": {
-            "type": "state",
-            "common": {
-                "name": "Window tilt",
-                "role": "sensor.window.tilt",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        },
-        "ST": {
-            "type": "state",
-            "common": {
-                "name": "Window state",
-                "role": "value.window",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "states": {"0":  "CLOSED", "1":  "TILTED", "2":  "OPEN"},
-                "def": 0
-            },
-            "native": {}
-        }
+        "role": "sensor.window.open",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
     },
-    "case": [
+    "WINT": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Window tilt",
+          "de": "Fenster gekippt"
+        },
+        "role": "sensor.window.tilt",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "ST": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Window state",
+          "de": "Fenster Zustand"
+        },
+        "role": "value.window",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "states": {
+          "0": "CLOSED",
+          "1": "TILTED",
+          "2": "OPEN"
+        },
+        "def": 0
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "datafield": [
         {
-            "send": false,
-            "datafield": [
-                {
-                    "data": "Window open",
-                    "shortcut": "WIN",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {
-                        "or": [
-                            {"===": [{"var": "value"}, 192]},
-                            {"!==": [{"var": "value"}, 240]}
-                        ]
-                    }
-                },
-                {
-                    "data": "Window tilt",
-                    "shortcut": "WINT",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {"===": [ { "var": "value" }, 208 ]}
-                },
-                {
-                    "data": "Window state",
-                    "shortcut": "ST",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {
-                        "if": [
-                            {"===": [ { "var":  "value"}, 240]}, 0,
-                            {"===": [ { "var": "value" }, 208]}, 1,
-                            {"===": [ { "var":  "value"}, 192]}, 2,
-                            {"===": [ { "var":  "value"}, 224]}, 2
-                        ]}
-                }
+          "data": "Window open",
+          "shortcut": "WIN",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "or": [
+              {
+                "===": [
+                  {
+                    "var": "value"
+                  },
+                  192
+                ]
+              },
+              {
+                "!==": [
+                  {
+                    "var": "value"
+                  },
+                  240
+                ]
+              }
             ]
+          }
+        },
+        {
+          "data": "Window tilt",
+          "shortcut": "WINT",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "===": [
+              {
+                "var": "value"
+              },
+              208
+            ]
+          }
+        },
+        {
+          "data": "Window state",
+          "shortcut": "ST",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "if": [
+              {
+                "===": [
+                  {
+                    "var": "value"
+                  },
+                  240
+                ]
+              },
+              0,
+              {
+                "===": [
+                  {
+                    "var": "value"
+                  },
+                  208
+                ]
+              },
+              1,
+              {
+                "===": [
+                  {
+                    "var": "value"
+                  },
+                  192
+                ]
+              },
+              2,
+              {
+                "===": [
+                  {
+                    "var": "value"
+                  },
+                  224
+                ]
+              },
+              2
+            ]
+          }
         }
-    ]
+      ]
+    }
+  ]
 }

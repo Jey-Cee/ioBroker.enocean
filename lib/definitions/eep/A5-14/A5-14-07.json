@@ -7,17 +7,23 @@
   "type_title": "Dual-door-contact with States Open/Closed and Locked/Unlocked, Supply voltage monitor",
   "bidirectional": false,
   "objects": {
-    "preDefined": ["SVC"],
+    "preDefined": [
+      "SVC"
+    ],
     "LCT": {
       "type": "state",
       "common": {
-        "name": "Lock Contact",
+        "name": {
+          "en": "Lock Contact",
+          "de": "Kontakt sperren"
+        },
         "role": "indicator",
         "type": "number",
         "read": true,
         "write": false,
         "states": {
-          "0": "Door Locked", "1": "Door Unlocked"
+          "0": "Door Locked",
+          "1": "Door Unlocked"
         },
         "def": "0"
       },
@@ -26,44 +32,71 @@
     "DCT": {
       "type": "state",
       "common": {
-        "name": "Door Contact",
+        "name": {
+          "en": "Door Contact",
+          "de": "Türkontakt"
+        },
         "role": "indicator",
         "type": "number",
         "read": true,
         "write": false,
         "states": {
-          "0": "Door Closed", "1": "Door Open"
+          "0": "Door Closed",
+          "1": "Door Open"
         },
         "def": "0"
       },
       "native": {}
     }
   },
-  "case": [{
-    "send": false,
-    "datafield": [
-      {
-        "data": "Lock",
-        "shortcut": "LCT",
-        "bitoffs": "31",
-        "bitsize": "1",
-        "value": {"var": "value"}
-      },
-      {
-        "data": "Contact",
-        "shortcut": "DCT",
-        "bitoffs": "29",
-        "bitsize": "1",
-        "value": {"var": "value"}
-      },
-      {
-        "data": "Supply Voltage 0...5.0V (Optional)",
-        "shortcut": "SVC",
-        "bitoffs": "0",
-        "bitsize": "8",
-        "value": {"+": [{"*":[{"-":[{"var":  "value"}, 0 ]}, 0.02 ]}, 0 ]},
-        "decimals": 2
-      }
-    ]
-  }]
+  "case": [
+    {
+      "send": false,
+      "datafield": [
+        {
+          "data": "Lock",
+          "shortcut": "LCT",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Contact",
+          "shortcut": "DCT",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Supply Voltage 0...5.0V (Optional)",
+          "shortcut": "SVC",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.02
+                ]
+              },
+              0
+            ]
+          },
+          "decimals": 2
+        }
+      ]
+    }
+  ]
 }

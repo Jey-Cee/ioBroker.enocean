@@ -10,7 +10,10 @@
     "Conc": {
       "type": "state",
       "common": {
-        "name": "Hydrogen concentration",
+        "name": {
+          "en": "Hydrogen concentration",
+          "de": "Konzentration von Wasserstoff"
+        },
         "role": "value.gas",
         "type": "number",
         "read": true,
@@ -22,13 +25,15 @@
     "VOC_ID": {
       "type": "state",
       "common": {
-        "name": "VOC identification",
+        "name": {
+          "en": "VOC identification",
+          "de": "VOC Identifikation"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": false,
         "states": {
-          "00": "VOC Total",
           "1": "Formaldehyde",
           "2": "Benzene",
           "3": "Styrene",
@@ -63,7 +68,8 @@
           "33": "Cadaverine",
           "34": "Putrescine",
           "35": "Caproic acid",
-          "255": "Ozone"
+          "255": "Ozone",
+          "00": "VOC Total"
         },
         "def": 0
       },
@@ -72,13 +78,17 @@
     "UN": {
       "type": "state",
       "common": {
-        "name": "Unit",
+        "name": {
+          "en": "Unit",
+          "de": "Einheit"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": false,
         "states": {
-          "0":"ppb", "1":"µg/m³"
+          "0": "ppb",
+          "1": "µg/m³"
         },
         "def": 0
       },
@@ -88,39 +98,104 @@
   "case": [
     {
       "send": false,
-    "datafield": [
-      {
-        "data": "VOC concentration",
-        "shortcut": "Conc",
-        "bitoffs": "0",
-        "bitsize": "16",
-        "secondArgument": {
-          "bitoffs": "30",
-          "bitsize": "2"
+      "datafield": [
+        {
+          "data": "VOC concentration",
+          "shortcut": "Conc",
+          "bitoffs": "0",
+          "bitsize": "16",
+          "secondArgument": {
+            "bitoffs": "30",
+            "bitsize": "2"
+          },
+          "value": {
+            "if": [
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  0
+                ]
+              },
+              {
+                "*": [
+                  {
+                    "var": "value"
+                  },
+                  0.01
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  1
+                ]
+              },
+              {
+                "*": [
+                  {
+                    "var": "value"
+                  },
+                  0.1
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  2
+                ]
+              },
+              {
+                "*": [
+                  {
+                    "var": "value"
+                  },
+                  1
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  3
+                ]
+              },
+              {
+                "*": [
+                  {
+                    "var": "value"
+                  },
+                  10
+                ]
+              }
+            ]
+          }
         },
-        "value": {
-          "if": [
-            {"==":[{"var": "value2"}, 0]}, { "*": [ {"var": "value"}, 0.01 ] },
-            {"==":[{"var": "value2"}, 1]}, { "*": [ {"var": "value"}, 0.1 ] },
-            {"==":[{"var": "value2"}, 2]}, { "*": [ {"var": "value"}, 1 ] },
-            {"==":[{"var": "value2"}, 3]}, { "*": [ {"var": "value"}, 10 ] }
-          ]
+        {
+          "data": "VOC identification",
+          "shortcut": "VOC_ID",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "Unit",
+          "shortcut": "UN",
+          "bitoffs": "21",
+          "bitsize": "3",
+          "value": {
+            "var": "value"
+          }
         }
-      },
-      {
-        "data": "VOC identification",
-        "shortcut": "VOC_ID",
-        "bitoffs": "16",
-        "bitsize": "8",
-        "value": {"var": "value"}
-      },
-      {
-        "data": "Unit",
-        "shortcut": "UN",
-        "bitoffs": "21",
-        "bitsize": "3",
-        "value": {"var": "value"}
-      }
-    ]
-  }]
+      ]
+    }
+  ]
 }

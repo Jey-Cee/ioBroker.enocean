@@ -1,129 +1,252 @@
 {
-    "eep": "A5-12-01",
-    "rorg_number": "0xA5",
-    "telegram": "4BS",
-    "func_number": "0x12",
-    "type_number": "0x01",
-    "type_title": "Autmoated Meter Reading (AMR) Electricity",
-    "bidirectional": false,
-    "objects": {
-        "MR": {
-            "type": "state",
-            "common": {
-                "name": "Meter reading",
-                "role": "value.power.consumption",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": 0
-            },
-            "native": {}
+  "eep": "A5-12-01",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x12",
+  "type_number": "0x01",
+  "type_title": "Autmoated Meter Reading (AMR) Electricity",
+  "bidirectional": false,
+  "objects": {
+    "MR": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Meter reading",
+          "de": "Zählerstand"
         },
-        "TI": {
-            "type": "state",
-            "common": {
-                "name": "Tariff info",
-                "role": "state",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": 0
-            },
-            "native": {}
-        },
-        "PC": {
-            "type": "state",
-            "common": {
-                "name": "Power consumption",
-                "role": "value.power",
-                "type": "number",
-                "read": true,
-                "write": false,
-                "def": 0
-            },
-            "native": {}
-        }
+        "role": "value.power.consumption",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
     },
-    "case": [
-        {
-            "send": false,
-        "condition": {
-            "command": [
-                {
-                    "bitoffs": "29",
-                    "bitsize": "1",
-                    "value": 0
-                }
-            ]
+    "TI": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Tariff info",
+          "de": "Tarif-Info"
         },
-        "datafield": [
-            {
-                "data": "Meter Reading",
-                "shortcut": "MR",
-                "bitoffs": "0",
-                "bitsize": "24",
-                "secondArgument": {
-                    "bitoffs": "30",
-                    "bitsize": "2"
-                },
-                "value": {
-                    "if": [
-                        {"==":[{"var": "value2"}, 0]}, {"var": "value"},
-                        {"==":[{"var": "value2"}, 1]}, {"/": [{"var": "value"}, 10]},
-                        {"==":[{"var": "value2"}, 2]}, {"/": [{"var": "value"}, 100]},
-                        {"==":[{"var": "value2"}, 2]}, {"/": [{"var": "value"}, 1000]}
-                    ]
-                },
-                "unit": "kWh"
-            },
-            {
-                "data": "Tariff info",
-                "shortcut": "TI",
-                "bitoffs": "24",
-                "bitsize": "4",
-                "value": {"var": "value"}
-            }
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    },
+    "PC": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Power consumption",
+          "de": "Stromverbrauch"
+        },
+        "role": "value.power",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "29",
+            "bitsize": "1",
+            "value": 0
+          }
         ]
-    },
+      },
+      "datafield": [
         {
-            "send": false,
-            "condition": {
-                "command": [
-                    {
-                        "bitoffs": "29",
-                        "bitsize": "1",
-                        "value": 1
-                    }
+          "data": "Meter Reading",
+          "shortcut": "MR",
+          "bitoffs": "0",
+          "bitsize": "24",
+          "secondArgument": {
+            "bitoffs": "30",
+            "bitsize": "2"
+          },
+          "value": {
+            "if": [
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  0
                 ]
-            },
-            "datafield": [
-                {
-                    "data": "Power consumption",
-                    "shortcut": "PC",
-                    "bitoffs": "0",
-                    "bitsize": "24",
-                    "secondArgument": {
-                        "bitoffs": "30",
-                        "bitsize": "2"
-                    },
-                    "value": {
-                        "if": [
-                            {"==":[{"var": "value2"}, 0]}, {"var": "value"},
-                            {"==":[{"var": "value2"}, 1]}, {"/": [{"var": "value"}, 10]},
-                            {"==":[{"var": "value2"}, 2]}, {"/": [{"var": "value"}, 100]},
-                            {"==":[{"var": "value2"}, 2]}, {"/": [{"var": "value"}, 1000]}
-                        ]
-                    },
-                    "unit": "W"
-                },
-                {
-                    "data": "Tariff info",
-                    "shortcut": "TI",
-                    "bitoffs": "24",
-                    "bitsize": "4",
-                    "value": {"var": "value"}
-                }
+              },
+              {
+                "var": "value"
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  1
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  10
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  2
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  100
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  2
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  1000
+                ]
+              }
             ]
+          },
+          "unit": "kWh"
+        },
+        {
+          "data": "Tariff info",
+          "shortcut": "TI",
+          "bitoffs": "24",
+          "bitsize": "4",
+          "value": {
+            "var": "value"
+          }
         }
-    ]
+      ]
+    },
+    {
+      "send": false,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "29",
+            "bitsize": "1",
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Power consumption",
+          "shortcut": "PC",
+          "bitoffs": "0",
+          "bitsize": "24",
+          "secondArgument": {
+            "bitoffs": "30",
+            "bitsize": "2"
+          },
+          "value": {
+            "if": [
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  0
+                ]
+              },
+              {
+                "var": "value"
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  1
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  10
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  2
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  100
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  2
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  1000
+                ]
+              }
+            ]
+          },
+          "unit": "W"
+        },
+        {
+          "data": "Tariff info",
+          "shortcut": "TI",
+          "bitoffs": "24",
+          "bitsize": "4",
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    }
+  ]
 }

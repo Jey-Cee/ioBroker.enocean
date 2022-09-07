@@ -1,130 +1,138 @@
 {
-    "eep": "TF-13-18",
-    "rorg_number": "0xF6",
-    "telegram": "RPS",
-    "func_number": "0x00",
-    "type_number": "0x00",
-    "type_title": "Switch",
-    "bidirectional": false,
-    "objects": {
-        "CMD": {
-            "type": "state",
-            "common": {
-                "name": "Command",
-                "role": "state",
-                "type": "number",
-                "read": false,
-                "write": true,
-                "states": {"0": "CH1 OFF","1": "CH1 ON","2": "CH2 OFF","3": "CH2 ON"},
-                "def": 0
-            },
-            "native": {}
+  "eep": "TF-13-18",
+  "rorg_number": "0xF6",
+  "telegram": "RPS",
+  "func_number": "0x00",
+  "type_number": "0x00",
+  "type_title": "Switch",
+  "bidirectional": false,
+  "objects": {
+    "CMD": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Command",
+          "de": "Befehl"
+        },
+        "role": "state",
+        "type": "number",
+        "read": false,
+        "write": true,
+        "states": {
+          "0": "CH1 OFF",
+          "1": "CH1 ON",
+          "2": "CH2 OFF",
+          "3": "CH2 ON"
+        },
+        "def": 0
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 0
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Command ID",
+          "shortcut": "CMD",
+          "bitoffs": "0",
+          "bitsize": "3",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "CH 1 OFF",
+          "bitoffs": "3",
+          "bitsize": "1",
+          "value": 1
         }
+      ]
     },
-    "case": [
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
         {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 0
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "Command ID",
-                    "shortcut": "CMD",
-                    "bitoffs": "0",
-                    "bitsize": "3",
-                    "value": 0
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "CH 1 OFF",
-                    "bitoffs": "3",
-                    "bitsize": "1",
-                    "value": 1
-                }
-            ]
+          "data": "fixed parameter",
+          "description": "CH 1 ON",
+          "bitoffs": "0",
+          "bitsize": "3",
+          "value": 1
         },
         {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 1
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "fixed parameter",
-                    "description": "CH 1 ON",
-                    "bitoffs": "0",
-                    "bitsize": "3",
-                    "value": 1
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "CH 1 ON",
-                    "bitoffs": "3",
-                    "bitsize": "1",
-                    "value": 1
-                }
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 2
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "fixed parameter",
-                    "description": "CH 2 OFF",
-                    "bitoffs": "0",
-                    "bitsize": "3",
-                    "value": 2
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "CH 2 OFF",
-                    "bitoffs": "3",
-                    "bitsize": "1",
-                    "value": 1
-                }
-            ]
-        },
-        {
-            "send": true,
-            "condition": {
-                "command": [
-                    {
-                        "value": 3
-                    }
-                ]
-            },
-            "datafield": [
-                {
-                    "data": "fixed parameter",
-                    "description": "CH 2 ON",
-                    "bitoffs": "0",
-                    "bitsize": "3",
-                    "value": 3
-                },
-                {
-                    "data": "fixed parameter",
-                    "description": "CH 2 ON",
-                    "bitoffs": "3",
-                    "bitsize": "1",
-                    "value": 1
-                }
-            ]
+          "data": "fixed parameter",
+          "description": "CH 1 ON",
+          "bitoffs": "3",
+          "bitsize": "1",
+          "value": 1
         }
-    ]
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 2
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "CH 2 OFF",
+          "bitoffs": "0",
+          "bitsize": "3",
+          "value": 2
+        },
+        {
+          "data": "fixed parameter",
+          "description": "CH 2 OFF",
+          "bitoffs": "3",
+          "bitsize": "1",
+          "value": 1
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 3
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "CH 2 ON",
+          "bitoffs": "0",
+          "bitsize": "3",
+          "value": 3
+        },
+        {
+          "data": "fixed parameter",
+          "description": "CH 2 ON",
+          "bitoffs": "3",
+          "bitsize": "1",
+          "value": 1
+        }
+      ]
+    }
+  ]
 }

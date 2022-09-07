@@ -7,11 +7,17 @@
   "type_title": "Gas Sensor Hydrogen",
   "bidirectional": false,
   "objects": {
-    "preDefined": ["TMP", "SVC"],
+    "preDefined": [
+      "TMP",
+      "SVC"
+    ],
     "Conc": {
       "type": "state",
       "common": {
-        "name": "Hydrogen concentration",
+        "name": {
+          "en": "Hydrogen concentration",
+          "de": "Konzentration von Wasserstoff"
+        },
         "role": "value.gas",
         "type": "number",
         "read": true,
@@ -22,7 +28,7 @@
       "native": {}
     }
   },
-  "case":[
+  "case": [
     {
       "send": false,
       "datafield": [
@@ -31,7 +37,9 @@
           "shortcut": "Conc",
           "bitoffs": "0",
           "bitsize": "16",
-          "value": {"var": "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     },
@@ -50,7 +58,24 @@
           "shortcut": "TMP",
           "bitoffs": "16",
           "bitsize": "8",
-          "value": {"+": [ { "*": [ { "-": [ { "var":  "value" }, 0 ] }, 0.3137 ] }, -20 ]}
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.3137
+                ]
+              },
+              -20
+            ]
+          }
         }
       ]
     },
@@ -69,7 +94,24 @@
           "shortcut": "SVC",
           "bitoffs": "24",
           "bitsize": "4",
-          "value": {"+": [ { "*": [ { "-": [ { "var":  "value" }, 0 ] }, 0.2 ] }, 2]},
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.2
+                ]
+              },
+              2
+            ]
+          },
           "decimals": 2
         }
       ]

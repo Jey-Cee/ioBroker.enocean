@@ -10,12 +10,19 @@
     "CMD": {
       "type": "state",
       "common": {
-        "name": "Command",
+        "name": {
+          "en": "Command",
+          "de": "Befehl"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "OFF","1": "ON","2": "Statusquery"},
+        "states": {
+          "0": "OFF",
+          "1": "ON",
+          "2": "Statusquery"
+        },
         "def": 0
       },
       "native": {}
@@ -23,7 +30,10 @@
     "OV": {
       "type": "state",
       "common": {
-        "name": "Output ON",
+        "name": {
+          "en": "Output ON",
+          "de": "Ausgang an"
+        },
         "role": "state",
         "type": "boolean",
         "read": true,
@@ -142,18 +152,27 @@
     },
     {
       "send": false,
-      "condition": [{
-        "bitoffs": "4",
-        "bitsize": "4",
-        "value": 4
-      }],
+      "condition": [
+        {
+          "bitoffs": "4",
+          "bitsize": "4",
+          "value": 4
+        }
+      ],
       "datafield": [
         {
           "data": "Output on",
           "shortcut": "OV",
           "bitoffs": "17",
           "bitsize": "7",
-          "value": {"==": [{"var": "value"}, 100]}
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              100
+            ]
+          }
         }
       ]
     }

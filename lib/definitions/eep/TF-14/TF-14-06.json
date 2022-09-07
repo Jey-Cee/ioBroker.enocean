@@ -1,45 +1,88 @@
 {
-    "eep": "TF-14-06",
-    "rorg_number": "0xF6",
-    "telegram": "RPS",
-    "func_number": "0x00",
-    "type_number": "0x00",
-    "type_title": "FTS14EM",
-    "bidirectional": false,
-    "objects": {
-        "SW": {
-            "type": "state",
-            "common": {
-                "name": "Switch",
-                "role": "state",
-                "type": "boolean",
-                "read": true,
-                "write": false,
-                "def": false
-            },
-            "native": {}
-        }
-    },
-    "case": [
+  "eep": "TF-14-06",
+  "rorg_number": "0xF6",
+  "telegram": "RPS",
+  "func_number": "0x00",
+  "type_number": "0x00",
+  "type_title": "FTS14EM",
+  "bidirectional": false,
+  "objects": {
+    "SW": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Switch",
+          "de": "Schalter"
+        },
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "datafield": [
         {
-            "send": false,
-            "datafield": [
-                {
-                    "data": "Switch",
-                    "shortcut": "SW",
-                    "bitoffs": "0",
-                    "bitsize": "8",
-                    "value": {
-                        "if": [
-                            {"==": [{"var": "value"}, 112]}, true,
-                            {"==": [{"var": "value"}, 80]}, true,
-                            {"==": [{"var": "value"}, 48]}, true,
-                            {"==": [{"var": "value"}, 16]}, true,
-                            {"==": [{"var": "value"}, 0]}, false
-                        ]
-                    }
-                }
+          "data": "Switch",
+          "shortcut": "SW",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "if": [
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  112
+                ]
+              },
+              true,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  80
+                ]
+              },
+              true,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  48
+                ]
+              },
+              true,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  16
+                ]
+              },
+              true,
+              {
+                "==": [
+                  {
+                    "var": "value"
+                  },
+                  0
+                ]
+              },
+              false
             ]
+          }
         }
-    ]
+      ]
+    }
+  ]
 }

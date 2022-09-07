@@ -10,12 +10,19 @@
     "CMD": {
       "type": "state",
       "common": {
-        "name": "Command",
+        "name": {
+          "en": "Command",
+          "de": "Befehl"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "Off","1": "On","2": "Teach-in"},
+        "states": {
+          "0": "Off",
+          "1": "On",
+          "2": "Teach-in"
+        },
         "def": 0
       },
       "native": {}
@@ -23,12 +30,18 @@
     "BS": {
       "type": "state",
       "common": {
-        "name": "Block channel state",
+        "name": {
+          "en": "Block channel state",
+          "de": "Kanalzustand sperren"
+        },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "states": {"0": "NotBlocked","1": "Blocked"},
+        "states": {
+          "0": "NotBlocked",
+          "1": "Blocked"
+        },
         "def": 0
       },
       "native": {}
@@ -50,7 +63,9 @@
           "shortcut": "BS",
           "bitoffs": "29",
           "bitsize": "1",
-          "value": {"var":  "value"}
+          "value": {
+            "var": "value"
+          }
         }
       ]
     },

@@ -7,11 +7,19 @@
   "type_title": "Weather Station",
   "bidirectional": false,
   "objects": {
-    "preDefined": ["TMP", "ILL", "RAN", "WND"],
+    "preDefined": [
+      "TMP",
+      "ILL",
+      "RAN",
+      "WND"
+    ],
     "DN": {
       "type": "state",
       "common": {
-        "name": "Day",
+        "name": {
+          "en": "Day",
+          "de": "Tag"
+        },
         "role": "switch",
         "type": "boolean",
         "read": true,
@@ -21,46 +29,113 @@
       "native": {}
     }
   },
-  "case": [{
-    "send": false,
-    "datafield": [
-      {
-        "data": "Temperature -40...80°C",
-        "shortcut": "TMP",
-        "bitoffs": "8",
-        "bitsize": "8",
-        "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.4706 ] }, -40]},
-        "decimals": 2
-      },
-      {
-        "data": "Dawn sensor",
-        "shortcut": "ILL",
-        "bitoffs": "0",
-        "bitsize": "8",
-        "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 3.9176 ] }, 0]}
-      },
-      {
-        "data": "Wind speed",
-        "shortcut": "WND",
-        "bitoffs": "0",
-        "bitsize": "8",
-        "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 0.2745 ] }, 0]},
-        "decimals": 2
-      },
-      {
-        "data": "Day",
-        "shortcut": "DN",
-        "bitoffs": "29",
-        "bitsize": "1",
-        "value": {"==": [{"var": "value"}, 0]}
-      },
-      {
-        "data": "Rain",
-        "shortcut": "RAN",
-        "bitoffs": "30",
-        "bitsize": "1",
-        "value": {"==": [{"var": "value"}, 0]}
-      }
-    ]
-  }]
+  "case": [
+    {
+      "send": false,
+      "datafield": [
+        {
+          "data": "Temperature -40...80°C",
+          "shortcut": "TMP",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.4706
+                ]
+              },
+              -40
+            ]
+          },
+          "decimals": 2
+        },
+        {
+          "data": "Dawn sensor",
+          "shortcut": "ILL",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  3.9176
+                ]
+              },
+              0
+            ]
+          }
+        },
+        {
+          "data": "Wind speed",
+          "shortcut": "WND",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.2745
+                ]
+              },
+              0
+            ]
+          },
+          "decimals": 2
+        },
+        {
+          "data": "Day",
+          "shortcut": "DN",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              0
+            ]
+          }
+        },
+        {
+          "data": "Rain",
+          "shortcut": "RAN",
+          "bitoffs": "30",
+          "bitsize": "1",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              0
+            ]
+          }
+        }
+      ]
+    }
+  ]
 }

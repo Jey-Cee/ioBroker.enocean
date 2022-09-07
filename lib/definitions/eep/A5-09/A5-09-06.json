@@ -10,7 +10,10 @@
     "Act": {
       "type": "state",
       "common": {
-        "name": "Gas Radon",
+        "name": {
+          "en": "Gas Radon",
+          "de": "Gas Radon"
+        },
         "role": "value.gas",
         "type": "number",
         "read": true,
@@ -24,14 +27,32 @@
   "case": [
     {
       "send": false,
-    "datafield": [
-      {
-        "data": "Gas Radon",
-        "shortcut": "Act",
-        "bitoffs": "0",
-        "bitsize": "10",
-        "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 0] }, 1 ] }, 0]}
-      }
-    ]
-  }]
+      "datafield": [
+        {
+          "data": "Gas Radon",
+          "shortcut": "Act",
+          "bitoffs": "0",
+          "bitsize": "10",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  1
+                ]
+              },
+              0
+            ]
+          }
+        }
+      ]
+    }
+  ]
 }

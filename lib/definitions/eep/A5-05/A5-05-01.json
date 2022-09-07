@@ -10,7 +10,10 @@
     "BAR": {
       "type": "state",
       "common": {
-        "name": "Barometer",
+        "name": {
+          "en": "Barometer",
+          "de": "Barometer"
+        },
         "role": "value.pressure",
         "type": "number",
         "read": true,
@@ -23,37 +26,62 @@
     "TTP": {
       "type": "state",
       "common": {
-        "name": "Telegram Type",
+        "name": {
+          "en": "Telegram Type",
+          "de": "Telegramm Typ"
+        },
         "role": "indicator",
         "type": "number",
         "read": true,
         "write": false,
         "states": {
-          "0": "Heartbeat", "1": "Event triggered"
+          "0": "Heartbeat",
+          "1": "Event triggered"
         },
         "def": 0
       },
       "native": {}
     }
   },
-  "case": [{
-    "send": false,
-    "datafield": [
-      {
-        "data": "Barometer",
-        "shortcut": "BAR",
-        "bitoffs": "6",
-        "bitsize": "10",
-        "value": {"+": [ { "*": [ { "-": [ { "var": "value" }, 0 ] }, 0.63539 ] }, 500]},
-        "decimals": 2
-      },
-      {
-        "data": "Telegram Type",
-        "shortcut": "TTP",
-        "bitoffs": "31",
-        "bitsize": "1",
-        "value": {"var": "value"}
-      }
-    ]
-  }]
+  "case": [
+    {
+      "send": false,
+      "datafield": [
+        {
+          "data": "Barometer",
+          "shortcut": "BAR",
+          "bitoffs": "6",
+          "bitsize": "10",
+          "value": {
+            "+": [
+              {
+                "*": [
+                  {
+                    "-": [
+                      {
+                        "var": "value"
+                      },
+                      0
+                    ]
+                  },
+                  0.63539
+                ]
+              },
+              500
+            ]
+          },
+          "decimals": 2
+        },
+        {
+          "data": "Telegram Type",
+          "shortcut": "TTP",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    }
+  ]
 }
