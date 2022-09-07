@@ -23,7 +23,33 @@
     "RT": {
       "type": "state",
       "common": {
-        "name": "Running time",
+        "name": "Running time (deprecated)",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "def": 0,
+        "unit": "s"
+      },
+      "native": {}
+    },
+    "TT": {
+      "type": "state",
+      "common": {
+        "name": "Traveled time",
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "def": 0,
+        "unit": "s"
+      },
+      "native": {}
+    },
+    "TTT": {
+      "type": "state",
+      "common": {
+        "name": "Time to travel",
         "role": "state",
         "type": "number",
         "read": true,
@@ -88,6 +114,14 @@
           "decimals": 1
         },
         {
+          "data": "Traveled time",
+          "shortcut": "TT",
+          "bitoffs": "0",
+          "bitsize": "16",
+          "value": {"/": [{"var": "value"}, 10]},
+          "decimals": 1
+        },
+        {
           "data": "Block local switch",
           "shortcut": "BS",
           "bitoffs": "29",
@@ -121,6 +155,14 @@
         {
           "data": "Running time",
           "shortcut": "RT",
+          "bitoffs": "0",
+          "bitsize": "16",
+          "value": {"/": [{"var": "value"}, 10]},
+          "decimals": 1
+        },
+        {
+          "data": "Traveled time",
+          "shortcut": "TT",
           "bitoffs": "0",
           "bitsize": "16",
           "value": {"/": [{"var": "value"}, 10]},
@@ -178,6 +220,14 @@
           "decimals": 1
         },
         {
+          "data": "Time to travel",
+          "shortcut": "TTT",
+          "bitoffs": "0",
+          "bitsize": "16",
+          "value": {"/": [{"var": "value"}, 10]},
+          "decimals": 1
+        },
+        {
           "data": "fixed parameter",
           "description": "Stop",
           "bitoffs": "8",
@@ -229,6 +279,14 @@
           "decimals": 1
         },
         {
+          "data": "Time to travel",
+          "shortcut": "TTT",
+          "bitoffs": "0",
+          "bitsize": "16",
+          "value": {"/": [{"var": "value"}, 10]},
+          "decimals": 1
+        },
+        {
           "data": "fixed parameter",
           "description": "Up",
           "bitoffs": "8",
@@ -277,6 +335,14 @@
           "bitsize": "16",
           "value": {"/": [{"var": "value"}, 10]},
           "value_out": {"var": "value"},
+          "decimals": 1
+        },
+        {
+          "data": "Time to travel",
+          "shortcut": "TTT",
+          "bitoffs": "0",
+          "bitsize": "16",
+          "value": {"/": [{"var": "value"}, 10]},
           "decimals": 1
         },
         {
