@@ -181,8 +181,7 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 To test telegram handling create a channel with name development and in this channel a object with name telegram, type string.
 
 ## Changelog
-
-### **WORK IN PROGRESS**
+### 0.8.0 (2022-09-16)
 * added EIMSIG EM-USE-00 & EM-FSGE-00
 * added Kieback & Peter RBW322-FTL
 * added MICROPELT MVA002
