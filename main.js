@@ -29,6 +29,7 @@ const Codes = require('./lib/definitions/codes.json');
 const EEPList = require('./lib/definitions/EEPinclude');
 const codes = require('./lib/definitions/codes.json');
 
+const update = require('./lib/update.js');
 
 const PLATFORM = os.platform();
 
@@ -60,6 +61,7 @@ class Enocean extends utils.Adapter {
 		this.on('stateChange', this.onStateChange.bind(this));
 		this.on('message', this.onMessage.bind(this));
 		this.on('unload', this.onUnload.bind(this));
+		this.eepList = EEPList;
 	}
 
 	/**
@@ -70,6 +72,8 @@ class Enocean extends utils.Adapter {
 		this.setState('info.connection', {val: false, ack: true});
 
 		this.setState('gateway.teachin', {val: false, ack: true});
+
+		await new update(this);
 
 		// in this template all states changes inside the adapters namespace are subscribed
 		this.subscribeStates('gateway.*');
@@ -600,8 +604,29 @@ class Enocean extends utils.Adapter {
 				break;
 			}
 			case 3: //RADIO_SUB_TEL
-				this.log.debug('Radio sub telegram received.');
+			{//this.log.debug('Radio sub telegram received.');
+				const teachin = await this.getStateAsync(this.namespace + '.gateway.teachin');
+
+				if (teachin) {
+					if (teachin.val === false) {
+						const telegram = new HandleType1(this, esp3packet);
+						await this.setStateAsync('gateway.lastID', {val: telegram.senderID, ack: true});
+					} else if (teachin.val === true && teachinMethod !== null) {
+						const telegram = new RadioTelegram(esp3packet);
+						await this.setStateAsync('gateway.lastID', {val: telegram.senderID, ack: true});
+						if (teachinMethod.teachinMethod === 'UTE' && telegram.type.toString(16) === 'd4') {
+							new HandleTeachIn(this, esp3packet, teachinMethod);
+							teachinMethod = null;
+						} else if (telegram.type.toString(16) === teachinMethod.teachinMethod.toLowerCase()) {
+							new HandleTeachIn(this, esp3packet, teachinMethod);
+							if (telegram.type.toString(16) !== 'd1') {
+								teachinMethod = null;
+							}
+						}
+					}
+				}
 				break;
+			}
 			case 4: //EVENT
 				this.log.debug('Event message received.');
 				new HandleType4(this, esp3packet, teachinMethod);
