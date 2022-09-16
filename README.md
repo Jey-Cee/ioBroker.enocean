@@ -29,12 +29,15 @@ USB300
 
 DOSMUNG USB Stick with SMA port - [Buy](https://amzn.to/33EapbN)
 
+FAM-USB (ESP3 Firmware)
+
 EnOcean Pi Modul
 
 Eltako FGW14:  
 You have to enable ESP2 mode in the adapter config, to use the FGW14.  
 **Important Notes**: This gateway does not support all features and devices of this adapter.  Known features that does not work: RSSI, Gateway information can not be read and only RS485 Bus devices can be controlled without FTD14 (not tested yet).  If there is no technical reason to use this gateway it is highly recomended to use an other one.  
 
+ALL SMART EnOcean LAN Gateway - [BUY](https://www.all-smart.net/produkt/all-smart-enocean-lan-gateway/)
 
 ## Control devices
 In general there is a cmd object where you can choose the command that you want to execute. Before you can execute a command you have to set all attributes that are necessary, 
@@ -178,6 +181,19 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 To test telegram handling create a channel with name development and in this channel a object with name telegram, type string.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+* added EIMSIG EM-USE-00 & EM-FSGE-00
+* added Kieback & Peter RBW322-FTL
+* added MICROPELT MVA002
+* added EEP A5-14-07
+* added Traveled Time & Time to travel objects to TF-14-04 (FSB14)
+* added EnOcean Pi & FAM-USB (ESP3 Firmware) as choice in admin
+* added translation for object names
+* change teachin method for Kieback and Peter MD15-FTL-HE
+* check on startup if all objects for existing devices are exists, if not create them
+* fix D2-10-01 sending configuration message
+
 ### 0.7.1 (2022-07-24)
 * increase timeout for response time from gateway
 * change base id for dummy gateway info (effects Eltako FGW14)
