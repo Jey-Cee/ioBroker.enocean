@@ -143,11 +143,10 @@ class Enocean extends utils.Adapter {
 		const tmp = id.split('.');
 		const objName = tmp.slice(2).join('.');
 
-		if (state && state.ack === false) {
-
-			switch(objName){
+		if(state) {
+			switch (objName) {
 				case 'gateway.teachin':
-					if(state.val === true && state.ack === false) {
+					if (state.val === true && state.ack === false) {
 						this.log.info('Teachin mode active');
 						await this.setStateAsync(id, {ack: true});
 						timeoutTeachin = setTimeout(() => {
@@ -158,7 +157,7 @@ class Enocean extends utils.Adapter {
 				case 'gateway.repeater.level': {
 					const data = ByteArray.from([0x09, 0x00, 0x00]);
 					const mode = await this.getStateAsync('gateway.repeater.mode');
-					data.setValue(mode.val, 8,8);
+					data.setValue(mode.val, 8, 8);
 					data.setValue(state.val, 16, 8);
 					await this.sendData(this, data, null, 5);
 					break;
@@ -166,7 +165,7 @@ class Enocean extends utils.Adapter {
 				case 'gateway.repeater.mode': {
 					const data = ByteArray.from([0x09, 0x00, 0x00]);
 					const level = await this.getStateAsync('gateway.repeater.level');
-					data.setValue(state.val, 8,8);
+					data.setValue(state.val, 8, 8);
 					data.setValue(level.val, 16, 8);
 					await this.sendData(this, data, null, 5);
 					break;
@@ -177,7 +176,9 @@ class Enocean extends utils.Adapter {
 					break;
 				}
 			}
+		}
 
+		if (state && state.ack === false) {
 
 			// The state was changed
 			this.log.debug(`state ${objName} changed: ${state.val} (ack = ${state.ack}) state: ${JSON.stringify(state)}`);
@@ -585,11 +586,11 @@ class Enocean extends utils.Adapter {
 						await this.setStateAsync('gateway.lastID', {val: telegram.senderID, ack: true});
 						if (teachinMethod.teachinMethod === 'UTE' && telegram.type.toString(16) === 'd4') {
 							new HandleTeachIn(this, esp3packet, teachinMethod);
-							teachinMethod = null;
+							// teachinMethod = null;
 						}else if (telegram.type.toString(16) === teachinMethod.teachinMethod.toLowerCase()){
 							new HandleTeachIn(this, esp3packet, teachinMethod);
 							if(telegram.type.toString(16) !== 'd1'){
-								teachinMethod = null;
+								// teachinMethod = null;
 							}
 						}
 					}
