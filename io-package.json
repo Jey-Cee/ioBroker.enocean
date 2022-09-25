@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "enocean",
-    "version": "0.8.1",
+    "version": "0.8.2",
     "news": {
+      "0.8.2": {
+        "en": "Fix: Wrong or missing Base ID for gateway",
+        "de": "Fix: Falsche oder fehlende Basis-ID für Gateway",
+        "ru": "Исправление: Неправильный или отсутствует Базовый ID для шлюза",
+        "pt": "Correção: Identificação de base errada ou ausente para gateway",
+        "nl": "Verkeerde of vermiste Base ID voor gateway",
+        "fr": "Fix: ID de base faux ou manquant pour passerelle",
+        "it": "Fix: ID base sbagliato o mancante per il gateway",
+        "es": "Fijación: ID de base equivocado o faltante para la puerta de entrada",
+        "pl": "Fix: Wrong or missing BaseID for gateway (ang.)",
+        "zh-cn": "Fix:Wrong or缺失的基地开发网"
+      },
       "0.8.1": {
         "en": "Fix: Wrong or missing Base ID for gateway",
         "de": "Fix: Falsche oder fehlende Basis-ID für Gateway",
@@ -74,18 +86,6 @@
         "es": "agregado SODA S8\nagregado Thermokon SAB+\nañadido Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB y FTFSB\nestado de la batería agregado a D2-06-01\nvalores predeterminados agregados a todos los objetos\nactualizado Eltako FSVA-230V\narreglar FJ62/12-36V DC enseñanza",
         "pl": "dodano SODĘ S8\ndodano Thermokon SAB+\ndodano Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB i FTFSB\ndodano stan baterii do D2-06-01\ndodano wartości domyślne do wszystkich obiektów\nzaktualizowany Eltako FSVA-230V\nnapraw nauczanie FJ62/12-36V DC",
         "zh-cn": "添加了苏打水 S8\n添加 Thermokon SAB+\n添加了 Eltako FHB、FWRB、TF-RWB、FSR61VA、FFT65B、FFT55B、FFTF65B、FTFB 和 FTFSB\n将电池状态添加到 D2-06-01\n为所有对象添加默认值\n更新的 Eltako FSVA-230V\n修复 FJ62/12-36V DC 示教器"
-      },
-      "0.6.1": {
-        "en": "added Dimplex DL 50 WE2\nadded EnOcean STM 350\nadded Eltako & MACO eTronic\nadded Afriso CO2-Sensor\nchange TF-13-03 set time to 100ms for sending cases\nchange TF-13-07 add On with last value\nfix teachin which makes it hard to add new devices\nfix Humidity datapoint & change decimals from 2 to 1",
-        "de": "Dimplex DL 50 WE2 . hinzugefügt\nEnOcean STM 350 . hinzugefügt\nEltako & MACO eTronic hinzugefügt\nAfriso CO2-Sensor hinzugefügt\nändere die TF-13-03-Zeit auf 100 ms für das Senden von Fällen\nTF-13-07 ändern Add On mit letztem Wert\nTeach-in behoben, was das Hinzufügen neuer Geräte erschwert\nFeuchtigkeitsdatenpunkt korrigieren & Dezimalstellen von 2 auf 1 ändern",
-        "ru": "добавлен Dimplex DL 50 WE2\nдобавлен EnOcean STM 350\nдобавлены Eltako и MACO eTronic\nдобавлен датчик CO2 Afriso\nизменить время отправки TF-13-03 на 100 мсек.\nзаменить TF-13-07 на последнее значение\nисправить обучение, которое затрудняет добавление новых устройств\nисправить точку данных влажности и изменить десятичные дроби с 2 на 1",
-        "pt": "adicionado Dimplex DL 50 WE2\nadicionado EnOcean STM 350\nadicionado Eltako & MACO eTronic\nadicionado Afriso CO2-Sensor\nalterar TF-13-03 definir o tempo para 100 ms para enviar casos\nalterar TF-13-07 add On com último valor\ncorrigir o ensino, o que torna difícil adicionar novos dispositivos\nconsertar o ponto de dados de umidade e alterar decimais de 2 para 1",
-        "nl": "toegevoegd Dimplex DL 50 WE2\ntoegevoegd EnOcean STM 350\ntoegevoegd Eltako & MACO eTronic\ntoegevoegde Afriso CO2-Sensor\nverander TF-13-03 ingestelde tijd naar 100ms voor het verzenden van cases\nverander TF-13-07 voeg toe met laatste waarde\nrepareer leer waardoor het moeilijk is om nieuwe apparaten toe te voegen\nfix Vochtigheid datapunt & verander decimalen van 2 naar 1",
-        "fr": "ajouté Dimplex DL 50 WE2\najouté EnOcean STM 350\najouté Eltako & MACO eTronic\nAjout du capteur de CO2 Afriso\nchanger le temps de réglage de TF-13-03 à 100 ms pour l'envoi des cas\nmodifier TF-13-07 ajouter avec la dernière valeur\ncorrection de l'enseignement qui rend difficile l'ajout de nouveaux appareils\ncorriger le point de données d'humidité et changer les décimales de 2 à 1",
-        "it": "aggiunto Dimplex DL 50 WE2\naggiunto EnOcean STM 350\naggiunto Eltako & MACO eTronic\naggiunto Afris CO2-Sensor\ncambia TF-13-03 imposta il tempo a 100 ms per l'invio di casi\ncambia TF-13-07 add On con l'ultimo valore\ncorreggere l'insegnamento che rende difficile l'aggiunta di nuovi dispositivi\ncorreggi il punto dati dell'umidità e cambia i decimali da 2 a 1",
-        "es": "añadido Dimplex DL 50 WE2\nañadido EnOcean STM 350\nañadido Eltako & MACO eTronic\nañadido Afriso CO2-Sensor\ncambiar el tiempo establecido TF-13-03 a 100ms para enviar casos\ncambiar TF-13-07 agregar con el último valor\nCorregir la enseñanza que dificulta la adición de nuevos dispositivos.\narreglar el punto de datos de humedad y cambiar los decimales de 2 a 1",
-        "pl": "dodano Dimplex DL 50 WE2\ndodano EnOcean STM 350\ndodano Eltako i MACO eTronic\ndodano czujnik CO2 Afriso\nzmień TF-13-03 ustawiony czas na 100ms dla wysyłania spraw\nzmień TF-13-07 dodaj On z ostatnią wartością\nnaprawić nauczanie, które utrudnia dodawanie nowych urządzeń\nnapraw punkt danych wilgotności i zmień ułamki dziesiętne z 2 na 1",
-        "zh-cn": "添加了 Dimplex DL 50 WE2\n添加了 EnOcean STM 350\n添加了 Eltako 和 MACO eTronic\n添加了 Afriso 二氧化碳传感器\n将 TF-13-03 设置时间更改为 100ms 以发送案例\n更改 TF-13-07 添加最后一个值\n修复导致难以添加新设备的教学\n修复湿度数据点并将小数点从 2 更改为 1"
       }
     },
     "title": "EnOcean",

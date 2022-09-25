@@ -181,7 +181,7 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 To test telegram handling create a channel with name development and in this channel a object with name telegram, type string.
 
 ## Changelog
-### **WORK IN PROGRESS**
+### 0.8.2 (2022-09-25)
 * Fix: Wrong or missing Base ID for gateway
 
 ### 0.8.0 (2022-09-16)
