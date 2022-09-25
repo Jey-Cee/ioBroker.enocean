@@ -42,7 +42,7 @@ let tcpReconnectCounter = 0;
 
 let teachinMethod = null;
 const queue = [];
-let timeoutQueue, timeoutWait, timeoutTeachin;
+let timeoutQueue, timeoutWait, timeoutTeachin, timeouteGateway;
 
 
 class Enocean extends utils.Adapter {
@@ -116,6 +116,7 @@ class Enocean extends utils.Adapter {
 		clearTimeout(timeoutWait);
 		clearTimeout(timeoutQueue);
 		clearTimeout(timeoutTeachin);
+		clearTimeout(timeouteGateway);
 		try {
 			if (SERIAL_PORT !== null) {
 				SERIAL_PORT.close();
@@ -725,7 +726,7 @@ class Enocean extends utils.Adapter {
 		const rd_version = await this.sendData(this, data, null, 5);
 		if(rd_version === true){
 			try {
-				const returnVersion = await this.waitForResponse('Get version information');
+				const returnVersion = await this.waitForResponse('Get version information', 33);
 				appVersion_main = parseInt(returnVersion.slice(7, 8).toString('hex'), 16);
 				appVersion_beta = parseInt(returnVersion.slice(8, 9).toString('hex'), 16);
 				appVersion_alpha = parseInt(returnVersion.slice(9, 10).toString('hex'), 16);
@@ -749,7 +750,7 @@ class Enocean extends utils.Adapter {
 		const rd_repeater = await this.sendData(this, data, null, 5);
 		if(rd_repeater === true){
 			try {
-				const returnRepeater = await this.waitForResponse('Get repeater mode and level');
+				const returnRepeater = await this.waitForResponse('Get repeater mode and level', 3);
 				repEnable = returnRepeater.slice(7, 8);
 				repLevel = returnRepeater.slice(8, 9);
 				await this.setStateAsync('gateway.repeater.level', {val: repLevel[0], ack: true});
@@ -766,7 +767,7 @@ class Enocean extends utils.Adapter {
 		const get_frequency = await this.sendData(this, data, null, 5);
 		if(get_frequency === true){
 			try {
-				const returnFrequency = await this.waitForResponse('Get frequency');
+				const returnFrequency = await this.waitForResponse('Get frequency', 3);
 				frequency = '0x' + returnFrequency.slice(7, 8).toString('hex');
 				protocol = '0x' + returnFrequency.slice(8, 9).toString('hex');
 
@@ -781,7 +782,7 @@ class Enocean extends utils.Adapter {
 		const rd_idbase = await this.sendData(this, data, null, 5);
 		if(rd_idbase === true){
 			try {
-				const returnIdbase = await this.waitForResponse('Get base ID');
+				const returnIdbase = await this.waitForResponse('Get base ID', 5);
 				const telegram = new ResponseTelegram(returnIdbase);
 				baseId = telegram.data.toString('hex');
 				senderIDs = await idRangeCalc(baseId);
@@ -797,7 +798,7 @@ class Enocean extends utils.Adapter {
 		const sa_rd_learndclients = await this.sendData(this, data, null, 6);
 		if(sa_rd_learndclients === true){
 			try {
-				const returnSaRdLearndclients = await this.waitForResponse('Read learnd devices');
+				const returnSaRdLearndclients = await this.waitForResponse('Read learnd devices', null);
 				const telegram = new HandleType2(this, returnSaRdLearndclients);
 				//baseId = telegram.data.toString('hex');
 				const resData = telegram.main.data;
@@ -912,15 +913,20 @@ class Enocean extends utils.Adapter {
 	}
 
 	//wait for response from USB Stick/Modul
-	waitForResponse(info){
+	waitForResponse(info, responseLength){
 		info = info ? ': ' + info : '';
 		return new Promise((resolve, reject) => {
 			const cb = (data) => {
-				resolve(data);
-				SERIALPORT_PARSER.off('data', cb);
+				this.log.info(data.toString('hex'));
+				const telegram = new ESP3Packet(data);
+				if(responseLength === telegram.dataLength || responseLength === null){
+					resolve(data);
+					clearTimeout(timeouteGateway);
+					SERIALPORT_PARSER.off('data', cb);
+				}
 			};
 			SERIALPORT_PARSER.on('data', cb);
-			setTimeout(() => {reject('Timeout for response' + info);}, 1500);
+			timeouteGateway = setTimeout(() => {reject('Timeout for response' + info);}, 1500);
 		});
 	}
 
