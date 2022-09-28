@@ -18,7 +18,11 @@
         "type": "boolean",
         "read": true,
         "write": false,
-        "def": false
+        "def": false,
+        "desc": {
+          "en": "Will be set only if the actor was running the full time which is set on the actor itself. If the actor was stopped before the full time was reached, this state will not be set.",
+            "de": "Wird nur gesetzt, wenn der Aktor die volle Zeit, die auf dem Aktor selbst eingestellt ist, durchgelaufen ist. Wird der Aktor vor Ablauf der vollen Zeit gestoppt, wird dieser Zustand nicht gesetzt."
+        }
       },
       "native": {}
     },
@@ -33,7 +37,11 @@
         "type": "boolean",
         "read": true,
         "write": false,
-        "def": false
+        "def": false,
+        "desc": {
+          "en": "Will be set only if the actor was running the full time which is set on the actor itself. If the actor was stopped before the full time was reached, this state will not be set.",
+          "de": "Wird nur gesetzt, wenn der Aktor die volle Zeit, die auf dem Aktor selbst eingestellt ist, durchgelaufen ist. Wird der Aktor vor Ablauf der vollen Zeit gestoppt, wird dieser Zustand nicht gesetzt."
+        }
       },
       "native": {}
     },
