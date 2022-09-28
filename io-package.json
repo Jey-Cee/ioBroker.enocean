@@ -1,8 +1,20 @@
 {
   "common": {
     "name": "enocean",
-    "version": "0.8.2",
+    "version": "0.8.3",
     "news": {
+      "0.8.3": {
+        "en": "fix TTT and TT handling in TF-14-04 (Eltako FSB14 and similar)\nremove RT from TF-14-04 (Eltako FSB14 and similar)",
+        "de": "tTT- und TT-Handling in TF-14-04 (Eltako FSB14 und ähnliche)\nrT von TF-14-04 entfernen (Eltako FSB14 und ähnliche)",
+        "ru": "исправить TTT и TT обработки в TF-14-04 (Eltako FSB14 и аналогичный)\nудалить RT из TF-14-04 (Eltako FSB14 и аналогичный)",
+        "pt": "corrigir TTT e TT manipulação em TF-14-04 (Eltako FSB14 e similar)\nremover RT de TF-14-04 (Eltako FSB14 e similar)",
+        "nl": "herstel TT en TT in TF-14-04 (Eltako FSB14)\nverwijder RT van TF-14-04 (Eltako FSB14)",
+        "fr": "correction de la manipulation du TTT et du TT au TF-14-04 (Eltako FSB14 et similaire)\nretirer RT du TF-14-04 (Eltako FSB14 et similaire)",
+        "it": "correzione TTT e TT gestione in TF-14-04 (Eltako FSB14 e simili)\nrimuovere RT da TF-14-04 (Eltako FSB14 e simili)",
+        "es": "fijar TTT y TT en TF-14-04 (Eltako FSB14 y similar)\nquitar RT de TF-14-04 (Eltako FSB14 y similar)",
+        "pl": "tTT i TT są obsługiwane w TF-14-04 (Eltako FSB14 i podobne)\ntF-14-04 (Eltako FSB14 i podobny)",
+        "zh-cn": "fix TF-14-04(EltakoFSB14和类似)的技术转让和技术转让处理\n摘自TF-14-04(EltakoFSB14和类似)"
+      },
       "0.8.2": {
         "en": "Fix: Wrong or missing Base ID for gateway",
         "de": "Fix: Falsche oder fehlende Basis-ID für Gateway",
@@ -74,18 +86,6 @@
         "es": "arreglar dividir Eltako FSVA-230V y FSR61VA en dispositivos separados para control y medición",
         "pl": "napraw rozdzielenie Eltako FSVA-230V i FSR61VA na osobne urządzenia kontrolno-pomiarowe",
         "zh-cn": "修复拆分 Eltako FSVA-230V 和 FSR61VA 以分离用于控制和测量的设备"
-      },
-      "0.6.3": {
-        "en": "added SODA S8\nadded Thermokon SAB+\nadded Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB\nadded Battery state to D2-06-01\nadded default values to all objects\nupdated Eltako FSVA-230V\nfix FJ62/12-36V DC teachin",
-        "de": "SODA S8 hinzugefügt\nThermokon SAB+ hinzugefügt\nEltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB hinzugefügt\nBatteriestatus zu D2-06-01 hinzugefügt\nStandardwerte zu allen Objekten hinzugefügt\naktualisierte Eltako FSVA-230V\nFix FJ62/12-36V DC einlernen",
-        "ru": "добавлена СОДА S8\nдобавлен Термокон САБ+\nдобавлены Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB и FTFSB\nдобавлено состояние батареи в D2-06-01\nдобавлены значения по умолчанию для всех объектов\nобновленный Эльтако ФСВА-230В\nисправить обучение FJ62/12-36V DC",
-        "pt": "adicionado SODA S8\nadicionado Thermokon SAB+\nadicionados Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB\nestado da bateria adicionado a D2-06-01\nvalores padrão adicionados a todos os objetos\natualizado Eltako FSVA-230V\ncorrigir FJ62/12-36V DC teachin",
-        "nl": "SODA S8 toegevoegd\ntoegevoegd Thermokon SAB+\ntoegevoegd Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB & FTFSB\nbatterijstatus toegevoegd aan D2-06-01\nstandaardwaarden toegevoegd aan alle objecten\nbijgewerkte Eltako FSVA-230V\nfix FJ62/12-36V DC aanleren:",
-        "fr": "ajouté SODA S8\najouté Thermokon SAB+\najouté Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB et FTFSB\najout de l'état de la batterie à D2-06-01\najouté des valeurs par défaut à tous les objets\nmis à jour Eltako FSVA-230V\ncorrection de l'apprentissage FJ62 / 12-36V DC",
-        "it": "aggiunto SODA S8\naggiunto Thermokon SAB+\naggiunto Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB e FTFSB\naggiunto Stato batteria a D2-06-01\naggiunti valori predefiniti a tutti gli oggetti\naggiornato Eltako FSVA-230V\ncorreggere l'apprendimento FJ62/12-36 V CC",
-        "es": "agregado SODA S8\nagregado Thermokon SAB+\nañadido Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB y FTFSB\nestado de la batería agregado a D2-06-01\nvalores predeterminados agregados a todos los objetos\nactualizado Eltako FSVA-230V\narreglar FJ62/12-36V DC enseñanza",
-        "pl": "dodano SODĘ S8\ndodano Thermokon SAB+\ndodano Eltako FHB, FWRB, TF-RWB, FSR61VA, FFT65B, FFT55B, FFTF65B, FTFB i FTFSB\ndodano stan baterii do D2-06-01\ndodano wartości domyślne do wszystkich obiektów\nzaktualizowany Eltako FSVA-230V\nnapraw nauczanie FJ62/12-36V DC",
-        "zh-cn": "添加了苏打水 S8\n添加 Thermokon SAB+\n添加了 Eltako FHB、FWRB、TF-RWB、FSR61VA、FFT65B、FFT55B、FFTF65B、FTFB 和 FTFSB\n将电池状态添加到 D2-06-01\n为所有对象添加默认值\n更新的 Eltako FSVA-230V\n修复 FJ62/12-36V DC 示教器"
       }
     },
     "title": "EnOcean",
