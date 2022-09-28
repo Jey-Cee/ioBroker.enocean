@@ -28,22 +28,6 @@
       },
       "native": {}
     },
-    "RT": {
-      "type": "state",
-      "common": {
-        "name": {
-          "en": "Running time (deprecated)",
-          "de": "Laufzeit (veraltet)"
-        },
-        "role": "state",
-        "type": "number",
-        "read": true,
-        "write": true,
-        "def": 0,
-        "unit": "s"
-      },
-      "native": {}
-    },
     "TT": {
       "type": "state",
       "common": {
@@ -87,7 +71,7 @@
         "type": "boolean",
         "read": true,
         "write": true,
-        "def": 0
+        "def": false
       },
       "native": {}
     },
@@ -125,27 +109,12 @@
   "case": [
     {
       "send": false,
-      "condition": {
+      "condition": [{
         "bitoffs": "24",
         "bitsize": "8",
         "value": 10
-      },
+      }],
       "datafield": [
-        {
-          "data": "Running time",
-          "shortcut": "RT",
-          "bitoffs": "0",
-          "bitsize": "16",
-          "value": {
-            "/": [
-              {
-                "var": "value"
-              },
-              10
-            ]
-          },
-          "decimals": 1
-        },
         {
           "data": "Traveled time",
           "shortcut": "TT",
@@ -200,27 +169,12 @@
     },
     {
       "send": false,
-      "condition": {
+      "condition": [{
         "bitoffs": "24",
         "bitsize": "8",
         "value": 14
-      },
+      }],
       "datafield": [
-        {
-          "data": "Running time",
-          "shortcut": "RT",
-          "bitoffs": "0",
-          "bitsize": "16",
-          "value": {
-            "/": [
-              {
-                "var": "value"
-              },
-              10
-            ]
-          },
-          "decimals": 1
-        },
         {
           "data": "Traveled time",
           "shortcut": "TT",
@@ -278,8 +232,6 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "16",
-            "bitsize": "8",
             "value": 0
           }
         ]
@@ -291,22 +243,6 @@
           "bitoffs": "16",
           "bitsize": "8",
           "value": 0
-        },
-        {
-          "data": "Running time",
-          "shortcut": "RT",
-          "bitoffs": "0",
-          "bitsize": "16",
-          "value": {
-            "/": [
-              {
-                "var": "value"
-              },
-              10
-            ]
-          },
-          "value_out": 255,
-          "decimals": 1
         },
         {
           "data": "Time to travel",
@@ -353,8 +289,6 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "16",
-            "bitsize": "8",
             "value": 1
           }
         ]
@@ -366,24 +300,6 @@
           "bitoffs": "16",
           "bitsize": "8",
           "value": 1
-        },
-        {
-          "data": "Running time",
-          "shortcut": "RT",
-          "bitoffs": "0",
-          "bitsize": "16",
-          "value": {
-            "/": [
-              {
-                "var": "value"
-              },
-              10
-            ]
-          },
-          "value_out": {
-            "var": "value"
-          },
-          "decimals": 1
         },
         {
           "data": "Time to travel",
@@ -430,8 +346,6 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "16",
-            "bitsize": "8",
             "value": 2
           }
         ]
@@ -443,24 +357,6 @@
           "bitoffs": "16",
           "bitsize": "8",
           "value": 2
-        },
-        {
-          "data": "Running time",
-          "shortcut": "RT",
-          "bitoffs": "0",
-          "bitsize": "16",
-          "value": {
-            "/": [
-              {
-                "var": "value"
-              },
-              10
-            ]
-          },
-          "value_out": {
-            "var": "value"
-          },
-          "decimals": 1
         },
         {
           "data": "Time to travel",
@@ -507,8 +403,6 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "16",
-            "bitsize": "8",
             "value": 3
           }
         ]
