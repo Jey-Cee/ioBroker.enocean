@@ -181,6 +181,11 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 To test telegram handling create a channel with name development and in this channel a object with name telegram, type string.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+* fix TTT and TT handling in TF-14-04 (Eltako FSB14 and similar)
+* remove RT from TF-14-04 (Eltako FSB14 and similar)
+
 ### 0.8.2 (2022-09-25)
 * Fix: Wrong or missing Base ID for gateway
 
