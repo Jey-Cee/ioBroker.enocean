@@ -257,6 +257,14 @@
               10
             ]
           },
+          "value_out": {
+            "*": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
           "decimals": 1
         },
         {
@@ -281,6 +289,13 @@
           "value": {
             "var": "value"
           }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Runtime in 100ms",
+          "bitoffs": "30",
+          "bitsize": "1",
+          "value": 1
         }
       ]
     },
@@ -314,6 +329,14 @@
               10
             ]
           },
+          "value_out": {
+            "*": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
           "decimals": 1
         },
         {
@@ -338,6 +361,13 @@
           "value": {
             "var": "value"
           }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Runtime in 100ms",
+          "bitoffs": "30",
+          "bitsize": "1",
+          "value": 1
         }
       ]
     },
@@ -371,6 +401,14 @@
               10
             ]
           },
+          "value_out": {
+            "*": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
           "decimals": 1
         },
         {
@@ -395,6 +433,13 @@
           "value": {
             "var": "value"
           }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Runtime in 100ms",
+          "bitoffs": "30",
+          "bitsize": "1",
+          "value": 1
         }
       ]
     },
