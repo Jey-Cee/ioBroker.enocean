@@ -22,27 +22,40 @@
           "0": "Stop",
           "1": "Up",
           "2": "Down",
-          "3": "Teach-in",
-          "4": "Block local switch",
-          "5": "Unblock local switch"
+          "3": "Teach-in"
         },
         "def": 0
       },
       "native": {}
     },
-    "RT": {
+    "TTT": {
       "type": "state",
       "common": {
         "name": {
-          "en": "Running time",
-          "de": "Laufzeit"
+          "en": "Time to travel",
+          "de": "Zeit zum Fahren"
         },
         "role": "state",
         "type": "number",
         "read": true,
         "write": true,
-        "unit": "100ms",
-        "def": 0
+        "def": 0,
+        "unit": "s"
+      },
+      "native": {}
+    },
+    "BS": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Block local switch",
+          "de": "Lokalen Schalter blockieren"
+        },
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": true,
+        "def": false
       },
       "native": {}
     }
@@ -70,13 +83,27 @@
           }
         },
         {
-          "data": "Running time",
-          "shortcut": "RT",
+          "data": "Time to travel",
+          "shortcut": "TTT",
           "bitoffs": "0",
           "bitsize": "16",
           "value": {
-            "var": "value"
-          }
+            "/": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
+          "value_out": {
+            "*": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
+          "decimals": 1
         },
         {
           "data": "fixed parameter",
@@ -109,18 +136,48 @@
           }
         },
         {
-          "data": "Running time",
-          "shortcut": "RT",
+          "data": "Time to travel",
+          "shortcut": "TTT",
           "bitoffs": "0",
           "bitsize": "16",
+          "value": {
+            "/": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
+          "value_out": {
+            "*": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
+          "decimals": 1
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Represents the learnbit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "Block local switch",
+          "shortcut": "BS",
+          "bitoffs": "29",
+          "bitsize": "1",
           "value": {
             "var": "value"
           }
         },
         {
           "data": "fixed parameter",
-          "description": "Represents the learnbit",
-          "bitoffs": "28",
+          "description": "Runtime in 100ms",
+          "bitoffs": "30",
           "bitsize": "1",
           "value": 1
         }
@@ -148,13 +205,27 @@
           }
         },
         {
-          "data": "Running time",
-          "shortcut": "RT",
-          "bitoffs": "8",
-          "bitsize": "8",
+          "data": "Time to travel",
+          "shortcut": "TTT",
+          "bitoffs": "0",
+          "bitsize": "16",
           "value": {
-            "var": "value"
-          }
+            "/": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
+          "value_out": {
+            "*": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
+          "decimals": 1
         },
         {
           "data": "fixed parameter",
@@ -168,6 +239,22 @@
           "description": "Running time MSB",
           "bitoffs": "0",
           "bitsize": "8",
+          "value": 1
+        },
+        {
+          "data": "Block local switch",
+          "shortcut": "BS",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Runtime in 100ms",
+          "bitoffs": "30",
+          "bitsize": "1",
           "value": 1
         }
       ]
@@ -219,106 +306,6 @@
           "bitoffs": "26",
           "bitsize": "1",
           "value": 1
-        }
-      ]
-    },
-    {
-      "send": true,
-      "condition": {
-        "command": [
-          {
-            "description": "Block local switch",
-            "bitoffs": "16",
-            "bitsize": "8",
-            "value": 4
-          }
-        ]
-      },
-      "datafield": [
-        {
-          "data": "fixed parameter",
-          "description": "Command",
-          "bitoffs": "16",
-          "bitsize": "8",
-          "value": 0
-        },
-        {
-          "data": "fixed parameter",
-          "description": "Running time LSB",
-          "bitoffs": "8",
-          "bitsize": "8",
-          "value": 0
-        },
-        {
-          "data": "fixed parameter",
-          "description": "Running time LSB",
-          "bitoffs": "0",
-          "bitsize": "8",
-          "value": 0
-        },
-        {
-          "data": "fixed parameter",
-          "description": "Learn Bit",
-          "bitoffs": "28",
-          "bitsize": "1",
-          "value": 1
-        },
-        {
-          "data": "fixed parameter",
-          "description": "Block switch",
-          "bitoffs": "29",
-          "bitsize": "1",
-          "value": 1
-        }
-      ]
-    },
-    {
-      "send": true,
-      "condition": {
-        "command": [
-          {
-            "description": "Unblock local switch",
-            "bitoffs": "16",
-            "bitsize": "8",
-            "value": 5
-          }
-        ]
-      },
-      "datafield": [
-        {
-          "data": "fixed parameter",
-          "description": "Command",
-          "bitoffs": "16",
-          "bitsize": "8",
-          "value": 0
-        },
-        {
-          "data": "fixed parameter",
-          "description": "Running time LSB",
-          "bitoffs": "8",
-          "bitsize": "8",
-          "value": 0
-        },
-        {
-          "data": "fixed parameter",
-          "description": "Running time LSB",
-          "bitoffs": "0",
-          "bitsize": "8",
-          "value": 0
-        },
-        {
-          "data": "fixed parameter",
-          "description": "Learn Bit",
-          "bitoffs": "28",
-          "bitsize": "1",
-          "value": 1
-        },
-        {
-          "data": "fixed parameter",
-          "description": "Unblock switch",
-          "bitoffs": "29",
-          "bitsize": "1",
-          "value": 0
         }
       ]
     }
