@@ -28,6 +28,22 @@
       },
       "native": {}
     },
+    "TT": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Traveled time",
+          "de": "Gefahrene Zeit"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": true,
+        "def": 0,
+        "unit": "s"
+      },
+      "native": {}
+    },
     "TTT": {
       "type": "state",
       "common": {
@@ -58,9 +74,159 @@
         "def": false
       },
       "native": {}
+    },
+    "UP": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Move up",
+          "de": "Hochgefahren"
+        },
+        "role": "switch",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
+    },
+    "DO": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Move down",
+          "de": "Runtergefahren"
+        },
+        "role": "switch",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false
+      },
+      "native": {}
     }
   },
   "case": [
+    {
+      "send": false,
+      "condition": [{
+        "bitoffs": "24",
+        "bitsize": "8",
+        "value": 10
+      }],
+      "datafield": [
+        {
+          "data": "Traveled time",
+          "shortcut": "TT",
+          "bitoffs": "0",
+          "bitsize": "16",
+          "value": {
+            "/": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
+          "decimals": 1
+        },
+        {
+          "data": "Block local switch",
+          "shortcut": "BS",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": 0
+        },
+        {
+          "data": "Move up",
+          "shortcut": "UP",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
+        },
+        {
+          "data": "Move down",
+          "shortcut": "DO",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              2
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": [{
+        "bitoffs": "24",
+        "bitsize": "8",
+        "value": 14
+      }],
+      "datafield": [
+        {
+          "data": "Traveled time",
+          "shortcut": "TT",
+          "bitoffs": "0",
+          "bitsize": "16",
+          "value": {
+            "/": [
+              {
+                "var": "value"
+              },
+              10
+            ]
+          },
+          "decimals": 1
+        },
+        {
+          "data": "Block local switch",
+          "shortcut": "BS",
+          "bitoffs": "29",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "Move up",
+          "shortcut": "UP",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
+        },
+        {
+          "data": "Move down",
+          "shortcut": "DO",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              2
+            ]
+          }
+        }
+      ]
+    },
     {
       "send": true,
       "condition": {
