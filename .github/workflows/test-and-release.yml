@@ -46,7 +46,7 @@ jobs:
         uses: carlosperate/download-file-action@v1.0.3
         id: download-package
         with:
-          file-url: 'https://raw.githubusercontent.com/ioBroker/ioBroker.js-controller/master/package.json'
+          file-url: 'https://raw.githubusercontent.com/ioBroker/ioBroker.js-controller/master/packages/controller/package.json'
           file-name: 'package.json'
           location: './js-controller'
 
