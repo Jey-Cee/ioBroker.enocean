@@ -2723,7 +2723,7 @@
       }
     },
     "TF-4FT": {
-      "EEP": ["F6-02-02"],
+      "EEP": ["F6-02-03"],
       "autocreate": true,
       "teachin_method": "RPS",
       "id_offset": false,
