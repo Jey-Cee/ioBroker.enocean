@@ -36,6 +36,15 @@ select {
 	z-index: 1;
 }
 
+input {
+	border: 2px solid currentcolor;
+}
+
+input:invalid:focus {
+	background-image: linear-gradient(red, darkred);
+}
+
+
 /* START Help Card */
 .card-title > div {
 	border-bottom-style: solid;
