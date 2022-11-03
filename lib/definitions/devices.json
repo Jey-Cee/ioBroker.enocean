@@ -910,13 +910,13 @@
         "en": {
           "1": "Enter device ID.",
           "2": "Click on 'Add Device'.",
-          "3": "Start teach-in mode on FJ62/12-36V DC. For more information, please read the FJ62/12-36V DC manual.",
+          "3": "Start teach-in mode on FJ62NP-230V. For more information, please read the FJ62NP-230V manual.",
           "4": "Switch to the objects and send the command (CMD) 'Teach-in'."
         },
         "de": {
           "1": "Geräte ID eintragen.",
           "2": "Auf 'Gerät Hinzufügen' klicken.",
-          "3": "Anlernmodus am FJ62/12-36V starten. Für weitere informationen bitte die Anleitung des FJ62/12-36V lesen.",
+          "3": "Anlernmodus am FJ62NP-230V starten. Für weitere informationen bitte die Anleitung des FJ62NP-230V lesen.",
           "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden."
         }
       }
@@ -1080,6 +1080,22 @@
           "3": "Anlernmodus am FLD61 starten. (Tipp: Komfortabler ist die Einrichtung mit der Software PCT14) Für weitere informationen bitte die Anleitung des FLD61 lesen.",
           "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden.",
           "5": "Vorgang für den zweiten Kanal Wiederholen."
+        }
+      }
+    },
+    "FM4H": {
+      "EEP": ["F6-02-03"],
+      "autocreate": true,
+      "teachin_method": "RPS",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Press any key of the switch."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Irgendeine Taste des Tasters betätigen."
         }
       }
     },
