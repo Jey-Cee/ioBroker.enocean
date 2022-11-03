@@ -3640,6 +3640,24 @@
     }
   },
   "OVENTROP": {
+    "mote 420": {
+      "EEP": [
+        "A5-20-01"
+      ],
+      "autocreate": true,
+      "teachin_method": "4BS",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your mote 420. For more information please read the manual of mote 420."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am mote 420 starten. Für weitere informationen bitte die Anleitung des mote 420 lesen."
+        }
+      }
+    },
     "R-Tronic RT B": {
       "EEP": ["A5-10-02"],
       "autocreate": true,
