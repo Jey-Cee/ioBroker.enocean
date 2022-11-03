@@ -95,6 +95,27 @@
       }
     }
   },
+  "EASYFIT": {
+    "ETHSx": {
+      "EEP": [
+        "A5-04-03",
+        "D0-00-06"
+      ],
+      "autocreate": true,
+      "teachin_method": "4BS",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'",
+          "2": "Press the 'LRN key (Telegram Trigger)'  button."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken",
+          "2": "'LRN key (Telegram Trigger)' Taste drücken."
+        }
+      }
+    }
+  },
   "EIMSIG_EFP_GMBH": {
     "EM-USE-00 (EEP A5-14-01)": {
       "EEP": ["A5-14-01"],
