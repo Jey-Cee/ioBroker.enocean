@@ -393,6 +393,10 @@ class Enocean extends utils.Adapter {
 				});
 				break;
 			}
+			case 'getSystemInfo': {
+				const systemInfo = await this.collectSystemInformation();
+				respond(systemInfo, this);
+			}
 
 		}
 	}
@@ -910,6 +914,40 @@ class Enocean extends utils.Adapter {
 		const res = await this.sendData(this, data, null, 6);
 		const response = await this.waitForResponse();
 		const telegram = new HandleType2(this, response);
+	}
+
+	/**
+	 * Collect systeminformation for the enocean adapter
+	 * @returns {Promise<object>}
+	 */
+	async collectSystemInformation() {
+		// Get all device objects
+		let devices = await this.getDevicesAsync();
+		for(let i in devices) {
+			delete devices[i].user;
+			delete devices[i].acl;
+			delete devices[i].from;
+			delete devices[i].ts;
+			delete devices[i].type;
+			delete devices[i].common;
+		}
+
+		// Get system.adapter.enocean.0 object
+		const instance = await this.getForeignObjectAsync('system.adapter.enocean.0');
+		let instanceInfo = {
+			native: instance.native,
+			version: instance.common.installedVersion,
+			installedFrom: instance.common.installedFrom
+		};
+
+		const systemInformation = {
+			nodeVersion: process.version,
+			serialDevices: this.listSerial(),
+			instance: instanceInfo,
+			devices: devices
+		};
+
+		return systemInformation;
 	}
 
 	//wait for response from USB Stick/Modul

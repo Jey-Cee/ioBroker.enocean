@@ -210,6 +210,12 @@
 			});
 		}
 
+		function getSystemInformation() {
+			sendTo(null, 'getSystemInfo', null, (info) => {
+				$('#systemInfo').text(JSON.stringify(info, undefined, 2));
+			});
+		}
+
 		//subscribe to lastID
 		socket.emit('subscribe', 'enocean.' + instance + '.gateway.lastID');
 
@@ -405,6 +411,8 @@
 
 			getGateway();
 
+			getSystemInformation();
+
 			onChange(false);
 			// reinitialize all the Materialize labels on the page if you are dynamically adding inputs:
 			if (M) M.updateTextFields();
@@ -440,6 +448,7 @@
 				<ul class="tabs">
 					<li class="tab col s2"><a href="#tab-devices"  class="translate active">Devices</a></li>
 					<li class="tab col s2"><a href="#tab-main"  class="translate active">Settings</a></li>
+					<li class="tab col s2"><a href="#tab-support-info"  class="translate active">Support information</a></li>
 					<li class="tab col s2"><a href="#tab-sponsors"  class="translate active">Sponsors</a></li>
 				</ul>
 			</div>
@@ -532,6 +541,14 @@
 					</table>
 				</div>
 
+			</div>
+
+			<div id="tab-support-info" class="col s12 page">
+				<div class="row">
+					<div id="info-body" class="col s12">
+						<pre id="systemInfo"></pre>
+					</div>
+				</div>
 			</div>
 
 			<!-- Sponsors Tab -->
