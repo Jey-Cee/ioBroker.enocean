@@ -181,6 +181,17 @@ In special cases, as Eltako, there is also a manufacturer specific part in the '
 To test telegram handling create a channel with name development and in this channel a object with name telegram, type string.
 
 ## Changelog
+
+### **WORK IN PROGRESS**
+* added Eltako FSSG-230V, TF100A, FM4H
+* added Afriso APR234(-NF)
+* added EASYFIT ETHSx (ETSHA/ETSHU)
+* added Oventrop mote 420
+* added support information tab
+* update TF-01-01 (Eltako FTA55J & TF-TA55J)
+* update Eltako TF-4FT, switch EEP from F6-02-02 to F6-02-03
+* highlight too short ID in add device dialog
+
 ### 0.8.3 (2022-09-28)
 * fix TTT and TT handling in TF-14-04 (Eltako FSB14 and similar)
 * remove RT from TF-14-04 (Eltako FSB14 and similar)
