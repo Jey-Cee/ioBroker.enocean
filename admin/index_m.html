@@ -189,7 +189,7 @@
 						for (let j = 0; j < _devices.rows.length; j++) {
 							devices[_devices.rows[j].value._id] = _devices.rows[j].value;
 							if(_devices.rows[j].value._id !== namespace + 'gateway'){
-								showDevice(_devices.rows[j].value, true);
+								showDevice(_devices.rows[j].value);
 							}
 
 						}
