@@ -1,4 +1,4 @@
-<html>
+<html lang="EN">
 
 <head>
 
@@ -21,7 +21,7 @@
 	<script type="text/javascript" src="github.js"></script>
 
 	<script type="text/javascript">
-		let mfrList, eepList, deviceList, sysConfig;
+		let eepList, deviceList, sysConfig;
 		let eepArray = [];
 		let mfrArray = [];
 		let deviceArray = [];
@@ -51,18 +51,7 @@
 			});
 		}
 
-		/**
-		 * Load all manufacturer, make the list global as array (only name) and object (name & id).
-		 */
-		function getmfrList(){
-			sendTo(null, 'getManufacturerList', null, (list) => {
-				mfrList = list;
-				for(let i in mfrList){
-					mfrArray.push(mfrList[i].replace(/_/g, ' '));
-					mfrArray.sort();
-				}
-			})
-		}
+
 
 		/**
 		 * Load all devices, make the list global as array (only name) and object (name & id).
@@ -70,9 +59,8 @@
 		function getDeviceList(){
 			sendTo(null, 'getDevices', null, (list) => {
 				deviceList = list;
-				const keyNames = Object.keys(list);
-					//mfrArray.push(keys[i].replace(/_/g, ' '));
-					mfrArray = keyNames;
+				//mfrArray.push(keys[i].replace(/_/g, ' '));
+					mfrArray = Object.keys(list);
 					mfrArray.sort();
 			})
 		}
@@ -95,11 +83,12 @@
 				fillSelect('#select-eep', eepArray);
 
 				eepListFilled = true;
-				$('#select-eep').select();
-				$('#select-eep').change((option) => {
-					let eep = option.target.value.replace(/-/g, '');
-					$('#device-name').val(eepList[eep].type_title);
-				});
+				$('#select-eep')
+						.select()
+						.change((option) => {
+							let eep = option.target.value.replace(/-/g, '');
+							$('#device-name').val(eepList[eep].type_title);
+						});
 			}
 
 		}
@@ -144,7 +133,7 @@
 		 * @param {object} obj - ioBroker object for the device
 		 */
 		function showDevice(obj) {
-			var text = '';
+			let text = '';
 			text += '<td >' + obj.native.id + '</td>';
 			if(obj.native.Sender_ID) {
 				text += '<td >' + obj.native.Sender_ID + '</td>';
@@ -166,7 +155,7 @@
 			//text += '<td>' + '' +
 			//		'<select id="' + obj.native.id + '_deviceOP" data-id="' + obj.native.id + '">' + '<option value="" disabled selected>Select operation</option>';
 
-			for (var i in deviceCommands) {
+			for (let i in deviceCommands) {
 				text += '<option value="' + i + '">' + _(i) + '</option>';
 			}
 
@@ -183,7 +172,6 @@
 			socket.emit('getObjectView', 'system', 'device', { startkey: 'enocean.' + instance + '.', endkey: 'enocean.' + instance + '.\u9999', include_docs: true }, function (err, _devices) {
 				socket.emit('getStates', function (err, _values) {
 					let namespace = 'enocean.' + instance + '.';
-					let len = namespace.length;
 					$('#devices_body').html('');
 					if (_devices && _devices.rows && _devices.rows.length) {
 						for (let j = 0; j < _devices.rows.length; j++) {
@@ -248,9 +236,9 @@
 				$('#ser2net-port').val(settings['ser2net-port']);
 			}
 
-			$('#gateway').val(settings.gateway);
-
-			$('#gateway').on('change', () => {
+			$('#gateway')
+					.val(settings.gateway)
+					.on('change', () => {
 				let $gateway = $('#gateway').val();
 				if( $gateway === 'usb300' || $gateway === 'fgw14-usb'){
 					$('#ser2net-div').removeClass('hide');
@@ -342,8 +330,9 @@
 
 			//show additional fields for selected device
 			$('#select-device').on('change', ()=>{
-				$('#help').empty();
-				$('#help').removeClass('hide');
+				$('#help')
+						.empty()
+						.removeClass('hide');
 				const mfr = $('#select-manufacturer').val();
 				const dev = $('#select-device').val();
 				if(deviceList[mfr][dev].autocreate === false){
@@ -378,10 +367,7 @@
 				const name = device;
 
 				if (deviceList[manufacturer][device].autocreate === false) {
-					const eep = $('#select-eep').val();
 					const deviceId = $('#device-id').val();
-					const baseIDoffset = deviceList[manufacturer][device].id_offset;
-					const broadcast = deviceList[manufacturer][device].broadcast;
 
 					sendTo(null, 'newDevice', {device: name, mfr: manufacturer, id: deviceId}, (data) => {
 						if (data.result === 'Ready') {
@@ -391,7 +377,7 @@
 
 
 				} else {
-					sendTo(null, 'autodetect', {teachin_method: deviceList[manufacturer][device].teachin_method, device: name, mfr: manufacturer}, (data) => {
+					sendTo(null, 'autodetect', {teachin_method: deviceList[manufacturer][device].teachin_method, device: name, mfr: manufacturer}, () => {
 						setInterval( () => {
 							getDevices();
 						}, 1000)
@@ -457,12 +443,12 @@
 			<div id="tab-main" class="col s12 page">
 				<div class="row">
 					<div class="col s12 m4 l2">
-						<img src="enocean.png" class="logo" style="height:7em; width: 7em;">
+						<img src="enocean.png" class="logo" style="height:7em; width: 7em;" alt="EnOcean">
 					</div>
 				</div>
 				<div class="row">
 					<div id="options-Gateway" class="input-field col s12 m6 l3">
-						<select id="gateway" class="value save" type="text" >
+						<select id="gateway" class="value save" >
 							<option value="">Select Gateway</option>
 							<option value="usb300">USB300</option>
 							<option value="usb300">EnOcean Pi</option>
@@ -483,7 +469,7 @@
 						</label>
 					</div>
 					<div id="options-serialport-div" class="input-field col s12 m6 l3 hide">
-						<select id="serialport" class="value save" type="text" ></select>
+						<select id="serialport" class="value save" ></select>
 						<label for="serialport" class="translate">Serial port</label>
 					</div>
 					<div id="options-ser2net-ip-div" class="input-field col s3 hide">
@@ -572,28 +558,28 @@
 						<select id="select-manufacturer">
 							<option value="" class="translate" disabled selected>Choose</option>
 						</select>
-						<label class="translate">manufacturer</label>
+						<label class="translate" for="select-manufacturer">manufacturer</label>
 					</div>
 					<div class="input-field col s5">
 						<select id="select-device">
 							<option value="" class="translate" disabled selected>Choose</option>
 						</select>
-						<label class="translate">device</label>
+						<label class="translate" for="select-device">device</label>
 					</div>
 					<div
 						id="div-id" class="input-field col s2 hide">
-						<input id="device-id" class="value"  type="text" placeholder="e.g. 0014A42D" minlength="8" maxlength="8"></input>
+						<input id="device-id" class="value"  type="text" placeholder="e.g. 0014A42D" minlength="8" maxlength="8">
 						<label for="device-id" class="translate">Device ID</label>
 					</div>
 					<div class="input-field col s12 hide">
-						<input id="device-name" class="value" type="text"></input>
+						<input id="device-name" class="value" type="text">
 						<label for="device-name" class="translate">Device Name</label>
 					</div>
 					<div class="input-field col s3 hide">
 						<select id="select-eep">
 							<option value="" class="translate" disabled selected>Choose</option>
 						</select>
-						<label>EEP</label>
+						<label for="select-eep">EEP</label>
 					</div>
 				</div>
 				<div id="help" class="row hide">
@@ -635,8 +621,6 @@
 		</div>
 
 		</div>
-
-	</div>
 
 </body>
 
