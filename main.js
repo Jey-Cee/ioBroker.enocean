@@ -41,8 +41,7 @@ let tcpClient = null;
 let tcpReconnectCounter = 0;
 
 let teachinMethod = null;
-const queue = [];
-let timeoutQueue, timeoutWait, timeoutTeachin, timeouteGateway;
+let timeoutQueue, timeoutWait, timeoutTeachin, timeoutGateway;
 
 
 class Enocean extends utils.Adapter {
@@ -116,7 +115,7 @@ class Enocean extends utils.Adapter {
 		clearTimeout(timeoutWait);
 		clearTimeout(timeoutQueue);
 		clearTimeout(timeoutTeachin);
-		clearTimeout(timeouteGateway);
+		clearTimeout(timeoutGateway);
 		try {
 			if (SERIAL_PORT !== null) {
 				SERIAL_PORT.close();
@@ -158,22 +157,28 @@ class Enocean extends utils.Adapter {
 				case 'gateway.repeater.level': {
 					const data = ByteArray.from([0x09, 0x00, 0x00]);
 					const mode = await this.getStateAsync('gateway.repeater.mode');
-					data.setValue(mode.val, 8, 8);
-					data.setValue(state.val, 16, 8);
-					await this.sendData(this, data, null, 5);
+					if (mode !== null && mode !== undefined) {
+						data.setValue(mode.val, 8, 8);
+						data.setValue(state.val, 16, 8);
+						await this.sendData(this, data, null, 5);
+					}
 					break;
 				}
 				case 'gateway.repeater.mode': {
 					const data = ByteArray.from([0x09, 0x00, 0x00]);
 					const level = await this.getStateAsync('gateway.repeater.level');
-					data.setValue(state.val, 8, 8);
-					data.setValue(level.val, 16, 8);
-					await this.sendData(this, data, null, 5);
+					if (level !== null && level !== undefined) {
+						data.setValue(state.val, 8, 8);
+						data.setValue(level.val, 16, 8);
+						await this.sendData(this, data, null, 5);
+					}
 					break;
 				}
 				case 'development.telegram': {
-					const hex = Buffer.from(state.val, 'hex');
-					await this.parseMessage(hex);
+					if(state.val !== null && state.val !== undefined && state.val !== '') {
+						const hex = Buffer.from(state.val.toString(), 'hex');
+						await this.parseMessage(hex);
+					}
 					break;
 				}
 			}
@@ -235,7 +240,7 @@ class Enocean extends utils.Adapter {
 								}
 
 							}
-							let states;
+
 							//get data from objects
 							for (const s in parameter) {
 								const state = await this.getStateAsync(`${this.namespace}.${devId}.${parameter[s]}`);
@@ -243,7 +248,7 @@ class Enocean extends utils.Adapter {
 								const short = parameter[s];
 								const datafield = eepProfile.case[c].datafield;
 								for (const d in datafield) {
-									if (state !== null && datafield[d].shortcut === short && datafield[d].bitoffs !== null && datafield[d].bitsize !== null && (!datafield[d].condition || !datafield[d].condition[0].value === state.val)) {
+									if (state !== null && state !== undefined && datafield[d].shortcut === short && datafield[d].bitoffs !== null && datafield[d].bitsize !== null && (!datafield[d].condition || !datafield[d].condition[0].value === state.val) ) {
 										const bitoffs = datafield[d].bitoffs;
 										const bitsize = datafield[d].bitsize;
 										const value = state.val;
@@ -275,7 +280,8 @@ class Enocean extends utils.Adapter {
 						const tempId = devId.toUpperCase().match(/.{1,2}/g);
 						const receiverID = [];
 						for(const b in tempId) {
-							receiverID.push('0x' + tempId[b]);
+							// receiverID.push('0x' + tempId[b]);
+							receiverID.push(parseInt(tempId[b], 16));
 						}
 						const gateway = await this.getObjectAsync('gateway');
 						let baseID = gateway.native.BaseID;
@@ -286,38 +292,37 @@ class Enocean extends utils.Adapter {
 						baseID = ByteArray.from(baseID.match(/.{1,2}/g));
 
 						const optionalData = subTelNum.concat(receiverID, [0xFF, 0x00]);
-						let type;
+						let type, finalData;
 						switch (rorg) {
 
 							case '0xD2':
 								type = [0xD2];
-								data = type.concat(data, baseID, 0x00);
+								finalData = type.concat(data, baseID, [0x00]);
 								break;
 							case '0xA5':
 								type = [0xA5];
 								if (data.length > 4 || data.length < 4) {
 									this.log.warn(`The data length for a 4BS telegram is incorrect. The length is ${data.length}`);
 								}
-								data = type.concat(data, baseID, 0x00);
+								finalData = type.concat(data, baseID, [0x00]);
 								break;
 							case '0xF6':
 								type = [0xF6];
 								if (data.length > 1 || data.length < 1) {
 									this.log.warn(`The data length for a RPS telegram is incorrect. The length is ${data.length}`);
 								}
-								data = type.concat(data, baseID, 0x30);
+								finalData = type.concat(data, baseID, [0x30]);
 								break;
 							case '0xD5':
 								type = [0xD5];
 								if (data.length > 1 || data.length < 1) {
 									this.log.warn(`The data length for a 1BS telegram is incorrect. The length is ${data.length}`);
 								}
-								data = type.concat(data, baseID, 0x00);
+								finalData = type.concat(data, baseID, [0x00]);
 								break;
 						}
 
-						this.queue.push({'data': data, 'optionaldata': optionalData, 'packettype': 0x01});
-						//await this.sendData(data, optionalData, 0x01);
+						this.queue.push({'data': finalData, 'optionaldata': optionalData, 'packettype': 0x01});
 
 						await this.setStateAsync(id, {ack: true});
 						break;
@@ -654,7 +659,7 @@ class Enocean extends utils.Adapter {
 				const teachin = await this.getStateAsync(this.namespace + '.gateway.teachin');
 				if (teachin) {
 					if (teachin.val === false){
-						const telegram = new HandleType10(this, esp3packet, teachinMethod);
+						new HandleType10(this, esp3packet, teachinMethod);
 					} else {
 						if (teachinMethod !== null) {
 							new HandleTeachIn(this, esp3packet, teachinMethod);
@@ -865,28 +870,31 @@ class Enocean extends utils.Adapter {
 
 	async resetController(){
 		const data = Buffer.from([0x02]);
-		const res = await this.sendData(this, data, null, 5);
+		await this.sendData(this, data, null, 5);
 		const response = await this.waitForResponse();
 		const telegram = new HandleType2(this, response);
+		console.log(`Reset controller: ${JSON.stringify(telegram.main)}`);
 	}
 
 	async enableTransparentMode(){
 		const data = Buffer.from([0x3e, 0x01]);
-		const res = await this.sendData(this, data, null, 5);
+		await this.sendData(this, data, null, 5);
 		const response = await this.waitForResponse();
 		const telegram = new HandleType2(this, response);
+		console.log(`Enable Transparent Mode: ${JSON.stringify(telegram.main)}`);
 	}
 
 	async enableSmartACKteachin(){
 		const data = Buffer.from([0x01, 0x01, 0x01, 0x00, 0x00, 0x00, 0x00]);
-		const res = await this.sendData(this, data, null, 6);
+		await this.sendData(this, data, null, 6);
 		const response = await this.waitForResponse();
 		const telegram = new HandleType2(this, response);
+		console.log(`Smart ACK teach-in enabled: ${JSON.stringify(telegram.main)}`);
 	}
 
 	async readMailboxStatus(){
 		const data = Buffer.from([0x09, 0x05, 0x96, 0x1d, 0x4f, 0x01, 0x9d, 0x45, 0x44]);
-		const res = await this.sendData(this, data, null, 6);
+		await this.sendData(this, data, null, 6);
 		const response = await this.waitForResponse();
 		const telegram = new HandleType2(this, response);
 		console.log(`Read mailbox status: ${JSON.stringify(telegram.main)}`);
@@ -894,7 +902,7 @@ class Enocean extends utils.Adapter {
 
 	async resetSmartACKClient(){
 		const data = Buffer.from([0x05, 0x05, 0x96, 0x1d, 0x4f]);
-		const res = await this.sendData(this, data, null, 6);
+		await this.sendData(this, data, null, 6);
 		const response = await this.waitForResponse();
 		const telegram = new HandleType2(this, response);
 		console.log(`Reset Smart ACK client: ${JSON.stringify(telegram.main)}`);
@@ -903,7 +911,7 @@ class Enocean extends utils.Adapter {
 	//Delete Mailbox on Controller - On USB300 not supported?
 	async deleteSmartACKMailbox(){
 		const data = Buffer.from([0x0a, 0x05, 0x83, 0x4b, 0x83, 0x01, 0x9d, 0x45, 0x44]);
-		const res = await this.sendData(this, data, null, 6);
+		await this.sendData(this, data, null, 6);
 		const response = await this.waitForResponse();
 		const telegram = new HandleType2(this, response);
 		console.log(`Delet Smart ACK mailbox: ${JSON.stringify(telegram.main)}`);
@@ -911,9 +919,10 @@ class Enocean extends utils.Adapter {
 
 	async makeControllerPostmaster(){
 		const data = Buffer.from([0x08, 0x14]);
-		const res = await this.sendData(this, data, null, 6);
+		await this.sendData(this, data, null, 6);
 		const response = await this.waitForResponse();
 		const telegram = new HandleType2(this, response);
+		console.log(`Make controller postmaster: ${JSON.stringify(telegram.main)}`);
 	}
 
 	/**
@@ -922,32 +931,32 @@ class Enocean extends utils.Adapter {
 	 */
 	async collectSystemInformation() {
 		// Get all device objects
-		let devices = await this.getDevicesAsync();
-		for(let i in devices) {
+		const devices = await this.getDevicesAsync();
+		for(const i in devices) {
 			delete devices[i].user;
 			delete devices[i].acl;
 			delete devices[i].from;
 			delete devices[i].ts;
+			// @ts-ignore
 			delete devices[i].type;
+			// @ts-ignore
 			delete devices[i].common;
 		}
 
 		// Get system.adapter.enocean.0 object
 		const instance = await this.getForeignObjectAsync('system.adapter.enocean.0');
-		let instanceInfo = {
+		const instanceInfo = {
 			native: instance.native,
 			version: instance.common.installedVersion,
 			installedFrom: instance.common.installedFrom
 		};
 
-		const systemInformation = {
+		return {
 			nodeVersion: process.version,
 			serialDevices: this.listSerial(),
 			instance: instanceInfo,
 			devices: devices
 		};
-
-		return systemInformation;
 	}
 
 	//wait for response from USB Stick/Modul
@@ -959,12 +968,12 @@ class Enocean extends utils.Adapter {
 				const telegram = new ESP3Packet(data);
 				if(responseLength === telegram.dataLength || responseLength === null){
 					resolve(data);
-					clearTimeout(timeouteGateway);
+					clearTimeout(timeoutGateway);
 					SERIALPORT_PARSER.off('data', cb);
 				}
 			};
 			SERIALPORT_PARSER.on('data', cb);
-			timeouteGateway = setTimeout(() => {reject('Timeout for response' + info);}, 1500);
+			timeoutGateway = setTimeout(() => {reject('Timeout for response' + info);}, 1500);
 		});
 	}
 
@@ -1012,7 +1021,7 @@ class Enocean extends utils.Adapter {
 	/**
 	 *
 	 * @param {object} that
-	 * @param {array} data
+	 * @param {array|ByteArray} data
 	 * @param {array} optionalData
 	 * @param {number} packetType
 	 * @returns {Promise<boolean>}
@@ -1126,6 +1135,11 @@ function toHex(byte) {
 	return ('0' + (byte & 0xFF).toString(16)).slice(-2);
 }
 
+/**
+ *
+ * @param {number} dec
+ * @returns {string}
+ */
 function dec2hexString(dec) {
 	return (dec+0x10000).toString(16).substr(-4).toUpperCase();
 }
