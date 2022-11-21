@@ -37,8 +37,9 @@ Eltako FGW14:
 You have to enable ESP2 mode in the adapter config, to use the FGW14.  
 **Important Notes**: This gateway does not support all features and devices of this adapter.  Known features that does not work: RSSI, Gateway information can not be read and only RS485 Bus devices can be controlled without FTD14 (not tested yet).  If there is no technical reason to use this gateway it is highly recomended to use an other one.  
 
-ALL SMART EnOcean LAN Gateway - [BUY](https://www.all-smart.net/produkt/all-smart-enocean-lan-gateway/)
+ALL SMART EnOcean LAN Gateway - ~~[BUY](https://www.all-smart.net/produkt/all-smart-enocean-lan-gateway/)~~ No longer available.  
 
+ALL SMART EnOcean Multi-Gateway - [BUY](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)
 ## Control devices
 In general there is a cmd object where you can choose the command that you want to execute. Before you can execute a command you have to set all attributes that are necessary, 
 you can find this information in the profile definition.
