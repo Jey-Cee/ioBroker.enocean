@@ -3491,7 +3491,7 @@
       ],
       "autocreate": true,
       "teachin_method": "UTE",
-      "id_offset": true,
+      "id_offset": false,
       "help": {
         "en": {
           "1": "Click on 'Add Device'.",
