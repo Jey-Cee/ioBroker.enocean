@@ -944,7 +944,7 @@ class Enocean extends utils.Adapter {
 		}
 
 		// Get system.adapter.enocean.0 object
-		const instance = await this.getForeignObjectAsync('system.adapter.enocean.0');
+		const instance = await this.getForeignObjectAsync(`system.adapter.enocean.${this.instance}`);
 		const instanceInfo = {
 			native: instance.native,
 			version: instance.common.installedVersion,
