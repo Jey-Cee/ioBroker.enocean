@@ -200,8 +200,13 @@
 
 		function getSystemInformation() {
 			sendTo(null, 'getSystemInfo', null, (info) => {
-				$('#systemInfo').text(JSON.stringify(info, undefined, 2));
+				$('#systemInfo').text('``` \n' + JSON.stringify(info, undefined, 2) + '\n```');
 			});
+		}
+
+		// Copy to clipboard
+		function copyToClipboard(element) {
+			navigator.clipboard.writeText(element);
 		}
 
 		//subscribe to lastID
@@ -360,6 +365,12 @@
 
 
 			})
+
+			// Initialize copy-support-info button
+			$('#copy-support-info').on('click', () => {
+				let text = $('#systemInfo').text();
+				copyToClipboard(text);
+			});
 
 			$('#addDeviceSubmit').on('click', () => {
 				const manufacturer = $('#select-manufacturer').val();
@@ -529,10 +540,19 @@
 
 			</div>
 
+			<!-- Support information Tab -->
 			<div id="tab-support-info" class="col s12 page">
 				<div class="row">
 					<div id="info-body" class="col s12">
-						<pre id="systemInfo"></pre>
+						<!-- Show support information as code with copy to clipboard button -->
+						<div class="card">
+							<div class="card-content">
+								<span class="card-title translate">Support information</span>
+								<pre id="systemInfo" class="support-info"></pre>
+							</div>
+							<div class="card-action">
+								<a id="copy-support-info" class="waves-effect waves-light btn translate" href="#">Copy to clipboard</a>
+							</div>
 					</div>
 				</div>
 			</div>

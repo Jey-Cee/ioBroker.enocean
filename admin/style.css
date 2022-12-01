@@ -147,6 +147,12 @@ input:invalid:focus {
 }
 /* END Tooltip */
 
+.support-info {
+	max-height: 350px;
+	overflow-y: auto;
+}
+
+
 /* START Sponsors Tab */
 #sponsors-body {
 	margin-top: 15px!important;
