@@ -79,11 +79,17 @@
     {
       "send": false,
       "condition": {
-        "telegram": {
-          "bitoffs": "3",
-          "bitsize": "1",
-          "value": "0"
-        }
+        "statusfield": [
+          {
+            "bitoffs": "2",
+            "bitsize": "1",
+            "value": 1
+          },
+          {
+            "bitoffs": "3",
+            "bitsize": "1",
+            "value": 0
+          }]
       },
       "datafield": [
         {
@@ -147,12 +153,7 @@
             "bitsize": "1",
             "value": 1
           }
-        ],
-        "telegram": {
-          "bitoffs": "3",
-          "bitsize": "1",
-          "value": "1"
-        }
+        ]
       },
       "datafield": [
         {

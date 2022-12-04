@@ -659,10 +659,12 @@ class Enocean extends utils.Adapter {
 				const teachin = await this.getStateAsync(this.namespace + '.gateway.teachin');
 				if (teachin) {
 					if (teachin.val === false){
-						new HandleType10(this, esp3packet, teachinMethod);
+						const telegram = new HandleType10(this, esp3packet);
+						await this.setStateAsync('gateway.lastID', {val: telegram.senderID, ack: true});
 					} else {
 						if (teachinMethod !== null) {
-							new HandleTeachIn(this, esp3packet, teachinMethod);
+							const telegram = new HandleTeachIn(this, esp3packet, teachinMethod);
+							await this.setStateAsync('gateway.lastID', {val: telegram.senderID, ack: true});
 						}
 					}
 				}
