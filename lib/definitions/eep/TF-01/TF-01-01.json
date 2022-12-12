@@ -38,7 +38,7 @@
         "role": "state",
         "type": "number",
         "read": true,
-        "write": true,
+        "write": false,
         "def": 0,
         "unit": "s"
       },
@@ -232,8 +232,6 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "16",
-            "bitsize": "8",
             "value": 0
           }
         ]
@@ -253,14 +251,6 @@
           "shortcut": "TTT",
           "bitoffs": "0",
           "bitsize": "16",
-          "value": {
-            "/": [
-              {
-                "var": "value"
-              },
-              10
-            ]
-          },
           "value_out": {
             "*": [
               {
@@ -285,8 +275,6 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "16",
-            "bitsize": "8",
             "value": 1
           }
         ]
@@ -306,14 +294,6 @@
           "shortcut": "TTT",
           "bitoffs": "0",
           "bitsize": "16",
-          "value": {
-            "/": [
-              {
-                "var": "value"
-              },
-              10
-            ]
-          },
           "value_out": {
             "*": [
               {
@@ -354,8 +334,6 @@
       "condition": {
         "command": [
           {
-            "bitoffs": "16",
-            "bitsize": "8",
             "value": 2
           }
         ]
@@ -375,14 +353,6 @@
           "shortcut": "TTT",
           "bitoffs": "0",
           "bitsize": "16",
-          "value": {
-            "/": [
-              {
-                "var": "value"
-              },
-              10
-            ]
-          },
           "value_out": {
             "*": [
               {
@@ -431,8 +401,6 @@
         "command": [
           {
             "description": "Teach-in other devices to actuator",
-            "bitoffs": "16",
-            "bitsize": "8",
             "value": 3
           }
         ]
