@@ -209,7 +209,7 @@
         "role": "state",
         "type": "boolean",
         "read": true,
-        "write": false,
+        "write": true,
         "def": true
       },
       "native": {}
@@ -331,7 +331,7 @@
         "role": "state",
         "type": "boolean",
         "read": true,
-        "write": false,
+        "write": true,
         "def": false
       },
       "native": {}
@@ -530,6 +530,20 @@
           }
         },
         {
+          "data": "Local control",
+          "shortcut": "LC",
+          "bitoffs": "10",
+          "bitsize": "1",
+          "value_out": {
+            "===": [
+              {
+                "var": "value"
+              },
+              1
+            ]
+          }
+        },
+        {
           "data": "fixed parameter",
           "description": "Channel 1",
           "bitoffs": "11",
@@ -608,6 +622,20 @@
           "bitsize": "1",
           "value": {
             "var": "value"
+          }
+        },
+        {
+          "data": "Local control",
+          "shortcut": "LC",
+          "bitoffs": "10",
+          "bitsize": "1",
+          "value_out": {
+            "===": [
+              {
+                "var": "value"
+              },
+              1
+            ]
           }
         },
         {
