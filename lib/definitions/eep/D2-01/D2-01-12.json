@@ -531,17 +531,11 @@
         },
         {
           "data": "Local control",
-          "shortcut": "LC",
+          "shortcut": "CH1.LC",
           "bitoffs": "10",
           "bitsize": "1",
           "value_out": {
-            "if": [
-              {
-                "var": "value"
-              },
-              1,
-              0
-            ]
+            "if": [{ "var": "value" }, 1, 0]
           }
         },
         {
@@ -627,7 +621,7 @@
         },
         {
           "data": "Local control",
-          "shortcut": "LC",
+          "shortcut": "CH2.LC",
           "bitoffs": "10",
           "bitsize": "1",
           "value_out": {
