@@ -966,7 +966,7 @@ class Enocean extends utils.Adapter {
 		info = info ? ': ' + info : '';
 		return new Promise((resolve, reject) => {
 			const cb = (data) => {
-				this.log.info(data.toString('hex'));
+				//this.log.info(data.toString('hex'));
 				const telegram = new ESP3Packet(data);
 				if(responseLength === telegram.dataLength || responseLength === null){
 					resolve(data);
