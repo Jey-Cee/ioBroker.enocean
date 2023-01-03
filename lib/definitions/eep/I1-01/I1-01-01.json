@@ -42,7 +42,11 @@
         "min": 0,
         "max": 6553.5,
         "unit": "s",
-        "def": 0
+        "def": 0,
+        "desc": {
+          "en": "Time in seconds. 0 = Endless, 0.1-6553.5 = Possible range",
+          "de": "Zeit in Sekunden. 0 = Endlos, 0.1-6553.5 = Möglicher Bereich"
+        }
       },
       "native": {}
     },
@@ -57,7 +61,11 @@
         "type": "boolean",
         "read": true,
         "write": true,
-        "def": false
+        "def": false,
+        "desc": {
+          "en": "Locks the device until it will be unlocked or for the time set in the time object.",
+            "de": "Sperre das Gerät bis es entsperrt wird oder bis die Zeit die im Zeitobjekt angebgen ist, abgelaufen ist."
+        }
       },
       "native": {}
     },
@@ -76,7 +84,11 @@
           "0": "Duration",
           "1": "Delay"
         },
-        "def": 0
+        "def": 0,
+        "desc": {
+          "en": "Duration: The output is switched on for the time set in the time object. Delay: The output is switched on for the time set in the time object after the next command.",
+            "de": "Dauer: Der Ausgang wird für die Zeit die im Zeitobjekt angegeben ist eingeschaltet. Verzögerung: Der Ausgang wird für die Zeit die im Zeitobjekt angegeben ist eingeschaltet nachdem der nächste Befehl empfangen wurde."
+        }
       },
       "native": {}
     }
@@ -172,14 +184,6 @@
           "bitsize": "1",
           "value": {
             "var": "value"
-          },
-          "value_out": {
-            "===": [
-              {
-                "var": "value"
-              },
-              1
-            ]
           }
         },
         {
@@ -281,14 +285,6 @@
           "bitsize": "1",
           "value": {
             "var": "value"
-          },
-          "value_out": {
-            "===": [
-              {
-                "var": "value"
-              },
-              1
-            ]
           }
         },
         {
