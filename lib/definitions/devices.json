@@ -3646,7 +3646,7 @@
       ],
       "autocreate": true,
       "teachin_method": "4BS",
-      "id_offset": true,
+      "id_offset": false,
       "help": {
         "en": {
           "1": "Click on 'Add Device'.",
@@ -3654,7 +3654,7 @@
         },
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
-          "2": "Anlernmodus am mote 420 starten. Für weitere informationen bitte die Anleitung des mote 420 lesen."
+          "2": "Anlernmodus am mote 420 starten, einmal kurz (weniger als 3 Sekunden) die Anlerntaste drücken. Für weitere informationen bitte die Anleitung des mote 420 lesen."
         }
       }
     },
