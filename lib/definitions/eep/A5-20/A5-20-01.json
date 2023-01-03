@@ -140,21 +140,6 @@
       },
       "native": {}
     },
-    "in.ASC": {
-      "type": "state",
-      "common": {
-        "name": {
-          "en": "Actuator self-controlled",
-          "de": "Aktor selbstgesteuert"
-        },
-        "role": "indicator",
-        "type": "boolean",
-        "read": true,
-        "write": false,
-        "def": false
-      },
-      "native": {}
-    },
     "SP": {
       "type": "state",
       "common": {
@@ -351,20 +336,6 @@
             ]
           },
           "decimals": 2
-        },
-        {
-          "data": "Actuator self-controlled",
-          "shortcut": "in.ASC",
-          "bitoffs": "29",
-          "bitsize": "1",
-          "value": {
-            "==": [
-              {
-                "var": "value"
-              },
-              1
-            ]
-          }
         }
       ]
     },
