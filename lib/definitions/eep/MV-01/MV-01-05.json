@@ -1,0 +1,62 @@
+{
+    "eep": "F6-02-02",
+    "rorg_number": "0xF6",
+    "telegram": "RPS",
+    "func_number": "0x02",
+    "type_number": "0x02",
+    "type_title": "Oventrop R-Tronic RT B RPS",
+    "bidirectional": false,
+    "objects": {
+        "MINUS": {
+            "type": "state",
+            "common": {
+                "name": {
+                    "en": "Button -",
+                    "de": "Taster -"
+                },
+                "role": "switch",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        "PLUS": {
+            "type": "state",
+            "common": {
+                "name": {
+                    "en": "Button +",
+                    "de": "Taster +"
+                },
+                "role": "switch",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        }
+    },
+    "case": [
+        {
+            "send": false,
+            "datafield": [
+                {
+                    "data": "Button -",
+                    "shortcut": "MINUS",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": {"==": [{"var": "value"}, 80]}
+                },
+                {
+                    "data": "Button +",
+                    "shortcut": "PLUS",
+                    "bitoffs": "0",
+                    "bitsize": "8",
+                    "value": {"==": [{"var": "value"}, 112]}
+                }
+            ]
+        }
+    ]
+}

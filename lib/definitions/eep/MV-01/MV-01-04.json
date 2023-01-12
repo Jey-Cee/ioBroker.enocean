@@ -1,0 +1,181 @@
+{
+  "eep": "X1-01-02",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x10",
+  "type_number": "0x06",
+  "type_title": "Oventrop R-Tronic RTB A5-10-06",
+  "bidirectional": true,
+  "objects": {
+    "preDefined": [
+      "TMP",
+      "SP",
+      "SLSW"
+    ],
+    "CMD": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Command",
+          "de": "Befehl"
+        },
+        "role": "state",
+        "type": "number",
+        "read": false,
+        "write": true,
+        "states": {
+          "0": "Send data",
+          "1": "Teach-in"
+        },
+        "def": 0
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "datafield": [
+        {
+          "data": "Temperature",
+          "shortcut": "TMP",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 255] }, -0.156862745 ]}, 0]},
+          "decimals": 2
+        },
+        {
+          "data": "Set point",
+          "shortcut": "SP",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": {"var":  "value"}
+        },
+        {
+          "data": "Day",
+          "shortcut": "SLSW",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": {"==": [{"var": "value"}, 1]}
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 0
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Temperature",
+          "shortcut": "TMP",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": {"+": [ { "*": [ { "-": [{"var": "value"}, 255] }, -0.156862745 ]}, 0]},
+          "value_out": {
+            "/": [
+              {
+                "-": [
+                  {
+                    "+": [
+                      {
+                        "var": "value"
+                      },
+                      255
+                    ]
+                  },
+                  0
+                ]
+              },
+              -0.1568627450980392
+            ]
+          },
+          "decimals": 2
+        },
+        {
+          "data": "Set point",
+          "shortcut": "SP",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": {
+            "var": "value"
+          }
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Not used",
+          "bitoffs": "24",
+          "bitsize": "4",
+          "value": 0
+        },
+        {
+          "data": "fixed parameter",
+          "description": "Represents learnbit",
+          "bitoffs": "28",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "Day",
+          "shortcut": "SLSW",
+          "bitoffs": "31",
+          "bitsize": "1",
+          "value": {"==": [{"var": "value"}, 1]},
+          "value_out": {
+            "if": [
+              {
+                "var": "value"
+              },
+              1,
+              0
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "send": true,
+      "condition": {
+        "command": [
+          {
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "fixed parameter",
+          "description": "teachin byte 1",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": 64
+        },
+        {
+          "data": "fixed parameter",
+          "description": "teachin byte 2",
+          "bitoffs": "8",
+          "bitsize": "8",
+          "value": 48
+        },
+        {
+          "data": "fixed parameter",
+          "description": "teachin byte 3",
+          "bitoffs": "16",
+          "bitsize": "8",
+          "value": 82
+        },
+        {
+          "data": "fixed parameter",
+          "description": "teachin byte 4",
+          "bitoffs": "24",
+          "bitsize": "8",
+          "value": 240
+        }
+      ]
+    }
+  ]
+}
