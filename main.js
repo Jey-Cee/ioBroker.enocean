@@ -1157,7 +1157,9 @@ async function idRangeCalc(baseId) {
 
 	for (let i = 1; i < 127; i++) {
 		const idInt = baseInt + i;
-		const idHex = idInt.toString(16);
+		let idHex = idInt.toString(16);
+		// If idHex is not 8 characters long, add leading zeros
+		idHex = idHex.length < 8 ? '0'.repeat(8 - idHex.length) + idHex : idHex;
 		result[idHex] = '';
 	}
 	return result;
