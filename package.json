@@ -18,7 +18,7 @@
     "url": "git+https://github.com/Jey-Cee/ioBroker.enocean.git"
   },
   "dependencies": {
-    "@iobroker/adapter-core": "2.6.0",
+    "@iobroker/adapter-core": "2.6.7",
     "serialport": "10.4.0",
     "@serialport/parser-byte-length": "10.3.0",
     "json-logic-js": "2.0.2"
