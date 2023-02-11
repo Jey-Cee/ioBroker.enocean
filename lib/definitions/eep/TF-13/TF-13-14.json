@@ -7,7 +7,25 @@
     "type_title": "Room Operating Panel Temperature, Set point",
     "bidirectional": false,
     "objects": {
-        "preDefined": ["TMP", "SP"]
+        "preDefined": ["TMP"],
+        "SP": {
+            "type": "state",
+            "common": {
+                "name": {
+                    "en": "Set point",
+                    "de": "Sollwert"
+                },
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": true,
+                "unit": "°C",
+                "min": 0,
+                "max": 40,
+                "def": 0
+            },
+            "native": {}
+        }
     },
     "case": [{
         "send": false,
@@ -25,7 +43,8 @@
                 "shortcut": "SP",
                 "bitoffs": "8",
                 "bitsize": "8",
-                "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]}
+                "value": {"+":[{"*":[{"-":[{"var":"value"},0]},0.1568627450980392]},0]},
+                "decimals": 2
             }
         ]
     }]
