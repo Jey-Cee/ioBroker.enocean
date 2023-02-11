@@ -43,7 +43,7 @@ ALL SMART EnOcean LAN Gateway - ~~[BUY](https://www.all-smart.net/produkt/all-sm
 
 ALL SMART EnOcean Multi-Gateway - ~~[BUY](https://www.all-smart.net/produkt/all-smart-enocean-multi-gateway/)~~ No longer available.
 
-### [Supported devices](./docs/SupportedDevices.md)
+### [Supported devices](./docs/devices.md)
 
 ## Control devices
 In general there is a cmd object where you can choose the command that you want to execute. Before you can execute a command you have to set all attributes that are necessary, 
@@ -190,7 +190,7 @@ To test telegram handling create a channel with name development and in this cha
 
 ## Changelog
 
-### **WORK IN PROGRESS**
+### 0.8.5 (2023-02-11)
 * rework TF-13-25, fixes Eltako DSZ14
 * rework TF-13-14, SP uses now temperature range 0-40°C
 * remove useless object ASC from A5-20-01

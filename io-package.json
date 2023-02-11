@@ -1,8 +1,11 @@
 {
   "common": {
     "name": "enocean",
-    "version": "0.8.4",
+    "version": "0.8.5",
     "news": {
+      "0.8.5": {
+        "en": "rework TF-13-25, fixes issue with Eltako DSZ14\n rework TF-13-14, SP uses now temperature range 0-40°C\n remove useless object ASC from A5-20-01\n added Afriso FT & FTF\n added R-Tronic RT B (A5-10-06 + RPS)\n added new teachin telegram for FUD61NPN-230V\n fix F6-10-00: The close state was not set, the window was always shown as open.\n fix & rework TF-13-25 Eltako DSZ14 (#87)\n fix multiple conditions in eep's\n fix Eltako FGW14-USB does not receive status updates\n fix lastID is null when using Eltako FGW14-USB\n fix TF-01-01 TT and TTT both set on incoming telegram, only TT has to be set\n fix I1-01-01 invalid telegram send by on and off\n fix device definition Oventrop mote 420\n fix missing zeros in front of sender IDs while using FGW14\n fix incomplete data while receiving type 10 messages\n code cleanup and refactoring"
+      },
       "0.8.4": {
         "en": "added Eltako FSSG-230V, TF100A, FM4H\nadded Afriso APR234(-NF)\nadded EASYFIT ETHSx (ETSHA/ETSHU)\nadded Oventrop mote 420\nadded support information tab\nupdate TF-01-01 (Eltako FTA55J & TF-TA55J)\nupdate Eltako TF-4FT, switch EEP from F6-02-02 to F6-02-03\nhighlight too short ID in add device dialog",
         "de": "zusätzlich Eltako FSSG-230V, TF100A, FM4 H\nzusätzlich Afriso APR234(-NF)\neASYFIT ETHSx (ETSHA/ETSHU)\nhinzugefügt Oventrop mote 420\nunterstützung info tab\nupdate TF-01-01 (Eltako FTA55J & TF-TA55J)\nupdate Eltako TF-4FT, Schalter EEP von F6-02-02 bis F6-02-03\nmarkieren Sie zu kurze ID im Add-Gerät Dialog",
