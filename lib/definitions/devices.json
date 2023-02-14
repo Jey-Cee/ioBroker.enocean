@@ -1160,7 +1160,7 @@
         }
       }
     },
-    "FM4H": {
+    "FMH4": {
       "EEP": ["F6-02-03"],
       "autocreate": true,
       "teachin_method": "RPS",
