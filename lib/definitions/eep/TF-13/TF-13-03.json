@@ -4,7 +4,7 @@
   "telegram": "4BS",
   "func_number": "0x3F",
   "type_number": "0x7F",
-  "type_title": "Blind actuator",
+  "type_title": "Deprecated, same as TF-14-04. Hold for legacy reasons until v1.0.0. Blind actuator",
   "bidirectional": true,
   "objects": {
     "CMD": {
