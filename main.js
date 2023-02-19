@@ -27,7 +27,6 @@ const jsonLogic = require('json-logic-js');
 const Enocean_manufacturer = require('./lib/definitions/manufacturer_list.json');
 const Codes = require('./lib/definitions/codes.json');
 const EEPList = require('./lib/definitions/EEPinclude');
-const codes = require('./lib/definitions/codes.json');
 
 const update = require('./lib/update.js');
 const dmEnocean  = require('./lib/devicemgmt.js');
@@ -374,7 +373,7 @@ class Enocean extends utils.Adapter {
 				respond(EEPList, this);
 				break;
 			case 'autodetect':
-				teachinMethod = {teachinMethod: codes.telegram_type[obj.message.teachin_method], name: obj.message.device, mfr: obj.message.mfr};
+				teachinMethod = {teachinMethod: Codes.telegram_type[obj.message.teachin_method], name: obj.message.device, mfr: obj.message.mfr};
 				this.setState('gateway.teachin', {val: true, ack: true});
 				timeoutTeachin = setTimeout(() => {
 					this.setState('gateway.teachin', {val: false, ack: true});
