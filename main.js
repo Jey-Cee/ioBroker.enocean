@@ -30,6 +30,7 @@ const EEPList = require('./lib/definitions/EEPinclude');
 const codes = require('./lib/definitions/codes.json');
 
 const update = require('./lib/update.js');
+const dmEnocean  = require('./lib/devicemgmt.js');
 
 const PLATFORM = os.platform();
 
@@ -60,6 +61,9 @@ class Enocean extends utils.Adapter {
 		this.on('stateChange', this.onStateChange.bind(this));
 		this.on('message', this.onMessage.bind(this));
 		this.on('unload', this.onUnload.bind(this));
+
+		this.deviceManagement = new dmEnocean(this);
+
 		this.eepList = EEPList;
 	}
 

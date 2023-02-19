@@ -21,7 +21,8 @@
     "@iobroker/adapter-core": "2.6.7",
     "serialport": "10.4.0",
     "@serialport/parser-byte-length": "10.3.0",
-    "json-logic-js": "2.0.2"
+    "json-logic-js": "2.0.2",
+    "dm-utils": "https://git@github.com:UncleSamSwiss/dm-utils.git"
   },
   "devDependencies": {
     "@alcalzone/release-script": "^3.5.9",
