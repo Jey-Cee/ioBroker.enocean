@@ -2717,6 +2717,22 @@
         }
       }
     },
+    "FWS81": {
+      "EEP": ["TF-13-28"],
+      "autocreate": true,
+      "teachin_method": "RPS",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Operate the test slider."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Test Schieber betätigen."
+        }
+      }
+    },
     "FWZ12": {
       "EEP": [
         "A5-12-01"

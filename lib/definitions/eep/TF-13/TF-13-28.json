@@ -1,0 +1,84 @@
+{
+  "eep": "TF-13-28",
+  "rorg_number": "0xF6",
+  "telegram": "RPS",
+  "func_number": "0x00",
+  "type_number": "0x00",
+  "type_title": "Liquid leakage sensor (mechanic harvester)",
+  "bidirectional": false,
+  "objects": {
+    "WAS": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Water detected",
+          "de": "Wasser erkannt"
+        },
+        "role": "switch",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": {
+          "en": "Shows true if water is detected.",
+          "de": "Zeigt true an wenn Wasser erkannt wurde."
+        }
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "condition": {
+        "statusfield": [
+          {
+            "bitoffs": "2",
+            "bitsize": "1",
+            "value": "1"
+          },
+          {
+            "bitoffs": "3",
+            "bitsize": "1",
+            "value": "1"
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Water detected",
+          "shortcut": "WAS",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value":  true
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": {
+        "statusfield": [
+          {
+            "bitoffs": "2",
+            "bitsize": "1",
+            "value": "1"
+          },
+          {
+            "bitoffs": "3",
+            "bitsize": "1",
+            "value": "0"
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Water detected",
+          "shortcut": "WAS",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value":  false
+        }
+      ]
+    }
+  ]
+}
