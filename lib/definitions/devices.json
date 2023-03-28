@@ -47,6 +47,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -63,6 +71,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -79,6 +95,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -95,6 +119,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -154,6 +186,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -172,6 +212,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -188,6 +236,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -204,6 +260,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -270,6 +334,12 @@
       "autocreate": true,
       "teachin_method": "RPS",
       "id_offset": false,
+      "deviceManager": {
+        "1": {
+          "en": "Press any key of the switch.",
+          "de": "Irgendeine Taste des Tasters betätigen."
+        }
+      },
       "help": {
         "en": {
           "1": "Click on 'Add Device'.",
@@ -343,6 +413,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -361,6 +439,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -379,6 +465,18 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": true,
+      "deviceManager": {
+        "1": "#EltakoSeries14enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Use PCT14 to add ioBroker in function group 3.",
+          "de": "Nutzen Sie PCT14 um ioBroker in der Funktionsgruppe 3 hinzuzufügen."
+        },
+        "4": {
+            "en": "Repeat for the other channels.",
+            "de": "Vorgang für die übrigen Kanäle Wiederholen."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the channel. Base ID as decimal + Bus ID 1 = ID as decimal => converted to Hex. Example: (Hex: ffcae700) 4291487488 + 1 = 4291487489 => ffcae701",
@@ -434,6 +532,19 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": true,
+      "deviceManager": {
+        "1": "#EltakoSeries14enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Start teach-in mode on F4SR14-LED. For more information, please read the F4SR14-LED manual. \n Then click OK.",
+          "de": "Anlernmodus am F4SR14-LED starten. Für weitere informationen bitte die Anleitung des F4SR14-LED lesen. \n Klicken Sie dann auf OK."
+        },
+        "4": "#setState {CMD: 2}",
+        "5": {
+          "en": "Repeat for the other channels.",
+          "de": "Vorgang für die übrigen Kanäle Wiederholen."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the group. Base ID as decimal + Bus ID 1 = ID as decimal => converted to Hex. Example: (Hex: ffcae700) 4291487488 + 1 = 4291487489 => ffcae701",
@@ -458,6 +569,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -476,6 +595,18 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": true,
+      "deviceManager": {
+        "1": {
+          "en": "Actual this device can not controlled by ioBroker. Only receiving data is possible.",
+          "de": "Aktuell kann dieses Gerät nicht von ioBroker gesteuert werden. Nur das Empfangen von Daten ist möglich."
+        },
+        "2": "#EltakoSeries14enterDeviceId",
+        "3": "#addDevicePredefined",
+        "4": {
+          "en": "Repeat for the other channels.",
+          "de": "Vorgang für die übrigen Kanäle Wiederholen."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the channel. Base ID as decimal + Bus ID 1 = ID as decimal => converted to Hex. Example: (Hex: ffcae700) 4291487488 + 1 = 4291487489 => ffcae701",
@@ -498,6 +629,18 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": true,
+      "deviceManager": {
+        "1": {
+          "en": "Actual this device can not controlled by ioBroker. Only receiving data is possible.",
+          "de": "Aktuell kann dieses Gerät nicht von ioBroker gesteuert werden. Nur das Empfangen von Daten ist möglich."
+        },
+        "2": "#EltakoSeries14enterDeviceId",
+        "3": "#addDevicePredefined",
+        "4": {
+          "en": "Repeat for the other channels.",
+          "de": "Vorgang für die übrigen Kanäle Wiederholen."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the channel. Base ID as decimal + Bus ID 1 = ID as decimal => converted to Hex. Example: (Hex: ffcae700) 4291487488 + 1 = 4291487489 => ffcae701",
@@ -518,6 +661,14 @@
       "autocreate": true,
       "teachin_method": "4BS",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Click on 'Add Device'.",
@@ -534,6 +685,14 @@
       "autocreate": false,
       "teachin_method": "4BS",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -550,6 +709,14 @@
       "autocreate": false,
       "teachin_method": "4BS",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -566,6 +733,14 @@
       "autocreate": false,
       "teachin_method": "4BS",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -582,6 +757,14 @@
       "autocreate": false,
       "teachin_method": "4BS",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -598,6 +781,14 @@
       "autocreate": false,
       "teachin_method": "4BS",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -655,6 +846,47 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": true,
+      "deviceManager": {
+        "1": "#EltakoSeries14enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "choice": {
+            "PCT14": {
+              "en": {
+                "0": "PCT14:",
+                "1": "Enter ioBroker sender ID in function group 3."
+              },
+              "de": {
+                "0": "PCT14:",
+                "1": "ioBroker Sender ID in Funktionsgruppe 3 eintragen."
+              }
+            },
+            "Manual": {
+              "en": {
+                "0": "On device:",
+                "1": "1. Set the upper rotary switch to the desired group.",
+                "2": "2. Set the lower rotary switch to GFVS.",
+                "3": "3. Then click on 'OK' to complete the process."
+              },
+              "de": {
+                "0": "Am Gerät:",
+                "1": "1. Den oberen Drehschalter auf die gewünschte Gruppe stellen.",
+                "2": "2. Den unteren Drehschalter auf GFVS stellen.",
+                "3": "3. Anschließend auf 'OK' klicken, um den Vorgang abzuschließen."
+              }
+            }
+          },
+          "label": {
+            "en": "How do you want to add the device?",
+            "de": "Wie möchten Sie das Gerät hinzufügen?"
+          }
+        },
+        "4": "#setState {CMD: 3}",
+        "5": {
+          "en": "Repeat for the other channels.",
+          "de": "Vorgang für die übrigen Kanäle Wiederholen."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the group. Base ID as decimal + Bus ID 1 = ID as decimal => converted to Hex. Example: (Hex: ffcae700) 4291487488 + 1 = 4291487489 => ffcae701",
@@ -678,6 +910,47 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": true,
+      "deviceManager": {
+        "1": "#EltakoSeries14enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "choice": {
+            "PCT14": {
+              "en": {
+                "0": "PCT14:",
+                "1": "Enter ioBroker sender ID in function group 3."
+              },
+              "de": {
+                "0": "PCT14:",
+                "1": "ioBroker Sender ID in Funktionsgruppe 3 eintragen."
+              }
+            },
+            "Manual": {
+              "en": {
+                "0": "On device:",
+                "1": "1. Set the upper rotary switch to the desired group.",
+                "2": "2. Set the lower rotary switch to GFVS.",
+                "3": "3. Then click on 'OK' to complete the process."
+              },
+              "de": {
+                "0": "Am Gerät:",
+                "1": "1. Den oberen Drehschalter auf die gewünschte Gruppe stellen.",
+                "2": "2. Den unteren Drehschalter auf GFVS stellen.",
+                "3": "3. Anschließend auf 'OK' klicken, um den Vorgang abzuschließen."
+              }
+            }
+          },
+          "label": {
+            "en": "How do you want to add the device?",
+            "de": "Wie möchten Sie das Gerät hinzufügen?"
+          }
+        },
+        "4": "#setState {CMD: 3}",
+        "5": {
+          "en": "Repeat for the other channels.",
+          "de": "Vorgang für die übrigen Kanäle Wiederholen."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the group. Base ID as decimal + Bus ID 1 = ID as decimal => converted to Hex. Example: (Hex: ffcae700) 4291487488 + 1 = 4291487489 => ffcae701",
@@ -702,6 +975,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -720,6 +1001,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -739,6 +1028,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -757,6 +1054,19 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": true,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Set the lower rotary switch to infinity and the upper one to LRN.",
+          "de": "Den unteren Drehschalter auf Unendlich und den oberen auf LRN stellen."
+        },
+        "4": "#setState {CMD: 0}",
+        "5": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -779,6 +1089,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -797,6 +1115,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -815,6 +1141,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -833,6 +1167,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -851,6 +1193,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -869,6 +1219,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -885,6 +1243,14 @@
       "autocreate": false,
       "teachin_method": "4BS",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -903,6 +1269,14 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -941,6 +1315,14 @@
       "autocreate": false,
       "teachin_method": "4BS",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -960,6 +1342,19 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": true,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Start teach-in mode on FJ62/12-36V DC. For more information, please read the FJ62/12-36V DC manual.",
+          "de": "Anlernmodus am FJ62/12-36V starten. Für weitere informationen bitte die Anleitung des FJ62/12-36V lesen."
+        },
+        "4": "#setState {CMD: 3}",
+        "5": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -983,6 +1378,19 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": true,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Start teach-in mode on FFJ62NP-230V. For more information, please read the FJ62NP-230V DC manual.",
+          "de": "Anlernmodus am FJ62NP-230V starten. Für weitere informationen bitte die Anleitung des FJ62NP-230V lesen."
+        },
+        "4": "#setState {CMD: 3}",
+        "5": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -1022,6 +1430,23 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": true,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Start teach-in mode on FKLD61. For more information, please read the FKLD61 manual.",
+          "de": "Anlernmodus am FKLD61 starten. Für weitere informationen bitte die Anleitung des FKLD61 lesen."
+        },
+        "4": "#setState {CMD: 3}",
+        "5": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        },
+        "6": {
+          "en": "Repeat the steps for the second channel.",
+          "de": "Vorgang für den zweiten Kanal Wiederholen."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the group. Base ID as decimal + Bus ID 1 = ID as decimal => converted to Hex. Example: (Hex: ffcae700) 4291487488 + 1 = 4291487489 => ffcae701",
@@ -1065,6 +1490,19 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": true,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Start teach-in mode on FL62-230V. For more information, please read the FL62-230V manual.",
+          "de": "Anlernmodus am FL62-230V starten. Für weitere informationen bitte die Anleitung des FL62-230V lesen."
+        },
+        "4": "#setState {CMD: 2}",
+        "5": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -1106,6 +1544,18 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "The FLGTF55 (TVOC) is a two-channel device, where each channel has its own ID. You have to add the second channel (Temperature and Humidity) manually.",
+          "de": "Das FLGTF55 (TVOC) ist ein zweikanaliges Gerät, jeder Kanal hat seine eigene ID. Der zweite Kanal (Temperatur und Luftfeuchtigkeit) muss manuell hinzugefügt werden."
+        },
+        "4": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter the first device ID.",
@@ -1126,6 +1576,18 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "The FLGTF55 (Temperature and Humidity) is a two-channel device, where each channel has its own ID. You have to add the second channel (TVOC) manually.",
+          "de": "Das FLGTF55 (Temperature and Humidity) ist ein zweikanaliges Gerät, jeder Kanal hat seine eigene ID. Der zweite Kanal (TVOC) muss manuell hinzugefügt werden."
+        },
+        "4": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter the second device ID.",
@@ -1147,20 +1609,37 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": true,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Set the upper rotary switch to min.",
+          "de": "Den oberen Drehschalter auf min stellen."
+        },
+        "4": {
+          "en": "Set the lower rotary switch to LRN.",
+          "de": "Den unteren Drehschalter auf LRN stellen."
+        },
+        "5": "#setState {CMD: 3}",
+        "6": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
-          "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the group. Base ID as decimal + Bus ID 1 = ID as decimal => converted to Hex. Example: (Hex: ffcae700) 4291487488 + 1 = 4291487489 => ffcae701",
+          "1": "Enter device ID.",
           "2": "Click on 'Add Device'.",
-          "3": "Start teach-in mode on FLD61. (Tip: It is more convenient to set up with the PCT14 software) For more information, please read the FLD61 manual.",
-          "4": "Switch to the objects and send the command (CMD) 'Teach-in'.",
-          "5": "Repeat the steps for the second channel."
+          "3": "Set the upper rotary switch to min.",
+          "4": "Set the lower rotary switch to LRN.",
+          "5": "Switch to the objects and send the command (CMD) 'Teach-in'."
         },
         "de": {
-          "1": "Geräte ID eintragen. Sie setzt sich aus der Basis ID des Funk-Antennenmodul (z.B. FAM14) und der Bus ID der Gruppe zusammen. Basis ID in Dezimal  + Bus ID = ID als Dezimal => umgewandelt in Hex. Beispiel: (Hex: ffcae700) 4291487488 +  1 = 4291487489 => ffcae701.",
+          "1": "Geräte ID eintragen.",
           "2": "Auf 'Gerät Hinzufügen' klicken.",
-          "3": "Anlernmodus am FLD61 starten. (Tipp: Komfortabler ist die Einrichtung mit der Software PCT14) Für weitere informationen bitte die Anleitung des FLD61 lesen.",
-          "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden.",
-          "5": "Vorgang für den zweiten Kanal Wiederholen."
+          "3": "Den unteren Drehschalter auf min stellen.",
+          "4": "Den oberen Drehschalter auf LRN stellen.",
+          "5": "Zu den Objekten wechseln und den Befehl (CMD) 'Teach-in' senden."
         }
       }
     },
@@ -1169,6 +1648,14 @@
       "autocreate": true,
       "teachin_method": "RPS",
       "id_offset": false,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Click on 'Add Device'.",
@@ -1207,6 +1694,51 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": true,
+      "deviceManager": {
+            "1": "#EltakoSeries14enterDeviceId",
+            "2": "#addDevicePredefined",
+            "3": {
+              "choice": {
+                "PCT14": {
+                  "en": {
+                    "0": "PCT14:",
+                    "1": "???"
+                  },
+                  "de": {
+                    "0": "PCT14:",
+                    "1": "???"
+                  }
+                },
+                "Manual": {
+                  "en": {
+                    "0": "On device:",
+                    "1": "1. Set the upper rotary switch to 7 (contact 1) or 8 (contact 2).",
+                    "2": "2. Set the middle rotary switch to LRN.",
+                    "3": "3. Then click on 'OK' to complete the process."
+                  },
+                  "de": {
+                    "0": "Am Gerät:",
+                    "1": "1. Den oberen Drehschalter auf 7 (Kontakt 1) oder (Kontakt 2) stellen.",
+                    "2": "2. Den mittleren Drehschalter auf LRN stellen.",
+                    "3": "3. Anschließend auf 'OK' klicken, um den Vorgang abzuschließen."
+                  }
+                }
+              },
+              "label": {
+                "en": "How do you want to add the device?",
+                "de": "Wie möchten Sie das Gerät hinzufügen?"
+              }
+            },
+            "4": "#setState {CMD: 0}",
+            "5": {
+            "en": "Device added.",
+            "de": "Gerät hinzugefügt."
+            },
+          "6": {
+            "en": "Repeat the process for the other contact.",
+            "de": "Vorgang für den anderen Kontakt wiederholen."
+          }
+      },
       "help": {
         "en":{
           "1": "Enter device ID.",
@@ -1229,6 +1761,24 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": true,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Set the lower rotary switch to RT1 and the upper one to LRN. Then click on 'OK' to complete the process.",
+          "de": "Den unteren Drehschalter auf RT1 und den oberen auf LRN stellen. Anschließend auf 'OK' klicken, um den Vorgang abzuschließen."
+        },
+        "4": "#setState {CMD: 0}",
+        "5": {
+          "en": "Set the lower rotary switch to RT2 and the upper one to LRN. Then click on 'OK' to complete the process.",
+          "de": "Den unteren Drehschalter auf RT2 und den oberen auf LRN stellen. Anschließend auf 'OK' klicken, um den Vorgang abzuschließen."
+        },
+        "6": "#setState {CMD: 2}",
+        "7": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -1559,6 +2109,23 @@
       "autocreate": false,
       "teachin_method": "none",
       "id_offset": true,
+      "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+          "en": "Set the lower rotary switch to max.",
+          "de": "Den unteren Drehschalter auf max stellen."
+        },
+        "4": {
+          "en": "Set the upper rotary switch to LRN. Then click OK.",
+          "de": "Den oberen Drehschalter auf LRN stellen. Dann auf OK klicken."
+        },
+        "5": "#setState {'CMD': 3}",
+        "6": {
+          "en": "Device added.",
+          "de": "Gerät hinzugefügt."
+        }
+      },
       "help": {
         "en": {
           "1": "Enter device ID.",
@@ -2825,11 +3392,29 @@
       "id_offset": false,
       "help": {
         "en": {
-          "1": "Enter device ID.",
+          "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the group. Base ID as decimal + Bus ID 1 = ID as decimal => converted to Hex. Example: (Hex: ffcae700) 4291487488 + 1 = 4291487489 => ffcae701",
           "2": "Click on 'Add Device'."
         },
         "de": {
-          "1": "Geräte ID eintragen.",
+          "1": "Geräte ID eintragen. Sie setzt sich aus der Basis ID des Funk-Antennenmodul (z.B. FAM14) und der Bus ID der Gruppe zusammen. Basis ID in Dezimal  + Bus ID = ID als Dezimal => umgewandelt in Hex. Beispiel: (Hex: ffcae700) 4291487488 +  1 = 4291487489 => ffcae701.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
+    "FWZ14": {
+      "EEP": [
+        "A5-12-01"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the group. Base ID as decimal + Bus ID 1 = ID as decimal => converted to Hex. Example: (Hex: ffcae700) 4291487488 + 1 = 4291487489 => ffcae701",
+          "2": "Click on 'Add Device'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen. Sie setzt sich aus der Basis ID des Funk-Antennenmodul (z.B. FAM14) und der Bus ID der Gruppe zusammen. Basis ID in Dezimal  + Bus ID = ID als Dezimal => umgewandelt in Hex. Beispiel: (Hex: ffcae700) 4291487488 +  1 = 4291487489 => ffcae701.",
           "2": "Auf 'Gerät Hinzufügen' klicken."
         }
       }
