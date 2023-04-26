@@ -4,7 +4,7 @@
   "description": "Connects EnOcean devices via USB/Serial devices with TCM300 Chips",
   "author": {
     "name": "Jey Cee",
-    "email": "jey-cee@live.com"
+    "email": "iobroker@all-smart.net"
   },
   "homepage": "https://github.com/jey-cee/ioBroker.enocean",
   "license": "MIT",
