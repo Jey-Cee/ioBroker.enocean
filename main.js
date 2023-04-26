@@ -20,7 +20,6 @@ const HandleType2 = require('./lib/tools/Packet_handler').handleType2;
 const HandleType4 = require('./lib/tools/Packet_handler').handleType4;
 const HandleType10 = require('./lib/tools/Packet_handler').handleType10;
 const HandleTeachIn = require('./lib/tools/Packet_handler').handleTeachIn;
-const predifnedDeviceTeachIn = require('./lib/tools/Packet_handler').predifnedDeviceTeachin;
 
 const jsonLogic = require('json-logic-js');
 
@@ -61,6 +60,8 @@ class Enocean extends utils.Adapter {
 		this.on('message', this.onMessage.bind(this));
 		this.on('unload', this.onUnload.bind(this));
 
+		this.predifnedDeviceTeachIn = require('./lib/tools/Packet_handler').predifnedDeviceTeachin;
+
 		this.deviceManagement = new dmEnocean(this);
 
 		this.eepList = EEPList;
@@ -70,6 +71,9 @@ class Enocean extends utils.Adapter {
 	 * Is called when databases are connected and adapter received configuration.
 	 */
 	async onReady() {
+		const systemConfig = await this.getForeignObjectAsync('system.config');
+		this.systemConfig = systemConfig.common;
+
 		// Reset the connection indicator during startup
 		this.setState('info.connection', {val: false, ack: true});
 
@@ -385,9 +389,15 @@ class Enocean extends utils.Adapter {
 				respond({ error: null, result: 'Ready' }, this);
 				break;
 			case 'newDevice':
-				new predifnedDeviceTeachIn(this, obj.message.device, obj.message.mfr, obj.message.id);
+				new this.predifnedDeviceTeachIn(this, obj.message.device, obj.message.mfr, obj.message.id);
 				respond({ error: null, result: 'Ready' }, this);
 				break;
+			case 'deleteDevice':{
+				// remove namespace from id
+				const id = obj.message.replace(this.namespace + '.', '');
+				await this.deleteDeviceAsync(id);
+				break;
+			}
 			case 'getDevices': {
 				const devices = require('./lib/definitions/devices.json');
 				respond(devices, this);
@@ -993,6 +1003,16 @@ class Enocean extends utils.Adapter {
 				resolve(true);
 			}, time *  1000);
 		});
+	}
+
+	/**
+	 * Checks whether the given string is in hexadecimal format and exactly 8 characters long.
+	 * @param {string} str - The string to check.
+	 * @returns {boolean} - `true` if the string is in hexadecimal format and exactly 8 characters long, otherwise `false`.
+	 */
+	isValidHex(str) {
+		const regex = /^[0-9A-Fa-f]{8}$/;
+		return regex.test(str);
 	}
 
 	socketConnectAsync(port, ip){

@@ -133,8 +133,9 @@
 				text += '<td>' + '--' + '</td>';
 			}
 
-			//text += '<td>' + '' +
-			//		'<select id="' + obj.native.id + '_deviceOP" data-id="' + obj.native.id + '">' + '<option value="" disabled selected>Select operation</option>';
+			text += '<td>' + '' +
+
+					'<a id="'+ obj.native.id + obj.common.role + '" class="delete-device values-buttons btn-floating btn-small waves-effect waves-light red"><i class="material-icons" title="Delete device">delete</i></a>';
 
 			for (let i in deviceCommands) {
 				text += '<option value="' + i + '">' + _(i) + '</option>';
@@ -144,8 +145,12 @@
 
 			text = '<tr data-id="' + obj.native.id + '">' + text + '</tr>';
 			$('#devices_body').append(text);
-			//$('#' + obj.native.id + '_deviceOP').change({id : obj.native.id}, onSelect);
-			//$('#' + obj.native.id + '_deviceOP').select();
+
+			$('#' + obj.native.id + obj.common.role).click(function(e){
+				sendTo('enocean.' + instance, 'deleteDevice', obj.native.id);
+				// remove from list
+				$(this).closest('tr').remove();
+			});
 		}
 
 
@@ -508,7 +513,7 @@
 								<th class="translate">EEP</th>
 								<th class="translate" data-lang="manufacturer">Manufacturer</th>
 								<th class="translate" data-lang="device">Device</th>
-								<!-- <th class="translate" data-lang="operation">Operation</th> -->
+								<th class="translate" ></th>
 							</tr>
 						</thead>
 						<tbody id="devices_body" class="table-values">
