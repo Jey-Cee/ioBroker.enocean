@@ -1,0 +1,254 @@
+{
+  "eep": "A5-12-02",
+  "rorg_number": "0xA5",
+  "telegram": "4BS",
+  "func_number": "0x12",
+  "type_number": "0x02",
+  "type_title": "Autmoated Meter Reading (AMR) Gas",
+  "bidirectional": false,
+  "objects": {
+    "MR": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Meter reading",
+          "de": "Zählerstand"
+        },
+        "role": "value.gas.consumption",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "unit": "m³"
+      },
+      "native": {}
+    },
+    "TI": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Tariff info",
+          "de": "Tarif-Info"
+        },
+        "role": "state",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0
+      },
+      "native": {}
+    },
+    "GC": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Gas consumption",
+          "de": "Gas Verbrauch"
+        },
+        "role": "value.gas",
+        "type": "number",
+        "read": true,
+        "write": false,
+        "def": 0,
+        "unit": "liter/sec"
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "29",
+            "bitsize": "1",
+            "value": 0
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Meter Reading",
+          "shortcut": "MR",
+          "bitoffs": "0",
+          "bitsize": "24",
+          "secondArgument": {
+            "bitoffs": "30",
+            "bitsize": "2"
+          },
+          "value": {
+            "if": [
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  0
+                ]
+              },
+              {
+                "var": "value"
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  1
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  10
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  2
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  100
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  2
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  1000
+                ]
+              }
+            ]
+          },
+          "unit": "m³"
+        },
+        {
+          "data": "Tariff info",
+          "shortcut": "TI",
+          "bitoffs": "24",
+          "bitsize": "4",
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    },
+    {
+      "send": false,
+      "condition": {
+        "command": [
+          {
+            "bitoffs": "29",
+            "bitsize": "1",
+            "value": 1
+          }
+        ]
+      },
+      "datafield": [
+        {
+          "data": "Gas consumption",
+          "shortcut": "GC",
+          "bitoffs": "0",
+          "bitsize": "24",
+          "secondArgument": {
+            "bitoffs": "30",
+            "bitsize": "2"
+          },
+          "value": {
+            "if": [
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  0
+                ]
+              },
+              {
+                "var": "value"
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  1
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  10
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  2
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  100
+                ]
+              },
+              {
+                "==": [
+                  {
+                    "var": "value2"
+                  },
+                  2
+                ]
+              },
+              {
+                "/": [
+                  {
+                    "var": "value"
+                  },
+                  1000
+                ]
+              }
+            ]
+          },
+          "unit": "liter/sec"
+        },
+        {
+          "data": "Tariff info",
+          "shortcut": "TI",
+          "bitoffs": "24",
+          "bitsize": "4",
+          "value": {
+            "var": "value"
+          }
+        }
+      ]
+    }
+  ]
+}
