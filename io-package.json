@@ -49,7 +49,7 @@
       "EnOcean",
       "Love"
     ],
-    "license": "MIT",
+    "license": "CC-BY-NC-3.0",
     "platform": "Javascript/Node.js",
     "icon": "enocean.png",
     "enabled": true,
