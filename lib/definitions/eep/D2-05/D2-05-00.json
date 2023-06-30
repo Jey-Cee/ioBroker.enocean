@@ -460,18 +460,14 @@
           "description": "Command identifier",
           "bitoffs": "28",
           "bitsize": "4",
-          "value": {
-            "var": 1
-          }
+          "value": 1
         },
         {
           "data": "fixed parameter",
           "description": "Vertical Position",
           "bitoffs": "1",
           "bitsize": "7",
-          "value": {
-            "var": 0
-          }
+          "value": 0
         },
         {
           "data": "Rotation Angle",
@@ -528,18 +524,14 @@
           "description": "Command identifier",
           "bitoffs": "28",
           "bitsize": "4",
-          "value": {
-            "var": 1
-          }
+          "value": 1
         },
         {
           "data": "fixed parameter",
           "description": "Vertical Position",
           "bitoffs": "1",
           "bitsize": "7",
-          "value": {
-            "var": 100
-          }
+          "value": 100
         },
         {
           "data": "Rotation Angle",

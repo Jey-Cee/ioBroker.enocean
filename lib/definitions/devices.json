@@ -4309,11 +4309,11 @@
       "help": {
         "en": {
           "1": "Click on 'Add Device'.",
-          "2": "Start teachin mode on your Rollershutter. For more information please read the manual of Rollershutter."
+          "2": "Press the button on the Roller-shutter 3 times. For more information please read the manual of Roller-shutter."
         },
         "de": {
           "1": "Auf 'Gerät Hinzufügen' klicken.",
-          "2": "Anlernmodus am Rollershutter starten. Für weitere informationen bitte die Anleitung des Rollershutter lesen."
+          "2": "3 mal die Taste am Rollladenaktor drücken. Für weitere informationen bitte die Anleitung des Rollladenaktor lesen."
         }
       }
     },
