@@ -137,6 +137,24 @@
           "2": "Auf 'Gerät Hinzufügen' klicken."
         }
       }
+    },
+    "Wireless smoke alarm ASD 10": {
+      "EEP": [
+        "A5-30-03"
+      ],
+      "autocreate": true,
+      "teachin_method": "UTE",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your ASD 10. For more information please read the manual of ASD10."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am ASD 10 starten. Für weitere informationen bitte die Anleitung des ASD 10 lesen."
+        }
+      }
     }
   },
   "DIMPLEX": {
