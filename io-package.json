@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "enocean",
-    "version": "0.8.5",
+    "version": "0.9.0",
     "news": {
+      "0.9.0": {
+        "en": "added Afriso ASD 10\nfix D2-05-00 Goto top/bottom\ncatch error while update objects on adapter start\nworkaround for serial port selection does not display all options",
+        "de": "afriso ASD 10\nfix D2-05-00 Goto top/unten\nfehler beim update von objekten auf adapter starten\nworkaround für die serielle portauswahl zeigt nicht alle optionen",
+        "ru": "добавлено Afriso ASD 10\nфикс D2-05-00 Вверх/боттом\nпоймать ошибку при обновлении объектов на запуске адаптера\nworkaround для выбора серийного порта не показывает все варианты",
+        "pt": "adicionado Afriso ASD 10\ncorrigir D2-05-00 Goto top/bottom\npegar erro ao atualizar objetos no início do adaptador\nworkaround para a seleção serial da porta não exibe todas as opções",
+        "nl": "vertaling:\nd2-05-00 Goto top/bottom\nvang fout terwijl update objecten op adapter beginnen\nwerkplek voor serieport selectie vertoont niet alle opties",
+        "fr": "afriso ASD 10\ncorrection D2-05-00 Goto top/bottom\nerreur de capture pendant la mise à jour des objets sur le démarrage de l'adaptateur\nworkaround for serial port selection does not display all options",
+        "it": "afriso ASD 10\ncorrezione D2-05-00 Goto top/bottom\ncatturare l'errore durante l'aggiornamento degli oggetti sull'adattatore\nworkaround per la selezione della porta seriale non visualizza tutte le opzioni",
+        "es": "afriso ASD 10\nreparación D2-05-00 Goto top/bottom\nerror de captura al actualizar objetos en el adaptador\nno muestra todas las opciones",
+        "pl": "afriso ASD 10\nd2-05-00 Goto top\nbłędy przy jednoczesnym uruchomieniu adapteru\ndobór portów seryjnych nie wyświetla wszystkich opcji",
+        "uk": "доданий Afriso ASD 10\nфіксація D2-05-00 Голона / нижня\nзловити помилку при оновленні об'єктів на старті адаптера\nробота для вибору серійного порту не відображається всі параметри",
+        "zh-cn": "afriso ASD 10\nfix D2-05-00 Gtoward/bottom\n降水错误,同时更新适应开始物体\n详细的港口选择工作没有显示出所有选择。"
+      },
       "0.8.5": {
         "en": " rework TF-13-25, fixes Eltako DSZ14 (#87)\n rework TF-13-14, SP uses now temperature range 0-40°C\n remove useless object ASC from A5-20-01\n added Afriso FT & FTF\n added R-Tronic RT B (A5-10-06 + RPS)\n added Eltako F3Z14D, FWZ14, FRGBW14, FWS81\n added new teachin telegram for FUD61NPN-230V\n added remove button to device list in config\n added profile F6-05-01\n fix F6-10-00: The close state was not set, the window was always shown as open.\n fix multiple conditions in eep's\n fix Eltako FGW14-USB does not receive status updates\n fix lastID is null when using Eltako FGW14-USB\n fix TF-01-01 TT and TTT both set on incoming telegram, only TT has to be set\n fix I1-01-01 invalid telegram send by on and off\n fix device definition Oventrop mote 420\n fix missing zeros in front of sender IDs while using FGW14\n fix incomplete data while receiving type 10 messages\n fix missing device name\n code cleanup and refactoring",
         "de": " Überarbeitung TF-13-25, Fehlerbehebung Eltako DSZ14 (#87)\n Überarbeitung TF-13-14, SP verwendet jetzt Temperaturbereich 0-40°C\n Nutzloses Objekt ASC aus A5-20-01 entfernt\n Hinzugefügt Afriso FT & FTF\n Hinzugefügt R-Tronic RT B (A5-10-06 + RPS)\n Hinzugefügt Eltako F3Z14D, FWZ14, FRGBW14, FWS81\n Hinzugefügt neues Teachin-Telegramm für FUD61NPN-230V\n Hinzugefügt Schaltfläche zum Entfernen der Geräteliste in der Konfiguration\n Hinzugefügt Profil F6-05-01\n Fix F6-10-00: Der Zustand geschlossen wurde nicht gesetzt, das Fenster wurde immer als offen angezeigt.\n Fix mehrere Bedingungen in eep's\n Fix Eltako FGW14-USB empfängt keine Statusaktualisierungen\n Fix lastID ist null bei Verwendung von Eltako FGW14-USB\n Fix TF-01-01 TT und TTT beide auf eingehendes Telegramm gesetzt, nur TT muss gesetzt werden\n Fix I1-01-01 ungültiges Telegramm senden von an und aus\n Fix Gerätedefinition Oventrop mote 420\n Fix fehlende Nullen vor Sender-IDs beim Verwenden von FGW14\n Fix unvollständige Daten beim Empfangen von Typ 10-Nachrichten\n Fix fehlender Gerätename\n Codebereinigung und Refactoring",
