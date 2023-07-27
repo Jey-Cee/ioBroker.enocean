@@ -190,6 +190,12 @@ To test telegram handling create a channel with name development and in this cha
 
 ## Changelog
 
+### **WORK IN PROGRESS**
+* added Afriso ASD 10
+* fix D2-05-00 Goto top/bottom
+* catch error while update objects on adapter start
+* workaround for serial port selection does not display all options
+
 ### 0.8.5 (2023-02-11)
 * rework TF-13-25, fixes Eltako DSZ14 (#87)
 * rework TF-13-14, SP uses now temperature range 0-40°C
