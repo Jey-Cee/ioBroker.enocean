@@ -1539,7 +1539,7 @@
       }
     },
     "FKD-am": {
-      "EEP": ["TF-01-04"],
+      "EEP": ["F6-01-01"],
       "autocreate": false,
       "teachin_method": "RPS",
       "id_offset": false,
