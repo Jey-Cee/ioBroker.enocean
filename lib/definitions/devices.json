@@ -155,6 +155,22 @@
           "2": "Anlernmodus am ASD 10 starten. Für weitere informationen bitte die Anleitung des ASD 10 lesen."
         }
       }
+    },
+    "Wireless smoke alarm ASD 20": {
+      "EEP": ["F6-05-02"],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'."
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
     }
   },
   "DIMPLEX": {
