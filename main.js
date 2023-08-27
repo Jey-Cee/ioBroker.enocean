@@ -765,7 +765,7 @@ class Enocean extends utils.Adapter {
 
 				connected = true;
 			} catch (e) {
-				this.log.error(e);
+				this.log.warn(e);
 			}
 		}
 
@@ -782,7 +782,7 @@ class Enocean extends utils.Adapter {
 
 				connected = true;
 			} catch (e) {
-				this.log.error(e);
+				this.log.warn(e);
 			}
 		}
 
@@ -797,7 +797,7 @@ class Enocean extends utils.Adapter {
 
 				connected = true;
 			} catch (e) {
-				this.log.error(e);
+				this.log.warn(e);
 			}
 		}
 
@@ -839,7 +839,7 @@ class Enocean extends utils.Adapter {
 
 				connected = true;
 			} catch (e) {
-				this.log.error(e);
+				this.log.warn(e);
 			}
 		}
 
