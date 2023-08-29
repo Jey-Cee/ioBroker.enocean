@@ -141,6 +141,13 @@
         },
         {
           "data": "fixed parameter",
+          "description": "teachin type",
+          "bitoffs": "24",
+          "bitsize": "1",
+          "value": 1
+        },
+        {
+          "data": "fixed parameter",
           "description": "teachin byte 4",
           "bitoffs": "28",
           "bitsize": "1",
