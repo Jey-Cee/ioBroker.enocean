@@ -130,21 +130,21 @@
           "description": "teachin byte 2",
           "bitoffs": "8",
           "bitsize": "8",
-          "value": 0
+          "value": 64
         },
         {
           "data": "fixed parameter",
           "description": "teachin byte 3",
           "bitoffs": "16",
           "bitsize": "8",
-          "value": 0
+          "value": 55
         },
         {
           "data": "fixed parameter",
           "description": "teachin byte 4",
           "bitoffs": "28",
           "bitsize": "1",
-          "value": 0
+          "value": 255
         }
       ]
     }
