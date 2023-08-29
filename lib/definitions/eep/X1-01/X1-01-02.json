@@ -48,22 +48,18 @@
           "shortcut": "TMP",
           "bitoffs": "16",
           "bitsize": "8",
+          "value_out": ",
           "value_out": {
-            "/": [
+            "-": [
+              255,
               {
-                "-": [
+                "*": [
                   {
-                    "+": [
-                      {
-                        "var": "value"
-                      },
-                      255
-                    ]
+                    "var": "value"
                   },
-                  0
+                  6.375
                 ]
-              },
-              -0.1568627450980392
+              }
             ]
           },
           "decimals": 2
@@ -123,21 +119,28 @@
           "description": "teachin byte 1",
           "bitoffs": "0",
           "bitsize": "8",
-          "value": 0
+          "value": 64
         },
         {
           "data": "fixed parameter",
           "description": "teachin byte 2",
           "bitoffs": "8",
           "bitsize": "8",
-          "value": 0
+          "value": 55
         },
         {
           "data": "fixed parameter",
           "description": "teachin byte 3",
           "bitoffs": "16",
           "bitsize": "8",
-          "value": 0
+          "value": 255
+        },
+        {
+          "data": "fixed parameter",
+          "description": "teachin type",
+          "bitoffs": "24",
+          "bitsize": "1",
+          "value": 1
         },
         {
           "data": "fixed parameter",
