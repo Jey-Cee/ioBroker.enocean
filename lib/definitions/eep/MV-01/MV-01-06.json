@@ -1,0 +1,113 @@
+{
+    "eep": "MV-01-06",
+    "rorg_number": "0xB2",
+    "telegram": "GP_CD",
+    "func_number": "0x01",
+    "type_number": "0x06",
+    "type_title": "Afriso DTA20E",
+    "bidirectional": false,
+    "objects": {
+        "FQ": {
+            "type": "state",
+            "common": {
+                "name": {
+                    "en": "Filling quantity",
+                    "de": "Füllmenge"
+                },
+                "role": "value",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "def": 0,
+                "unit": "L"
+            },
+            "native": {}
+        },
+        "BATT": {
+            "type": "state",
+            "common": {
+                "name": {
+                    "en": "Battery status",
+                    "de": "Batterie Status"
+                },
+                "role": "value.battery",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "def": 0,
+                "unit": "%"
+            },
+            "native": {}
+        },
+        "ALARM": {
+            "type": "state",
+            "common": {
+                "name": {
+                    "en": "Alarm",
+                    "de": "Alarm"
+                },
+                "role": "indicator.alarm",
+                "type": "boolean",
+                "read": true,
+                "write": false,
+                "def": false
+            },
+            "native": {}
+        },
+        "SS": {
+            "type": "state",
+            "common": {
+                "name": {
+                    "en": "Sensor status",
+                    "de": "Sensor Status"
+                },
+                "role": "indicator",
+                "type": "number",
+                "read": true,
+                "write": false,
+                "def": 0,
+                "states": {
+                    "0": "no status",
+                    "1": "Out of range",
+                    "2": "Sensor error"
+                }
+            },
+            "native": {}
+        }
+    },
+    "case": [
+        {
+            "send": false,
+            "datafield": [
+                {
+                    "data": "Filling quantity",
+                    "shortcut": "FQ",
+                    "bitoffs": "0",
+                    "bitsize": "20",
+                    "value": {"var": "value"}
+                },
+                {
+                    "data": "Battery status",
+                    "shortcut": "BATT",
+                    "bitoffs": "28",
+                    "bitsize": "8",
+                    "value":{"var": "value"}
+                },
+                {
+                    "data": "Alarm",
+                    "shortcut": "ALARM",
+                    "bitoffs": "36",
+                    "bitsize": "1",
+                    "value": {"==": [{"var": "value"}, 1]}
+                },
+                {
+                    "data": "Sensor status",
+                    "shortcut": "SS",
+                    "bitoffs": "37",
+                    "bitsize": "2",
+                    "value":{"var": "value"}
+                }
+            ]
+        }
+    ]
+}
