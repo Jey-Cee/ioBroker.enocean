@@ -466,7 +466,7 @@ class Enocean extends utils.Adapter {
 						return { path: port };
 					});
 			} catch (e) {
-				this.log.error('Cannot read "' + devDirName + '": ' + e);
+				this.log.warn('Cannot read "' + byIdDirName + '": ' + e);
 			}
 			for(const i in byId){
 				ports.push(byId[i]);
@@ -765,7 +765,7 @@ class Enocean extends utils.Adapter {
 
 				connected = true;
 			} catch (e) {
-				this.log.error(e);
+				this.log.warn(e);
 			}
 		}
 
@@ -782,7 +782,7 @@ class Enocean extends utils.Adapter {
 
 				connected = true;
 			} catch (e) {
-				this.log.error(e);
+				this.log.warn(e);
 			}
 		}
 
@@ -797,7 +797,7 @@ class Enocean extends utils.Adapter {
 
 				connected = true;
 			} catch (e) {
-				this.log.error(e);
+				this.log.warn(e);
 			}
 		}
 
@@ -839,7 +839,7 @@ class Enocean extends utils.Adapter {
 
 				connected = true;
 			} catch (e) {
-				this.log.error(e);
+				this.log.warn(e);
 			}
 		}
 

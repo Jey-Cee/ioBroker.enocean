@@ -26,35 +26,13 @@
     "case": [
         {
             "send": false,
-            "condition": {
-                "bitoffs": "3",
-                "bitsize": "1",
-                "value": 1
-            },
             "datafield": [
                 {
                     "data": "Push Button Status",
                     "shortcut": "PB",
                     "bitoffs": "3",
                     "bitsize": "1",
-                    "value": true
-                }
-            ]
-        },
-        {
-            "send": false,
-            "condition": {
-                "bitoffs": "3",
-                "bitsize": "1",
-                "value": 0
-            },
-            "datafield": [
-                {
-                    "data": "Push Button Status",
-                    "shortcut": "PB",
-                    "bitoffs": "3",
-                    "bitsize": "1",
-                    "value": false
+                    "value": {"==": [{"var": "value"}, 1]}
                 }
             ]
         }

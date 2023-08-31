@@ -1,0 +1,84 @@
+{
+  "eep": "F6-05-02",
+  "rorg_number": "0xF6",
+  "telegram": "RPS",
+  "func_number": "0x05",
+  "type_number": "0x02",
+  "type_title": "Smoke Detector",
+  "bidirectional": false,
+  "objects": {
+    "SMO": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Smoke detected",
+          "de": "Rauch erkannt"
+        },
+        "role": "state",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": {
+          "en": "Shows true if smoke is detected.",
+          "de": "Zeigt true an wenn Rauch erkannt wurde."
+        }
+      },
+      "native": {}
+    },
+    "BATT": {
+      "type": "state",
+      "common": {
+        "name": {
+          "en": "Energy low",
+          "de": "Batterie schwach"
+        },
+        "role": "indicator.lowbat",
+        "type": "boolean",
+        "read": true,
+        "write": false,
+        "def": false,
+        "desc": {
+          "en": "Shows true if energy is low.",
+          "de": "Zeigt true an wenn die Batterie schwach ist."
+        }
+      },
+      "native": {}
+    }
+  },
+  "case": [
+    {
+      "send": false,
+      "datafield": [
+        {
+          "data": "Smoke detected",
+          "shortcut": "SMO",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              16
+            ]
+          }
+        },
+        {
+          "data": "Energy low",
+          "shortcut": "BATT",
+          "bitoffs": "0",
+          "bitsize": "8",
+          "value": {
+            "==": [
+              {
+                "var": "value"
+              },
+              48
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
