@@ -455,15 +455,17 @@ class Enocean extends utils.Adapter {
 			}
 
 			try {
-				byId = fs
-					.readdirSync(byIdDirName)
-					.map(function (file) {
-						return path.join(byIdDirName, file);
-					})
-					.filter(this.filterSerialPorts)
-					.map(function (port) {
-						return { path: port };
-					});
+			  if(fs.existsSync(byIdDirName)){
+  				byId = fs
+  					.readdirSync(byIdDirName)
+  					.map(function (file) {
+  						return path.join(byIdDirName, file);
+  					})
+  					.filter(this.filterSerialPorts)
+  					.map(function (port) {
+  						return { path: port };
+  					});
+			  }
 			} catch (e) {
 				this.log.warn('Cannot read "' + byIdDirName + '": ' + e);
 			}
