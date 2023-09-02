@@ -7,7 +7,6 @@ const os = require('os');
 const fs = require('fs');
 const path = require('path');
 
-
 // structured representation for ESP3 packets
 const ESP3Packet = require('./lib/tools/ESP3Packet').ESP3Packet;
 const ResponseTelegram = require('./lib/tools/ESP3Packet').ResponseTelegram;
@@ -515,6 +514,7 @@ class Enocean extends utils.Adapter {
 			this.sendQueue();
 
 			SERIALPORT_PARSER.on('data', async (data) => {
+			  this.setState('gateway.lastTelegram', {val: data.toString('hex'), ack: true});
 				this.log.debug(data.toString('hex'));
 				try {
 					await this.parseMessage(data);
