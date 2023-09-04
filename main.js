@@ -454,20 +454,18 @@ class Enocean extends utils.Adapter {
 				ports = [];
 			}
 
-			try {
-			  if(fs.existsSync(byIdDirName)){
-  				byId = fs
-  					.readdirSync(byIdDirName)
-  					.map(function (file) {
-  						return path.join(byIdDirName, file);
-  					})
-  					.filter(this.filterSerialPorts)
-  					.map(function (port) {
-  						return { path: port };
-  					});
-			  }
-			} catch (e) {
-				this.log.warn('Cannot read "' + byIdDirName + '": ' + e);
+		  if(fs.existsSync(byIdDirName)){
+				byId = fs
+					.readdirSync(byIdDirName)
+					.map(function (file) {
+						return path.join(byIdDirName, file);
+					})
+					.filter(this.filterSerialPorts)
+					.map(function (port) {
+						return { path: port };
+					});
+		  } else {
+				this.log.info('Cannot read "' + byIdDirName + '"');
 			}
 			for(const i in byId){
 				ports.push(byId[i]);
