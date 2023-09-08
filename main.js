@@ -7,7 +7,6 @@ const os = require('os');
 const fs = require('fs');
 const path = require('path');
 
-
 // structured representation for ESP3 packets
 const ESP3Packet = require('./lib/tools/ESP3Packet').ESP3Packet;
 const ResponseTelegram = require('./lib/tools/ESP3Packet').ResponseTelegram;
@@ -455,7 +454,7 @@ class Enocean extends utils.Adapter {
 				ports = [];
 			}
 
-			try {
+		  if(fs.existsSync(byIdDirName)){
 				byId = fs
 					.readdirSync(byIdDirName)
 					.map(function (file) {
@@ -465,8 +464,8 @@ class Enocean extends utils.Adapter {
 					.map(function (port) {
 						return { path: port };
 					});
-			} catch (e) {
-				this.log.warn('Cannot read "' + byIdDirName + '": ' + e);
+		  } else {
+				this.log.info('Cannot read "' + byIdDirName + '"');
 			}
 			for(const i in byId){
 				ports.push(byId[i]);
@@ -515,6 +514,7 @@ class Enocean extends utils.Adapter {
 			this.sendQueue();
 
 			SERIALPORT_PARSER.on('data', async (data) => {
+			  this.setState('gateway.lastTelegram', {val: data.toString('hex'), ack: true});
 				this.log.debug(data.toString('hex'));
 				try {
 					await this.parseMessage(data);
