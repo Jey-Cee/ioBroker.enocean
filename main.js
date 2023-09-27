@@ -351,7 +351,6 @@ class Enocean extends utils.Adapter {
 	 * @param {ioBroker.Message} obj
 	 */
 	async onMessage(obj) {
-
 		// responds to the adapter that sent the original message
 		function respond(response, that) {
 			if (obj.callback)
