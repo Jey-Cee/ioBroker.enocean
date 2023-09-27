@@ -4274,6 +4274,24 @@
           "2": "Anlernmodus am MVA005 starten. Für weitere informationen bitte die Anleitung des MVA005 lesen."
         }
       }
+    },
+    "MVA009": {
+      "EEP": [
+      "A5-20-06"
+      ],
+     "autocreate": true,
+      "teachin_method": "4BS",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your MVA009. For more information please read the manual of MVA009."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am MVA009 starten. Für weitere informationen bitte die Anleitung des MVA009 lesen."
+        }
+      }
     }
   },
   "NODON": {
