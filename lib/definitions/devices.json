@@ -4257,6 +4257,24 @@
         }
       }
     },
+    "MVA004": {
+      "EEP": [
+        "A5-20-01"
+      ],
+      "autocreate": true,
+      "teachin_method": "4BS",
+      "id_offset": true,
+      "help": {
+        "en": {
+          "1": "Click on 'Add Device'.",
+          "2": "Start teachin mode on your MVA004. For more information please read the manual of MVA004."
+        },
+        "de": {
+          "1": "Auf 'Gerät Hinzufügen' klicken.",
+          "2": "Anlernmodus am MVA004 starten. Für weitere informationen bitte die Anleitung des MVA004 lesen."
+        }
+      }
+    },
     "MVA005": {
       "EEP": [
         "A5-20-06"
