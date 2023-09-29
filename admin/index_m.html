@@ -247,7 +247,7 @@
 
 				}
 
-				if( $gateway === 'all-smart'){
+				if( $gateway === 'all-smart'|| $gateway === 'bsc-multigateway'){
 					$('#options-ser2net-ip-div').removeClass('hide');
 					$('#options-ser2net-port-div').removeClass('hide');
 					$('#ser2net-div').addClass('hide');
@@ -450,6 +450,7 @@
 							<option value="usb300">FAM-USB (ESP3 Firmware)</option>
 							<option value="fgw14-usb">FGW14-USB</option>
 							<option value="all-smart">ALL SMART EnOcean LAN Gateway</option>
+							<option value="bsc-multigateway">BSC EnOcean Multigateway</option>
 						</select>
 						<label for="gateway" class="translate">Gateway</label>
 					</div>
