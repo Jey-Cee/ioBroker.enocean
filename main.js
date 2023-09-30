@@ -397,7 +397,7 @@ class Enocean extends utils.Adapter {
 				break;
 			}
 			case 'getDevices': {
-				const devices = require('./lib/definitions/devices.json');
+				const devices = require('./lib/definitions/devices.js');
 				respond(devices, this);
 				break;
 			}
