@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "A5-10-03"
+    ],
+    "autocreate": true,
+    "teachin_method": "4BS",
+    "id_offset": false,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your room temperature sensor. For more information please read the manual of room temperature sensor (Afriso FT)."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am Raumfühler starten. Für weitere informationen bitte die Anleitung des Raumfühler (Afriso FT) lesen."
+        }
+    },
+    "name": "Room temperature sensor FT"
+}

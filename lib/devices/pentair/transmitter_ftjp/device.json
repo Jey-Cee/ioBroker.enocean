@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "A5-30-03"
+    ],
+    "autocreate": true,
+    "teachin_method": "UTE",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your Transmitter FTJP. For more information please read the manual of Transmitter FTJP."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am Transmitter FTJP starten. Für weitere informationen bitte die Anleitung des Transmitter FTJP lesen."
+        }
+    },
+    "name": "Transmitter FTJP"
+}

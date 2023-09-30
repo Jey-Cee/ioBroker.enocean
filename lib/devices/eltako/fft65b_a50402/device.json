@@ -1,0 +1,27 @@
+{
+    "EEP": [
+        "A5-04-02"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": false,
+    "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+            "en": "Device added.",
+            "de": "Gerät hinzugefügt."
+        }
+    },
+    "help": {
+        "en": {
+            "1": "Enter device ID.",
+            "2": "Click on 'Add Device'"
+        },
+        "de": {
+            "1": "Geräte ID eintragen.",
+            "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+    },
+    "name": "FFT65B (A5-04-02)"
+}

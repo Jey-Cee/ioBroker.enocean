@@ -1,0 +1,22 @@
+{
+    "EEP": [
+        "TF-01-02",
+        "TF-13-05"
+    ],
+    "autocreate": true,
+    "teachin_method": "MSC",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teach-in mode on the TF61L-230V. When delivered, the teach-in mode is active for the first 2 minutes after it is connected to the power supply. Switch the power supply off and on. (For more information, please read the TF61L-230V manual).",
+            "3": "Briefly press a radio pushbutton that has already been taught-in (not the central control pushbutton) or the local pushbutton 4 times plus 1 long press (>1 second). The load is briefly switched on and off to signal that it is ready to be taught-in."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am TF61L-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Die Versorgungsspannung Ab- und Zuschalten.(Für weitere informationen bitte die Anleitung des TF61L-230V lesen.)",
+            "3": "Einen bereits eingelernten Funktaster (nicht Zentralsteuertaster) oder den örtlichen Taster 4-mal kurz plus 1-mal lang (>1 Sekunde) tippen. Mit einem kurzen Ein- und Ausschalten der Last wird die Einlernbereitschaft signalisiert."
+        }
+    },
+    "name": "TF61L-230V"
+}

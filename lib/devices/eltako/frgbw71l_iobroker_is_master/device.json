@@ -1,0 +1,32 @@
+{
+    "EEP": [
+        "TF-13-21"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": true,
+    "broadcast": true,
+    "help": {
+        "en": {
+            "1": "ioBroker is the master. All FRGBW71L are slaves. This enables dimming control for selected channels.",
+            "2": "Enter a unique device ID used for the master.",
+            "3": "Click on 'Add Device'.",
+            "4": "First clear memory contents completely and then clear the device configuration for every FRGBW71L.",
+            "5": "Switch all FRGBW71L off (no powersupply). <br>Turn upper rotary switch on all FRGBW71L to 1. <br>Turn mid rotary switch on all FRGBW71L to min. <br>Turn lower rotary switch on all FRGBW71L to max.",
+            "6": "Turn on all FRGBW71L.",
+            "7": "Switch to the objects and send the command (CMD) 'Teach-in'.",
+            "8": "Set all FRGBW71L to the same minimum brightness and dimming speed. For more information read the manual of FRGBW71L, chapter Master-Slave operation."
+        },
+        "de": {
+            "1": "ioBroker ist Master. Alle FRGBW71L sind Slaves. Dies ermöglicht die Dimmsteuerung für die ausgewählten Kanäle.",
+            "2": "Eindeutige Geräte ID für den Master eintragen.",
+            "3": "Auf 'Gerät Hinzufügen' klicken.",
+            "4": "Bei allen FRGBW71L erst den Speicherinhalt komplett leeren und dann die Gerätekonfiguration löschen.",
+            "5": "Alle FRGBW71L ausschalten (keine Spannungsversorgung). <br>Oberen Drehschalter an allen FRGBW71L auf 1 drehen. <br>Mittleren Drehschalter an allen FRGBW71L auf min drehen. <br>Unteren Drehschalter an allen FRGBW71L auf max drehen.",
+            "6": "Alle FRGBW71L einschalten.",
+            "7": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden.",
+            "8": "Alle FRGBW71L auf die selbe Mindesthelligkeit und Dimmspeed einstellen. Für mehr informationen bitte die Anleitung des FRGBW71L, Abschnitt Master-Slave Betrieb lesen."
+        }
+    },
+    "name": "FRGBW71L (ioBroker is Master)"
+}

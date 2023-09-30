@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "F6-02-02"
+    ],
+    "autocreate": true,
+    "teachin_method": "RPS",
+    "id_offset": false,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Press any key of the switch."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Irgendeine Taste des Tasters betätigen."
+        }
+    },
+    "name": "F4PT55"
+}

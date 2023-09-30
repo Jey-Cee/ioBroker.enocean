@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "A5-12-01"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": false,
+    "help": {
+        "en": {
+            "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the group. Base ID as decimal + Bus ID 1 = ID as decimal => converted to Hex. Example: (Hex: ffcae700) 4291487488 + 1 = 4291487489 => ffcae701",
+            "2": "Click on 'Add Device'."
+        },
+        "de": {
+            "1": "Geräte ID eintragen. Sie setzt sich aus der Basis ID des Funk-Antennenmodul (z.B. FAM14) und der Bus ID der Gruppe zusammen. Basis ID in Dezimal  + Bus ID = ID als Dezimal => umgewandelt in Hex. Beispiel: (Hex: ffcae700) 4291487488 +  1 = 4291487489 => ffcae701.",
+            "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+    },
+    "name": "FWZ14"
+}

@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "D2-01-0E"
+    ],
+    "autocreate": true,
+    "teachin_method": "UTE",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your Micro Smart Plug. For more information please read the manual of Micro Smart Plug."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am Micro Smart Plug starten. Für weitere informationen bitte die Anleitung des Micro Smart Plug lesen."
+        }
+    },
+    "name": "Micro Smart Plug (MSP-2-1-11)"
+}

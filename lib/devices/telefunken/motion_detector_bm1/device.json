@@ -1,0 +1,17 @@
+{
+    "EEP": [
+        "A5-08-02"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": false,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken."
+        }
+    },
+    "name": "Motion detector BM1"
+}

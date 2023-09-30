@@ -1,0 +1,25 @@
+{
+    "EEP": [
+        "TF-13-21"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "ioBroker controls a Master-FRGBW71L. Dimming control for selected channels is not possible.",
+            "2": "Enter device ID. The ID consist of Device ID for first channel + 5. Example: (Hex: ffcae709) 4291487497 + 5 = 4291487502 = FFCAE70E",
+            "3": "Click on 'Add Device'.",
+            "4": "Turn upper rotary switch on FRGBW71L to 10. <br>Turn mid rotary switch on FRGBW71L to LRN.",
+            "5": "Switch to the objects and send the command (CMD) 'Teach-in'."
+        },
+        "de": {
+            "1": "ioBroker steuert den Master-FRGBW71L. Die Dimmersteuerung für die ausgewählten Kanäle ist nicht möglich.",
+            "2": "Geräte ID eintragen. Die ID setzt sich aus der Geräte ID des ersten Kanals + 5 zusammen. Beispiel: (Hex: ffcae709) 4291487497 + 5 = 4291487502 = FFCAE70E",
+            "3": "Auf 'Gerät Hinzufügen' klicken.",
+            "4": "Oberen Drehschalter am FRGBW71L auf 10 stellen. <br>Mittleren Drehschalter am FRGBW71L auf LRN stellen.",
+            "5": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden."
+        }
+    },
+    "name": "FRGBW71L (ioBroker controls Master)"
+}

@@ -1,0 +1,37 @@
+{
+    "EEP": [
+        "TF-14-04",
+        "TF-13-04"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": true,
+    "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+            "en": "Start teach-in mode on FFJ62NP-230V. For more information, please read the FJ62NP-230V DC manual.",
+            "de": "Anlernmodus am FJ62NP-230V starten. Für weitere informationen bitte die Anleitung des FJ62NP-230V lesen."
+        },
+        "4": "#setState {CMD: 3}",
+        "5": {
+            "en": "Device added.",
+            "de": "Gerät hinzugefügt."
+        }
+    },
+    "help": {
+        "en": {
+            "1": "Enter device ID.",
+            "2": "Click on 'Add Device'.",
+            "3": "Start teach-in mode on FJ62NP-230V. For more information, please read the FJ62NP-230V manual.",
+            "4": "Switch to the objects and send the command (CMD) 'Teach-in'."
+        },
+        "de": {
+            "1": "Geräte ID eintragen.",
+            "2": "Auf 'Gerät Hinzufügen' klicken.",
+            "3": "Anlernmodus am FJ62NP-230V starten. Für weitere informationen bitte die Anleitung des FJ62NP-230V lesen.",
+            "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden."
+        }
+    },
+    "name": "FJ62NP-230V"
+}

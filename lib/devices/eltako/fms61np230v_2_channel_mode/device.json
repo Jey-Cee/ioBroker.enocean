@@ -1,0 +1,44 @@
+{
+    "EEP": [
+        "TF-13-22",
+        "TF-13-17"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": true,
+    "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+            "en": "Set the lower rotary switch to RT1 and the upper one to LRN. Then click on 'OK' to complete the process.",
+            "de": "Den unteren Drehschalter auf RT1 und den oberen auf LRN stellen. Anschließend auf 'OK' klicken, um den Vorgang abzuschließen."
+        },
+        "4": "#setState {CMD: 0}",
+        "5": {
+            "en": "Set the lower rotary switch to RT2 and the upper one to LRN. Then click on 'OK' to complete the process.",
+            "de": "Den unteren Drehschalter auf RT2 und den oberen auf LRN stellen. Anschließend auf 'OK' klicken, um den Vorgang abzuschließen."
+        },
+        "6": "#setState {CMD: 2}",
+        "7": {
+            "en": "Device added.",
+            "de": "Gerät hinzugefügt."
+        }
+    },
+    "help": {
+        "en": {
+            "1": "Enter device ID.",
+            "2": "Click on 'Add Device'.",
+            "3": "Set the lower rotary switch to RT1 and the upper one to LRN.",
+            "4": "Switch to the objects and send the command (CMD) 'CH 1 ON'.",
+            "5": "Repeat step 3 with RT2 and 4 with CH 2"
+        },
+        "de": {
+            "1": "Geräte ID eintragen.",
+            "2": "Auf 'Gerät Hinzufügen' klicken.",
+            "3": "Den unteren Drehschalter auf RT1 und den oberen auf LRN stellen.",
+            "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'CH 1 ON' senden.",
+            "5": "Schritt 3 mit RT2 und 4 mit CH2 Wiederholen"
+        }
+    },
+    "name": "FMS61NP-230V (2 channel mode)"
+}

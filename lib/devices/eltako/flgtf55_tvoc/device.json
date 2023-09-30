@@ -1,0 +1,33 @@
+{
+    "EEP": [
+        "A5-09-0C"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": false,
+    "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+            "en": "The FLGTF55 (TVOC) is a two-channel device, where each channel has its own ID. You have to add the second channel (Temperature and Humidity) manually.",
+            "de": "Das FLGTF55 (TVOC) ist ein zweikanaliges Gerät, jeder Kanal hat seine eigene ID. Der zweite Kanal (Temperatur und Luftfeuchtigkeit) muss manuell hinzugefügt werden."
+        },
+        "4": {
+            "en": "Device added.",
+            "de": "Gerät hinzugefügt."
+        }
+    },
+    "help": {
+        "en": {
+            "1": "Enter the first device ID.",
+            "2": "Click on 'Add Device'.",
+            "Info": "The FLGTF55 (TVOC) is a two-channel device. You have to add the second channel (Temperature and Humidity) manually."
+        },
+        "de": {
+            "1": "Die erste Geräte ID eintragen.",
+            "2": "Auf 'Gerät Hinzufügen' klicken.",
+            "Info": "Das FLGTF55 (TVOC) ist ein zweikanaliges Gerät. Der zweite Kanal (Temperatur und Luftfeuchtigkeit) muss manuell hinzugefügt werden."
+        }
+    },
+    "name": "FLGTF55 (TVOC)"
+}

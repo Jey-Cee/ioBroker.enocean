@@ -1,0 +1,21 @@
+{
+    "EEP": [
+        "D2-14-41"
+    ],
+    "autocreate": true,
+    "teachin_method": "UTE",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Enter device ID.",
+            "2": "Click on 'Add Device'.",
+            "3": "Start teach-in mode on FMS65ESB. For more information, please read the FMS65ESB manual."
+        },
+        "de": {
+            "1": "Geräte ID eintragen.",
+            "2": "Auf 'Gerät Hinzufügen' klicken.",
+            "3": "Anlernmodus am FMS65ESB starten. Für weitere informationen bitte die Anleitung des FMS65ESB lesen."
+        }
+    },
+    "name": "FMS65ESB"
+}

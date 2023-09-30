@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "D2-05-00"
+    ],
+    "autocreate": true,
+    "teachin_method": "UTE",
+    "id_offset": false,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Press the button on the Roller-shutter 3 times. For more information please read the manual of Roller-shutter."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "3 mal die Taste am Rollladenaktor drücken. Für weitere informationen bitte die Anleitung des Rollladenaktor lesen."
+        }
+    },
+    "name": "Rollershutter (SIN-2RS-01)"
+}

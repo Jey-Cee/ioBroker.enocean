@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "F6-04-01"
+    ],
+    "autocreate": true,
+    "teachin_method": "RPS",
+    "id_offset": false,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Insert card."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Karte Einstecken."
+        }
+    },
+    "name": "Card Switch (CCS-2-1-01)"
+}

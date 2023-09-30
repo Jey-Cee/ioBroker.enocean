@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "TF-14-01"
+    ],
+    "autocreate": true,
+    "teachin_method": "MSC",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your FSR71NP-4x-230V. For more information please read the manual of FSR71NP-4x-230V"
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am FSR71NP-4x-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FSR71NP-4x-230V lesen."
+        }
+    },
+    "name": "FSR71NP-4x-230V"
+}

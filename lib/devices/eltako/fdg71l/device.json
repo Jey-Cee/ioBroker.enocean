@@ -1,0 +1,67 @@
+{
+    "EEP": [
+        "TF-13-07",
+        "TF-13-06"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": true,
+    "deviceManager": {
+        "1": "#EltakoSeries14enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+            "choice": {
+                "PCT14": {
+                    "en": {
+                        "0": "PCT14:",
+                        "1": "Enter ioBroker sender ID in function group 3."
+                    },
+                    "de": {
+                        "0": "PCT14:",
+                        "1": "ioBroker Sender ID in Funktionsgruppe 3 eintragen."
+                    }
+                },
+                "Manual": {
+                    "en": {
+                        "0": "On device:",
+                        "1": "1. Set the upper rotary switch to the desired group.",
+                        "2": "2. Set the lower rotary switch to GFVS.",
+                        "3": "3. Then click on 'OK' to complete the process."
+                    },
+                    "de": {
+                        "0": "Am Gerät:",
+                        "1": "1. Den oberen Drehschalter auf die gewünschte Gruppe stellen.",
+                        "2": "2. Den unteren Drehschalter auf GFVS stellen.",
+                        "3": "3. Anschließend auf 'OK' klicken, um den Vorgang abzuschließen."
+                    }
+                }
+            },
+            "label": {
+                "en": "How do you want to add the device?",
+                "de": "Wie möchten Sie das Gerät hinzufügen?"
+            }
+        },
+        "4": "#setState {CMD: 3}",
+        "5": {
+            "en": "Repeat for the other channels.",
+            "de": "Vorgang für die übrigen Kanäle Wiederholen."
+        }
+    },
+    "help": {
+        "en": {
+            "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the group. Base ID as decimal + Bus ID 1 = ID as decimal => converted to Hex. Example: (Hex: ffcae700) 4291487488 + 1 = 4291487489 => ffcae701",
+            "2": "Click on 'Add Device'.",
+            "3": "Start teach-in mode on FDG71L. (Tip: It is more convenient to set up with the PCT14 software) For more information, please read the FDG71L manual.",
+            "4": "Switch to the objects and send the command (CMD) 'Teach-in'.",
+            "5": "Repeat the steps for the second channel."
+        },
+        "de": {
+            "1": "Geräte ID eintragen. Sie setzt sich aus der Basis ID des Funk-Antennenmodul (z.B. FAM14) und der Bus ID der Gruppe zusammen. Basis ID in Dezimal  + Bus ID = ID als Dezimal => umgewandelt in Hex. Beispiel: (Hex: ffcae700) 4291487488 +  1 = 4291487489 => ffcae701.",
+            "2": "Auf 'Gerät Hinzufügen' klicken.",
+            "3": "Anlernmodus am FDG71L starten. (Tipp: Komfortabler ist die Einrichtung mit der Software PCT14) Für weitere informationen bitte die Anleitung des FDG71L lesen.",
+            "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden.",
+            "5": "Vorgang für den zweiten Kanal Wiederholen."
+        }
+    },
+    "name": "FDG71L"
+}

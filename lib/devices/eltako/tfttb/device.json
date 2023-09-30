@@ -1,0 +1,20 @@
+{
+    "EEP": [
+        "A5-07-01",
+        "TF-01-03"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": false,
+    "help": {
+        "en": {
+            "1": "Enter device ID.",
+            "2": "Click on 'Add Device'."
+        },
+        "de": {
+            "1": "Geräte ID eintragen.",
+            "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+    },
+    "name": "TF-TTB"
+}

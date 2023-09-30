@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "A5-04-01"
+    ],
+    "autocreate": true,
+    "teachin_method": "4BS",
+    "id_offset": false,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your Temperature and Humidity sensor. For more information please read the manual of Temperature and Humidity sensor."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am Temperatur- und Luftfeuchtigkeitssensor starten. Für weitere informationen bitte die Anleitung des Temperatur- und Luftfeuchtigkeitssensor lesen."
+        }
+    },
+    "name": "Temperature and Humidity sensor (STPH-2-1-05)"
+}

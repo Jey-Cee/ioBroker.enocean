@@ -1,0 +1,24 @@
+{
+    "EEP": [
+        "TF-13-07",
+        "F6-02-02"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Enter device ID.",
+            "2": "Click on 'Add Device'.",
+            "3": "Start teach-in mode on TF-TA55DL. For more information, please read the TF-TA55DL manual.",
+            "4": "Switch to the objects and send the command (CMD) 'Teach-in', number 4."
+        },
+        "de": {
+            "1": "Geräte ID eintragen.",
+            "2": "Auf 'Gerät Hinzufügen' klicken.",
+            "3": "Anlernmodus am TF-TA55DL starten. Für weitere informationen bitte die Anleitung des TF-TA55DL lesen.",
+            "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in', nummer 4, senden."
+        }
+    },
+    "name": "TF-TA55DL"
+}

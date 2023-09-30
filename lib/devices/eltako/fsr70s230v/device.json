@@ -1,0 +1,24 @@
+{
+    "EEP": [
+        "TF-13-19",
+        "TF-14-02"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Enter device ID.",
+            "2": "Click on 'Add Device'.",
+            "3": "Set the lower rotary switch to 1.",
+            "4": "Switch to the objects and send the command (CMD) 'OFF'."
+        },
+        "de": {
+            "1": "Geräte ID eintragen.",
+            "2": "Auf 'Gerät Hinzufügen' klicken.",
+            "3": "Den unteren Drehschalter auf 1.",
+            "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'OFF' senden."
+        }
+    },
+    "name": "FSR70S-230V"
+}

@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "D2-06-50"
+    ],
+    "autocreate": true,
+    "teachin_method": "UTE",
+    "id_offset": false,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your senso secure. Follow the instructions on the manual at chapter 9.2 no. 7."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am senso secure starten. Den Anweisungen in der Montageanleitung Kapitel 9.2 Nr. 7 folgen."
+        }
+    },
+    "name": "senso secure"
+}

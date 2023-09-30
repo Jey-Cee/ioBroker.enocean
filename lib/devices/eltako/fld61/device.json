@@ -1,0 +1,43 @@
+{
+    "EEP": [
+        "TF-13-07",
+        "TF-13-06"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": true,
+    "deviceManager": {
+        "1": "#enterDeviceId",
+        "2": "#addDevicePredefined",
+        "3": {
+            "en": "Set the upper rotary switch to min.",
+            "de": "Den oberen Drehschalter auf min stellen."
+        },
+        "4": {
+            "en": "Set the lower rotary switch to LRN.",
+            "de": "Den unteren Drehschalter auf LRN stellen."
+        },
+        "5": "#setState {CMD: 3}",
+        "6": {
+            "en": "Device added.",
+            "de": "Gerät hinzugefügt."
+        }
+    },
+    "help": {
+        "en": {
+            "1": "Enter device ID.",
+            "2": "Click on 'Add Device'.",
+            "3": "Set the upper rotary switch to min.",
+            "4": "Set the lower rotary switch to LRN.",
+            "5": "Switch to the objects and send the command (CMD) 'Teach-in'."
+        },
+        "de": {
+            "1": "Geräte ID eintragen.",
+            "2": "Auf 'Gerät Hinzufügen' klicken.",
+            "3": "Den unteren Drehschalter auf min stellen.",
+            "4": "Den oberen Drehschalter auf LRN stellen.",
+            "5": "Zu den Objekten wechseln und den Befehl (CMD) 'Teach-in' senden."
+        }
+    },
+    "name": "FLD61"
+}

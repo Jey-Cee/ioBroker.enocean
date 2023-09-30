@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "A5-20-01"
+    ],
+    "autocreate": true,
+    "teachin_method": "UTE",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your SAB+. For more information please read the manual of SAB+."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am SAB+ starten. Für weitere informationen bitte die Anleitung des SAB+ lesen."
+        }
+    },
+    "name": "SAB+"
+}

@@ -1,0 +1,24 @@
+{
+    "EEP": [
+        "TF-01-02",
+        "TF-14-02"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Enter device ID.",
+            "2": "Click on 'Add Device'.",
+            "3": "Start teach-in mode on FSR61NP-230V. For more information, please read the FSR61NP-230V manual.",
+            "4": "Switch to the objects and send the command (CMD) 'Teach-in (1)', number 3."
+        },
+        "de": {
+            "1": "Geräte ID eintragen.",
+            "2": "Auf 'Gerät Hinzufügen' klicken.",
+            "3": "Anlernmodus am FSR61NP-230V starten. Für weitere informationen bitte die Anleitung des FSR61NP-230V lesen.",
+            "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in (1)', nummer 3, senden."
+        }
+    },
+    "name": "FSR61NP-230V"
+}

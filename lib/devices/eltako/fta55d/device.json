@@ -1,0 +1,20 @@
+{
+    "EEP": [
+        "TF-13-07",
+        "F6-02-02"
+    ],
+    "autocreate": true,
+    "teachin_method": "MSC",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your FTA55D. For more information please read the manual of FTA55D."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am FTA55D starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FTA55D lesen."
+        }
+    },
+    "name": "FTA55D"
+}

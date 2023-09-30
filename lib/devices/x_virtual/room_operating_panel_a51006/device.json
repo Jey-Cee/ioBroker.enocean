@@ -1,0 +1,24 @@
+{
+    "EEP": [
+        "X1-01-02"
+    ],
+    "autocreate": false,
+    "teachin_method": "4BS",
+    "id_offset": true,
+    "broadcast": true,
+    "help": {
+        "en": {
+            "1": "Enter an ID. Start with id ffffffff and count up (Hex decimal) for each virtual device.",
+            "2": "Click on 'Add Device'.",
+            "3": "Start teachin mode on your Device. For more information please read the manual for the device.",
+            "4": "Go to objects and send a Teach-in command (CMD)"
+        },
+        "de": {
+            "1": "Geräte ID eingeben. Beginnend mit ffffffff, für jedes weitere Virtuelle Gerät wird die ID Hochgezählt (Hex decimal).",
+            "2": "Auf 'Gerät Hinzufügen' klicken.",
+            "3": "Anlernmodus am Gerät starten. Für weitere informationen bitte die Anleitung des Geräts lesen.",
+            "4": "Zu den Objekten wechseln und einen Teach-in Befehl senden (CMD)"
+        }
+    },
+    "name": "Room operating panel (A5-10-06)"
+}

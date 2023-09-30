@@ -1,0 +1,24 @@
+{
+    "EEP": [
+        "TF-13-07",
+        "TF-13-06"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Enter device ID. Each channel has its own ID, the range is printed on the device. ID for all channels is first ID plus 4. 1 = Red, 2 = Green, 3 = Blue, 4 = White, 5 = All.",
+            "2": "Click on 'Add Device'.",
+            "3": "Start teach-in mode on FRGBW14 for the channel to teachin, use 9 or 10 on the upper rotary switch. For more information, please read the FRGBW14 manual.",
+            "4": "Switch to the objects and send the command (CMD) 'Teach-in'."
+        },
+        "de": {
+            "1": "Geräte ID eintragen. Jeder Kanal hat seine eigene ID, der ID Bereich ist auf dem Gerät aufgedruckt. Die ID für alle Kanäle ist die erste ID plus 4. 1 = Rot, 2 = Grün, 3 = Blau, 4 = Weiß, 5 = Alle.",
+            "2": "Auf 'Gerät Hinzufügen' klicken.",
+            "3": "Anlernmodus am FRGBW14 starten für den Kanal der eingelernt werden soll, am oberen Drehschalter 9 oder 10 auswählen. Für weitere informationen bitte die Anleitung des FRGBW14 lesen.",
+            "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden."
+        }
+    },
+    "name": "FRGBW14 (Single or all channel)"
+}

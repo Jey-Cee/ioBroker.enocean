@@ -1,0 +1,24 @@
+{
+    "EEP": [
+        "TF-13-20",
+        "TF-14-02"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Enter device ID. ",
+            "2": "Click on 'Add Device'.",
+            "3": "Start teach-in mode on FTAF55D/230V.",
+            "4": "Switch to the objects and send the command (CMD) 'Teach-in'."
+        },
+        "de": {
+            "1": "Geräte ID eintragen. ",
+            "2": "Auf 'Gerät Hinzufügen' klicken.",
+            "3": "Anlernmodus am FTAF55D/230V starten.",
+            "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in' senden."
+        }
+    },
+    "name": "FTAF55D/230V"
+}

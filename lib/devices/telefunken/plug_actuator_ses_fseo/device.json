@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "D2-01-08"
+    ],
+    "autocreate": true,
+    "teachin_method": "UTE",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your plug actuator. For more information please read the manual of plug actuator."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am Funktionsstecker starten. Für weitere informationen bitte die Anleitung des Funktionsstecker lesen."
+        }
+    },
+    "name": "Plug actuator (SES FS-EO)"
+}

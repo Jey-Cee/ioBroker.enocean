@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "D2-01-08"
+    ],
+    "autocreate": true,
+    "teachin_method": "UTE",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your D 4511 FU-EBIM ST actuator. For more information please read the manual of D 4511 FU-EBIM ST actuator."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am D 4511 FU-EBIM ST starten. Für weitere informationen bitte die Anleitung des D 4511 FU-EBIM ST lesen."
+        }
+    },
+    "name": "D 4511 FU-EBIM ST"
+}

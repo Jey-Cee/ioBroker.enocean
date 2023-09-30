@@ -1,0 +1,20 @@
+{
+    "EEP": [
+        "TF-01-02",
+        "TF-14-02"
+    ],
+    "autocreate": true,
+    "teachin_method": "MSC",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your FSR61/8-24V UC. For more information please read the manual of FSR61/8-24V UC"
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am FSR61/8-24V UC starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FSR61/8-24V UC lesen."
+        }
+    },
+    "name": "FSR61/8-24V UC"
+}

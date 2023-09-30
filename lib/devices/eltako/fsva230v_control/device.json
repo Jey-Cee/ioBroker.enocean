@@ -1,0 +1,26 @@
+{
+    "EEP": [
+        "TF-13-24",
+        "TF-14-02"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Enter device ID.",
+            "2": "Click on 'Add Device'.",
+            "3": "Press LRN/CLR for 0.5 seconds.",
+            "4": "Press ON/OFF 2 times.",
+            "5": "Switch to the objects and send the command (CMD) 'ON'."
+        },
+        "de": {
+            "1": "Geräte ID eintragen.",
+            "2": "Auf 'Gerät Hinzufügen' klicken.",
+            "3": "Die LRN/CLR Taste für 0,5 sekunden Drücken.",
+            "4": "Die ON/OFF Taste 2 mal Drücken.",
+            "5": "Zu den Objekten Wechseln und den Befehl (CMD) 'ON' senden."
+        }
+    },
+    "name": "FSVA-230V (Control)"
+}

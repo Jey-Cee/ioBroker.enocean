@@ -1,0 +1,22 @@
+{
+    "EEP": [
+        "I1-01-01",
+        "TF-13-27"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your TF100A. For more information please read the manual of TF100A.",
+            "3": "Switch to the objects and send the command (CMD) 'Teach-in 2', number 3."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am TF100A starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des TF100A lesen.",
+            "3": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in 2', nummer 3, senden."
+        }
+    },
+    "name": "TF100A"
+}

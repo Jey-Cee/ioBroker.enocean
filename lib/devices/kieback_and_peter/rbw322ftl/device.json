@@ -1,0 +1,29 @@
+{
+    "EEP": [
+        "D2-10-01"
+    ],
+    "autocreate": true,
+    "teachin_method": "UTE",
+    "id_offset": false,
+    "help": {
+        "en": {
+            "1": "Read the manual of the device!!!",
+            "2": "Start teachin mode on your RBW322-FTL. Press 2 seconds the rotary switch until the party mode or vacation (suitcase) symbol is displayed.",
+            "3": "Go to menu point SR and press rotary switch.",
+            "4": "Enter PIN code 4321.",
+            "5": "Go to T:IN and press rotary switch.",
+            "6": "Click on 'Add Device' in this dialog.",
+            "7": "Go to Gate and press rotary switch."
+        },
+        "de": {
+            "1": "Bedienungsanleitung des Geräts Lesen!!!",
+            "2": "Starten Sie den Lernmodus an Ihrem RBW322-FTL. Drücken Sie 2 Sekunden den Drehschalter, bis das Party Modus- oder Urlaubssymbol (Koffer) angezeigt wird.",
+            "3": "Gehen Sie zum Menüpunkt SR und drücken Sie den Drehschalter.",
+            "4": "Geben Sie den PIN-Code 4321 ein.",
+            "5": "Gehen Sie zum T:IN und drücken Sie den Drehschalter.",
+            "6": "Klicken Sie auf 'Gerät Hinzufügen' in diesem Dialog.",
+            "7": "Gehen Sie zu Gate und drücken Sie den Drehschalter."
+        }
+    },
+    "name": "RBW322-FTL"
+}

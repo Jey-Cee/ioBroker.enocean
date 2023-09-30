@@ -1,0 +1,24 @@
+{
+    "EEP": [
+        "TF-13-11",
+        "TF-14-02"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Enter device ID.",
+            "2": "Click on 'Add Device'.",
+            "3": "Start teach-in mode on FR62-230V. For more information, please read the FR62-230V manual.",
+            "4": "Switch to the objects and send the command (CMD) 'Teach-in', number 2."
+        },
+        "de": {
+            "1": "Geräte ID eintragen.",
+            "2": "Auf 'Gerät Hinzufügen' klicken.",
+            "3": "Anlernmodus am FR62-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FR62-230V lesen.",
+            "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in', nummer 2, senden."
+        }
+    },
+    "name": "FR62-230V"
+}

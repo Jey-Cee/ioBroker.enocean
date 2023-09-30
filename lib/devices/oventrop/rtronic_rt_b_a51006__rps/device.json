@@ -1,0 +1,24 @@
+{
+    "EEP": [
+        "MV-01-04",
+        "MV-01-05"
+    ],
+    "autocreate": true,
+    "teachin_method": "4BS",
+    "id_offset": false,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your R-Tronic RT B. For more information please read the manual of R-Tronic RT B.",
+            "3": "Optional: The setpoint can be transmitted to the R-Tronic RT B. <br> To do this, the following script must first be created: on({id: \"enocean.0.DeviceID.rssi\"}, () => { setState(\"enocean.0.DeviceID.CMD\", 1) }).<br> Afterwards, the teach-in mode must be started again on the R-Tronic RT B. <br> After successful teachin the script can be deleted.",
+            "Info": "The R-Tronic RT B transmits the values only when the unit is operated or after the set time. <br> After receiving the values, you have 1 second to send the setpoint from ioBroker to the unit. <br> This can be solved with a script similar to the one in step 3."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am R-Tronic RT B starten. Für weitere informationen bitte die Anleitung des R-Tronic RT B lesen.",
+            "3": "Optional: Der Sollwert kann an das R-Tronic RT B übertragen werden. <br> Hierzu muss zuerst folgendes Skript angelegt werden: on({id: \"enocean.0.GeräteID.rssi\"}, () => { setState(\"enocean.0.GeräteID.CMD\", 1) }) <br> Anschließend muss am R-Tronic RT B nochmal der Anlernmodus gestartet werden. <br> Nach erfolgreicher Anlernung kann das Skript gelöscht werden.",
+            "Info": "Das R-Tronic RT B übermittelt die Werte nur bei Bedienung des Gerätes oder nach der eingestellten Zeit. <br> Nach Empfang der Werte hat man eine 1 Sekunde Zeit um den Sollwert von ioBroker an das Gerät zu senden. <br> Das lässt sich mit einem Skript ähnlich dem aus Schritt 3 lösen."
+        }
+    },
+    "name": "R-Tronic RT B (A5-10-06 + RPS)"
+}

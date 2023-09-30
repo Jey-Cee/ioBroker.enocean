@@ -1,0 +1,24 @@
+{
+    "EEP": [
+        "TF-13-07",
+        "TF-13-06"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Enter device ID.",
+            "2": "Click on 'Add Device'.",
+            "3": "Start teach-in mode on FUD61NPN-230V. For more information, please read the FUD61NPN-230V manual.",
+            "4": "Switch to the objects and send the command (CMD) 'Teach-in FSUD', number 5."
+        },
+        "de": {
+            "1": "Geräte ID eintragen.",
+            "2": "Auf 'Gerät Hinzufügen' klicken.",
+            "3": "Anlernmodus am FUD61NPN-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FUD61NPN-230V lesen.",
+            "4": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in FSUD', nummer 5, senden."
+        }
+    },
+    "name": "FUD61NPN-230V (< 10/19)"
+}

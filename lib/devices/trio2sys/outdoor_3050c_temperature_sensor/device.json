@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "A5-02-13"
+    ],
+    "autocreate": true,
+    "teachin_method": "4BS",
+    "id_offset": false,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your Temperature sensor. For more information please read the manual of Temperature sensor."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am Temperatur sensor starten. Für weitere informationen bitte die Anleitung des Temperatur sensors lesen."
+        }
+    },
+    "name": "OUTDOOR -30/+50°C TEMPERATURE SENSOR"
+}

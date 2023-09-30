@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "TF-13-26"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": false,
+    "help": {
+        "en": {
+            "1": "Enter device ID.",
+            "2": "Click on 'Add Device'."
+        },
+        "de": {
+            "1": "Geräte ID eintragen.",
+            "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+    },
+    "name": "TF-RWB"
+}

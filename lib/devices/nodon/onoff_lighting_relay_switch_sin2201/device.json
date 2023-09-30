@@ -1,0 +1,20 @@
+{
+    "EEP": [
+        "D2-01-12",
+        "MV-01-02"
+    ],
+    "autocreate": true,
+    "teachin_method": "UTE",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your ON/OFF Lighting Relay Switch. For more information please read the manual of ON/OFF Lighting Relay Switch."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am ON/OFF Lighting Relay Switch starten. Für weitere informationen bitte die Anleitung desON/OFF Lighting Relay Switch lesen."
+        }
+    },
+    "name": "ON/OFF Lighting Relay Switch (SIN-2-2-01)"
+}

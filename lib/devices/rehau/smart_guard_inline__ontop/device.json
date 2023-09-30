@@ -1,0 +1,20 @@
+{
+    "EEP": [
+        "D2-06-11",
+        "D0-00-06"
+    ],
+    "autocreate": true,
+    "teachin_method": "SM_LRN_REQ",
+    "id_offset": false,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your Smart Guard. For more information please read the manual of Smart Guard."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am Smart Guard starten. Für weitere informationen bitte die Anleitung des Smart Guard lesen."
+        }
+    },
+    "name": "Smart Guard Inline / Ontop"
+}

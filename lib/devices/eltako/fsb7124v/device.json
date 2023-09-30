@@ -1,0 +1,20 @@
+{
+    "EEP": [
+        "TF-14-04",
+        "TF-13-04"
+    ],
+    "autocreate": true,
+    "teachin_method": "none",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your FSB71-24V. For more information please read the manual of FSB71-24V."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am FSB71-24V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FSB71-24V lesen."
+        }
+    },
+    "name": "FSB71-24V"
+}

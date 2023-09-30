@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "D2-01-07"
+    ],
+    "autocreate": true,
+    "teachin_method": "UTE",
+    "id_offset": false,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your actuator. For more information please read the manual of the actuator."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am Aktor starten. Für weitere informationen bitte die Anleitung des Aktors lesen."
+        }
+    },
+    "name": "451 FU-EBI PF o.T."
+}

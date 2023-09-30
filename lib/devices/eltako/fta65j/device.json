@@ -1,0 +1,20 @@
+{
+    "EEP": [
+        "TF-01-01",
+        "TF-13-04"
+    ],
+    "autocreate": true,
+    "teachin_method": "MSC",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your FTA65J. For more information please read the manual of FTA65J."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am FTA65J starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FTA65J lesen."
+        }
+    },
+    "name": "FTA65J"
+}

@@ -1,0 +1,20 @@
+{
+    "EEP": [
+        "TF-01-02",
+        "TF-13-05"
+    ],
+    "autocreate": true,
+    "teachin_method": "MSC",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your TF100L. For more information please read the manual of TF100L."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am TF100L starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des TF100L lesen."
+        }
+    },
+    "name": "TF100L"
+}

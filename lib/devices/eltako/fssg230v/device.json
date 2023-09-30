@@ -1,0 +1,22 @@
+{
+    "EEP": [
+        "I1-01-01",
+        "TF-13-27"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your FSSG-230V. For more information please read the manual of FSSG-230V.",
+            "3": "Switch to the objects and send the command (CMD) 'Teach-in 2', number 3."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am FSSG-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FSSG-230V lesen.",
+            "3": "Zu den Objekten Wechseln und den Befehl (CMD) 'Teach-in 2', nummer 3, senden."
+        }
+    },
+    "name": "FSSG-230V"
+}

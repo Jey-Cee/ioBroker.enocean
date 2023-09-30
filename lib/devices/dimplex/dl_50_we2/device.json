@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "D2-50-01"
+    ],
+    "autocreate": true,
+    "teachin_method": "UTE",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your DL 50 WE2. For more information please read the manual of DL 50 WE2."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am DL 50 WE2 starten. Für weitere informationen bitte die Anleitung des DL 50 WE2 lesen."
+        }
+    },
+    "name": "DL 50 WE2"
+}

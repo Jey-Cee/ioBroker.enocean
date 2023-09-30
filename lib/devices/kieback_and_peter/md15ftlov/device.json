@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "A5-20-01"
+    ],
+    "autocreate": true,
+    "teachin_method": "UTE",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your MD15-FTL-OV. For more information please read the manual of MD15-FTL-OV."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am MD15-FTL-OV starten. Für weitere informationen bitte die Anleitung des MD15-FTL-OV lesen."
+        }
+    },
+    "name": "MD15-FTL-OV"
+}

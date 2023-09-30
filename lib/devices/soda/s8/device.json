@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "D2-06-01"
+    ],
+    "autocreate": true,
+    "teachin_method": "UTE",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your S8. For more information please read the manual of S8."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am S8 starten. Für weitere informationen bitte die Anleitung des S8 lesen."
+        }
+    },
+    "name": "S8"
+}

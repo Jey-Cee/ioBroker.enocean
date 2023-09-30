@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "A5-20-04"
+    ],
+    "autocreate": true,
+    "teachin_method": "4BS",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your SmartDrive MX. For more information please read the manual of SmartDrive MX."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am SmartDrive MX starten. Für weitere informationen bitte die Anleitung des SmartDrive MX lesen."
+        }
+    },
+    "name": "SmartDrive MX"
+}

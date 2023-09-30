@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "A5-02-05"
+    ],
+    "autocreate": true,
+    "teachin_method": "4BS",
+    "id_offset": false,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your Temperature sensor. For more information please read the manual of Temperature sensor."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am Temperatursensor starten. Für weitere informationen bitte die Anleitung des Temperatursensor lesen."
+        }
+    },
+    "name": "Temperature sensor (STP-2-1-05)"
+}

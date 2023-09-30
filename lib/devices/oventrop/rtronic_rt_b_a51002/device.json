@@ -1,0 +1,19 @@
+{
+    "EEP": [
+        "A5-10-02"
+    ],
+    "autocreate": true,
+    "teachin_method": "4BS",
+    "id_offset": false,
+    "help": {
+        "en": {
+            "1": "Click on 'Add Device'.",
+            "2": "Start teachin mode on your R-Tronic RT B. For more information please read the manual of R-Tronic RT B."
+        },
+        "de": {
+            "1": "Auf 'Gerät Hinzufügen' klicken.",
+            "2": "Anlernmodus am R-Tronic RT B starten. Für weitere informationen bitte die Anleitung des R-Tronic RT B lesen."
+        }
+    },
+    "name": "R-Tronic RT B (A5-10-02)"
+}

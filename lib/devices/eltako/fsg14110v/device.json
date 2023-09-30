@@ -1,0 +1,21 @@
+{
+    "EEP": [
+        "TF-13-06"
+    ],
+    "autocreate": false,
+    "teachin_method": "none",
+    "id_offset": true,
+    "help": {
+        "en": {
+            "1": "Enter device ID. It consists of the base ID of the radio antenna module (e.g. FAM14) and the bus ID of the group. Base ID as decimal + Bus ID 1 = ID as decimal => converted to Hex. Example: (Hex: ffcae700) 4291487488 + 1 = 4291487489 => ffcae701",
+            "2": "Click on 'Add Device'.",
+            "3": "Start teach-in mode on FSG14/1-10V. (Tip: It is more convenient to set up with the PCT14 software) For more information, please read the FSG14/1-10V manual."
+        },
+        "de": {
+            "1": "Geräte ID eintragen. Sie setzt sich aus der Basis ID des Funk-Antennenmodul (z.B. FAM14) und der Bus ID der Gruppe zusammen. Basis ID in Dezimal  + Bus ID = ID als Dezimal => umgewandelt in Hex. Beispiel: (Hex: ffcae700) 4291487488 +  1 = 4291487489 => ffcae701.",
+            "2": "Auf 'Gerät Hinzufügen' klicken.",
+            "3": "Anlernmodus am FSG14/1-10V starten. (Tipp: Komfortabler ist die Einrichtung mit der Software PCT14) Für weitere informationen bitte die Anleitung des FSG14/1-10V lesen."
+        }
+    },
+    "name": "FSG14/1-10V"
+}
