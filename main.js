@@ -70,6 +70,7 @@ class Enocean extends utils.Adapter {
 	 * Is called when databases are connected and adapter received configuration.
 	 */
 	async onReady() {
+
 		const systemConfig = await this.getForeignObjectAsync('system.config');
 		this.systemConfig = systemConfig.common;
 
