@@ -4,7 +4,7 @@
     ],
     "autocreate": true,
     "teachin_method": "4BS",
-    "id_offset": true,
+    "id_offset": false,
     "help": {
         "en": {
             "1": "Click on 'Add Device'.",
