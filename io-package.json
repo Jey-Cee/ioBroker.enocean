@@ -82,6 +82,9 @@
       "config": "materialize"
     },
     "messagebox": true,
+    "supportedMessages": {
+      "deviceManager": true
+    },
     "dependencies": [
       {
         "js-controller": ">=3.0.0"
