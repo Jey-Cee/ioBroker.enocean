@@ -1,7 +1,7 @@
 {
   "common": {
     "name": "enocean",
-    "version": "0.9.1",
+    "version": "0.9.2",
     "news": {
       "0.9.1": {
         "en": "added support for Eltako FKD-am\n added Afriso ASD 20\n added EEP F6-05-02\n change log level for missing /dev/serial/by-id\n change log level for initial information request on gateway\n update X1-01-02.json"
