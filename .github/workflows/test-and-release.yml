@@ -25,6 +25,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+<<<<<<<<< Temporary merge branch 1
+      - name: Node LTS versions
+=========
       - name: Node LTS versions 2
         uses: Jey-Cee/node-lts-versions@v1.1.9
         id: node-lts-versions
