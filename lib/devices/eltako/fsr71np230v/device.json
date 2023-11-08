@@ -8,11 +8,11 @@
     "help": {
         "en": {
             "1": "Click on 'Add Device'.",
-            "2": "Start teachin mode on your FSR71NP-230V. For more information please read the manual of FSR71NP-230V"
+            "2": "Set the lower rotary switch to 1 and the middle to LRN."
         },
         "de": {
             "1": "Auf 'Gerät Hinzufügen' klicken.",
-            "2": "Anlernmodus am FSR71NP-230V starten. Im Auslieferungszustand ist der Anlernmodus die ersten 2 Minuten aktiv, nachdem er am Strom angeschlossen wurde. Für weitere informationen bitte die Anleitung des FSR71NP-230V lesen."
+            "2": "Den unteren Drehschalter auf 1 und den mittleren auf LRN stellen."
         }
     },
     "name": "FSR71NP-230V"

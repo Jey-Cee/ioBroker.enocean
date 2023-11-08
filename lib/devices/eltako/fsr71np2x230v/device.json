@@ -8,14 +8,14 @@
     "help": {
         "en": {
             "1": "Click on 'Add Device'.",
-            "2": "Set the lower rotary switch to channel 1 (2, 3 or 4) and the middle to LRN.",
+            "2": "Set the lower rotary switch to channel 1 (2) and the middle to LRN.",
             "3": "Repeat step 1 and 2 for all channels."
         },
         "de": {
             "1": "Auf 'Gerät Hinzufügen' klicken.",
-            "2": "Den unteren Drehschalter auf Kanal 1 (2, 3 oder 4) und den mittleren auf LRN stellen.",
+            "2": "Den unteren Drehschalter auf Kanal 1 (2) und den mittleren auf LRN stellen.",
             "3": "Schritte 1 und 2 für alle Kanäle wiederholen."
         }
     },
-    "name": "FSR71NP-4x-230V"
+    "name": "FSR71NP-2x-230V"
 }
