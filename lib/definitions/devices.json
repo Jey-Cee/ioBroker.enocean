@@ -2995,6 +2995,24 @@
         }
       }
     },
+    "FTFSB (A5-04-03)": {
+      "EEP": [
+        "A5-04-03"
+      ],
+      "autocreate": false,
+      "teachin_method": "none",
+      "id_offset": false,
+      "help": {
+        "en": {
+          "1": "Enter device ID.",
+          "2": "Click on 'Add Device'"
+        },
+        "de": {
+          "1": "Geräte ID eintragen.",
+          "2": "Auf 'Gerät Hinzufügen' klicken."
+        }
+      }
+    },
     "FTK": {
       "EEP": [
         "D5-00-01"
