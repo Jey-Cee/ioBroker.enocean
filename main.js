@@ -97,7 +97,7 @@ class Enocean extends utils.Adapter {
 
 		AVAILABLE_PORTS = ports.map(p => p.path);
 
-		if (this.config.serialport && this.config.ser2net === false && this.config.gateway === 'usb300' || this.config.gateway === 'fgw14-usb') {
+		if (this.config.serialport && this.config.ser2net === false && (this.config.gateway === 'usb300' || this.config.gateway === 'fgw14-usb')) {
 			SERIAL_PORT = new SerialPort({ path: this.config.serialport, baudRate: 57600});
 
 			if (this.config.gateway === 'fgw14-usb') {

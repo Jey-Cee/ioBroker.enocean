@@ -2,6 +2,10 @@
 'use strict';
 
 systemDictionary = {
+	'IMPORTANT: Use save button NOT save and close': {
+		'en': 'IMPORTANT: Use save button NOT save and close',
+		'de': 'WICHTIG: Verwenden Sie die Schaltfläche Speichern, NICHT Speichern und Schließen'
+	},
 	'Remove': {
 		'en': 'Remove',
 		'de': 'Entfernen',

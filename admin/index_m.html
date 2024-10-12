@@ -266,8 +266,7 @@
 				if ($key.attr('type') === 'checkbox') {
 					// do not call onChange direct, because onChange could expect some arguments
 					$key.prop('checked', settings[id])
-						.on('change', () => onChange())
-						;
+						.on('change', () => onChange());
 				} else if($key.attr('class') === 'save'){
 					// do not call onChange direct, because onChange could expect some arguments
 					$key.val(settings[id])
@@ -410,6 +409,8 @@
 			$('.value').each(function () {
 				let $this = $(this);
 				if ($this.attr('type') === 'checkbox') {
+					console.log($this.attr('id'));
+					console.log($this.prop('checked'));
 					obj[$this.attr('id')] = $this.prop('checked');
 				} else {
 					obj[$this.attr('id')] = $this.val();
@@ -448,7 +449,7 @@
 							<option value="usb300">USB300</option>
 							<option value="usb300">EnOcean Pi</option>
 							<option value="usb300">FAM-USB (ESP3 Firmware)</option>
-							<option value="fgw14-usb">FGW14-USB</option>
+							<option value="fgw14-usb">FGW14(-USB)</option>
 							<option value="all-smart">ALL SMART EnOcean LAN Gateway</option>
 							<option value="bsc-multigateway">BSC EnOcean Multigateway</option>
 						</select>
@@ -456,7 +457,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div id="ser2net-div" class="switch col s4 input-field hide">
+					<div id="ser2net-div" class="switch col s4 input-field hide" style="z-index: 10">
 						<label>
 							USB/Serial
 							<input id="ser2net" type="checkbox" class="value save">
@@ -464,15 +465,18 @@
 							Serial over network (Ser2Net)
 						</label>
 					</div>
+					<div id="important" class="col s12 m12 l12">
+						<p class="translate">IMPORTANT: Use save button NOT save and close</p>
+					</div>
 					<div id="options-serialport-div" class="input-field col s12 m6 l3 hide">
 						<select id="serialport" class="value save" ></select>
 						<label for="serialport" class="translate">Serial port</label>
 					</div>
-					<div id="options-ser2net-ip-div" class="input-field col s3 hide">
+					<div id="options-ser2net-ip-div" class="input-field col s12 m6 l3 hide">
 						<input class="text value save" id="ser2net-ip" size="15" type="text">
 						<label class="translate active" for="ser2net-ip">IP</label>
 					</div>
-					<div id="options-ser2net-port-div" class="input-field col s1 hide">
+					<div id="options-ser2net-port-div" class="input-field col s12 m6 l3 hide">
 						<input class="text value save" id="ser2net-port" size="6" type="number">
 						<label class="translate active" for="ser2net-port">Port</label>
 					</div>

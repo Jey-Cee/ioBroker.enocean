@@ -1,8 +1,12 @@
 {
   "common": {
     "name": "enocean",
-    "version": "0.9.3",
+    "version": "0.9.4",
     "news": {
+      "0.9.4": {
+        "en": "fix use gateway fgw(-14) with ser2net \nadd notice to the ser2net switch ",
+        "de": "Verwendung des Gateways fgw(-14) mit ser2net beheben \nHinweis auf den ser2net-Schalter hinzufügen "
+      },
       "0.9.1": {
         "en": "added support for Eltako FKD-am\n added Afriso ASD 20\n added EEP F6-05-02\n change log level for missing /dev/serial/by-id\n change log level for initial information request on gateway\n update X1-01-02.json"
       },
