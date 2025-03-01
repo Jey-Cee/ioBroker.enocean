@@ -3,6 +3,7 @@ name: Test and Release
 # Run this job on all pushes and pull requests
 # as well as tags with a semantic version
 on:
+  workflow_dispatch:
   push:
     branches:
       - "main"
