@@ -233,6 +233,8 @@ To test telegram handling create a channel with name development and in this cha
 
 [Older changelog entries are moved to changelog.md](changelog.md)
 
+[Older changelogs can be found there](CHANGELOG_OLD.md)
+
 ## License
 Attribution-NonCommercial 3.0 (CC BY-NC 3.0)
 
