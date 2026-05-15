@@ -236,7 +236,7 @@ To test telegram handling create a channel with name development and in this cha
 ## License
 Attribution-NonCommercial 3.0 (CC BY-NC 3.0)
 
-Copyright (c) 2023 Jey Cee <iobroker@all-smart.net>
+Copyright (c) 2023-2026 Jey Cee <iobroker@all-smart.net>
 
 http://creativecommons.org/licenses/by-nc/4.0/
 
