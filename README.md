@@ -191,6 +191,10 @@ To test telegram handling create a channel with name development and in this cha
 
 ## Changelog
 
+
+### **WORK IN PROGRESS**
+- (ioBroker-Bot) Adapter requires js-controller >= 6.0.11 now.
+
 ### 0.9.4 (2024-10-12)
 * (Jey Cee) fix use gateway fgw(-14) with ser2net
 * (Jey Cee) add notice to the ser2net switch 
