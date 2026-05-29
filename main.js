@@ -2,10 +2,10 @@
 
 const utils = require('@iobroker/adapter-core');
 const { SerialPort } = require('serialport');
-const net = require('net');
-const os = require('os');
-const fs = require('fs');
-const path = require('path');
+const net = require('node:net');
+const os = require('node:os');
+const fs = require('node:fs');
+const path = require('node:path');
 
 // structured representation for ESP3 packets
 const ESP3Packet = require('./lib/tools/ESP3Packet').ESP3Packet;
