@@ -244,7 +244,7 @@
           "description": "dummy byte",
           "bitoffs": "11",
           "bitsize": "5",
-          "value": 0
+          "value": 30
         },
         {
           "data": "fixed parameter",
@@ -284,7 +284,7 @@
           "description": "dummy byte",
           "bitoffs": "11",
           "bitsize": "5",
-          "value": 0
+          "value": 30
         },
         {
           "data": "fixed parameter",
@@ -411,7 +411,7 @@
           "description": "I/O channel",
           "bitoffs": "11",
           "bitsize": "5",
-          "value": 0
+          "value": 30
         }
       ]
     },
